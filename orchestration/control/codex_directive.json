@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
-  "directive_id": 13,
-  "issued_at": "2026-07-21T02:18:00+07:00",
+  "directive_id": 14,
+  "issued_at": "2026-07-21T03:30:00+07:00",
   "issued_by": "codex",
   "state": "EXECUTE",
-  "milestone": "G4 runtime mount and signed-journal integrity correction",
+  "milestone": "G5 provider-neutral Paid AGM gateway boundary",
   "architecture_decisions": [
     "Blueprint v1.1 is the source of truth",
     "MVP is fixed-angle 2.5D",
@@ -13,11 +13,11 @@
     "Free Desktop Bridge and Paid API use one AGM Snapshot and Decision contract",
     "AGM directs content but all durable effects remain validated proposals"
   ],
-  "permitted_task_ids": ["G4-001"],
+  "permitted_task_ids": ["G5-001"],
   "required_workflow": {
     "parent_session": "existing Grok Desktop conductor only",
-    "subagent_profiles": ["schema", "persist", "core", "executor", "network"],
-    "wave_order": ["R0_SCHEMA_INTEGRITY_VERIFY", "R1_PERSIST_SIGNED_JOURNAL_PATCH", "R2_CORE_RUNTIME_MOUNT", "R3_EXECUTOR_CONSUMER_VERIFY", "R4_NETWORK_PURPLE"],
+    "subagent_profiles": ["schema", "network", "executor", "core", "persist"],
+    "wave_order": ["A0_SCHEMA_VERIFY", "A1_NETWORK_GATEWAY_PATCH", "A2_EXECUTOR_CLIENT_PATCH", "A3_CORE_EDITION_VERIFY", "A4_PERSIST_PURPLE"],
     "one_writer_per_file": true,
     "step_contract_per_subagent": true,
     "parent_may_self_accept": false
@@ -36,5 +36,5 @@
     "adversarial review",
     "remaining risks"
   ],
-  "supersedes_directive_id": 12
+  "supersedes_directive_id": 13
 }

@@ -1,35 +1,35 @@
 {
   "schema_version": "1.0.0",
   "agent": "aidle-conductor",
-  "last_directive_id": 12,
+  "last_directive_id": 13,
   "state": "WAITING_CODEX",
   "active_task_ids": [],
   "submitted_task_ids": ["G4-001"],
-  "active_wave": "P4_NETWORK_PURPLE_DONE",
-  "work_order": "orchestration/work_orders/WO-G4-001.md",
-  "dispatch_map": "orchestration/work_orders/G4-001_DISPATCH_MAP.md",
-  "profiles_used": ["schema", "persist", "executor", "core", "network"],
+  "active_wave": "R4_NETWORK_PURPLE_DONE",
+  "work_order": "orchestration/work_orders/WO-G4-001-CORRECTION-001.md",
+  "dispatch_map": "orchestration/work_orders/G4-001_CORRECTION_001_DISPATCH_MAP.md",
+  "profiles_used": ["schema", "persist", "core", "executor", "network"],
   "evidence_paths": [
-    "orchestration/receipts/G4-001.json",
-    "orchestration/receipts/g4/P0_schema.json",
-    "orchestration/receipts/g4/P1_persist.json",
-    "orchestration/receipts/g4/P2_executor.json",
-    "orchestration/receipts/g4/P3_core.json",
-    "orchestration/receipts/g4/P4_network.json",
-    "orchestration/reviews/G4-001_PURPLE_REVIEW.md",
-    "orchestration/logs/g4-p1-parent-smoke.log",
-    "orchestration/logs/g4-boot-parent.log",
-    "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json"
+    "orchestration/receipts/G4-001-CORRECTION-001.json",
+    "orchestration/receipts/g4/R0_schema.json",
+    "orchestration/receipts/g4/R1_persist.json",
+    "orchestration/receipts/g4/R2_core.json",
+    "orchestration/receipts/g4/R3_executor.json",
+    "orchestration/receipts/g4/R4_network.json",
+    "orchestration/reviews/G4-001_CORRECTION_001_PURPLE_REVIEW.md",
+    "orchestration/logs/g4-r1-parent-persist.log",
+    "orchestration/logs/g4-r2-parent-boot.log"
   ],
   "parent_smoke": {
-    "persist_marker": "G4_PERSIST_SMOKE=PASS checks=11",
+    "persist_marker": "G4_PERSIST_SMOKE=PASS checks=22",
     "persist_exit": 0,
     "boot_exit": 0,
+    "persist_module_mounted": true,
+    "agent_persist_stub_absent": true,
     "forbidden_error_count": 0,
-    "validator": "AIDLE_VALIDATION=PASS",
-    "g3_revision_preserved": 3
+    "validator": "AIDLE_VALIDATION=PASS"
   },
   "failure_signature": null,
-  "updated_at": "2026-07-21T02:10:00+07:00",
-  "message_to_codex": "Directive 12 G4-001 complete → REVIEW_REQUESTED. Waves schema→persist→executor→core→network. Parent re-ran persist smoke PASS 11 + clean boot + validator PASS. Purple ACCEPTED evidence. Offline Private Reality journal only; no self-ACCEPT. Awaiting Codex."
+  "updated_at": "2026-07-21T03:20:00+07:00",
+  "message_to_codex": "Directive 13 G4-001 CORRECTION-001 complete → REVIEW_REQUESTED. R0→R1→R2→R3→R4 executed. Parent: persist smoke PASS 22 clean; integrated boot mounts PersistModule (not stub); validator PASS. HMAC signed journal + offline consumer gate. Purple ACCEPTED evidence. No self-ACCEPT. Awaiting Codex re-review."
 }

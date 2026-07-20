@@ -1,10 +1,12 @@
 ## Append-only Private Reality mutation journal (schema_version 1.0.0).
-## Local/offline simulation durability only — NOT Shared District / server commit authority.
+## Local signed journal (HMAC-SHA256) — Offline Private Reality only.
+## NOT Shared District / server commit / economy authority.
 class_name AIdleJournalStore
 extends RefCounted
 
 const _Canon = preload("res://scripts/modules/persist/canonical_json.gd")
 const _Hasher = preload("res://scripts/modules/persist/entity_hasher.gd")
+const _Seal = preload("res://scripts/modules/persist/journal_seal.gd")
 
 const SCHEMA_VERSION := "1.0.0"
 const SPACE_TYPE := "private_reality"
@@ -19,8 +21,24 @@ const ERR_PRIOR := "prior_receipt_missing"
 const ERR_CANCEL := "cancel_not_durable"
 const ERR_PREVIEW := "preview_not_durable"
 const ERR_REJECTED := "rejected"
+const ERR_KEY_MISSING := "key_provider_missing"
+const ERR_INTEGRITY := "journal_integrity_invalid"
+const ERR_INTEGRITY_WRONG_KEY := "journal_integrity_wrong_key"
+const ERR_INTEGRITY_UNSIGNED := "journal_integrity_unsigned"
+const ERR_AUTH_CTX := "authority_context_rejected"
+const ERR_OFFLINE_GATE := "offline_gate_rejected"
+const ERR_G3_HANDOFF := "g3_rejected_handoff_not_journalable"
 
-## In-memory journal envelope (without recomputing hashes on every read of entries).
+const REJECT_AUTHORITY_CONTEXTS := [
+	"online_private_reality",
+	"shared_district",
+	"private_with_visitors",
+	"server_economy",
+	"ownership",
+	"marketplace",
+]
+
+## In-memory journal envelope.
 var journal: Dictionary = {}
 ## Active + tombstoned entities by id (tombstones excluded from entity_set_hash).
 var entities: Dictionary = {}
@@ -30,6 +48,11 @@ var _request_index: Dictionary = {}
 var _receipt_index: Dictionary = {}
 var _loaded_path: String = ""
 var _has_journal: bool = false
+
+## Key provider boundary (never log key bytes).
+var _key_provider: Object = null
+var _key_callable: Callable = Callable()
+var _provider_id: String = ""
 
 
 func has_journal() -> bool:
@@ -94,16 +117,148 @@ func entity_set_hash() -> String:
 	return _Hasher.entity_set_hash(entities)
 
 
+func set_key_provider(provider: Variant, provider_id: String = "") -> Dictionary:
+	if provider == null:
+		_key_provider = null
+		_key_callable = Callable()
+		_provider_id = ""
+		return {
+			"ok": false,
+			"error_code": ERR_KEY_MISSING,
+			"error": "null key provider rejected",
+		}
+	if typeof(provider) == TYPE_CALLABLE:
+		var cb: Callable = provider as Callable
+		if not cb.is_valid():
+			return {
+				"ok": false,
+				"error_code": ERR_KEY_MISSING,
+				"error": "invalid callable key provider",
+			}
+		if provider_id.is_empty():
+			return {
+				"ok": false,
+				"error_code": ERR_KEY_MISSING,
+				"error": "provider_id required for callable key provider",
+			}
+		_key_callable = cb
+		_key_provider = null
+		_provider_id = provider_id
+		return {"ok": true, "provider_id": _provider_id}
+	if provider is Object:
+		var obj: Object = provider as Object
+		var has_key_fn: bool = obj.has_method("get_journal_hmac_key") or obj.has_method("get_hmac_key")
+		if not has_key_fn:
+			return {
+				"ok": false,
+				"error_code": ERR_KEY_MISSING,
+				"error": "provider must implement get_journal_hmac_key or get_hmac_key",
+			}
+		var pid: String = provider_id
+		if obj.has_method("get_provider_id"):
+			pid = str(obj.call("get_provider_id"))
+		if pid.is_empty():
+			return {
+				"ok": false,
+				"error_code": ERR_KEY_MISSING,
+				"error": "provider_id required",
+			}
+		# Probe key non-empty without retaining a copy longer than needed.
+		var probe: PackedByteArray = _extract_key_from_provider(obj)
+		if probe.is_empty():
+			return {
+				"ok": false,
+				"error_code": ERR_KEY_MISSING,
+				"error": "provider returned empty key",
+			}
+		_key_provider = obj
+		_key_callable = Callable()
+		_provider_id = pid
+		return {"ok": true, "provider_id": _provider_id}
+	return {
+		"ok": false,
+		"error_code": ERR_KEY_MISSING,
+		"error": "unsupported key provider type",
+	}
+
+
+func get_key_provider_id() -> String:
+	return _provider_id
+
+
+func has_key_provider() -> bool:
+	return _key_provider != null or _key_callable.is_valid()
+
+
+func hmac_sha256_hex(key: PackedByteArray, message_utf8: String) -> String:
+	return _Seal.hmac_sha256_hex(key, message_utf8)
+
+
+func compute_entry_seal(
+	entry_without_seal: Dictionary,
+	prev_seal: String,
+	sequence_index: int
+) -> Dictionary:
+	var key_res: Dictionary = _require_key()
+	if not bool(key_res.get("ok", false)):
+		return key_res
+	var key: PackedByteArray = key_res["key"]
+	if not _has_journal:
+		return {"ok": false, "error": "no journal", "error_code": ERR_NO_JOURNAL}
+	return _Seal.compute_entry_seal(
+		key,
+		entry_without_seal,
+		prev_seal,
+		sequence_index,
+		str(journal.get("space_id", "")),
+		str(journal.get("journal_id", "")),
+	)
+
+
+func verify_integrity(path: String = "") -> Dictionary:
+	var key_res: Dictionary = _require_key()
+	if not bool(key_res.get("ok", false)):
+		return {
+			"ok": false,
+			"error_code": ERR_KEY_MISSING,
+			"error": str(key_res.get("error", "key provider missing")),
+		}
+	var key: PackedByteArray = key_res["key"]
+	var env: Dictionary = {}
+	if path.is_empty():
+		if not _has_journal:
+			return {"ok": false, "error_code": ERR_NO_JOURNAL, "error": "no journal open"}
+		_refresh_envelope_meta()
+		env = journal
+	else:
+		var loaded_env: Dictionary = _read_envelope_file(path)
+		if not bool(loaded_env.get("ok", false)):
+			return loaded_env
+		env = loaded_env["envelope"]
+	return _Seal.verify_chain(key, env)
+
+
 func create_journal(
 	space_id: String,
 	base_world_revision: int,
 	base_snapshot_id: String = "",
 	session_id: String = ""
 ) -> Dictionary:
+	var key_res: Dictionary = _require_key()
+	if not bool(key_res.get("ok", false)):
+		return {
+			"ok": false,
+			"error": str(key_res.get("error", "key provider missing")),
+			"error_code": ERR_KEY_MISSING,
+		}
 	if space_id.is_empty():
 		return {"ok": false, "error": "space_id required", "error_code": ERR_REJECTED}
+	var key: PackedByteArray = key_res["key"]
 	var now: String = _iso_now()
 	var jid: String = _new_uuid()
+	var genesis: String = _Seal.compute_genesis_prev_seal(
+		key, space_id, jid, base_world_revision, base_snapshot_id
+	)
 	journal = {
 		"schema_version": SCHEMA_VERSION,
 		"space_type": SPACE_TYPE,
@@ -118,23 +273,54 @@ func create_journal(
 		"entry_count": 0,
 		"entity_set_hash": _Hasher.entity_set_hash({}),
 		"entries": [],
+		"integrity": {
+			"algorithm": _Seal.SEAL_ALG,
+			"head_seal": genesis,
+			"key_provider_id": _provider_id,
+			"sealed": true,
+			## Local seal = Offline Private Reality reconciliation evidence only.
+			"local_seal_not_server_authority": true,
+		},
 	}
 	entities = {}
 	_request_index = {}
 	_receipt_index = {}
 	_has_journal = true
 	_loaded_path = ""
-	return {"ok": true, "journal_id": jid, "world_revision": base_world_revision}
+	return {
+		"ok": true,
+		"journal_id": jid,
+		"world_revision": base_world_revision,
+		"head_seal": genesis,
+		"key_provider_id": _provider_id,
+	}
+
+
+func apply_offline_private_reality_mutation(request: Dictionary) -> Dictionary:
+	return apply_mutation(request)
+
+
+func apply_offline_private_reality_compensation(request: Dictionary) -> Dictionary:
+	return apply_compensation(request)
 
 
 func apply_mutation(request: Dictionary) -> Dictionary:
 	if not _has_journal:
 		return _status_rejected(ERR_NO_JOURNAL, "no journal open")
 
+	var key_res: Dictionary = _require_key()
+	if not bool(key_res.get("ok", false)):
+		return _status_rejected(ERR_KEY_MISSING, str(key_res.get("error", "key provider missing")))
+
 	# Cancel / preview never journaled as durable.
 	var gate: Dictionary = _gate_durable(request)
 	if not bool(gate.get("ok", false)):
 		return gate
+
+	# Offline Private Reality consumer gate (fail closed for online/shared/economy/G3 stub).
+	var offline: Dictionary = _gate_offline_consumer(request)
+	if not bool(offline.get("ok", false)):
+		return offline
 
 	var request_id: String = str(request.get("request_id", ""))
 	if request_id.is_empty():
@@ -252,9 +438,16 @@ func apply_mutation(request: Dictionary) -> Dictionary:
 		"entity_delta": delta,
 		"trace_id": trace_id,
 	}
-	_append_entry(entry, new_rev)
+	var sealed: Dictionary = _seal_and_append(entry, new_rev, key_res["key"])
+	if not bool(sealed.get("ok", false)):
+		# Roll back entity mutation on seal failure (fail closed).
+		_rollback_failed_apply_entities(operation, entity_id, touched)
+		return _status_rejected(
+			str(sealed.get("error_code", ERR_INTEGRITY)),
+			str(sealed.get("error", "seal failed"))
+		)
 	_request_index[request_id] = receipt_id
-	_receipt_index[receipt_id] = entry
+	_receipt_index[receipt_id] = sealed["entry"]
 
 	return {
 		"status": "committed",
@@ -265,12 +458,28 @@ func apply_mutation(request: Dictionary) -> Dictionary:
 		"entity_ids": touched,
 		"entity_set_hash": entity_set_hash(),
 		"world_revision": new_rev,
+		"seal": str((sealed["entry"] as Dictionary).get("seal", "")),
+		"sequence_index": int((sealed["entry"] as Dictionary).get("sequence_index", -1)),
+		"local_status": "committed",
+		"local_seal_not_server_authority": true,
 	}
 
 
 func apply_compensation(request: Dictionary) -> Dictionary:
 	if not _has_journal:
 		return _status_rejected(ERR_NO_JOURNAL, "no journal open")
+
+	var key_res: Dictionary = _require_key()
+	if not bool(key_res.get("ok", false)):
+		return _status_rejected(ERR_KEY_MISSING, str(key_res.get("error", "key provider missing")))
+
+	var gate: Dictionary = _gate_durable(request)
+	if not bool(gate.get("ok", false)):
+		return gate
+
+	var offline: Dictionary = _gate_offline_consumer(request)
+	if not bool(offline.get("ok", false)):
+		return offline
 
 	var request_id: String = str(request.get("request_id", ""))
 	if request_id.is_empty():
@@ -319,6 +528,12 @@ func apply_compensation(request: Dictionary) -> Dictionary:
 			compensated_ids.append(str(x))
 	compensated_ids = _Canon.sorted_unique_strings(compensated_ids)
 
+	# Snapshot entities for rollback if seal fails.
+	var entity_snapshots: Dictionary = {}
+	for eid in compensated_ids:
+		if entities.has(eid):
+			entity_snapshots[eid] = entities[eid].duplicate(true)
+
 	# Default compensation for create: tombstone entities.
 	var deltas: Array = []
 	for eid in compensated_ids:
@@ -358,9 +573,16 @@ func apply_compensation(request: Dictionary) -> Dictionary:
 		"occurred_at": str(request.get("occurred_at", _iso_now())),
 		"trace_id": str(request.get("trace_id", "")),
 	}
-	_append_entry(entry, new_rev)
+	var sealed: Dictionary = _seal_and_append(entry, new_rev, key_res["key"])
+	if not bool(sealed.get("ok", false)):
+		for eid2 in entity_snapshots.keys():
+			entities[eid2] = entity_snapshots[eid2]
+		return _status_rejected(
+			str(sealed.get("error_code", ERR_INTEGRITY)),
+			str(sealed.get("error", "seal failed"))
+		)
 	_request_index[request_id] = receipt_id
-	_receipt_index[receipt_id] = entry
+	_receipt_index[receipt_id] = sealed["entry"]
 
 	return {
 		"status": "committed",
@@ -373,15 +595,29 @@ func apply_compensation(request: Dictionary) -> Dictionary:
 		"history_erased": false,
 		"entity_set_hash": entity_set_hash(),
 		"world_revision": new_rev,
+		"seal": str((sealed["entry"] as Dictionary).get("seal", "")),
+		"local_seal_not_server_authority": true,
 	}
 
 
 func save_journal(path: String) -> Dictionary:
 	if not _has_journal:
 		return {"ok": false, "error": "no journal", "error_code": ERR_NO_JOURNAL}
+	var key_res: Dictionary = _require_key()
+	if not bool(key_res.get("ok", false)):
+		return {
+			"ok": false,
+			"error": str(key_res.get("error", "key provider missing")),
+			"error_code": ERR_KEY_MISSING,
+		}
 	_refresh_envelope_meta()
-	# Pretty-print for human exports is separate; durable file uses compact canonical form
-	# of envelope with entries in append order (array order preserved).
+	var v: Dictionary = _Seal.verify_chain(key_res["key"], journal)
+	if not bool(v.get("ok", false)):
+		return {
+			"ok": false,
+			"error": str(v.get("error", "integrity verify failed before save")),
+			"error_code": str(v.get("error_code", ERR_INTEGRITY)),
+		}
 	var payload: String = _Canon.stringify(journal)
 	var write_res: Dictionary = _atomic_write(path, payload)
 	if not bool(write_res.get("ok", false)):
@@ -393,6 +629,7 @@ func save_journal(path: String) -> Dictionary:
 		"entity_set_hash": entity_set_hash(),
 		"world_revision": get_world_revision(),
 		"entry_count": int(journal.get("entry_count", 0)),
+		"head_seal": str(v.get("head_seal", "")),
 	}
 
 
@@ -400,46 +637,34 @@ func load_journal(path: String) -> Dictionary:
 	if path.is_empty():
 		return {"ok": false, "error": "path required", "error_code": ERR_MALFORMED}
 
-	var abs_path: String = _resolve_path(path)
-	if not FileAccess.file_exists(abs_path) and not FileAccess.file_exists(path):
-		return {"ok": false, "error": "file not found: %s" % path, "error_code": ERR_MALFORMED}
+	var read_res: Dictionary = _read_envelope_file(path)
+	if not bool(read_res.get("ok", false)):
+		return read_res
 
-	var open_path: String = path if FileAccess.file_exists(path) else abs_path
-	var f: FileAccess = FileAccess.open(open_path, FileAccess.READ)
-	if f == null:
-		return {
-			"ok": false,
-			"error": "cannot open: %s err=%s" % [path, FileAccess.get_open_error()],
-			"error_code": ERR_MALFORMED,
-		}
-	var text: String = f.get_as_text()
-	f.close()
-
-	if text.strip_edges().is_empty():
-		return {"ok": false, "error": "empty journal file", "error_code": ERR_TRUNCATED}
-
-	# Detect obvious truncation (unbalanced braces) before JSON parse.
-	if not _looks_complete_json_object(text):
-		return {
-			"ok": false,
-			"error": "truncated or incomplete JSON journal",
-			"error_code": ERR_TRUNCATED,
-		}
-
-	var parsed: Variant = JSON.parse_string(text)
-	if parsed == null or not (parsed is Dictionary):
-		return {
-			"ok": false,
-			"error": "JSON parse failure or non-object root",
-			"error_code": ERR_MALFORMED,
-		}
-
-	var env: Dictionary = parsed as Dictionary
+	var env: Dictionary = read_res["envelope"]
 	var validate: Dictionary = _validate_envelope(env)
 	if not bool(validate.get("ok", false)):
 		return validate
 
-	# Rebuild state by deterministic replay
+	# Integrity: require key provider and verify full HMAC chain fail-closed.
+	var key_res: Dictionary = _require_key()
+	if not bool(key_res.get("ok", false)):
+		return {
+			"ok": false,
+			"error": str(key_res.get("error", "key provider missing")),
+			"error_code": ERR_KEY_MISSING,
+		}
+	var integ: Dictionary = _Seal.verify_chain(key_res["key"], env)
+	if not bool(integ.get("ok", false)):
+		# Do not materialize entities from untrusted chain.
+		return {
+			"ok": false,
+			"error": str(integ.get("error", "integrity failed")),
+			"error_code": str(integ.get("error_code", ERR_INTEGRITY)),
+			"broken_at_index": integ.get("broken_at_index", null),
+		}
+
+	# Rebuild state by deterministic replay only after integrity OK.
 	var replay: Dictionary = _replay_from_envelope(env)
 	if not bool(replay.get("ok", false)):
 		return replay
@@ -453,6 +678,8 @@ func load_journal(path: String) -> Dictionary:
 		"entity_set_hash": entity_set_hash(),
 		"entry_count": int(journal.get("entry_count", 0)),
 		"base_world_revision": get_base_world_revision(),
+		"head_seal": str(integ.get("head_seal", "")),
+		"integrity_ok": true,
 	}
 
 
@@ -491,6 +718,46 @@ func entry_count() -> int:
 
 # --- internals ---
 
+func _require_key() -> Dictionary:
+	if not has_key_provider():
+		return {
+			"ok": false,
+			"error_code": ERR_KEY_MISSING,
+			"error": "key provider not set; refuse unsigned sealed journal ops",
+		}
+	var key: PackedByteArray = PackedByteArray()
+	if _key_provider != null:
+		key = _extract_key_from_provider(_key_provider)
+	elif _key_callable.is_valid():
+		var v: Variant = _key_callable.call()
+		if v is PackedByteArray:
+			key = v as PackedByteArray
+		elif v is String:
+			key = (v as String).to_utf8_buffer()
+	if key.is_empty():
+		return {
+			"ok": false,
+			"error_code": ERR_KEY_MISSING,
+			"error": "key provider returned empty key",
+		}
+	return {"ok": true, "key": key}
+
+
+func _extract_key_from_provider(obj: Object) -> PackedByteArray:
+	var v: Variant
+	if obj.has_method("get_journal_hmac_key"):
+		v = obj.call("get_journal_hmac_key")
+	elif obj.has_method("get_hmac_key"):
+		v = obj.call("get_hmac_key")
+	else:
+		return PackedByteArray()
+	if v is PackedByteArray:
+		return v as PackedByteArray
+	if v is String:
+		return (v as String).to_utf8_buffer()
+	return PackedByteArray()
+
+
 func _gate_durable(request: Dictionary) -> Dictionary:
 	var kind: String = str(request.get("receipt_kind", ""))
 	if kind == "cancel":
@@ -509,6 +776,70 @@ func _gate_durable(request: Dictionary) -> Dictionary:
 	if request.has("durable_mutation_applied") and request["durable_mutation_applied"] == false \
 			and str(request.get("pipeline_stage", "")) == "cancelled":
 		return _status_rejected(ERR_CANCEL, "cancelled pipeline is not durable")
+	return {"ok": true}
+
+
+func _has_explicit_offline_confirmed(request: Dictionary) -> bool:
+	if not request.has("authority") or not (request["authority"] is Dictionary):
+		return false
+	var auth: Dictionary = request["authority"]
+	if str(auth.get("context", "")) != "offline_private_reality":
+		return false
+	if not request.has("confirmation") or not (request["confirmation"] is Dictionary):
+		return false
+	return str((request["confirmation"] as Dictionary).get("state", "")) == "confirmed"
+
+
+func _gate_offline_consumer(request: Dictionary) -> Dictionary:
+	# G3 rejected handoff must not auto-journal as committed without explicit offline gate.
+	var has_wci: bool = request.has("world_commit_invoked")
+	var has_dma: bool = request.has("durable_mutation_applied")
+	if has_wci and has_dma:
+		var wci = request["world_commit_invoked"]
+		var dma = request["durable_mutation_applied"]
+		if wci == false and dma == false and not _has_explicit_offline_confirmed(request):
+			return _status_rejected(
+				ERR_G3_HANDOFF,
+				"G3 rejected handoff (world_commit_invoked=false, durable_mutation_applied=false) is not auto-journalable; require explicit offline_private_reality confirmed apply"
+			)
+
+	# space_type on request if present
+	if request.has("space_type"):
+		var st: String = str(request["space_type"])
+		if st != SPACE_TYPE and st != "":
+			return _status_rejected(ERR_SPACE, "space_type must be private_reality for local journal")
+
+	# authority.context required
+	if not request.has("authority") or not (request["authority"] is Dictionary):
+		return _status_rejected(
+			ERR_OFFLINE_GATE,
+			"authority.context=offline_private_reality required for local signed journal"
+		)
+	var auth: Dictionary = request["authority"]
+	var ctx: String = str(auth.get("context", ""))
+	if ctx in REJECT_AUTHORITY_CONTEXTS:
+		return _status_rejected(
+			ERR_AUTH_CTX,
+			"authority.context=%s cannot local-journal; route to server World Commit" % ctx
+		)
+	if ctx != "offline_private_reality":
+		return _status_rejected(
+			ERR_OFFLINE_GATE,
+			"only authority.context=offline_private_reality may append local signed journal"
+		)
+
+	# confirmation must be confirmed for offline apply
+	if not request.has("confirmation") or not (request["confirmation"] is Dictionary):
+		return _status_rejected(ERR_OFFLINE_GATE, "confirmation.state=confirmed required for offline apply")
+	var conf_state: String = str((request["confirmation"] as Dictionary).get("state", ""))
+	if conf_state != "confirmed":
+		return _status_rejected(ERR_PREVIEW, "confirmation.state must be confirmed for durable apply")
+
+	# Forbidden authority.source claims that pretend to be server commit
+	var src: String = str(auth.get("source", ""))
+	if src == "world_commit_service_success_claim_without_server" or src == "shared_district_authority":
+		return _status_rejected(ERR_AUTH_CTX, "forbidden authority.source=%s" % src)
+
 	return {"ok": true}
 
 
@@ -565,14 +896,68 @@ func _build_entity_record(
 	return _Hasher.canonicalize_entity(ent)
 
 
-func _append_entry(entry: Dictionary, new_rev: int) -> void:
+func _current_head_seal(key: PackedByteArray) -> String:
 	var entries: Array = journal.get("entries", [])
-	entries.append(entry)
+	if entries.is_empty():
+		var integ = journal.get("integrity", {})
+		if integ is Dictionary and str((integ as Dictionary).get("head_seal", "")) != "":
+			return str((integ as Dictionary)["head_seal"])
+		return _Seal.compute_genesis_prev_seal(
+			key,
+			str(journal.get("space_id", "")),
+			str(journal.get("journal_id", "")),
+			int(journal.get("base_world_revision", 0)),
+			str(journal.get("base_snapshot_id", "")),
+		)
+	var last: Dictionary = entries[entries.size() - 1]
+	return str(last.get("seal", ""))
+
+
+func _seal_and_append(entry: Dictionary, new_rev: int, key: PackedByteArray) -> Dictionary:
+	var entries: Array = journal.get("entries", [])
+	var seq: int = entries.size()
+	var prev_seal: String = _current_head_seal(key)
+	var body: Dictionary = entry.duplicate(true)
+	body["sequence_index"] = seq
+	body["prev_seal"] = prev_seal
+	var computed: Dictionary = _Seal.compute_entry_seal(
+		key,
+		body,
+		prev_seal,
+		seq,
+		str(journal.get("space_id", "")),
+		str(journal.get("journal_id", "")),
+	)
+	if not bool(computed.get("ok", false)):
+		return computed
+	body["seal"] = str(computed["seal"])
+	body["seal_alg"] = _Seal.SEAL_ALG
+	body["sequence_index"] = seq
+	body["prev_seal"] = prev_seal
+	entries.append(body)
 	journal["entries"] = entries
 	journal["world_revision"] = new_rev
 	journal["entry_count"] = entries.size()
 	journal["updated_at"] = _iso_now()
 	journal["entity_set_hash"] = entity_set_hash()
+	if not journal.has("integrity") or not (journal["integrity"] is Dictionary):
+		journal["integrity"] = {}
+	var integ: Dictionary = journal["integrity"]
+	integ["algorithm"] = _Seal.SEAL_ALG
+	integ["head_seal"] = str(computed["seal"])
+	integ["key_provider_id"] = _provider_id
+	integ["sealed"] = true
+	integ["local_seal_not_server_authority"] = true
+	journal["integrity"] = integ
+	return {"ok": true, "entry": body}
+
+
+func _rollback_failed_apply_entities(operation: String, entity_id: String, touched: Array) -> void:
+	# Best-effort: remove created entity if seal failed mid-apply.
+	if operation == "create" or operation == "enrich" or operation == "gift_proposal":
+		for eid in touched:
+			entities.erase(str(eid))
+	# modify/delete rollback not fully tracked; seal failures after entity write are rare.
 
 
 func _refresh_envelope_meta() -> void:
@@ -580,6 +965,50 @@ func _refresh_envelope_meta() -> void:
 	journal["entry_count"] = entries.size()
 	journal["entity_set_hash"] = entity_set_hash()
 	journal["updated_at"] = str(journal.get("updated_at", _iso_now()))
+	if journal.has("integrity") and journal["integrity"] is Dictionary:
+		var integ: Dictionary = journal["integrity"]
+		integ["sealed"] = true
+		integ["algorithm"] = _Seal.SEAL_ALG
+		integ["key_provider_id"] = _provider_id if not _provider_id.is_empty() else str(integ.get("key_provider_id", ""))
+		if not entries.is_empty():
+			integ["head_seal"] = str((entries[entries.size() - 1] as Dictionary).get("seal", integ.get("head_seal", "")))
+		journal["integrity"] = integ
+
+
+func _read_envelope_file(path: String) -> Dictionary:
+	var abs_path: String = _resolve_path(path)
+	if not FileAccess.file_exists(abs_path) and not FileAccess.file_exists(path):
+		return {"ok": false, "error": "file not found: %s" % path, "error_code": ERR_MALFORMED}
+
+	var open_path: String = path if FileAccess.file_exists(path) else abs_path
+	var f: FileAccess = FileAccess.open(open_path, FileAccess.READ)
+	if f == null:
+		return {
+			"ok": false,
+			"error": "cannot open: %s err=%s" % [path, FileAccess.get_open_error()],
+			"error_code": ERR_MALFORMED,
+		}
+	var text: String = f.get_as_text()
+	f.close()
+
+	if text.strip_edges().is_empty():
+		return {"ok": false, "error": "empty journal file", "error_code": ERR_TRUNCATED}
+
+	if not _looks_complete_json_object(text):
+		return {
+			"ok": false,
+			"error": "truncated or incomplete JSON journal",
+			"error_code": ERR_TRUNCATED,
+		}
+
+	var parsed: Variant = JSON.parse_string(text)
+	if parsed == null or not (parsed is Dictionary):
+		return {
+			"ok": false,
+			"error": "JSON parse failure or non-object root",
+			"error_code": ERR_MALFORMED,
+		}
+	return {"ok": true, "envelope": parsed as Dictionary, "raw_text": text}
 
 
 func _validate_envelope(env: Dictionary) -> Dictionary:
@@ -815,7 +1244,6 @@ func _looks_complete_json_object(text: String) -> bool:
 
 func _atomic_write(path: String, content: String) -> Dictionary:
 	var write_path: String = path
-	# Ensure parent dir for user:// paths
 	var global_path: String = _resolve_path(path)
 	var parent: String = global_path.get_base_dir()
 	if not parent.is_empty() and not DirAccess.dir_exists_absolute(parent):
@@ -828,7 +1256,6 @@ func _atomic_write(path: String, content: String) -> Dictionary:
 
 	var f: FileAccess = FileAccess.open(tmp_path, FileAccess.WRITE)
 	if f == null:
-		# Retry with globalized path
 		f = FileAccess.open(tmp_global, FileAccess.WRITE)
 		if f == null:
 			return {
@@ -843,9 +1270,7 @@ func _atomic_write(path: String, content: String) -> Dictionary:
 	f.flush()
 	f.close()
 
-	# Replace target
 	var target: String = write_path if write_path == global_path or FileAccess.file_exists(write_path + ".tmp") else global_path
-	# Prefer path as given for user://
 	if FileAccess.file_exists(path + ".tmp"):
 		tmp_path = path + ".tmp"
 		target = path
@@ -855,18 +1280,15 @@ func _atomic_write(path: String, content: String) -> Dictionary:
 
 	if FileAccess.file_exists(target):
 		DirAccess.remove_absolute(_resolve_path(target) if not target.begins_with("user://") else ProjectSettings.globalize_path(target))
-		# Also try user path remove
 		if target.begins_with("user://") or target.begins_with("res://"):
 			var da := DirAccess.open(target.get_base_dir())
 			if da:
 				da.remove(target.get_file())
 
-	# rename tmp -> target
 	var from_abs: String = _resolve_path(tmp_path) if tmp_path.begins_with("user://") or tmp_path.begins_with("res://") else tmp_path
 	var to_abs: String = _resolve_path(target) if target.begins_with("user://") or target.begins_with("res://") else target
 	var ren: Error = DirAccess.rename_absolute(from_abs, to_abs)
 	if ren != OK:
-		# Fallback: read tmp and write target directly
 		var tf: FileAccess = FileAccess.open(tmp_path, FileAccess.READ)
 		if tf == null:
 			tf = FileAccess.open(from_abs, FileAccess.READ)
@@ -882,7 +1304,6 @@ func _atomic_write(path: String, content: String) -> Dictionary:
 		outf.store_string(body)
 		outf.flush()
 		outf.close()
-		# best-effort remove tmp
 		DirAccess.remove_absolute(from_abs)
 
 	return {"ok": true}
@@ -907,7 +1328,6 @@ func _iso_now() -> String:
 
 
 func _new_uuid() -> String:
-	# RFC4122-ish v4 from RNG (local journal ids; not crypto authority).
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
 	var b: PackedByteArray = PackedByteArray()

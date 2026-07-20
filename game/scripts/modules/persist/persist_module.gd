@@ -1,6 +1,7 @@
-## PersistModule — Offline Private Reality local journal (G4-001).
-## Append-only mutation log + deterministic entity hashes.
-## Authority: local simulation durability only; online/shared still World Commit.
+## PersistModule — Offline Private Reality local signed journal (G4-001 R1).
+## Append-only mutation log + HMAC-SHA256 integrity seals + deterministic entity hashes.
+## Authority: local simulation durability / reconciliation evidence only;
+## online/shared/economy still require server World Commit.
 class_name PersistModule
 extends Node
 
@@ -10,6 +11,7 @@ const _IPersist = preload("res://scripts/modules/interfaces/i_persist_module.gd"
 const _JournalStore = preload("res://scripts/modules/persist/journal_store.gd")
 const _Canon = preload("res://scripts/modules/persist/canonical_json.gd")
 const _Hasher = preload("res://scripts/modules/persist/entity_hasher.gd")
+const _Seal = preload("res://scripts/modules/persist/journal_seal.gd")
 
 var _store: RefCounted
 
@@ -20,7 +22,7 @@ func _ready() -> void:
 	var missing: PackedStringArray = _IPersist.validate(self)
 	if not missing.is_empty():
 		push_error("[PersistModule] Missing API methods: %s" % str(missing))
-	print("[PersistModule] Ready – Private Reality journal (schema %s)." % SCHEMA_VERSION)
+	print("[PersistModule] Ready – Private Reality signed journal (schema %s)." % SCHEMA_VERSION)
 
 
 func _try_register() -> void:
@@ -36,14 +38,45 @@ func is_stub() -> bool:
 func get_status() -> String:
 	if _store == null or not _store.has_journal():
 		return "persist ready (no journal open)"
-	return "persist journal rev=%d entities=%d" % [
+	var pid: String = get_key_provider_id()
+	var pid_note: String = (" key=%s" % pid) if not pid.is_empty() else " key=unset"
+	return "persist journal rev=%d entities=%d%s" % [
 		_store.get_world_revision(),
 		_store.list_entity_ids().size(),
+		pid_note,
 	]
 
 
 func get_schema_version() -> String:
 	return SCHEMA_VERSION
+
+
+func set_key_provider(provider: Variant, provider_id: String = "") -> Dictionary:
+	_ensure_store()
+	return _store.set_key_provider(provider, provider_id)
+
+
+func get_key_provider_id() -> String:
+	_ensure_store()
+	return str(_store.get_key_provider_id())
+
+
+func verify_integrity(path: String = "") -> Dictionary:
+	_ensure_store()
+	return _store.verify_integrity(path)
+
+
+func hmac_sha256_hex(key: PackedByteArray, message_utf8: String) -> String:
+	return _Seal.hmac_sha256_hex(key, message_utf8)
+
+
+func compute_entry_seal(
+	entry_without_seal: Dictionary,
+	prev_seal: String,
+	sequence_index: int
+) -> Dictionary:
+	_ensure_store()
+	return _store.compute_entry_seal(entry_without_seal, prev_seal, sequence_index)
 
 
 func create_journal(
@@ -74,6 +107,16 @@ func apply_mutation(request: Dictionary) -> Dictionary:
 func apply_compensation(request: Dictionary) -> Dictionary:
 	_ensure_store()
 	return _store.apply_compensation(request)
+
+
+func apply_offline_private_reality_mutation(request: Dictionary) -> Dictionary:
+	_ensure_store()
+	return _store.apply_offline_private_reality_mutation(request)
+
+
+func apply_offline_private_reality_compensation(request: Dictionary) -> Dictionary:
+	_ensure_store()
+	return _store.apply_offline_private_reality_compensation(request)
 
 
 func get_world_revision() -> int:

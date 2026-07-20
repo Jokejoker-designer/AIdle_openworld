@@ -1,0 +1,386 @@
+{
+  "agent_step_id": "G4-001-R3-executor-2026-07-21",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G4-001",
+    "wave": "R3_EXECUTOR_CONSUMER_VERIFY",
+    "profile": "executor",
+    "correction_work_order": "orchestration/work_orders/WO-G4-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G4-001_CORRECTION_001_DISPATCH_MAP.md",
+    "parent_schema": "orchestration/receipts/g4/R0_schema.json",
+    "parent_persist": "orchestration/receipts/g4/R1_persist.json",
+    "parent_core": "orchestration/receipts/g4/R2_core.json",
+    "state": "HANDOFF_TO_R4",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY: Offline Private Reality consumer gate is enforced. Only explicit authority.context=offline_private_reality with confirmation.state=confirmed may journal. G3 rejected handoff (world_commit_invoked=false, durable_mutation_applied=false) is rejected as g3_rejected_handoff_not_journalable and cannot auto-journal as committed. Online/shared/economy/ownership/marketplace contexts are rejected. Executor product does not call PersistModule. Integrated boot (R2 + R3 re-run) mounts real PersistModule, not AgentPersistStub. G4_PERSIST_SMOKE=PASS checks=22 (AT-GATE-* all PASS). No product edits.",
+    "scope": {
+      "in_scope": [
+        "Read R0/R1/R2 receipts and WO-G4-001-CORRECTION-001",
+        "Read persist consumer gate (apply_offline_private_reality_*, _gate_offline_consumer)",
+        "Read G3 complete/cancel receipts and executor handoff builders (read-only)",
+        "Read main.gd PersistModule mount + R2/R3 boot evidence",
+        "Cite/re-run AT-GATE-* smoke and integrated boot",
+        "Write orchestration/receipts/g4/R3_executor.json only"
+      ],
+      "out_of_scope": [
+        "Product edits under game/scripts/**",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders",
+        "Implementing executor↔persist adapter wiring",
+        "Shared District / server World Commit / economy",
+        "R4 network Purple review product patches"
+      ],
+      "authority_boundary": {
+        "context": "Offline Private Reality consumer verify (correction R3)",
+        "local_journal": "simulation durability / reconciliation evidence only",
+        "online_authority": "World Commit service remains required for durable online/shared mutation",
+        "explicit_not": [
+          "claim that local journal IS online World Commit truth",
+          "executor product patches",
+          "persist product patches (R1 sole writer)",
+          "main.gd mount patches (R2 sole writer)",
+          "self-ACCEPT of G4-001"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_write": "orchestration/receipts/g4/R3_executor.json",
+    "children": [],
+    "no_children_spawned": true,
+    "inputs_read": {
+      "authority": [
+        "orchestration/work_orders/WO-G4-001-CORRECTION-001.md",
+        "orchestration/work_orders/G4-001_CORRECTION_001_DISPATCH_MAP.md",
+        "orchestration/receipts/g4/R0_schema.json",
+        "orchestration/receipts/g4/R1_persist.json",
+        "orchestration/receipts/g4/R2_core.json",
+        "orchestration/receipts/g4/P2_executor.json"
+      ],
+      "persist_api": [
+        "game/scripts/modules/persist/persist_module.gd",
+        "game/scripts/modules/persist/journal_store.gd",
+        "game/scripts/modules/persist/g4_persist_smoke.gd",
+        "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+        "game/scripts/modules/interfaces/i_persist_module.gd"
+      ],
+      "g3_receipts": [
+        "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+        "game/scripts/modules/executor/exports/g3_cancel_receipt.json"
+      ],
+      "runtime_mount": [
+        "game/scripts/main/main.gd",
+        "orchestration/logs/g4-r2-core-boot.log",
+        "orchestration/logs/g4-r3-core-boot.log"
+      ],
+      "executor_source_read_only": [
+        "game/scripts/modules/executor/g3_onboarding_slice.gd"
+      ]
+    },
+    "confirmations": {
+      "C1_only_explicit_offline_confirmed_journals": {
+        "status": "PASS",
+        "statement": "Only explicit offline_private_reality + confirmation.state=confirmed may append the local signed journal.",
+        "gate_implementation": {
+          "entrypoints": [
+            "apply_offline_private_reality_mutation",
+            "apply_offline_private_reality_compensation"
+          ],
+          "also_enforced_on": ["apply_mutation", "apply_compensation"],
+          "location": "game/scripts/modules/persist/journal_store.gd::_gate_offline_consumer + _has_explicit_offline_confirmed",
+          "required": {
+            "authority.context": "offline_private_reality",
+            "confirmation.state": "confirmed"
+          },
+          "missing_authority": "offline_gate_rejected",
+          "missing_or_unconfirmed": "preview_not_durable / offline_gate_rejected"
+        },
+        "smoke": {
+          "AT-GATE-EXPLICIT-OFFLINE-OK": "PASS",
+          "evidence": {
+            "status": "committed",
+            "old_world_revision": 3,
+            "new_world_revision": 4,
+            "seal_present": true,
+            "local_seal_not_server_authority": true
+          },
+          "export": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json"
+        },
+        "interface_surface": {
+          "i_persist_module_required": [
+            "apply_offline_private_reality_mutation",
+            "apply_offline_private_reality_compensation"
+          ],
+          "status": "PASS"
+        }
+      },
+      "C2_g3_rejected_handoff_cannot_auto_journal": {
+        "status": "PASS",
+        "statement": "G3 rejected handoff (world_commit_invoked=false, durable_mutation_applied=false) cannot auto-journal as committed without explicit offline confirmed authority.",
+        "g3_complete_fields": {
+          "path": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+          "receipt_kind": "complete",
+          "request_id": "865ba0ef-0b16-4074-a579-098db5a78c13",
+          "expected_world_revision": 3,
+          "confirmation.state": "confirmed",
+          "durable_mutation_applied": false,
+          "world_commit_invoked": false,
+          "pipeline_stage": "commit_handoff_stubbed",
+          "commit_receipt_stub.status": "rejected",
+          "commit_receipt_stub.stub": true
+        },
+        "gate_rule": {
+          "location": "journal_store.gd::_gate_offline_consumer",
+          "condition": "world_commit_invoked==false AND durable_mutation_applied==false AND NOT _has_explicit_offline_confirmed",
+          "error_code": "g3_rejected_handoff_not_journalable",
+          "note": "Even confirmation.state=confirmed on G3 complete is insufficient without authority.context=offline_private_reality; G3 authority remains world_commit_service / server_authoritative under commit_request"
+        },
+        "smoke": {
+          "AT-GATE-G3-REJECTED-NO-AUTO": "PASS",
+          "evidence": {
+            "status": "rejected",
+            "error_code": "g3_rejected_handoff_not_journalable",
+            "entry_count": 0,
+            "world_commit_invoked": false,
+            "durable_mutation_applied": false,
+            "not_auto_journaled": true
+          },
+          "test_path": "g4_persist_smoke.gd::_test_gate_g3_rejected_no_auto uses apply_mutation on G3-shaped stub without offline authority"
+        },
+        "executor_no_auto_wire": {
+          "g3_onboarding_slice_persist_calls": 0,
+          "detail": "grep of game/scripts/modules/executor/** shows no PersistModule/apply_mutation/apply_offline calls; complete path remains export-only handoff stub",
+          "must_not": "adapter must never rewrite durable_mutation_applied=true solely because local journal applied"
+        },
+        "explicit_offline_escape_hatch": {
+          "AT-GATE-EXPLICIT-OFFLINE-OK": "PASS",
+          "detail": "Same G3 flags (wci=false, dma=false) succeed only when authority.context=offline_private_reality AND confirmation.state=confirmed are present — intentional Private Reality simulation apply, not server commit"
+        }
+      },
+      "C3_online_shared_economy_ownership_rejected": {
+        "status": "PASS",
+        "statement": "Online Private Reality, Shared District, economy, ownership, and marketplace mutations are rejected at the consumer gate and cannot local-journal.",
+        "rejected_contexts": [
+          "shared_district",
+          "online_private_reality",
+          "server_economy",
+          "ownership",
+          "marketplace"
+        ],
+        "gate_codes": ["authority_context_rejected", "offline_gate_rejected"],
+        "smoke": {
+          "AT-GATE-OFFLINE-ONLY": "PASS",
+          "evidence": {
+            "rejected_contexts": [
+              "shared_district",
+              "online_private_reality",
+              "server_economy",
+              "ownership",
+              "marketplace"
+            ],
+            "entry_count_unchanged": true
+          }
+        },
+        "routing_intent": "These contexts must route to server World Commit — not local signed journal"
+      },
+      "C4_integrated_boot_mounts_real_persist_module": {
+        "status": "PASS",
+        "statement": "Integrated boot mounts real PersistModule in the persist slot, not AgentPersistStub (R2 product + R3 re-run evidence).",
+        "main_gd": {
+          "path": "game/scripts/main/main.gd",
+          "preload": "res://scripts/modules/persist/persist_module.gd",
+          "method": "_mount_persist_module()",
+          "call_site": "_spawn_module_stubs() before remaining ModuleStub slots",
+          "MODULE_PERSIST_in_stub_defs": false
+        },
+        "boot_markers_observed_r3": [
+          "[ModuleRegistry] Registered module: persist (PersistModule)",
+          "[PersistModule] Ready – Private Reality signed journal (schema 1.0.0).",
+          "[Main] PersistModule mounted (real, not AgentPersistStub).",
+          "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+          "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.",
+          "[Main] Entered Private Reality | style=cozy_cyber_pixel"
+        ],
+        "not_observed_for_persist": [
+          "[ModuleStub] persist mounted as stub"
+        ],
+        "agentpersiststub_token_note": "Substring 'AgentPersistStub' appears only inside the positive mount marker '(real, not AgentPersistStub)'; no stub registration for persist",
+        "error_scan_r3_boot": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 0,
+          "exit_code": 0
+        },
+        "r2_receipt_alignment": "orchestration/receipts/g4/R2_core.json boot_markers_required all present on R3 re-run"
+      },
+      "C5_cancel_still_not_journaled": {
+        "status": "PASS",
+        "statement": "G3 cancel remains non-durable (preserved from P0/R1; consumer gate + durable gate).",
+        "g3_cancel_fields": {
+          "path": "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+          "receipt_kind": "cancel",
+          "durable_mutation_applied": false,
+          "world_commit_invoked": false,
+          "world_revision_advanced": false,
+          "pipeline_stage": "cancelled"
+        },
+        "smoke": {
+          "AT-CANCEL-NOT-JOURNALED": "PASS"
+        }
+      }
+    },
+    "acceptance_matrix": [
+      {
+        "id": "AT-GATE-OFFLINE-ONLY",
+        "result": "PASS",
+        "proves": "online/shared/economy/ownership/marketplace cannot local-journal"
+      },
+      {
+        "id": "AT-GATE-G3-REJECTED-NO-AUTO",
+        "result": "PASS",
+        "proves": "G3 wci=false + dma=false not auto-journaled as committed"
+      },
+      {
+        "id": "AT-GATE-EXPLICIT-OFFLINE-OK",
+        "result": "PASS",
+        "proves": "explicit offline_private_reality + confirmed journals with seal; local_seal_not_server_authority=true"
+      },
+      {
+        "id": "BOOT-PERSIST-REAL-MODULE",
+        "result": "PASS",
+        "proves": "main.gd mounts PersistModule; headless boot markers clean"
+      },
+      {
+        "id": "EXECUTOR-NO-AUTO-JOURNAL-WIRE",
+        "result": "PASS",
+        "proves": "executor product has zero PersistModule apply calls; cannot bypass gate via silent wire"
+      }
+    ],
+    "mapping_note_vs_p2": {
+      "p2_context": "P2 mapped complete→apply_mutation for local simulation under pre-correction gates",
+      "r3_correction": "R1 added offline consumer gate; bare G3 complete-shaped apply_mutation is now rejected; consumers must use apply_offline_private_reality_* with authority.context=offline_private_reality + confirmed",
+      "adapter_implication": "Future executor↔persist adapter must set offline authority metadata for Private Reality simulation only; must not treat G3 rejected handoff as auto-committed; must not set durable_mutation_applied=true for online path from local journal alone"
+    }
+  },
+  "smoke_test": {
+    "type": "verify_only_consumer_gate_with_executable_re_run",
+    "executed": true,
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/persist/g4_persist_smoke.gd",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22",
+        "log": "orchestration/logs/g4-r3-persist-smoke.log",
+        "gate_ok_lines": [
+          "OK  only_offline_private_reality_journals",
+          "OK  g3_rejected_handoff_not_auto_journaled",
+          "OK  explicit_offline_confirmed_apply_succeeds"
+        ],
+        "error_scan": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 0
+        }
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 5",
+        "exit_code": 0,
+        "log": "orchestration/logs/g4-r3-core-boot.log",
+        "markers_observed": [
+          "[ModuleRegistry] Registered module: persist (PersistModule)",
+          "[PersistModule] Ready – Private Reality signed journal (schema 1.0.0).",
+          "[Main] PersistModule mounted (real, not AgentPersistStub).",
+          "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+          "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane."
+        ],
+        "error_scan": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 0
+        }
+      }
+    ],
+    "evidence_export": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+    "at_gate_from_export": {
+      "AT-GATE-OFFLINE-ONLY": "PASS",
+      "AT-GATE-G3-REJECTED-NO-AUTO": "PASS",
+      "AT-GATE-EXPLICIT-OFFLINE-OK": "PASS"
+    },
+    "static_checks": [
+      {
+        "id": "SC-G3-COMPLETE-FLAGS",
+        "result": "PASS",
+        "detail": "g3_complete_receipt durable_mutation_applied=false and world_commit_invoked=false; commit_receipt_stub rejected/stub"
+      },
+      {
+        "id": "SC-GATE-SOURCE",
+        "result": "PASS",
+        "detail": "_gate_offline_consumer rejects G3 stub without offline confirmed; REJECT_AUTHORITY_CONTEXTS includes online/shared/economy/ownership/marketplace"
+      },
+      {
+        "id": "SC-NO-EXECUTOR-PERSIST-CALL",
+        "result": "PASS",
+        "detail": "executor package has no apply_mutation/apply_offline/PersistModule consumer wire that could auto-journal"
+      },
+      {
+        "id": "SC-MAIN-MOUNT",
+        "result": "PASS",
+        "detail": "main.gd _mount_persist_module uses PersistModule preload; MODULE_PERSIST omitted from stub_defs"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g4/R3_executor.json"],
+    "no_product_code_edits": true,
+    "no_persist_product_edits": true,
+    "no_executor_product_edits": true,
+    "no_main_gd_edit": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "worker_cannot_self_accept": true,
+    "no_children_subagents": true,
+    "no_accept_receipt": true,
+    "verdict": "PASS",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G4-001-CORRECTION-001, R0/R1/R2 receipts, persist gate, G3 exports, main.gd, agent_step_contract schema manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G4-001-CORRECTION-001.md",
+    "orchestration/work_orders/G4-001_CORRECTION_001_DISPATCH_MAP.md",
+    "orchestration/receipts/g4/R0_schema.json",
+    "orchestration/receipts/g4/R1_persist.json",
+    "orchestration/receipts/g4/R2_core.json",
+    "orchestration/receipts/g4/P2_executor.json",
+    "game/scripts/modules/persist/journal_store.gd",
+    "game/scripts/modules/persist/persist_module.gd",
+    "game/scripts/modules/persist/g4_persist_smoke.gd",
+    "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+    "game/scripts/modules/interfaces/i_persist_module.gd",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+    "game/scripts/modules/executor/g3_onboarding_slice.gd",
+    "game/scripts/main/main.gd",
+    "orchestration/logs/g4-r3-persist-smoke.log",
+    "orchestration/logs/g4-r3-core-boot.log",
+    "orchestration/logs/g4-r2-core-boot.log",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "Consumer adapter still not product-wired — G3 remains export-only; local journal apply is opt-in via future WO using apply_offline_private_reality_* only",
+    "Local journal status 'committed' must not be misread as World Commit success in UI or R4 network review",
+    "Production builds still need a non-test key provider injected before sealed journal ops (mount does not set key provider)",
+    "Unsigned pre-correction journals refuse load under R1 enforcement (intentional fail-closed)"
+  ],
+  "next_route": "R4_NETWORK_PURPLE"
+}

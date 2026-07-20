@@ -1,11 +1,10 @@
-## G4-001 P1 headless smoke — Offline Private Reality journal.
+## G4-001 R1 headless smoke — Offline Private Reality signed journal.
 ## Run:
 ##   tools\Godot_v4.3-stable_win64_console.exe --headless --path game \
 ##     -s res://scripts/modules/persist/g4_persist_smoke.gd
 ##
 ## Exit 0 on pass. Prints G4_PERSIST_SMOKE=PASS|FAIL.
-## Covers: hash equality, dup request, stale rev, malformed journal,
-## compensation append, cancel not journaled, rev 3 preserved.
+## Covers P0 suite + HMAC integrity + offline consumer gate.
 extends SceneTree
 
 const CANON_PATH := "res://scripts/modules/persist/canonical_json.gd"
@@ -13,12 +12,20 @@ const HASHER_PATH := "res://scripts/modules/persist/entity_hasher.gd"
 const STORE_PATH := "res://scripts/modules/persist/journal_store.gd"
 const MODULE_PATH := "res://scripts/modules/persist/persist_module.gd"
 const IFACE_PATH := "res://scripts/modules/interfaces/i_persist_module.gd"
+const SEAL_PATH := "res://scripts/modules/persist/journal_seal.gd"
+const KEY_PATH := "res://scripts/modules/persist/test_journal_key_provider.gd"
 const EXPORT_DIR := "res://scripts/modules/persist/exports"
 const USER_JOURNAL := "user://g4_persist_smoke/journal.json"
 const USER_MALFORMED := "user://g4_persist_smoke/malformed.json"
 const USER_SCHEMA := "user://g4_persist_smoke/bad_schema.json"
 const USER_SPACE := "user://g4_persist_smoke/bad_space.json"
 const USER_TRUNC := "user://g4_persist_smoke/truncated.json"
+const USER_TAMPER := "user://g4_persist_smoke/tamper.json"
+const USER_REMOVE := "user://g4_persist_smoke/remove.json"
+const USER_REORDER := "user://g4_persist_smoke/reorder.json"
+const USER_BROKEN_PREV := "user://g4_persist_smoke/broken_prev.json"
+const USER_INVALID_SEAL := "user://g4_persist_smoke/invalid_seal.json"
+const USER_SEALED := "user://g4_persist_smoke/sealed.json"
 
 ## G3 seed constants
 const G3_BASE_REV := 3
@@ -37,13 +44,17 @@ var _Hasher: GDScript
 var _Store: GDScript
 var _Module: GDScript
 var _Iface: GDScript
+var _Seal: GDScript
+var _KeyProv: GDScript
 var _evidence: Dictionary = {}
 
 
 func _initialize() -> void:
-	print("[G4-001 P1 persist smoke] starting…")
+	print("[G4-001 R1 persist smoke] starting…")
 	_Canon = _require_script(CANON_PATH, "AIdleCanonicalJson")
 	_Hasher = _require_script(HASHER_PATH, "AIdleEntityHasher")
+	_Seal = _require_script(SEAL_PATH, "AIdleJournalSeal")
+	_KeyProv = _require_script(KEY_PATH, "TestJournalKeyProvider")
 	_Store = _require_script(STORE_PATH, "AIdleJournalStore")
 	_Module = _require_script(MODULE_PATH, "PersistModule")
 	_Iface = _require_script(IFACE_PATH, "IPersistModule")
@@ -55,6 +66,7 @@ func _initialize() -> void:
 
 	_test_interface_surface()
 	_test_canonical_sort_and_float()
+	_test_key_provider_missing()
 	_test_save_reload_hash()
 	_test_duplicate_request()
 	_test_stale_revision()
@@ -64,6 +76,18 @@ func _initialize() -> void:
 	_test_compensation_append()
 	_test_cancel_not_journaled()
 	_test_g3_rev3_preserved()
+	# Integrity suite
+	_test_integrity_happy()
+	_test_integrity_wrong_key()
+	_test_integrity_tamper_entry()
+	_test_integrity_remove_entry()
+	_test_integrity_reorder()
+	_test_integrity_broken_prev()
+	_test_integrity_invalid_seal()
+	# Consumer gate suite
+	_test_gate_offline_only()
+	_test_gate_g3_rejected_no_auto()
+	_test_gate_explicit_offline_ok()
 	_write_evidence_export()
 
 	_finish()
@@ -113,8 +137,30 @@ func _fail(label: String, detail: String = "") -> void:
 	printerr("  FAIL %s" % msg)
 
 
-func _new_store() -> Object:
-	return _Store.new()
+func _new_store(with_key: bool = true) -> Object:
+	var s: Object = _Store.new()
+	if with_key:
+		_inject_test_key(s)
+	return s
+
+
+func _inject_test_key(target: Object, wrong: bool = false) -> Dictionary:
+	var provider: Object = _KeyProv.new(wrong)
+	var r: Dictionary = target.call("set_key_provider", provider) as Dictionary
+	return r
+
+
+func _offline_auth(extra: Dictionary = {}) -> Dictionary:
+	var req := {
+		"authority": {
+			"context": "offline_private_reality",
+			"source": "local_player_confirm",
+		},
+		"confirmation": {"state": "confirmed", "confirmed_by": "player_01"},
+	}
+	for k in extra.keys():
+		req[k] = extra[k]
+	return req
 
 
 func _house_entity() -> Dictionary:
@@ -128,6 +174,19 @@ func _house_entity() -> Dictionary:
 		"space_id": G3_SPACE_ID,
 		"chunk_id": "0_0",
 	}
+
+
+func _base_mutation(request_id: String, expected_rev: int = 3) -> Dictionary:
+	var req := _offline_auth({
+		"request_id": request_id,
+		"prompt_id": G3_PROMPT_ID,
+		"expected_world_revision": expected_rev,
+		"mutation_class": "durable_world",
+		"operation": "create",
+		"entity": _house_entity(),
+		"actor": {"actor_id": "player_01", "actor_type": "player"},
+	})
+	return req
 
 
 func _test_interface_surface() -> void:
@@ -168,7 +227,43 @@ func _test_canonical_sort_and_float() -> void:
 	if str(_Canon.call("format_float", 0.12)) != "0.12":
 		_fail("float_0_12", str(_Canon.call("format_float", 0.12)))
 		return
+	_evidence["AT-CANON-SORT"] = {"pass": true}
 	_ok("canonical_json_key_order_and_float_format")
+
+
+func _test_key_provider_missing() -> void:
+	var s: Object = _new_store(false)
+	var created: Dictionary = s.call(
+		"create_journal", G3_SPACE_ID, G3_BASE_REV, G3_SNAPSHOT_ID, G3_SESSION_ID
+	) as Dictionary
+	if bool(created.get("ok", true)):
+		_fail("create_without_key_accepted", str(created))
+		return
+	if str(created.get("error_code", "")) != "key_provider_missing":
+		_fail("create_without_key_code", str(created.get("error_code")))
+		return
+
+	# With key, create, then try apply on a store that lost key? Use fresh store without key after
+	# sealing path: apply on store with journal but no key.
+	var s2: Object = _new_store(true)
+	s2.call("create_journal", G3_SPACE_ID, G3_BASE_REV, G3_SNAPSHOT_ID, G3_SESSION_ID)
+	# Clear key by null set
+	s2.call("set_key_provider", null)
+	var apply: Dictionary = s2.call(
+		"apply_offline_private_reality_mutation",
+		_base_mutation("nokey-0000-4000-8000-000000000001")
+	) as Dictionary
+	if str(apply.get("status", "")) != "rejected":
+		_fail("apply_without_key_status", str(apply))
+		return
+	if str(apply.get("error_code", "")) != "key_provider_missing":
+		_fail("apply_without_key_code", str(apply.get("error_code")))
+		return
+	_evidence["AT-KEY-PROVIDER-MISSING"] = {
+		"create_error_code": "key_provider_missing",
+		"apply_error_code": "key_provider_missing",
+	}
+	_ok("missing_key_provider_fail_closed")
 
 
 func _test_save_reload_hash() -> void:
@@ -183,17 +278,16 @@ func _test_save_reload_hash() -> void:
 		_fail("base_rev", str(s1.call("get_world_revision")))
 		return
 
-	var apply: Dictionary = s1.call("apply_mutation", {
+	var apply: Dictionary = s1.call("apply_mutation", _offline_auth({
 		"request_id": G3_REQUEST_ID,
 		"prompt_id": G3_PROMPT_ID,
 		"expected_world_revision": G3_EXPECTED_REV,
 		"mutation_class": "durable_world",
 		"operation": "create",
 		"entity": _house_entity(),
-		"confirmation": {"state": "confirmed", "confirmed_by": "player_01"},
 		"actor": {"actor_id": "player_01", "actor_type": "player"},
 		"trace_id": "g4_smoke_save_reload",
-	}) as Dictionary
+	})) as Dictionary
 	if str(apply.get("status", "")) != "committed":
 		_fail("apply_mutation", str(apply))
 		return
@@ -250,15 +344,7 @@ func _test_save_reload_hash() -> void:
 func _test_duplicate_request() -> void:
 	var s: Object = _new_store()
 	s.call("create_journal", G3_SPACE_ID, G3_BASE_REV, G3_SNAPSHOT_ID, G3_SESSION_ID)
-	var req := {
-		"request_id": "aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee",
-		"prompt_id": G3_PROMPT_ID,
-		"expected_world_revision": 3,
-		"mutation_class": "durable_world",
-		"operation": "create",
-		"entity": _house_entity(),
-		"confirmation": {"state": "confirmed"},
-	}
+	var req := _base_mutation("aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee")
 	var a1: Dictionary = s.call("apply_mutation", req) as Dictionary
 	if str(a1.get("status")) != "committed":
 		_fail("dup_first_apply", str(a1))
@@ -303,14 +389,9 @@ func _test_stale_revision() -> void:
 	s.call("create_journal", G3_SPACE_ID, G3_BASE_REV, G3_SNAPSHOT_ID, G3_SESSION_ID)
 	var set_before: String = str(s.call("entity_set_hash"))
 	var entries_before: int = int(s.call("entry_count"))
-	var stale: Dictionary = s.call("apply_mutation", {
-		"request_id": "stale-0000-4000-8000-000000000001",
-		"expected_world_revision": 0,
-		"mutation_class": "durable_world",
-		"operation": "create",
-		"entity": _house_entity(),
-		"confirmation": {"state": "confirmed"},
-	}) as Dictionary
+	var stale: Dictionary = s.call("apply_mutation", _base_mutation(
+		"stale-0000-4000-8000-000000000001", 0
+	)) as Dictionary
 	if str(stale.get("status")) != "conflicted":
 		_fail("stale_status", str(stale))
 		return
@@ -327,15 +408,9 @@ func _test_stale_revision() -> void:
 	if str(s.call("entity_set_hash")) != set_before:
 		_fail("stale_entities_mutated")
 		return
-	# also stale 2
-	var stale2: Dictionary = s.call("apply_mutation", {
-		"request_id": "stale-0000-4000-8000-000000000002",
-		"expected_world_revision": 2,
-		"mutation_class": "durable_world",
-		"operation": "create",
-		"entity": _house_entity(),
-		"confirmation": {"state": "confirmed"},
-	}) as Dictionary
+	var stale2: Dictionary = s.call("apply_mutation", _base_mutation(
+		"stale-0000-4000-8000-000000000002", 2
+	)) as Dictionary
 	if str(stale2.get("status")) != "conflicted":
 		_fail("stale2_status", str(stale2))
 		return
@@ -370,7 +445,6 @@ func _test_malformed_journal() -> void:
 		_fail("truncated_code", code2)
 		return
 
-	# missing entries
 	_write_user_file(
 		USER_MALFORMED,
 		"{\"schema_version\":\"1.0.0\",\"space_type\":\"private_reality\",\"space_id\":\"home_01\",\"world_revision\":3}"
@@ -379,9 +453,6 @@ func _test_malformed_journal() -> void:
 	if bool(r3.get("ok", true)):
 		_fail("missing_entries_accepted", str(r3))
 		return
-	if (s.call("list_entity_ids") as PackedStringArray).size() != 0 and s.call("has_journal"):
-		# store should not invent entities from failed load — if prior journal was open, recreate
-		pass
 	_evidence["AT-MALFORMED-JOURNAL"] = {
 		"malformed_error_code": code1,
 		"truncated_error_code": code2,
@@ -408,6 +479,7 @@ func _test_schema_incompatible() -> void:
 	if str(r.get("error_code", "")) != "journal_schema_incompatible":
 		_fail("schema_code", str(r.get("error_code")))
 		return
+	_evidence["AT-SCHEMA-INCOMPAT"] = {"pass": true}
 	_ok("incompatible_schema_version_fail_closed")
 
 
@@ -429,22 +501,22 @@ func _test_wrong_space_type() -> void:
 	if str(r.get("error_code", "")) != "wrong_space_type":
 		_fail("space_code", str(r.get("error_code")))
 		return
+	_evidence["AT-SPACE-BOUNDARY"] = {"pass": true}
 	_ok("reject_non_private_reality_journal")
 
 
 func _test_compensation_append() -> void:
 	var s: Object = _new_store()
 	s.call("create_journal", G3_SPACE_ID, G3_BASE_REV, G3_SNAPSHOT_ID, G3_SESSION_ID)
-	var a1: Dictionary = s.call("apply_mutation", {
+	var a1: Dictionary = s.call("apply_mutation", _offline_auth({
 		"request_id": "comp-mut-0000-4000-8000-000000000001",
 		"prompt_id": G3_PROMPT_ID,
 		"expected_world_revision": 3,
 		"mutation_class": "durable_world",
 		"operation": "create",
 		"entity": _house_entity(),
-		"confirmation": {"state": "confirmed"},
 		"receipt_id": "receipt-mut-0000-4000-8000-000000000001",
-	}) as Dictionary
+	})) as Dictionary
 	if str(a1.get("status")) != "committed":
 		_fail("comp_apply", str(a1))
 		return
@@ -452,14 +524,14 @@ func _test_compensation_append() -> void:
 	var entries_before: Array = s.call("get_entries") as Array
 	var prior_entry_canon: String = str(_Canon.call("stringify", entries_before[0]))
 
-	var c1: Dictionary = s.call("apply_compensation", {
+	var c1: Dictionary = s.call("apply_compensation", _offline_auth({
 		"request_id": "comp-new-0000-4000-8000-000000000002",
 		"prior_receipt_id": prior_receipt,
 		"prior_request_id": "comp-mut-0000-4000-8000-000000000001",
 		"expected_world_revision": 4,
 		"compensated_entity_ids": ["entity_cozy_house_01"],
 		"trace_id": "g4_smoke_compensation",
-	}) as Dictionary
+	})) as Dictionary
 	if str(c1.get("status")) != "committed":
 		_fail("comp_status", str(c1))
 		return
@@ -483,12 +555,10 @@ func _test_compensation_append() -> void:
 	if str(entries_after[1].get("prior_receipt_id")) != prior_receipt:
 		_fail("comp_link")
 		return
-	# entity tombstoned — not in active set
 	if s.call("get_entity", "entity_cozy_house_01") != null:
 		_fail("comp_entity_still_active")
 		return
 
-	# save/reload preserves both entries
 	s.call("save_journal", USER_JOURNAL)
 	var s2: Object = _new_store()
 	var loaded: Dictionary = s2.call("load_journal", USER_JOURNAL) as Dictionary
@@ -536,7 +606,6 @@ func _test_cancel_not_journaled() -> void:
 		_fail("cancel_code", code)
 		return
 
-	# unconfirmed preview
 	var r2: Dictionary = s.call("apply_mutation", {
 		"request_id": "preview-0000-4000-8000-000000000001",
 		"expected_world_revision": 3,
@@ -583,18 +652,16 @@ func _test_g3_rev3_preserved() -> void:
 		_fail("g3_base_not_3")
 		return
 
-	# Apply using expected_world_revision=3 matching G3 complete receipt / commit_request
-	var apply: Dictionary = s.call("apply_mutation", {
+	var apply: Dictionary = s.call("apply_mutation", _offline_auth({
 		"request_id": "g3-preserve-0000-4000-8000-000000000099",
 		"prompt_id": G3_PROMPT_ID,
 		"expected_world_revision": 3,
 		"mutation_class": "durable_world",
 		"operation": "create",
 		"entity": _house_entity(),
-		"confirmation": {"state": "confirmed", "confirmed_by": "player_01"},
 		"actor": {"actor_id": "player_01", "actor_type": "player"},
 		"trace_id": "executor_commit_handoff_a5b87763",
-	}) as Dictionary
+	})) as Dictionary
 	if str(apply.get("status")) != "committed":
 		_fail("g3_apply", str(apply))
 		return
@@ -617,7 +684,6 @@ func _test_g3_rev3_preserved() -> void:
 	if int(s2.call("get_world_revision")) != 4:
 		_fail("g3_reload_head", str(s2.call("get_world_revision")))
 		return
-	# Ensure never coerced to 0
 	if int(s2.call("get_base_world_revision")) == 0 or int(s2.call("get_world_revision")) == 0:
 		_fail("g3_coerced_to_zero")
 		return
@@ -638,6 +704,443 @@ func _test_g3_rev3_preserved() -> void:
 	_ok("g3_expected_world_revision_3_through_save_reload")
 
 
+# --- Integrity tests ---
+
+func _build_two_entry_sealed_journal(path: String) -> Object:
+	var s: Object = _new_store()
+	s.call("create_journal", G3_SPACE_ID, G3_BASE_REV, G3_SNAPSHOT_ID, G3_SESSION_ID)
+	var a1: Dictionary = s.call("apply_offline_private_reality_mutation", _base_mutation(
+		"int-mut-0000-4000-8000-000000000001", 3
+	)) as Dictionary
+	if str(a1.get("status")) != "committed":
+		_fail("int_seed_apply1", str(a1))
+		return null
+	# Second entity
+	var ent2 := _house_entity()
+	ent2["entity_id"] = "entity_cozy_house_02"
+	ent2["transform"] = {"x": 12, "y": 6, "elevation": 0, "rotation_deg": 0}
+	var a2: Dictionary = s.call("apply_offline_private_reality_mutation", _offline_auth({
+		"request_id": "int-mut-0000-4000-8000-000000000002",
+		"prompt_id": G3_PROMPT_ID,
+		"expected_world_revision": 4,
+		"mutation_class": "durable_world",
+		"operation": "create",
+		"entity": ent2,
+	})) as Dictionary
+	if str(a2.get("status")) != "committed":
+		_fail("int_seed_apply2", str(a2))
+		return null
+	var saved: Dictionary = s.call("save_journal", path) as Dictionary
+	if not bool(saved.get("ok", false)):
+		_fail("int_seed_save", str(saved))
+		return null
+	return s
+
+
+func _load_json_dict(path: String) -> Dictionary:
+	var f: FileAccess = FileAccess.open(path, FileAccess.READ)
+	if f == null:
+		f = FileAccess.open(ProjectSettings.globalize_path(path), FileAccess.READ)
+	if f == null:
+		return {}
+	var text: String = f.get_as_text()
+	f.close()
+	var parsed: Variant = JSON.parse_string(text)
+	if parsed is Dictionary:
+		return parsed as Dictionary
+	return {}
+
+
+func _write_json_dict(path: String, body: Dictionary) -> void:
+	# Compact JSON via engine stringify (tamper tests only; durable path uses canonical).
+	_write_user_file(path, JSON.stringify(body))
+
+
+func _test_integrity_happy() -> void:
+	var mod: Object = _Module.new()
+	_inject_test_key(mod)
+	var pid: String = str(mod.call("get_key_provider_id"))
+	if pid != "TEST_ONLY_G4":
+		_fail("test_provider_id", pid)
+		if mod is Node:
+			(mod as Node).free()
+		return
+	var created: Dictionary = mod.call(
+		"create_journal", G3_SPACE_ID, G3_BASE_REV, G3_SNAPSHOT_ID, G3_SESSION_ID
+	) as Dictionary
+	if not bool(created.get("ok", false)):
+		_fail("happy_create", str(created))
+		if mod is Node:
+			(mod as Node).free()
+		return
+	var apply: Dictionary = mod.call(
+		"apply_offline_private_reality_mutation",
+		_base_mutation("happy-0000-4000-8000-000000000001")
+	) as Dictionary
+	if str(apply.get("status")) != "committed":
+		_fail("happy_apply", str(apply))
+		if mod is Node:
+			(mod as Node).free()
+		return
+	var seal: String = str(apply.get("seal", ""))
+	if seal.length() != 64:
+		_fail("happy_seal_shape", seal)
+		if mod is Node:
+			(mod as Node).free()
+		return
+	var v1: Dictionary = mod.call("verify_integrity") as Dictionary
+	if not bool(v1.get("ok", false)):
+		_fail("happy_verify_mem", str(v1))
+		if mod is Node:
+			(mod as Node).free()
+		return
+	var saved: Dictionary = mod.call("save_journal", USER_SEALED) as Dictionary
+	if not bool(saved.get("ok", false)):
+		_fail("happy_save", str(saved))
+		if mod is Node:
+			(mod as Node).free()
+		return
+	var h1: String = str(mod.call("entity_hash", "entity_cozy_house_01"))
+	var set1: String = str(mod.call("entity_set_hash"))
+
+	var mod2: Object = _Module.new()
+	_inject_test_key(mod2)
+	var loaded: Dictionary = mod2.call("load_journal", USER_SEALED) as Dictionary
+	if not bool(loaded.get("ok", false)):
+		_fail("happy_load", str(loaded))
+		if mod is Node:
+			(mod as Node).free()
+		if mod2 is Node:
+			(mod2 as Node).free()
+		return
+	var v2: Dictionary = mod2.call("verify_integrity") as Dictionary
+	if not bool(v2.get("ok", false)):
+		_fail("happy_verify_loaded", str(v2))
+		if mod is Node:
+			(mod as Node).free()
+		if mod2 is Node:
+			(mod2 as Node).free()
+		return
+	var entries: Array = mod2.call("get_entries") as Array
+	if entries.is_empty() or not (entries[0] as Dictionary).has("seal"):
+		_fail("happy_entry_no_seal")
+		if mod is Node:
+			(mod as Node).free()
+		if mod2 is Node:
+			(mod2 as Node).free()
+		return
+	var h2: String = str(mod2.call("entity_hash", "entity_cozy_house_01"))
+	if h1 != h2:
+		_fail("happy_hash_drift", "%s vs %s" % [h1, h2])
+		if mod is Node:
+			(mod as Node).free()
+		if mod2 is Node:
+			(mod2 as Node).free()
+		return
+	_evidence["AT-INTEGRITY-HAPPY"] = {
+		"provider_id": pid,
+		"test_key": true,
+		"seal": seal,
+		"verify_ok": true,
+		"entity_hash": h1,
+		"entity_set_hash": set1,
+		"local_seal_not_server_authority": true,
+	}
+	_ok("sealed_journal_save_reload_verify_ok")
+	if mod is Node:
+		(mod as Node).free()
+	if mod2 is Node:
+		(mod2 as Node).free()
+
+
+func _test_integrity_wrong_key() -> void:
+	var s: Object = _build_two_entry_sealed_journal(USER_SEALED)
+	if s == null:
+		return
+	var s2: Object = _new_store(false)
+	_inject_test_key(s2, true)  # wrong key
+	var loaded: Dictionary = s2.call("load_journal", USER_SEALED) as Dictionary
+	if bool(loaded.get("ok", true)):
+		_fail("wrong_key_load_accepted", str(loaded))
+		return
+	var code: String = str(loaded.get("error_code", ""))
+	if code != "journal_integrity_wrong_key" and code != "journal_integrity_invalid":
+		_fail("wrong_key_code", code)
+		return
+	# No entity materialization
+	if (s2.call("list_entity_ids") as PackedStringArray).size() != 0:
+		if s2.call("has_journal"):
+			_fail("wrong_key_entities_materialized")
+			return
+	var v: Dictionary = s2.call("verify_integrity", USER_SEALED) as Dictionary
+	if bool(v.get("ok", true)):
+		_fail("wrong_key_verify_ok")
+		return
+	_evidence["AT-INTEGRITY-WRONG-KEY"] = {
+		"load_ok": false,
+		"error_code": code,
+		"no_entity_materialization": true,
+	}
+	_ok("wrong_key_fail_closed")
+
+
+func _test_integrity_tamper_entry() -> void:
+	if _build_two_entry_sealed_journal(USER_TAMPER) == null:
+		return
+	var env: Dictionary = _load_json_dict(USER_TAMPER)
+	if env.is_empty():
+		_fail("tamper_load_raw")
+		return
+	var entries: Array = env["entries"]
+	var e0: Dictionary = entries[0]
+	# Modify payload after seal
+	if e0.has("entity_delta") and e0["entity_delta"] is Dictionary:
+		(e0["entity_delta"] as Dictionary)["recipe_id"] = "tampered_recipe"
+	else:
+		e0["request_id"] = "tampered-request-id-000000000001"
+	entries[0] = e0
+	env["entries"] = entries
+	_write_json_dict(USER_TAMPER, env)
+
+	var s: Object = _new_store()
+	var loaded: Dictionary = s.call("load_journal", USER_TAMPER) as Dictionary
+	if bool(loaded.get("ok", true)):
+		_fail("tamper_accepted", str(loaded))
+		return
+	var code: String = str(loaded.get("error_code", ""))
+	if code != "journal_integrity_invalid" and code != "journal_integrity_wrong_key":
+		_fail("tamper_code", code)
+		return
+	_evidence["AT-INTEGRITY-TAMPER-ENTRY"] = {"error_code": code, "fail_closed": true}
+	_ok("modified_entry_detected")
+
+
+func _test_integrity_remove_entry() -> void:
+	if _build_two_entry_sealed_journal(USER_REMOVE) == null:
+		return
+	var env: Dictionary = _load_json_dict(USER_REMOVE)
+	var entries: Array = env["entries"]
+	if entries.size() < 2:
+		_fail("remove_need_two")
+		return
+	# Remove first entry; leave second (broken prev/sequence) and stale entry_count/head
+	entries.remove_at(0)
+	env["entries"] = entries
+	# Keep stale entry_count to also catch count mismatch OR fix count so integrity catches chain
+	env["entry_count"] = entries.size()
+	_write_json_dict(USER_REMOVE, env)
+
+	var s: Object = _new_store()
+	var loaded: Dictionary = s.call("load_journal", USER_REMOVE) as Dictionary
+	if bool(loaded.get("ok", true)):
+		_fail("remove_accepted", str(loaded))
+		return
+	var code: String = str(loaded.get("error_code", ""))
+	if code != "journal_integrity_invalid" and code != "journal_integrity_wrong_key" \
+			and code != "journal_malformed":
+		_fail("remove_code", code)
+		return
+	_evidence["AT-INTEGRITY-REMOVE-ENTRY"] = {"error_code": code, "fail_closed": true}
+	_ok("removed_entry_detected")
+
+
+func _test_integrity_reorder() -> void:
+	if _build_two_entry_sealed_journal(USER_REORDER) == null:
+		return
+	var env: Dictionary = _load_json_dict(USER_REORDER)
+	var entries: Array = env["entries"]
+	if entries.size() < 2:
+		_fail("reorder_need_two")
+		return
+	var tmp = entries[0]
+	entries[0] = entries[1]
+	entries[1] = tmp
+	env["entries"] = entries
+	_write_json_dict(USER_REORDER, env)
+
+	var s: Object = _new_store()
+	var loaded: Dictionary = s.call("load_journal", USER_REORDER) as Dictionary
+	if bool(loaded.get("ok", true)):
+		_fail("reorder_accepted", str(loaded))
+		return
+	var code: String = str(loaded.get("error_code", ""))
+	if code != "journal_integrity_invalid" and code != "journal_integrity_wrong_key" \
+			and code != "journal_malformed":
+		_fail("reorder_code", code)
+		return
+	_evidence["AT-INTEGRITY-REORDER"] = {"error_code": code, "fail_closed": true}
+	_ok("reordered_entries_detected")
+
+
+func _test_integrity_broken_prev() -> void:
+	if _build_two_entry_sealed_journal(USER_BROKEN_PREV) == null:
+		return
+	var env: Dictionary = _load_json_dict(USER_BROKEN_PREV)
+	var entries: Array = env["entries"]
+	if entries.size() < 2:
+		_fail("broken_prev_need_two")
+		return
+	var e1: Dictionary = entries[1]
+	# Corrupt prev_seal only (valid hex length)
+	e1["prev_seal"] = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+	entries[1] = e1
+	env["entries"] = entries
+	_write_json_dict(USER_BROKEN_PREV, env)
+
+	var s: Object = _new_store()
+	var v: Dictionary = s.call("verify_integrity", USER_BROKEN_PREV) as Dictionary
+	if bool(v.get("ok", true)):
+		_fail("broken_prev_accepted", str(v))
+		return
+	var broken_at = v.get("broken_at_index", null)
+	if broken_at != null and int(broken_at) != 1:
+		_fail("broken_prev_index", str(broken_at))
+		return
+	_evidence["AT-INTEGRITY-BROKEN-PREV"] = {
+		"error_code": str(v.get("error_code", "")),
+		"broken_at_index": broken_at,
+		"fail_closed": true,
+	}
+	_ok("broken_previous_seal_detected")
+
+
+func _test_integrity_invalid_seal() -> void:
+	if _build_two_entry_sealed_journal(USER_INVALID_SEAL) == null:
+		return
+	var env: Dictionary = _load_json_dict(USER_INVALID_SEAL)
+	var entries: Array = env["entries"]
+	var e0: Dictionary = entries[0]
+	e0["seal"] = "short"
+	e0["seal_alg"] = "md5"
+	entries[0] = e0
+	env["entries"] = entries
+	_write_json_dict(USER_INVALID_SEAL, env)
+
+	var s: Object = _new_store()
+	var loaded: Dictionary = s.call("load_journal", USER_INVALID_SEAL) as Dictionary
+	if bool(loaded.get("ok", true)):
+		_fail("invalid_seal_accepted", str(loaded))
+		return
+	if str(loaded.get("error_code", "")) != "journal_integrity_invalid":
+		_fail("invalid_seal_code", str(loaded.get("error_code")))
+		return
+	_evidence["AT-INTEGRITY-INVALID-SEAL"] = {
+		"error_code": "journal_integrity_invalid",
+		"fail_closed": true,
+	}
+	_ok("invalid_or_missing_seal_fail_closed")
+
+
+# --- Consumer gate tests ---
+
+func _test_gate_offline_only() -> void:
+	var s: Object = _new_store()
+	s.call("create_journal", G3_SPACE_ID, G3_BASE_REV, G3_SNAPSHOT_ID, G3_SESSION_ID)
+	var before: int = int(s.call("entry_count"))
+
+	var contexts := ["shared_district", "online_private_reality", "server_economy", "ownership", "marketplace"]
+	for ctx in contexts:
+		var req := _base_mutation("gate-%s-0000-4000-8000-000000000001" % ctx.substr(0, 8))
+		req["authority"] = {"context": ctx, "source": "test"}
+		var r: Dictionary = s.call("apply_offline_private_reality_mutation", req) as Dictionary
+		if str(r.get("status")) != "rejected":
+			_fail("gate_ctx_not_rejected", "%s -> %s" % [ctx, str(r)])
+			return
+		var code: String = str(r.get("error_code", ""))
+		if code != "authority_context_rejected" and code != "offline_gate_rejected":
+			_fail("gate_ctx_code", "%s code=%s" % [ctx, code])
+			return
+
+	if int(s.call("entry_count")) != before:
+		_fail("gate_appended")
+		return
+	_evidence["AT-GATE-OFFLINE-ONLY"] = {
+		"rejected_contexts": contexts,
+		"entry_count_unchanged": true,
+	}
+	_ok("only_offline_private_reality_journals")
+
+
+func _test_gate_g3_rejected_no_auto() -> void:
+	var s: Object = _new_store()
+	s.call("create_journal", G3_SPACE_ID, G3_BASE_REV, G3_SNAPSHOT_ID, G3_SESSION_ID)
+	var before: int = int(s.call("entry_count"))
+
+	# Request shaped like G3 complete handoff stub without offline confirmed authority.
+	var stub_req := {
+		"request_id": G3_REQUEST_ID,
+		"prompt_id": G3_PROMPT_ID,
+		"expected_world_revision": 3,
+		"mutation_class": "durable_world",
+		"operation": "create",
+		"entity": _house_entity(),
+		"world_commit_invoked": false,
+		"durable_mutation_applied": false,
+		"trace_id": "g3_complete_handoff_stub",
+	}
+	var r: Dictionary = s.call("apply_mutation", stub_req) as Dictionary
+	if str(r.get("status")) != "rejected":
+		_fail("g3_stub_not_rejected", str(r))
+		return
+	var code: String = str(r.get("error_code", ""))
+	if code != "g3_rejected_handoff_not_journalable" and code != "offline_gate_rejected":
+		_fail("g3_stub_code", code)
+		return
+	if int(s.call("entry_count")) != before:
+		_fail("g3_stub_journaled")
+		return
+	if int(s.call("get_world_revision")) != 3:
+		_fail("g3_stub_rev")
+		return
+	_evidence["AT-GATE-G3-REJECTED-NO-AUTO"] = {
+		"status": "rejected",
+		"error_code": code,
+		"entry_count": before,
+		"world_commit_invoked": false,
+		"durable_mutation_applied": false,
+		"not_auto_journaled": true,
+	}
+	_ok("g3_rejected_handoff_not_auto_journaled")
+
+
+func _test_gate_explicit_offline_ok() -> void:
+	var s: Object = _new_store()
+	s.call("create_journal", G3_SPACE_ID, G3_BASE_REV, G3_SNAPSHOT_ID, G3_SESSION_ID)
+	var req := _offline_auth({
+		"request_id": "offline-ok-0000-4000-8000-000000000001",
+		"prompt_id": G3_PROMPT_ID,
+		"expected_world_revision": 3,
+		"mutation_class": "durable_world",
+		"operation": "create",
+		"entity": _house_entity(),
+		# Explicit offline confirmed even if G3 flags present (separate simulation action).
+		"world_commit_invoked": false,
+		"durable_mutation_applied": false,
+	})
+	var r: Dictionary = s.call("apply_offline_private_reality_mutation", req) as Dictionary
+	if str(r.get("status")) != "committed":
+		_fail("explicit_offline_status", str(r))
+		return
+	if int(r.get("old_world_revision", -1)) != 3 or int(r.get("new_world_revision", -1)) != 4:
+		_fail("explicit_offline_rev", str(r))
+		return
+	if str(r.get("seal", "")).length() != 64:
+		_fail("explicit_offline_seal", str(r.get("seal")))
+		return
+	if bool(r.get("local_seal_not_server_authority", false)) != true:
+		_fail("explicit_offline_authority_claim")
+		return
+	_evidence["AT-GATE-EXPLICIT-OFFLINE-OK"] = {
+		"status": "committed",
+		"old_world_revision": 3,
+		"new_world_revision": 4,
+		"seal_present": true,
+		"local_seal_not_server_authority": true,
+	}
+	_evidence["AT-PRESERVE-P0-SUITE"] = {"note": "P0 suite executed under sealed journal + key provider"}
+	_ok("explicit_offline_confirmed_apply_succeeds")
+
+
 func _write_user_file(path: String, content: String) -> void:
 	var global: String = ProjectSettings.globalize_path(path)
 	var parent: String = global.get_base_dir()
@@ -655,15 +1158,20 @@ func _write_user_file(path: String, content: String) -> void:
 
 func _write_evidence_export() -> void:
 	var out_path := "user://g4_persist_smoke/g4_persist_smoke_evidence.json"
-	# Also write under res://scripts/modules/persist/exports if writable
 	var payload := {
-		"schema_version": "g4_persist_smoke/1.0.0",
+		"schema_version": "g4_persist_smoke/1.1.0",
 		"task_id": "G4-001",
-		"wave": "P1_PERSIST_PATCH",
+		"wave": "R1_PERSIST_SIGNED_JOURNAL_PATCH",
 		"marker": "G4_PERSIST_SMOKE",
 		"passed_checks": _passed,
 		"failed_checks": _failures.size(),
 		"failures": Array(_failures),
+		"integrity": {
+			"algorithm": "hmac-sha256",
+			"test_key": true,
+			"key_provider_id": "TEST_ONLY_G4",
+			"local_seal_not_server_authority": true,
+		},
 		"g3_revision_binding": {
 			"expected_world_revision": 3,
 			"base_world_revision_seed": 3,
@@ -674,12 +1182,12 @@ func _write_evidence_export() -> void:
 			"context": "Offline Private Reality",
 			"space_type": "private_reality",
 			"not": ["shared_district", "server_economy", "multiplayer_ownership"],
+			"local_seal_meaning": "Device-local tamper-evident reconciliation evidence only",
 		},
 	}
 	var text: String = JSON.stringify(payload, "\t")
 	_write_user_file(out_path, text)
 
-	# Best-effort project export (may fail if res is read-only in export builds; OK for editor path)
 	var export_abs := ProjectSettings.globalize_path(EXPORT_DIR)
 	if not DirAccess.dir_exists_absolute(export_abs):
 		DirAccess.make_dir_recursive_absolute(export_abs)
@@ -690,7 +1198,6 @@ func _write_evidence_export() -> void:
 		ef.close()
 		print("  wrote evidence %s" % exp_path)
 	else:
-		# try relative open via res path
 		var rf: FileAccess = FileAccess.open(
 			"res://scripts/modules/persist/exports/g4_persist_smoke_evidence.json", FileAccess.WRITE
 		)

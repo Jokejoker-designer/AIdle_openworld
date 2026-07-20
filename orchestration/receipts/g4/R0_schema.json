@@ -1,0 +1,703 @@
+{
+  "agent_step_id": "G4-001-R0-schema-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G4-001",
+    "wave": "R0_SCHEMA_INTEGRITY_VERIFY",
+    "profile": "schema",
+    "correction_work_order": "orchestration/work_orders/WO-G4-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G4-001_CORRECTION_001_DISPATCH_MAP.md",
+    "codex_review": "orchestration/reviews/CODEX_G4-001_ADVERSARIAL_REVIEW.json",
+    "parent_schema": "orchestration/receipts/g4/P0_schema.json",
+    "state": "HANDOFF_TO_R1",
+    "self_accept": false,
+    "summary": "VERIFY_ONLY definition of the Architecture Lock 'Local signed journal' integrity invariant for Offline Private Reality. Current G4 journal is append-only JSON with SHA-256 entity hashes but has no HMAC/keyed seal, no previous-entry chain seal, no key-provider boundary, and no explicit offline_private_reality consumer gate. R1 (persist) is sole product writer for seal/key/consumer-gate implementation. Local seal is reconciliation evidence only — NOT Shared District or server authority.",
+    "scope": {
+      "in_scope": [
+        "HMAC-SHA256 (or equivalent keyed chain) integrity seal over canonical journal entry material",
+        "Previous-entry seal/hash linkage + sequence index + world_revision in seal material",
+        "Injected/local key-provider boundary (device-local; never production key hardcode)",
+        "Fail-closed integrity conditions (wrong key, modified/removed/reordered entry, broken prev seal, invalid seal)",
+        "Explicit offline_private_reality consumer gate for journal apply",
+        "G3 rejected handoff must not auto-journal as committed",
+        "API surface additions for R1 persist",
+        "Integrity acceptance tests for smoke"
+      ],
+      "out_of_scope": [
+        "Product implementation under game/scripts/modules/persist/** (R1 sole writer)",
+        "game/scripts/main/main.gd mount wiring (R2 core sole writer)",
+        "Executor product edits (R3 VERIFY_ONLY consumer tests only)",
+        "contracts/** edits",
+        "Shared District / Nakama / multiplayer authority",
+        "Server World Commit, economy, inventory, marketplace ownership",
+        "Database, API SDK, credential upload, dependency install",
+        "Treating local seal as online/shared world truth"
+      ],
+      "authority_boundary": {
+        "context": "Offline Private Reality",
+        "simulation": "local client",
+        "durable_state": "Local signed journal; reconcile on sync",
+        "architecture_lock_row": "orchestration/ARCHITECTURE_LOCK.md Authority table — Offline Private Reality",
+        "local_seal_meaning": "Device-local tamper-evident reconciliation evidence for offline Private Reality journal integrity only",
+        "local_seal_is_not": [
+          "Shared District authority",
+          "Server World Commit receipt",
+          "Online Private Reality durable truth",
+          "Economy / ownership / marketplace authority",
+          "API credential or multiplayer auth token",
+          "Proof that a mutation was accepted by world_commit_service"
+        ],
+        "explicit_not": [
+          "Shared District",
+          "server economy / currency / marketplace",
+          "multiplayer ownership authority",
+          "client-authoritative inventory or ownership",
+          "claim that local journal IS online World Commit truth"
+        ]
+      }
+    },
+    "read_gaps": {
+      "codex_challenge": "Architecture Lock requires a local signed journal, but no signature, HMAC or entry hash chain exists.",
+      "architecture_lock_requirement": "Offline Private Reality durable state = Local signed journal; reconcile on sync",
+      "p0_status": "P0 defined optional integrity.chain (unkeyed SHA-256) as recommendation only; not required as HMAC keyed seal",
+      "p1_implementation_status": {
+        "journal_store.gd": "Append-only JSON envelope + entries; entity_set_hash; no per-entry seal; no prev_seal; no key provider",
+        "persist_module.gd": "Delegates to journal_store; no set_key_provider / verify_integrity / offline gate method",
+        "i_persist_module.gd": "REQUIRED_METHODS lack integrity/key/consumer-gate APIs",
+        "entity_hasher.gd": "SHA-256 via HashingContext for entity material only — unkeyed content hash, not entry integrity seal",
+        "crypto_usage": "No Crypto.hmac_digest / HMAC-SHA256 anywhere under game/scripts/modules/persist/**"
+      },
+      "consumer_gate_gaps": {
+        "apply_mutation_accepts": "Generic durable_world|offline_reconcile requests without requiring authority.context=offline_private_reality",
+        "g3_rejected_handoff": "G3 complete path still world_commit_invoked=false and durable_mutation_applied=false; must not auto-journal as mutation_applied/committed",
+        "online_shared_economy": "Must be rejected at consumer gate; cannot local-journal as Offline Private Reality durable state"
+      },
+      "preserved_working_invariants_must_not_regress": [
+        "AT-SAVE-RELOAD-HASH",
+        "AT-DUP-REQUEST",
+        "AT-STALE-REVISION",
+        "AT-MALFORMED-JOURNAL",
+        "AT-SCHEMA-INCOMPAT",
+        "AT-COMPENSATION-APPEND",
+        "AT-CANCEL-NOT-JOURNALED",
+        "AT-G3-REV-3-PRESERVED",
+        "AT-CANON-SORT",
+        "AT-SPACE-BOUNDARY"
+      ]
+    },
+    "signed_journal_integrity": {
+      "id": "INV-SIGNED-JOURNAL-HMAC",
+      "statement": "Every durable journal entry carries an HMAC-SHA256 integrity seal over canonical seal material that includes the entry payload (without seal), previous entry seal (or genesis), world_revision after apply, and sequence index. Load/replay verifies the full chain fail-closed. Key material is obtained only through an injected/local key-provider boundary.",
+      "architecture_lock_alignment": "Local signed journal for Offline Private Reality only; reconcile on sync later uses offline_journal_reconcile — seal is local evidence, not server commit.",
+      "crypto_constraint": {
+        "allowed": "Built-in Godot 4 cryptography only (Crypto + HashingContext)",
+        "forbidden": [
+          "Third-party crypto plugins / dependency install",
+          "MD5",
+          "unkeyed-only chain presented as 'signed'",
+          "platform hash() as integrity",
+          "production keys hardcoded in source, fixtures, or exports"
+        ],
+        "recommended_api": {
+          "hmac": "Crypto.hmac_digest(HashingContext.HASH_SHA256, key_bytes, message_bytes) -> PackedByteArray",
+          "content_hash_still_used": "entity_hash / entity_set_hash remain unkeyed SHA-256 over aidle_canonical_json_v1 (P0 INV-HASH-STABLE preserved)",
+          "note": "Entity content hashes and entry integrity seals are distinct: content hash = deterministic world state equality; seal = tamper-evident journal lineage under local key"
+        }
+      },
+      "algorithm": {
+        "name": "HMAC-SHA256",
+        "encoding": "lowercase hex, 64 chars, pattern ^[a-f0-9]{64}$",
+        "equivalent_allowed": "Keyed chain Hi = HMAC-SHA256(key, prev_seal || canonical_entry_i_material) is the required shape; pure unkeyed SHA-256 chain alone is NOT sufficient for Architecture Lock 'signed'"
+      },
+      "seal_material": {
+        "name": "aidle_journal_seal_material_v1",
+        "description": "Canonical JSON object hashed under HMAC. Built from entry fields EXCLUDING the seal field itself (and excluding any runtime-only noise).",
+        "required_fields_in_material": {
+          "schema_version": "const 1.0.0 of journal envelope (or seal_schema_version if R1 versions seal independently; default bind journal schema_version)",
+          "space_type": "const private_reality",
+          "space_id": "journal space_id",
+          "journal_id": "journal instance id",
+          "sequence_index": "integer — 0-based append index of this entry (must equal array index in entries[])",
+          "prev_seal": "lowercase hex seal of previous entry; for sequence_index=0 use genesis_prev_seal",
+          "world_revision": "integer — entry.new_world_revision (head AFTER this entry applies)",
+          "old_world_revision": "integer — head BEFORE apply",
+          "entry_type": "mutation_applied | compensation",
+          "entry_id": "uuid",
+          "request_id": "uuid idempotency key",
+          "receipt_id": "uuid",
+          "mutation_class": "durable_world | offline_reconcile | compensating",
+          "operation_or_compensation_fields": "For mutation_applied: operation + entity_ids (sorted) + entity_delta canonical; for compensation: prior_receipt_id + prior_request_id + compensated_entity_ids (sorted) + entity_delta + history_erased=false",
+          "entry_payload_hash": "OPTIONAL but recommended: sha256_hex(aidle_canonical_json_v1(entry_without_seals)) to bind full entry bytes tightly"
+        },
+        "genesis_prev_seal": {
+          "rule": "For sequence_index=0, prev_seal MUST be HMAC-SHA256(key, utf8(aidle_canonical_json_v1(genesis_material))) OR a documented constant derived from key+journal genesis.",
+          "recommended_genesis_material": {
+            "kind": "journal_genesis",
+            "schema_version": "1.0.0",
+            "space_type": "private_reality",
+            "space_id": "<space_id>",
+            "journal_id": "<journal_id>",
+            "base_world_revision": "<int>",
+            "base_snapshot_id": "<uuid or empty>"
+          },
+          "note": "Empty string prev_seal is forbidden. Genesis must still be key-dependent so wrong key fails the first entry."
+        },
+        "canonicalization": "aidle_canonical_json_v1 (P0): sorted keys, compact UTF-8, fixed float rules. Seal message bytes = UTF-8 of canonical_stringify(seal_material_object).",
+        "excluded_from_seal_material": [
+          "entry.seal / entry.integrity_seal (the output field)",
+          "API keys, tokens, credentials (forbidden in journal entirely)",
+          "updated_at envelope churn that is not part of the entry",
+          "runtime node paths / preview mesh ids"
+        ]
+      },
+      "per_entry_fields": {
+        "required_on_each_entry_after_r1": {
+          "sequence_index": "int >= 0 matching entries[] index",
+          "prev_seal": "64 hex — previous entry seal or genesis",
+          "seal": "64 hex — HMAC-SHA256 of seal material",
+          "seal_alg": "const hmac-sha256"
+        },
+        "envelope_recommended": {
+          "integrity": {
+            "algorithm": "hmac-sha256",
+            "head_seal": "seal of last entry (or genesis if empty)",
+            "key_provider_id": "string id of provider class/mode (e.g. test_key_provider | device_local_provider) — NEVER the key bytes",
+            "sealed": true
+          }
+        },
+        "backward_compat_load": {
+          "unsigned_legacy_journals": "Journals lacking seal fields are integrity-invalid for correction acceptance. R1 MAY refuse load with error_code journal_integrity_unsigned OR support a one-time migrate-under-key path that re-seals only when explicitly invoked with a key provider and never silently treats unsigned as verified.",
+          "default_for_g4_correction": "Fail closed: unsigned entries => journal_integrity_invalid on verify_integrity / load when integrity enforcement is enabled (default ON after key provider set)."
+        }
+      },
+      "chain_rules": [
+        "entries[i].sequence_index == i",
+        "entries[0].prev_seal == genesis_prev_seal(key, journal header material)",
+        "entries[i].prev_seal == entries[i-1].seal for i > 0",
+        "entries[i].seal == HMAC-SHA256(key, canonical(seal_material_i))",
+        "Recompute seal on load; constant-time hex compare recommended; any mismatch fail closed",
+        "world_revision progression and request_id uniqueness rules from P0 remain mandatory in addition to seals"
+      ]
+    },
+    "key_provider_boundary": {
+      "id": "INV-KEY-PROVIDER-LOCAL",
+      "statement": "Integrity keys are obtained only through an injected or device-local key-provider interface. Production keys are never hardcoded. Smoke uses a clearly marked deterministic TEST key.",
+      "provider_interface_shape": {
+        "name": "IJournalKeyProvider (logical; may be RefCounted callback or methods on PersistModule)",
+        "methods": [
+          {
+            "name": "get_journal_hmac_key",
+            "returns": "PackedByteArray — raw key bytes (recommended 32 bytes)",
+            "notes": "Called by journal_store only when sealing or verifying; key must not be logged, journaled, exported to smoke evidence as secret, or written to commits"
+          },
+          {
+            "name": "get_provider_id",
+            "returns": "String — non-secret identifier for integrity.meta.key_provider_id"
+          }
+        ]
+      },
+      "injection_rules": [
+        "PersistModule.set_key_provider(provider) is the sole injection point for production and smoke",
+        "If no key provider is set: create/apply/save of sealed journals must fail closed with error_code key_provider_missing (do not seal with empty key; do not silently disable integrity)",
+        "Key bytes never appear in journal JSON, entity hashes, logs at info level, or exports/* evidence files",
+        "Key is not an API credential, Nakama token, Desktop Bridge secret, or server auth material",
+        "Device-local provider may derive from OS-secure storage later; G4 correction MVP may inject bytes via test provider only"
+      ],
+      "test_key": {
+        "mode": "TEST_ONLY",
+        "marker_required": "provider_id must contain 'test' (e.g. test_key_provider) AND smoke evidence must set integrity.test_key=true",
+        "deterministic_bytes_recommendation": "UTF-8 of a fixed labeled string such as 'AIDLE_G4_JOURNAL_HMAC_TEST_KEY_V1' padded/hashed to 32 bytes via SHA-256 — never used outside smoke/tests",
+        "forbidden": "Shipping builds must not default to the test key; production path requires non-test provider_id"
+      },
+      "wrong_key_behavior": "Loading or verify_integrity with a different key than the sealing key MUST fail closed (journal_integrity_invalid / journal_integrity_wrong_key). Do not partial-load entities."
+    },
+    "fail_closed_integrity_cases": [
+      {
+        "id": "INT-WRONG-KEY",
+        "trigger": "verify or load with key provider that does not match sealing key",
+        "behavior": "Refuse load/verify; error_code journal_integrity_wrong_key or journal_integrity_invalid; no entity set materialization from untrusted chain",
+        "maps_to_codex": "Wrong-key test required in missing_evidence"
+      },
+      {
+        "id": "INT-MODIFIED-ENTRY",
+        "trigger": "Any sealed field of an entry (payload, revision, ids, entity_delta, etc.) altered after seal",
+        "behavior": "Recomputed seal mismatch => fail closed journal_integrity_invalid; do not skip entry"
+      },
+      {
+        "id": "INT-REMOVED-ENTRY",
+        "trigger": "Middle or tail entry deleted from entries[] while later seals/count remain or head_seal stale",
+        "behavior": "sequence_index / prev_seal / entry_count / head_seal chain break => fail closed. Removing last entry without updating envelope also fails head integrity."
+      },
+      {
+        "id": "INT-REORDERED-ENTRY",
+        "trigger": "entries[] order permuted",
+        "behavior": "prev_seal chain and sequence_index fail => journal_integrity_invalid"
+      },
+      {
+        "id": "INT-BROKEN-PREV-SEAL",
+        "trigger": "entries[i].prev_seal != entries[i-1].seal (or != genesis for i=0)",
+        "behavior": "Fail closed immediately at first break; do not continue best-effort replay"
+      },
+      {
+        "id": "INT-INVALID-SEAL",
+        "trigger": "Missing seal, wrong length/charset, seal_alg != hmac-sha256, or HMAC mismatch",
+        "behavior": "Fail closed journal_integrity_invalid"
+      },
+      {
+        "id": "INT-KEY-PROVIDER-MISSING",
+        "trigger": "Sealed journal operations without set_key_provider",
+        "behavior": "Reject apply/save/verify with key_provider_missing"
+      },
+      {
+        "id": "INT-UNSIGNED-WHEN-ENFORCED",
+        "trigger": "Legacy unsigned journal under enforcement",
+        "behavior": "Fail closed (default for correction acceptance); optional explicit re-seal tool is separate and must be intentional"
+      }
+    ],
+    "consumer_gate": {
+      "id": "INV-OFFLINE-CONSUMER-GATE",
+      "statement": "Only explicit offline_private_reality confirmed operations may append to the local signed journal. G3 rejected World Commit handoff must not auto-journal as committed. Online Private Reality, Shared District, economy and ownership mutations must be rejected or routed to server World Commit — never local journal.",
+      "required_authority_metadata_on_apply": {
+        "authority.context": {
+          "required": true,
+          "allowed_for_local_journal": ["offline_private_reality"],
+          "reject": [
+            "online_private_reality",
+            "shared_district",
+            "private_with_visitors",
+            "server_economy",
+            "ownership",
+            "marketplace"
+          ]
+        },
+        "authority.source": {
+          "allowed_examples": ["local_player_confirm", "offline_journal_reconcile"],
+          "forbidden_as_server_claim": ["world_commit_service_success_claim_without_server", "shared_district_authority"]
+        },
+        "confirmation": {
+          "rule": "confirmation.state must be confirmed when confirmation object present (P0 preserved); unconfirmed preview never journals"
+        },
+        "space_type": {
+          "rule": "Must be private_reality; shared_district always rejected (P0 AT-SPACE-BOUNDARY preserved and strengthened at request gate)"
+        }
+      },
+      "g3_rejected_handoff_rule": {
+        "id": "INV-NO-AUTO-JOURNAL-G3-REJECTED",
+        "g3_complete_export": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+        "observed": {
+          "world_commit_invoked": false,
+          "durable_mutation_applied": false
+        },
+        "rule": "A consumer MUST NOT call apply_mutation/apply_compensation solely because a G3 complete handoff stub exists. Journaling requires an explicit offline_private_reality apply with confirmed authority metadata. world_commit_invoked=false AND durable_mutation_applied=false means NOT committed; local journal entry is a separate explicit Offline Private Reality simulation action, never an implicit promotion of the stub.",
+        "auto_journal_forbidden": true,
+        "test_requirement": "R3 executor VERIFY_ONLY must prove rejected G3 path does not produce mutation_applied; R1 smoke must reject requests that only wrap the stub without offline authority gate fields"
+      },
+      "reject_matrix": [
+        {
+          "id": "GATE-ONLINE-PR",
+          "input": "authority.context=online_private_reality",
+          "result": "rejected; route to server World Commit (not implemented here)"
+        },
+        {
+          "id": "GATE-SHARED",
+          "input": "authority.context=shared_district OR space_type=shared_district",
+          "result": "rejected"
+        },
+        {
+          "id": "GATE-ECONOMY",
+          "input": "authority.context in server_economy|ownership|marketplace OR mutation claims currency/inventory authority",
+          "result": "rejected; client-authoritative economy forbidden (ARCHITECTURE_LOCK)"
+        },
+        {
+          "id": "GATE-G3-STUB-ONLY",
+          "input": "request carries world_commit_invoked=false durable_mutation_applied=false without explicit offline_private_reality confirmed apply",
+          "result": "rejected; not auto-journaled as committed"
+        },
+        {
+          "id": "GATE-CANCEL-PREVIEW",
+          "input": "cancel / preview_only / confirmation.state!=confirmed",
+          "result": "rejected (P0 INV-NO-CANCEL-JOURNAL preserved)"
+        }
+      ],
+      "recommended_entry_api": {
+        "name": "apply_offline_private_reality_mutation",
+        "purpose": "Single consumer-facing gate that validates authority metadata then delegates to sealed apply_mutation",
+        "returns": "Same status envelope as apply_mutation (committed|idempotent_replay|conflicted|rejected)",
+        "notes": "apply_mutation may remain internal/low-level but must enforce the same gate when called; public consumer path should be the explicit offline method"
+      }
+    },
+    "preserved_p0_invariants": {
+      "note": "R1 MUST preserve all P0 behavioral invariants; integrity is additive fail-closed, not a replacement",
+      "invariants": [
+        {
+          "id": "INV-PR-SPACE",
+          "statement": "Journal space_type is always private_reality"
+        },
+        {
+          "id": "INV-APPEND-ONLY",
+          "statement": "Entries append-only; compensation links prior_receipt_id; no rewrite/delete of history"
+        },
+        {
+          "id": "INV-IDEM-REQUEST",
+          "statement": "request_id idempotency; duplicate => idempotent_replay; no second entity/revision bump"
+        },
+        {
+          "id": "INV-REVISION-OPTIMISTIC",
+          "statement": "expected_world_revision must match head or revision_mismatch with zero partial mutation"
+        },
+        {
+          "id": "INV-HASH-STABLE",
+          "statement": "entity_hash / entity_set_hash SHA-256 over aidle_canonical_json_v1; save/reload equality"
+        },
+        {
+          "id": "INV-CANON-SORT",
+          "statement": "Canonical JSON sorted keys + fixed float format"
+        },
+        {
+          "id": "INV-NO-CANCEL-JOURNAL",
+          "statement": "Cancelled previews / unconfirmed manifestation never durable"
+        },
+        {
+          "id": "INV-COMPENSATION-LINK",
+          "statement": "Compensation new entry; history_erased=false"
+        },
+        {
+          "id": "INV-G3-REV-3",
+          "statement": "G3 starter expected_world_revision/base 3 preserved; default 0 must not win"
+        },
+        {
+          "id": "INV-FAIL-CLOSED-LOAD",
+          "statement": "Truncated/malformed/incompatible schema refuse load"
+        },
+        {
+          "id": "INV-LOCAL-NOT-SERVER-COMMIT",
+          "statement": "Local journal apply is Offline Private Reality simulation durability only"
+        },
+        {
+          "id": "INV-NO-SECRETS",
+          "statement": "No API keys/tokens/credentials in journal, saves, hash or seal material"
+        }
+      ],
+      "new_invariants_this_correction": [
+        "INV-SIGNED-JOURNAL-HMAC",
+        "INV-KEY-PROVIDER-LOCAL",
+        "INV-OFFLINE-CONSUMER-GATE",
+        "INV-NO-AUTO-JOURNAL-G3-REJECTED",
+        "INV-LOCAL-SEAL-NOT-SERVER-AUTHORITY"
+      ]
+    },
+    "local_seal_authority_clarification": {
+      "id": "INV-LOCAL-SEAL-NOT-SERVER-AUTHORITY",
+      "statement": "A valid local HMAC seal proves only that journal bytes were produced/extended under the device-local key provider for Offline Private Reality reconciliation evidence. It does NOT authorize Shared District placement, server economy, multiplayer ownership, or stand in for world_commit_service.",
+      "status_semantics": {
+        "local_status_committed": "Means mutation_applied or compensation entry sealed and appended to local journal successfully",
+        "not_equal_to": "commit_receipt issued by world_commit_service with server authority"
+      },
+      "reconcile_future": "On sync, offline entries may be proposed for server reconciliation under mutation_class=offline_reconcile / authority.source=offline_journal_reconcile; server remains durable authority for online/shared contexts (ARCHITECTURE_LOCK)."
+    },
+    "api_surface_for_persist": {
+      "module_root": "game/scripts/modules/persist/",
+      "interface": "game/scripts/modules/interfaces/i_persist_module.gd",
+      "sole_product_writer": "R1_PERSIST_SIGNED_JOURNAL_PATCH (persist profile, PATCH_DRAFT)",
+      "preserve_existing_methods": [
+        "get_schema_version",
+        "create_journal",
+        "load_journal",
+        "save_journal",
+        "apply_mutation",
+        "apply_compensation",
+        "get_world_revision",
+        "get_entity",
+        "list_entity_ids",
+        "entity_hash",
+        "entity_set_hash",
+        "canonical_stringify",
+        "sha256_hex",
+        "replay_to_entities"
+      ],
+      "required_new_or_extended_methods": [
+        {
+          "name": "set_key_provider",
+          "args": "provider: Object (implements get_journal_hmac_key -> PackedByteArray and get_provider_id -> String)",
+          "returns": "Dictionary { ok, provider_id?, error_code?, error? }",
+          "notes": "Required before sealed create/apply/save/verify. Reject null provider."
+        },
+        {
+          "name": "get_key_provider_id",
+          "returns": "String — empty if unset; never returns key bytes"
+        },
+        {
+          "name": "verify_integrity",
+          "args": "optional path: String (default = in-memory journal)",
+          "returns": "Dictionary { ok, head_seal?, entry_count?, world_revision?, error_code?, error?, broken_at_index? }",
+          "fail_closed_codes": [
+            "key_provider_missing",
+            "journal_integrity_invalid",
+            "journal_integrity_wrong_key",
+            "journal_integrity_unsigned",
+            "no_journal"
+          ],
+          "notes": "Full chain recompute; must be used by load_journal when provider set"
+        },
+        {
+          "name": "apply_offline_private_reality_mutation",
+          "args": "request: Dictionary including authority.context=offline_private_reality and confirmed metadata + existing apply_mutation fields",
+          "returns": "status envelope committed|idempotent_replay|conflicted|rejected",
+          "notes": "Consumer gate entrypoint; seals on success"
+        },
+        {
+          "name": "apply_offline_private_reality_compensation",
+          "args": "request: Dictionary with offline authority metadata + compensation fields",
+          "returns": "status envelope",
+          "notes": "Same gate; compensation remains append-only sealed entry"
+        },
+        {
+          "name": "hmac_sha256_hex",
+          "args": "key: PackedByteArray, message_utf8: String",
+          "returns": "String 64 lowercase hex",
+          "notes": "Pure helper for tests; production sealing uses provider key internally"
+        },
+        {
+          "name": "compute_entry_seal",
+          "args": "entry_without_seal: Dictionary, prev_seal: String, sequence_index: int",
+          "returns": "Dictionary { ok, seal?, prev_seal?, error? }",
+          "notes": "Uses current key provider + aidle_journal_seal_material_v1"
+        }
+      ],
+      "behavior_extensions_to_existing_methods": {
+        "create_journal": "After key provider set, compute and store genesis material; empty entries head_seal=genesis_prev_seal",
+        "apply_mutation": "Must enforce offline consumer gate (or only be reachable after gate); on success append entry with sequence_index, prev_seal, seal, seal_alg; bump head_seal",
+        "apply_compensation": "Same sealing rules as mutation_applied",
+        "save_journal": "Persist seals in entries and integrity.head_seal; refuse if provider missing when enforcement on",
+        "load_journal": "Parse + structural validate (P0) + verify_integrity chain; fail closed on any seal/key failure; then replay entities only if integrity ok"
+      },
+      "recommended_files_for_r1": [
+        "game/scripts/modules/persist/journal_store.gd",
+        "game/scripts/modules/persist/persist_module.gd",
+        "game/scripts/modules/persist/journal_seal.gd (optional new helper)",
+        "game/scripts/modules/persist/test_journal_key_provider.gd (TEST_ONLY smoke helper)",
+        "game/scripts/modules/persist/g4_persist_smoke.gd",
+        "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+        "game/scripts/modules/interfaces/i_persist_module.gd"
+      ],
+      "must_not_edit": [
+        "contracts/**",
+        "orchestration/tasks.json",
+        "orchestration/ARCHITECTURE_LOCK.md",
+        "orchestration/work_orders/**",
+        "game/scripts/main/main.gd (R2 core ownership)",
+        "game/scripts/modules/executor/** (R3 verify-only)",
+        "prior P0–P4 product semantics beyond additive integrity/gate"
+      ]
+    },
+    "acceptance_tests_for_smoke": [
+      {
+        "id": "AT-INTEGRITY-HAPPY",
+        "name": "sealed_journal_save_reload_verify_ok",
+        "steps": [
+          "set_key_provider(TEST key provider, test_key marker)",
+          "create_journal(home_01, base_world_revision=3)",
+          "apply_offline_private_reality_mutation success",
+          "verify_integrity ok; save; load in fresh module with same TEST key",
+          "verify_integrity ok; entity hashes stable; seals present on entries"
+        ],
+        "pass_criteria": "ok seals; P0 hash equality preserved"
+      },
+      {
+        "id": "AT-INTEGRITY-WRONG-KEY",
+        "name": "wrong_key_fail_closed",
+        "steps": [
+          "seal journal under TEST key A",
+          "load or verify_integrity with TEST key B",
+          "assert ok=false and integrity error code"
+        ],
+        "pass_criteria": "no entity materialization from invalid chain"
+      },
+      {
+        "id": "AT-INTEGRITY-TAMPER-ENTRY",
+        "name": "modified_entry_detected",
+        "steps": [
+          "save sealed journal",
+          "modify entity_delta or request_id bytes on disk",
+          "load/verify with correct key",
+          "assert journal_integrity_invalid"
+        ],
+        "pass_criteria": "fail closed"
+      },
+      {
+        "id": "AT-INTEGRITY-REMOVE-ENTRY",
+        "name": "removed_entry_detected",
+        "steps": [
+          "two sealed entries",
+          "remove one entry from file (or truncate entries array inconsistently)",
+          "load/verify",
+          "assert integrity failure"
+        ],
+        "pass_criteria": "fail closed"
+      },
+      {
+        "id": "AT-INTEGRITY-REORDER",
+        "name": "reordered_entries_detected",
+        "steps": [
+          "two+ sealed entries",
+          "swap order on disk",
+          "load/verify",
+          "assert integrity failure (prev_seal/sequence_index)"
+        ],
+        "pass_criteria": "fail closed"
+      },
+      {
+        "id": "AT-INTEGRITY-BROKEN-PREV",
+        "name": "broken_previous_seal_detected",
+        "steps": [
+          "corrupt entries[1].prev_seal only",
+          "verify",
+          "assert broken_at_index=1"
+        ],
+        "pass_criteria": "fail closed"
+      },
+      {
+        "id": "AT-INTEGRITY-INVALID-SEAL",
+        "name": "invalid_or_missing_seal_fail_closed",
+        "steps": [
+          "blank seal / short hex / wrong seal_alg",
+          "verify/load",
+          "assert journal_integrity_invalid"
+        ],
+        "pass_criteria": "fail closed"
+      },
+      {
+        "id": "AT-KEY-PROVIDER-MISSING",
+        "name": "missing_key_provider_fail_closed",
+        "steps": [
+          "fresh module without set_key_provider",
+          "attempt apply_offline_private_reality_mutation or sealed save",
+          "assert key_provider_missing"
+        ],
+        "pass_criteria": "no unsigned silent success under enforcement"
+      },
+      {
+        "id": "AT-GATE-OFFLINE-ONLY",
+        "name": "only_offline_private_reality_journals",
+        "steps": [
+          "with key provider set, attempt apply with authority.context=shared_district / online_private_reality / server_economy",
+          "assert rejected each"
+        ],
+        "pass_criteria": "no local journal append"
+      },
+      {
+        "id": "AT-GATE-G3-REJECTED-NO-AUTO",
+        "name": "g3_rejected_handoff_not_auto_journaled",
+        "steps": [
+          "build request from g3_complete_receipt fields with world_commit_invoked=false durable_mutation_applied=false without offline confirmed authority",
+          "assert rejected / not committed",
+          "assert entry_count unchanged"
+        ],
+        "pass_criteria": "stub alone never becomes mutation_applied"
+      },
+      {
+        "id": "AT-GATE-EXPLICIT-OFFLINE-OK",
+        "name": "explicit_offline_confirmed_apply_succeeds",
+        "steps": [
+          "authority.context=offline_private_reality, confirmation.state=confirmed, expected_world_revision=3",
+          "apply_offline_private_reality_mutation",
+          "assert committed; seal present; rev 3->4"
+        ],
+        "pass_criteria": "explicit offline path works without claiming server commit"
+      },
+      {
+        "id": "AT-PRESERVE-P0-SUITE",
+        "name": "prior_eleven_p0_behaviors_still_pass",
+        "steps": [
+          "Re-run existing P0/P1 acceptance suite under sealed journal + key provider"
+        ],
+        "pass_criteria": "All prior PASS checks remain PASS (hashes, idempotency, stale rev, malformed, schema, space, compensation, cancel, g3 rev3)"
+      }
+    ],
+    "error_codes_additive": [
+      "key_provider_missing",
+      "journal_integrity_invalid",
+      "journal_integrity_wrong_key",
+      "journal_integrity_unsigned",
+      "authority_context_rejected",
+      "offline_gate_rejected",
+      "g3_rejected_handoff_not_journalable"
+    ],
+    "alignment": {
+      "architecture_lock": "Offline Private Reality → Local signed journal; reconcile on sync",
+      "wo_correction": "orchestration/work_orders/WO-G4-001-CORRECTION-001.md Signed local journal integrity + consumer gate",
+      "codex_missing_evidence": [
+        "Wrong-key, entry-tamper, removal and reorder tests for keyed journal integrity",
+        "Consumer test proving only explicitly gated offline Private Reality operations reach the journal"
+      ],
+      "godot_builtin_only": true,
+      "no_dependency_install": true
+    },
+    "product_writes": 0,
+    "only_write": "orchestration/receipts/g4/R0_schema.json",
+    "children": []
+  },
+  "smoke_test": {
+    "type": "verify_only_schema_contract",
+    "executable_smoke_run": false,
+    "reason": "R0_SCHEMA_INTEGRITY_VERIFY defines signed-journal integrity + consumer-gate invariants only; executable HMAC/tamper/gate smoke is R1_PERSIST_SIGNED_JOURNAL_PATCH ownership; runtime mount is R2; executor consumer verify is R3",
+    "downstream_required_markers": [
+      "AT-INTEGRITY-HAPPY pass",
+      "AT-INTEGRITY-WRONG-KEY pass",
+      "AT-INTEGRITY-TAMPER-ENTRY pass",
+      "AT-INTEGRITY-REMOVE-ENTRY pass",
+      "AT-INTEGRITY-REORDER pass",
+      "AT-INTEGRITY-BROKEN-PREV pass",
+      "AT-INTEGRITY-INVALID-SEAL pass",
+      "AT-KEY-PROVIDER-MISSING pass",
+      "AT-GATE-OFFLINE-ONLY pass",
+      "AT-GATE-G3-REJECTED-NO-AUTO pass",
+      "AT-GATE-EXPLICIT-OFFLINE-OK pass",
+      "AT-PRESERVE-P0-SUITE pass",
+      "R2 PersistModule mounted (not AgentPersistStub)",
+      "R3 consumer-gate verify receipt"
+    ]
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g4/R0_schema.json"],
+    "no_product_code_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_executor_product_edits": true,
+    "no_core_main_gd_edit": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G4-001-CORRECTION-001, G4-001_CORRECTION_001_DISPATCH_MAP, CODEX_G4-001_ADVERSARIAL_REVIEW, P0_schema, journal_store.gd, persist_module.gd, i_persist_module.gd, agent_step_contract manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G4-001-CORRECTION-001.md",
+    "orchestration/work_orders/G4-001_CORRECTION_001_DISPATCH_MAP.md",
+    "orchestration/reviews/CODEX_G4-001_ADVERSARIAL_REVIEW.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "orchestration/receipts/g4/P0_schema.json",
+    "orchestration/receipts/g4/P1_persist.json",
+    "game/scripts/modules/persist/journal_store.gd",
+    "game/scripts/modules/persist/persist_module.gd",
+    "game/scripts/modules/interfaces/i_persist_module.gd",
+    "game/scripts/modules/persist/entity_hasher.gd",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "R1 must not present unkeyed SHA-256 chain as satisfying Architecture Lock 'signed'",
+    "Test key leakage into non-test provider_id would violate key boundary",
+    "load_journal performance: full HMAC chain verify is mandatory fail-closed (do not skip for speed)",
+    "Executor auto-wiring (R3) must not bypass apply_offline_private_reality_* gate",
+    "Unsigned pre-correction journals need explicit migration policy — default refuse under enforcement"
+  ],
+  "next_route": "R1_PERSIST_SIGNED_JOURNAL_PATCH"
+}

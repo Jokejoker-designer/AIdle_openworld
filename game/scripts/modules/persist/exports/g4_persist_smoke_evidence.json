@@ -6,6 +6,9 @@
 			"entries_unchanged": true,
 			"world_revision": 3
 		},
+		"AT-CANON-SORT": {
+			"pass": true
+		},
 		"AT-COMPENSATION-APPEND": {
 			"entry_count": 2,
 			"history_erased": false,
@@ -15,7 +18,7 @@
 		},
 		"AT-DUP-REQUEST": {
 			"entity_count": 1,
-			"prior_receipt_id": "edd69a38-4847-409e-891c-7711440ad277",
+			"prior_receipt_id": "bdd0ebc0-a551-4d59-acf4-97241be176ee",
 			"status": "idempotent_replay",
 			"world_revision": 4
 		},
@@ -31,10 +34,77 @@
 			"world_revision_after_apply": 4,
 			"world_revision_before_apply": 3
 		},
+		"AT-GATE-EXPLICIT-OFFLINE-OK": {
+			"local_seal_not_server_authority": true,
+			"new_world_revision": 4,
+			"old_world_revision": 3,
+			"seal_present": true,
+			"status": "committed"
+		},
+		"AT-GATE-G3-REJECTED-NO-AUTO": {
+			"durable_mutation_applied": false,
+			"entry_count": 0,
+			"error_code": "g3_rejected_handoff_not_journalable",
+			"not_auto_journaled": true,
+			"status": "rejected",
+			"world_commit_invoked": false
+		},
+		"AT-GATE-OFFLINE-ONLY": {
+			"entry_count_unchanged": true,
+			"rejected_contexts": [
+				"shared_district",
+				"online_private_reality",
+				"server_economy",
+				"ownership",
+				"marketplace"
+			]
+		},
+		"AT-INTEGRITY-BROKEN-PREV": {
+			"broken_at_index": 1,
+			"error_code": "journal_integrity_invalid",
+			"fail_closed": true
+		},
+		"AT-INTEGRITY-HAPPY": {
+			"entity_hash": "e96fadda66c85b6636096218d804173fb5913ed7170e38dea79e5257865d365a",
+			"entity_set_hash": "f1a0241e20d1c55d1d195dfcf31d3806e4155d27c007a372bc3e328ea5ad3ab2",
+			"local_seal_not_server_authority": true,
+			"provider_id": "TEST_ONLY_G4",
+			"seal": "4a44a5778d18a7b86558d7323012f329d5820a29e39ed8db8104e57e61ea4331",
+			"test_key": true,
+			"verify_ok": true
+		},
+		"AT-INTEGRITY-INVALID-SEAL": {
+			"error_code": "journal_integrity_invalid",
+			"fail_closed": true
+		},
+		"AT-INTEGRITY-REMOVE-ENTRY": {
+			"error_code": "journal_integrity_invalid",
+			"fail_closed": true
+		},
+		"AT-INTEGRITY-REORDER": {
+			"error_code": "journal_integrity_invalid",
+			"fail_closed": true
+		},
+		"AT-INTEGRITY-TAMPER-ENTRY": {
+			"error_code": "journal_integrity_wrong_key",
+			"fail_closed": true
+		},
+		"AT-INTEGRITY-WRONG-KEY": {
+			"error_code": "journal_integrity_invalid",
+			"load_ok": false,
+			"no_entity_materialization": true
+		},
+		"AT-KEY-PROVIDER-MISSING": {
+			"apply_error_code": "key_provider_missing",
+			"create_error_code": "key_provider_missing"
+		},
 		"AT-MALFORMED-JOURNAL": {
 			"malformed_error_code": "journal_truncated",
 			"missing_entries_ok": false,
 			"truncated_error_code": "journal_truncated"
+		},
+		"AT-PRESERVE-P0-SUITE": {
+			"note": "P0 suite executed under sealed journal + key provider"
 		},
 		"AT-SAVE-RELOAD-HASH": {
 			"base_world_revision": 3,
@@ -45,6 +115,12 @@
 			"reload_entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
 			"world_revision_after_apply": 4
 		},
+		"AT-SCHEMA-INCOMPAT": {
+			"pass": true
+		},
+		"AT-SPACE-BOUNDARY": {
+			"pass": true
+		},
 		"AT-STALE-REVISION": {
 			"conflict_code": "revision_mismatch",
 			"head_unchanged": 3,
@@ -54,6 +130,7 @@
 	},
 	"authority": {
 		"context": "Offline Private Reality",
+		"local_seal_meaning": "Device-local tamper-evident reconciliation evidence only",
 		"not": [
 			"shared_district",
 			"server_economy",
@@ -68,9 +145,15 @@
 		"expected_world_revision": 3,
 		"source": "g3_complete_receipt / commit_request_handoff_stub / valid_snapshot_desktop_bridge"
 	},
+	"integrity": {
+		"algorithm": "hmac-sha256",
+		"key_provider_id": "TEST_ONLY_G4",
+		"local_seal_not_server_authority": true,
+		"test_key": true
+	},
 	"marker": "G4_PERSIST_SMOKE",
-	"passed_checks": 11,
-	"schema_version": "g4_persist_smoke/1.0.0",
+	"passed_checks": 22,
+	"schema_version": "g4_persist_smoke/1.1.0",
 	"task_id": "G4-001",
-	"wave": "P1_PERSIST_PATCH"
+	"wave": "R1_PERSIST_SIGNED_JOURNAL_PATCH"
 }

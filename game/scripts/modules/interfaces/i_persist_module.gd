@@ -1,15 +1,22 @@
-## Interface contract for Offline Private Reality persistence (G4-001).
+## Interface contract for Offline Private Reality persistence (G4-001 / R1).
 ## Local signed journal only — NOT Shared District / server economy authority.
 class_name IPersistModule
 extends RefCounted
 
-## Recommended surface (P0_schema api_surface_for_persist):
+## Recommended surface (R0_schema api_surface_for_persist):
 ## func get_schema_version() -> String
 ## func create_journal(space_id, base_world_revision, base_snapshot_id, session_id) -> Dictionary
 ## func load_journal(path) -> Dictionary
 ## func save_journal(path) -> Dictionary
 ## func apply_mutation(request) -> Dictionary
 ## func apply_compensation(request) -> Dictionary
+## func apply_offline_private_reality_mutation(request) -> Dictionary
+## func apply_offline_private_reality_compensation(request) -> Dictionary
+## func set_key_provider(provider, provider_id="") -> Dictionary
+## func get_key_provider_id() -> String
+## func verify_integrity(path="") -> Dictionary
+## func hmac_sha256_hex(key, message_utf8) -> String
+## func compute_entry_seal(entry_without_seal, prev_seal, sequence_index) -> Dictionary
 ## func get_world_revision() -> int
 ## func get_entity(entity_id) -> Dictionary|null
 ## func list_entity_ids() -> PackedStringArray
@@ -26,6 +33,13 @@ const REQUIRED_METHODS := [
 	"save_journal",
 	"apply_mutation",
 	"apply_compensation",
+	"apply_offline_private_reality_mutation",
+	"apply_offline_private_reality_compensation",
+	"set_key_provider",
+	"get_key_provider_id",
+	"verify_integrity",
+	"hmac_sha256_hex",
+	"compute_entry_seal",
 	"get_world_revision",
 	"get_entity",
 	"list_entity_ids",

@@ -1,0 +1,163 @@
+{
+  "agent_step_id": "G4-001-R2-core-2026-07-21",
+  "agent_type": "aidle-core",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G4-001",
+    "wave": "R2_CORE_RUNTIME_MOUNT",
+    "profile": "core",
+    "correction_work_order": "orchestration/work_orders/WO-G4-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G4-001_CORRECTION_001_DISPATCH_MAP.md",
+    "parent_schema": "orchestration/receipts/g4/R0_schema.json",
+    "parent_persist": "orchestration/receipts/g4/R1_persist.json",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "Replaced AgentPersistStub with real PersistModule in the ModuleRegistry persist slot on integrated boot. Clean 2.5D startup preserved (fixed-angle camera, player XZ locomotion). Other module stubs (voxel/network/schema/asset) and companion/executor auto-upgrades unchanged. Headless integrated boot exit 0 shows PersistModule Ready + mount marker; no SCRIPT ERROR/Parse Error/Compile Error/ERROR:. Persist smoke re-run G4_PERSIST_SMOKE=PASS checks=22 (no regression).",
+    "scope": {
+      "in_scope": [
+        "game/scripts/main/main.gd runtime mount wiring only",
+        "orchestration/receipts/g4/R2_core.json",
+        "Integrated boot proof PersistModule mounted not AgentPersistStub",
+        "Preserve fixed-angle 2.5D camera and player ready markers"
+      ],
+      "out_of_scope": [
+        "game/scripts/modules/persist/** (R1 sole writer)",
+        "executor product edits (R3 VERIFY_ONLY consumer tests)",
+        "module_stub.gd companion/executor upgrade paths",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders",
+        "Shared District / Nakama / server economy / multiplayer ownership",
+        "Database, dependency install, credential upload"
+      ],
+      "authority_boundary": {
+        "context": "Offline Private Reality runtime mount",
+        "local_journal": "simulation durability / reconciliation evidence only",
+        "online_authority": "World Commit service remains required for durable online/shared mutation",
+        "explicit_not": [
+          "claim that local journal IS online World Commit truth",
+          "persist product implementation",
+          "self-ACCEPT of G4-001"
+        ]
+      }
+    },
+    "product_writes": [
+      "game/scripts/main/main.gd",
+      "orchestration/receipts/g4/R2_core.json"
+    ],
+    "only_owned_files_written": true,
+    "no_children_spawned": true,
+    "no_persist_product_edit": true,
+    "implementation": {
+      "mount_path": "game/scripts/main/main.gd",
+      "preload": "res://scripts/modules/persist/persist_module.gd",
+      "method": "_mount_persist_module()",
+      "call_site": "_spawn_module_stubs() before remaining ModuleStub slots",
+      "registry_slot": "persist (AIdleConstants.MODULE_PERSIST)",
+      "behavior": [
+        "Instantiate PersistModule, name=PersistModule",
+        "ModuleRegistry.attach_to_mount(persist) with Main fallback parent",
+        "PersistModule._ready self-registers; ensure register if missing",
+        "Skip/replace ModuleStub if prior stub occupied slot",
+        "MODULE_PERSIST removed from stub_defs list (no AgentPersistStub)",
+        "Print [Main] PersistModule mounted (real, not AgentPersistStub)."
+      ],
+      "preserved": [
+        "fixed-angle 2.5D camera (no free orbit/FPS)",
+        "player CharacterBody3D XZ locomotion marker",
+        "companion ModuleStub auto-upgrade to CompanionModule",
+        "executor ModuleStub auto-upgrade to ExecutorModule",
+        "voxel/network/schema/asset remain stubs",
+        "StarterRealmController mount unchanged"
+      ]
+    },
+    "boot_markers_required": [
+      "[PersistModule] Ready – Private Reality signed journal (schema 1.0.0).",
+      "[Main] PersistModule mounted (real, not AgentPersistStub).",
+      "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+      "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane."
+    ]
+  },
+  "smoke_test": {
+    "executed": true,
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 5",
+        "exit_code": 0,
+        "log": "orchestration/logs/g4-r2-core-boot.log",
+        "markers_observed": [
+          "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+          "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.",
+          "[ModuleRegistry] Registered module: persist (PersistModule)",
+          "[PersistModule] Ready – Private Reality signed journal (schema 1.0.0).",
+          "[Main] PersistModule mounted (real, not AgentPersistStub).",
+          "[ModuleStub] companion slot upgraded to CompanionModule (G2-003).",
+          "[ModuleStub] executor slot upgraded to ExecutorModule (G2-006).",
+          "[Main] Entered Private Reality | style=cozy_cyber_pixel"
+        ],
+        "not_observed_for_persist": [
+          "AgentPersistStub",
+          "[ModuleStub] persist mounted as stub"
+        ],
+        "error_scan": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 0
+        }
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/persist/g4_persist_smoke.gd",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22",
+        "log": "orchestration/logs/g4-r2-persist-smoke.log",
+        "purpose": "No-regression re-run of R1 integrity + consumer-gate suite after runtime mount change",
+        "error_scan": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 0
+        }
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_token": "PATCH_DRAFT",
+    "self_accept": false,
+    "worker_cannot_self_accept": true,
+    "no_tasks_json_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_work_order_edits": true,
+    "no_persist_product_edit": true,
+    "no_executor_product_edit": true,
+    "no_module_stub_edit": true,
+    "no_accept_receipt": true,
+    "no_children_spawned": true,
+    "no_database_or_new_dependencies": true,
+    "owned_write_surface_only": [
+      "game/scripts/main/main.gd",
+      "orchestration/receipts/g4/R2_core.json"
+    ],
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G4-001-CORRECTION-001, R0_schema, R1_persist, agent_step_contract, main.gd, module_registry.gd, persist_module.gd, module_stub.gd manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G4-001-CORRECTION-001.md",
+    "orchestration/work_orders/G4-001_CORRECTION_001_DISPATCH_MAP.md",
+    "orchestration/receipts/g4/R0_schema.json",
+    "orchestration/receipts/g4/R1_persist.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "game/scripts/main/main.gd",
+    "game/scripts/modules/persist/persist_module.gd",
+    "game/autoload/module_registry.gd",
+    "orchestration/logs/g4-r2-core-boot.log",
+    "orchestration/logs/g4-r2-persist-smoke.log",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "R3 executor VERIFY_ONLY must prove consumers use apply_offline_private_reality_* and never auto-journal G3 rejected handoff",
+    "Production builds still need a non-test key provider injected before sealed journal ops (mount does not set key provider)",
+    "Unsigned pre-correction journals refuse load under enforcement (R1 intentional fail-closed)"
+  ],
+  "next_route": "R3_EXECUTOR_CONSUMER_VERIFY"
+}

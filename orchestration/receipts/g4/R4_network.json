@@ -1,0 +1,376 @@
+{
+  "agent_step_id": "G4-001-R4-network-2026-07-21",
+  "agent_type": "aidle-network",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G4-001",
+    "wave": "R4_NETWORK_PURPLE",
+    "profile": "network",
+    "correction_work_order": "orchestration/work_orders/WO-G4-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G4-001_CORRECTION_001_DISPATCH_MAP.md",
+    "codex_review": "orchestration/reviews/CODEX_G4-001_ADVERSARIAL_REVIEW.json",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "verdict": "ACCEPTED",
+    "summary": "VERIFY_ONLY Purple authority review of G4-001 CORRECTION-001. All three Codex challenges (and five fixed items required by dispatch) are closed: integrated boot mounts real PersistModule (not AgentPersistStub); HMAC-SHA256 signed journal with fail-closed wrong-key/tamper/remove/reorder/broken-prev/invalid-seal; offline_only consumer gate rejects G3 handoff auto-journal and online/shared/economy/ownership; P0 hash/idempotency/stale/compensation/rev3 preserved; local seal explicitly not server authority. Independent re-run: G4_PERSIST_SMOKE=PASS checks=22 exit 0; integrated boot exit 0 clean; AIDLE_VALIDATION=PASS. No product edits; no tasks ACCEPT; no children; self_accept=false.",
+    "scope": {
+      "in_scope": [
+        "Codex challenge closure vs WO-G4-001-CORRECTION-001",
+        "Authority boundary vs ARCHITECTURE_LOCK Offline Private Reality row",
+        "Runtime mount PersistModule proof",
+        "Signed journal HMAC + fail-closed integrity",
+        "Consumer gate offline_only + G3 no-auto-journal + online/shared/economy reject",
+        "Preserve hash/idempotency/stale/compensation/rev3",
+        "Local seal not server authority",
+        "Independent re-run persist smoke + integrated boot + validator",
+        "Write orchestration/receipts/g4/R4_network.json + orchestration/reviews/G4-001_CORRECTION_001_PURPLE_REVIEW.md only"
+      ],
+      "out_of_scope": [
+        "Product edits under game/scripts/**",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders, codex_directive",
+        "Shared District / Nakama / multiplayer (G6+)",
+        "Server World Commit live service, economy, marketplace",
+        "tasks.json ACCEPT of G4-001",
+        "Children / nested grandchildren"
+      ],
+      "authority_boundary": {
+        "context": "Offline Private Reality Purple correction review",
+        "architecture_lock": "orchestration/ARCHITECTURE_LOCK.md — Offline Private Reality: Local signed journal; reconcile on sync",
+        "local_journal": "simulation durability / reconciliation evidence only",
+        "local_seal_meaning": "Device-local tamper-evident reconciliation evidence under key provider",
+        "online_authority": "World Commit service remains required for durable online/shared mutation",
+        "explicit_not": [
+          "claim that local journal IS online World Commit truth",
+          "Shared District / server economy / multiplayer ownership",
+          "product patches",
+          "self-ACCEPT of G4-001 or tasks.json ACCEPT"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_writes": [
+      "orchestration/receipts/g4/R4_network.json",
+      "orchestration/reviews/G4-001_CORRECTION_001_PURPLE_REVIEW.md"
+    ],
+    "children": [],
+    "prior_wave_receipts": {
+      "R0_schema": {
+        "path": "orchestration/receipts/g4/R0_schema.json",
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "role": "Defined INV-SIGNED-JOURNAL-HMAC, INV-KEY-PROVIDER-LOCAL, INV-OFFLINE-CONSUMER-GATE, INV-LOCAL-SEAL-NOT-SERVER-AUTHORITY"
+      },
+      "R1_persist": {
+        "path": "orchestration/receipts/g4/R1_persist.json",
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "role": "Sole integrity/gate product writer; G4_PERSIST_SMOKE=PASS checks=22"
+      },
+      "R2_core": {
+        "path": "orchestration/receipts/g4/R2_core.json",
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "role": "Sole main.gd mount writer; PersistModule replaces AgentPersistStub"
+      },
+      "R3_executor": {
+        "path": "orchestration/receipts/g4/R3_executor.json",
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "verdict": "PASS",
+        "role": "Consumer-gate verify; G3 no auto-journal; executor has zero PersistModule apply calls"
+      }
+    },
+    "codex_challenges_closed": {
+      "C1_integrated_boot_mounts_persist_module": {
+        "status": "FIXED",
+        "codex_text": "Integrated boot still mounts AgentPersistStub rather than PersistModule.",
+        "evidence": [
+          "game/scripts/main/main.gd preloads persist_module.gd; _mount_persist_module() before stubs",
+          "MODULE_PERSIST omitted from stub_defs",
+          "Purple boot log: [ModuleRegistry] Registered module: persist (PersistModule)",
+          "Purple boot log: [PersistModule] Ready – Private Reality signed journal (schema 1.0.0).",
+          "Purple boot log: [Main] PersistModule mounted (real, not AgentPersistStub).",
+          "No [ModuleStub] persist mounted as stub; AgentPersistStub only appears inside positive marker string"
+        ]
+      },
+      "C2_signed_journal_hmac_fail_closed": {
+        "status": "FIXED",
+        "codex_text": "Architecture Lock requires a local signed journal, but no signature, HMAC or entry hash chain exists.",
+        "evidence": [
+          "journal_seal.gd Crypto.hmac_digest(HASH_SHA256) per-entry seal + prev_seal chain + genesis",
+          "set_key_provider injection; TEST_ONLY_G4 smoke key; key_provider_missing fail-closed",
+          "AT-INTEGRITY-HAPPY / WRONG-KEY / TAMPER / REMOVE / REORDER / BROKEN-PREV / INVALID-SEAL / KEY-PROVIDER-MISSING all PASS on Purple re-run",
+          "envelope integrity.algorithm=hmac-sha256; local_seal_not_server_authority=true"
+        ]
+      },
+      "C3_executor_offline_consumer_gate": {
+        "status": "FIXED",
+        "codex_text": "Executor does not consume PersistModule through an explicit offline Private Reality gate.",
+        "evidence": [
+          "apply_offline_private_reality_mutation/compensation + apply_mutation/compensation enforce _gate_offline_consumer",
+          "AT-GATE-OFFLINE-ONLY rejects shared_district/online_private_reality/server_economy/ownership/marketplace",
+          "AT-GATE-G3-REJECTED-NO-AUTO → g3_rejected_handoff_not_journalable; entry_count=0",
+          "AT-GATE-EXPLICIT-OFFLINE-OK commits only with authority.context=offline_private_reality + confirmed",
+          "executor package has zero PersistModule/apply_mutation/apply_offline calls (cannot silent-wire past gate)",
+          "G3 complete still durable_mutation_applied=false, world_commit_invoked=false"
+        ]
+      },
+      "C4_preserve_p0_hash_idempotency_stale_compensation_rev3": {
+        "status": "FIXED",
+        "statement": "Preserve deterministic hash, replay idempotency, revision conflict, compensation append-only, G3 rev 3.",
+        "evidence": [
+          "AT-SAVE-RELOAD-HASH hashes equal under sealed path",
+          "AT-DUP-REQUEST idempotent_replay entity_count=1",
+          "AT-STALE-REVISION conflicted revision_mismatch head_unchanged no_partial_mutation",
+          "AT-COMPENSATION-APPEND entry_count=2 history_erased=false prior unchanged",
+          "AT-G3-REV-3-PRESERVED base 3 → 4 never_coerced_to_0",
+          "AT-CANCEL-NOT-JOURNALED / AT-MALFORMED-JOURNAL / AT-SPACE-BOUNDARY still PASS"
+        ]
+      },
+      "C5_local_seal_not_server_authority": {
+        "status": "FIXED",
+        "statement": "Local seal is reconciliation evidence, not Shared District/server authority.",
+        "evidence": [
+          "journal envelope integrity.local_seal_not_server_authority=true on create/apply",
+          "persist_module.gd header: online/shared/economy still require server World Commit",
+          "smoke export authority.not=[shared_district, server_economy, multiplayer_ownership]",
+          "status=committed means local mutation_applied/compensation sealed append only",
+          "R0 INV-LOCAL-SEAL-NOT-SERVER-AUTHORITY; ARCHITECTURE_LOCK Offline Private Reality row"
+        ]
+      }
+    },
+    "adversarial_challenges": {
+      "A1_boot_not_stub": {
+        "status": "PASS",
+        "statement": "Integrated boot mounts PersistModule, not AgentPersistStub."
+      },
+      "A2_hmac_chain_fail_closed": {
+        "status": "PASS",
+        "statement": "Keyed HMAC-SHA256 seals; wrong-key/tamper/remove/reorder/broken-prev/invalid seal fail closed."
+      },
+      "A3_offline_gate_and_g3_no_auto": {
+        "status": "PASS",
+        "statement": "Only offline_private_reality confirmed applies journal; G3 rejected handoff not auto-journaled; online/shared/economy rejected."
+      },
+      "A4_p0_suite_preserved": {
+        "status": "PASS",
+        "statement": "Hash stability, idempotency, stale revision, compensation append-only, G3 rev 3 preserved under sealed path."
+      },
+      "A5_local_seal_not_server": {
+        "status": "PASS",
+        "statement": "Local seal is not World Commit / Shared District / economy authority."
+      },
+      "A6_no_self_accept_no_tasks_accept": {
+        "status": "PASS",
+        "statement": "R0–R4 self_accept=false; Purple did not edit tasks.json; final acceptor is Codex."
+      }
+    },
+    "acceptance_matrix": {
+      "AT-INTEGRITY-HAPPY": "PASS",
+      "AT-INTEGRITY-WRONG-KEY": "PASS",
+      "AT-INTEGRITY-TAMPER-ENTRY": "PASS",
+      "AT-INTEGRITY-REMOVE-ENTRY": "PASS",
+      "AT-INTEGRITY-REORDER": "PASS",
+      "AT-INTEGRITY-BROKEN-PREV": "PASS",
+      "AT-INTEGRITY-INVALID-SEAL": "PASS",
+      "AT-KEY-PROVIDER-MISSING": "PASS",
+      "AT-GATE-OFFLINE-ONLY": "PASS",
+      "AT-GATE-G3-REJECTED-NO-AUTO": "PASS",
+      "AT-GATE-EXPLICIT-OFFLINE-OK": "PASS",
+      "AT-PRESERVE-P0-SUITE": "PASS",
+      "AT-SAVE-RELOAD-HASH": "PASS",
+      "AT-DUP-REQUEST": "PASS",
+      "AT-STALE-REVISION": "PASS",
+      "AT-MALFORMED-JOURNAL": "PASS",
+      "AT-SCHEMA-INCOMPAT": "PASS",
+      "AT-COMPENSATION-APPEND": "PASS",
+      "AT-CANCEL-NOT-JOURNALED": "PASS",
+      "AT-G3-REV-3-PRESERVED": "PASS",
+      "AT-CANON-SORT": "PASS",
+      "AT-SPACE-BOUNDARY": "PASS",
+      "BOOT-PERSIST-REAL-MODULE": "PASS",
+      "AT-AIDLE-VALIDATION": "PASS",
+      "AT-NO-SELF-ACCEPT": "PASS",
+      "AT-NO-LIVE-WORLD-COMMIT-CLAIM": "PASS"
+    },
+    "wo_acceptance_evidence": {
+      "persist_smoke_integrity_tamper_wrong_key_reorder_removal": true,
+      "integrated_boot_persist_module_mounted_clean": true,
+      "consumer_gate_g3_and_online_shared_rejected": true,
+      "validator_pass": true,
+      "maf_receipts_r0_r4_present": true,
+      "purple_review_md": "orchestration/reviews/G4-001_CORRECTION_001_PURPLE_REVIEW.md",
+      "ownership_map": "R1 sole persist product writer; R2 sole main.gd mount writer; R0/R3/R4 verify-only"
+    }
+  },
+  "smoke_test": {
+    "executed": true,
+    "independent_reverification": true,
+    "commands": [
+      {
+        "id": "CMD-G4-PERSIST-SMOKE",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/persist/g4_persist_smoke.gd",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22",
+        "log": "orchestration/logs/g4-r4-purple-persist-smoke.log",
+        "error_tokens": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 0
+        },
+        "checks_ok": [
+          "interface_surface",
+          "canonical_json_key_order_and_float_format",
+          "missing_key_provider_fail_closed",
+          "deterministic_save_reload_same_entity_hashes",
+          "duplicate_request_id_no_duplicate_entity",
+          "stale_expected_world_revision_rejected",
+          "truncated_malformed_journal_fail_closed",
+          "incompatible_schema_version_fail_closed",
+          "reject_non_private_reality_journal",
+          "compensation_append_only_history_preserved",
+          "cancelled_preview_never_in_journal",
+          "g3_expected_world_revision_3_through_save_reload",
+          "sealed_journal_save_reload_verify_ok",
+          "wrong_key_fail_closed",
+          "modified_entry_detected",
+          "removed_entry_detected",
+          "reordered_entries_detected",
+          "broken_previous_seal_detected",
+          "invalid_or_missing_seal_fail_closed",
+          "only_offline_private_reality_journals",
+          "g3_rejected_handoff_not_auto_journaled",
+          "explicit_offline_confirmed_apply_succeeds"
+        ],
+        "evidence_export": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json"
+      },
+      {
+        "id": "CMD-INTEGRATED-BOOT",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 5",
+        "exit_code": 0,
+        "log": "orchestration/logs/g4-r4-purple-core-boot.log",
+        "markers_observed": [
+          "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+          "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.",
+          "[ModuleRegistry] Registered module: persist (PersistModule)",
+          "[PersistModule] Ready – Private Reality signed journal (schema 1.0.0).",
+          "[Main] PersistModule mounted (real, not AgentPersistStub).",
+          "[Main] Entered Private Reality | style=cozy_cyber_pixel"
+        ],
+        "not_observed_for_persist": [
+          "[ModuleStub] persist mounted as stub"
+        ],
+        "error_scan": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 0
+        }
+      },
+      {
+        "id": "CMD-VALIDATE-PROJECT",
+        "command": "python scripts\\validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    ],
+    "hash_sample": {
+      "entity_hash": "03933b0b8efa9fb436c50335687506deecbe81ce8b966b9bdda337f9a8bc5534",
+      "reload_entity_hash": "03933b0b8efa9fb436c50335687506deecbe81ce8b966b9bdda337f9a8bc5534",
+      "entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
+      "reload_entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
+      "save_reload_equal": true
+    },
+    "integrity_sample": {
+      "provider_id": "TEST_ONLY_G4",
+      "test_key": true,
+      "seal_alg": "hmac-sha256",
+      "local_seal_not_server_authority": true,
+      "entity_hash_sealed_path": "e96fadda66c85b6636096218d804173fb5913ed7170e38dea79e5257865d365a",
+      "entity_set_hash_sealed_path": "f1a0241e20d1c55d1d195dfcf31d3806e4155d27c007a372bc3e328ea5ad3ab2"
+    },
+    "g3_revision": {
+      "base_world_revision": 3,
+      "expected_world_revision": 3,
+      "world_revision_after_first_apply": 4,
+      "never_coerced_to_0": true
+    },
+    "gate_sample": {
+      "AT-GATE-G3-REJECTED-NO-AUTO": {
+        "status": "rejected",
+        "error_code": "g3_rejected_handoff_not_journalable",
+        "entry_count": 0,
+        "world_commit_invoked": false,
+        "durable_mutation_applied": false
+      },
+      "AT-GATE-OFFLINE-ONLY_rejected_contexts": [
+        "shared_district",
+        "online_private_reality",
+        "server_economy",
+        "ownership",
+        "marketplace"
+      ]
+    }
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": [
+      "orchestration/receipts/g4/R4_network.json",
+      "orchestration/reviews/G4-001_CORRECTION_001_PURPLE_REVIEW.md"
+    ],
+    "no_product_code_edits": true,
+    "no_persist_product_edits": true,
+    "no_executor_product_edits": true,
+    "no_core_product_edits": true,
+    "no_main_gd_edit": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_codex_directive_edit": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "worker_cannot_self_accept": true,
+    "no_children_subagents": true,
+    "no_accept_receipt": true,
+    "no_tasks_accept": true,
+    "verdict": "ACCEPTED",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G4-001-CORRECTION-001, G4-001_CORRECTION_001_DISPATCH_MAP, CODEX_G4-001_ADVERSARIAL_REVIEW, R0–R3 receipts, persist/main sources, G3 exports, agent_step_contract schema manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G4-001-CORRECTION-001.md",
+    "orchestration/work_orders/G4-001_CORRECTION_001_DISPATCH_MAP.md",
+    "orchestration/reviews/CODEX_G4-001_ADVERSARIAL_REVIEW.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "orchestration/receipts/g4/R0_schema.json",
+    "orchestration/receipts/g4/R1_persist.json",
+    "orchestration/receipts/g4/R2_core.json",
+    "orchestration/receipts/g4/R3_executor.json",
+    "orchestration/reviews/G4-001_CORRECTION_001_PURPLE_REVIEW.md",
+    "game/scripts/main/main.gd",
+    "game/scripts/modules/persist/journal_seal.gd",
+    "game/scripts/modules/persist/journal_store.gd",
+    "game/scripts/modules/persist/persist_module.gd",
+    "game/scripts/modules/persist/test_journal_key_provider.gd",
+    "game/scripts/modules/persist/g4_persist_smoke.gd",
+    "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+    "game/scripts/modules/interfaces/i_persist_module.gd",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "orchestration/logs/g4-r4-purple-persist-smoke.log",
+    "orchestration/logs/g4-r4-purple-core-boot.log",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "Production builds still need a non-test key provider injected before sealed journal ops (mount does not set key provider; TEST_ONLY_G4 is smoke-only)",
+    "Executor↔persist consumer adapter still not product-wired — local journal apply remains opt-in via future WO using apply_offline_private_reality_* only (gate is enforced; silent auto-journal is impossible)",
+    "Local journal status 'committed' must not be misread as World Commit service success in UI or network layers",
+    "Integrity error_code distinction wrong_key vs invalid can swap depending on mismatch path; both still fail closed (non-blocking)",
+    "Unsigned pre-correction journals refuse load under enforcement (intentional fail-closed; no silent migrate)"
+  ],
+  "next_route": "WAITING_CODEX"
+}

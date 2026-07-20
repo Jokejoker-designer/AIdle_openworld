@@ -1,0 +1,230 @@
+{
+  "agent_step_id": "G4-001-R1-persist-2026-07-21",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G4-001",
+    "wave": "R1_PERSIST_SIGNED_JOURNAL_PATCH",
+    "profile": "persist",
+    "correction_work_order": "orchestration/work_orders/WO-G4-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G4-001_CORRECTION_001_DISPATCH_MAP.md",
+    "parent_schema": "orchestration/receipts/g4/R0_schema.json",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "Implemented Architecture Lock local signed journal for Offline Private Reality: HMAC-SHA256 per-entry seals with prev_seal chain + genesis, injected key-provider boundary (TEST_ONLY_G4 smoke key), fail-closed verify/load, and offline_private_reality consumer gate (rejects G3 stub auto-journal, online/shared/economy/ownership). Preserved P0 hash/idempotency/stale/compensation/cancel/rev3 suite under sealed path. Headless G4_PERSIST_SMOKE=PASS checks=22 exit 0; AIDLE_VALIDATION=PASS.",
+    "scope": {
+      "in_scope": [
+        "game/scripts/modules/persist/**",
+        "game/scripts/modules/interfaces/i_persist_module.gd",
+        "orchestration/receipts/g4/R1_persist.json"
+      ],
+      "out_of_scope": [
+        "game/scripts/main/main.gd (R2 core sole writer)",
+        "executor product edits (R3 VERIFY_ONLY)",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders",
+        "Shared District / Nakama / server economy / multiplayer ownership",
+        "Database, dependency install, credential upload"
+      ],
+      "authority_boundary": {
+        "context": "Offline Private Reality",
+        "durable_state": "Local signed journal; reconcile on sync",
+        "local_seal_meaning": "Device-local tamper-evident reconciliation evidence only",
+        "local_seal_is_not": [
+          "Shared District authority",
+          "Server World Commit receipt",
+          "Online Private Reality durable truth",
+          "Economy / ownership / marketplace authority"
+        ]
+      }
+    },
+    "product_writes": [
+      "game/scripts/modules/persist/journal_seal.gd",
+      "game/scripts/modules/persist/test_journal_key_provider.gd",
+      "game/scripts/modules/persist/journal_store.gd",
+      "game/scripts/modules/persist/persist_module.gd",
+      "game/scripts/modules/persist/g4_persist_smoke.gd",
+      "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+      "game/scripts/modules/interfaces/i_persist_module.gd",
+      "orchestration/receipts/g4/R1_persist.json"
+    ],
+    "only_owned_files_written": true,
+    "no_children_spawned": true,
+    "no_main_gd_edit": true,
+    "implementation": {
+      "integrity": {
+        "algorithm": "HMAC-SHA256",
+        "api": "Crypto.hmac_digest(HashingContext.HASH_SHA256, key, message)",
+        "seal_material": "aidle_journal_seal_material_v1 via aidle_canonical_json_v1",
+        "chain": "genesis_prev_seal (key-dependent) -> entries[i].prev_seal/seal/sequence_index",
+        "encoding": "lowercase 64 hex",
+        "envelope_integrity": {
+          "algorithm": "hmac-sha256",
+          "head_seal": true,
+          "key_provider_id": true,
+          "sealed": true,
+          "local_seal_not_server_authority": true
+        }
+      },
+      "key_provider": {
+        "injection": "set_key_provider(Object|Callable, provider_id?)",
+        "methods": ["get_journal_hmac_key|get_hmac_key", "get_provider_id"],
+        "missing_behavior": "key_provider_missing fail-closed on create/apply/save/verify/load",
+        "test_provider": {
+          "class": "TestJournalKeyProvider",
+          "provider_id": "TEST_ONLY_G4",
+          "key_derivation": "SHA-256(UTF-8 'AIDLE_G4_JOURNAL_HMAC_TEST_KEY_V1')",
+          "test_key_marker": true,
+          "never_production_default": true
+        }
+      },
+      "consumer_gate": {
+        "entrypoints": [
+          "apply_offline_private_reality_mutation",
+          "apply_offline_private_reality_compensation"
+        ],
+        "also_enforced_on": ["apply_mutation", "apply_compensation"],
+        "required": {
+          "authority.context": "offline_private_reality",
+          "confirmation.state": "confirmed"
+        },
+        "reject": [
+          "online_private_reality",
+          "shared_district",
+          "private_with_visitors",
+          "server_economy",
+          "ownership",
+          "marketplace",
+          "G3 stub world_commit_invoked=false AND durable_mutation_applied=false without explicit offline confirmed"
+        ]
+      },
+      "fail_closed_integrity": [
+        "INT-WRONG-KEY",
+        "INT-MODIFIED-ENTRY",
+        "INT-REMOVED-ENTRY",
+        "INT-REORDERED-ENTRY",
+        "INT-BROKEN-PREV-SEAL",
+        "INT-INVALID-SEAL",
+        "INT-KEY-PROVIDER-MISSING",
+        "INT-UNSIGNED-WHEN-ENFORCED"
+      ],
+      "preserved_p0": [
+        "AT-SAVE-RELOAD-HASH",
+        "AT-DUP-REQUEST",
+        "AT-STALE-REVISION",
+        "AT-MALFORMED-JOURNAL",
+        "AT-SCHEMA-INCOMPAT",
+        "AT-COMPENSATION-APPEND",
+        "AT-CANCEL-NOT-JOURNALED",
+        "AT-G3-REV-3-PRESERVED",
+        "AT-CANON-SORT",
+        "AT-SPACE-BOUNDARY"
+      ]
+    },
+    "acceptance_tests": {
+      "AT-INTEGRITY-HAPPY": "PASS",
+      "AT-INTEGRITY-WRONG-KEY": "PASS",
+      "AT-INTEGRITY-TAMPER-ENTRY": "PASS",
+      "AT-INTEGRITY-REMOVE-ENTRY": "PASS",
+      "AT-INTEGRITY-REORDER": "PASS",
+      "AT-INTEGRITY-BROKEN-PREV": "PASS",
+      "AT-INTEGRITY-INVALID-SEAL": "PASS",
+      "AT-KEY-PROVIDER-MISSING": "PASS",
+      "AT-GATE-OFFLINE-ONLY": "PASS",
+      "AT-GATE-G3-REJECTED-NO-AUTO": "PASS",
+      "AT-GATE-EXPLICIT-OFFLINE-OK": "PASS",
+      "AT-PRESERVE-P0-SUITE": "PASS",
+      "AT-SAVE-RELOAD-HASH": "PASS",
+      "AT-DUP-REQUEST": "PASS",
+      "AT-STALE-REVISION": "PASS",
+      "AT-MALFORMED-JOURNAL": "PASS",
+      "AT-SCHEMA-INCOMPAT": "PASS",
+      "AT-COMPENSATION-APPEND": "PASS",
+      "AT-CANCEL-NOT-JOURNALED": "PASS",
+      "AT-G3-REV-3-PRESERVED": "PASS",
+      "AT-CANON-SORT": "PASS",
+      "AT-SPACE-BOUNDARY": "PASS",
+      "interface_surface": "PASS"
+    },
+    "api_surface_added": [
+      "set_key_provider",
+      "get_key_provider_id",
+      "verify_integrity",
+      "apply_offline_private_reality_mutation",
+      "apply_offline_private_reality_compensation",
+      "hmac_sha256_hex",
+      "compute_entry_seal"
+    ]
+  },
+  "smoke_test": {
+    "executed": true,
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/persist/g4_persist_smoke.gd",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22",
+        "log": "orchestration/logs/g4-r1-persist-smoke.log",
+        "log_notes": "No SCRIPT ERROR / Parse Error / Compile Error / ERROR: lines in product path. Autoload boot lines only (EventBus, ArtStyleManager, ModuleRegistry, GameManager)."
+      },
+      {
+        "command": "python scripts/validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    ],
+    "evidence_export": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+    "integrity_sample": {
+      "provider_id": "TEST_ONLY_G4",
+      "test_key": true,
+      "seal_alg": "hmac-sha256",
+      "entity_hash": "e96fadda66c85b6636096218d804173fb5913ed7170e38dea79e5257865d365a",
+      "entity_set_hash": "f1a0241e20d1c55d1d195dfcf31d3806e4155d27c007a372bc3e328ea5ad3ab2"
+    }
+  },
+  "self_audit": {
+    "authority_token": "PATCH_DRAFT",
+    "self_accept": false,
+    "worker_cannot_self_accept": true,
+    "no_tasks_json_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_work_order_edits": true,
+    "no_executor_product_edit": true,
+    "no_core_main_gd_edit": true,
+    "no_accept_receipt": true,
+    "no_children_spawned": true,
+    "no_database_or_new_dependencies": true,
+    "no_production_key_hardcoded": true,
+    "no_secrets_in_journal_or_evidence": true,
+    "owned_write_surface_only": [
+      "game/scripts/modules/persist/**",
+      "game/scripts/modules/interfaces/i_persist_module.gd",
+      "orchestration/receipts/g4/R1_persist.json"
+    ],
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G4-001-CORRECTION-001, R0_schema, P1_persist, agent_step_contract manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G4-001-CORRECTION-001.md",
+    "orchestration/work_orders/G4-001_CORRECTION_001_DISPATCH_MAP.md",
+    "orchestration/receipts/g4/R0_schema.json",
+    "orchestration/receipts/g4/P0_schema.json",
+    "orchestration/receipts/g4/P1_persist.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "game/scripts/modules/persist/journal_seal.gd",
+    "game/scripts/modules/persist/test_journal_key_provider.gd",
+    "game/scripts/modules/persist/journal_store.gd",
+    "game/scripts/modules/persist/persist_module.gd",
+    "game/scripts/modules/interfaces/i_persist_module.gd",
+    "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+    "orchestration/logs/g4-r1-persist-smoke.log",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "R2 must mount real PersistModule (not AgentPersistStub) in main.gd — out of R1 scope",
+    "R3 executor VERIFY_ONLY must prove consumers use apply_offline_private_reality_* and never auto-journal G3 rejected handoff",
+    "Unsigned pre-correction journals refuse load under enforcement (explicit migrate-under-key not implemented; intentional fail-closed)",
+    "Device-local secure key store deferred; production must inject non-test provider_id"
+  ],
+  "next_route": "R2_CORE_RUNTIME_MOUNT"
+}

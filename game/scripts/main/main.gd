@@ -3,6 +3,8 @@ extends Node3D
 
 ## G3 Starter Realm UI shell (W1 core). Preload path avoids class_name DB under -s.
 const _StarterRealmController := preload("res://scripts/modules/g3_ui/starter_realm_controller.gd")
+## G4-001 CORRECTION R2: real PersistModule for ModuleRegistry persist slot.
+const _PersistModule := preload("res://scripts/modules/persist/persist_module.gd")
 
 @onready var world_root: WorldRoot = $WorldRoot
 @onready var player: CharacterBody3D = $Player
@@ -28,6 +30,7 @@ func _ready() -> void:
 		(world_root.private_reality as RealitySpace).notify_player_entered(player)
 
 	# Mount lightweight stubs so ModuleRegistry is non-empty and agents see slots.
+	# Persist is real module (not AgentPersistStub); other slots remain stubs unless upgraded.
 	_spawn_module_stubs()
 
 	# G3-001: Starter Realm UI surface for AGM onboarding vertical slice (no camera change).
@@ -38,6 +41,9 @@ func _ready() -> void:
 
 
 func _spawn_module_stubs() -> void:
+	# G4-001 CORRECTION R2: register real PersistModule before remaining stubs.
+	_mount_persist_module()
+
 	var stub_defs := [
 		[AIdleConstants.MODULE_VOXEL, "Agent-Voxel"],
 		[AIdleConstants.MODULE_COMPANION, "Agent-Companion"],
@@ -45,7 +51,7 @@ func _spawn_module_stubs() -> void:
 		[AIdleConstants.MODULE_NETWORK, "Agent-Network"],
 		[AIdleConstants.MODULE_SCHEMA, "Agent-Schema"],
 		[AIdleConstants.MODULE_ASSET, "Agent-Asset"],
-		[AIdleConstants.MODULE_PERSIST, "Agent-Persist"],
+		# MODULE_PERSIST intentionally omitted — real PersistModule mounted above.
 	]
 	for def in stub_defs:
 		var mid: String = def[0]
@@ -64,6 +70,31 @@ func _spawn_module_stubs() -> void:
 			pass
 		if not ModuleRegistry.has_module(mid):
 			ModuleRegistry.register_module(mid, stub)
+
+
+func _mount_persist_module() -> void:
+	## Sole runtime mount for Offline Private Reality PersistModule (not AgentPersistStub).
+	var mid: String = AIdleConstants.MODULE_PERSIST
+	if ModuleRegistry.has_module(mid):
+		var existing: Node = ModuleRegistry.get_module(mid)
+		if existing != null and is_instance_valid(existing) and not (existing is ModuleStub):
+			# Already a real module (e.g. re-enter). Keep and announce.
+			print("[Main] PersistModule mounted (real, not AgentPersistStub).")
+			return
+		# Drop prior stub registration so real module owns the slot.
+		if existing != null and is_instance_valid(existing):
+			ModuleRegistry.unregister_module(mid)
+			existing.queue_free()
+
+	var persist: Node = _PersistModule.new() as Node
+	persist.name = "PersistModule"
+	if not ModuleRegistry.attach_to_mount(mid, persist):
+		# Fallback: parent under Main if PersistMount not bound yet.
+		add_child(persist)
+	# PersistModule._ready registers itself; ensure slot if attach path skipped register.
+	if not ModuleRegistry.has_module(mid):
+		ModuleRegistry.register_module(mid, persist)
+	print("[Main] PersistModule mounted (real, not AgentPersistStub).")
 
 
 func _mount_starter_realm_controller() -> void:

@@ -1,0 +1,41 @@
+{
+  "review_id": "CODEX-G4-001-CORRECTION-001-2026-07-21",
+  "reviewer_role": "codex-final-acceptor",
+  "intent_anchor": {
+    "user_goal": "Deliver dependable Private Reality persistence through the installed-subagent workflow.",
+    "current_priority": "Verify signed-journal integrity, runtime mount and authority gating before G4 acceptance.",
+    "allowed_scope": ["HMAC journal integrity", "PersistModule runtime mount", "offline consumer gate", "independent evidence"],
+    "forbidden_scope": ["Shared District authority", "hardcoded production key", "external dependency", "worker self-acceptance"]
+  },
+  "claim_under_review": "G4-001 Correction 001 resolves the runtime and signed-journal blockers.",
+  "what_i_accept": [
+    "Independent persistence smoke passes 22 checks with clean logs.",
+    "HMAC-SHA256 seals use an injected key provider and no production key is hardcoded.",
+    "Wrong-key, modified, removed, reordered and broken-chain journals fail closed.",
+    "Integrated boot registers PersistModule and does not mount AgentPersistStub.",
+    "Only confirmed offline Private Reality operations pass the consumer gate; rejected G3 and online/shared/economy operations do not journal locally.",
+    "All correction receipts validate against MAF and no writer conflict exists."
+  ],
+  "what_i_challenge": [
+    "The smoke key is deterministic and test-only; production device-key provisioning remains an operational concern.",
+    "Local signatures remain reconciliation evidence, never server or Shared District authority."
+  ],
+  "strongest_counter_argument": "A device-local key can be controlled by the device owner, so its HMAC proves journal continuity for reconciliation but not canonical multiplayer truth.",
+  "missing_evidence": [
+    "Production key lifecycle and server reconciliation remain future deployment concerns.",
+    "The installed adversarial-review skill references absent schema files, so this object follows its documented fields but could not be schema-validated."
+  ],
+  "scope_drift_risk": "low",
+  "final_verdict": "ACCEPT",
+  "self_audit": {
+    "preserved_user_intent": true,
+    "did_not_invent_objection": true,
+    "evidence_based": true,
+    "no_scope_hijack": true
+  },
+  "blind_spots": ["Real server reconciliation and key recovery are not claimed by G4."],
+  "confidence_before_challenge": 0.94,
+  "confidence_penalty": 0.05,
+  "confidence_after_challenge": 0.89,
+  "next_action": "Dispatch provider-neutral Paid AGM gateway work without selecting a provider or exposing credentials."
+}

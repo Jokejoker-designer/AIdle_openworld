@@ -1,0 +1,426 @@
+{
+  "agent_step_id": "G6-001-M3-persist-2026-07-21",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G6-001",
+    "wave": "M3_PERSIST_REPLAY_VERIFY",
+    "profile": "persist",
+    "work_order": "orchestration/work_orders/WO-G6-001.md",
+    "dispatch_map": "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+    "parent_schema": "orchestration/receipts/g6/M0_schema.json",
+    "parent_network": "orchestration/receipts/g6/M1_network.json",
+    "parent_executor": "orchestration/receipts/g6/M2_executor.json",
+    "state": "HANDOFF_TO_M4",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY persist/replay adversarial re-verify of G6-001 M1+M2 evidence. Independent re-runs: python services/world_authority_poc/run_poc_tests.py → 19/19 OK, G6_WORLD_AUTHORITY_SMOKE=PASS; Godot g6_two_client_smoke.gd → G6_TWO_CLIENT_SMOKE=PASS checks=12. Six challenge invariants all PASS against executable evidence and product code (read-only): (1) duplicate request_id same payload → idempotent_replay same receipt, no second entity/revision/outbox; (2) same key changed payload → rejected policy idempotency payload mismatch, no mutation; (3) stale expected_world_revision → conflicted revision_mismatch, head unchanged; (4) reconnect/replay converges without double application; (5) entity_set_hash stable after commit (re-query + idempotent replay preserve hash); (6) forged attempts leave revision+entity_set_hash unchanged. Residual for M4: M2 smoke does not executable-cover TM-IDEMPOTENT-REPLAY / TM-IDEMPOTENCY-PAYLOAD-CONFLICT / TM-STALE-REVISION (GDScript paths present; M1 matrix is sole executable cover). No product edits; no children; self_accept=false; next_route M4_CORE_TWO_CLIENT_PURPLE.",
+    "scope": {
+      "in_scope": [
+        "Challenge M1/M2 evidence for replay, duplicate idempotency, payload conflict, stale revision, reconnect convergence, entity_set_hash stability, forged no-mutation",
+        "Independent re-run of world_authority_poc matrix and Godot two-client smoke",
+        "Write orchestration/receipts/g6/M3_persist.json only"
+      ],
+      "out_of_scope": [
+        "Product edits under services/world_authority_poc/** or game/**",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders, prior receipts",
+        "Nakama / Colyseus / public bind / cloud / credentials",
+        "Self-ACCEPT / tasks.json ACCEPT",
+        "Children subagents",
+        "M4 Purple gate product"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — receipt only; challenge evidence, do not patch",
+        "only_write": [
+          "orchestration/receipts/g6/M3_persist.json"
+        ],
+        "next_writer": "M4_CORE_TWO_CLIENT_PURPLE (core, VERIFY_ONLY Purple)",
+        "poc_class": "LOCAL authoritative World Commit simulator — not production multiplayer",
+        "explicit_not": [
+          "product patches",
+          "self-ACCEPT of G6-001",
+          "public bind / Nakama / Colyseus"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_owned_files_written": true,
+    "only_writes": [
+      "orchestration/receipts/g6/M3_persist.json"
+    ],
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_product_edits": true,
+    "prior_wave_receipts": {
+      "M0_schema": {
+        "path": "orchestration/receipts/g6/M0_schema.json",
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "role": "Test matrix + API surface authority for two-client local POC"
+      },
+      "M1_network": {
+        "path": "orchestration/receipts/g6/M1_network.json",
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "state": "HANDOFF_TO_M2",
+        "role": "Sole product writer services/world_authority_poc/**; claimed 19-test matrix PASS"
+      },
+      "M2_executor": {
+        "path": "orchestration/receipts/g6/M2_executor.json",
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "state": "HANDOFF_TO_M3",
+        "role": "Sole product writer game/scripts/modules/network/**; claimed headless two-client smoke PASS"
+      }
+    },
+    "challenge_matrix": [
+      {
+        "id": "CH-1",
+        "challenge": "Duplicate request_id same payload → same receipt, no duplicate entity",
+        "invariant": "INV-IDEMPOTENT-REPLAY-SAME-PAYLOAD",
+        "m0_matrix_id": "TM-IDEMPOTENT-REPLAY-SAME-PAYLOAD",
+        "status": "PASS",
+        "evidence": {
+          "m1_receipt_claim": "TM-IDEMPOTENT-REPLAY-SAME-PAYLOAD: PASS",
+          "m1_test": "services/world_authority_poc/tests/test_poc.py::test_tm_idempotent_replay_same_payload",
+          "m1_assertions": [
+            "second commit status==idempotent_replay",
+            "idempotency.replayed==true",
+            "idempotency.prior_receipt_id == original receipt_id",
+            "old/new world_revision and entity_ids equal original",
+            "server world_revision, entity_set_hash, entity_count, outbox_len unchanged"
+          ],
+          "product_proof_read_only": [
+            "IdempotencyStore.lookup hit → return prior receipt with status idempotent_replay (server.py commit path before revision check)",
+            "IdempotencyStore.put only on first committed apply",
+            "GDScript mirror: world_authority_local.gd _idempotency fingerprint match → idempotent_replay (code present)"
+          ],
+          "m2_smoke_cover": "not_executable_in_m2_smoke",
+          "independent_rerun": "test_tm_idempotent_replay_same_payload ok (suite 19/19)"
+        }
+      },
+      {
+        "id": "CH-2",
+        "challenge": "Same key changed payload → conflict, no mutation",
+        "invariant": "INV-IDEMPOTENCY-PAYLOAD-CONFLICT",
+        "m0_matrix_id": "TM-IDEMPOTENCY-PAYLOAD-CONFLICT",
+        "status": "PASS",
+        "evidence": {
+          "m1_receipt_claim": "TM-IDEMPOTENCY-PAYLOAD-CONFLICT: PASS",
+          "m1_test": "services/world_authority_poc/tests/test_poc.py::test_tm_idempotency_payload_conflict",
+          "m1_assertions": [
+            "same request_id with mutation_class changed → status rejected",
+            "rejection.code==policy",
+            "reason contains idempotency",
+            "world_revision, entity_set_hash, entity_count unchanged"
+          ],
+          "product_proof_read_only": [
+            "IdempotencyStore.lookup conflict when fingerprint differs",
+            "server returns rejected policy 'idempotency payload mismatch for request_id' with no apply",
+            "fingerprint material: request_id, prompt_id, space_id, mutation_class, actor.actor_id, canonical confirmed_world_prompt",
+            "GDScript: fingerprint mismatch → rejected policy (world_authority_local.gd)"
+          ],
+          "m2_smoke_cover": "not_executable_in_m2_smoke",
+          "independent_rerun": "test_tm_idempotency_payload_conflict ok (suite 19/19)",
+          "note": "Conflict exercised via mutation_class change (fingerprint-affecting field); confirmed prompt body is bound at register and not silently swapped"
+        }
+      },
+      {
+        "id": "CH-3",
+        "challenge": "Stale expected_world_revision rejected",
+        "invariant": "INV-STALE-REVISION-FAIL-CLOSED",
+        "m0_matrix_id": "TM-STALE-REVISION-CONFLICT",
+        "status": "PASS",
+        "evidence": {
+          "m1_receipt_claim": "TM-STALE-REVISION-CONFLICT: PASS",
+          "m1_test": "services/world_authority_poc/tests/test_poc.py::test_tm_stale_revision_conflict",
+          "m1_assertions": [
+            "commit with expected_world_revision=0 after head advanced → status conflicted",
+            "conflict.code==revision_mismatch",
+            "conflict.expected_world_revision==0 and actual==head",
+            "server world_revision and entity_set_hash unchanged"
+          ],
+          "product_proof_read_only": [
+            "server.py: after idempotency miss, expected_rev != _world_revision → _make_receipt_conflicted",
+            "Idempotency lookup ordered BEFORE revision so same-payload replay is not misclassified as revision_mismatch",
+            "GDScript: expected_rev != _world_revision → _make_receipt_conflicted"
+          ],
+          "m2_smoke_cover": "not_executable_in_m2_smoke",
+          "independent_rerun": "test_tm_stale_revision_conflict ok (suite 19/19)"
+        }
+      },
+      {
+        "id": "CH-4",
+        "challenge": "Reconnect/replay converges without double application",
+        "invariant": "INV-RECONNECT-REPLAY-NO-DOUBLE-APPLY",
+        "m0_matrix_ids": [
+          "TM-RECONNECT-REPLAY",
+          "TM-RECONNECT-SNAPSHOT-RESYNC"
+        ],
+        "status": "PASS",
+        "evidence": {
+          "m1_receipt_claim": "TM-RECONNECT-REPLAY + TM-RECONNECT-SNAPSHOT-RESYNC: PASS",
+          "m1_tests": [
+            "test_tm_reconnect_replay",
+            "test_tm_reconnect_snapshot_resync",
+            "test_tm_two_client_headless_smoke (includes reconnect)"
+          ],
+          "m1_assertions": [
+            "mirror_b.reconnect(mode=replay) → ok and revision/hash == server head",
+            "entity_count remains 1 after second sync (no double entity)",
+            "mirror entity_ids length == 1",
+            "snapshot resync replaces local mirror and matches head"
+          ],
+          "m2_receipt_claim": "TM-RECONNECT-REPLAY + TM-RECONNECT-SNAPSHOT-RESYNC: PASS",
+          "m2_smoke_assertions": [
+            "reconnect mode=replay preserves rev/hash and entity count (reconnect_double_apply guard)",
+            "snapshot resync B.revision/hash == server",
+            "final A/B converge"
+          ],
+          "product_proof_read_only": [
+            "Client event apply is event_id / ordered revision based; out-of-order → snapshot_resync_or_structured_failure",
+            "Server commit idempotency remains request_id-based; reconnect does not re-commit",
+            "authority_client.gd reconnect(mode) + apply_event guards"
+          ],
+          "independent_rerun": [
+            "test_tm_reconnect_replay ok",
+            "test_tm_reconnect_snapshot_resync ok",
+            "Godot G6_TWO_CLIENT_SMOKE=PASS (TM-RECONNECT-REPLAY + TM-RECONNECT-SNAPSHOT-RESYNC logged)"
+          ]
+        }
+      },
+      {
+        "id": "CH-5",
+        "challenge": "entity_set_hash stability after commit",
+        "invariant": "INV-ENTITY-SET-HASH-STABILITY",
+        "m0_refs": [
+          "entity_set_hash definition",
+          "TM-VALID-COMMIT-CONVERGE",
+          "TM-IDEMPOTENT-REPLAY-SAME-PAYLOAD"
+        ],
+        "status": "PASS",
+        "evidence": {
+          "definition": "sha256(aidle_canonical_json_v1(array of active entity_records sorted by entity_id)); tombstones excluded; owner_id not in hash material",
+          "implementations_read_only": [
+            "services/world_authority_poc/canonical.py::entity_set_hash",
+            "game/scripts/modules/persist/entity_hasher.gd (reused read-only by M2 harness)"
+          ],
+          "m1_assertions": [
+            "valid commit changes empty-set hash → new stable set hash",
+            "idempotent replay leaves entity_set_hash equal to post-commit h1",
+            "forged/direct/stale/payload-conflict paths leave pre-attempt hash unchanged"
+          ],
+          "m2_smoke_assertions": [
+            "seed empty hash prefix observed; post-commit converge A/B/S on hash acbef0e69a104bcd…",
+            "forged path asserts entity_set_hash unchanged",
+            "reconnect replay asserts hash unchanged (no spurious rehash divergence)"
+          ],
+          "independent_rerun": "valid commit + idempotent + forged + reconnect tests all reassert hash equality; suite 19/19 + Godot checks=12"
+        }
+      },
+      {
+        "id": "CH-6",
+        "challenge": "Forged attempts leave revision/hash unchanged",
+        "invariant": "INV-FORGED-NO-MUTATION",
+        "m0_matrix_ids": [
+          "TM-FORGED-ACTOR-REJECT",
+          "TM-FORGED-CLIENT-REJECT",
+          "TM-FORGED-OWNER-REJECT",
+          "TM-DIRECT-WRITE-REJECT",
+          "TM-FORGED-LEAVES-PEER-UNCHANGED"
+        ],
+        "status": "PASS",
+        "evidence": {
+          "m1_receipt_claims": {
+            "TM-FORGED-ACTOR-REJECT": "PASS",
+            "TM-FORGED-CLIENT-REJECT": "PASS",
+            "TM-FORGED-OWNER-REJECT": "PASS",
+            "TM-DIRECT-WRITE-REJECT": "PASS",
+            "TM-FORGED-LEAVES-PEER-UNCHANGED": "PASS"
+          },
+          "m1_tests": [
+            "test_tm_forged_actor_reject",
+            "test_tm_forged_client_reject",
+            "test_tm_forged_owner_reject",
+            "test_tm_direct_write_reject",
+            "test_tm_forged_leaves_peer_unchanged"
+          ],
+          "m1_assertions": [
+            "forged actor/client → rejected client_forged|auth_failed; revision+hash unchanged",
+            "forged owner modify → rejected ownership; revision+hash unchanged",
+            "direct write APIs → ok=false client_forged; no mutation",
+            "peer B mirror stays at pre-forge revision+hash after forge reject + sync"
+          ],
+          "m2_smoke_assertions": [
+            "TM-FORGED-ACTOR-REJECT code=client_forged",
+            "server revision and entity_set_hash equal pre_forge after reject",
+            "TM-FORGED-LEAVES-PEER-UNCHANGED B mirror matches pre_forge",
+            "TM-DIRECT-WRITE-REJECT no revision change"
+          ],
+          "independent_rerun": "forged matrix tests ok; Godot forged + peer-unchanged + direct-write logged PASS"
+        }
+      }
+    ],
+    "challenge_summary": {
+      "total": 6,
+      "pass": 6,
+      "fail": 0,
+      "overall": "PASS"
+    },
+    "residuals_for_m4_purple": [
+      {
+        "id": "RES-M2-SMOKE-MATRIX-GAP",
+        "severity": "info",
+        "detail": "M2 headless smoke covers valid converge, forged actor, peer unchanged, direct write, reconnect replay/snapshot, two-client smoke. It does NOT executable-exercise TM-IDEMPOTENT-REPLAY-SAME-PAYLOAD, TM-IDEMPOTENCY-PAYLOAD-CONFLICT, or TM-STALE-REVISION-CONFLICT. GDScript server paths implement all three; sole executable cover remains M1 Python matrix. M4 may optionally recommend expanding Godot smoke or accept server-only coverage for those three."
+      },
+      {
+        "id": "RES-CROSS-RUNTIME-HASH-PARITY",
+        "severity": "info",
+        "detail": "Python canonical.py and Godot entity_hasher.gd both claim aidle_canonical_json_v1 + SHA-256, but M1 and M2 run as separate in-process POCs; this wave did not byte-compare entity_set_hash across runtimes on identical entity sets. Acceptable for LOCAL dual simulators; not a production claim."
+      },
+      {
+        "id": "RES-POC-NOT-PRODUCTION",
+        "severity": "info",
+        "detail": "No transport security, mTLS, public bind, Nakama/Colyseus, durable multi-process persistence, or real multiplayer claims. In-memory authority only."
+      }
+    ],
+    "m3_acceptance_checklist": {
+      "re_ran_m1_poc_tests": true,
+      "re_ran_m2_godot_smoke": true,
+      "ch1_idempotent_same_payload": true,
+      "ch2_idempotency_payload_conflict": true,
+      "ch3_stale_revision_rejected": true,
+      "ch4_reconnect_no_double_apply": true,
+      "ch5_entity_set_hash_stability": true,
+      "ch6_forged_leaves_revision_hash_unchanged": true,
+      "verdict_pass": true,
+      "self_accept_false": true,
+      "only_wrote_m3_persist_json": true,
+      "no_product_edits": true,
+      "no_children": true,
+      "M3_persist_json_with_smoke_test": true
+    },
+    "not_done": [
+      "Did not edit services/world_authority_poc/** or game/**",
+      "Did not expand M2 smoke to cover idempotency/stale matrix IDs",
+      "Did not run python scripts/validate_project.py (not required for M3 owned write; residual for M4 integrated gate)",
+      "Did not claim production multiplayer or durable network transport",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g6/M3_persist.json"
+    ],
+    "product_writes_count": 0,
+    "children": []
+  },
+  "smoke_test": {
+    "type": "verify_only_independent_rerun",
+    "executable_smoke_run": true,
+    "working_directory": "E:\\AIdle_openworld",
+    "commands": [
+      {
+        "command": "python services/world_authority_poc/run_poc_tests.py",
+        "exit_code": 0,
+        "tests_run": 19,
+        "tests_failed": 0,
+        "marker": "G6_WORLD_AUTHORITY_SMOKE=PASS",
+        "suite": "services/world_authority_poc/tests/test_poc.py",
+        "observed_matrix_ok": [
+          "test_tm_idempotent_replay_same_payload",
+          "test_tm_idempotency_payload_conflict",
+          "test_tm_stale_revision_conflict",
+          "test_tm_reconnect_replay",
+          "test_tm_reconnect_snapshot_resync",
+          "test_tm_valid_commit_converge",
+          "test_tm_forged_actor_reject",
+          "test_tm_forged_client_reject",
+          "test_tm_forged_owner_reject",
+          "test_tm_forged_leaves_peer_unchanged",
+          "test_tm_direct_write_reject",
+          "test_tm_two_client_headless_smoke"
+        ]
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/network/g6_two_client_smoke.gd",
+        "exit_code": 0,
+        "marker": "G6_TWO_CLIENT_SMOKE=PASS",
+        "checks_passed": 12,
+        "clean_boot": {
+          "script_error": false,
+          "parse_error": false,
+          "error_prefix": false
+        },
+        "observed": {
+          "client_ids": ["client_a", "client_b"],
+          "valid_commit_status": "committed",
+          "new_world_revision": 1,
+          "entity_id": "ent_bd5a83512b09",
+          "entity_set_hash_prefix": "acbef0e69a104bcd",
+          "forged_rejection_code": "client_forged",
+          "reconnect_mode": "replay",
+          "final_converge": true,
+          "summary": "clients=client_a,client_b committed_once=true converge=true forged_rejected=true reconnect_ok=true"
+        }
+      }
+    ],
+    "challenge_coverage": {
+      "CH-1": "M1 executable (idempotent_replay)",
+      "CH-2": "M1 executable (payload conflict)",
+      "CH-3": "M1 executable (stale revision)",
+      "CH-4": "M1 + M2 executable (reconnect)",
+      "CH-5": "M1 + M2 executable (hash after commit / stability)",
+      "CH-6": "M1 + M2 executable (forged no mutation)"
+    },
+    "public_bind_scan": {
+      "bind_0_0_0_0": false,
+      "http_server_listen": false,
+      "nakama_colyseus": false,
+      "note": "VERIFY_ONLY re-ran existing LOCAL in-process POCs only; no new listeners"
+    }
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "allowed_write_paths_only": true,
+    "only_wrote": [
+      "orchestration/receipts/g6/M3_persist.json"
+    ],
+    "did_not_edit_contracts": true,
+    "did_not_edit_product": true,
+    "did_not_edit_world_authority_poc": true,
+    "did_not_edit_godot_network": true,
+    "did_not_edit_tasks_or_architecture": true,
+    "did_not_edit_prior_receipts": true,
+    "no_nakama_colyseus_runtime": true,
+    "no_public_listener": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "children": [],
+    "maf_smoke_test_object_present": true,
+    "verdict": "PASS"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G6-001.md",
+    "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g6/M0_schema.json",
+    "orchestration/receipts/g6/M1_network.json",
+    "orchestration/receipts/g6/M2_executor.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "services/world_authority_poc/server.py",
+    "services/world_authority_poc/idempotency.py",
+    "services/world_authority_poc/canonical.py",
+    "services/world_authority_poc/client_sim.py",
+    "services/world_authority_poc/tests/test_poc.py",
+    "services/world_authority_poc/run_poc_tests.py",
+    "game/scripts/modules/network/world_authority_local.gd",
+    "game/scripts/modules/network/authority_client.gd",
+    "game/scripts/modules/network/g6_two_client_smoke.gd",
+    "game/scripts/modules/persist/canonical_json.gd",
+    "game/scripts/modules/persist/entity_hasher.gd",
+    "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json"
+  ],
+  "next_route": "M4_CORE_TWO_CLIENT_PURPLE"
+}

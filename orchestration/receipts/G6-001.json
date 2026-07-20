@@ -1,0 +1,115 @@
+{
+  "agent_step_id": "G6-001-parent-collate-directive-17-2026-07-21",
+  "agent_type": "lead-orchestrator",
+  "skill_id": "maf-mandatory-standard",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G6-001",
+    "directive_id": 17,
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "parent_may_self_accept": false,
+    "summary": "Local two-client authoritative POC (not Nakama/Colyseus): Python in-process WorldAuthorityServer + GDScript dual-client harness. Valid path preview→confirm→commit; clients converge revision+entity_set_hash; forged/stale/schema/OOO/altered-receipt rejected; idempotent replay + payload conflict; reconnect without double-apply. Purple ACCEPTED evidence.",
+    "waves": {
+      "M0_SCHEMA_AUTHORITY_VERIFY": {
+        "profile": "schema",
+        "authority": "VERIFY_ONLY",
+        "receipt": "orchestration/receipts/g6/M0_schema.json"
+      },
+      "M1_NETWORK_SERVER_PATCH": {
+        "profile": "network",
+        "authority": "PATCH_DRAFT",
+        "sole_server_writer": true,
+        "owned_tree": "services/world_authority_poc/**",
+        "receipt": "orchestration/receipts/g6/M1_network.json"
+      },
+      "M2_EXECUTOR_CLIENT_PATCH": {
+        "profile": "executor",
+        "authority": "PATCH_DRAFT",
+        "sole_godot_harness_writer": true,
+        "owned_tree": "game/scripts/modules/network/**",
+        "receipt": "orchestration/receipts/g6/M2_executor.json"
+      },
+      "M3_PERSIST_REPLAY_VERIFY": {
+        "profile": "persist",
+        "authority": "VERIFY_ONLY",
+        "verdict": "PASS",
+        "receipt": "orchestration/receipts/g6/M3_persist.json"
+      },
+      "M4_CORE_TWO_CLIENT_PURPLE": {
+        "profile": "core",
+        "authority": "VERIFY_ONLY",
+        "verdict": "ACCEPTED",
+        "receipt": "orchestration/receipts/g6/M4_core.json",
+        "review": "orchestration/reviews/G6-001_PURPLE_REVIEW.md"
+      }
+    },
+    "dispatch_map": "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+    "scope": "local_authority_poc_only"
+  },
+  "smoke_test": {
+    "commands": [
+      {
+        "command": "python services\\world_authority_poc\\run_poc_tests.py",
+        "exit_code": 0,
+        "marker": "G6_WORLD_AUTHORITY_SMOKE=PASS",
+        "tests": 19
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/network/g6_two_client_smoke.gd",
+        "exit_code": 0,
+        "marker": "G6_TWO_CLIENT_SMOKE=PASS checks=12",
+        "log": "orchestration/logs/g6-m2-parent-two-client.log",
+        "forbidden_log_patterns_count": 0
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 4",
+        "exit_code": 0,
+        "log": "orchestration/logs/g6-boot-parent.log",
+        "forbidden_log_patterns_count": 0
+      },
+      {
+        "command": "python scripts\\validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    ]
+  },
+  "ownership_map": {
+    "network": ["services/world_authority_poc/**"],
+    "executor": ["game/scripts/modules/network/**"],
+    "verify_only": ["schema", "persist", "core"]
+  },
+  "self_audit": {
+    "profiles_only": ["schema", "network", "executor", "persist", "core"],
+    "parent_dispatch_collate_only": true,
+    "one_writer_per_file": true,
+    "no_nested_grandchildren": true,
+    "no_tasks_json_edit": true,
+    "no_codex_directive_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_public_listener": true,
+    "no_nakama_colyseus_coowner": true,
+    "no_dependency_install": true,
+    "no_accept_receipt": true
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G6-001.md",
+    "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g6/M0_schema.json",
+    "orchestration/receipts/g6/M1_network.json",
+    "orchestration/receipts/g6/M2_executor.json",
+    "orchestration/receipts/g6/M3_persist.json",
+    "orchestration/receipts/g6/M4_core.json",
+    "orchestration/reviews/G6-001_PURPLE_REVIEW.md",
+    "services/world_authority_poc/",
+    "game/scripts/modules/network/"
+  ],
+  "remaining_risks": [
+    "M2 smoke does not executable-cover all M1 matrix cells (idempotency/stale covered on Python)",
+    "Cross-runtime hash parity not byte-compared between Python and GDScript",
+    "POC only — not production multiplayer, transport security, or Shared District scale"
+  ],
+  "next_route": "WAITING_CODEX — only Codex may ACCEPTED G6-001"
+}

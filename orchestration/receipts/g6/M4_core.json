@@ -1,0 +1,462 @@
+{
+  "agent_step_id": "G6-001-M4-core-purple-2026-07-21",
+  "agent_type": "aidle-core",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G6-001",
+    "wave": "M4_CORE_TWO_CLIENT_PURPLE",
+    "profile": "core",
+    "work_order": "orchestration/work_orders/WO-G6-001.md",
+    "dispatch_map": "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+    "parent_schema": "orchestration/receipts/g6/M0_schema.json",
+    "parent_network": "orchestration/receipts/g6/M1_network.json",
+    "parent_executor": "orchestration/receipts/g6/M2_executor.json",
+    "parent_persist": "orchestration/receipts/g6/M3_persist.json",
+    "state": "WAITING_CODEX",
+    "self_accept": false,
+    "verdict": "ACCEPTED",
+    "summary": "Purple VERIFY_ONLY two-client gate for G6-001. Independent re-runs: python services/world_authority_poc/run_poc_tests.py → EXIT=0, 19/19 OK, G6_WORLD_AUTHORITY_SMOKE=PASS; Godot g6_two_client_smoke.gd → EXIT=0, G6_TWO_CLIENT_SMOKE=PASS checks=12; clean Godot boot --quit-after 4 → EXIT=0 no SCRIPT ERROR/Parse Error; python scripts/validate_project.py → EXIT=0 AIDLE_VALIDATION=PASS. Seven Purple challenges all PASS: (1) two clients converge revision+entity_set_hash; (2) forged mutations rejected without state change; (3) idempotent replay + payload conflict; (4) reconnect no double-apply; (5) no public listener / Nakama/Colyseus / outbound secrets; (6) clean boot + validator; (7) no self-accept across M0–M4. Secret/public-bind scan: no 0.0.0.0 bind, no socket/HTTP listen, no sk- keys under services/world_authority_poc or game/scripts/modules/network. Residuals are info-only (M2 smoke matrix gap for idempotency/stale; dual-runtime hash parity not byte-compared; POC not production). No product edits; no tasks.json ACCEPT; no children; self_accept=false; next_route WAITING_CODEX.",
+    "scope": {
+      "in_scope": [
+        "Final two-client Purple adversarial gate for G6-001",
+        "Independent re-run of M1 POC matrix, M2 Godot smoke, clean Godot boot, project validator",
+        "Secret and public-bind scan of world_authority_poc + game network modules",
+        "Challenge matrix from WO-G6-001 + M0 test matrix + M3 residuals",
+        "Write orchestration/receipts/g6/M4_core.json + orchestration/reviews/G6-001_PURPLE_REVIEW.md only"
+      ],
+      "out_of_scope": [
+        "Product edits under services/world_authority_poc/** or game/**",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders, prior receipts",
+        "Nakama / Colyseus / public bind / cloud / credentials",
+        "Self-ACCEPT / tasks.json ACCEPT",
+        "Children subagents",
+        "Production multiplayer, mTLS, matchmaking, Shared District, economy"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY Purple — receipt + review only; challenge evidence, do not patch",
+        "only_write": [
+          "orchestration/receipts/g6/M4_core.json",
+          "orchestration/reviews/G6-001_PURPLE_REVIEW.md"
+        ],
+        "next_writer": "Codex final acceptor (WAITING_CODEX)",
+        "poc_class": "LOCAL authoritative World Commit simulator — not production multiplayer",
+        "explicit_not": [
+          "product patches",
+          "tasks.json ACCEPT",
+          "self-ACCEPT of G6-001 as ACCEPTED workflow state",
+          "public bind / Nakama / Colyseus"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_owned_files_written": true,
+    "only_writes": [
+      "orchestration/receipts/g6/M4_core.json",
+      "orchestration/reviews/G6-001_PURPLE_REVIEW.md"
+    ],
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_product_edits": true,
+    "no_tasks_accept": true,
+    "prior_wave_receipts": {
+      "M0_schema": {
+        "path": "orchestration/receipts/g6/M0_schema.json",
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "role": "Test matrix + API surface authority for two-client local POC"
+      },
+      "M1_network": {
+        "path": "orchestration/receipts/g6/M1_network.json",
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "state": "HANDOFF_TO_M2",
+        "role": "Sole product writer services/world_authority_poc/**; 19-test matrix"
+      },
+      "M2_executor": {
+        "path": "orchestration/receipts/g6/M2_executor.json",
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "state": "HANDOFF_TO_M3",
+        "role": "Sole product writer game/scripts/modules/network/**; headless two-client smoke"
+      },
+      "M3_persist": {
+        "path": "orchestration/receipts/g6/M3_persist.json",
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "verdict": "PASS",
+        "state": "HANDOFF_TO_M4",
+        "role": "Persist/replay adversarial re-verify of six challenge invariants"
+      }
+    },
+    "ownership_map": {
+      "network": "services/world_authority_poc/** (M1 sole writer)",
+      "executor": "game/scripts/modules/network/** (M2 sole writer)",
+      "disjoint": true,
+      "network_never_wrote_godot": true,
+      "executor_never_wrote_server_poc": true,
+      "purple_never_patched_product": true
+    },
+    "challenge_matrix": [
+      {
+        "id": "CH-P1",
+        "challenge": "Two clients converge on world_revision + entity_set_hash after valid commit",
+        "invariant": "INV-TWO-CLIENT-CONVERGE",
+        "m0_matrix_ids": [
+          "TM-VALID-COMMIT-CONVERGE",
+          "TM-TWO-CLIENT-HEADLESS-SMOKE"
+        ],
+        "status": "PASS",
+        "evidence": {
+          "m1_rerun": "test_tm_valid_commit_converge + test_tm_two_client_headless_smoke ok",
+          "m2_rerun": "TM-VALID-COMMIT-CONVERGE rev=1 hash=acbef0e69a104bcd entities=[\"ent_bd5a83512b09\"]; final A/B converge",
+          "observed": {
+            "client_ids": ["client_a", "client_b"],
+            "valid_commit_status": "committed",
+            "new_world_revision": 1,
+            "entity_id": "ent_bd5a83512b09",
+            "entity_set_hash_prefix": "acbef0e69a104bcd",
+            "issuer": "world_commit_service"
+          },
+          "product_proof_read_only": [
+            "WorldAuthorityServer owns revision/entities; clients hold untrusted mirrors",
+            "AuthorityClient.sync applies server events/snapshots only",
+            "g6_two_client_smoke asserts A.rev==B.rev==S.rev and A.hash==B.hash==S.hash"
+          ]
+        }
+      },
+      {
+        "id": "CH-P2",
+        "challenge": "Forged mutations rejected without state change",
+        "invariant": "INV-FORGED-NO-MUTATION",
+        "m0_matrix_ids": [
+          "TM-FORGED-ACTOR-REJECT",
+          "TM-FORGED-CLIENT-REJECT",
+          "TM-FORGED-OWNER-REJECT",
+          "TM-DIRECT-WRITE-REJECT",
+          "TM-FORGED-LEAVES-PEER-UNCHANGED"
+        ],
+        "status": "PASS",
+        "evidence": {
+          "m1_rerun": [
+            "test_tm_forged_actor_reject ok",
+            "test_tm_forged_client_reject ok",
+            "test_tm_forged_owner_reject ok",
+            "test_tm_direct_write_reject ok",
+            "test_tm_forged_leaves_peer_unchanged ok"
+          ],
+          "m2_rerun": {
+            "TM-FORGED-ACTOR-REJECT": "code=client_forged",
+            "TM-FORGED-LEAVES-PEER-UNCHANGED": "rev=1 (pre_forge head preserved)",
+            "TM-DIRECT-WRITE-REJECT": "ok"
+          },
+          "product_proof_read_only": [
+            "session_token binds client_id+actor_id; forged actor → rejected client_forged|auth_failed",
+            "client_write_entity / client_set_world_revision / client_issue_receipt / client_publish_event reject with no mutation",
+            "peer B mirror stays at pre-forge revision+hash after forge reject + sync"
+          ]
+        }
+      },
+      {
+        "id": "CH-P3",
+        "challenge": "Idempotent replay (same payload) + payload conflict (same key different body)",
+        "invariant": "INV-IDEMPOTENCY-FINGERPRINT",
+        "m0_matrix_ids": [
+          "TM-IDEMPOTENT-REPLAY-SAME-PAYLOAD",
+          "TM-IDEMPOTENCY-PAYLOAD-CONFLICT"
+        ],
+        "status": "PASS",
+        "evidence": {
+          "m1_rerun": [
+            "test_tm_idempotent_replay_same_payload ok",
+            "test_tm_idempotency_payload_conflict ok"
+          ],
+          "m1_assertions": [
+            "same request_id + fingerprint → status=idempotent_replay; prior_receipt_id; no second entity/revision/outbox",
+            "same request_id different fingerprint → status=rejected code=policy reason contains idempotency payload mismatch; head unchanged"
+          ],
+          "m2_smoke_cover": "not_executable_in_m2_smoke (GDScript paths present in world_authority_local.gd; sole executable cover remains M1)",
+          "m3_prior": "CH-1 and CH-2 PASS with same independent rerun evidence",
+          "product_proof_read_only": [
+            "IdempotencyStore.lookup before revision check so replay is not misclassified as revision_mismatch",
+            "fingerprint material: request_id, prompt_id, space_id, mutation_class, actor.actor_id, aidle_canonical_json_v1(confirmed_world_prompt)"
+          ]
+        }
+      },
+      {
+        "id": "CH-P4",
+        "challenge": "Reconnect/replay converges without double application",
+        "invariant": "INV-RECONNECT-NO-DOUBLE-APPLY",
+        "m0_matrix_ids": [
+          "TM-RECONNECT-REPLAY",
+          "TM-RECONNECT-SNAPSHOT-RESYNC"
+        ],
+        "status": "PASS",
+        "evidence": {
+          "m1_rerun": [
+            "test_tm_reconnect_replay ok",
+            "test_tm_reconnect_snapshot_resync ok"
+          ],
+          "m2_rerun": {
+            "TM-RECONNECT-REPLAY": "mode=replay rev=1 entities=1",
+            "TM-RECONNECT-SNAPSHOT-RESYNC": "rev=1",
+            "reconnect_double_apply_guard": "entity count preserved"
+          },
+          "product_proof_read_only": [
+            "client event apply is event_id / ordered revision based; gap → snapshot resync or structured failure",
+            "server commit idempotency remains request_id-based; reconnect does not re-commit",
+            "authority_client.gd reconnect(mode) + apply_event guards"
+          ]
+        }
+      },
+      {
+        "id": "CH-P5",
+        "challenge": "No public listener / Nakama/Colyseus / outbound secrets",
+        "invariant": "INV-LOCAL-POC-ONLY",
+        "status": "PASS",
+        "evidence": {
+          "public_bind_scan": {
+            "path_scopes": [
+              "services/world_authority_poc/**",
+              "game/scripts/modules/network/**"
+            ],
+            "bind_0_0_0_0": false,
+            "socket_HTTPServer_TCPServer_listen": false,
+            "uvicorn_flask_fastapi": false,
+            "HTTPRequest_WebSocket": false,
+            "nakama_colyseus_runtime": false,
+            "nakama_colyseus_mentions": "documentation-only negation (NOT Nakama / not Colyseus)"
+          },
+          "secret_scan": {
+            "sk_prefix_keys": false,
+            "api_key_literals": false,
+            "OPENAI_API_KEY": false,
+            "Bearer_token_literals": false
+          },
+          "transport": {
+            "python_poc": "in-process method calls only",
+            "godot_harness": "in-process direct method calls on shared WorldAuthorityLocal; no HTTP/sockets"
+          }
+        }
+      },
+      {
+        "id": "CH-P6",
+        "challenge": "Clean Godot boot + project validator",
+        "invariant": "INV-CLEAN-INTEGRATED-BOOT",
+        "status": "PASS",
+        "evidence": {
+          "godot_clean_boot": {
+            "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 4",
+            "exit_code": 0,
+            "script_error": false,
+            "parse_error": false,
+            "error_prefix": false,
+            "observed_boot": [
+              "EventBus Ready",
+              "GameManager AIdle Core 0.1.0-core booting",
+              "WorldRoot Hierarchy ready",
+              "PersistModule Ready",
+              "Entered Private Reality"
+            ]
+          },
+          "project_validator": {
+            "command": "python scripts/validate_project.py",
+            "exit_code": 0,
+            "marker": "AIDLE_VALIDATION=PASS"
+          }
+        }
+      },
+      {
+        "id": "CH-P7",
+        "challenge": "No self-accept (worker cannot accept own output; Purple does not ACCEPT tasks.json)",
+        "invariant": "INV-NO-SELF-ACCEPT",
+        "status": "PASS",
+        "evidence": {
+          "M0_self_accept": false,
+          "M1_self_accept": false,
+          "M2_self_accept": false,
+          "M3_self_accept": false,
+          "M4_self_accept": false,
+          "tasks_json_accept": false,
+          "purple_product_patches": 0,
+          "children_spawned": 0
+        }
+      }
+    ],
+    "challenge_summary": {
+      "total": 7,
+      "pass": 7,
+      "fail": 0,
+      "overall": "PASS"
+    },
+    "wo_acceptance_checklist": {
+      "server_test_matrix_valid_forged_stale_schema_replay_conflict": true,
+      "godot_two_client_smoke_ids_commit_converge_forged_reconnect": true,
+      "clean_godot_boot": true,
+      "project_validator_pass": true,
+      "secret_public_bind_scan": true,
+      "maf_receipts_m0_m4": true,
+      "ownership_map_disjoint": true,
+      "purple_adversarial_review": true,
+      "no_self_accept": true,
+      "no_tasks_accept": true,
+      "no_product_edits_this_wave": true,
+      "poc_not_production_multiplayer": true
+    },
+    "residuals_for_codex": [
+      {
+        "id": "RES-M2-SMOKE-MATRIX-GAP",
+        "severity": "info",
+        "detail": "M2 headless smoke covers valid converge, forged actor, peer unchanged, direct write, reconnect replay/snapshot, two-client smoke. It does NOT executable-exercise TM-IDEMPOTENT-REPLAY-SAME-PAYLOAD, TM-IDEMPOTENCY-PAYLOAD-CONFLICT, or TM-STALE-REVISION-CONFLICT. GDScript server paths implement all three; sole executable cover remains M1 Python matrix. Acceptable for LOCAL dual-simulator POC; optional future expansion of Godot smoke."
+      },
+      {
+        "id": "RES-CROSS-RUNTIME-HASH-PARITY",
+        "severity": "info",
+        "detail": "Python canonical.py and Godot entity_hasher.gd both claim aidle_canonical_json_v1 + SHA-256, but M1 and M2 run as separate in-process POCs; Purple did not byte-compare entity_set_hash across runtimes on identical entity sets. Acceptable for LOCAL dual simulators; not a production claim."
+      },
+      {
+        "id": "RES-POC-NOT-PRODUCTION",
+        "severity": "info",
+        "detail": "No transport security, mTLS, public bind, Nakama/Colyseus, durable multi-process persistence, or real multiplayer claims. In-memory authority only. Boot still mounts network as AgentNetworkStub; G6 harness is script-invoked, not the live module slot."
+      }
+    ],
+    "not_done": [
+      "Did not edit services/world_authority_poc/** or game/**",
+      "Did not ACCEPT orchestration/tasks.json",
+      "Did not expand M2 smoke for idempotency/stale matrix IDs",
+      "Did not claim production multiplayer or durable network transport",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g6/M4_core.json",
+      "orchestration/reviews/G6-001_PURPLE_REVIEW.md"
+    ],
+    "product_writes_count": 0,
+    "children": []
+  },
+  "smoke_test": {
+    "type": "verify_only_purple_integrated_gate",
+    "executable_smoke_run": true,
+    "working_directory": "E:\\AIdle_openworld",
+    "commands": [
+      {
+        "command": "python services/world_authority_poc/run_poc_tests.py",
+        "exit_code": 0,
+        "tests_run": 19,
+        "tests_failed": 0,
+        "marker": "G6_WORLD_AUTHORITY_SMOKE=PASS",
+        "suite": "services/world_authority_poc/tests/test_poc.py",
+        "elapsed_s": 0.048
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/network/g6_two_client_smoke.gd",
+        "exit_code": 0,
+        "marker": "G6_TWO_CLIENT_SMOKE=PASS",
+        "checks_passed": 12,
+        "clean_boot": {
+          "script_error": false,
+          "parse_error": false,
+          "error_prefix": false
+        },
+        "observed": {
+          "client_ids": ["client_a", "client_b"],
+          "valid_commit_status": "committed",
+          "new_world_revision": 1,
+          "entity_id": "ent_bd5a83512b09",
+          "entity_set_hash_prefix": "acbef0e69a104bcd",
+          "forged_rejection_code": "client_forged",
+          "reconnect_mode": "replay",
+          "final_converge": true,
+          "summary": "clients=client_a,client_b committed_once=true converge=true forged_rejected=true reconnect_ok=true"
+        }
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 4",
+        "exit_code": 0,
+        "script_error": false,
+        "parse_error": false,
+        "note": "Clean integrated headless boot; modules mount including persist + network stub"
+      },
+      {
+        "command": "python scripts/validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    ],
+    "secret_public_bind_scan": {
+      "scopes": [
+        "services/world_authority_poc",
+        "game/scripts/modules/network"
+      ],
+      "bind_0_0_0_0": false,
+      "http_server_listen": false,
+      "socket_listen": false,
+      "nakama_colyseus_runtime": false,
+      "sk_keys": false,
+      "outbound_http_symbols": false
+    },
+    "challenge_coverage": {
+      "CH-P1": "M1 + M2 executable (converge)",
+      "CH-P2": "M1 + M2 executable (forged no mutation)",
+      "CH-P3": "M1 executable (idempotent replay + payload conflict)",
+      "CH-P4": "M1 + M2 executable (reconnect)",
+      "CH-P5": "static scan + product headers (local POC only)",
+      "CH-P6": "clean boot + validate_project executable",
+      "CH-P7": "receipt audit self_accept=false all waves; no tasks ACCEPT"
+    }
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "allowed_write_paths_only": true,
+    "only_wrote": [
+      "orchestration/receipts/g6/M4_core.json",
+      "orchestration/reviews/G6-001_PURPLE_REVIEW.md"
+    ],
+    "did_not_edit_contracts": true,
+    "did_not_edit_product": true,
+    "did_not_edit_world_authority_poc": true,
+    "did_not_edit_godot_network": true,
+    "did_not_edit_tasks_or_architecture": true,
+    "did_not_edit_prior_receipts": true,
+    "did_not_accept_tasks_json": true,
+    "no_nakama_colyseus_runtime": true,
+    "no_public_listener": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "children": [],
+    "maf_smoke_test_object_present": true,
+    "verdict": "ACCEPTED"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G6-001.md",
+    "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g6/M0_schema.json",
+    "orchestration/receipts/g6/M1_network.json",
+    "orchestration/receipts/g6/M2_executor.json",
+    "orchestration/receipts/g6/M3_persist.json",
+    "orchestration/reviews/G6-001_PURPLE_REVIEW.md",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "services/world_authority_poc/server.py",
+    "services/world_authority_poc/idempotency.py",
+    "services/world_authority_poc/canonical.py",
+    "services/world_authority_poc/client_sim.py",
+    "services/world_authority_poc/tests/test_poc.py",
+    "services/world_authority_poc/run_poc_tests.py",
+    "game/scripts/modules/network/world_authority_local.gd",
+    "game/scripts/modules/network/authority_client.gd",
+    "game/scripts/modules/network/g6_two_client_smoke.gd",
+    "game/scripts/modules/network/network_module.gd",
+    "game/scripts/modules/persist/canonical_json.gd",
+    "game/scripts/modules/persist/entity_hasher.gd",
+    "contracts/world_prompt.schema.json",
+    "contracts/commit/commit_request.schema.json",
+    "contracts/commit/commit_receipt.schema.json",
+    "contracts/commit/commit_policy.md",
+    "contracts/events/event_envelope.schema.json",
+    "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json"
+  ],
+  "next_route": "WAITING_CODEX"
+}

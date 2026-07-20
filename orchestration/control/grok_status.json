@@ -1,41 +1,38 @@
 {
   "schema_version": "1.0.0",
   "agent": "aidle-conductor",
-  "last_directive_id": 16,
+  "last_directive_id": 17,
   "state": "WAITING_CODEX",
   "active_task_ids": [],
-  "submitted_task_ids": ["G5-001"],
-  "active_wave": "E1_PARENT_COLLATE_DONE",
-  "work_order": "orchestration/work_orders/WO-G5-001-CORRECTION-002.md",
-  "profiles_used": ["persist"],
+  "submitted_task_ids": ["G6-001"],
+  "active_wave": "M4_CORE_TWO_CLIENT_PURPLE_DONE",
+  "work_order": "orchestration/work_orders/WO-G6-001.md",
+  "dispatch_map": "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+  "profiles_used": ["schema", "network", "executor", "persist", "core"],
   "evidence_paths": [
-    "orchestration/receipts/g5/C4_persist.json",
-    "orchestration/receipts/G5-001-CORRECTION-001.json",
-    "orchestration/receipts/g5/C0_schema.json",
-    "orchestration/receipts/g5/C1_network.json",
-    "orchestration/receipts/g5/C2_executor.json",
-    "orchestration/receipts/g5/C3_core.json",
-    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+    "orchestration/receipts/G6-001.json",
+    "orchestration/receipts/g6/M0_schema.json",
+    "orchestration/receipts/g6/M1_network.json",
+    "orchestration/receipts/g6/M2_executor.json",
+    "orchestration/receipts/g6/M3_persist.json",
+    "orchestration/receipts/g6/M4_core.json",
+    "orchestration/reviews/G6-001_PURPLE_REVIEW.md",
+    "orchestration/logs/g6-m2-parent-two-client.log",
+    "orchestration/logs/g6-boot-parent.log",
+    "services/world_authority_poc/",
+    "game/scripts/modules/network/"
   ],
-  "maf_validation": {
-    "schema": "E:/standards/maf/schemas/agent_step_contract.schema.json",
-    "method": "jsonschema.Draft202012Validator (agentwork_runtime unavailable; not installed/repaired)",
-    "files": {
-      "orchestration/receipts/G5-001-CORRECTION-001.json": "PASS",
-      "orchestration/receipts/g5/C0_schema.json": "PASS",
-      "orchestration/receipts/g5/C1_network.json": "PASS",
-      "orchestration/receipts/g5/C2_executor.json": "PASS",
-      "orchestration/receipts/g5/C3_core.json": "PASS",
-      "orchestration/receipts/g5/C4_persist.json": "PASS"
-    },
-    "all_pass": true
-  },
-  "correction": {
-    "file": "orchestration/receipts/g5/C4_persist.json",
-    "change": "Added top-level smoke_test object from existing result.independent_verification only (no invented evidence)",
-    "product_rerun": false
+  "parent_smoke": {
+    "poc_marker": "G6_WORLD_AUTHORITY_SMOKE=PASS",
+    "poc_tests": 19,
+    "poc_exit": 0,
+    "two_client_marker": "G6_TWO_CLIENT_SMOKE=PASS checks=12",
+    "two_client_exit": 0,
+    "boot_exit": 0,
+    "forbidden_error_count": 0,
+    "validator": "AIDLE_VALIDATION=PASS"
   },
   "failure_signature": null,
-  "updated_at": "2026-07-21T05:30:00+07:00",
-  "message_to_codex": "Directive 16 G5-001 CORRECTION-002 complete → REVIEW_REQUESTED. persist VERIFY_ONLY amended C4_persist.json with truthful smoke_test. All six MAF receipts validate against agent_step_contract.schema.json via jsonschema. No product changes. No self-ACCEPT. Awaiting Codex."
+  "updated_at": "2026-07-21T06:25:00+07:00",
+  "message_to_codex": "Directive 17 G6-001 complete → REVIEW_REQUESTED. Waves schema→network→executor→persist→core(Purple). Parent: world authority 19 tests PASS, Godot two-client 12 PASS clean, boot clean, validator PASS. Local POC only (no public bind/Nakama). Purple ACCEPTED evidence. No self-ACCEPT. Awaiting Codex."
 }

@@ -1,0 +1,268 @@
+{
+  "agent_step_id": "G6-001-M1-network-2026-07-21",
+  "agent_type": "aidle-network",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G6-001",
+    "wave": "M1_NETWORK_SERVER_PATCH",
+    "profile": "network",
+    "work_order": "orchestration/work_orders/WO-G6-001.md",
+    "dispatch_map": "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+    "parent_schema": "orchestration/receipts/g6/M0_schema.json",
+    "state": "HANDOFF_TO_M2",
+    "self_accept": false,
+    "summary": "Implemented local in-process WorldAuthorityServer under services/world_authority_poc/**. Two logical clients (client_a/client_b) share one server owning world_revision, entity set, ownership, commit receipts and outbox. Valid path: submit_proposal (pending) → confirm_proposal → commit with server-stamped authority.issuer=world_commit_service. Fail-closed: direct write APIs, forged actor/client/owner, client_authoritative schema, stale expected_world_revision, invalid schema, unconfirmed commit, out-of-order event apply, altered receipt, fake event. Idempotency: same request_id+fingerprint → idempotent_replay no duplicate entity/revision/outbox; same key different fingerprint → rejected policy (idempotency payload mismatch). entity_set_hash via aidle_canonical_json_v1 + SHA-256. poll_events + get_snapshot for convergence/reconnect. No public bind, no HTTP listener, no Nakama/Colyseus, no contracts/Godot edits. Smoke: 19 tests PASS, G6_WORLD_AUTHORITY_SMOKE=PASS.",
+    "scope": {
+      "in_scope": [
+        "services/world_authority_poc/**",
+        "orchestration/receipts/g6/M1_network.json"
+      ],
+      "out_of_scope": [
+        "game/scripts/modules/network/** (M2 sole writer)",
+        "contracts/**",
+        "Nakama / Colyseus / public bind / cloud / real credentials",
+        "Production authn (mTLS), matchmaking, Shared District scale, economy",
+        "Dependency install, push, deploy, publish",
+        "Self-ACCEPT",
+        "tasks.json / ARCHITECTURE_LOCK / work_orders edits"
+      ],
+      "authority_boundary": {
+        "this_wave": "PATCH_DRAFT sole writer for world_authority_poc server simulator",
+        "only_write": [
+          "services/world_authority_poc/**",
+          "orchestration/receipts/g6/M1_network.json"
+        ],
+        "next_writer": "M2_EXECUTOR_CLIENT_PATCH (executor, PATCH_DRAFT)",
+        "poc_class": "LOCAL authoritative World Commit simulator — not production multiplayer",
+        "architecture_lock": "Online Private Reality / Private with visitors: Server owns durable state",
+        "explicit_not": [
+          "Nakama world-state co-owner",
+          "Colyseus world-state co-owner",
+          "client-authoritative inventory/ownership/currency",
+          "public bind / production deployment"
+        ]
+      }
+    },
+    "product_writes": [
+      "services/world_authority_poc/__init__.py",
+      "services/world_authority_poc/paths.py",
+      "services/world_authority_poc/canonical.py",
+      "services/world_authority_poc/idempotency.py",
+      "services/world_authority_poc/validators.py",
+      "services/world_authority_poc/server.py",
+      "services/world_authority_poc/client_sim.py",
+      "services/world_authority_poc/tests/__init__.py",
+      "services/world_authority_poc/tests/test_poc.py",
+      "services/world_authority_poc/run_poc_tests.py",
+      "orchestration/receipts/g6/M1_network.json"
+    ],
+    "only_owned_files_written": true,
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_godot_edits": true,
+    "implementation": {
+      "language": "Python 3",
+      "dependencies": {
+        "stdlib": true,
+        "jsonschema": "already present (scripts/validate_project.py / agm_gateway); no new install",
+        "outbound_http": false,
+        "public_bind": false
+      },
+      "bind_policy": {
+        "mode": "in-process only",
+        "forbidden": ["0.0.0.0", "public HTTP listener", "Nakama", "Colyseus", "cloud"]
+      },
+      "components": {
+        "WorldAuthorityServer": "services/world_authority_poc/server.py — owns revision, entities, ownership, receipts, outbox",
+        "SessionRegistry": "in-server _sessions / _client_tokens; opaque session_token",
+        "ProposalStore": "_proposals by request_id; pending→confirmed",
+        "CommitService": "commit() pipeline with session-bound admission",
+        "IdempotencyStore": "services/world_authority_poc/idempotency.py request_id→{fingerprint,receipt}",
+        "EntityStore": "_entities map + entity_set_hash",
+        "Outbox": "append-only world.mutation_committed after committed",
+        "SnapshotService": "get_snapshot / connect snapshot",
+        "ClientMirror": "services/world_authority_poc/client_sim.py event apply + integrity + reconnect helpers for matrix",
+        "CanonicalHasher": "services/world_authority_poc/canonical.py aidle_canonical_json_v1 + SHA-256"
+      },
+      "required_methods": [
+        "connect",
+        "submit_proposal",
+        "confirm_proposal",
+        "commit",
+        "get_snapshot",
+        "poll_events",
+        "get_head"
+      ],
+      "forbidden_apis_implemented_as_reject": [
+        "client_write_entity",
+        "client_set_world_revision",
+        "client_issue_receipt",
+        "client_publish_event"
+      ],
+      "commit_pipeline_order": [
+        "authenticate session",
+        "optional claimed_client_id mismatch → client_forged",
+        "schema-validate commit_request",
+        "POC source allowlist server_authoritative only",
+        "session/actor/confirmed_by checks",
+        "bind to confirmed world_prompt (request_id + prompt_id)",
+        "idempotency lookup (fingerprint) — before revision so replay is not conflicted",
+        "ownership check",
+        "expected_world_revision == head",
+        "apply entity mutation atomically",
+        "world_revision += 1",
+        "compute entity_set_hash",
+        "issue committed receipt (issuer world_commit_service)",
+        "append outbox event world.mutation_committed"
+      ],
+      "fingerprint_material": [
+        "request_id",
+        "prompt_id",
+        "space_id",
+        "mutation_class",
+        "actor.actor_id",
+        "aidle_canonical_json_v1(confirmed_world_prompt)"
+      ],
+      "idempotency_payload_mismatch_code": {
+        "status": "rejected",
+        "rejection.code": "policy",
+        "reason_contains": "idempotency payload mismatch"
+      },
+      "entity_set_hash": "sha256(aidle_canonical_json_v1(array of active entity_records sorted by entity_id)); tombstones excluded; owner_id not in hash material",
+      "g1_002_residuals_mitigated": [
+        "RES-HONOR-SYSTEM-AUTHORITY: session_token binds client_id+actor_id; server stamps receipt authority; client authority labels not trusted for admission",
+        "RES-COMMIT-NO-BODY: commit applies stored confirmed world_prompt only",
+        "RES-PROMPT-COMMIT-LINK: request_id + prompt_id + confirmed state required",
+        "RES-EVENT-SECRET-SHALLOW: outbox payload from server fields only (receipt_id, entity_ids, revisions, entity_set_hash)",
+        "RES-IDEM-CONFLICT-NOT-EXECUTED: executable store + conflict test",
+        "RES-REVISION-MONOTONICITY: committed sets new = old + 1"
+      ],
+      "deterministic_fixtures": {
+        "space_id": "home_01",
+        "seed_world_revision": 0,
+        "seed_entities": [],
+        "client_a": {"client_id": "client_a", "actor_id": "player_a", "actor_type": "player"},
+        "client_b": {"client_id": "client_b", "actor_id": "player_b", "actor_type": "player"}
+      }
+    },
+    "test_matrix_coverage": {
+      "TM-VALID-COMMIT-CONVERGE": "PASS",
+      "TM-DIRECT-WRITE-REJECT": "PASS",
+      "TM-FORGED-ACTOR-REJECT": "PASS",
+      "TM-FORGED-CLIENT-REJECT": "PASS",
+      "TM-FORGED-OWNER-REJECT": "PASS",
+      "TM-CLIENT-AUTHORITATIVE-SCHEMA-REJECT": "PASS",
+      "TM-STALE-REVISION-CONFLICT": "PASS",
+      "TM-INVALID-SCHEMA-REJECT": "PASS",
+      "TM-UNCONFIRMED-REJECT": "PASS",
+      "TM-IDEMPOTENT-REPLAY-SAME-PAYLOAD": "PASS",
+      "TM-IDEMPOTENCY-PAYLOAD-CONFLICT": "PASS",
+      "TM-OUT-OF-ORDER-EVENT": "PASS",
+      "TM-ALTERED-RECEIPT": "PASS",
+      "TM-RECONNECT-REPLAY": "PASS",
+      "TM-RECONNECT-SNAPSHOT-RESYNC": "PASS",
+      "TM-TWO-CLIENT-HEADLESS-SMOKE": "PASS",
+      "TM-FORGED-LEAVES-PEER-UNCHANGED": "PASS",
+      "RC-FAKE-EVENT": "PASS",
+      "SUBMIT_PREVIEW_NO_MUTATION": "PASS"
+    },
+    "m1_acceptance_checklist": {
+      "server_test_matrix_valid_forged_stale_schema_replay_conflict": true,
+      "receipts_issuer_world_commit_service": true,
+      "committed_advances_revision_by_1_and_entity_set_hash": true,
+      "outbox_event_only_after_committed": true,
+      "no_public_bind": true,
+      "M1_network_json_with_smoke_test": true
+    },
+    "not_done": [
+      "Did not implement Godot two-client harness (M2)",
+      "Did not edit contracts or game/**",
+      "Did not introduce Nakama/Colyseus or public listener",
+      "Did not claim transport security or production auth",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "services/world_authority_poc/",
+      "services/world_authority_poc/run_poc_tests.py",
+      "orchestration/receipts/g6/M1_network.json"
+    ],
+    "product_writes_count": 10,
+    "children": []
+  },
+  "smoke_test": {
+    "type": "executable_unittest",
+    "executable_smoke_run": true,
+    "command": "python services/world_authority_poc/run_poc_tests.py",
+    "working_directory": "E:\\AIdle_openworld",
+    "exit_code": 0,
+    "tests_run": 19,
+    "tests_failed": 0,
+    "marker": "G6_WORLD_AUTHORITY_SMOKE=PASS",
+    "evidence": {
+      "runner": "services/world_authority_poc/run_poc_tests.py",
+      "suite": "services/world_authority_poc/tests/test_poc.py",
+      "matrix_ids_covered": [
+        "TM-VALID-COMMIT-CONVERGE",
+        "TM-DIRECT-WRITE-REJECT",
+        "TM-FORGED-ACTOR-REJECT",
+        "TM-FORGED-CLIENT-REJECT",
+        "TM-FORGED-OWNER-REJECT",
+        "TM-CLIENT-AUTHORITATIVE-SCHEMA-REJECT",
+        "TM-STALE-REVISION-CONFLICT",
+        "TM-INVALID-SCHEMA-REJECT",
+        "TM-UNCONFIRMED-REJECT",
+        "TM-IDEMPOTENT-REPLAY-SAME-PAYLOAD",
+        "TM-IDEMPOTENCY-PAYLOAD-CONFLICT",
+        "TM-OUT-OF-ORDER-EVENT",
+        "TM-ALTERED-RECEIPT",
+        "TM-RECONNECT-REPLAY",
+        "TM-RECONNECT-SNAPSHOT-RESYNC",
+        "TM-TWO-CLIENT-HEADLESS-SMOKE",
+        "TM-FORGED-LEAVES-PEER-UNCHANGED"
+      ]
+    },
+    "public_bind_scan": {
+      "bind_0_0_0_0": false,
+      "http_server_listen": false,
+      "nakama_colyseus": false
+    }
+  },
+  "self_audit": {
+    "authority_token": "PATCH_DRAFT",
+    "allowed_write_paths_only": true,
+    "only_wrote": [
+      "services/world_authority_poc/**",
+      "orchestration/receipts/g6/M1_network.json"
+    ],
+    "did_not_edit_contracts": true,
+    "did_not_edit_godot": true,
+    "did_not_edit_tasks_or_architecture": true,
+    "no_nakama_colyseus_runtime": true,
+    "no_public_listener": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "children": [],
+    "maf_smoke_test_object_present": true,
+    "g1_002_residuals_mitigated_in_server": true
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G6-001.md",
+    "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g6/M0_schema.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "contracts/world_prompt.schema.json",
+    "contracts/commit/commit_request.schema.json",
+    "contracts/commit/commit_receipt.schema.json",
+    "contracts/commit/commit_policy.md",
+    "contracts/events/event_envelope.schema.json",
+    "services/agm_gateway/idempotency.py",
+    "services/world_authority_poc/server.py",
+    "services/world_authority_poc/run_poc_tests.py",
+    "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json"
+  ],
+  "next_route": "M2_EXECUTOR_CLIENT_PATCH"
+}

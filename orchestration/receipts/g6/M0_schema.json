@@ -1,0 +1,976 @@
+{
+  "agent_step_id": "G6-001-M0-schema-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G6-001",
+    "wave": "M0_SCHEMA_AUTHORITY_VERIFY",
+    "profile": "schema",
+    "work_order": "orchestration/work_orders/WO-G6-001.md",
+    "dispatch_map": "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+    "state": "HANDOFF_TO_M1",
+    "self_accept": false,
+    "summary": "VERIFY_ONLY mapping of existing World Prompt, commit, event, idempotency and revision contracts into an explicit two-client LOCAL authoritative POC test matrix. Server owns world_revision, entity set, ownership and commit receipts. Valid path is preview → confirm → commit (server_authoritative only). Fail-closed rejects: direct client write, forged actor/client/owner, stale expected_world_revision, invalid schema, out-of-order event, altered receipt. Idempotency: same request_id + same payload → same receipt no duplicate; same key + different payload → conflict. Convergence: both clients share revision + entity_set_hash. Reconnect: replay from last ack revision or explicit snapshot resync; never silent divergence. API surfaces defined for M1 network server simulator and M2 Godot two-client harness. Not Nakama/Colyseus. No product or contracts edits.",
+    "scope": {
+      "in_scope": [
+        "Two-client test matrix derived from G1-001/G1-002 contracts + G1-002 residuals + ARCHITECTURE_LOCK authority table",
+        "Server ownership of world_revision, entity set, ownership decisions, commit receipts",
+        "Valid preview → confirm → commit boundary (server_authoritative only)",
+        "Fail-closed rejection cases for forged/direct/stale/invalid/out-of-order/altered paths",
+        "Idempotency (same key same payload vs same key different payload)",
+        "Convergence invariants (revision + entity_set_hash)",
+        "Reconnect/replay vs snapshot resync rules",
+        "API surface for M1 services/world_authority_poc/**",
+        "API surface for M2 game/scripts/modules/network/** harness",
+        "Carry-forward of G1-002 residual adversarial items into executable M1/M2 requirements"
+      ],
+      "out_of_scope": [
+        "Product implementation under services/world_authority_poc/** (M1 sole writer)",
+        "Godot two-client harness under game/scripts/modules/network/** (M2 sole writer)",
+        "M3 persist replay/adversarial VERIFY_ONLY",
+        "M4 core Purple two-client gate",
+        "contracts/** edits",
+        "Nakama / Colyseus runtime, public listener, cloud, real credentials",
+        "Production authn (mTLS), matchmaking, Shared District scale, economy, marketplace",
+        "Dependency install, push, deploy, publish",
+        "Self-ACCEPT"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — receipt only",
+        "only_write": "orchestration/receipts/g6/M0_schema.json",
+        "next_writer": "M1_NETWORK_SERVER_PATCH (network, PATCH_DRAFT)",
+        "poc_class": "LOCAL authoritative World Commit simulator — not production multiplayer",
+        "architecture_lock": "orchestration/ARCHITECTURE_LOCK.md — Online Private Reality / Private with visitors / Shared: Server owns durable state; Offline Private Reality local journal is out of G6 durable authority path",
+        "explicit_not": [
+          "Nakama world-state co-owner",
+          "Colyseus world-state co-owner",
+          "client-authoritative inventory/ownership/currency",
+          "public bind / production deployment"
+        ]
+      }
+    },
+    "contract_authority_map": {
+      "world_prompt": {
+        "schema": "contracts/world_prompt.schema.json",
+        "version": "1.1.0",
+        "role": "Structured proposal for create/modify/delete/enrich/gift_proposal. Clients propose; never mutate canonical state.",
+        "idempotency_key": "request_id (uuid)",
+        "revision_token": "target.expected_world_revision",
+        "confirmation_gate": {
+          "preview_required": true,
+          "state_enum": ["pending", "confirmed"],
+          "confirmed_requires": "confirmed_by",
+          "commit_eligible_only_when": "confirmation.state == confirmed AND preview was shown (product path)"
+        },
+        "canonical_fixture_seed": "contracts/fixtures/valid/create_cozy_house.json (pending → confirm for valid path)"
+      },
+      "commit_request": {
+        "schema": "contracts/commit/commit_request.schema.json",
+        "version": "1.0.0",
+        "role": "Durable mutation request accepted only via World Commit service path.",
+        "required_authority": {
+          "commit_path": "const world_commit_service",
+          "source": "enum server_authoritative | offline_journal_reconcile",
+          "durable_mutation": true,
+          "poc_allowed_source": "server_authoritative only (offline_journal_reconcile is out of G6 two-client durable path)"
+        },
+        "confirmation": {
+          "state": "const confirmed",
+          "confirmed_by": "string (must match registered client actor)"
+        },
+        "idempotency_key": "request_id",
+        "revision_token": "expected_world_revision",
+        "binding_to_world_prompt_required_by_poc": {
+          "note": "G1-002 residual: commit_request has no mutation body. M1 MUST bind commit to a previously validated+confirmed world_prompt by matching request_id and prompt_id and hashing the confirmed prompt body.",
+          "fields": [
+            "request_id == world_prompt.request_id",
+            "prompt_id == world_prompt.prompt_id",
+            "space_id == world_prompt.target.space_id",
+            "expected_world_revision == world_prompt.target.expected_world_revision (at confirm time)",
+            "actor.actor_id aligns with world_prompt.actor.player_id for player commits",
+            "confirmation.state confirmed on both"
+          ],
+          "payload_fingerprint": "sha256(aidle_canonical_json_v1(confirmed_world_prompt)) stored with request_id for idempotency conflict detection"
+        },
+        "valid_fixture": "contracts/fixtures/commit/valid_commit_request.json"
+      },
+      "commit_receipt": {
+        "schema": "contracts/commit/commit_receipt.schema.json",
+        "version": "1.0.0",
+        "statuses": ["committed", "idempotent_replay", "rejected", "conflicted"],
+        "authority_issuer": {
+          "commit_path": "const world_commit_service",
+          "issuer": "const world_commit_service"
+        },
+        "fixtures": {
+          "committed": "contracts/fixtures/commit/valid_committed_receipt.json",
+          "idempotent_replay": "contracts/fixtures/commit/valid_idempotent_replay_receipt.json",
+          "idempotency_pair": "contracts/fixtures/commit/idempotency_pair.json",
+          "revision_conflict": "contracts/fixtures/commit/valid_revision_conflict_receipt.json",
+          "client_forged_rejection": "contracts/fixtures/commit/valid_client_forged_rejection_receipt.json"
+        }
+      },
+      "commit_policy": {
+        "doc": "contracts/commit/commit_policy.md",
+        "rules": [
+          "Clients render and predict; AI proposes; only World Commit commits durable online mutations",
+          "request_id is idempotency key; duplicate must not re-apply",
+          "expected_world_revision mismatch → conflicted revision_mismatch; no silent merge",
+          "client_authoritative / client_forged labeled paths are schema-invalid or policy-rejected",
+          "After successful commit, outbox publishes event_envelope; events are not world truth"
+        ]
+      },
+      "event_envelope": {
+        "schema": "contracts/events/event_envelope.schema.json",
+        "version": "1.0.0",
+        "required_fields": [
+          "event_id",
+          "event_type",
+          "event_version",
+          "occurred_at",
+          "request_id",
+          "space_id",
+          "world_revision",
+          "actor_id",
+          "payload",
+          "trace_id"
+        ],
+        "consumer_idempotency_key": "event_id",
+        "poc_event_type": "world.mutation_committed",
+        "valid_fixture": "contracts/fixtures/events/valid_event_envelope.json",
+        "producer_rule": "Server outbox ONLY after committed status; clients never mint authoritative events"
+      },
+      "entity_set_hash": {
+        "source": "orchestration/receipts/g4/P0_schema.json entity_hash + aidle_canonical_json_v1",
+        "algorithm": "SHA-256 lowercase hex 64",
+        "entity_set_hash_def": "sha256(aidle_canonical_json_v1(array of active entity_records sorted by entity_id))",
+        "convergence_use": "Both clients and server must report identical world_revision and entity_set_hash after valid commit / resync"
+      },
+      "architecture_lock_authority_table": {
+        "source": "orchestration/ARCHITECTURE_LOCK.md",
+        "g6_poc_context": "Online Private Reality (or Private with visitors) — Simulation: Server; Durable state: Server",
+        "offline_private_reality": "Out of G6 durable authority path (local journal + later reconcile); do not use as multiplayer source of truth"
+      }
+    },
+    "g1_002_residuals_carried": [
+      {
+        "id": "RES-HONOR-SYSTEM-AUTHORITY",
+        "statement": "Schema-valid commit_request can still be client-forged by lying about authority labels. Service identity must not trust client-asserted authority JSON alone.",
+        "m1_mitigation": "M1 binds every commit attempt to a registered client_session_id / client_id established at connect. Server ignores client-supplied authority.source for admission; server stamps authority on receipt. Direct entity write APIs do not exist. Forged actor_id / owner_id that do not match the authenticated session fail closed with rejection.code client_forged or auth_failed / ownership."
+      },
+      {
+        "id": "RES-COMMIT-NO-BODY",
+        "statement": "commit_request has no mutation body.",
+        "m1_mitigation": "M1 stores confirmed world_prompt by prompt_id/request_id; commit applies that stored body only. Commit without prior confirmed prompt → rejected confirmation_missing or schema_invalid."
+      },
+      {
+        "id": "RES-PROMPT-COMMIT-LINK",
+        "statement": "No machine link from confirmed world_prompt → commit_request.",
+        "m1_mitigation": "Server requires matching request_id + prompt_id + confirmed state before apply."
+      },
+      {
+        "id": "RES-EVENT-SECRET-SHALLOW",
+        "statement": "Event payload secret blocklist is keyword-shallow.",
+        "m1_mitigation": "POC outbox builds payload from server fields only (receipt_id, entity_ids, revisions, entity_set_hash); never copies client payload wholesale."
+      },
+      {
+        "id": "RES-IDEM-CONFLICT-NOT-EXECUTED",
+        "statement": "Idempotency/conflict were fixture-only until G4/G6.",
+        "m1_mitigation": "Executable store + race tests required in M1 test matrix."
+      },
+      {
+        "id": "RES-REVISION-MONOTONICITY",
+        "statement": "Receipt schema does not force new_world_revision > old_world_revision.",
+        "m1_mitigation": "On committed, M1 MUST set new = old + 1 and refuse decreasing revisions internally."
+      }
+    ],
+    "server_owns": {
+      "world_revision": {
+        "type": "integer",
+        "minimum": 0,
+        "rule": "Monotonically non-decreasing; advances by exactly 1 on each successful committed durable apply. Clients may propose expected_world_revision but never set server head."
+      },
+      "entity_set": {
+        "rule": "Canonical active entity map lives only on server. Clients hold local mirrors for render/prediction; mirrors are untrusted until equal to server snapshot/event apply.",
+        "entity_set_hash": "Server computes and returns; clients verify equality for convergence."
+      },
+      "ownership": {
+        "rule": "Server decides entity ownership / actor eligibility. Client-asserted owner_id or actor_id that does not match registered session fails closed (rejection ownership | client_forged | auth_failed).",
+        "poc_model": "Each client registers { client_id, actor_id, actor_type } at connect; only that actor may confirm/commit under that session for player mutations."
+      },
+      "commit_receipts": {
+        "rule": "Only server issues commit_receipt with authority.issuer=world_commit_service. Clients must not mint or rewrite receipts. Altered receipt fields fail integrity check on client apply path."
+      },
+      "event_outbox": {
+        "rule": "Only server emits world.mutation_committed envelopes after committed. event_id server-assigned UUID. Consumers idempotent by event_id."
+      }
+    },
+    "valid_path": {
+      "name": "preview_confirm_commit_server_authoritative",
+      "steps": [
+        {
+          "step": 1,
+          "name": "submit_proposal",
+          "actor": "Client A",
+          "action": "POST/submit schema-valid world_prompt with confirmation.state=pending, preview_required=true, target.expected_world_revision == server head",
+          "server": "Validate world_prompt schema; store as pending proposal keyed by request_id; do NOT mutate entities; do NOT advance revision"
+        },
+        {
+          "step": 2,
+          "name": "preview",
+          "actor": "Client A (local render)",
+          "action": "Render wireframe→hologram preview from proposal; no durable write",
+          "server": "Optional preview ack; still no entity mutation"
+        },
+        {
+          "step": 3,
+          "name": "confirm",
+          "actor": "Client A",
+          "action": "Confirm proposal (confirmation.state=confirmed, confirmed_by=registered actor). Server marks proposal confirmed only if still pending and revision still matches or re-binds expected revision per policy.",
+          "server": "Reject if already confirmed by another path, missing confirmed_by, or forged actor"
+        },
+        {
+          "step": 4,
+          "name": "commit_request",
+          "actor": "Client A via World Commit boundary",
+          "action": "Submit commit_request with authority labels for schema compliance BUT admission is session-bound; source effective = server_authoritative; confirmation.state=confirmed; expected_world_revision == server head; request_id/prompt_id bound to confirmed prompt",
+          "server": "Validate schema → session/actor/ownership → confirmation link → revision → idempotency fingerprint → apply entity delta → bump revision → issue committed receipt → append outbox event"
+        },
+        {
+          "step": 5,
+          "name": "fanout_and_converge",
+          "actor": "Client B (+ Client A mirror)",
+          "action": "Receive world.mutation_committed event OR pull snapshot; apply in order; converge to server world_revision and entity_set_hash",
+          "server": "Authoritative head unchanged by client apply"
+        }
+      ],
+      "forbidden_shortcuts": [
+        "Skip preview_required",
+        "Commit with confirmation.state=pending",
+        "Client writes entity set directly",
+        "Client publishes event envelope as authority",
+        "authority.source=client_authoritative (schema-invalid)",
+        "authority.commit_path != world_commit_service (schema-invalid)"
+      ]
+    },
+    "reject_closed": {
+      "description": "All cases MUST leave server world_revision and entity_set_hash unchanged and return structured reject/conflict (never silent accept).",
+      "cases": [
+        {
+          "id": "RC-DIRECT-CLIENT-WRITE",
+          "attack": "Client attempts direct entity create/update/delete API bypassing commit",
+          "expected": "No such durable API; if attempted via internal hook, reject + zero mutation"
+        },
+        {
+          "id": "RC-FORGED-ACTOR",
+          "attack": "commit_request.actor.actor_id or confirmed_by does not match registered session actor",
+          "expected": "status rejected; code client_forged or auth_failed; no mutation"
+        },
+        {
+          "id": "RC-FORGED-CLIENT-ID",
+          "attack": "Request claims another client_id / session_id",
+          "expected": "status rejected; auth_failed or client_forged; no mutation"
+        },
+        {
+          "id": "RC-FORGED-OWNER",
+          "attack": "Client asserts ownership of entity it does not own (modify/delete/gift)",
+          "expected": "status rejected; code ownership; no mutation"
+        },
+        {
+          "id": "RC-CLIENT-AUTHORITATIVE-LABEL",
+          "attack": "authority.source=client_authoritative or commit_path=client_local",
+          "expected": "schema_invalid / rejected client_authoritative_durable_forbidden or client_forged (fixtures: invalid_client_forged_durable_request, invalid_client_authoritative_source)"
+        },
+        {
+          "id": "RC-STALE-REVISION",
+          "attack": "expected_world_revision != server head",
+          "expected": "status conflicted; conflict.code=revision_mismatch; expected and actual present; no mutation (fixture: valid_revision_conflict_receipt.json pattern)"
+        },
+        {
+          "id": "RC-INVALID-SCHEMA",
+          "attack": "world_prompt or commit_request fails Draft 2020-12 schema (missing required, unknown fields, wrong schema_version, preview_required false, etc.)",
+          "expected": "status rejected; code schema_invalid; no mutation"
+        },
+        {
+          "id": "RC-UNCONFIRMED",
+          "attack": "Commit without confirmation.state=confirmed on prompt and/or commit_request",
+          "expected": "status rejected; code confirmation_missing; no mutation"
+        },
+        {
+          "id": "RC-OUT-OF-ORDER-EVENT",
+          "attack": "Client receives event with world_revision > last_ack+1 (gap) or reordered stream",
+          "expected": "Client MUST NOT apply out-of-order as authority; trigger snapshot resync or structured failure; never silent partial apply that diverges"
+        },
+        {
+          "id": "RC-ALTERED-RECEIPT",
+          "attack": "Client or MITM alters receipt_id/status/revisions/entity_ids/artifact_hashes",
+          "expected": "Client integrity check fails (compare against server re-fetch or event payload hash); do not treat as committed; no local durable mirror update; server state unchanged"
+        },
+        {
+          "id": "RC-FAKE-EVENT",
+          "attack": "Client B injects a well-formed event_envelope not produced by server outbox",
+          "expected": "Harness only accepts events from server channel with server-issued event_id registry; forged event ignored or structured failure"
+        }
+      ]
+    },
+    "idempotency": {
+      "key": "request_id (uuid) — aligns with commit_request.request_id and world_prompt.request_id",
+      "same_key_same_payload": {
+        "rule": "Second commit with identical request_id and identical payload fingerprint returns status idempotent_replay with prior_receipt_id of original, same old/new world_revision and entity_ids; NO second entity; NO revision bump; NO second outbox mutation event required (optional audit only)",
+        "fixture_pair": "contracts/fixtures/commit/idempotency_pair.json + valid_committed_receipt.json + valid_idempotent_replay_receipt.json"
+      },
+      "same_key_different_payload": {
+        "rule": "Same request_id with different confirmed world_prompt fingerprint / commit-affecting fields MUST NOT apply either as silent overwrite. Return conflicted or rejected with stable code (recommended: conflicted with code revision_mismatch only if revision also wrong; else rejected policy OR conflicted with POC code documented as idempotency_payload_mismatch). Prefer: status rejected, rejection.code policy, reason includes idempotency payload mismatch; OR extend conflict object in product if needed WITHOUT editing contracts in M0 — M1 documents exact code in M1 receipt. State unchanged.",
+        "g5_parallel": "Same class as G5 INV-IDEMPOTENCY-FINGERPRINT — key alone is insufficient; bind canonical fingerprint"
+      },
+      "fingerprint_material": [
+        "request_id",
+        "prompt_id",
+        "space_id",
+        "mutation_class",
+        "actor.actor_id",
+        "aidle_canonical_json_v1(confirmed_world_prompt body)"
+      ]
+    },
+    "convergence": {
+      "definition": "After Client A valid commit and Client B has applied the corresponding committed event or completed snapshot resync, both clients report identical server-authoritative world_revision and entity_set_hash.",
+      "required_equal_fields": [
+        "world_revision",
+        "entity_set_hash",
+        "active entity_id set",
+        "per-entity entity_hash for all active entities (optional strong check)"
+      ],
+      "rejected_paths": "Any RC-* rejection leaves both clients' observed server head equal to pre-attack head (Client B never sees a mutation that did not commit).",
+      "hash_algorithm": "G4 aidle_canonical_json_v1 + SHA-256 entity_set_hash"
+    },
+    "reconnect": {
+      "rules": [
+        {
+          "id": "RECONN-REPLAY-FROM-ACK",
+          "rule": "Client reconnects with last_ack_world_revision (and optional last_ack_event_id). Server replays outbox events with world_revision > last_ack in order until head.",
+          "success": "Client applies each event once (idempotent by event_id); ends at server head revision + entity_set_hash"
+        },
+        {
+          "id": "RECONN-SNAPSHOT-RESYNC",
+          "rule": "If gap too large, events missing, integrity fail, or out-of-order detected: server provides explicit WorldStateSnapshot (revision + entity set + entity_set_hash). Client replaces local mirror atomically.",
+          "forbidden": "Silent merge of partial local prediction with incomplete events"
+        },
+        {
+          "id": "RECONN-NO-DOUBLE-APPLY",
+          "rule": "Replayed events and reconnect must not double-apply mutations. Server commit idempotency remains request_id-based; client event apply is event_id-based."
+        },
+        {
+          "id": "RECONN-NO-SILENT-DIVERGENCE",
+          "rule": "If client cannot verify revision continuity or hash equality after replay, it MUST fail closed to snapshot resync or structured error — never continue with divergent local truth."
+        }
+      ]
+    },
+    "api_surface_for_m1_network_server": {
+      "module_root": "services/world_authority_poc/",
+      "sole_product_writer": "M1_NETWORK_SERVER_PATCH (network profile, PATCH_DRAFT)",
+      "language_recommendation": "Pure Python stdlib + jsonschema (same stack as scripts/validate_project.py); no new dependency install without HITL",
+      "bind_policy": {
+        "allowed": "localhost / loopback only, or in-process test harness with no public interface",
+        "forbidden": "0.0.0.0 public bind, cloud, real credentials, Nakama/Colyseus"
+      },
+      "logical_components": [
+        {
+          "name": "WorldAuthorityServer",
+          "responsibility": "Owns world_revision, entity set, ownership registry, commit receipts, outbox"
+        },
+        {
+          "name": "SessionRegistry",
+          "responsibility": "Register client_id + actor_id; authenticate subsequent calls by session token (POC opaque token is fine; not production auth)"
+        },
+        {
+          "name": "ProposalStore",
+          "responsibility": "Store pending/confirmed world_prompt by request_id; schema validate on submit"
+        },
+        {
+          "name": "CommitService",
+          "responsibility": "Validate commit_request, bind prompt, check revision, idempotency fingerprint, apply mutation, issue receipt"
+        },
+        {
+          "name": "IdempotencyStore",
+          "responsibility": "request_id → { fingerprint, receipt }; same payload replay vs different payload conflict"
+        },
+        {
+          "name": "EntityStore",
+          "responsibility": "Active entity map + entity_set_hash via aidle_canonical_json_v1 rules"
+        },
+        {
+          "name": "Outbox",
+          "responsibility": "Append-only event_envelope list after committed; ordered by world_revision"
+        },
+        {
+          "name": "SnapshotService",
+          "responsibility": "Emit full snapshot { world_revision, entities, entity_set_hash, space_id } for resync"
+        }
+      ],
+      "required_methods": [
+        {
+          "name": "connect",
+          "args": "{ client_id, actor_id, actor_type }",
+          "returns": "{ ok, session_token, world_revision, entity_set_hash, snapshot? }"
+        },
+        {
+          "name": "submit_proposal",
+          "args": "{ session_token, world_prompt }",
+          "returns": "{ ok, request_id, status: pending } | error envelope"
+        },
+        {
+          "name": "confirm_proposal",
+          "args": "{ session_token, request_id, confirmed_by }",
+          "returns": "{ ok, request_id, confirmation_state: confirmed } | error"
+        },
+        {
+          "name": "commit",
+          "args": "{ session_token, commit_request }",
+          "returns": "commit_receipt (committed | idempotent_replay | rejected | conflicted)"
+        },
+        {
+          "name": "get_snapshot",
+          "args": "{ session_token, space_id?}",
+          "returns": "{ world_revision, entities, entity_set_hash, space_id }"
+        },
+        {
+          "name": "poll_events",
+          "args": "{ session_token, after_world_revision, after_event_id? }",
+          "returns": "{ events: event_envelope[] ordered, head_world_revision, head_entity_set_hash }"
+        },
+        {
+          "name": "get_head",
+          "args": "{ session_token }",
+          "returns": "{ world_revision, entity_set_hash }"
+        }
+      ],
+      "forbidden_apis": [
+        "client_write_entity",
+        "client_set_world_revision",
+        "client_issue_receipt",
+        "client_publish_event"
+      ],
+      "commit_pipeline_order": [
+        "authenticate session",
+        "schema-validate commit_request",
+        "bind to confirmed world_prompt (request_id + prompt_id)",
+        "check actor/owner against session",
+        "check expected_world_revision == head",
+        "idempotency lookup (fingerprint)",
+        "apply entity mutation atomically",
+        "world_revision += 1",
+        "compute entity_set_hash",
+        "issue committed receipt (issuer world_commit_service)",
+        "append outbox event world.mutation_committed"
+      ],
+      "deterministic_fixtures": {
+        "space_id": "home_01",
+        "seed_world_revision": 0,
+        "seed_entities": [],
+        "client_a": { "client_id": "client_a", "actor_id": "player_a", "actor_type": "player" },
+        "client_b": { "client_id": "client_b", "actor_id": "player_b", "actor_type": "player" },
+        "proposal_base": "contracts/fixtures/valid/create_cozy_house.json adapted to space home_01 and expected_world_revision=seed head"
+      }
+    },
+    "api_surface_for_m2_godot_harness": {
+      "module_root": "game/scripts/modules/network/",
+      "sole_product_writer": "M2_EXECUTOR_CLIENT_PATCH (executor profile, PATCH_DRAFT)",
+      "constraint": "Must not write services/world_authority_poc/**; adapter only",
+      "logical_components": [
+        {
+          "name": "AuthorityClient",
+          "responsibility": "Session connect, submit/confirm/commit, poll events, snapshot resync, local mirror"
+        },
+        {
+          "name": "LocalMirror",
+          "responsibility": "Untrusted render state; updated only from server events/snapshots; exposes world_revision + entity_set_hash"
+        },
+        {
+          "name": "EventApplier",
+          "responsibility": "Apply world.mutation_committed in order; idempotent by event_id; gap → resync"
+        },
+        {
+          "name": "ReceiptIntegrity",
+          "responsibility": "Reject altered receipts; verify committed fields against subsequent event/snapshot"
+        },
+        {
+          "name": "TwoClientHarness",
+          "responsibility": "Headless smoke: spawn Client A + Client B against one local server; assert matrix outcomes"
+        }
+      ],
+      "required_methods": [
+        {
+          "name": "connect",
+          "args": "client_id, actor_id, server_endpoint",
+          "returns": "{ ok, session_token, world_revision, entity_set_hash }"
+        },
+        {
+          "name": "submit_and_preview",
+          "args": "world_prompt (pending)",
+          "returns": "{ ok, request_id }"
+        },
+        {
+          "name": "confirm",
+          "args": "request_id, confirmed_by",
+          "returns": "{ ok }"
+        },
+        {
+          "name": "commit",
+          "args": "commit_request",
+          "returns": "receipt dict"
+        },
+        {
+          "name": "sync",
+          "args": "optional force_snapshot: bool",
+          "returns": "{ world_revision, entity_set_hash, mode: replay|snapshot }"
+        },
+        {
+          "name": "get_mirror_head",
+          "args": "",
+          "returns": "{ world_revision, entity_set_hash, entity_ids }"
+        },
+        {
+          "name": "attempt_forged_commit",
+          "args": "forged commit_request (test helper)",
+          "returns": "receipt rejected/conflicted"
+        }
+      ],
+      "headless_smoke_requirements": [
+        "Print both client_ids",
+        "Client A valid preview→confirm→commit once",
+        "Client B converges to same world_revision and entity_set_hash",
+        "Forged actor/direct-write attempt rejected; head unchanged",
+        "Reconnect Client B from last_ack; no double apply; same head",
+        "Do not claim transport security or production auth"
+      ],
+      "transport": "In-process or localhost loopback only; no public listener owned by M2"
+    },
+    "test_matrix": [
+      {
+        "id": "TM-VALID-COMMIT-CONVERGE",
+        "category": "valid_path",
+        "owner_wave": "M1+M2",
+        "clients": ["A", "B"],
+        "setup": "Both connect to one local server; seed revision R0, empty entities",
+        "steps": [
+          "A submits schema-valid create proposal (pending)",
+          "A previews (no mutation)",
+          "A confirms",
+          "A commits server_authoritative commit_request with expected_world_revision=R0",
+          "B polls events or snapshot"
+        ],
+        "expect": {
+          "receipt_status": "committed",
+          "new_world_revision": "R0+1",
+          "entity_count_delta": 1,
+          "A.world_revision == B.world_revision == server.world_revision": true,
+          "A.entity_set_hash == B.entity_set_hash == server.entity_set_hash": true
+        },
+        "contract_refs": [
+          "contracts/world_prompt.schema.json",
+          "contracts/commit/commit_request.schema.json",
+          "contracts/commit/commit_receipt.schema.json",
+          "contracts/events/event_envelope.schema.json"
+        ]
+      },
+      {
+        "id": "TM-DIRECT-WRITE-REJECT",
+        "category": "reject_closed",
+        "owner_wave": "M1",
+        "steps": ["Any client calls non-existent or blocked direct entity write"],
+        "expect": {
+          "mutation": false,
+          "revision_unchanged": true,
+          "entity_set_hash_unchanged": true
+        }
+      },
+      {
+        "id": "TM-FORGED-ACTOR-REJECT",
+        "category": "reject_closed",
+        "owner_wave": "M1+M2",
+        "steps": [
+          "A connected as player_a",
+          "A commits with actor.actor_id=player_b or confirmed_by=player_b"
+        ],
+        "expect": {
+          "receipt_status": "rejected",
+          "rejection_code_in": ["client_forged", "auth_failed", "ownership"],
+          "revision_unchanged": true
+        }
+      },
+      {
+        "id": "TM-FORGED-CLIENT-REJECT",
+        "category": "reject_closed",
+        "owner_wave": "M1",
+        "steps": ["Request uses session_token for client_a but claims client_id=client_b"],
+        "expect": {
+          "receipt_status": "rejected",
+          "revision_unchanged": true
+        }
+      },
+      {
+        "id": "TM-FORGED-OWNER-REJECT",
+        "category": "reject_closed",
+        "owner_wave": "M1",
+        "steps": [
+          "A creates entity (owner player_a)",
+          "B attempts modify/delete as owner of that entity without grant"
+        ],
+        "expect": {
+          "receipt_status": "rejected",
+          "rejection_code": "ownership",
+          "revision_unchanged": true
+        }
+      },
+      {
+        "id": "TM-CLIENT-AUTHORITATIVE-SCHEMA-REJECT",
+        "category": "reject_closed",
+        "owner_wave": "M1",
+        "steps": [
+          "Submit commit_request with source=client_authoritative or commit_path=client_local"
+        ],
+        "expect": {
+          "schema_invalid_or_rejected": true,
+          "codes_allowed": ["schema_invalid", "client_forged", "client_authoritative_durable_forbidden"],
+          "revision_unchanged": true
+        },
+        "fixtures": [
+          "contracts/fixtures/commit/invalid_client_forged_durable_request.json",
+          "contracts/fixtures/commit/invalid_client_authoritative_source.json"
+        ]
+      },
+      {
+        "id": "TM-STALE-REVISION-CONFLICT",
+        "category": "reject_closed",
+        "owner_wave": "M1",
+        "steps": [
+          "Server head at R",
+          "Commit with expected_world_revision != R"
+        ],
+        "expect": {
+          "receipt_status": "conflicted",
+          "conflict.code": "revision_mismatch",
+          "conflict.expected_world_revision": "as_sent",
+          "conflict.actual_world_revision": "R",
+          "revision_unchanged": true
+        },
+        "fixtures": ["contracts/fixtures/commit/valid_revision_conflict_receipt.json"]
+      },
+      {
+        "id": "TM-INVALID-SCHEMA-REJECT",
+        "category": "reject_closed",
+        "owner_wave": "M1",
+        "steps": [
+          "Submit world_prompt missing required fields or wrong schema_version",
+          "Or commit_request missing confirmation"
+        ],
+        "expect": {
+          "receipt_or_submit_status": "rejected",
+          "code": "schema_invalid",
+          "revision_unchanged": true
+        }
+      },
+      {
+        "id": "TM-UNCONFIRMED-REJECT",
+        "category": "reject_closed",
+        "owner_wave": "M1",
+        "steps": ["Commit while proposal still pending"],
+        "expect": {
+          "receipt_status": "rejected",
+          "code": "confirmation_missing",
+          "revision_unchanged": true
+        }
+      },
+      {
+        "id": "TM-IDEMPOTENT-REPLAY-SAME-PAYLOAD",
+        "category": "idempotency",
+        "owner_wave": "M1",
+        "steps": [
+          "Valid commit request_id=K succeeds → receipt R1, revision R0→R1",
+          "Resubmit identical request_id=K and same payload fingerprint"
+        ],
+        "expect": {
+          "receipt_status": "idempotent_replay",
+          "idempotency.replayed": true,
+          "idempotency.prior_receipt_id": "R1.receipt_id",
+          "entity_count_unchanged": true,
+          "world_revision_unchanged_after_first": true,
+          "no_second_outbox_mutation": true
+        },
+        "fixtures": [
+          "contracts/fixtures/commit/valid_committed_receipt.json",
+          "contracts/fixtures/commit/valid_idempotent_replay_receipt.json",
+          "contracts/fixtures/commit/idempotency_pair.json"
+        ]
+      },
+      {
+        "id": "TM-IDEMPOTENCY-PAYLOAD-CONFLICT",
+        "category": "idempotency",
+        "owner_wave": "M1",
+        "steps": [
+          "Valid commit request_id=K",
+          "Resubmit request_id=K with different entity/recipe/transform payload"
+        ],
+        "expect": {
+          "no_mutation": true,
+          "not_status": "committed",
+          "world_revision_unchanged": true,
+          "entity_set_hash_unchanged": true,
+          "structured_error": true
+        }
+      },
+      {
+        "id": "TM-OUT-OF-ORDER-EVENT",
+        "category": "reject_closed",
+        "owner_wave": "M2 (+ M1 event stream)",
+        "steps": [
+          "Deliver event for revision R+2 before R+1 to Client B"
+        ],
+        "expect": {
+          "no_silent_apply_of_gap": true,
+          "action": "snapshot_resync_or_structured_failure",
+          "final_convergence_if_resync": true
+        }
+      },
+      {
+        "id": "TM-ALTERED-RECEIPT",
+        "category": "reject_closed",
+        "owner_wave": "M2",
+        "steps": [
+          "Mutate receipt.new_world_revision or artifact_hashes after receive",
+          "Attempt local durable mirror update from altered receipt alone"
+        ],
+        "expect": {
+          "mirror_not_updated_from_altered_receipt": true,
+          "integrity_fail_or_resync": true
+        }
+      },
+      {
+        "id": "TM-RECONNECT-REPLAY",
+        "category": "reconnect",
+        "owner_wave": "M1+M2",
+        "steps": [
+          "B at revision R0",
+          "A commits → server R1",
+          "B disconnects before event",
+          "B reconnects with last_ack=R0",
+          "Server replays events > R0"
+        ],
+        "expect": {
+          "B.world_revision == server.world_revision": true,
+          "B.entity_set_hash == server.entity_set_hash": true,
+          "no_double_entity": true
+        }
+      },
+      {
+        "id": "TM-RECONNECT-SNAPSHOT-RESYNC",
+        "category": "reconnect",
+        "owner_wave": "M1+M2",
+        "steps": [
+          "Simulate missing/reordered events for B",
+          "B requests get_snapshot and replaces mirror"
+        ],
+        "expect": {
+          "B.world_revision == server.world_revision": true,
+          "B.entity_set_hash == server.entity_set_hash": true,
+          "no_silent_divergence": true
+        }
+      },
+      {
+        "id": "TM-TWO-CLIENT-HEADLESS-SMOKE",
+        "category": "integration",
+        "owner_wave": "M2 (uses M1 server)",
+        "steps": [
+          "Boot two logical clients + one local server",
+          "Run TM-VALID-COMMIT-CONVERGE",
+          "Run one forged reject",
+          "Run reconnect replay"
+        ],
+        "expect": {
+          "both_client_ids_logged": true,
+          "one_canonical_commit": true,
+          "convergence": true,
+          "forged_rejected": true,
+          "reconnect_ok": true
+        }
+      },
+      {
+        "id": "TM-FORGED-LEAVES-PEER-UNCHANGED",
+        "category": "convergence",
+        "owner_wave": "M1+M2",
+        "steps": [
+          "Record server head H",
+          "Run forged commit from A",
+          "B syncs"
+        ],
+        "expect": {
+          "server_head_still_H": true,
+          "B_head_still_H": true,
+          "A_mirror_still_H": true
+        }
+      }
+    ],
+    "required_maf_fields": {
+      "description": "Every significant G6-001 step receipt MUST include these agent_step_contract fields (schema E:\\standards\\maf\\schemas\\agent_step_contract.schema.json).",
+      "top_level_required": [
+        "agent_step_id",
+        "agent_type",
+        "authority_token",
+        "result",
+        "smoke_test",
+        "self_audit",
+        "next_route"
+      ],
+      "recommended_top_level": [
+        "skill_id",
+        "skill_version",
+        "output_schema_version",
+        "evidence_refs"
+      ],
+      "result_required_for_g6_waves": [
+        "task_id",
+        "wave",
+        "profile",
+        "state",
+        "self_accept",
+        "summary",
+        "artifacts"
+      ],
+      "authority_tokens_by_wave": {
+        "M0_SCHEMA_AUTHORITY_VERIFY": "VERIFY_ONLY",
+        "M1_NETWORK_SERVER_PATCH": "PATCH_DRAFT",
+        "M2_EXECUTOR_CLIENT_PATCH": "PATCH_DRAFT",
+        "M3_PERSIST_REPLAY_VERIFY": "VERIFY_ONLY",
+        "M4_CORE_TWO_CLIENT_PURPLE": "VERIFY_ONLY"
+      },
+      "invariants": [
+        "self_accept must be false on all worker receipts",
+        "One writer per file; network owns services/world_authority_poc/**; executor owns game/scripts/modules/network/**",
+        "No nested grandchildren",
+        "Purple/core never patches product",
+        "Parent collates only; cannot self-ACCEPT product"
+      ],
+      "smoke_test_minimum": {
+        "VERIFY_ONLY_waves": "object present; may set executable_smoke_run=false with static_audit / matrix definition",
+        "PATCH_DRAFT_waves": "executable command(s) with exit codes and evidence paths"
+      }
+    },
+    "m1_acceptance_checklist": [
+      "Server test matrix covers: valid commit, forged actor/owner/direct write, stale revision, schema rejection, identical replay, changed-payload idempotency conflict",
+      "Receipts issued only with authority.issuer=world_commit_service",
+      "Committed advances revision by exactly 1 and updates entity_set_hash",
+      "Outbox event only after committed",
+      "No public bind",
+      "M1_network.json agent_step_contract with smoke_test evidence"
+    ],
+    "m2_acceptance_checklist": [
+      "Two distinct client_ids against one local server",
+      "Valid path convergence on revision + entity_set_hash",
+      "Forged attempt rejected; head unchanged",
+      "Reconnect replay without double apply",
+      "Headless smoke + clean Godot boot where applicable",
+      "M2_executor.json agent_step_contract with smoke_test evidence"
+    ],
+    "not_done": [
+      "Did not implement services/world_authority_poc/** (M1)",
+      "Did not implement Godot network harness (M2)",
+      "Did not edit contracts or product code",
+      "Did not run two-client executable smoke (definition only)",
+      "Did not introduce Nakama/Colyseus",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g6/M0_schema.json"
+    ],
+    "product_writes": 0,
+    "only_write": "orchestration/receipts/g6/M0_schema.json",
+    "children": []
+  },
+  "smoke_test": {
+    "type": "verify_only_schema_contract",
+    "executable_smoke_run": false,
+    "reason": "M0_SCHEMA_AUTHORITY_VERIFY defines the two-client authority test matrix, fail-closed cases, idempotency/convergence/reconnect rules, and M1/M2 API surfaces only. Executable server matrix is M1_NETWORK_SERVER_PATCH ownership; Godot two-client harness smoke is M2_EXECUTOR_CLIENT_PATCH; persist adversarial re-verify is M3; Purple gate is M4.",
+    "commands": [],
+    "commands_note": "Empty command list by design — VERIFY_ONLY matrix definition; no product binary to exercise in M0.",
+    "static_audit": {
+      "world_prompt_schema": "pass (contracts/world_prompt.schema.json present, confirmation preview_required const true)",
+      "commit_request_schema": "pass (world_commit_service const, source excludes client_authoritative)",
+      "commit_receipt_schema": "pass (committed|idempotent_replay|rejected|conflicted)",
+      "commit_policy": "pass (contracts/commit/commit_policy.md)",
+      "event_envelope_schema": "pass (required field set locked)",
+      "g1_002_residuals": "carried into server identity + prompt bind + fingerprint + monotonic revision requirements",
+      "architecture_lock_server_durable": "pass for Online Private Reality / visitors / shared contexts",
+      "entity_set_hash_def": "reused from G4 P0 aidle_canonical_json_v1 + SHA-256"
+    },
+    "matrix_definition": {
+      "test_matrix_count": 17,
+      "categories": [
+        "valid_path",
+        "reject_closed",
+        "idempotency",
+        "reconnect",
+        "convergence",
+        "integration"
+      ]
+    },
+    "downstream_required_markers": [
+      "TM-VALID-COMMIT-CONVERGE pass",
+      "TM-DIRECT-WRITE-REJECT pass",
+      "TM-FORGED-ACTOR-REJECT pass",
+      "TM-FORGED-CLIENT-REJECT pass",
+      "TM-FORGED-OWNER-REJECT pass",
+      "TM-CLIENT-AUTHORITATIVE-SCHEMA-REJECT pass",
+      "TM-STALE-REVISION-CONFLICT pass",
+      "TM-INVALID-SCHEMA-REJECT pass",
+      "TM-UNCONFIRMED-REJECT pass",
+      "TM-IDEMPOTENT-REPLAY-SAME-PAYLOAD pass",
+      "TM-IDEMPOTENCY-PAYLOAD-CONFLICT pass",
+      "TM-OUT-OF-ORDER-EVENT pass",
+      "TM-ALTERED-RECEIPT pass",
+      "TM-RECONNECT-REPLAY pass",
+      "TM-RECONNECT-SNAPSHOT-RESYNC pass",
+      "TM-TWO-CLIENT-HEADLESS-SMOKE pass",
+      "TM-FORGED-LEAVES-PEER-UNCHANGED pass",
+      "python scripts/validate_project.py exit 0 (non-regression)"
+    ],
+    "recommended_parent_command_after_m1_m2": "python -m pytest services/world_authority_poc (or M1 runner) && Godot headless two-client smoke && python scripts/validate_project.py"
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "allowed_write_paths_only": true,
+    "only_wrote": "orchestration/receipts/g6/M0_schema.json",
+    "did_not_edit_contracts": true,
+    "did_not_edit_product": true,
+    "did_not_edit_tasks_or_architecture": true,
+    "no_nakama_colyseus_runtime": true,
+    "no_public_listener": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "children": [],
+    "g1_002_residuals_included": true,
+    "maf_smoke_test_object_present": true
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G6-001.md",
+    "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "contracts/world_prompt.schema.json",
+    "contracts/commit/commit_request.schema.json",
+    "contracts/commit/commit_receipt.schema.json",
+    "contracts/commit/commit_policy.md",
+    "contracts/events/event_envelope.schema.json",
+    "contracts/fixtures/commit/",
+    "contracts/fixtures/events/",
+    "contracts/fixtures/valid/create_cozy_house.json",
+    "orchestration/receipts/G1-002.json",
+    "orchestration/receipts/G1-002-ACCEPT.json",
+    "orchestration/reviews/G1-002_PURPLE_REVIEW.md",
+    "orchestration/receipts/g4/P0_schema.json",
+    "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json"
+  ],
+  "next_route": "M1_NETWORK_SERVER_PATCH"
+}

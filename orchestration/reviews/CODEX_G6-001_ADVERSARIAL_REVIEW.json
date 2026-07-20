@@ -1,0 +1,41 @@
+{
+  "review_id": "CODEX-G6-001-ADVERSARIAL-2026-07-21",
+  "reviewer_role": "codex-final-acceptor",
+  "intent_anchor": {
+    "user_goal": "Prove two clients converge through a safe authoritative world-commit boundary.",
+    "current_priority": "Verify authority, confirmation and forged-mutation rejection before accepting G6.",
+    "allowed_scope": ["local authority POC", "two logical clients", "confirmation", "replay and convergence"],
+    "forbidden_scope": ["production multiplayer claim", "public listener", "backend selection", "client-authoritative mutation"]
+  },
+  "claim_under_review": "G6-001 requires preview then explicit confirmation before an authoritative commit.",
+  "what_i_accept": [
+    "All 19 server tests and 12 Godot two-client checks pass.",
+    "Two clients converge on revision and entity-set hash after the normal pending-preview-confirm-commit flow.",
+    "Forged actor, client, owner, direct write, stale revision, invalid schema, altered receipt and replay cases are covered.",
+    "Integrated boot, validator, secret scan and executable public-bind scan are clean.",
+    "All G6 receipts validate against the canonical MAF step schema and writer paths are disjoint."
+  ],
+  "what_i_challenge": [
+    "Both Python and Godot submit_proposal paths accept a client-supplied confirmation.state=confirmed when confirmed_by matches the session actor.",
+    "A client can then call commit without ever invoking the explicit confirm_proposal transition, bypassing the required preview-confirm boundary."
+  ],
+  "strongest_counter_argument": "The submitted prompt still declares preview_required=true and the actor matches its session, but a declaration is not evidence that preview was shown or that confirmation occurred as a separate server-observed transition.",
+  "missing_evidence": [
+    "Regression proof that client-supplied confirmed state is rejected before proposal registration and mutation in both runtimes.",
+    "Regression proof that commit remains impossible until confirm_proposal succeeds.",
+    "The adversarial-review skill references absent schema files, so this object follows its documented fields but could not be validated against that skill schema."
+  ],
+  "scope_drift_risk": "low",
+  "final_verdict": "CHANGES_REQUESTED",
+  "self_audit": {
+    "preserved_user_intent": true,
+    "did_not_invent_objection": true,
+    "evidence_based": true,
+    "no_scope_hijack": true
+  },
+  "blind_spots": ["Authentication transport and production multiplayer remain explicitly outside this local POC."],
+  "confidence_before_challenge": 0.88,
+  "confidence_penalty": 0.22,
+  "confidence_after_challenge": 0.66,
+  "next_action": "Apply WO-G6-001-CORRECTION-001 in both authority implementations and rerun all G6 gates plus the confirmation-bypass exploit."
+}

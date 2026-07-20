@@ -1,0 +1,217 @@
+{
+  "agent_step_id": "G6-001-M2-executor-2026-07-21",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G6-001",
+    "wave": "M2_EXECUTOR_CLIENT_PATCH",
+    "profile": "executor",
+    "work_order": "orchestration/work_orders/WO-G6-001.md",
+    "dispatch_map": "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+    "parent_schema": "orchestration/receipts/g6/M0_schema.json",
+    "parent_network": "orchestration/receipts/g6/M1_network.json",
+    "state": "HANDOFF_TO_M3",
+    "self_accept": false,
+    "summary": "Implemented pure GDScript in-process two-client World Authority harness under game/scripts/modules/network/**. Mirrors M1 rules without Python subprocess: WorldAuthorityLocal owns world_revision/entity set/ownership/receipts/outbox; AuthorityClient provides submit_and_preview → confirm → commit, local mirror, event apply, receipt integrity, reconnect replay/snapshot. Headless smoke boots client_a + client_b against one local server; valid commit converges revision+entity_set_hash; forged actor rejected with head unchanged; direct write rejected; reconnect replay and snapshot resync converge without double apply. LOCAL POC only — not Nakama/Colyseus; no HTTP listen, no outbound internet, no secrets. Did not edit services/world_authority_poc/**.",
+    "scope": {
+      "in_scope": [
+        "game/scripts/modules/network/**",
+        "orchestration/receipts/g6/M2_executor.json"
+      ],
+      "out_of_scope": [
+        "services/world_authority_poc/** (M1 sole writer)",
+        "contracts/**",
+        "Nakama / Colyseus / public bind / cloud / real credentials",
+        "Production authn, matchmaking, Shared District scale, economy",
+        "Dependency install, push, deploy, publish",
+        "Self-ACCEPT",
+        "tasks.json / ARCHITECTURE_LOCK / work_orders edits"
+      ],
+      "authority_boundary": {
+        "this_wave": "PATCH_DRAFT sole writer for Godot two-client harness",
+        "only_write": [
+          "game/scripts/modules/network/**",
+          "orchestration/receipts/g6/M2_executor.json"
+        ],
+        "next_writer": "M3_PERSIST_REPLAY_VERIFY (persist, VERIFY_ONLY)",
+        "poc_class": "LOCAL authoritative World Commit client harness — not production multiplayer",
+        "explicit_not": [
+          "Nakama world-state co-owner",
+          "Colyseus world-state co-owner",
+          "client-authoritative inventory/ownership/currency",
+          "public bind / production deployment"
+        ]
+      }
+    },
+    "product_writes": [
+      "game/scripts/modules/network/world_authority_local.gd",
+      "game/scripts/modules/network/authority_client.gd",
+      "game/scripts/modules/network/g6_two_client_smoke.gd",
+      "game/scripts/modules/network/network_module.gd"
+    ],
+    "only_owned_files_written": true,
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_server_poc_edits": true,
+    "implementation": {
+      "approach": "Option A — pure GDScript in-process dual-client simulator (no Python subprocess, no HTTP)",
+      "transport": "direct method calls on shared WorldAuthorityLocal instance",
+      "hashing": "reuses game/scripts/modules/persist/canonical_json.gd + entity_hasher.gd (read-only)",
+      "components": {
+        "WorldAuthorityLocal": "game/scripts/modules/network/world_authority_local.gd — server-side mirror of M1 API",
+        "AuthorityClient": "game/scripts/modules/network/authority_client.gd — LocalMirror + EventApplier + ReceiptIntegrity",
+        "TwoClientHarness": "game/scripts/modules/network/g6_two_client_smoke.gd",
+        "NetworkModule": "game/scripts/modules/network/network_module.gd — factory + POC-not-Nakama docs note; INetworkModule stubs"
+      },
+      "required_methods_client": [
+        "connect_client",
+        "submit_and_preview",
+        "confirm",
+        "commit",
+        "sync",
+        "get_mirror_head",
+        "attempt_forged_commit",
+        "reconnect"
+      ],
+      "required_methods_server": [
+        "connect_client",
+        "submit_proposal",
+        "confirm_proposal",
+        "commit",
+        "get_snapshot",
+        "poll_events",
+        "get_head"
+      ],
+      "forbidden_apis_reject": [
+        "client_write_entity",
+        "client_set_world_revision",
+        "client_issue_receipt",
+        "client_publish_event"
+      ],
+      "deterministic_fixtures": {
+        "space_id": "home_01",
+        "seed_world_revision": 0,
+        "client_a": {"client_id": "client_a", "actor_id": "player_a", "actor_type": "player"},
+        "client_b": {"client_id": "client_b", "actor_id": "player_b", "actor_type": "player"},
+        "request_id": "bd5a8351-2b09-4acd-9520-19875098c928",
+        "prompt_id": "550e8400-e29b-41d4-a716-446655440000"
+      }
+    },
+    "test_matrix_coverage": {
+      "TM-VALID-COMMIT-CONVERGE": "PASS",
+      "TM-FORGED-ACTOR-REJECT": "PASS",
+      "TM-FORGED-LEAVES-PEER-UNCHANGED": "PASS",
+      "TM-DIRECT-WRITE-REJECT": "PASS",
+      "TM-RECONNECT-REPLAY": "PASS",
+      "TM-RECONNECT-SNAPSHOT-RESYNC": "PASS",
+      "TM-TWO-CLIENT-HEADLESS-SMOKE": "PASS"
+    },
+    "m2_acceptance_checklist": {
+      "two_distinct_client_ids": true,
+      "valid_path_converge_revision_and_entity_set_hash": true,
+      "forged_rejected_head_unchanged": true,
+      "reconnect_replay_no_double_apply": true,
+      "headless_smoke_clean": true,
+      "M2_executor_json_with_smoke_test": true,
+      "not_nakama_colyseus": true,
+      "no_http_listen": true,
+      "no_outbound_internet": true,
+      "no_secrets": true
+    },
+    "not_done": [
+      "Did not edit services/world_authority_poc/**",
+      "Did not edit contracts/**",
+      "Did not introduce Nakama/Colyseus or public listener",
+      "Did not claim transport security or production auth",
+      "Did not run M3 persist adversarial re-verify",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "game/scripts/modules/network/",
+      "game/scripts/modules/network/g6_two_client_smoke.gd",
+      "orchestration/receipts/g6/M2_executor.json"
+    ],
+    "product_writes_count": 4,
+    "children": []
+  },
+  "smoke_test": {
+    "type": "executable_godot_headless",
+    "executable_smoke_run": true,
+    "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/network/g6_two_client_smoke.gd",
+    "working_directory": "E:\\AIdle_openworld",
+    "exit_code": 0,
+    "marker": "G6_TWO_CLIENT_SMOKE=PASS",
+    "checks_passed": 12,
+    "clean_boot": {
+      "script_error": false,
+      "parse_error": false,
+      "error_prefix": false
+    },
+    "evidence": {
+      "harness": "game/scripts/modules/network/g6_two_client_smoke.gd",
+      "server": "game/scripts/modules/network/world_authority_local.gd",
+      "client": "game/scripts/modules/network/authority_client.gd",
+      "client_ids_logged": ["client_a", "client_b"],
+      "matrix_ids_covered": [
+        "TM-VALID-COMMIT-CONVERGE",
+        "TM-FORGED-ACTOR-REJECT",
+        "TM-FORGED-LEAVES-PEER-UNCHANGED",
+        "TM-DIRECT-WRITE-REJECT",
+        "TM-RECONNECT-REPLAY",
+        "TM-RECONNECT-SNAPSHOT-RESYNC",
+        "TM-TWO-CLIENT-HEADLESS-SMOKE"
+      ],
+      "observed": {
+        "valid_commit_status": "committed",
+        "new_world_revision": 1,
+        "entity_id": "ent_bd5a83512b09",
+        "forged_rejection_code": "client_forged",
+        "reconnect_mode": "replay",
+        "final_converge": true
+      }
+    },
+    "public_bind_scan": {
+      "bind_0_0_0_0": false,
+      "http_server_listen": false,
+      "nakama_colyseus": false,
+      "outbound_internet": false
+    }
+  },
+  "self_audit": {
+    "authority_token": "PATCH_DRAFT",
+    "allowed_write_paths_only": true,
+    "only_wrote": [
+      "game/scripts/modules/network/**",
+      "orchestration/receipts/g6/M2_executor.json"
+    ],
+    "did_not_edit_contracts": true,
+    "did_not_edit_world_authority_poc": true,
+    "did_not_edit_tasks_or_architecture": true,
+    "no_nakama_colyseus_runtime": true,
+    "no_public_listener": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "children": [],
+    "maf_smoke_test_object_present": true
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G6-001.md",
+    "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g6/M0_schema.json",
+    "orchestration/receipts/g6/M1_network.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "services/world_authority_poc/server.py",
+    "services/world_authority_poc/client_sim.py",
+    "game/scripts/modules/network/world_authority_local.gd",
+    "game/scripts/modules/network/authority_client.gd",
+    "game/scripts/modules/network/g6_two_client_smoke.gd",
+    "game/scripts/modules/persist/canonical_json.gd",
+    "game/scripts/modules/persist/entity_hasher.gd",
+    "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json"
+  ],
+  "next_route": "M3_PERSIST_REPLAY_VERIFY"
+}

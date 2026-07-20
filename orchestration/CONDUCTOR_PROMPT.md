@@ -27,10 +27,13 @@ For each loop:
 8. Stop after three identical failure signatures or at HITL_REQUIRED.
 9. Update project-room journal/handoff after a real milestone.
 
-Start with G0-001. Do not install Godot or dependencies without Human approval.
+Resume from the states recorded in `orchestration/tasks.json`; do not redo an
+ACCEPTED task. Companion interaction is text-only for MVP. Do not add STT, TTS,
+voice cloning, audio models, or voice dependencies. Do not install Godot or dependencies without Human approval.
 Do not touch Blueprint v1.0. Do not use `--always-approve`, bypass permissions,
 auto-merge, push, deploy, paid APIs or external uploads.
 
-Current deliverable: complete and verify the foundation/contract wave, then
-report exact evidence and the next ready work orders. Documentation alone is not
-proof that the game runs.
+Current deliverable: advance dependency-ready work through the next acceptance
+gate, update receipts and task states, then continue while a safe ready task
+exists. Documentation alone is not proof that the game runs. Stop at a true
+HITL decision, three repeated identical failures, or completion of the backlog.

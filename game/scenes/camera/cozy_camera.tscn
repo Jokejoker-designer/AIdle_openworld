@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/camera/cozy_camera.gd" id="1_cam"]
+
+[node name="CozyCamera" type="Node3D"]
+script = ExtResource("1_cam")
+pitch_degrees = 42.0
+distance = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
+fov = 42.0
+near = 0.08
+far = 400.0

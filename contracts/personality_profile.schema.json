@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/contracts/personality-profile/1.0.0",
+  "title": "AIdle Companion Personality Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "companion_id", "base_traits", "adaptive_traits", "adaptation_policy", "privacy_mode", "revision"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "companion_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "base_traits": {"$ref": "#/$defs/traits"},
+    "adaptive_traits": {"$ref": "#/$defs/traits"},
+    "adaptation_policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["enabled", "max_delta_per_session", "max_delta_per_day", "max_distance_from_base", "minimum_observations"],
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "max_delta_per_session": {"type": "number", "minimum": 0, "maximum": 0.05},
+        "max_delta_per_day": {"type": "number", "minimum": 0, "maximum": 0.1},
+        "max_distance_from_base": {"type": "number", "minimum": 0, "maximum": 0.3},
+        "minimum_observations": {"type": "integer", "minimum": 2, "maximum": 100},
+        "locked_traits": {"type": "array", "uniqueItems": true, "items": {"enum": ["warmth", "curiosity", "calmness", "humor", "protectiveness", "brevity", "formality", "initiative"]}}
+      }
+    },
+    "privacy_mode": {"enum": ["session_only", "local_durable", "account_sync"]},
+    "revision": {"type": "integer", "minimum": 0}
+  },
+  "$defs": {
+    "traits": {
+      "type": "object", "additionalProperties": false,
+      "required": ["warmth", "curiosity", "calmness", "humor", "protectiveness", "brevity", "formality", "initiative"],
+      "properties": {
+        "warmth": {"type": "number", "minimum": 0, "maximum": 1},
+        "curiosity": {"type": "number", "minimum": 0, "maximum": 1},
+        "calmness": {"type": "number", "minimum": 0, "maximum": 1},
+        "humor": {"type": "number", "minimum": 0, "maximum": 1},
+        "protectiveness": {"type": "number", "minimum": 0, "maximum": 1},
+        "brevity": {"type": "number", "minimum": 0, "maximum": 1},
+        "formality": {"type": "number", "minimum": 0, "maximum": 1},
+        "initiative": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    }
+  }
+}
+

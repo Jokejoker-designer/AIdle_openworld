@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/contracts/world-prompt/1.1.0",
+  "title": "AIdle Structured World Prompt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "prompt_id", "request_id", "session_id", "actor", "operation", "target", "style_profile", "entity", "manifestation", "budget", "provenance", "confirmation"],
+  "properties": {
+    "schema_version": {"const": "1.1.0"},
+    "prompt_id": {"type": "string", "format": "uuid"},
+    "request_id": {"type": "string", "format": "uuid"},
+    "session_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "actor": {
+      "type": "object", "additionalProperties": false,
+      "required": ["player_id", "companion_id"],
+      "properties": {
+        "player_id": {"type": "string", "minLength": 1, "maxLength": 128},
+        "companion_id": {"type": "string", "minLength": 1, "maxLength": 128}
+      }
+    },
+    "operation": {"enum": ["create", "modify", "delete", "enrich", "gift_proposal"]},
+    "target": {
+      "type": "object", "additionalProperties": false,
+      "required": ["space_type", "space_id", "chunk_id", "expected_world_revision"],
+      "properties": {
+        "space_type": {"enum": ["private_reality", "shared_district", "doppelganger_city", "spacecraft", "exoplanet"]},
+        "space_id": {"type": "string", "minLength": 1, "maxLength": 128},
+        "chunk_id": {"type": "string", "minLength": 1, "maxLength": 128},
+        "entity_id": {"type": "string", "minLength": 1, "maxLength": 128},
+        "expected_world_revision": {"type": "integer", "minimum": 0}
+      }
+    },
+    "style_profile": {
+      "type": "object", "additionalProperties": false,
+      "required": ["profile_id", "profile_version", "base_concept", "surrealism_budget"],
+      "properties": {
+        "profile_id": {"type": "string", "minLength": 1, "maxLength": 128},
+        "profile_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "base_concept": {"enum": ["cozy_cyber_pixel_2_5d", "pastoral_fantasy_2_5d", "soft_scifi_2_5d", "custom"]},
+        "surrealism_budget": {"type": "number", "minimum": 0, "maximum": 1},
+        "custom_profile_ref": {"type": "string", "minLength": 1}
+      },
+      "allOf": [{"if": {"properties": {"base_concept": {"const": "custom"}}}, "then": {"required": ["custom_profile_ref"]}}]
+    },
+    "entity": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "recipe_id", "transform", "bounds", "interaction_tags"],
+      "properties": {
+        "kind": {"enum": ["tile_layer", "terrain_patch_2_5d", "modular_structure_2_5d", "prop_2_5d", "character_2_5d", "vehicle_2_5d"]},
+        "recipe_id": {"type": "string", "minLength": 1, "maxLength": 128},
+        "transform": {
+          "type": "object", "additionalProperties": false, "required": ["x", "y", "elevation", "rotation_deg"],
+          "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "elevation": {"type": "number"}, "rotation_deg": {"type": "number", "minimum": 0, "exclusiveMaximum": 360}}
+        },
+        "bounds": {
+          "type": "object", "additionalProperties": false, "required": ["width", "depth", "height"],
+          "properties": {"width": {"type": "number", "exclusiveMinimum": 0, "maximum": 128}, "depth": {"type": "number", "exclusiveMinimum": 0, "maximum": 128}, "height": {"type": "number", "exclusiveMinimum": 0, "maximum": 64}}
+        },
+        "interaction_tags": {"type": "array", "maxItems": 32, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9_]+$"}}
+      }
+    },
+    "manifestation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["stages", "presentation_duration_seconds"],
+      "properties": {
+        "stages": {"const": ["wireframe", "hologram", "materializing", "complete"]},
+        "presentation_duration_seconds": {"type": "number", "minimum": 1, "maximum": 60}
+      }
+    },
+    "budget": {
+      "type": "object", "additionalProperties": false,
+      "required": ["max_compute_units", "max_entities", "paid_compute_allowed"],
+      "properties": {
+        "max_compute_units": {"type": "integer", "minimum": 1, "maximum": 10000},
+        "max_entities": {"type": "integer", "minimum": 1, "maximum": 256},
+        "paid_compute_allowed": {"type": "boolean"}
+      }
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_type", "requested_by", "generated_by", "created_at"],
+      "properties": {
+        "source_type": {"enum": ["player_request", "companion_enrichment", "random_alchemist", "system"]},
+        "requested_by": {"type": "string", "minLength": 1},
+        "generated_by": {"type": "string", "minLength": 1},
+        "created_at": {"type": "string", "format": "date-time"},
+        "parent_prompt_id": {"type": "string", "format": "uuid"},
+        "model_receipt_ref": {"type": "string", "minLength": 1}
+      }
+    },
+    "confirmation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["preview_required", "state", "rollback_window_seconds"],
+      "properties": {
+        "preview_required": {"const": true},
+        "state": {"enum": ["pending", "confirmed"]},
+        "confirmed_by": {"type": "string", "minLength": 1},
+        "rollback_window_seconds": {"type": "integer", "minimum": 0, "maximum": 86400}
+      },
+      "allOf": [{"if": {"properties": {"state": {"const": "confirmed"}}}, "then": {"required": ["confirmed_by"]}}]
+    }
+  }
+}
+

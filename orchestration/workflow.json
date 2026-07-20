@@ -1,0 +1,22 @@
+{
+  "workflow_id": "aidle-2_5d-v1.1",
+  "pattern": "orchestrated_non_shared_context",
+  "leader": "lead-orchestrator",
+  "max_concurrent_workers": 8,
+  "state_machine": ["TODO", "READY", "CLAIMED", "IN_PROGRESS", "REVIEW_REQUESTED", "VERIFIED", "ACCEPTED", "CHANGES_REQUESTED", "HITL_REQUIRED", "NEED_HUMAN"],
+  "waves": [
+    {"id": "W0", "agents": ["schema", "network", "persist"], "gate": "contracts_and_authority"},
+    {"id": "W1", "agents": ["core", "manifestation", "companion", "asset"], "gate": "2_5d_spikes"},
+    {"id": "W2", "agents": ["executor"], "gate": "vertical_slice_integration"},
+    {"id": "W3", "agents": ["core", "network", "persist"], "gate": "two_client_and_replay"}
+  ],
+  "acceptance": {
+    "self_accept_forbidden": true,
+    "consumer_contract_review": true,
+    "test_receipt_required": true,
+    "adversarial_review_required": true,
+    "max_same_failure_retries": 3,
+    "high_risk_route": "HITL_REQUIRED"
+  }
+}
+

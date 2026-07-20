@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/world_root.gd" id="1_world"]
+[ext_resource type="Script" path="res://scripts/core/reality_space.gd" id="2_space"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
+size = Vector2(64, 64)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(64, 0.2, 64)
+
+[sub_resource type="Environment" id="Environment_cozy"]
+background_mode = 1
+background_color = Color(0.557, 0.773, 0.91, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.85, 0.9, 0.95, 1)
+ambient_light_energy = 0.55
+tonemap_mode = 2
+ssao_enabled = false
+glow_enabled = true
+glow_intensity = 0.25
+glow_strength = 0.6
+fog_enabled = true
+fog_light_color = Color(0.75, 0.85, 0.95, 1)
+fog_density = 0.0015
+
+[node name="WorldRoot" type="Node3D"]
+script = ExtResource("1_world")
+
+[node name="PrivateReality" type="Node3D" parent="."]
+script = ExtResource("2_space")
+space_id = "private_reality"
+display_name = "Private Reality"
+authority = "client"
+
+[node name="ManifestationHost" type="Node3D" parent="PrivateReality"]
+
+[node name="SpawnPoint" type="Marker3D" parent="PrivateReality"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="SharedDistricts" type="Node3D" parent="."]
+script = ExtResource("2_space")
+space_id = "shared_district"
+display_name = "Shared Districts"
+authority = "server"
+
+[node name="ManifestationHost" type="Node3D" parent="SharedDistricts"]
+
+[node name="DoppelgangerCities" type="Node3D" parent="."]
+script = ExtResource("2_space")
+space_id = "doppelganger_city"
+display_name = "Doppelgänger Cities"
+authority = "server"
+
+[node name="ManifestationHost" type="Node3D" parent="DoppelgangerCities"]
+
+[node name="Orbital" type="Node3D" parent="."]
+script = ExtResource("2_space")
+space_id = "spacecraft"
+display_name = "Orbital & Spacecraft"
+authority = "owner"
+
+[node name="ManifestationHost" type="Node3D" parent="Orbital"]
+
+[node name="Exoplanets" type="Node3D" parent="."]
+script = ExtResource("2_space")
+space_id = "exoplanet"
+display_name = "Exoplanets"
+authority = "owner"
+
+[node name="ManifestationHost" type="Node3D" parent="Exoplanets"]
+
+[node name="ModuleMounts" type="Node3D" parent="."]
+
+[node name="VoxelMount" type="Node3D" parent="ModuleMounts"]
+
+[node name="CompanionMount" type="Node3D" parent="ModuleMounts"]
+
+[node name="ExecutorMount" type="Node3D" parent="ModuleMounts"]
+
+[node name="NetworkMount" type="Node3D" parent="ModuleMounts"]
+
+[node name="SchemaMount" type="Node3D" parent="ModuleMounts"]
+
+[node name="AssetMount" type="Node3D" parent="ModuleMounts"]
+
+[node name="PersistMount" type="Node3D" parent="ModuleMounts"]
+
+[node name="Systems" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Systems"]
+transform = Transform3D(0.866, -0.354, 0.354, 0, 0.707, 0.707, -0.5, -0.612, 0.612, 8, 14, 6)
+light_color = Color(1, 0.96, 0.9, 1)
+light_energy = 1.15
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Systems"]
+environment = SubResource("Environment_cozy")
+
+[node name="Ground" type="StaticBody3D" parent="Systems"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Systems/Ground"]
+mesh = SubResource("PlaneMesh_ground")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Systems/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_ground")

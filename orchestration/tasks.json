@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "project_scope": "2.5D vertical slice first",
+  "tasks": [
+    {"id": "G0-001", "title": "Validate blueprint links and machine contracts", "owner_role": "schema", "state": "READY", "dependencies": [], "acceptance": ["project validator exits 0", "all referenced files exist"]},
+    {"id": "G1-001", "title": "Complete World Prompt fixtures and validator", "owner_role": "schema", "state": "TODO", "dependencies": ["G0-001"], "acceptance": ["10 valid accepted", "10 invalid rejected", "format checks enabled"]},
+    {"id": "G1-002", "title": "Lock commit authority and event contracts", "owner_role": "network", "state": "TODO", "dependencies": ["G0-001"], "acceptance": ["client durable mutation rejected", "idempotency and revision conflict specified"]},
+    {"id": "G2-001", "title": "Create pinned Godot 4 2.5D shell", "owner_role": "core", "state": "TODO", "dependencies": ["G1-001"], "acceptance": ["project boots", "fixed camera", "player moves", "no free 3D camera"]},
+    {"id": "G2-002", "title": "Implement 2.5D manifestation renderer", "owner_role": "manifestation", "state": "TODO", "dependencies": ["G1-001"], "acceptance": ["four ordered stages", "cancel leaves no collision"]},
+    {"id": "G2-003", "title": "Implement Companion proposal and bounded personality boundary", "owner_role": "companion", "state": "TODO", "dependencies": ["G1-001"], "acceptance": ["schema-valid proposal", "no direct commit tool", "slow drift caps", "inspect lock reset delete controls"]},
+    {"id": "G2-004", "title": "Create modular 2.5D starter asset grammar", "owner_role": "asset", "state": "TODO", "dependencies": ["G1-001"], "acceptance": ["house recipe", "style tokens", "license/provenance manifest"]},
+    {"id": "G3-001", "title": "Integrate prompt-to-house transaction", "owner_role": "executor", "state": "TODO", "dependencies": ["G2-001", "G2-002", "G2-003", "G2-004"], "acceptance": ["preview before confirm", "complete receipt", "cancel", "undo"]},
+    {"id": "G4-001", "title": "Deterministic save/reload and compensation", "owner_role": "persist", "state": "TODO", "dependencies": ["G3-001"], "acceptance": ["same entity hashes after reload", "duplicate request no duplicate entity"]},
+    {"id": "G6-001", "title": "Two-client authoritative POC", "owner_role": "network", "state": "TODO", "dependencies": ["G4-001"], "acceptance": ["two clients converge", "forged mutation rejected"]},
+    {"id": "G8-001", "title": "Independent 2.5D alpha gate", "owner_role": "core", "state": "TODO", "dependencies": ["G6-001"], "acceptance": ["all receipts attached", "Purple verdict", "Human acceptance"]}
+  ]
+}

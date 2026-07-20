@@ -1,0 +1,41 @@
+{
+  "review_id": "CODEX-G3-001-CORRECTION-001-2026-07-21",
+  "reviewer_role": "codex-final-acceptor",
+  "intent_anchor": {
+    "user_goal": "Maintain a smooth installed-subagent workflow and a trustworthy 2.5D AGM vertical slice.",
+    "current_priority": "Verify the revision and cancel-evidence correction before accepting G3-001.",
+    "allowed_scope": ["G3 revision binding", "runtime cancel evidence", "E2E and MAF receipts"],
+    "forbidden_scope": ["live World Commit", "worker self-acceptance", "new top-level session", "unrelated module changes"]
+  },
+  "claim_under_review": "G3-001 Correction 001 resolves the blocking authority and test-honesty defects.",
+  "what_i_accept": [
+    "Independent Godot E2E passes 76 checks with no forbidden error markers.",
+    "Snapshot, World Prompt, Commit Request and complete receipt all bind expected revision 3.",
+    "Contrast tests fail closed against revision-default leakage.",
+    "Cancel collision and orphan evidence is runtime-derived and injection-tested.",
+    "All five correction receipts validate against MAF and there is no writer conflict.",
+    "World Commit remains uninvoked and no canonical durable mutation is claimed."
+  ],
+  "what_i_challenge": [
+    "Real persistence, compensating commit and reload hashing remain G4 work.",
+    "Headed visual QA remains outside this correction."
+  ],
+  "strongest_counter_argument": "The vertical slice still proves a rejected handoff stub rather than a production World Commit service.",
+  "missing_evidence": [
+    "Production/shared-space authority is intentionally deferred.",
+    "The installed adversarial-review skill references absent schema files, so this object follows its documented fields but could not be schema-validated."
+  ],
+  "scope_drift_risk": "low",
+  "final_verdict": "ACCEPT",
+  "self_audit": {
+    "preserved_user_intent": true,
+    "did_not_invent_objection": true,
+    "evidence_based": true,
+    "no_scope_hijack": true
+  },
+  "blind_spots": ["Private-reality reload and compensation are the next dependency-ready gate."],
+  "confidence_before_challenge": 0.92,
+  "confidence_penalty": 0.03,
+  "confidence_after_challenge": 0.89,
+  "next_action": "Dispatch G4-001 through the installed persistence workflow in the same Grok Desktop parent."
+}

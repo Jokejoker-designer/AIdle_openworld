@@ -13,6 +13,8 @@ const EXPORT_DIR_RES := "res://scripts/modules/executor/exports"
 const COMPLETE_EXPORT := "res://scripts/modules/executor/exports/g3_complete_receipt.json"
 const CANCEL_EXPORT := "res://scripts/modules/executor/exports/g3_cancel_receipt.json"
 const UNDO_EXPORT := "res://scripts/modules/executor/exports/g3_undo_receipt.json"
+const WORLD_PROMPT_EXPORT := "res://scripts/modules/executor/exports/world_prompt_from_build.json"
+const COMMIT_REQUEST_EXPORT := "res://scripts/modules/executor/exports/commit_request_handoff_stub.json"
 
 const SNAPSHOT_FIXTURE_REL := "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json"
 const DECISION_ONBOARD_REL := "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json"
@@ -293,23 +295,9 @@ func load_world_state_snapshot(snapshot: Dictionary = {}) -> Dictionary:
 
 	_trace_id = str(_snapshot.get("trace_id", "trace_g3_slice"))
 	_executor.call("set_live_snapshot", _snapshot)
-	var snap_id := str(_snapshot.get("snapshot_id", ""))
-	if _use_companion_module and _companion != null:
-		_companion.call("set_live_snapshot_id", snap_id)
-	elif _applier != null:
-		_applier.call("set_live_snapshot_id", snap_id)
-		if _presenter != null and _presenter.has_method("set_live_snapshot_id"):
-			_presenter.call("set_live_snapshot_id", snap_id)
-	if _wp_builder != null:
-		_wp_builder.call("configure_context", {
-			"player_id": str((_snapshot.get("player", {}) as Dictionary).get("player_id", "player_01")),
-			"companion_id": str((_snapshot.get("companion", {}) as Dictionary).get("companion_id", "companion_aida")),
-			"session_id": str(_snapshot.get("session_id", "session_starter_01")),
-			"space_type": str((_snapshot.get("world", {}) as Dictionary).get("space_type", "private_reality")),
-			"space_id": str(_snapshot.get("space_id", "home_01")),
-			"chunk_id": str(((_snapshot.get("player", {}) as Dictionary).get("location", {}) as Dictionary).get("chunk_id", "0_0")),
-			"expected_world_revision": int(_snapshot.get("world_revision", 0)),
-		})
+	# Always rebind builder revision from live snapshot on BOTH companion-module
+	# and fallback presenter paths. Builder default 0 must never override live context.
+	_rebind_builder_revision_from_snapshot()
 	if _realm.has_method("apply_snapshot_context"):
 		_realm.call("apply_snapshot_context", _snapshot)
 	if _realm.has_method("set_status"):
@@ -368,6 +356,9 @@ func present_build_proposal_decision(decision: Dictionary = {}) -> Dictionary:
 		_world_prompt = (prompts[0] as Dictionary).duplicate(true)
 		_prompt_id = str(_world_prompt.get("prompt_id", ""))
 		_request_id = str(_world_prompt.get("request_id", ""))
+		# Defense in depth: never leave target.expected_world_revision at builder
+		# default 0 when a live snapshot revision is known (commit boundary).
+		_bind_world_prompt_revision_from_snapshot()
 
 	_drive_realm_from_presentation(presentation, "Build proposal pending preview (no durable mutation)")
 	return presentation
@@ -452,6 +443,11 @@ func start_house_preview(options: Dictionary = {}) -> Dictionary:
 		_prompt_id = str(_world_prompt.get("prompt_id", ""))
 	if _request_id.is_empty():
 		_request_id = str(_world_prompt.get("request_id", ""))
+
+	# Ensure optimistic concurrency token matches live snapshot before pipeline entry.
+	# Companion rebind at snapshot load should already elevate with live rev; this
+	# rebinds local world_prompt so late submit / export never leak builder default 0.
+	_bind_world_prompt_revision_from_snapshot()
 
 	# Submit into executor pipeline if not already present (companion may have handed off).
 	var status: Dictionary = _executor.call("get_prompt_status", _prompt_id) as Dictionary
@@ -587,14 +583,26 @@ func run_complete_path(write_export: bool = true) -> Dictionary:
 	var receipt := build_complete_receipt(preview, conf)
 	_last_complete_receipt = receipt.duplicate(true)
 	var written := {"ok": true, "path": COMPLETE_EXPORT, "skipped": not write_export}
+	var wp_written := {"ok": true, "path": WORLD_PROMPT_EXPORT, "skipped": not write_export}
+	var cr_written := {"ok": true, "path": COMMIT_REQUEST_EXPORT, "skipped": not write_export}
 	if write_export:
 		written = write_receipt_json(receipt, COMPLETE_EXPORT)
+		# Bound world_prompt + commit_request handoff for revision-equality evidence.
+		wp_written = write_receipt_json(_world_prompt, WORLD_PROMPT_EXPORT)
+		var cr_export: Dictionary = receipt.get("commit_request", {}) as Dictionary
+		if cr_export.is_empty():
+			cr_export = conf.get("commit_request", {}) as Dictionary
+		cr_written = write_receipt_json(cr_export, COMMIT_REQUEST_EXPORT)
 	return {
 		"ok": true,
 		"receipt_kind": "complete",
 		"receipt": receipt,
 		"export": written,
+		"world_prompt_export": wp_written,
+		"commit_request_export": cr_written,
 		"prompt_id": _prompt_id,
+		"world_prompt": _world_prompt.duplicate(true),
+		"live_world_revision": int(_snapshot.get("world_revision", 0)),
 		"durable_mutation_applied": false,
 		"world_commit_invoked": false,
 	}
@@ -732,11 +740,34 @@ func build_complete_receipt(preview: Dictionary, confirm: Dictionary) -> Diction
 
 	var receipt_id := _new_uuid()
 	var request_id := str(commit_request.get("request_id", _request_id if not _request_id.is_empty() else _new_uuid()))
-	var expected_rev := int(_snapshot.get("world_revision", 0))
-	if commit_request.has("expected_world_revision"):
-		expected_rev = int(commit_request.get("expected_world_revision", expected_rev))
-	elif _world_prompt.has("target"):
-		expected_rev = int((_world_prompt.get("target", {}) as Dictionary).get("expected_world_revision", expected_rev))
+	# Live snapshot world_revision is the authority for optimistic concurrency.
+	# Never prefer a stale builder-default 0 from commit_request/world_prompt when
+	# a snapshot is loaded (fixture live rev = 3).
+	var live_rev := int(_snapshot.get("world_revision", 0))
+	var expected_rev := live_rev
+	if live_rev == 0:
+		if commit_request.has("expected_world_revision"):
+			expected_rev = int(commit_request.get("expected_world_revision", 0))
+		elif _world_prompt.has("target"):
+			expected_rev = int((_world_prompt.get("target", {}) as Dictionary).get("expected_world_revision", 0))
+
+	var commit_out: Dictionary
+	if not commit_request.is_empty():
+		commit_out = commit_request.duplicate(true)
+		# Force-bind nested commit_request to live snapshot revision.
+		commit_out["expected_world_revision"] = expected_rev
+	else:
+		commit_out = {
+			"schema_version": "1.0.0",
+			"request_id": request_id,
+			"prompt_id": _prompt_id,
+			"expected_world_revision": expected_rev,
+			"authority": {
+				"commit_path": "world_commit_service",
+				"source": "server_authoritative",
+			},
+			"mutation_class": "durable_world",
+		}
 
 	return {
 		"schema_version": SCHEMA_VERSION,
@@ -757,16 +788,7 @@ func build_complete_receipt(preview: Dictionary, confirm: Dictionary) -> Diction
 			"stages_observed": stages,
 			"has_durable_collision": bool(preview.get("has_durable_collision", true)),
 		},
-		"commit_request": commit_request.duplicate(true) if not commit_request.is_empty() else {
-			"schema_version": "1.0.0",
-			"request_id": request_id,
-			"prompt_id": _prompt_id,
-			"authority": {
-				"commit_path": "world_commit_service",
-				"source": "server_authoritative",
-			},
-			"mutation_class": "durable_world",
-		},
+		"commit_request": commit_out,
 		"commit_receipt_stub": commit_stub.duplicate(true) if not commit_stub.is_empty() else {
 			"status": "rejected",
 			"authority": {"commit_path": "world_commit_service"},
@@ -799,6 +821,24 @@ func build_cancel_receipt(preview: Dictionary, cancelled: Dictionary) -> Diction
 	if during.is_empty():
 		during = "hologram"
 
+	# Collision/orphan MUST come from runtime cancel payload / measured preview —
+	# never unconditional constants (Codex C0-DEF / adversarial review).
+	var has_collision := false
+	if man.has("has_durable_collision"):
+		has_collision = bool(man.get("has_durable_collision"))
+	elif cancelled.has("has_durable_collision"):
+		has_collision = bool(cancelled.get("has_durable_collision"))
+	elif preview.has("has_durable_collision"):
+		has_collision = bool(preview.get("has_durable_collision"))
+
+	var orphan_count := 0
+	if man.has("orphan_collision_count"):
+		orphan_count = int(man.get("orphan_collision_count"))
+	elif cancelled.has("orphan_collision_count"):
+		orphan_count = int(cancelled.get("orphan_collision_count"))
+	elif preview.has("orphan_collision_count"):
+		orphan_count = int(preview.get("orphan_collision_count"))
+
 	return {
 		"schema_version": SCHEMA_VERSION,
 		"receipt_kind": "cancel",
@@ -818,8 +858,8 @@ func build_cancel_receipt(preview: Dictionary, cancelled: Dictionary) -> Diction
 		"cancelled_during_stage": during,
 		"manifestation": {
 			"final_stage": "cancelled",
-			"has_durable_collision": false,
-			"orphan_collision_count": 0,
+			"has_durable_collision": has_collision,
+			"orphan_collision_count": orphan_count,
 			"stages_observed": stages,
 		},
 		"entity_ids_durable": [],
@@ -951,6 +991,52 @@ func _merge_recipe_geometry_into_prompt() -> void:
 		"collision_policy": geo.get("collision_policy", {}),
 		"preview_only": true,
 	}
+	_bind_world_prompt_revision_from_snapshot()
+
+
+## Rebind companion/fallback builder expected_world_revision from live snapshot.
+func _rebind_builder_revision_from_snapshot() -> void:
+	if _snapshot.is_empty():
+		return
+	var snap_id := str(_snapshot.get("snapshot_id", ""))
+	var rev := int(_snapshot.get("world_revision", 0))
+	var ctx := {
+		"player_id": str((_snapshot.get("player", {}) as Dictionary).get("player_id", "player_01")),
+		"companion_id": str((_snapshot.get("companion", {}) as Dictionary).get("companion_id", "companion_aida")),
+		"session_id": str(_snapshot.get("session_id", "session_starter_01")),
+		"space_type": str((_snapshot.get("world", {}) as Dictionary).get("space_type", "private_reality")),
+		"space_id": str(_snapshot.get("space_id", "home_01")),
+		"chunk_id": str(((_snapshot.get("player", {}) as Dictionary).get("location", {}) as Dictionary).get("chunk_id", "0_0")),
+		"expected_world_revision": rev,
+	}
+	if _use_companion_module and _companion != null and is_instance_valid(_companion):
+		if _companion.has_method("set_live_snapshot"):
+			_companion.call("set_live_snapshot", _snapshot)
+		else:
+			if _companion.has_method("set_live_snapshot_id") and not snap_id.is_empty():
+				_companion.call("set_live_snapshot_id", snap_id)
+			if _companion.has_method("set_expected_world_revision"):
+				_companion.call("set_expected_world_revision", rev)
+	elif _applier != null:
+		if not snap_id.is_empty():
+			_applier.call("set_live_snapshot_id", snap_id)
+		if _presenter != null and _presenter.has_method("set_live_snapshot_id"):
+			_presenter.call("set_live_snapshot_id", snap_id)
+	if _wp_builder != null:
+		_wp_builder.call("configure_context", ctx)
+
+
+## Force world_prompt.target.expected_world_revision to live snapshot revision.
+## Prevents prompt_pipeline.confirm from preferring a stale target rev=0 over live.
+func _bind_world_prompt_revision_from_snapshot() -> void:
+	if _world_prompt.is_empty() or _snapshot.is_empty():
+		return
+	var live_rev := int(_snapshot.get("world_revision", 0))
+	var target: Dictionary = (_world_prompt.get("target", {}) as Dictionary).duplicate(true)
+	target["expected_world_revision"] = live_rev
+	if not target.has("space_id") or str(target.get("space_id", "")).is_empty():
+		target["space_id"] = str(_snapshot.get("space_id", "home_01"))
+	_world_prompt["target"] = target
 
 
 func _load_json_fixture(rel_from_repo: String) -> Dictionary:

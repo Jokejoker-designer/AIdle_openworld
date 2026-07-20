@@ -1,0 +1,140 @@
+{
+  "agent_step_id": "G3-001-C1-executor-2026-07-21",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "wave": "C1_EXECUTOR_PATCH",
+    "correction_work_order": "orchestration/work_orders/WO-G3-001-CORRECTION-001.md",
+    "profile": "executor",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "C1 PATCH_DRAFT: bind world_prompt/commit_request/complete_receipt expected_world_revision to live snapshot.world_revision (fixture=3); cancel receipt collision/orphan fields now runtime-derived; smoke contrast fails if rev 0 leaks or cancel evidence is ignored. G3_E2E_SMOKE=PASS checks=76 exit 0; AIDLE_VALIDATION=PASS.",
+    "defects_fixed": [
+      {
+        "id": "C0-DEF-01",
+        "fix": "build_complete_receipt prefers live_snapshot.world_revision; force-binds nested commit_request.expected_world_revision"
+      },
+      {
+        "id": "C0-DEF-02",
+        "fix": "present_build_proposal + start_house_preview rebind world_prompt.target.expected_world_revision from snapshot; complete path exports world_prompt_from_build.json"
+      },
+      {
+        "id": "C0-DEF-03",
+        "fix": "complete path exports commit_request_handoff_stub.json with bound revision"
+      },
+      {
+        "id": "C0-DEF-04",
+        "fix": "load_world_state_snapshot always rebinds companion builder via CompanionModule.set_live_snapshot (id + expected_world_revision) and fallback _wp_builder.configure_context"
+      },
+      {
+        "id": "C0-DEF-05",
+        "fix": "g3_e2e_smoke: rev equality + negative 0-leak contrast + export field checks"
+      },
+      {
+        "id": "CODEX-cancel-hardcode",
+        "fix": "build_cancel_receipt reads has_durable_collision / orphan_collision_count from cancel manifestation or top-level cancel payload; smoke injects mock payloads that fail if constants used"
+      }
+    ],
+    "product_writes": [
+      "game/scripts/modules/executor/g3_onboarding_slice.gd",
+      "game/scripts/modules/executor/g3_e2e_smoke.gd",
+      "game/scripts/modules/companion/companion_module.gd",
+      "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+      "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+      "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+      "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+      "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+      "orchestration/receipts/g3/C1_executor.json"
+    ],
+    "revision_invariant": {
+      "id": "snapshot_world_prompt_commit_revision_equality",
+      "live_snapshot_world_revision": 3,
+      "world_prompt_target_expected_world_revision": 3,
+      "commit_request_expected_world_revision": 3,
+      "complete_receipt_expected_world_revision": 3,
+      "complete_receipt_nested_commit_request": 3,
+      "status": "PASS"
+    },
+    "cancel_evidence": {
+      "source": "runtime cancel payload / measured preview",
+      "happy_path_has_durable_collision": false,
+      "happy_path_orphan_collision_count": 0,
+      "inject_collision_true_reflected": true,
+      "inject_orphan_2_reflected": true,
+      "inject_top_level_orphan_3_reflected": true
+    },
+    "invariants_preserved": [
+      "World Commit rejected stub (commit_receipt_stub.status=rejected)",
+      "durable_mutation_applied=false on complete/cancel/undo",
+      "world_commit_invoked=false",
+      "explicit confirm required",
+      "four manifestation stages on complete path",
+      "complete/cancel/undo paths retained"
+    ],
+    "only_owned_files_written": true,
+    "no_children_spawned": true
+  },
+  "smoke_test": {
+    "executed": true,
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/executor/g3_e2e_smoke.gd",
+        "exit_code": 0,
+        "marker": "G3_E2E_SMOKE=PASS checks=76",
+        "log": "orchestration/logs/g3-c1-executor-e2e.log",
+        "log_notes": "Expected warnings only (No mount for module voxel; No manifestation host). No SCRIPT ERROR / Parse Error / Compile Error / ERROR:."
+      },
+      {
+        "command": "python scripts\\validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    ]
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "writes": [
+      "game/scripts/modules/executor/g3_onboarding_slice.gd",
+      "game/scripts/modules/executor/g3_e2e_smoke.gd",
+      "game/scripts/modules/companion/companion_module.gd",
+      "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+      "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+      "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+      "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+      "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+      "orchestration/receipts/g3/C1_executor.json"
+    ],
+    "did_not_edit_contracts": true,
+    "did_not_edit_tasks_or_directive": true,
+    "did_not_edit_architecture": true,
+    "did_not_edit_prompt_pipeline_or_executor_module": true,
+    "companion_edit_strictly_required": "set_live_snapshot / set_expected_world_revision so companion-module path rebinds builder revision from live snapshot (C0-DEF-04 root cause)",
+    "no_nested_subagents": true,
+    "no_api_sdk_credentials": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "authority_token": "PATCH_DRAFT",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md + WO-G3-001-CORRECTION-001 + C0_schema + CODEX adversarial review + sources manually",
+    "mvp_lock_respected": "2.5D text-only; World Commit remains rejected handoff stub; no durable mutation claimed"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001-CORRECTION-001.md",
+    "orchestration/receipts/g3/C0_schema.json",
+    "orchestration/reviews/CODEX_G3-001_ADVERSARIAL_REVIEW.json",
+    "game/scripts/modules/executor/g3_onboarding_slice.gd",
+    "game/scripts/modules/executor/g3_e2e_smoke.gd",
+    "game/scripts/modules/companion/companion_module.gd",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+    "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+    "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+    "orchestration/logs/g3-c1-executor-e2e.log",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "C2_PERSIST_VERIFY"
+}

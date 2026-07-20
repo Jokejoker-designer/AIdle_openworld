@@ -1,0 +1,288 @@
+{
+  "agent_step_id": "G3-001-C3-network-purple-2026-07-21",
+  "agent_type": "aidle-network",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "wave": "C3_NETWORK_PURPLE",
+    "correction_work_order": "orchestration/work_orders/WO-G3-001-CORRECTION-001.md",
+    "profile": "network",
+    "role": "Purple / Devil's Advocate",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "verdict": "ACCEPTED",
+    "blockers": [],
+    "summary": "VERIFY_ONLY Purple adversarial re-check of Codex CHANGES_REQUESTED items after C0/C1/C2. Independent Godot E2E re-run G3_E2E_SMOKE=PASS checks=76 exit 0; AIDLE_VALIDATION=PASS. Snapshot→prompt→commit→complete revision equality is 3 across live fixture, runtime receipts, and all four handoff exports. Cancel collision/orphan fields are runtime-derived with inject contrast that fails closed if hardcode ignored. World Commit remains rejected handoff stub; durable_mutation_applied=false and world_commit_invoked=false on complete/cancel/undo. No self-accept on C0/C1/C2/C3. No product writes this wave. Final acceptor remains Codex.",
+    "codex_challenges_resolved": [
+      {
+        "id": "CODEX-rev-binding",
+        "challenge": "Complete handoff binds expected_world_revision 0 while loaded snapshot is revision 3",
+        "status": "FIXED",
+        "evidence": {
+          "live_snapshot_world_revision": 3,
+          "world_prompt_from_build.target.expected_world_revision": 3,
+          "commit_request_handoff_stub.expected_world_revision": 3,
+          "g3_complete_receipt.expected_world_revision": 3,
+          "g3_complete_receipt.commit_request.expected_world_revision": 3,
+          "source_snapshot_id": "11111111-1111-4111-8111-111111111111",
+          "smoke_ok": [
+            "live_snapshot_revision",
+            "rev_eq_world_prompt",
+            "rev_eq_commit_request",
+            "rev_eq_complete_receipt",
+            "rev_chain_equality",
+            "export_wp_rev",
+            "export_cr_rev",
+            "export_complete_rev",
+            "export_complete_nested_cr_rev"
+          ],
+          "code": [
+            "g3_onboarding_slice.load_world_state_snapshot → _rebind_builder_revision_from_snapshot",
+            "present_build_proposal / _bind_world_prompt_revision_from_snapshot",
+            "build_complete_receipt prefers live_rev from _snapshot.world_revision; force-binds nested commit_request",
+            "CompanionModule.set_live_snapshot / set_expected_world_revision"
+          ]
+        }
+      },
+      {
+        "id": "CODEX-cancel-hardcode",
+        "challenge": "Cancel receipt hardcodes collision and orphan counts instead of deriving from runtime cancellation result",
+        "status": "FIXED",
+        "evidence": {
+          "happy_path_export": {
+            "has_durable_collision": false,
+            "orphan_collision_count": 0
+          },
+          "code_priority": {
+            "has_durable_collision": [
+              "cancelled.manifestation.has_durable_collision",
+              "cancelled.has_durable_collision",
+              "preview.has_durable_collision"
+            ],
+            "orphan_collision_count": [
+              "cancelled.manifestation.orphan_collision_count",
+              "cancelled.orphan_collision_count",
+              "preview.orphan_collision_count"
+            ],
+            "defaults_only_when_absent": true
+          },
+          "smoke_inject_contrast": [
+            "cancel_live_collision_matches_runtime",
+            "cancel_live_orphan_matches_runtime",
+            "cancel_inject_collision_reflected",
+            "cancel_inject_orphan_reflected",
+            "cancel_top_level_payload_reflected"
+          ],
+          "fail_closed_labels_if_hardcoded": [
+            "cancel_inject_collision_ignored",
+            "cancel_inject_orphan_ignored",
+            "cancel_top_level_payload_ignored"
+          ]
+        }
+      },
+      {
+        "id": "CODEX-authority-stub",
+        "challenge": "Preserve World Commit rejected stub; no durable mutation; no authority bypass",
+        "status": "PRESERVED",
+        "evidence": {
+          "commit_receipt_stub.status": "rejected",
+          "complete.durable_mutation_applied": false,
+          "complete.world_commit_invoked": false,
+          "cancel.durable_mutation_applied": false,
+          "cancel.world_commit_invoked": false,
+          "undo.durable_mutation_applied": false,
+          "undo.world_commit_invoked": false,
+          "authority.commit_path": "world_commit_service",
+          "authority.source_not_client_authoritative": true,
+          "smoke_ok": [
+            "complete_stub_not_committed",
+            "complete_durable_false",
+            "complete_world_commit_false",
+            "complete_commit_path",
+            "complete_commit_source",
+            "cancel_durable_false",
+            "cancel_world_commit_false",
+            "undo_durable_false",
+            "undo_world_commit_false"
+          ]
+        }
+      },
+      {
+        "id": "CODEX-self-accept",
+        "challenge": "No worker self-acceptance; parent_may_self_accept false",
+        "status": "PRESERVED",
+        "evidence": {
+          "C0_schema.self_accept": false,
+          "C1_executor.self_accept": false,
+          "C2_persist.self_accept": false,
+          "C3_network.self_accept": false,
+          "tasks_json_G3-001_state": "CHANGES_REQUESTED (not ACCEPTED by workers)",
+          "this_wave_did_not_edit_tasks": true
+        }
+      }
+    ],
+    "independent_verification": {
+      "godot_e2e": {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/executor/g3_e2e_smoke.gd",
+        "exit_code": 0,
+        "marker": "G3_E2E_SMOKE=PASS checks=76",
+        "logs": [
+          "orchestration/logs/g3-c3-purple-e2e.out.log",
+          "orchestration/logs/g3-c3-purple-e2e.err.log",
+          "orchestration/logs/g3-c1-parent-e2e.log",
+          "orchestration/logs/g3-c1-executor-e2e.log"
+        ],
+        "forbidden_markers_absent": [
+          "SCRIPT ERROR",
+          "Parse Error",
+          "Compile Error",
+          "ERROR:"
+        ],
+        "expected_warnings_only": [
+          "No mount for module: voxel",
+          "No manifestation host; using local fallback"
+        ]
+      },
+      "project_validator": {
+        "command": "python scripts\\validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      },
+      "static_export_measure_after_purple_rerun": {
+        "revision_chain_eq3": true,
+        "zero_leak": false,
+        "auth_ok": true,
+        "undo_prior_receipt_id_links_complete": true
+      }
+    },
+    "wave_integrity": {
+      "C0_schema": {
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "product_writes": 0,
+        "status_pre_patch": "FAIL_ON_CURRENT_EXPORTS"
+      },
+      "C1_executor": {
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "sole_product_writer": true,
+        "smoke": "G3_E2E_SMOKE=PASS checks=76"
+      },
+      "C2_persist": {
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "verdict": "PASS",
+        "product_writes": 0
+      },
+      "C3_network": {
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "verdict": "ACCEPTED",
+        "product_writes": 0
+      },
+      "one_writer_per_file": true,
+      "no_children_spawned": true
+    },
+    "residual_risks": [
+      {
+        "id": "RR-C3-01",
+        "severity": "low",
+        "detail": "prompt_pipeline.confirm still prefers target.expected_world_revision when present over the live world_revision parameter. G3 mitigates by force-binding target via _bind_world_prompt_revision_from_snapshot before confirm and force-binding in build_complete_receipt. Future non-G3 confirm paths must rebind target or pipeline will reintroduce stale rev=0."
+      },
+      {
+        "id": "RR-NET-01",
+        "severity": "medium",
+        "detail": "Complete receipt manifestation.has_durable_collision=true remains presentation-local collision after complete stage; durable_mutation_applied=false and World Commit stub rejected. Consumers must not treat presentation collision as commit success."
+      },
+      {
+        "id": "RR-EXEC-G3-03",
+        "severity": "medium",
+        "detail": "Real compensating World Commit, append-only log, entity hash save/reload remain G4. Undo is compensating stub only."
+      },
+      {
+        "id": "RR-C3-02",
+        "severity": "info",
+        "detail": "exports/execution_receipt_build.json (G2 executor smoke surface) may still show expected_world_revision=0; out of WO-G3-001-CORRECTION-001 write scope. Not used by G3 complete handoff chain."
+      }
+    ],
+    "product_writes": 0,
+    "only_writes": [
+      "orchestration/receipts/g3/C3_network.json",
+      "orchestration/reviews/G3-001_CORRECTION_001_PURPLE_REVIEW.md"
+    ]
+  },
+  "smoke_test": {
+    "executed": true,
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/executor/g3_e2e_smoke.gd",
+        "exit_code": 0,
+        "marker": "G3_E2E_SMOKE=PASS checks=76",
+        "log": "orchestration/logs/g3-c3-purple-e2e.out.log",
+        "stderr_log": "orchestration/logs/g3-c3-purple-e2e.err.log"
+      },
+      {
+        "command": "python scripts\\validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    ],
+    "static_measurements": {
+      "live_snapshot_world_revision": 3,
+      "export_revision_chain_all_3": true,
+      "cancel_runtime_derived": true,
+      "cancel_inject_tests_pass": true,
+      "stub_status_rejected": true,
+      "all_three_durable_mutation_applied_false": true,
+      "all_three_world_commit_invoked_false": true
+    }
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "writes": [
+      "orchestration/receipts/g3/C3_network.json",
+      "orchestration/reviews/G3-001_CORRECTION_001_PURPLE_REVIEW.md"
+    ],
+    "did_not_edit_product_code": true,
+    "did_not_edit_contracts": true,
+    "did_not_edit_tasks_or_directive": true,
+    "did_not_edit_architecture": true,
+    "did_not_edit_exports": true,
+    "did_not_edit_prior_receipts": true,
+    "did_not_create_accept_file": true,
+    "no_nested_subagents": true,
+    "no_api_sdk_credentials": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "authority_token": "VERIFY_ONLY",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md + WO-G3-001-CORRECTION-001 + CODEX adversarial review + C0/C1/C2 receipts + exports + g3_onboarding_slice/g3_e2e_smoke + companion rebind + agent_step_contract schema manually",
+    "mvp_lock_respected": "2.5D text-only; World Commit remains rejected handoff stub; no durable mutation claimed"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_G3-001_ADVERSARIAL_REVIEW.json",
+    "orchestration/reviews/G3-001_CORRECTION_001_PURPLE_REVIEW.md",
+    "orchestration/receipts/g3/C0_schema.json",
+    "orchestration/receipts/g3/C1_executor.json",
+    "orchestration/receipts/g3/C2_persist.json",
+    "orchestration/control/codex_directive.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+    "game/scripts/modules/executor/g3_onboarding_slice.gd",
+    "game/scripts/modules/executor/g3_e2e_smoke.gd",
+    "game/scripts/modules/companion/companion_module.gd",
+    "game/scripts/modules/executor/prompt_pipeline.gd",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+    "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+    "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+    "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+    "orchestration/logs/g3-c3-purple-e2e.out.log",
+    "orchestration/logs/g3-c1-parent-e2e.log",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "WAITING_CODEX"
+}

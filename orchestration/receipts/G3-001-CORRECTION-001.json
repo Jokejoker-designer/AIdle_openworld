@@ -1,0 +1,107 @@
+{
+  "agent_step_id": "G3-001-correction-001-parent-collate-2026-07-21",
+  "agent_type": "lead-orchestrator",
+  "skill_id": "maf-mandatory-standard",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "directive_id": 11,
+    "work_order": "orchestration/work_orders/WO-G3-001-CORRECTION-001.md",
+    "prior_verdict": "CHANGES_REQUESTED",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "parent_may_self_accept": false,
+    "summary": "Bounded correction for revision binding and cancel evidence honesty. C0 schema VERIFY documented FAIL chain; C1 executor sole writer fixed binding + smoke contrasts + runtime cancel fields; C2 persist PASS; C3 network Purple ACCEPTED evidence. Parent re-ran clean E2E 76 + validator.",
+    "waves": {
+      "C0_SCHEMA_VERIFY": {
+        "profile": "schema",
+        "authority": "VERIFY_ONLY",
+        "receipt": "orchestration/receipts/g3/C0_schema.json"
+      },
+      "C1_EXECUTOR_PATCH": {
+        "profile": "executor",
+        "authority": "PATCH_DRAFT",
+        "sole_product_writer": true,
+        "receipt": "orchestration/receipts/g3/C1_executor.json"
+      },
+      "C2_PERSIST_VERIFY": {
+        "profile": "persist",
+        "authority": "VERIFY_ONLY",
+        "verdict": "PASS",
+        "receipt": "orchestration/receipts/g3/C2_persist.json"
+      },
+      "C3_NETWORK_PURPLE": {
+        "profile": "network",
+        "authority": "VERIFY_ONLY",
+        "verdict": "ACCEPTED",
+        "receipt": "orchestration/receipts/g3/C3_network.json",
+        "review": "orchestration/reviews/G3-001_CORRECTION_001_PURPLE_REVIEW.md"
+      }
+    },
+    "corrections": [
+      "expected_world_revision chain bound to live snapshot world_revision=3",
+      "contrast smoke fails if revision 0 leaks while snapshot is 3",
+      "cancel has_durable_collision/orphan_collision_count from runtime cancel payload",
+      "inject tests fail if cancel evidence hardcode ignored"
+    ],
+    "preserved": [
+      "World Commit rejected stub",
+      "no durable mutation",
+      "explicit confirm",
+      "four manifestation stages",
+      "complete/cancel/undo paths"
+    ]
+  },
+  "smoke_test": {
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/executor/g3_e2e_smoke.gd",
+        "exit_code": 0,
+        "marker": "G3_E2E_SMOKE=PASS checks=76",
+        "log": "orchestration/logs/g3-c1-parent-e2e.log",
+        "forbidden_log_patterns_count": 0
+      },
+      {
+        "command": "python scripts\\validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    ],
+    "revision_measurements": {
+      "snapshot_world_revision": 3,
+      "world_prompt_target_expected_world_revision": 3,
+      "commit_request_expected_world_revision": 3,
+      "complete_receipt_expected_world_revision": 3,
+      "complete_nested_commit_request_expected_world_revision": 3
+    }
+  },
+  "self_audit": {
+    "profiles_only": ["schema", "executor", "persist", "network"],
+    "parent_no_product_code": true,
+    "no_nested_grandchildren": true,
+    "no_tasks_json_edit": true,
+    "no_codex_directive_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_original_wo_edit": true,
+    "no_accept_receipt": true
+  },
+  "evidence_refs": [
+    "orchestration/reviews/CODEX_G3-001_ADVERSARIAL_REVIEW.json",
+    "orchestration/work_orders/WO-G3-001-CORRECTION-001.md",
+    "orchestration/receipts/g3/C0_schema.json",
+    "orchestration/receipts/g3/C1_executor.json",
+    "orchestration/receipts/g3/C2_persist.json",
+    "orchestration/receipts/g3/C3_network.json",
+    "orchestration/reviews/G3-001_CORRECTION_001_PURPLE_REVIEW.md",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+    "game/scripts/modules/executor/exports/g3_undo_receipt.json"
+  ],
+  "remaining_risks": [
+    "RR-C3-01: pipeline.confirm still prefers target rev (G3 force-binds target first)",
+    "RR-NET-01: presentation collision on complete ≠ durable commit",
+    "G4 real compensating commit still deferred"
+  ],
+  "next_route": "WAITING_CODEX — only Codex may ACCEPTED G3-001"
+}

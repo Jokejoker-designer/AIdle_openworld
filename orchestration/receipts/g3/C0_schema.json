@@ -1,0 +1,331 @@
+{
+  "agent_step_id": "G3-001-C0-schema-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "wave": "C0_SCHEMA_VERIFY",
+    "correction_work_order": "orchestration/work_orders/WO-G3-001-CORRECTION-001.md",
+    "profile": "schema",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "VERIFY_ONLY audit of Snapshot → World Prompt → Commit Request revision binding for G3-001 correction. Live starter snapshot fixture world_revision=3. Exported complete path still binds expected_world_revision=0 on world_prompt.target, commit_request, and complete_receipt. Schema allows minimum 0 (valid JSON) but optimistic-concurrency semantics require binding to live snapshot.world_revision when a snapshot is loaded. Defect is confirmed for C1_EXECUTOR_PATCH; no contract edits required.",
+    "invariant": {
+      "id": "snapshot_world_prompt_commit_revision_equality",
+      "statement": "world_prompt.target.expected_world_revision == commit_request.expected_world_revision == complete_receipt.expected_world_revision == live_snapshot.world_revision",
+      "live_snapshot_fixture": "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+      "live_snapshot_world_revision": 3,
+      "live_snapshot_id": "11111111-1111-4111-8111-111111111111",
+      "status": "FAIL_ON_CURRENT_EXPORTS",
+      "builder_default_rule": "CompanionWorldPromptBuilder.expected_world_revision default 0 and CompanionModule._ensure_logic_state configure_context(expected_world_revision:0) MUST NEVER override live snapshot context once a snapshot is loaded.",
+      "schema_notes": {
+        "world_state_snapshot.world_revision": "integer minimum 0 — optimistic concurrency token of live world at snapshot time",
+        "world_prompt.target.expected_world_revision": "integer minimum 0 — required on target",
+        "commit_request.expected_world_revision": "integer minimum 0 — mismatch yields conflicted receipt",
+        "schema_minimum_zero_is_not_live_truth": "0 is schema-valid but semantically stale when live snapshot world_revision is 3"
+      }
+    },
+    "evidence_measured": {
+      "live_snapshot": {
+        "path": "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+        "field": "world_revision",
+        "value": 3
+      },
+      "exports_with_expected_world_revision_0": [
+        {
+          "path": "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+          "field": "target.expected_world_revision",
+          "value": 0
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+          "field": "expected_world_revision",
+          "value": 0
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+          "field": "expected_world_revision",
+          "value": 0
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+          "field": "commit_request.expected_world_revision",
+          "value": 0
+        }
+      ],
+      "source_snapshot_id_on_complete_receipt": {
+        "path": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+        "field": "source_snapshot_id",
+        "value": "11111111-1111-4111-8111-111111111111",
+        "note": "Receipt claims the starter snapshot (rev 3) while binding expected_world_revision 0 — authority defect on the commit boundary"
+      }
+    },
+    "defects_found": [
+      {
+        "id": "C0-DEF-01",
+        "severity": "high",
+        "title": "Complete handoff binds expected_world_revision=0 while live snapshot is 3",
+        "detail": "Codex adversarial challenge confirmed. g3_complete_receipt.json carries expected_world_revision=0 and nested commit_request.expected_world_revision=0 while source_snapshot_id matches valid_snapshot_desktop_bridge (world_revision=3).",
+        "evidence": [
+          "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+          "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+          "orchestration/reviews/CODEX_G3-001_ADVERSARIAL_REVIEW.json"
+        ]
+      },
+      {
+        "id": "C0-DEF-02",
+        "severity": "high",
+        "title": "World prompt export carries target.expected_world_revision=0",
+        "detail": "world_prompt_from_build.json target.expected_world_revision is 0. Elevation from AGM build_proposal uses CompanionWorldPromptBuilder context; AGM build_proposals do not carry revision, so builder context is sole source.",
+        "evidence": [
+          "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+          "game/scripts/modules/companion/world_prompt_builder.gd"
+        ]
+      },
+      {
+        "id": "C0-DEF-03",
+        "severity": "high",
+        "title": "Commit request handoff stub export expected_world_revision=0",
+        "detail": "commit_request_handoff_stub.json expected_world_revision is 0, violating equality with live snapshot world_revision=3.",
+        "evidence": [
+          "game/scripts/modules/executor/exports/commit_request_handoff_stub.json"
+        ]
+      },
+      {
+        "id": "C0-DEF-04",
+        "severity": "high",
+        "title": "CompanionModule path never rebinds builder revision from live snapshot",
+        "detail": "Root cause chain: (1) CompanionModule._ensure_logic_state configures CompanionWorldPromptBuilder with expected_world_revision:0. (2) g3_onboarding_slice.load_world_state_snapshot sets companion live snapshot_id only on CompanionModule path; configure_context with snapshot world_revision runs only when _wp_builder != null (fallback presenter path). (3) When _use_companion_module is true, builder stays at default 0. (4) PromptPipeline.confirm prefers target.expected_world_revision when present, overriding live rev passed from ExecutorModule.confirm_prompt. (5) build_complete_receipt prefers commit_request.expected_world_revision over _snapshot.world_revision.",
+        "evidence": [
+          "game/scripts/modules/companion/companion_module.gd:_ensure_logic_state expected_world_revision:0",
+          "game/scripts/modules/executor/g3_onboarding_slice.gd:load_world_state_snapshot companion path vs _wp_builder rebind",
+          "game/scripts/modules/executor/prompt_pipeline.gd:confirm target-over-live",
+          "game/scripts/modules/executor/g3_onboarding_slice.gd:build_complete_receipt prefer commit_request",
+          "orchestration/reviews/G3-001_PURPLE_REVIEW.md RR-G3-PURPLE-01"
+        ]
+      },
+      {
+        "id": "C0-DEF-05",
+        "severity": "medium",
+        "title": "No smoke contrast asserting revision equality / 0-leak rejection",
+        "detail": "g3_e2e_smoke.gd checks world_revision_advanced on cancel but does not assert commit_request.expected_world_revision == live snapshot world_revision, nor fail when 0 leaks while snapshot is 3.",
+        "evidence": [
+          "game/scripts/modules/executor/g3_e2e_smoke.gd",
+          "orchestration/reviews/CODEX_G3-001_ADVERSARIAL_REVIEW.json missing_evidence"
+        ]
+      }
+    ],
+    "required_fixes": [
+      {
+        "id": "C0-FIX-01",
+        "owner": "executor",
+        "scope": "game/scripts/modules/executor/g3_onboarding_slice.gd",
+        "action": "After load_world_state_snapshot, always rebind builder revision from live snapshot.world_revision on BOTH companion-module and fallback paths. Prefer CompanionModule API if available; else configure_context on builder. Never leave expected_world_revision at builder default 0 when snapshot is present."
+      },
+      {
+        "id": "C0-FIX-02",
+        "owner": "executor",
+        "scope": "game/scripts/modules/companion/companion_module.gd and/or world_prompt_builder.gd (only if strictly required)",
+        "action": "If CompanionModule is the only path that owns the builder, expose set_live_snapshot / configure from snapshot so expected_world_revision is taken from snapshot.world_revision. Default 0 remains only as cold-start placeholder when no snapshot is loaded."
+      },
+      {
+        "id": "C0-FIX-03",
+        "owner": "executor",
+        "scope": "game/scripts/modules/executor/prompt_pipeline.gd and/or confirm path in g3_onboarding_slice / executor_module",
+        "action": "When a live snapshot revision is known, do not let a stale target.expected_world_revision=0 override it. Preferred: rebind world_prompt.target.expected_world_revision to live snapshot before submit/confirm; commit_request must copy that bound value."
+      },
+      {
+        "id": "C0-FIX-04",
+        "owner": "executor",
+        "scope": "game/scripts/modules/executor/g3_onboarding_slice.gd build_complete_receipt",
+        "action": "complete_receipt.expected_world_revision must equal live_snapshot.world_revision and commit_request.expected_world_revision after binding. Do not prefer a stale 0 from commit_request when snapshot is loaded."
+      },
+      {
+        "id": "C0-FIX-05",
+        "owner": "executor",
+        "scope": "game/scripts/modules/executor/exports/g3_*.json (regenerated by smoke)",
+        "action": "After fix, re-export world_prompt_from_build.json, commit_request_handoff_stub.json, g3_complete_receipt.json with expected_world_revision=3 (matching fixture)."
+      },
+      {
+        "id": "C0-FIX-06",
+        "owner": "executor",
+        "scope": "game/scripts/modules/executor/g3_e2e_smoke.gd",
+        "action": "Add positive revision-equality assertion and negative contrast (fail if 0 leaks while snapshot is 3). See result.contrast_test_spec."
+      }
+    ],
+    "contrast_test_spec": {
+      "id": "G3_E2E_REVISION_BINDING_CONTRAST",
+      "purpose": "Prove commit boundary carries live snapshot revision; fail closed if builder default 0 leaks.",
+      "setup": {
+        "load_snapshot": "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+        "expected_live_revision": 3
+      },
+      "positive_assertions": [
+        {
+          "id": "rev_eq_world_prompt",
+          "assert": "int(world_prompt.target.expected_world_revision) == int(live_snapshot.world_revision)",
+          "pass_when": "both equal 3 after present_build_proposal / elevation"
+        },
+        {
+          "id": "rev_eq_commit_request",
+          "assert": "int(commit_request.expected_world_revision) == int(live_snapshot.world_revision)",
+          "pass_when": "both equal 3 after confirm_prompt / complete handoff"
+        },
+        {
+          "id": "rev_eq_complete_receipt",
+          "assert": "int(complete_receipt.expected_world_revision) == int(live_snapshot.world_revision)",
+          "pass_when": "both equal 3; also equals commit_request.expected_world_revision"
+        },
+        {
+          "id": "rev_chain_equality",
+          "assert": "world_prompt.target.expected_world_revision == commit_request.expected_world_revision == complete_receipt.expected_world_revision == live_snapshot.world_revision"
+        }
+      ],
+      "negative_contrast_assertions": [
+        {
+          "id": "fail_if_zero_leaks_on_commit_request",
+          "assert": "NOT (commit_request.expected_world_revision == 0 AND live_snapshot.world_revision == 3)",
+          "fail_message": "expected_world_revision=0 leaked into commit handoff while live snapshot world_revision=3",
+          "codex_missing_evidence": "A test proving commit_request.expected_world_revision equals the live snapshot world_revision."
+        },
+        {
+          "id": "fail_if_zero_leaks_on_world_prompt",
+          "assert": "NOT (world_prompt.target.expected_world_revision == 0 AND live_snapshot.world_revision == 3)",
+          "fail_message": "builder default 0 overrode live snapshot context on world_prompt.target"
+        },
+        {
+          "id": "fail_if_zero_leaks_on_complete_receipt",
+          "assert": "NOT (complete_receipt.expected_world_revision == 0 AND live_snapshot.world_revision == 3)",
+          "fail_message": "complete receipt expected_world_revision=0 while snapshot is 3"
+        }
+      ],
+      "export_assertions": [
+        {
+          "path": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+          "fields_must_equal_live_revision": [
+            "expected_world_revision",
+            "commit_request.expected_world_revision"
+          ]
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+          "fields_must_equal_live_revision": [
+            "target.expected_world_revision"
+          ]
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+          "fields_must_equal_live_revision": [
+            "expected_world_revision"
+          ]
+        }
+      ],
+      "implementation_hint": "In g3_e2e_smoke after run_complete_path (or equivalent), read live rev from slice snapshot/load result; read export JSON; _fail if any bound field is 0 while live is 3; _ok only when all equal live rev."
+    },
+    "boundary_checklist": [
+      {
+        "id": "snapshot_world_revision_field",
+        "check": "world_state_snapshot requires world_revision integer minimum 0",
+        "status": "pass",
+        "evidence": "contracts/agm/world_state_snapshot.schema.json"
+      },
+      {
+        "id": "world_prompt_expected_revision_required",
+        "check": "world_prompt.target requires expected_world_revision",
+        "status": "pass",
+        "evidence": "contracts/world_prompt.schema.json"
+      },
+      {
+        "id": "commit_request_expected_revision_required",
+        "check": "commit_request requires expected_world_revision for optimistic concurrency",
+        "status": "pass",
+        "evidence": "contracts/commit/commit_request.schema.json"
+      },
+      {
+        "id": "live_fixture_revision_is_3",
+        "check": "valid_snapshot_desktop_bridge.json world_revision == 3",
+        "status": "pass",
+        "evidence": "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json"
+      },
+      {
+        "id": "export_revision_bound_to_live",
+        "check": "G3 exports bind expected_world_revision to live snapshot revision",
+        "status": "fail",
+        "evidence": "exports show 0; live fixture is 3"
+      },
+      {
+        "id": "builder_default_does_not_override_live",
+        "check": "Builder default 0 never overrides live snapshot context when snapshot loaded",
+        "status": "fail",
+        "evidence": "CompanionModule._ensure_logic_state + slice companion path skip rebind"
+      },
+      {
+        "id": "no_contract_edits_for_correction",
+        "check": "Existing schemas suffice; correction is runtime bind + tests only",
+        "status": "pass",
+        "evidence": "WO-G3-001-CORRECTION-001.md write scope; schema minimum 0 remains correct"
+      }
+    ],
+    "not_done": [
+      "Did not edit contracts, product code, tasks, architecture, or work orders (authority VERIFY_ONLY)",
+      "Did not implement C1_EXECUTOR_PATCH",
+      "Did not run Godot E2E smoke",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g3/C0_schema.json"
+    ]
+  },
+  "smoke_test": {
+    "command": "static_audit_only (VERIFY_ONLY): read snapshot fixture, world_prompt/commit schemas, g3 exports, g3_onboarding_slice.gd, companion builder/module, prompt_pipeline.gd, CODEX review, WO-G3-001-CORRECTION-001",
+    "exit_code": null,
+    "stdout": "C0_REVISION_INVARIANT=FAIL_ON_EXPORTS (live=3; exports expected_world_revision=0); contrast_test_spec issued for C1",
+    "scope": "snapshot.world_revision, world_prompt.target.expected_world_revision, commit_request.expected_world_revision, complete_receipt.expected_world_revision, builder_default_override",
+    "measured": {
+      "live_snapshot_world_revision": 3,
+      "export_zeros_found": 4,
+      "invariant_status": "FAIL_ON_CURRENT_EXPORTS"
+    }
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "writes": [
+      "orchestration/receipts/g3/C0_schema.json"
+    ],
+    "did_not_edit_contracts": true,
+    "did_not_edit_tasks_or_directive": true,
+    "did_not_edit_architecture": true,
+    "did_not_edit_product_code": true,
+    "no_nested_subagents": true,
+    "no_api_sdk_credentials": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "authority_token": "VERIFY_ONLY",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md + WO-G3-001-CORRECTION-001 + CODEX adversarial review + contracts + exports + executor/companion sources manually",
+    "mvp_lock_respected": "2.5D text-only; World Commit remains rejected handoff stub; no durable mutation claimed"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_G3-001_ADVERSARIAL_REVIEW.json",
+    "orchestration/reviews/G3-001_PURPLE_REVIEW.md",
+    "contracts/agm/world_state_snapshot.schema.json",
+    "contracts/world_prompt.schema.json",
+    "contracts/commit/commit_request.schema.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+    "game/scripts/modules/executor/g3_onboarding_slice.gd",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+    "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+    "game/scripts/modules/companion/world_prompt_builder.gd",
+    "game/scripts/modules/companion/companion_module.gd",
+    "game/scripts/modules/executor/prompt_pipeline.gd",
+    "game/scripts/modules/executor/executor_module.gd",
+    "game/scripts/modules/executor/g3_e2e_smoke.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "C1_EXECUTOR_PATCH"
+}

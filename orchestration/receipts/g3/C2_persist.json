@@ -1,0 +1,240 @@
+{
+  "agent_step_id": "G3-001-C2-persist-2026-07-21",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "wave": "C2_PERSIST_VERIFY",
+    "correction_work_order": "orchestration/work_orders/WO-G3-001-CORRECTION-001.md",
+    "profile": "persist",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "verdict": "PASS",
+    "blockers": [],
+    "summary": "VERIFY_ONLY honesty audit of complete/cancel/undo receipts after C1 patch. Live snapshot world_revision=3 binds world_prompt.target, commit_request, complete_receipt (top-level + nested commit_request), and both handoff exports. Cancel collision/orphan fields are runtime-derived (manifestation → top-level cancel → preview) with smoke inject contrast; not unconditional constants only. Undo remains compensating stub with history preserved and no durable mutation. All three receipts durable_mutation_applied=false and world_commit_invoked=false; complete commit_receipt_stub status=rejected.",
+    "prior_contracts": {
+      "W0_persist": "orchestration/receipts/g3/W0_persist.json",
+      "C0_schema": "orchestration/receipts/g3/C0_schema.json",
+      "C1_executor": "orchestration/receipts/g3/C1_executor.json",
+      "c0_status_pre_patch": "FAIL_ON_CURRENT_EXPORTS (expected_world_revision=0 while live=3)",
+      "c1_status": "PATCH applied; G3_E2E_SMOKE=PASS checks=76; AIDLE_VALIDATION=PASS"
+    },
+    "checks": {
+      "complete_revision_binding": {
+        "id": "snapshot_world_prompt_commit_revision_equality",
+        "status": "PASS",
+        "live_snapshot_fixture": "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+        "live_snapshot_world_revision": 3,
+        "live_snapshot_id": "11111111-1111-4111-8111-111111111111",
+        "measured": {
+          "world_prompt_from_build.target.expected_world_revision": 3,
+          "commit_request_handoff_stub.expected_world_revision": 3,
+          "g3_complete_receipt.expected_world_revision": 3,
+          "g3_complete_receipt.commit_request.expected_world_revision": 3,
+          "g3_complete_receipt.source_snapshot_id": "11111111-1111-4111-8111-111111111111"
+        },
+        "code_authority": {
+          "path": "game/scripts/modules/executor/g3_onboarding_slice.gd",
+          "build_complete_receipt": "prefers live_rev = int(_snapshot.world_revision); force-binds commit_out.expected_world_revision; only falls back to commit_request/world_prompt when live_rev==0 (no snapshot)",
+          "rebind_paths": [
+            "_rebind_builder_revision_from_snapshot after load_world_state_snapshot",
+            "_bind_world_prompt_revision_from_snapshot on present/preview/complete"
+          ]
+        },
+        "smoke_assertions_observed": [
+          "live_snapshot_revision",
+          "rev_eq_world_prompt",
+          "rev_eq_commit_request",
+          "rev_eq_complete_receipt",
+          "rev_chain_equality",
+          "export_wp_rev",
+          "export_cr_rev",
+          "export_complete_rev",
+          "export_complete_nested_cr_rev"
+        ],
+        "negative_contrast": "g3_e2e_smoke._assert_revision_binding fails closed if any bound field is 0 while live is 3",
+        "c0_defect_cleared": ["C0-DEF-01", "C0-DEF-02", "C0-DEF-03", "C0-DEF-05"]
+      },
+      "cancel_runtime_evidence": {
+        "id": "cancel_collision_orphan_runtime_derived",
+        "status": "PASS",
+        "export_happy_path": {
+          "path": "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+          "receipt_kind": "cancel",
+          "pipeline_stage": "cancelled",
+          "status": "cancelled",
+          "manifestation.has_durable_collision": false,
+          "manifestation.orphan_collision_count": 0,
+          "world_revision_advanced": false,
+          "durable_mutation_applied": false,
+          "world_commit_invoked": false,
+          "note": "Cancel removes preview only; not a compensating mutation"
+        },
+        "code_derivation": {
+          "path": "game/scripts/modules/executor/g3_onboarding_slice.gd:build_cancel_receipt",
+          "has_durable_collision_priority": [
+            "cancelled.manifestation.has_durable_collision",
+            "cancelled.has_durable_collision",
+            "preview.has_durable_collision"
+          ],
+          "orphan_collision_count_priority": [
+            "cancelled.manifestation.orphan_collision_count",
+            "cancelled.orphan_collision_count",
+            "preview.orphan_collision_count"
+          ],
+          "defaults_only_when_absent": "has_collision:=false and orphan_count:=0 are fallbacks when no source key is present — not unconditional assignment over runtime payload",
+          "not_unconditional_constants": true
+        },
+        "smoke_injection": {
+          "path": "game/scripts/modules/executor/g3_e2e_smoke.gd:_assert_cancel_runtime_evidence",
+          "live_path_ok": [
+            "cancel_live_collision_matches_runtime",
+            "cancel_live_orphan_matches_runtime"
+          ],
+          "inject_manifestation_collision_true_orphan_2": [
+            "cancel_inject_collision_reflected",
+            "cancel_inject_orphan_reflected"
+          ],
+          "inject_top_level_collision_true_orphan_3": [
+            "cancel_top_level_payload_reflected"
+          ],
+          "fail_closed_if_hardcoded": "inject would report cancel_inject_collision_ignored / cancel_inject_orphan_ignored / cancel_top_level_payload_ignored if build_cancel_receipt ignored runtime evidence"
+        },
+        "w0_persist_alignment": [
+          "has_durable_collision false after happy-path cancel",
+          "orphan_collision_count 0 after happy-path cancel",
+          "cancel is not mutation_class compensating",
+          "world_revision_advanced false"
+        ]
+      },
+      "undo_compensating_stub": {
+        "id": "undo_compensating_not_history_erase",
+        "status": "PASS",
+        "export": {
+          "path": "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+          "receipt_kind": "undo",
+          "mutation_class": "compensating",
+          "status": "compensating_stub",
+          "history_erased": false,
+          "history_preserved": true,
+          "prior_complete_receipt_still_exists": true,
+          "prior_receipt_id": "f3d4c644-0ff3-41e6-85fa-a5ff1fad6c70",
+          "prior_request_id": "5cdfa062-8b5d-4738-ab5d-bde724eb8556",
+          "request_id": "ddb9f15d-009f-47bc-895d-540b60c863cc",
+          "receipt_id": "68bd581b-e97a-4484-a589-1df9b41534c3",
+          "links_match_complete_export": true,
+          "new_ids_distinct_from_prior": true,
+          "durable_mutation_applied": false,
+          "world_commit_invoked": false,
+          "world_revision_advanced": false
+        },
+        "code": {
+          "path": "game/scripts/modules/executor/g3_onboarding_slice.gd:build_undo_receipt / run_undo_path",
+          "behavior": "NEW request_id/receipt_id; mutation_class=compensating; prior links required; history_erased=false; prior complete file existence re-checked on export path"
+        },
+        "smoke_assertions_observed": [
+          "undo_mutation_class",
+          "undo_history_not_erased",
+          "undo_history_preserved",
+          "undo_durable_false",
+          "undo_world_commit_false",
+          "undo_prior_links",
+          "undo_new_request_id",
+          "undo_new_receipt_id",
+          "undo_complete_still_exists",
+          "undo_prior_exists_flag"
+        ],
+        "w0_persist_alignment": [
+          "Undo is compensating mutation stub, not history erase",
+          "Prior complete export remains readable",
+          "No durable mutation claimed on G3 undo path"
+        ]
+      },
+      "no_durable_mutation_all_three": {
+        "id": "durable_mutation_applied_false_world_commit_not_committed",
+        "status": "PASS",
+        "complete": {
+          "durable_mutation_applied": false,
+          "world_commit_invoked": false,
+          "commit_receipt_stub.status": "rejected",
+          "commit_receipt_stub.durable_mutation_applied": false,
+          "pipeline_stage": "commit_handoff_stubbed"
+        },
+        "cancel": {
+          "durable_mutation_applied": false,
+          "world_commit_invoked": false,
+          "world_revision_advanced": false
+        },
+        "undo": {
+          "durable_mutation_applied": false,
+          "world_commit_invoked": false,
+          "world_revision_advanced": false
+        }
+      }
+    },
+    "product_writes": 0,
+    "only_write": "orchestration/receipts/g3/C2_persist.json",
+    "no_children_spawned": true
+  },
+  "smoke_test": {
+    "executed": false,
+    "type": "static_export_and_source_verify_only",
+    "authority": "VERIFY_ONLY — did not re-run Godot; consumed C1 executable evidence + static re-read of exports and sources",
+    "c1_executable_evidence": {
+      "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/executor/g3_e2e_smoke.gd",
+      "exit_code": 0,
+      "marker": "G3_E2E_SMOKE=PASS checks=76",
+      "log": "orchestration/logs/g3-c1-executor-e2e.log",
+      "validation": "AIDLE_VALIDATION=PASS (C1 reported)"
+    },
+    "static_measurements": {
+      "live_snapshot_world_revision": 3,
+      "export_expected_world_revision_all_bound_to_3": true,
+      "cancel_fields_runtime_derived_in_source": true,
+      "cancel_inject_tests_present": true,
+      "undo_compensating_stub_honest": true,
+      "all_three_durable_mutation_applied_false": true
+    },
+    "stdout": "C2_PERSIST_VERIFY=PASS (complete rev bind=3; cancel runtime-derived; undo compensating stub; no durable mutation)"
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "writes": [
+      "orchestration/receipts/g3/C2_persist.json"
+    ],
+    "did_not_edit_product_code": true,
+    "did_not_edit_contracts": true,
+    "did_not_edit_tasks_or_directive": true,
+    "did_not_edit_architecture": true,
+    "did_not_edit_exports": true,
+    "did_not_edit_c1_or_c0_receipts": true,
+    "no_nested_subagents": true,
+    "no_api_sdk_credentials": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "authority_token": "VERIFY_ONLY",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md + WO-G3-001-CORRECTION-001 + C0_schema + C1_executor + W0_persist + exports + g3_onboarding_slice.gd + g3_e2e_smoke.gd + C1 e2e log manually",
+    "mvp_lock_respected": "2.5D text-only; World Commit remains rejected handoff stub; no durable mutation claimed"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001-CORRECTION-001.md",
+    "orchestration/receipts/g3/C0_schema.json",
+    "orchestration/receipts/g3/C1_executor.json",
+    "orchestration/receipts/g3/W0_persist.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+    "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+    "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+    "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+    "game/scripts/modules/executor/g3_onboarding_slice.gd",
+    "game/scripts/modules/executor/g3_e2e_smoke.gd",
+    "orchestration/logs/g3-c1-executor-e2e.log",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "C3_NETWORK_PURPLE"
+}

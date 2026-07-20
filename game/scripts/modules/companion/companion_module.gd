@@ -137,6 +137,42 @@ func set_live_snapshot_id(snapshot_id: String) -> void:
 		_g3_presenter.set_live_snapshot_id(snapshot_id)
 
 
+## Bind full live snapshot: id + builder expected_world_revision (and space context).
+## Default builder revision 0 is only a cold-start placeholder; once a snapshot is
+## loaded, optimistic concurrency must follow snapshot.world_revision.
+func set_live_snapshot(snapshot: Dictionary) -> void:
+	_ensure_logic_state()
+	if snapshot.is_empty():
+		return
+	var snap_id := str(snapshot.get("snapshot_id", ""))
+	if not snap_id.is_empty():
+		set_live_snapshot_id(snap_id)
+	var player: Dictionary = snapshot.get("player", {}) as Dictionary
+	var companion: Dictionary = snapshot.get("companion", {}) as Dictionary
+	var world: Dictionary = snapshot.get("world", {}) as Dictionary
+	var location: Dictionary = player.get("location", {}) as Dictionary
+	_builder.configure_context({
+		"player_id": str(player.get("player_id", player_id)),
+		"companion_id": str(companion.get("companion_id", companion_id)),
+		"session_id": str(snapshot.get("session_id", "session_companion_01")),
+		"space_type": str(world.get("space_type", "private_reality")),
+		"space_id": str(snapshot.get("space_id", "home_01")),
+		"chunk_id": str(location.get("chunk_id", "0_0")),
+		"expected_world_revision": int(snapshot.get("world_revision", 0)),
+	})
+
+
+## Explicit revision rebind for builder (G3 commit-boundary correction).
+func set_expected_world_revision(rev: int) -> void:
+	_ensure_logic_state()
+	_builder.configure_context({"expected_world_revision": maxi(0, rev)})
+
+
+func get_expected_world_revision() -> int:
+	_ensure_logic_state()
+	return int(_builder.expected_world_revision)
+
+
 ## Apply a provider-neutral AGM Decision Envelope after schema-informed validation.
 ## Returns application result. Never commits durable world state.
 func apply_agm_decision(envelope: Dictionary) -> Dictionary:

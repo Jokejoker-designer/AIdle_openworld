@@ -2,6 +2,7 @@
   "workflow_id": "aidle-2_5d-v1.1",
   "pattern": "orchestrated_non_shared_context",
   "leader": "lead-orchestrator",
+  "final_acceptor": "codex",
   "max_concurrent_workers": 8,
   "state_machine": ["TODO", "READY", "CLAIMED", "IN_PROGRESS", "REVIEW_REQUESTED", "VERIFIED", "ACCEPTED", "CHANGES_REQUESTED", "HITL_REQUIRED", "NEED_HUMAN"],
   "waves": [
@@ -19,4 +20,3 @@
     "high_risk_route": "HITL_REQUIRED"
   }
 }
-

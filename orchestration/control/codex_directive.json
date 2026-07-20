@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "directive_id": 1,
+  "issued_at": "2026-07-20T21:50:00+07:00",
+  "issued_by": "codex",
+  "state": "EXECUTE",
+  "milestone": "G1 contracts and authority gate",
+  "architecture_decisions": [
+    "Blueprint v1.1 is the source of truth",
+    "MVP is fixed-angle 2.5D",
+    "Companion is text-only and cannot commit world mutations",
+    "Durable world changes are authoritative, revisioned and idempotent"
+  ],
+  "permitted_task_ids": ["G1-001", "G1-002"],
+  "forbidden_actions": [
+    "modify Blueprint v1.0",
+    "add STT, TTS, voice, voxel or blockchain dependencies",
+    "push, deploy, publish or upload externally",
+    "mark worker output ACCEPTED"
+  ],
+  "completion_state": "REVIEW_REQUESTED",
+  "required_evidence": [
+    "agent_step_contract",
+    "test receipt",
+    "changed file list",
+    "adversarial review",
+    "remaining risks"
+  ],
+  "supersedes_directive_id": null
+}

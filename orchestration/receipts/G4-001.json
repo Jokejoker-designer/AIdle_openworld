@@ -1,0 +1,107 @@
+{
+  "agent_step_id": "G4-001-parent-collate-directive-12-2026-07-21",
+  "agent_type": "lead-orchestrator",
+  "skill_id": "maf-mandatory-standard",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G4-001",
+    "directive_id": 12,
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "parent_may_self_accept": false,
+    "summary": "Deterministic offline Private Reality persistence and compensation delivered via schema→persist→executor→core→network. Canonical JSON + SHA-256 entity hashes; save/reload hash equality; duplicate request idempotent; stale revision atomic reject; compensation append-only; cancel not journaled; fail-closed malformed journal; G3 expected_world_revision=3 preserved. Purple ACCEPTED evidence. No Shared District/server economy claim.",
+    "waves": {
+      "P0_SCHEMA_VERIFY": {
+        "profile": "schema",
+        "authority": "VERIFY_ONLY",
+        "receipt": "orchestration/receipts/g4/P0_schema.json"
+      },
+      "P1_PERSIST_PATCH": {
+        "profile": "persist",
+        "authority": "PATCH_DRAFT",
+        "sole_product_writer": true,
+        "receipt": "orchestration/receipts/g4/P1_persist.json"
+      },
+      "P2_EXECUTOR_CONSUMER_VERIFY": {
+        "profile": "executor",
+        "authority": "VERIFY_ONLY",
+        "verdict": "PASS",
+        "receipt": "orchestration/receipts/g4/P2_executor.json"
+      },
+      "P3_CORE_RELOAD_VERIFY": {
+        "profile": "core",
+        "authority": "VERIFY_ONLY",
+        "verdict": "PASS",
+        "receipt": "orchestration/receipts/g4/P3_core.json"
+      },
+      "P4_NETWORK_PURPLE": {
+        "profile": "network",
+        "authority": "VERIFY_ONLY",
+        "verdict": "ACCEPTED",
+        "receipt": "orchestration/receipts/g4/P4_network.json",
+        "review": "orchestration/reviews/G4-001_PURPLE_REVIEW.md"
+      }
+    },
+    "dispatch_map": "orchestration/work_orders/G4-001_DISPATCH_MAP.md",
+    "scope": "offline_private_reality_local_journal_only"
+  },
+  "smoke_test": {
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/persist/g4_persist_smoke.gd",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=11",
+        "log": "orchestration/logs/g4-p1-parent-smoke.log",
+        "forbidden_log_patterns_count": 0
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 4",
+        "exit_code": 0,
+        "log": "orchestration/logs/g4-boot-parent.log",
+        "forbidden_log_patterns_count": 0
+      },
+      {
+        "command": "python scripts\\validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    ],
+    "hash_sample": {
+      "entity_hash": "03933b0b8efa9fb436c50335687506deecbe81ce8b966b9bdda337f9a8bc5534",
+      "entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
+      "save_reload_equal": true
+    },
+    "g3_revision_preserved": 3
+  },
+  "self_audit": {
+    "profiles_only": ["schema", "persist", "executor", "core", "network"],
+    "parent_dispatch_collate_only": true,
+    "one_writer_per_file": true,
+    "no_nested_grandchildren": true,
+    "no_tasks_json_edit": true,
+    "no_codex_directive_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_prior_wo_edit": true,
+    "no_db_or_new_dependency": true,
+    "no_accept_receipt": true
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G4-001.md",
+    "orchestration/work_orders/G4-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g4/P0_schema.json",
+    "orchestration/receipts/g4/P1_persist.json",
+    "orchestration/receipts/g4/P2_executor.json",
+    "orchestration/receipts/g4/P3_core.json",
+    "orchestration/receipts/g4/P4_network.json",
+    "orchestration/reviews/G4-001_PURPLE_REVIEW.md",
+    "game/scripts/modules/persist/",
+    "game/scripts/modules/interfaces/i_persist_module.gd"
+  ],
+  "remaining_risks": [
+    "PersistModule not swapped into boot ModuleRegistry (stub remains; smoke is WO evidence)",
+    "Executor↔persist adapter still unwired (P2 residual; later WO)",
+    "Local journal committed status must never be conflated with online World Commit"
+  ],
+  "next_route": "WAITING_CODEX — only Codex may ACCEPTED G4-001"
+}

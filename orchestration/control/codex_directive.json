@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
-  "directive_id": 12,
-  "issued_at": "2026-07-21T01:20:00+07:00",
+  "directive_id": 13,
+  "issued_at": "2026-07-21T02:18:00+07:00",
   "issued_by": "codex",
   "state": "EXECUTE",
-  "milestone": "G4 deterministic private-reality persistence and compensation",
+  "milestone": "G4 runtime mount and signed-journal integrity correction",
   "architecture_decisions": [
     "Blueprint v1.1 is the source of truth",
     "MVP is fixed-angle 2.5D",
@@ -16,8 +16,8 @@
   "permitted_task_ids": ["G4-001"],
   "required_workflow": {
     "parent_session": "existing Grok Desktop conductor only",
-    "subagent_profiles": ["schema", "persist", "executor", "core", "network"],
-    "wave_order": ["P0_SCHEMA_VERIFY", "P1_PERSIST_PATCH", "P2_EXECUTOR_CONSUMER_VERIFY", "P3_CORE_RELOAD_VERIFY", "P4_NETWORK_PURPLE"],
+    "subagent_profiles": ["schema", "persist", "core", "executor", "network"],
+    "wave_order": ["R0_SCHEMA_INTEGRITY_VERIFY", "R1_PERSIST_SIGNED_JOURNAL_PATCH", "R2_CORE_RUNTIME_MOUNT", "R3_EXECUTOR_CONSUMER_VERIFY", "R4_NETWORK_PURPLE"],
     "one_writer_per_file": true,
     "step_contract_per_subagent": true,
     "parent_may_self_accept": false
@@ -36,5 +36,5 @@
     "adversarial review",
     "remaining risks"
   ],
-  "supersedes_directive_id": 11
+  "supersedes_directive_id": 12
 }

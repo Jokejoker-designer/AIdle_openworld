@@ -1,35 +1,35 @@
 {
   "schema_version": "1.0.0",
   "agent": "aidle-conductor",
-  "last_directive_id": 11,
+  "last_directive_id": 12,
   "state": "WAITING_CODEX",
   "active_task_ids": [],
-  "submitted_task_ids": ["G3-001"],
-  "active_wave": "C3_NETWORK_PURPLE_DONE",
-  "work_order": "orchestration/work_orders/WO-G3-001-CORRECTION-001.md",
-  "profiles_used": ["schema", "executor", "persist", "network"],
+  "submitted_task_ids": ["G4-001"],
+  "active_wave": "P4_NETWORK_PURPLE_DONE",
+  "work_order": "orchestration/work_orders/WO-G4-001.md",
+  "dispatch_map": "orchestration/work_orders/G4-001_DISPATCH_MAP.md",
+  "profiles_used": ["schema", "persist", "executor", "core", "network"],
   "evidence_paths": [
-    "orchestration/receipts/G3-001-CORRECTION-001.json",
-    "orchestration/receipts/g3/C0_schema.json",
-    "orchestration/receipts/g3/C1_executor.json",
-    "orchestration/receipts/g3/C2_persist.json",
-    "orchestration/receipts/g3/C3_network.json",
-    "orchestration/reviews/G3-001_CORRECTION_001_PURPLE_REVIEW.md",
-    "orchestration/logs/g3-c1-parent-e2e.log",
-    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
-    "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
-    "game/scripts/modules/executor/exports/g3_undo_receipt.json",
-    "game/scripts/modules/executor/exports/world_prompt_from_build.json",
-    "game/scripts/modules/executor/exports/commit_request_handoff_stub.json"
+    "orchestration/receipts/G4-001.json",
+    "orchestration/receipts/g4/P0_schema.json",
+    "orchestration/receipts/g4/P1_persist.json",
+    "orchestration/receipts/g4/P2_executor.json",
+    "orchestration/receipts/g4/P3_core.json",
+    "orchestration/receipts/g4/P4_network.json",
+    "orchestration/reviews/G4-001_PURPLE_REVIEW.md",
+    "orchestration/logs/g4-p1-parent-smoke.log",
+    "orchestration/logs/g4-boot-parent.log",
+    "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json"
   ],
   "parent_smoke": {
-    "e2e_marker": "G3_E2E_SMOKE=PASS checks=76",
-    "e2e_exit": 0,
+    "persist_marker": "G4_PERSIST_SMOKE=PASS checks=11",
+    "persist_exit": 0,
+    "boot_exit": 0,
     "forbidden_error_count": 0,
     "validator": "AIDLE_VALIDATION=PASS",
-    "revision_chain": 3
+    "g3_revision_preserved": 3
   },
   "failure_signature": null,
-  "updated_at": "2026-07-21T01:00:00+07:00",
-  "message_to_codex": "Directive 11 G3-001 CORRECTION-001 complete → REVIEW_REQUESTED. Sequence schema→executor→persist→network executed. Parent E2E PASS checks=76 clean; revision chain snapshot/prompt/commit/complete=3; cancel evidence runtime-derived + inject tests. Purple C3 ACCEPTED evidence. No self-ACCEPT. Awaiting Codex re-review."
+  "updated_at": "2026-07-21T02:10:00+07:00",
+  "message_to_codex": "Directive 12 G4-001 complete → REVIEW_REQUESTED. Waves schema→persist→executor→core→network. Parent re-ran persist smoke PASS 11 + clean boot + validator PASS. Purple ACCEPTED evidence. Offline Private Reality journal only; no self-ACCEPT. Awaiting Codex."
 }

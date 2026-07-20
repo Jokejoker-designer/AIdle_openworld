@@ -1,0 +1,697 @@
+{
+  "agent_step_id": "G4-001-P0-schema-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G4-001",
+    "wave": "P0_SCHEMA_VERIFY",
+    "profile": "schema",
+    "work_order": "orchestration/work_orders/WO-G4-001.md",
+    "dispatch_map": "orchestration/work_orders/G4-001_DISPATCH_MAP.md",
+    "state": "HANDOFF_TO_P1",
+    "self_accept": false,
+    "summary": "VERIFY_ONLY definition of canonical serialization, stable entity-hash, and offline Private Reality journal invariants for G4-001. No product writes. Persist (P1) is sole product writer. Scope is local/offline Private Reality simulation only — NOT Shared District, server economy, multiplayer ownership, or online durable authority.",
+    "scope": {
+      "in_scope": [
+        "Canonical journal envelope + ordered append-only entries",
+        "Stable entity serialization + SHA-256 entity/world content hashes",
+        "Idempotency by request_id, revision optimistic concurrency, compensation as new append",
+        "Fail-closed load/apply rules",
+        "G3 expected_world_revision=3 preservation through save/reload evidence contract",
+        "API surface recommendation for game/scripts/modules/persist and i_persist_module.gd",
+        "Acceptance tests for P1 smoke"
+      ],
+      "out_of_scope": [
+        "Product implementation under game/scripts/modules/persist/** (P1 sole writer)",
+        "contracts/* edits (not required for G4 local journal; journal is module-local schema documented here)",
+        "Shared District / Nakama / multiplayer convergence (G6+)",
+        "Server World Commit live service, economy, inventory, marketplace ownership",
+        "Transactional outbox bus publish (documentary only; optional later)",
+        "Database or third-party dependency install"
+      ],
+      "authority_boundary": {
+        "context": "Offline Private Reality",
+        "simulation": "local client",
+        "durable_state": "local signed journal only; reconcile on sync uses mutation_class offline_reconcile / authority.source offline_journal_reconcile when server path exists later",
+        "explicit_not": [
+          "Shared District",
+          "server economy / currency / marketplace",
+          "multiplayer ownership authority",
+          "client-authoritative inventory or ownership",
+          "claim that local journal IS online World Commit truth"
+        ],
+        "architecture_lock": "orchestration/ARCHITECTURE_LOCK.md Offline Private Reality row: Local signed journal; reconcile on sync"
+      }
+    },
+    "g3_revision_binding_preserved": {
+      "live_snapshot": "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+      "live_snapshot_world_revision": 3,
+      "live_snapshot_space_type": "private_reality",
+      "live_snapshot_space_id": "home_01",
+      "exports_verified_expected_world_revision_3": [
+        {
+          "path": "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+          "field": "target.expected_world_revision",
+          "value": 3
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+          "field": "expected_world_revision",
+          "value": 3
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+          "field": "expected_world_revision",
+          "value": 3
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+          "field": "commit_request.expected_world_revision",
+          "value": 3
+        }
+      ],
+      "invariant_for_g4": "Any G4 save/reload smoke that consumes G3 complete-path fixtures MUST preserve expected_world_revision=3 (and resulting world_revision progression from base 3) in journal head and reloaded state. Builder default 0 must never win after a snapshot with revision 3 is loaded.",
+      "cancel_and_undo_do_not_advance_revision_in_g3": {
+        "g3_cancel": "world_revision_advanced=false; never journaled as mutation_applied",
+        "g3_undo": "compensating stub only in G3; G4 may apply real compensation append that advances local world_revision when mutation_applied succeeds"
+      }
+    },
+    "journal_envelope": {
+      "name": "private_reality_journal",
+      "schema_version_const": "1.0.0",
+      "file_encoding": "UTF-8",
+      "storage_shape": "single JSON document (MVP) OR NDJSON with header line + one entry per line; both must round-trip to identical entity hashes. Recommended MVP: single object with ordered entries[] for simpler Godot FileAccess.",
+      "required_fields": {
+        "schema_version": {
+          "type": "string",
+          "const": "1.0.0",
+          "description": "Journal format version. Incompatible major/minor refuse load fail-closed."
+        },
+        "space_type": {
+          "type": "string",
+          "const": "private_reality",
+          "description": "G4 journal is Private Reality only. shared_district and other space_types are forbidden in this journal file."
+        },
+        "space_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "example": "home_01"
+        },
+        "world_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Head revision after applying all valid entries in order. Must equal base_world_revision + count(successful mutation_applied and compensation entries that advanced revision). Seed from live snapshot (G3 starter = 3)."
+        },
+        "entries": {
+          "type": "array",
+          "description": "STRICTLY ordered append-only log. Index 0 is oldest. Never reorder, delete, or rewrite prior elements."
+        }
+      },
+      "recommended_fields": {
+        "journal_id": "uuid identifying this journal instance",
+        "base_world_revision": "integer — revision of empty or snapshot seed before first entry (G3 starter seed = 3)",
+        "base_snapshot_id": "uuid — e.g. 11111111-1111-4111-8111-111111111111",
+        "session_id": "string — e.g. session_starter_01",
+        "created_at": "ISO-8601 date-time of journal creation",
+        "updated_at": "ISO-8601 date-time of last append",
+        "entity_set_hash": "sha256 hex of full canonical entity set at head (see entity_hash)",
+        "entry_count": "integer == entries.length (integrity helper; must match)",
+        "integrity": {
+          "algorithm": "sha256",
+          "description": "Optional chain hash: H0 = sha256(canonical_json(header_without_integrity)); Hi = sha256(Hi-1 || canonical_json(entry_i)). Stored as head_chain_hash. Signing is local integrity only, not multiplayer authority."
+        }
+      },
+      "forbidden_in_envelope": [
+        "api_key",
+        "access_token",
+        "password",
+        "raw_prompt",
+        "secrets",
+        "client_authoritative durable economy fields",
+        "preview-only manifestation nodes",
+        "shared_district ownership claims"
+      ],
+      "ordering_rules": [
+        "entries are totally ordered by append sequence (array index).",
+        "world_revision is monotonically non-decreasing; it increases by exactly 1 on each successful mutation_applied or compensation that mutates entities.",
+        "idempotent_replay and rejected/conflicted outcomes MUST NOT be stored as mutation_applied; if recorded for audit, use a non-mutating entry type only if P1 implements audit_event — default MVP stores only applied mutations and compensations.",
+        "Never delete or rewrite prior entries; compensation is a NEW entry."
+      ]
+    },
+    "entry_types": {
+      "mutation_applied": {
+        "entry_type": "mutation_applied",
+        "purpose": "Record a successful local Private Reality durable mutation (confirmed prompt applied to local journal). This is the only path that creates/updates durable local entities from a create/modify/delete/enrich flow.",
+        "required_fields": {
+          "entry_type": "const mutation_applied",
+          "entry_id": "uuid (unique per journal entry)",
+          "request_id": "uuid — IDEMPOTENCY KEY (same as commit_request.request_id / world_prompt.request_id)",
+          "receipt_id": "uuid — local receipt for this apply",
+          "prompt_id": "uuid",
+          "occurred_at": "ISO-8601 date-time",
+          "actor": "{ actor_id, actor_type } aligned with commit_request.actor",
+          "mutation_class": "enum durable_world | offline_reconcile (not compensating)",
+          "expected_world_revision": "integer — must equal journal head world_revision BEFORE apply",
+          "old_world_revision": "integer — head before apply",
+          "new_world_revision": "integer — old_world_revision + 1",
+          "entity_ids": "array of string entity ids touched (sorted for hash material)",
+          "operation": "create | modify | delete | enrich | gift_proposal (from world_prompt)",
+          "entity_delta": "canonical entity records after mutation for touched ids (or full tombstone for delete)",
+          "trace_id": "string"
+        },
+        "idempotency": {
+          "key": "request_id",
+          "rule": "If request_id already appears in any mutation_applied or compensation entry, do NOT re-apply. Return status idempotent_replay with prior_receipt_id of the first successful entry. No new entity, no revision bump, no second entry required (optional audit_event only).",
+          "aligns_with": "contracts/commit/commit_policy.md Idempotency; commit_receipt status idempotent_replay"
+        },
+        "revision_check": {
+          "rule": "If expected_world_revision != current journal.world_revision, reject with conflict code revision_mismatch; write NOTHING (no partial entity mutation, no append).",
+          "aligns_with": "commit_request.expected_world_revision + commit_receipt conflict.revision_mismatch"
+        }
+      },
+      "compensation": {
+        "entry_type": "compensation",
+        "purpose": "Append-only inverse of a prior successful mutation. Undo/history correction. NEVER deletes or rewrites the prior entry.",
+        "required_fields": {
+          "entry_type": "const compensation",
+          "entry_id": "uuid",
+          "request_id": "uuid — NEW idempotency key (must not equal prior request_id)",
+          "receipt_id": "uuid — NEW",
+          "prior_receipt_id": "uuid — REQUIRED link to the mutation_applied (or prior compensation chain head) being compensated",
+          "prior_request_id": "uuid — REQUIRED link",
+          "mutation_class": "const compensating",
+          "expected_world_revision": "integer — must equal head before apply",
+          "old_world_revision": "integer",
+          "new_world_revision": "integer — old + 1 on success",
+          "compensated_entity_ids": "array of entity ids reversed",
+          "entity_delta": "canonical post-compensation entity state (or tombstone/restore)",
+          "history_erased": "const false",
+          "occurred_at": "ISO-8601",
+          "trace_id": "string"
+        },
+        "rules": [
+          "Compensation is always a new append; prior_receipt_id remains readable forever.",
+          "history_erased must be false; history_preserved semantics from G3 undo are mandatory.",
+          "Compensating a missing prior_receipt_id fails closed (no append).",
+          "Duplicate compensation request_id follows same idempotent_replay rule as mutation_applied.",
+          "Aligns with commit_request.mutation_class compensating and blueprint 05: Undo creates a compensating mutation; history is not erased."
+        ]
+      },
+      "explicitly_never_entry_types_for_durable_journal": {
+        "cancel": "Cancelled previews NEVER enter the durable journal. Cancel tears down wireframe/hologram/materializing preview only (G3 g3_cancel_receipt: durable_mutation_applied=false, has_durable_collision=false).",
+        "preview_stages": "wireframe | hologram | materializing | complete-as-preview-only without confirmed apply do not journal.",
+        "agm_soft_effects": "dialogue, mood, quest text alone are not journal mutations unless a separate WO defines session soft-state (out of G4 durable entity journal).",
+        "commit_handoff_stub_rejected": "G3 complete path with world_commit_invoked=false and durable_mutation_applied=false is NOT automatically a mutation_applied entry. P1 may promote a confirmed local apply for Private Reality simulation only when explicitly applying through persist apply_mutation; stubs alone are not journaled as durable."
+      },
+      "append_only_invariants": [
+        "No entry is deleted, truncated, or rewritten in place.",
+        "Corrections and undos = compensation entries only.",
+        "Provenance: append-only lineage (Common_Contracts.md).",
+        "ARCHITECTURE_LOCK persistence: append-only mutation log + snapshots (snapshots optional checkpoint later; not required for MVP hash equality if full replay is deterministic)."
+      ]
+    },
+    "canonical_serialization": {
+      "name": "aidle_canonical_json_v1",
+      "purpose": "Deterministic UTF-8 JSON for hashing and durable entity material. Same logical state => identical bytes => identical SHA-256.",
+      "rules": [
+        {
+          "id": "utf8",
+          "rule": "Serialize as UTF-8 without BOM."
+        },
+        {
+          "id": "sorted_object_keys",
+          "rule": "Object keys are sorted lexicographically by Unicode code point (UTF-8 byte order). Nested objects recurse the same rule."
+        },
+        {
+          "id": "stable_entity_id_order",
+          "rule": "When serializing an entity SET (world entity map), emit an array of entity records sorted by entity_id ascending (lexicographic). Do not rely on Dictionary insertion order."
+        },
+        {
+          "id": "array_order_preserved_when_semantic",
+          "rule": "Semantic arrays that are ordered by product meaning (e.g. manifestation stages const, geometry build_order) keep declared order. Non-semantic sets (entity_ids, interaction_tags for hash material) MUST be sorted ascending and unique."
+        },
+        {
+          "id": "no_pretty_print_for_hash",
+          "rule": "Hash material uses compact JSON: no insignificant whitespace, no pretty indentation. (Human-readable exports under persist/exports may pretty-print separately; hash MUST use compact canonical form.)"
+        },
+        {
+          "id": "json_types",
+          "rule": "Only JSON null, bool, number, string, array, object. No NaN/Infinity. No Godot-specific types in durable material."
+        },
+        {
+          "id": "integers_vs_floats",
+          "rule": "Whole numbers that are schema integers (world_revision, entry_count, max_entities) serialize as integers without decimal point. Floating fields (transform.x/y/elevation/rotation_deg, bounds, surrealism_budget) use a fixed decimal format to prevent floats-as-string drift."
+        },
+        {
+          "id": "float_canonical_format",
+          "rule": "Floats: trim to a fixed maximum of 6 fractional digits, then strip trailing zeros and trailing decimal point if empty fractional part. Examples: 8.0 -> \"8\"; 8.500000 -> \"8.5\"; 0.12 -> \"0.12\". Reject non-finite. Do NOT use language-default free-format that differs across platforms. Implementation: pure GDScript formatter, not str(float) alone.",
+          "guidance": "Prefer storing grid-aligned coordinates as integers where product allows (tile x/y). When numbers must be float, always pass through the same formatter before stringify."
+        },
+        {
+          "id": "strings",
+          "rule": "JSON string escaping per RFC 8259. No trailing spaces. UUIDs lowercase hex with hyphens as already used in fixtures."
+        },
+        {
+          "id": "booleans_and_null",
+          "rule": "true/false/null literals only."
+        },
+        {
+          "id": "excluded_from_entity_hash_material",
+          "rule": "Exclude non-state noise: occurred_at of journal meta (optional separate audit hash), updated_at, integrity chain fields, runtime node paths, preview mesh instance ids, RNG seeds that are not part of entity record, API credentials (forbidden entirely)."
+        },
+        {
+          "id": "entity_record_fields_mvp",
+          "rule": "Canonical durable entity record (minimum): entity_id, kind, recipe_id, transform{x,y,elevation,rotation_deg}, bounds{width,depth,height}, interaction_tags (sorted), space_id, chunk_id?, status (active|tombstoned), origin_request_id, origin_prompt_id. additionalProperties forbidden in hash material — unknown keys dropped or fail validation before hash."
+        },
+        {
+          "id": "tombstone",
+          "rule": "Deleted entities remain as tombstones in the entity set for revision history reconstruction OR are omitted from active set but recorded in entry entity_delta; choose ONE approach in P1 and keep it for hash. Recommended: active entity set excludes tombstones; entity_set_hash hashes only active entities; compensation can restore."
+        }
+      ],
+      "godot_note": "Godot 4 JSON.stringify does NOT sort keys. Persist MUST implement canonical_stringify(value) in pure GDScript (recursive sort + float format). Do not hash JSON.stringify(dict) output directly."
+    },
+    "entity_hash": {
+      "algorithm": "SHA-256",
+      "encoding": "lowercase hex, 64 chars, pattern ^[a-f0-9]{64}$ (matches contracts/commit/commit_receipt.schema.json artifact_hashes.hash)",
+      "input": "UTF-8 bytes of aidle_canonical_json_v1(entity_record) for single-entity hash; UTF-8 bytes of aidle_canonical_json_v1(sorted_entity_array) for entity_set_hash",
+      "pure_gdscript_implementation": {
+        "api": "HashingContext",
+        "steps": [
+          "var ctx := HashingContext.new()",
+          "ctx.start(HashingContext.HASH_SHA256)",
+          "ctx.update(canonical_utf8_packed_byte_array)",
+          "var digest: PackedByteArray = ctx.finish()",
+          "hex encode each byte as two lowercase hex digits"
+        ],
+        "forbidden": [
+          "MD5",
+          "platform-dependent hash()",
+          "hashing pretty-printed JSON",
+          "hashing Dictionary without key sort"
+        ]
+      },
+      "outputs": {
+        "entity_hash": "sha256(canonical(entity_record)) per entity_id",
+        "entity_set_hash": "sha256(canonical(array of active entity_records sorted by entity_id))",
+        "optional_artifact_hashes_on_receipt": "[{ role: entity_set, algorithm: sha256, hash: <hex> }]"
+      },
+      "stability_guarantee": "Save then reload (replay journal from base + entries, rebuild entity set, re-hash) MUST yield identical entity_hash per entity_id and identical entity_set_hash. This is the primary G4 acceptance signal."
+    },
+    "fail_closed_cases": [
+      {
+        "id": "stale_expected_world_revision",
+        "trigger": "apply with expected_world_revision != journal.world_revision",
+        "behavior": "Return conflicted / revision_mismatch with expected and actual; no entity mutation; no journal append; no partial writes.",
+        "maps_to": "commit_receipt status conflicted + conflict.code revision_mismatch"
+      },
+      {
+        "id": "duplicate_request_id_replay",
+        "trigger": "apply with request_id already present in a successful mutation_applied or compensation entry",
+        "behavior": "Return idempotent_replay with prior_receipt_id; do not create duplicate entity; do not bump world_revision; do not append a second mutation entry.",
+        "maps_to": "commit_policy Idempotency; commit_receipt status idempotent_replay"
+      },
+      {
+        "id": "truncated_or_malformed_journal",
+        "trigger": "JSON parse failure, missing required envelope fields, entries not array, entry missing required fields, entry_count mismatch, broken chain hash if enabled",
+        "behavior": "Refuse load. Expose clear recovery error (e.g. journal_malformed | journal_truncated). Do NOT silently invent empty world or skip bad entries to 'best effort'.",
+        "recovery": "Surface error to player/UI; optional restore from last known good snapshot file if P1 implements snapshots — still fail closed if none."
+      },
+      {
+        "id": "incompatible_schema_version",
+        "trigger": "journal.schema_version != supported (MVP supports only 1.0.0)",
+        "behavior": "Refuse load with error journal_schema_incompatible. No automatic migration in G4-001 unless explicitly implemented and tested; default is fail closed."
+      },
+      {
+        "id": "wrong_space_type",
+        "trigger": "space_type != private_reality",
+        "behavior": "Refuse load/apply. G4 journal is not Shared District authority."
+      },
+      {
+        "id": "compensation_without_prior",
+        "trigger": "compensation.prior_receipt_id not found in journal",
+        "behavior": "Reject; no append; no entity change."
+      },
+      {
+        "id": "cancel_or_preview_as_durable",
+        "trigger": "attempt to journal cancel / unconfirmed preview as mutation_applied",
+        "behavior": "Reject. Cancelled previews NEVER enter durable journal."
+      },
+      {
+        "id": "partial_write_protection",
+        "trigger": "crash mid-append",
+        "behavior": "P1 SHOULD write via temp file + atomic replace (or fsync pattern) so reload either sees old complete journal or new complete journal — never half-entry. If half-entry detected on load => truncated/malformed fail closed."
+      }
+    ],
+    "cancelled_previews_never_durable": {
+      "rule": "Cancelled previews NEVER enter durable journal.",
+      "evidence_from_g3": {
+        "cancel_export": "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+        "durable_mutation_applied": false,
+        "has_durable_collision": false,
+        "entity_ids_durable": [],
+        "world_revision_advanced": false,
+        "note": "Cancel removes preview only; not a compensating mutation"
+      },
+      "persist_gate": "apply_mutation requires confirmation.state==confirmed (or explicit local Private Reality apply path after confirm) AND must not accept receipt_kind==cancel. Manifestation stages before durable apply are ephemeral."
+    },
+    "invariants": [
+      {
+        "id": "INV-PR-SPACE",
+        "statement": "Journal space_type is always private_reality; G4 does not claim Shared District / multiplayer / server economy authority."
+      },
+      {
+        "id": "INV-APPEND-ONLY",
+        "statement": "Journal entries are append-only; never delete or rewrite history; compensation links prior_receipt_id."
+      },
+      {
+        "id": "INV-IDEM-REQUEST",
+        "statement": "request_id is the idempotency key; duplicate never creates a second entity or second revision bump."
+      },
+      {
+        "id": "INV-REVISION-OPTIMISTIC",
+        "statement": "expected_world_revision must match head world_revision or apply fails closed with revision_mismatch and zero partial mutation."
+      },
+      {
+        "id": "INV-HASH-STABLE",
+        "statement": "entity_hash and entity_set_hash are SHA-256 over aidle_canonical_json_v1 UTF-8; save/reload equality is mandatory."
+      },
+      {
+        "id": "INV-CANON-SORT",
+        "statement": "Canonical JSON uses sorted object keys and stable entity_id order; floats use fixed decimal rules to avoid string drift."
+      },
+      {
+        "id": "INV-NO-CANCEL-JOURNAL",
+        "statement": "Cancelled previews and unconfirmed manifestation never produce mutation_applied journal entries."
+      },
+      {
+        "id": "INV-COMPENSATION-LINK",
+        "statement": "Compensation is a new entry with mutation_class=compensating, new request_id, and prior_receipt_id; history_erased=false."
+      },
+      {
+        "id": "INV-G3-REV-3",
+        "statement": "G3 starter seed world_revision/expected_world_revision=3 is preserved through save/reload evidence; default 0 must not overwrite loaded snapshot revision."
+      },
+      {
+        "id": "INV-FAIL-CLOSED-LOAD",
+        "statement": "Truncated, malformed, or incompatible-schema journals refuse load with explicit error; never invent state."
+      },
+      {
+        "id": "INV-LOCAL-NOT-SERVER-COMMIT",
+        "statement": "Local journal apply is Offline Private Reality simulation durability only; online durable mutations still require World Commit service (authority.commit_path=world_commit_service). Local journal may later reconcile via offline_journal_reconcile — not implemented as multiplayer truth in G4."
+      },
+      {
+        "id": "INV-NO-SECRETS",
+        "statement": "No API keys, tokens, or credentials in journal, saves, or hash material (ARCHITECTURE_LOCK forbidden paths)."
+      }
+    ],
+    "api_surface_for_persist": {
+      "module_root": "game/scripts/modules/persist/",
+      "interface": "game/scripts/modules/interfaces/i_persist_module.gd",
+      "sole_product_writer": "P1_PERSIST_PATCH (persist profile, PATCH_DRAFT)",
+      "recommended_interface_methods": [
+        {
+          "name": "get_schema_version",
+          "returns": "String — journal schema_version supported (1.0.0)"
+        },
+        {
+          "name": "create_journal",
+          "args": "space_id: String, base_world_revision: int, base_snapshot_id: String, session_id: String",
+          "returns": "Dictionary { ok, journal_id?, error? }",
+          "notes": "space_type forced private_reality; base_world_revision for G3 seed is 3"
+        },
+        {
+          "name": "load_journal",
+          "args": "path: String",
+          "returns": "Dictionary { ok, journal?, world_revision?, entity_set_hash?, error_code?, error? }",
+          "fail_closed": "malformed|truncated|schema_incompatible|wrong_space_type"
+        },
+        {
+          "name": "save_journal",
+          "args": "path: String",
+          "returns": "Dictionary { ok, entity_set_hash?, world_revision?, error? }",
+          "notes": "atomic write recommended"
+        },
+        {
+          "name": "apply_mutation",
+          "args": "request: Dictionary (request_id, expected_world_revision, operation, entity payload, mutation_class durable_world|offline_reconcile, ...)",
+          "returns": "Dictionary { status: committed|idempotent_replay|conflicted|rejected, receipt_id?, prior_receipt_id?, old_world_revision?, new_world_revision?, entity_ids?, entity_set_hash?, conflict?, rejection? }",
+          "notes": "Idempotent on request_id; revision check; appends mutation_applied only on success"
+        },
+        {
+          "name": "apply_compensation",
+          "args": "request: Dictionary (request_id NEW, prior_receipt_id, prior_request_id, expected_world_revision, compensated_entity_ids, ...)",
+          "returns": "same status envelope as apply_mutation",
+          "notes": "Appends compensation entry; never erases prior"
+        },
+        {
+          "name": "get_world_revision",
+          "returns": "int"
+        },
+        {
+          "name": "get_entity",
+          "args": "entity_id: String",
+          "returns": "Dictionary | null"
+        },
+        {
+          "name": "list_entity_ids",
+          "returns": "PackedStringArray sorted"
+        },
+        {
+          "name": "entity_hash",
+          "args": "entity_id: String",
+          "returns": "String hex sha256 or empty if missing"
+        },
+        {
+          "name": "entity_set_hash",
+          "returns": "String hex sha256 of full active set"
+        },
+        {
+          "name": "canonical_stringify",
+          "args": "value: Variant",
+          "returns": "String compact canonical JSON",
+          "notes": "Pure GDScript; used by hash functions and tests"
+        },
+        {
+          "name": "sha256_hex",
+          "args": "utf8_text: String",
+          "returns": "String 64 lowercase hex via HashingContext"
+        },
+        {
+          "name": "replay_to_entities",
+          "args": "optional path or in-memory journal",
+          "returns": "Dictionary { ok, entities, world_revision, entity_set_hash, error? }",
+          "notes": "Deterministic rebuild for reload smoke"
+        }
+      ],
+      "recommended_files_for_p1": [
+        "game/scripts/modules/persist/persist_module.gd",
+        "game/scripts/modules/persist/canonical_json.gd",
+        "game/scripts/modules/persist/entity_hasher.gd",
+        "game/scripts/modules/persist/journal_store.gd",
+        "game/scripts/modules/persist/g4_persist_smoke.gd",
+        "game/scripts/modules/persist/exports/ (smoke evidence JSON)",
+        "game/scripts/modules/interfaces/i_persist_module.gd"
+      ],
+      "must_not_edit": [
+        "contracts/**",
+        "orchestration/tasks.json",
+        "orchestration/ARCHITECTURE_LOCK.md",
+        "orchestration/work_orders/**",
+        "game/scripts/modules/executor/** (consumer verify only in P2)",
+        "prior G3 receipts"
+      ],
+      "g3_consumer_inputs": [
+        "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+        "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+        "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+        "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+        "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+        "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json"
+      ]
+    },
+    "acceptance_tests_for_smoke": [
+      {
+        "id": "AT-SAVE-RELOAD-HASH",
+        "name": "deterministic_save_reload_same_entity_hashes",
+        "steps": [
+          "create_journal(space_id=home_01, base_world_revision=3, base_snapshot_id from G3 fixture)",
+          "apply_mutation creating cozy_house_small-like entity with expected_world_revision=3",
+          "record entity_hash(es) and entity_set_hash and world_revision",
+          "save_journal to temp path",
+          "load_journal / replay_to_entities in fresh module instance",
+          "assert identical entity_hash per id, identical entity_set_hash, identical world_revision"
+        ],
+        "pass_criteria": "all hashes equal; world_revision preserved/advanced consistently"
+      },
+      {
+        "id": "AT-DUP-REQUEST",
+        "name": "duplicate_request_id_no_duplicate_entity",
+        "steps": [
+          "apply_mutation with request_id R once (success, revision 3->4)",
+          "apply_mutation again with same request_id R and same or different payload",
+          "assert status idempotent_replay, prior_receipt_id set",
+          "assert entity count unchanged; world_revision still 4; entity_set_hash unchanged"
+        ],
+        "pass_criteria": "no duplicate entity; no second revision bump"
+      },
+      {
+        "id": "AT-STALE-REVISION",
+        "name": "stale_expected_world_revision_rejected",
+        "steps": [
+          "journal head world_revision=3",
+          "apply_mutation with expected_world_revision=0 or 2",
+          "assert conflicted revision_mismatch",
+          "assert no journal append; entity_set_hash unchanged"
+        ],
+        "pass_criteria": "fail closed; zero partial mutation"
+      },
+      {
+        "id": "AT-MALFORMED-JOURNAL",
+        "name": "truncated_malformed_journal_fail_closed",
+        "steps": [
+          "write truncated JSON / missing entries / wrong types to path",
+          "load_journal",
+          "assert ok=false and explicit error_code journal_malformed or journal_truncated",
+          "assert no invented entities"
+        ],
+        "pass_criteria": "refuse load; clear recovery error"
+      },
+      {
+        "id": "AT-SCHEMA-INCOMPAT",
+        "name": "incompatible_schema_version_fail_closed",
+        "steps": [
+          "journal with schema_version 99.0.0 or missing",
+          "load_journal",
+          "assert ok=false error_code journal_schema_incompatible (or malformed if missing)"
+        ],
+        "pass_criteria": "refuse load"
+      },
+      {
+        "id": "AT-COMPENSATION-APPEND",
+        "name": "compensation_append_only_history_preserved",
+        "steps": [
+          "apply_mutation success (receipt_id P)",
+          "apply_compensation with new request_id linking prior_receipt_id=P",
+          "assert both entries exist in order; prior entry bytes unchanged",
+          "assert history_erased false; world_revision advanced once more",
+          "save/reload; hashes stable; prior_receipt_id still resolvable"
+        ],
+        "pass_criteria": "append-only proof; no erase"
+      },
+      {
+        "id": "AT-CANCEL-NOT-JOURNALED",
+        "name": "cancelled_preview_never_in_journal",
+        "steps": [
+          "simulate or document gate: cancel receipt / unconfirmed preview cannot call apply_mutation successfully",
+          "assert journal entries length unchanged after cancel path",
+          "assert no entity_ids from cancel path in durable set"
+        ],
+        "pass_criteria": "zero durable journal impact from cancel"
+      },
+      {
+        "id": "AT-G3-REV-3-PRESERVED",
+        "name": "g3_expected_world_revision_3_through_save_reload",
+        "steps": [
+          "seed base_world_revision=3 from valid_snapshot_desktop_bridge / G3 exports",
+          "apply using expected_world_revision=3 matching commit_request_handoff_stub and g3_complete_receipt",
+          "save and reload",
+          "assert exports' expected_world_revision=3 still reflected in evidence; head revision consistent (3 before apply, 4 after one apply); never coerced to 0"
+        ],
+        "pass_criteria": "revision 3 binding preserved in smoke evidence export"
+      },
+      {
+        "id": "AT-CANON-SORT",
+        "name": "canonical_json_key_order_and_float_format",
+        "steps": [
+          "build two dicts with different key insertion order and equivalent float noise (8.0 vs 8.000000)",
+          "assert canonical_stringify equal",
+          "assert sha256_hex equal"
+        ],
+        "pass_criteria": "deterministic bytes"
+      },
+      {
+        "id": "AT-SPACE-BOUNDARY",
+        "name": "reject_non_private_reality_journal",
+        "steps": [
+          "attempt load/create with space_type shared_district",
+          "assert reject"
+        ],
+        "pass_criteria": "no Shared District authority in G4 journal"
+      }
+    ],
+    "alignment_with_commit_contracts": {
+      "request_id": "idempotency key — same semantics as commit_request.request_id",
+      "expected_world_revision": "optimistic concurrency — same semantics as commit_request",
+      "mutation_class": "durable_world | compensating | offline_reconcile from commit_request.schema.json",
+      "receipt_statuses_local": "committed | idempotent_replay | rejected | conflicted — mirror commit_receipt for local apply outcomes",
+      "artifact_hashes": "algorithm sha256 + 64 hex — reuse shape when emitting local receipts",
+      "authority_note": "Local Private Reality journal is NOT a substitute for authority.commit_path world_commit_service on online/shared spaces. Offline journal reconcile is future sync path (authority.source offline_journal_reconcile)."
+    },
+    "product_writes": 0,
+    "only_write": "orchestration/receipts/g4/P0_schema.json",
+    "children": []
+  },
+  "smoke_test": {
+    "type": "verify_only_schema_contract",
+    "executable_smoke_run": false,
+    "reason": "P0_SCHEMA_VERIFY defines serialization/hash/journal invariants only; executable save/reload smoke is P1_PERSIST_PATCH ownership",
+    "downstream_required_markers": [
+      "AT-SAVE-RELOAD-HASH pass with identical entity_set_hash",
+      "AT-DUP-REQUEST pass",
+      "AT-STALE-REVISION pass",
+      "AT-MALFORMED-JOURNAL pass",
+      "AT-COMPENSATION-APPEND pass",
+      "AT-CANCEL-NOT-JOURNALED pass",
+      "AT-G3-REV-3-PRESERVED pass",
+      "AIDLE_VALIDATION=PASS on integrated Godot log (P3 core)"
+    ]
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g4/P0_schema.json"],
+    "no_product_code_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_executor_product_edits": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G4-001, G4-001_DISPATCH_MAP, commit contracts, world_prompt schema, G3 exports, W0_persist, agent_step_contract manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G4-001.md",
+    "orchestration/work_orders/G4-001_DISPATCH_MAP.md",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "contracts/commit/commit_policy.md",
+    "contracts/commit/commit_request.schema.json",
+    "contracts/commit/commit_receipt.schema.json",
+    "contracts/world_prompt.schema.json",
+    "contracts/events/event_envelope.schema.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+    "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+    "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+    "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+    "orchestration/receipts/g3/W0_persist.json",
+    "AIdle_Openworld_Blueprint_v1.1/04_Reality_Hierarchy.md",
+    "AIdle_Openworld_Blueprint_v1.1/05_Authority_and_Multiplayer.md",
+    "AIdle_Openworld_Blueprint_v1.1/Interfaces/Common_Contracts.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "Godot JSON.stringify is non-canonical; P1 must implement pure GDScript canonical_stringify or hashes will drift",
+    "Float formatting edge cases (locale, -0.0) need explicit tests in P1",
+    "G3 complete path is still durable_mutation_applied=false handoff stub; P1 must define when local Private Reality apply_mutation is invoked without claiming online World Commit",
+    "Optional integrity chain hash and atomic rename are recommendations — P1 should implement at least truncated-entry detection",
+    "commit_receipt has no dedicated compensated status; local compensation uses entry_type=compensation + mutation_class=compensating"
+  ],
+  "next_route": "P1_PERSIST_PATCH"
+}

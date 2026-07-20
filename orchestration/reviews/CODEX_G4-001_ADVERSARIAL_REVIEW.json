@@ -1,0 +1,44 @@
+{
+  "review_id": "CODEX-G4-001-2026-07-21",
+  "reviewer_role": "codex-final-acceptor",
+  "intent_anchor": {
+    "user_goal": "Build a dependable AIdle Private Reality persistence layer without disrupting the installed-subagent workflow.",
+    "current_priority": "Accept G4 only when persistence is active in runtime and the locked signed-journal boundary is evidenced.",
+    "allowed_scope": ["Private Reality local persistence", "runtime module mount", "journal integrity", "executor consumer gate"],
+    "forbidden_scope": ["Shared District authority", "server economy claims", "external dependency", "worker self-acceptance"]
+  },
+  "claim_under_review": "Directive 12 G4-001 is ready for final acceptance.",
+  "what_i_accept": [
+    "Independent persist smoke passes 11 checks with clean logs.",
+    "Save/reload hashes are stable and duplicate requests are idempotent.",
+    "Stale revision and malformed journal paths fail closed.",
+    "Compensation is append-only and G3 revision 3 is preserved.",
+    "All six MAF receipts validate and no writer conflict exists.",
+    "The module correctly rejects Shared District and server-economy authority claims."
+  ],
+  "what_i_challenge": [
+    "Integrated boot still mounts AgentPersistStub rather than PersistModule.",
+    "Executor does not consume PersistModule through an explicit offline Private Reality gate.",
+    "Architecture Lock requires a local signed journal, but no signature, HMAC or entry hash chain exists."
+  ],
+  "strongest_counter_argument": "A standalone passing module is not yet an active game capability, and an unsigned append-only JSON journal cannot meet the locked signed-journal integrity claim.",
+  "missing_evidence": [
+    "Integrated boot marker proving PersistModule replaced the stub.",
+    "A consumer test proving only explicitly gated offline Private Reality operations reach the journal.",
+    "Wrong-key, entry-tamper, removal and reorder tests for keyed journal integrity.",
+    "The installed adversarial-review skill references absent schema files, so this object follows its documented fields but could not be schema-validated."
+  ],
+  "scope_drift_risk": "medium_without_bounded_correction",
+  "final_verdict": "CHANGES_REQUESTED",
+  "self_audit": {
+    "preserved_user_intent": true,
+    "did_not_invent_objection": true,
+    "evidence_based": true,
+    "no_scope_hijack": true
+  },
+  "blind_spots": ["Device key provisioning must remain local and must not become an API credential or server-authority claim."],
+  "confidence_before_challenge": 0.89,
+  "confidence_penalty": 0.27,
+  "confidence_after_challenge": 0.62,
+  "next_action": "Run a bounded persist/core correction with schema and network verification in the same Grok parent."
+}

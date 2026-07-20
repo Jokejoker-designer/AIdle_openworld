@@ -1,0 +1,363 @@
+{
+  "agent_step_id": "G4-001-P2-executor-2026-07-21",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G4-001",
+    "wave": "P2_EXECUTOR_CONSUMER_VERIFY",
+    "profile": "executor",
+    "work_order": "orchestration/work_orders/WO-G4-001.md",
+    "dispatch_map": "orchestration/work_orders/G4-001_DISPATCH_MAP.md",
+    "state": "HANDOFF_TO_P3",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY: G3 complete/cancel/undo receipts are consumable by the G4 persist Private Reality journal without bypassing World Commit authority. Complete path maps to apply_mutation (request_id + expected_world_revision=3) as local offline simulation only. Cancel is hard-gated and never journals mutation_applied. Undo maps to apply_compensation append with prior_receipt_id and history_erased=false. Persist never claims live World Commit success; G3 durable_mutation_applied remains false on the online/stub path. No product code changes required for G4 acceptance; non-blocking consumer adapter gaps listed for a later WO.",
+    "scope": {
+      "in_scope": [
+        "Read P0_schema / P1_persist contracts and smoke evidence",
+        "Read game/scripts/modules/persist/** API surface (apply_mutation, apply_compensation, gates)",
+        "Read G3 complete/cancel/undo exports under executor/exports/",
+        "Read g3_onboarding_slice.gd confirm/cancel/undo receipt builders (read only)",
+        "Map consumer paths: complete → local journal, cancel → no journal, undo → compensation",
+        "Write orchestration/receipts/g4/P2_executor.json only"
+      ],
+      "out_of_scope": [
+        "Product edits under game/scripts/**",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders",
+        "Implementing executor↔persist wiring",
+        "Shared District / server World Commit / economy",
+        "P3 core reload / P4 network"
+      ],
+      "authority_boundary": {
+        "context": "Offline Private Reality consumer verify",
+        "local_journal": "simulation durability only",
+        "online_authority": "World Commit service remains required for durable online/shared mutation",
+        "explicit_not": [
+          "claim that local journal IS online World Commit truth",
+          "executor product patches",
+          "persist product patches (P1 sole writer)"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_write": "orchestration/receipts/g4/P2_executor.json",
+    "children": [],
+    "inputs_read": {
+      "authority": [
+        "orchestration/receipts/g4/P0_schema.json",
+        "orchestration/receipts/g4/P1_persist.json",
+        "orchestration/work_orders/G4-001_DISPATCH_MAP.md",
+        "orchestration/ARCHITECTURE_LOCK.md"
+      ],
+      "persist_api": [
+        "game/scripts/modules/persist/persist_module.gd",
+        "game/scripts/modules/persist/journal_store.gd",
+        "game/scripts/modules/persist/g4_persist_smoke.gd",
+        "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+        "game/scripts/modules/interfaces/i_persist_module.gd"
+      ],
+      "g3_receipts": [
+        "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+        "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+        "game/scripts/modules/executor/exports/g3_undo_receipt.json"
+      ],
+      "executor_source_read_only": [
+        "game/scripts/modules/executor/g3_onboarding_slice.gd"
+      ]
+    },
+    "confirmations": {
+      "C1_complete_path_local_journal_apply": {
+        "status": "PASS",
+        "statement": "Complete path can apply a mutation with request_id + expected_world_revision=3 into the local journal as offline Private Reality simulation (not server commit).",
+        "g3_complete_fields": {
+          "path": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+          "receipt_kind": "complete",
+          "request_id": "865ba0ef-0b16-4074-a579-098db5a78c13",
+          "expected_world_revision": 3,
+          "commit_request.expected_world_revision": 3,
+          "confirmation.state": "confirmed",
+          "durable_mutation_applied": false,
+          "world_commit_invoked": false,
+          "pipeline_stage": "commit_handoff_stubbed",
+          "entity_recipe_id": "cozy_house_small",
+          "space_id": "home_01"
+        },
+        "persist_consumption": {
+          "api": "PersistModule.apply_mutation / AIdleJournalStore.apply_mutation",
+          "seed": "create_journal(space_id=home_01, base_world_revision=3, base_snapshot_id=11111111-1111-4111-8111-111111111111)",
+          "required_apply_fields": {
+            "request_id": "from complete.request_id (idempotency key)",
+            "expected_world_revision": 3,
+            "mutation_class": "durable_world (from commit_request.mutation_class or default)",
+            "operation": "create (default when omitted)",
+            "confirmation.state": "confirmed (present on complete receipt)",
+            "entity / recipe": "entity_recipe_id cozy_house_small or default entity record"
+          },
+          "gate_allows_complete_stub": "journal_store._gate_durable rejects cancel and unconfirmed preview only; durable_mutation_applied=false is NOT rejected when pipeline_stage!=cancelled — intentional so G3 commit-handoff stub can still drive local Private Reality apply without claiming server success",
+          "p1_smoke_evidence": {
+            "AT-G3-REV-3-PRESERVED": "PASS",
+            "AT-SAVE-RELOAD-HASH": "PASS (uses G3 request_id 865ba0ef-… and expected_world_revision=3 → head 4)",
+            "export": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+            "world_revision_before_apply": 3,
+            "world_revision_after_apply": 4
+          },
+          "authority_note": "Local apply returns status=committed for journal entry_type=mutation_applied only. This is Offline Private Reality simulation durability — not world_commit_service success. G3 complete export still carries durable_mutation_applied=false and world_commit_invoked=false for the online/stub path."
+        },
+        "g3_executor_behavior_read_only": {
+          "confirm_after_preview": "explicit player confirm; status text 'commit handoff stub (world_commit not invoked)'",
+          "run_complete_path": "fails if durable_mutation_applied becomes true on confirm — enforces stub/no live commit",
+          "no_persist_call": "g3_onboarding_slice.gd does not reference PersistModule/apply_mutation (export-only handoff). Consumer wiring is adapter work, not a G3 bug."
+        }
+      },
+      "C2_cancel_never_journals_mutation_applied": {
+        "status": "PASS",
+        "statement": "Cancel receipt must NOT create a journal mutation_applied entry.",
+        "g3_cancel_fields": {
+          "path": "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+          "receipt_kind": "cancel",
+          "request_id": "6da43c54-8ec5-4803-8076-45c81860dbdc",
+          "durable_mutation_applied": false,
+          "entity_ids_durable": [],
+          "world_revision_advanced": false,
+          "has_durable_collision": false,
+          "pipeline_stage": "cancelled",
+          "note": "Cancel removes preview only; not a compensating mutation"
+        },
+        "persist_gate": {
+          "location": "game/scripts/modules/persist/journal_store.gd::_gate_durable",
+          "rules": [
+            "receipt_kind==cancel → rejected cancel_not_durable",
+            "operation==cancel → rejected",
+            "durable_mutation_applied==false AND pipeline_stage==cancelled → rejected cancel_not_durable",
+            "preview_only / confirmation.state!=confirmed → rejected preview_not_durable"
+          ],
+          "p1_smoke_evidence": {
+            "AT-CANCEL-NOT-JOURNALED": "PASS",
+            "uses_g3_cancel_request_id": "6da43c54-8ec5-4803-8076-45c81860dbdc",
+            "cancel_status": "rejected",
+            "entries_unchanged": true,
+            "world_revision": 3,
+            "entity_ids_durable": []
+          }
+        },
+        "p0_invariant": "INV-NO-CANCEL-JOURNAL / cancelled_previews_never_durable"
+      },
+      "C3_undo_compensation_append_not_history_erase": {
+        "status": "PASS",
+        "statement": "Undo/compensation maps to persist compensation append with prior_receipt_id; not history erase.",
+        "g3_undo_fields": {
+          "path": "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+          "receipt_kind": "undo",
+          "mutation_class": "compensating",
+          "request_id": "ac1a95ba-1e5f-4d7d-85e1-695c958e401e",
+          "prior_receipt_id": "fb786347-f0ea-4e15-9ae2-3ce4175c3ebb",
+          "prior_request_id": "865ba0ef-0b16-4074-a579-098db5a78c13",
+          "history_erased": false,
+          "history_preserved": true,
+          "prior_complete_receipt_still_exists": true,
+          "compensated_entity_ids": [],
+          "durable_mutation_applied": false,
+          "world_revision_advanced": false,
+          "note": "G3 stub only — real compensation commit + revision bump is G4 / live World Commit"
+        },
+        "persist_api": {
+          "correct_entry_point": "apply_compensation (NOT apply_mutation)",
+          "apply_mutation_guard": "mutation_class==compensating → rejected use_apply_compensation",
+          "compensation_entry": {
+            "entry_type": "compensation",
+            "required_link": "prior_receipt_id must exist in journal receipt index",
+            "history_erased": "const false on append and on load validation",
+            "revision": "expected_world_revision must equal head; success advances head by 1",
+            "idempotency": "new request_id; duplicate → idempotent_replay"
+          },
+          "entity_id_fallback": "If compensated_entity_ids empty (G3 stub), apply_compensation uses prior mutation entry entity_ids — so empty G3 array is still consumable after a real local apply",
+          "p1_smoke_evidence": {
+            "AT-COMPENSATION-APPEND": "PASS",
+            "history_erased": false,
+            "prior_entry_unchanged": true,
+            "entry_count": 2,
+            "world_revision_after_comp": 5
+          }
+        },
+        "g3_builder_alignment": "build_undo_receipt sets history_erased=false, history_preserved=true, new request_id distinct from prior_request_id, links prior_receipt_id/prior_request_id from complete receipt"
+      },
+      "C4_persist_never_claims_live_world_commit": {
+        "status": "PASS",
+        "statement": "Persist module never claims live World Commit success; durable_mutation_applied false remains for online path.",
+        "evidence": [
+          "persist_module.gd header: Offline Private Reality local journal; online/shared still World Commit",
+          "journal_store.gd header: NOT Shared District / server commit authority",
+          "space_type forced private_reality; shared_district load rejected (AT-SPACE-BOUNDARY PASS)",
+          "apply_mutation success status is local journal 'committed' (entry_type mutation_applied) — no authority.commit_path=world_commit_service issuer receipt",
+          "G3 complete export: durable_mutation_applied=false, world_commit_invoked=false, commit_receipt_stub.status=rejected/stub",
+          "G3 cancel/undo exports: durable_mutation_applied=false, world_commit_invoked=false",
+          "P0 INV-LOCAL-NOT-SERVER-COMMIT / P1 remaining_risks explicitly separate local journal from world_commit_service",
+          "g3_onboarding_slice confirm path never auto-commits; complete path fails closed if durable_mutation_applied true"
+        ],
+        "semantic_split": {
+          "local_journal_status_committed": "Private Reality simulation durability in append-only journal",
+          "online_durable_mutation_applied": "remains false until real World Commit service; G3 stubs preserve this",
+          "must_not_conflate": "executor consumer must not rewrite complete-receipt durable_mutation_applied=true solely because local journal applied"
+        }
+      },
+      "C5_product_changes_or_adapter_gaps": {
+        "status": "PASS_WITH_DOCUMENTED_GAPS",
+        "product_code_changes_needed_for_g4": false,
+        "reason": "Persist API + gates already accept the consumer contract demonstrated by P1 smoke against G3 ids/revision. Executor remains export-only handoff by design for G3. Wiring is a later consumer adapter WO, not a P2 product patch (VERIFY_ONLY; cannot write product).",
+        "consumer_adapter_gaps_for_later_wo": [
+          {
+            "id": "GAP-WIRE-APPLY",
+            "severity": "non_blocking",
+            "description": "No product call from executor/g3_onboarding_slice to PersistModule after confirm. Future adapter should explicitly invoke local apply_mutation only for private_reality simulation after confirmed preview — never auto from unconfirmed preview."
+          },
+          {
+            "id": "GAP-FIELD-PROJECTION",
+            "severity": "non_blocking",
+            "description": "Complete receipt nests mutation_class/actor under commit_request and lacks a full entity transform payload. Adapter should project commit_request fields + entity_recipe_id into apply_mutation shape (or rely on documented defaults: durable_world/create/cozy_house_small)."
+          },
+          {
+            "id": "GAP-RECEIPT-ID-CHAIN",
+            "severity": "non_blocking",
+            "description": "Undo prior_receipt_id points at G3 complete slice receipt_id (fb786347-…). apply_compensation requires that id in the journal receipt index. Adapter must either pass complete.receipt_id as apply_mutation.receipt_id, or rewrite undo.prior_receipt_id to the journal apply result receipt_id."
+          },
+          {
+            "id": "GAP-UNDO-ENTRYPOINT",
+            "severity": "non_blocking",
+            "description": "Undo must call apply_compensation; dumping undo into apply_mutation is rejected (use_apply_compensation). Documented contract only — no code change required for this verify."
+          },
+          {
+            "id": "GAP-AUTHORITY-FLAG",
+            "severity": "non_blocking",
+            "description": "After local journal apply, consumer UI/exports must keep online durable_mutation_applied=false / world_commit_invoked=false unless World Commit service actually runs. Optional local flag e.g. local_journal_applied may be added in a later WO without claiming server authority."
+          },
+          {
+            "id": "GAP-MODULE-MOUNT",
+            "severity": "non_blocking",
+            "description": "P1 notes PersistModule not yet wired into main scene mount tree; P3_CORE_RELOAD_VERIFY owns boot/reload integration check."
+          }
+        ],
+        "critical_gaps_blocking_g4": []
+      }
+    },
+    "mapping_matrix": [
+      {
+        "g3_artifact": "g3_complete_receipt.json",
+        "persist_api": "apply_mutation",
+        "journal_entry_type": "mutation_applied",
+        "expected_world_revision": 3,
+        "outcome": "local committed when head=3; revision 3→4; not World Commit",
+        "must_not": "set durable_mutation_applied true for online path"
+      },
+      {
+        "g3_artifact": "g3_cancel_receipt.json",
+        "persist_api": "apply_mutation (if attempted)",
+        "journal_entry_type": "none",
+        "outcome": "rejected cancel_not_durable; zero entries; rev unchanged",
+        "must_not": "append mutation_applied or compensation"
+      },
+      {
+        "g3_artifact": "g3_undo_receipt.json",
+        "persist_api": "apply_compensation",
+        "journal_entry_type": "compensation",
+        "outcome": "append with prior_receipt_id; history_erased=false; rev +1 when prior exists",
+        "must_not": "delete/rewrite prior mutation_applied entry"
+      }
+    ],
+    "p1_acceptance_reuse": {
+      "note": "P2 did not re-execute Godot smoke (VERIFY_ONLY consumer mapping). P1 executable evidence remains authoritative for persist behavior.",
+      "G4_PERSIST_SMOKE": "PASS checks=11",
+      "AIDLE_VALIDATION": "PASS",
+      "relevant_ATs": {
+        "AT-G3-REV-3-PRESERVED": "PASS",
+        "AT-CANCEL-NOT-JOURNALED": "PASS",
+        "AT-COMPENSATION-APPEND": "PASS",
+        "AT-SAVE-RELOAD-HASH": "PASS",
+        "AT-DUP-REQUEST": "PASS",
+        "AT-STALE-REVISION": "PASS",
+        "AT-SPACE-BOUNDARY": "PASS"
+      }
+    }
+  },
+  "smoke_test": {
+    "type": "verify_only_consumer_mapping",
+    "executable_smoke_run": false,
+    "reason": "P2_EXECUTOR_CONSUMER_VERIFY is VERIFY_ONLY with no product writes; executable persist matrix already ran under P1 (G4_PERSIST_SMOKE=PASS). This wave verifies G3 receipt → persist API mapping and World Commit non-bypass by static contract analysis against live exports and journal_store gates.",
+    "static_checks": [
+      {
+        "id": "SC-COMPLETE-REV3",
+        "result": "PASS",
+        "detail": "g3_complete_receipt expected_world_revision=3 and commit_request.expected_world_revision=3; matches P0 g3_revision_binding and P1 AT-G3-REV-3-PRESERVED"
+      },
+      {
+        "id": "SC-COMPLETE-NOT-SERVER-COMMIT",
+        "result": "PASS",
+        "detail": "complete.durable_mutation_applied=false and world_commit_invoked=false; commit_receipt_stub.stub=true status=rejected"
+      },
+      {
+        "id": "SC-CANCEL-GATE",
+        "result": "PASS",
+        "detail": "receipt_kind=cancel + pipeline_stage=cancelled map to _gate_durable cancel_not_durable; P1 smoke used same cancel request_id"
+      },
+      {
+        "id": "SC-UNDO-COMPENSATION",
+        "result": "PASS",
+        "detail": "undo.mutation_class=compensating + prior_receipt_id + history_erased=false maps to apply_compensation append-only contract"
+      },
+      {
+        "id": "SC-NO-EXECUTOR-BYPASS",
+        "result": "PASS",
+        "detail": "executor has no persist calls that could forge World Commit; confirm path is handoff stub only"
+      }
+    ],
+    "downstream_required_markers": [
+      "P3 core reload/boot can open PersistModule and replay journal without inventing Shared District authority",
+      "AIDLE_VALIDATION=PASS remains on integrated path"
+    ]
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g4/P2_executor.json"],
+    "no_product_code_edits": true,
+    "no_persist_product_edits": true,
+    "no_executor_product_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "worker_cannot_self_accept": true,
+    "no_children_subagents": true,
+    "no_accept_receipt": true,
+    "verdict": "PASS",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, P0_schema, P1_persist, persist API, G3 exports, g3_onboarding_slice (read-only), agent_step_contract schema manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G4-001.md",
+    "orchestration/work_orders/G4-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g4/P0_schema.json",
+    "orchestration/receipts/g4/P1_persist.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "game/scripts/modules/persist/persist_module.gd",
+    "game/scripts/modules/persist/journal_store.gd",
+    "game/scripts/modules/persist/g4_persist_smoke.gd",
+    "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+    "game/scripts/modules/interfaces/i_persist_module.gd",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+    "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+    "game/scripts/modules/executor/g3_onboarding_slice.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "Consumer adapter not implemented — G3 still export-only; local journal apply is opt-in via future WO",
+    "G3 undo prior_receipt_id chain requires receipt_id binding at local apply time",
+    "Local journal status 'committed' must not be misread as World Commit success in UI or later network layers (P4)",
+    "P3 must still verify PersistModule boot/reload integration (not claimed here)"
+  ],
+  "next_route": "P3_CORE_RELOAD_VERIFY"
+}

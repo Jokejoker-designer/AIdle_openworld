@@ -1,0 +1,76 @@
+{
+	"acceptance": {
+		"AT-CANCEL-NOT-JOURNALED": {
+			"cancel_status": "rejected",
+			"entity_ids_durable": [],
+			"entries_unchanged": true,
+			"world_revision": 3
+		},
+		"AT-COMPENSATION-APPEND": {
+			"entry_count": 2,
+			"history_erased": false,
+			"prior_entry_unchanged": true,
+			"prior_receipt_id": "receipt-mut-0000-4000-8000-000000000001",
+			"world_revision": 5
+		},
+		"AT-DUP-REQUEST": {
+			"entity_count": 1,
+			"prior_receipt_id": "edd69a38-4847-409e-891c-7711440ad277",
+			"status": "idempotent_replay",
+			"world_revision": 4
+		},
+		"AT-G3-REV-3-PRESERVED": {
+			"base_snapshot_id": "11111111-1111-4111-8111-111111111111",
+			"base_world_revision": 3,
+			"expected_world_revision_used": 3,
+			"g3_commit_request_expected_world_revision": 3,
+			"g3_complete_receipt_expected_world_revision": 3,
+			"never_coerced_to_0": true,
+			"space_id": "home_01",
+			"space_type": "private_reality",
+			"world_revision_after_apply": 4,
+			"world_revision_before_apply": 3
+		},
+		"AT-MALFORMED-JOURNAL": {
+			"malformed_error_code": "journal_truncated",
+			"missing_entries_ok": false,
+			"truncated_error_code": "journal_truncated"
+		},
+		"AT-SAVE-RELOAD-HASH": {
+			"base_world_revision": 3,
+			"entity_hash": "03933b0b8efa9fb436c50335687506deecbe81ce8b966b9bdda337f9a8bc5534",
+			"entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
+			"hashes_equal": true,
+			"reload_entity_hash": "03933b0b8efa9fb436c50335687506deecbe81ce8b966b9bdda337f9a8bc5534",
+			"reload_entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
+			"world_revision_after_apply": 4
+		},
+		"AT-STALE-REVISION": {
+			"conflict_code": "revision_mismatch",
+			"head_unchanged": 3,
+			"no_partial_mutation": true,
+			"status": "conflicted"
+		}
+	},
+	"authority": {
+		"context": "Offline Private Reality",
+		"not": [
+			"shared_district",
+			"server_economy",
+			"multiplayer_ownership"
+		],
+		"space_type": "private_reality"
+	},
+	"failed_checks": 0,
+	"failures": [],
+	"g3_revision_binding": {
+		"base_world_revision_seed": 3,
+		"expected_world_revision": 3,
+		"source": "g3_complete_receipt / commit_request_handoff_stub / valid_snapshot_desktop_bridge"
+	},
+	"marker": "G4_PERSIST_SMOKE",
+	"passed_checks": 11,
+	"schema_version": "g4_persist_smoke/1.0.0",
+	"task_id": "G4-001",
+	"wave": "P1_PERSIST_PATCH"
+}

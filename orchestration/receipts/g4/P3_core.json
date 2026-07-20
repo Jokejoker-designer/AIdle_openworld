@@ -1,0 +1,264 @@
+{
+  "agent_step_id": "G4-001-P3-core-2026-07-21",
+  "agent_type": "aidle-core",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G4-001",
+    "wave": "P3_CORE_RELOAD_VERIFY",
+    "profile": "core",
+    "work_order": "orchestration/work_orders/WO-G4-001.md",
+    "dispatch_map": "orchestration/work_orders/G4-001_DISPATCH_MAP.md",
+    "state": "HANDOFF_TO_P4",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY independent re-execution of G4 persist save→reload smoke and clean headless Godot boot. G4_PERSIST_SMOKE=PASS checks=11 exit 0; save/reload entity and entity-set SHA-256 hashes equal; G3 expected_world_revision=3 preserved (base 3 → head 4 after apply); integrated boot prints fixed-angle 2.5D camera and XZ locomotion markers with no free camera; both runs exit 0 with zero SCRIPT ERROR / Parse Error / Compile Error / ERROR: lines. No product edits.",
+    "scope": {
+      "in_scope": [
+        "Independent Godot headless re-run of g4_persist_smoke.gd",
+        "Independent clean Godot boot --quit-after 4",
+        "Error-log scan and marker confirmation",
+        "G3 rev 3 preservation evidence from smoke export",
+        "Fixed-angle 2.5D / no free camera boot markers",
+        "Write orchestration/receipts/g4/P3_core.json only"
+      ],
+      "out_of_scope": [
+        "Product edits under game/scripts/**",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders",
+        "Persist/executor/companion/network product patches",
+        "Shared District / server World Commit / economy",
+        "P4 network purple review"
+      ],
+      "authority_boundary": {
+        "context": "Offline Private Reality core reload verify",
+        "local_journal": "simulation durability only",
+        "online_authority": "World Commit service remains required for durable online/shared mutation",
+        "explicit_not": [
+          "claim that local journal IS online World Commit truth",
+          "product patches",
+          "self-ACCEPT of G4-001"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_write": "orchestration/receipts/g4/P3_core.json",
+    "children": [],
+    "confirmations": {
+      "C1_g4_persist_smoke_pass": {
+        "status": "PASS",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/persist/g4_persist_smoke.gd",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=11",
+        "checks_ok": [
+          "interface_surface",
+          "canonical_json_key_order_and_float_format",
+          "deterministic_save_reload_same_entity_hashes",
+          "duplicate_request_id_no_duplicate_entity",
+          "stale_expected_world_revision_rejected",
+          "truncated_malformed_journal_fail_closed",
+          "incompatible_schema_version_fail_closed",
+          "reject_non_private_reality_journal",
+          "compensation_append_only_history_preserved",
+          "cancelled_preview_never_in_journal",
+          "g3_expected_world_revision_3_through_save_reload"
+        ],
+        "evidence_export": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+        "failed_checks": 0
+      },
+      "C2_save_reload_hash_equality": {
+        "status": "PASS",
+        "source": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json acceptance.AT-SAVE-RELOAD-HASH",
+        "hashes_equal": true,
+        "entity_hash": "03933b0b8efa9fb436c50335687506deecbe81ce8b966b9bdda337f9a8bc5534",
+        "reload_entity_hash": "03933b0b8efa9fb436c50335687506deecbe81ce8b966b9bdda337f9a8bc5534",
+        "entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
+        "reload_entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
+        "base_world_revision": 3,
+        "world_revision_after_apply": 4,
+        "matches_p1_hash_sample": true
+      },
+      "C3_clean_godot_boot": {
+        "status": "PASS",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 4",
+        "exit_code": 0,
+        "boot_markers_observed": [
+          "[EventBus] Ready – Common Contracts event hub online.",
+          "[ArtStyleManager] Active style: cozy_cyber_pixel",
+          "[GameManager] AIdle Core 0.1.0-core booting…",
+          "[Boot] AGM edition=api_paid same_contracts=true no_client_secrets=true",
+          "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+          "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.",
+          "[GameManager] World ready. Art style=cozy_cyber_pixel",
+          "[Main] Entered Private Reality | style=cozy_cyber_pixel"
+        ]
+      },
+      "C4_zero_error_log_lines": {
+        "status": "PASS",
+        "scanned_runs": ["g4_persist_smoke", "headless_quit_after_4"],
+        "counts": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 0
+        },
+        "method": "Independent re-run of both commands; PowerShell regex count of literal error tokens across combined stdout/stderr"
+      },
+      "C5_fixed_angle_2_5d_no_free_camera": {
+        "status": "PASS",
+        "architecture_lock": "orchestration/ARCHITECTURE_LOCK.md — Camera: fixed-angle isometric/three-quarter view; no free 3D camera in MVP",
+        "runtime_marker": "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+        "locomotion_marker": "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.",
+        "source_read_only": {
+          "main": "game/scripts/main/main.gd",
+          "camera": "game/scripts/camera/cozy_camera.gd",
+          "camera_docstring": "Cozy 2.5D fixed-angle camera (ARCHITECTURE_LOCK: no free 3D camera in MVP)."
+        },
+        "free_camera_present": false,
+        "free_orbit_fps_denied_in_marker": true
+      },
+      "C6_g3_rev_3_preservation": {
+        "status": "PASS",
+        "smoke_acceptance": {
+          "AT-G3-REV-3-PRESERVED": {
+            "base_world_revision": 3,
+            "expected_world_revision_used": 3,
+            "g3_complete_receipt_expected_world_revision": 3,
+            "g3_commit_request_expected_world_revision": 3,
+            "never_coerced_to_0": true,
+            "space_id": "home_01",
+            "space_type": "private_reality",
+            "world_revision_before_apply": 3,
+            "world_revision_after_apply": 4,
+            "base_snapshot_id": "11111111-1111-4111-8111-111111111111"
+          }
+        },
+        "g3_export_fields_still_visible": [
+          {
+            "path": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+            "field": "expected_world_revision",
+            "value": 3
+          },
+          {
+            "path": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+            "field": "commit_request.expected_world_revision",
+            "value": 3
+          },
+          {
+            "path": "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+            "field": "expected_world_revision",
+            "value": 3
+          },
+          {
+            "path": "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+            "field": "target.expected_world_revision",
+            "value": 3
+          }
+        ],
+        "g3_revision_binding_source": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json g3_revision_binding"
+      }
+    },
+    "acceptance_matrix": {
+      "AT-SAVE-RELOAD-HASH": "PASS",
+      "AT-G3-REV-3-PRESERVED": "PASS",
+      "AT-CLEAN-BOOT-NO-ERRORS": "PASS",
+      "AT-FIXED-ANGLE-2.5D-MARKERS": "PASS",
+      "AT-G4-PERSIST-SMOKE-MARKER": "PASS",
+      "AT-NO-FREE-CAMERA": "PASS"
+    },
+    "notes": {
+      "boot_persist_slot": "Integrated boot still mounts AgentPersistStub for the persist ModuleRegistry slot (expected; G3-era stub wiring). Persist product path is verified via dedicated -s smoke script, not via autoload swap.",
+      "authority": "Local journal commit status is Offline Private Reality simulation only — not live World Commit service success.",
+      "p1_consistency": "Entity/set hashes and G3 rev-3 evidence match P1_persist hash_sample from independent re-run."
+    }
+  },
+  "smoke_test": {
+    "executed": true,
+    "independent_reverification": true,
+    "commands": [
+      {
+        "id": "CMD-G4-PERSIST-SMOKE",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/persist/g4_persist_smoke.gd",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=11",
+        "error_tokens": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 0
+        },
+        "evidence_export": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json"
+      },
+      {
+        "id": "CMD-CLEAN-BOOT-QUIT-AFTER-4",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 4",
+        "exit_code": 0,
+        "markers": [
+          "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+          "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.",
+          "[Main] Entered Private Reality | style=cozy_cyber_pixel"
+        ],
+        "error_tokens": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 0
+        }
+      }
+    ],
+    "hash_sample": {
+      "entity_hash": "03933b0b8efa9fb436c50335687506deecbe81ce8b966b9bdda337f9a8bc5534",
+      "entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
+      "save_reload_equal": true
+    },
+    "g3_revision": {
+      "base_world_revision": 3,
+      "expected_world_revision": 3,
+      "world_revision_after_first_apply": 4,
+      "never_coerced_to_0": true
+    }
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g4/P3_core.json"],
+    "no_product_code_edits": true,
+    "no_persist_product_edits": true,
+    "no_executor_product_edits": true,
+    "no_core_product_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "worker_cannot_self_accept": true,
+    "no_children_subagents": true,
+    "no_accept_receipt": true,
+    "verdict": "PASS",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G4-001, G4-001_DISPATCH_MAP, P0/P1/P2 receipts, smoke evidence, agent_step_contract schema manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G4-001.md",
+    "orchestration/work_orders/G4-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g4/P0_schema.json",
+    "orchestration/receipts/g4/P1_persist.json",
+    "orchestration/receipts/g4/P2_executor.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "game/scripts/modules/persist/g4_persist_smoke.gd",
+    "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+    "game/scripts/main/main.gd",
+    "game/scripts/camera/cozy_camera.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "Integrated ModuleRegistry still mounts AgentPersistStub at boot — PersistModule is exercised via dedicated smoke script, not full autoload integration",
+    "Executor↔persist consumer adapter still not wired (P2 residual); local journal apply remains opt-in",
+    "Local journal status 'committed' must not be misread as World Commit success in network/UI layers (P4)",
+    "P3 does not re-run python scripts/validate_project.py (not required by this wave mission; Godot executable path is authoritative here)"
+  ],
+  "next_route": "P4_NETWORK_PURPLE"
+}

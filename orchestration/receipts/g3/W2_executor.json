@@ -1,0 +1,161 @@
+{
+  "agent_step_id": "G3-001-W2-executor-2026-07-20",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "wave": "W2_EXECUTOR_INTEGRATE",
+    "profile": "executor",
+    "work_order": "orchestration/work_orders/WO-G3-001.md",
+    "dispatch_map": "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "Deterministic G3 onboarding vertical-slice coordinator: World State Snapshot fixture → Companion present_g3_onboarding_decision (onboard + build) → StarterRealmController quest/status/banner → HouseRecipeResolver cozy_house_small → G3PreviewBridge wireframe→hologram→materializing→complete → explicit Executor confirm_prompt → World Commit handoff stub only. Exports g3_complete/cancel/undo receipts per W0_persist. Headless E2E smoke G3_E2E_SMOKE=PASS checks=62 exit 0.",
+    "scope": {
+      "in_scope": [
+        "Transaction coordinator G3OnboardingSlice",
+        "E2E headless smoke complete/cancel/undo",
+        "Receipt exports under executor/exports",
+        "Reuse companion/asset/manifestation/core UI APIs only"
+      ],
+      "out_of_scope": [
+        "contracts/ tasks.json architecture codex_directive",
+        "Live World Commit service",
+        "G4 append-only log / save-reload hashes",
+        "External AI / credentials / TTS/STT",
+        "Companion/manifestation/core/asset source ownership edits"
+      ]
+    },
+    "transaction_sequence": [
+      "1. load_world_state_snapshot(valid_snapshot_desktop_bridge.json | BridgeSnapshotBuilder fallback)",
+      "2. companion.present_g3_onboarding_decision(valid_decision_desktop_bridge) — dialogue + quest offer soft UI",
+      "3. StarterRealmController group g3_starter_realm: set_quest_summary / set_status / companion text placeholder",
+      "4. companion.present_g3_onboarding_decision(valid_decision_with_build_proposal) — pending cozy_house_small SWP",
+      "5. HouseRecipeResolver.resolve_cozy_house_for_starter — 14 parts, provenance, geometry",
+      "6. G3PreviewBridge.start_house_preview(world_prompt) stages wireframe→hologram→materializing→complete",
+      "7. ExecutorModule.confirm_prompt explicit only → commit_request handoff stub (durable_mutation_applied=false)",
+      "8. cancel path: stop_at_stage=hologram → cancel_preview + cancel_prompt; confirm after cancel fails",
+      "9. undo path: compensating_stub receipt linking prior complete; history_preserved=true; no erase"
+    ],
+    "invariants_preserved": [
+      "World Commit never invoked (world_commit_invoked=false on all three receipts)",
+      "durable_mutation_applied=false on complete handoff stub, cancel, and undo",
+      "Cannot complete without explicit confirmation",
+      "commit_request.authority.commit_path=world_commit_service; source!=client_authoritative",
+      "Cancel is not mutation_class=compensating; undo is compensating not history erase",
+      "text-only companion; 2.5D; no paid gen / neural world model",
+      "Single coordinator owns soft AGM presentation → pipeline (avoids dual companion+executor.execute_decision apply)"
+    ],
+    "product_writes": [
+      "game/scripts/modules/executor/g3_onboarding_slice.gd",
+      "game/scripts/modules/executor/g3_e2e_smoke.gd",
+      "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+      "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+      "game/scripts/modules/executor/exports/g3_undo_receipt.json"
+    ],
+    "only_owned_files_written": true,
+    "no_children_spawned": true,
+    "apis_consumed": {
+      "companion": "present_g3_onboarding_decision / set_live_snapshot_id / get_agm_applier.clear_applied_history",
+      "core_ui": "StarterRealmController group g3_starter_realm: apply_snapshot_context, set_quest_summary, set_status, show_preview_banner, set_companion_text_placeholder",
+      "asset": "HouseRecipeResolver.resolve_cozy_house_for_starter / resolve_recipe / validate_provenance / export_geometry_dict",
+      "manifestation": "G3PreviewBridge.bind + start_house_preview + cancel_preview",
+      "executor_existing": "ExecutorModule.set_live_snapshot / submit_prompt / confirm_prompt / cancel_prompt / get_prompt_status",
+      "bridge_optional": "BridgeSnapshotBuilder.build when fixture path unavailable"
+    }
+  },
+  "smoke_test": {
+    "executed": true,
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/executor/g3_e2e_smoke.gd",
+        "exit_code": 0,
+        "marker": "G3_E2E_SMOKE=PASS checks=62",
+        "log": "orchestration/logs/g3-w2-executor-e2e.log",
+        "log_notes": "Expected warnings only: No mount for module voxel; No manifestation host using local fallback. No SCRIPT ERROR / Parse Error / Compile Error / ERROR:."
+      }
+    ],
+    "paths_covered": [
+      "complete: snapshot→onboard→build→recipe→preview complete→confirm handoff stub",
+      "cancel: stop_at hologram→cancel no durable→confirm rejected",
+      "undo: compensating stub after complete; prior export still exists"
+    ],
+    "exports": [
+      "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+      "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+      "game/scripts/modules/executor/exports/g3_undo_receipt.json"
+    ]
+  },
+  "self_audit": {
+    "authority_token": "PATCH_DRAFT",
+    "self_accept": false,
+    "worker_cannot_self_accept": true,
+    "no_tasks_json_edit": true,
+    "no_codex_directive_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_companion_manifestation_core_asset_source_edit": true,
+    "no_accept_receipt": true,
+    "no_children_spawned": true,
+    "no_external_ai": true,
+    "no_credentials": true,
+    "text_only": true,
+    "mvp_2_5d": true,
+    "owned_write_surface_only": [
+      "game/scripts/modules/executor/**",
+      "orchestration/receipts/g3/W2_executor.json"
+    ],
+    "environment_note": "Refreshed game/.godot/global_script_class_cache.cfg so W1 class_name types (CompanionG3OnboardingPresenter, G3PreviewBridge, HouseRecipeResolver, …) resolve under headless -s. Not a product module edit.",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G3-001, G3-001_DISPATCH_MAP, W0/W1 receipts, executor modules manually"
+  },
+  "changed_files": [
+    "game/scripts/modules/executor/g3_onboarding_slice.gd",
+    "game/scripts/modules/executor/g3_e2e_smoke.gd",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+    "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+    "orchestration/receipts/g3/W2_executor.json",
+    "orchestration/logs/g3-w2-executor-e2e.log"
+  ],
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001.md",
+    "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g3/W0_schema.json",
+    "orchestration/receipts/g3/W0_network.json",
+    "orchestration/receipts/g3/W0_persist.json",
+    "orchestration/receipts/g3/W1_core.json",
+    "orchestration/receipts/g3/W1_manifestation.json",
+    "orchestration/receipts/g3/W1_companion.json",
+    "orchestration/receipts/g3/W1_asset.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+    "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json",
+    "contracts/fixtures/agm/valid/valid_decision_with_build_proposal.json",
+    "game/scripts/modules/executor/g3_onboarding_slice.gd",
+    "game/scripts/modules/executor/g3_e2e_smoke.gd",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+    "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+    "orchestration/logs/g3-w2-executor-e2e.log",
+    "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json"
+  ],
+  "residual_risks": [
+    {
+      "id": "RR-EXEC-G3-01",
+      "severity": "low",
+      "detail": "Headless manifestation uses local host fallback warnings (no WorldRoot mount). Presentation residual local collision at complete remains non-commit (W0_network / W1_manifestation)."
+    },
+    {
+      "id": "RR-EXEC-G3-02",
+      "severity": "low",
+      "detail": "global_script_class_cache.cfg must list W1 class_name entries for CompanionModule present_g3 path under -s; coordinator also has presenter/applier fallback if CompanionModule cannot instantiate."
+    },
+    {
+      "id": "RR-EXEC-G3-03",
+      "severity": "medium",
+      "detail": "G4-001 still owns real compensating commit, append-only log, and entity hash save/reload. Undo is stub-only."
+    }
+  ],
+  "next_route": "W3_PURPLE_REVIEW"
+}

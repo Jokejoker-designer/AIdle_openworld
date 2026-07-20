@@ -1,0 +1,390 @@
+{
+	"ok": true,
+	"preview_only": true,
+	"target_space": "private_reality",
+	"space_id": "home_01",
+	"chunk_id": "0_0",
+	"recipe_id": "cozy_house_small",
+	"kind": "modular_structure_2_5d",
+	"transform": {
+		"x": 8.0,
+		"y": 6.0,
+		"elevation": 0.0,
+		"rotation_deg": 0.0
+	},
+	"size": {
+		"x": 8.0,
+		"y": 5.0,
+		"z": 6.0
+	},
+	"bounds": {
+		"width": 8.0,
+		"depth": 6.0,
+		"height": 5.0
+	},
+	"position": {
+		"x": 8.0,
+		"y": 0.0,
+		"z": 6.0
+	},
+	"parts": [
+		{
+			"part_id": "foundation",
+			"placeholder_id": "box_foundation",
+			"local_position": {
+				"x": 0,
+				"y": -0.15,
+				"z": 0
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 8,
+				"y": 0.3,
+				"z": 6
+			},
+			"material_role": "palette.ground",
+			"socket_id": "ground_anchor",
+			"collision": true,
+			"nav": "block",
+			"lightable": false,
+			"optional": false
+		},
+		{
+			"part_id": "floor_deck",
+			"placeholder_id": "box_floor",
+			"local_position": {
+				"x": 0,
+				"y": 0.05,
+				"z": 0
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 7.4,
+				"y": 0.12,
+				"z": 5.4
+			},
+			"material_role": "palette.surface_secondary",
+			"socket_id": "interior_center",
+			"collision": true,
+			"nav": "interior_floor",
+			"lightable": false,
+			"optional": false
+		},
+		{
+			"part_id": "wall_back",
+			"placeholder_id": "box_wall_panel",
+			"local_position": {
+				"x": 0,
+				"y": 1.4,
+				"z": -2.9
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 7.6,
+				"y": 2.8,
+				"z": 0.2
+			},
+			"material_role": "palette.surface_primary",
+			"collision": true,
+			"nav": "block",
+			"lightable": false,
+			"optional": false
+		},
+		{
+			"part_id": "wall_left",
+			"placeholder_id": "box_wall_panel",
+			"local_position": {
+				"x": -3.9,
+				"y": 1.4,
+				"z": 0
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 0.2,
+				"y": 2.8,
+				"z": 5.6
+			},
+			"material_role": "palette.surface_primary",
+			"socket_id": "window_west",
+			"collision": true,
+			"nav": "block",
+			"lightable": false,
+			"optional": false
+		},
+		{
+			"part_id": "wall_right",
+			"placeholder_id": "box_wall_panel",
+			"local_position": {
+				"x": 3.9,
+				"y": 1.4,
+				"z": 0
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 0.2,
+				"y": 2.8,
+				"z": 5.6
+			},
+			"material_role": "palette.surface_primary",
+			"socket_id": "window_east",
+			"collision": true,
+			"nav": "block",
+			"lightable": false,
+			"optional": false
+		},
+		{
+			"part_id": "wall_front",
+			"placeholder_id": "box_wall_panel",
+			"local_position": {
+				"x": 0,
+				"y": 1.4,
+				"z": 2.9
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 7.6,
+				"y": 2.8,
+				"z": 0.2
+			},
+			"material_role": "palette.surface_primary",
+			"socket_id": "door_front",
+			"collision": true,
+			"nav": "block",
+			"lightable": false,
+			"optional": false
+		},
+		{
+			"part_id": "doorway_frame",
+			"placeholder_id": "box_door_frame",
+			"local_position": {
+				"x": 0,
+				"y": 1.1,
+				"z": 2.95
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 1.6,
+				"y": 2.2,
+				"z": 0.25
+			},
+			"material_role": "palette.accent",
+			"socket_id": "door_front",
+			"collision": false,
+			"nav": "doorway",
+			"lightable": false,
+			"optional": false
+		},
+		{
+			"part_id": "door_panel",
+			"placeholder_id": "box_door_panel",
+			"local_position": {
+				"x": 0,
+				"y": 1.05,
+				"z": 2.98
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 1.2,
+				"y": 2.0,
+				"z": 0.08
+			},
+			"material_role": "palette.surface_secondary",
+			"socket_id": "door_front",
+			"collision": false,
+			"nav": "doorway",
+			"lightable": false,
+			"optional": false
+		},
+		{
+			"part_id": "window_left",
+			"placeholder_id": "box_window",
+			"local_position": {
+				"x": -3.95,
+				"y": 1.6,
+				"z": 0.4
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 0.12,
+				"y": 1.0,
+				"z": 1.2
+			},
+			"material_role": "palette.sky",
+			"socket_id": "window_west",
+			"collision": false,
+			"nav": "none",
+			"lightable": true,
+			"optional": false
+		},
+		{
+			"part_id": "window_right",
+			"placeholder_id": "box_window",
+			"local_position": {
+				"x": 3.95,
+				"y": 1.6,
+				"z": 0.4
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 0.12,
+				"y": 1.0,
+				"z": 1.2
+			},
+			"material_role": "palette.sky",
+			"socket_id": "window_east",
+			"collision": false,
+			"nav": "none",
+			"lightable": true,
+			"optional": false
+		},
+		{
+			"part_id": "roof_main",
+			"placeholder_id": "prism_roof_gable",
+			"local_position": {
+				"x": 0,
+				"y": 3.4,
+				"z": 0
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 8.2,
+				"y": 1.6,
+				"z": 6.4
+			},
+			"material_role": "palette.accent",
+			"socket_id": "roof_peak",
+			"collision": true,
+			"nav": "block",
+			"lightable": false,
+			"optional": false
+		},
+		{
+			"part_id": "chimney",
+			"placeholder_id": "box_chimney",
+			"local_position": {
+				"x": 2.2,
+				"y": 4.2,
+				"z": -1.2
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 0.6,
+				"y": 1.2,
+				"z": 0.6
+			},
+			"material_role": "palette.shadow",
+			"socket_id": "roof_peak",
+			"collision": true,
+			"nav": "none",
+			"lightable": false,
+			"optional": true
+		},
+		{
+			"part_id": "porch_step",
+			"placeholder_id": "box_step",
+			"local_position": {
+				"x": 0,
+				"y": 0.12,
+				"z": 3.4
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 1.8,
+				"y": 0.24,
+				"z": 0.6
+			},
+			"material_role": "palette.surface_secondary",
+			"socket_id": "door_front",
+			"collision": true,
+			"nav": "floor",
+			"lightable": false,
+			"optional": false
+		},
+		{
+			"part_id": "porch_glow",
+			"placeholder_id": "box_light_cap",
+			"local_position": {
+				"x": 0,
+				"y": 2.2,
+				"z": 3.1
+			},
+			"local_rotation_deg": 0,
+			"local_size": {
+				"x": 0.25,
+				"y": 0.25,
+				"z": 0.25
+			},
+			"material_role": "palette.manifestation",
+			"socket_id": "porch_light",
+			"collision": false,
+			"nav": "none",
+			"lightable": true,
+			"optional": true
+		}
+	],
+	"build_order": [
+		"foundation",
+		"floor_deck",
+		"wall_back",
+		"wall_left",
+		"wall_right",
+		"wall_front",
+		"doorway_frame",
+		"door_panel",
+		"window_left",
+		"window_right",
+		"roof_main",
+		"chimney",
+		"porch_step",
+		"porch_glow"
+	],
+	"collision_policy": {
+		"active_from_stage": "complete",
+		"blocks_navigation_when_complete": true,
+		"interior_nav_tag": "enterable"
+	},
+	"style_tokens_ref": {
+		"default_base_concept": "cozy_cyber_pixel_2_5d",
+		"allowed_base_concepts": [
+			"cozy_cyber_pixel_2_5d",
+			"pastoral_fantasy_2_5d",
+			"soft_scifi_2_5d"
+		],
+		"token_roles": {
+			"palette.surface_primary": "palette.surface_primary",
+			"palette.surface_secondary": "palette.surface_secondary",
+			"palette.accent": "palette.accent",
+			"palette.ground": "palette.ground",
+			"palette.sky": "palette.sky",
+			"palette.shadow": "palette.shadow",
+			"palette.manifestation": "palette.manifestation"
+		},
+		"shared_tokens_path": "res://resources/art_styles/tokens/shared_2_5d_tokens.json",
+		"profile_path": "res://resources/art_styles/cozy_cyber_pixel_2_5d.json"
+	},
+	"base_concept": "cozy_cyber_pixel_2_5d",
+	"interaction_tags": [
+		"enterable",
+		"lightable"
+	],
+	"presentation": {
+		"default_duration_seconds": 12,
+		"wireframe_accent_role": "palette.manifestation",
+		"hologram_opacity": 0.38,
+		"reduced_motion_duration_seconds": 4
+	},
+	"provenance": {
+		"source_type": "system",
+		"asset_id": "recipe:cozy_house_small",
+		"recipe_id": "cozy_house_small",
+		"license": "CC0-1.0-equivalent-original",
+		"generator": "none",
+		"paid_generation_apis": false,
+		"neural_world_model": false,
+		"requested_by": "player_01",
+		"generated_by": "house_recipe_resolver"
+	},
+	"starter_realm_defaults": true,
+	"export_path": "res://scripts/modules/asset/exports/cozy_house_geometry_preview.json",
+	"export_note": "Deterministic W1 handoff mirror of HouseRecipeResolver.export_geometry_dict; no paid gen / no neural world model"
+}

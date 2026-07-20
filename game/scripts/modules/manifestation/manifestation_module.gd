@@ -8,6 +8,11 @@
 ## Reduced-motion / skip-animation:
 ##   - Call set_skip_animation(true), or
 ##   - SettingsManager gameplay/reduced_motion or gameplay/skip_manifestation_animation
+##
+## G3 house preview (executor-friendly):
+##   start_house_preview(prompt_or_geometry [, options]) → stage walk
+##   cancel_preview(prompt_id) → free preview, no durable collision
+## Prefer g3_preview_bridge.gd so coordinator code does not own module internals.
 class_name ManifestationModule
 extends Node
 
@@ -19,6 +24,8 @@ const _IManifestation = preload("res://scripts/modules/interfaces/i_manifestatio
 ## prompt_id -> ManifestationInstance
 var _active: Dictionary = {}
 var _skip_animation: bool = false
+## When true, start_manifestation will not re-read SettingsManager (call-site override).
+var _suppress_settings_refresh: bool = false
 var _host_fallback: Node3D
 
 
@@ -41,7 +48,8 @@ func start_manifestation(prompt_id: String, art_style: String, geometry: Diction
 		push_warning("[ManifestationModule] Already active: %s" % prompt_id)
 		return false
 
-	_refresh_skip_flag_from_settings()
+	if not _suppress_settings_refresh:
+		_refresh_skip_flag_from_settings()
 
 	var instance: Node3D = _Instance.new()
 	instance.name = "Manifestation_%s" % prompt_id.substr(0, 8)
@@ -74,6 +82,276 @@ func start_manifestation(prompt_id: String, art_style: String, geometry: Diction
 		_emit_progress(prompt_id, 0.0, "wireframe")
 
 	return true
+
+
+## ─── G3 house preview lifecycle ──────────────────────────────────────────────
+
+## Start a house (or structure) preview from a Structured World Prompt dict
+## OR a geometry dict (prompt_id + bounds/transform/size).
+##
+## Default: advances wireframe → hologram → materializing → complete (sync).
+## Reduced-motion / skip_animation jumps to complete with all stages recorded.
+##
+## options:
+##   auto_advance (bool, default true) — walk stages after start
+##   stop_at_stage / stop_at (String) — halt at/before stage (cancel demos)
+##   skip_animation (bool) — temporary override for this call only when set
+##
+## Returns snapshot dict: ok, prompt_id, stage, stages_observed, has_durable_collision, …
+func start_house_preview(prompt_or_geometry: Variant, options: Dictionary = {}) -> Dictionary:
+	_refresh_skip_flag_from_settings()
+	var prior_skip := _skip_animation
+	var prior_suppress := _suppress_settings_refresh
+	if options.has("skip_animation"):
+		_skip_animation = bool(options.get("skip_animation"))
+		# Keep explicit option across start_manifestation (do not re-apply settings).
+		_suppress_settings_refresh = true
+
+	var parsed := _normalize_house_preview_input(prompt_or_geometry)
+	if not bool(parsed.get("ok", false)):
+		_skip_animation = prior_skip
+		_suppress_settings_refresh = prior_suppress
+		return {
+			"ok": false,
+			"reason": str(parsed.get("reason", "invalid_input")),
+			"prompt_id": str(parsed.get("prompt_id", "")),
+			"stage": "",
+			"stages_observed": [],
+			"has_durable_collision": false,
+			"durable_mutation_applied": false,
+		}
+
+	var prompt_id: String = str(parsed["prompt_id"])
+	var art_style: String = str(parsed["art_style"])
+	var geometry: Dictionary = parsed["geometry"] as Dictionary
+
+	if _active.has(prompt_id):
+		_skip_animation = prior_skip
+		_suppress_settings_refresh = prior_suppress
+		var snap := get_preview_snapshot(prompt_id)
+		snap["ok"] = false
+		snap["reason"] = "already_active"
+		return snap
+
+	var started: bool = start_manifestation(prompt_id, art_style, geometry)
+	if not started:
+		_skip_animation = prior_skip
+		_suppress_settings_refresh = prior_suppress
+		return {
+			"ok": false,
+			"reason": "start_failed",
+			"prompt_id": prompt_id,
+			"stage": "",
+			"stages_observed": [],
+			"has_durable_collision": false,
+			"durable_mutation_applied": false,
+		}
+
+	var auto_advance: bool = bool(options.get("auto_advance", true))
+	var stop_at: String = str(options.get("stop_at_stage", options.get("stop_at", "")))
+
+	if auto_advance and not _skip_animation:
+		_advance_preview_stages(prompt_id, stop_at)
+	# skip_animation path already finalized inside start_manifestation
+
+	var result := get_preview_snapshot(prompt_id)
+	result["ok"] = true
+	result["reason"] = ""
+	result["durable_mutation_applied"] = false
+	result["recipe_id"] = str(geometry.get("recipe_id", ""))
+	_skip_animation = prior_skip
+	_suppress_settings_refresh = prior_suppress
+	return result
+
+
+## Cancel a preview by prompt_id. Tears down geometry; leaves no durable collision.
+## Idempotent when prompt is already absent.
+func cancel_preview(prompt_id: String, reason: String = "player_cancel") -> Dictionary:
+	if prompt_id.is_empty():
+		return {
+			"ok": false,
+			"reason": "empty_prompt_id",
+			"prompt_id": "",
+			"status": "error",
+			"has_durable_collision": false,
+			"durable_mutation_applied": false,
+		}
+	if not _active.has(prompt_id):
+		return {
+			"ok": true,
+			"prompt_id": prompt_id,
+			"status": "already_absent",
+			"stage": "",
+			"stages_observed": [],
+			"has_durable_collision": false,
+			"durable_mutation_applied": false,
+			"cancel_reason": reason if not reason.is_empty() else "player_cancel",
+		}
+
+	var stages_before: Array = []
+	var stage_before := ""
+	var inst := _get_instance(prompt_id)
+	if inst != null:
+		stage_before = str(inst.call("get_stage"))
+		var observed: Variant = inst.call("get_stages_observed")
+		if observed is PackedStringArray:
+			for s in observed as PackedStringArray:
+				stages_before.append(s)
+		elif observed is Array:
+			stages_before = (observed as Array).duplicate()
+
+	var cancel_reason := reason if not reason.is_empty() else "player_cancel"
+	cancel_manifestation(prompt_id, cancel_reason)
+
+	return {
+		"ok": true,
+		"prompt_id": prompt_id,
+		"status": "cancelled",
+		"stage": "cancelled",
+		"cancelled_during_stage": stage_before,
+		"stages_observed": stages_before,
+		"has_durable_collision": false,
+		"durable_mutation_applied": false,
+		"cancel_reason": cancel_reason,
+	}
+
+
+## Snapshot for executor/G3 receipts (does not mutate).
+func get_preview_snapshot(prompt_id: String) -> Dictionary:
+	var instance := _get_instance(prompt_id)
+	if instance == null:
+		return {
+			"ok": false,
+			"prompt_id": prompt_id,
+			"active": false,
+			"stage": "",
+			"progress": 0.0,
+			"stages_observed": [],
+			"has_durable_collision": false,
+			"finalized": false,
+			"cancelled": false,
+		}
+	var stages: Array = []
+	var observed: Variant = instance.call("get_stages_observed")
+	if observed is PackedStringArray:
+		for s in observed as PackedStringArray:
+			stages.append(s)
+	elif observed is Array:
+		stages = (observed as Array).duplicate()
+	return {
+		"ok": true,
+		"prompt_id": prompt_id,
+		"active": true,
+		"stage": str(instance.call("get_stage")),
+		"progress": float(instance.call("get_progress")),
+		"stages_observed": stages,
+		"has_durable_collision": bool(instance.call("has_durable_collision")),
+		"finalized": bool(instance.call("is_finalized")),
+		"cancelled": bool(instance.call("is_cancelled")),
+		"recipe_id": str(instance.get("recipe_id")),
+		"target_space": str(instance.get("target_space")),
+	}
+
+
+## Build geometry dict from a Structured World Prompt (G3 house path).
+func geometry_from_world_prompt(world_prompt: Dictionary) -> Dictionary:
+	var entity: Dictionary = {}
+	if world_prompt.get("entity", {}) is Dictionary:
+		entity = world_prompt.get("entity", {}) as Dictionary
+	var target: Dictionary = {}
+	if world_prompt.get("target", {}) is Dictionary:
+		target = world_prompt.get("target", {}) as Dictionary
+	var manifestation: Dictionary = {}
+	if world_prompt.get("manifestation", {}) is Dictionary:
+		manifestation = world_prompt.get("manifestation", {}) as Dictionary
+	var transform: Variant = entity.get("transform", {})
+	var bounds: Variant = entity.get("bounds", {})
+	var geometry := {
+		"target_space": str(target.get("space_type", "private_reality")),
+		"space_id": str(target.get("space_id", "")),
+		"recipe_id": str(entity.get("recipe_id", "")),
+		"transform": transform if transform is Dictionary else {},
+		"bounds": bounds if bounds is Dictionary else bounds,
+		"size": bounds,
+		"provenance": world_prompt.get("provenance", {}),
+		"preview_only": true,
+		"presentation_duration_seconds": float(
+			manifestation.get("presentation_duration_seconds", 12.0)
+		),
+	}
+	if transform is Dictionary:
+		geometry["position"] = _position_dict_from_transform(transform as Dictionary)
+	return geometry
+
+
+func _position_dict_from_transform(t: Dictionary) -> Dictionary:
+	## Mirror instance 2.5D mapping for explicit position field.
+	var gz: float = float(t.get("z", t.get("y", 0.0))) if t.has("z") else float(t.get("y", 0.0))
+	return {
+		"x": float(t.get("x", 0.0)),
+		"y": float(t.get("elevation", 0.0)),
+		"z": gz,
+	}
+
+
+func _normalize_house_preview_input(prompt_or_geometry: Variant) -> Dictionary:
+	if not (prompt_or_geometry is Dictionary):
+		return {"ok": false, "reason": "invalid_input"}
+	var d: Dictionary = prompt_or_geometry as Dictionary
+
+	# Structured World Prompt shape (has entity/manifestation/operation).
+	if d.has("prompt_id") and (
+		d.has("entity") or d.has("manifestation") or d.has("operation") or d.has("confirmation")
+	):
+		var prompt_id := str(d.get("prompt_id", ""))
+		if prompt_id.is_empty():
+			return {"ok": false, "reason": "missing_prompt_id"}
+		var style := "cozy_cyber_pixel_2_5d"
+		var sp: Variant = d.get("style_profile", {})
+		if sp is Dictionary:
+			style = str((sp as Dictionary).get("base_concept", style))
+		return {
+			"ok": true,
+			"prompt_id": prompt_id,
+			"art_style": style,
+			"geometry": geometry_from_world_prompt(d),
+		}
+
+	# Nested geometry wrapper: {prompt_id, art_style?, geometry:{…}}
+	var prompt_id2 := str(d.get("prompt_id", d.get("id", "")))
+	var style2 := str(d.get("art_style", d.get("base_concept", "cozy_cyber_pixel_2_5d")))
+	var geom: Dictionary
+	if d.get("geometry", null) is Dictionary:
+		geom = (d.get("geometry") as Dictionary).duplicate(true)
+		if not geom.has("provenance") and d.get("provenance", null) is Dictionary:
+			geom["provenance"] = d.get("provenance")
+		if not geom.has("recipe_id") and d.has("recipe_id"):
+			geom["recipe_id"] = d.get("recipe_id")
+	else:
+		geom = d.duplicate(true)
+
+	if prompt_id2.is_empty():
+		return {"ok": false, "reason": "missing_prompt_id", "prompt_id": ""}
+	return {"ok": true, "prompt_id": prompt_id2, "art_style": style2, "geometry": geom}
+
+
+func _advance_preview_stages(prompt_id: String, stop_at: String) -> void:
+	## Sync walk: hologram → materializing → complete (wireframe already set).
+	var stop_i := _Stages.stage_index(stop_at) if not stop_at.is_empty() else -1
+	for stage in _Stages.ORDERED_STAGES:
+		if stage == "wireframe":
+			continue
+		var si := _Stages.stage_index(stage)
+		if stop_i >= 0 and si > stop_i:
+			break
+		var instance := _get_instance(prompt_id)
+		if instance == null or bool(instance.call("is_cancelled")):
+			return
+		if stage == "complete":
+			finalize_manifestation(prompt_id)
+			return
+		instance.call("set_stage", stage)
+		_emit_progress(prompt_id, _Stages.progress_for_stage(stage), stage)
 
 
 func update_construction_progress(prompt_id: String, progress: float) -> void:

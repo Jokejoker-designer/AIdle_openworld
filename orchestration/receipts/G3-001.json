@@ -1,0 +1,112 @@
+{
+  "agent_step_id": "G3-001-parent-collate-directive-10-2026-07-20",
+  "agent_type": "lead-orchestrator",
+  "skill_id": "maf-mandatory-standard",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "directive_id": 10,
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "parent_may_self_accept": false,
+    "summary": "AGM onboarding vertical slice integrated via mandatory 8-profile wave workflow. Snapshot → AGM text/quest → cozy_house_small → manifestation preview stages → explicit confirm → World Commit handoff stub → complete/cancel/undo receipts. Purple VERIFY_ONLY verdict ACCEPTED (evidence gate only; Codex final).",
+    "waves": {
+      "W0_VERIFY": {
+        "profiles": ["schema", "network", "persist"],
+        "authority": "VERIFY_ONLY",
+        "receipts": [
+          "orchestration/receipts/g3/W0_schema.json",
+          "orchestration/receipts/g3/W0_network.json",
+          "orchestration/receipts/g3/W0_persist.json"
+        ]
+      },
+      "W1_DOMAIN_PATCH": {
+        "profiles": ["core", "manifestation", "companion", "asset"],
+        "authority": "PATCH_DRAFT",
+        "one_writer_per_file": true,
+        "receipts": [
+          "orchestration/receipts/g3/W1_core.json",
+          "orchestration/receipts/g3/W1_manifestation.json",
+          "orchestration/receipts/g3/W1_companion.json",
+          "orchestration/receipts/g3/W1_asset.json"
+        ]
+      },
+      "W2_EXECUTOR_INTEGRATE": {
+        "profiles": ["executor"],
+        "authority": "PATCH_DRAFT",
+        "receipts": ["orchestration/receipts/g3/W2_executor.json"]
+      },
+      "W3_PURPLE_REVIEW": {
+        "profiles": ["network-as-purple-non-writer"],
+        "authority": "VERIFY_ONLY",
+        "verdict": "ACCEPTED",
+        "review": "orchestration/reviews/G3-001_PURPLE_REVIEW.md"
+      }
+    },
+    "dispatch_map": "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "vertical_slice": [
+      "World State Snapshot (fixture/builder)",
+      "AGM onboarding decision → companion text + quest",
+      "House recipe cozy_house_small resolve + provenance",
+      "Preview wireframe→hologram→materializing→complete",
+      "Explicit confirm → executor World Commit handoff stub",
+      "Receipts: complete / cancel / undo (no canonical durable mutation)"
+    ]
+  },
+  "smoke_test": {
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/executor/g3_e2e_smoke.gd",
+        "exit_code": 0,
+        "marker": "G3_E2E_SMOKE=PASS checks=62",
+        "log": "orchestration/logs/g3-e2e-parent.log",
+        "forbidden_log_patterns_count": 0,
+        "forbidden": ["SCRIPT ERROR", "Parse Error", "Compile Error", "ERROR:"]
+      },
+      {
+        "command": "python scripts\\validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    ],
+    "exports": [
+      "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+      "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+      "game/scripts/modules/executor/exports/g3_undo_receipt.json"
+    ]
+  },
+  "self_audit": {
+    "used_all_8_profiles": true,
+    "no_monolithic_parent_impl": true,
+    "no_nested_grandchildren": true,
+    "no_tasks_json_edit": true,
+    "no_codex_directive_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_accept_receipt": true,
+    "no_api_credentials_tts_stt_voxel_blockchain": true,
+    "parent_collate_only": true
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001.md",
+    "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g3/W0_schema.json",
+    "orchestration/receipts/g3/W0_network.json",
+    "orchestration/receipts/g3/W0_persist.json",
+    "orchestration/receipts/g3/W1_core.json",
+    "orchestration/receipts/g3/W1_manifestation.json",
+    "orchestration/receipts/g3/W1_companion.json",
+    "orchestration/receipts/g3/W1_asset.json",
+    "orchestration/receipts/g3/W2_executor.json",
+    "orchestration/reviews/G3-001_PURPLE_REVIEW.md",
+    "game/scripts/modules/executor/g3_onboarding_slice.gd",
+    "game/scripts/modules/executor/g3_e2e_smoke.gd"
+  ],
+  "remaining_risks": [
+    "RR-G3-PURPLE-01: expected_world_revision bind 0 vs snapshot revision 3",
+    "RR-NET-01: complete local collision ≠ World Commit; undo stub does not free solids",
+    "RR-G3-PURPLE-02: cancel collision flags smoke-asserted not scene-measured",
+    "G4 still owns real compensating commit, append-only log, entity hashes"
+  ],
+  "next_route": "WAITING_CODEX — only Codex may ACCEPTED G3-001"
+}

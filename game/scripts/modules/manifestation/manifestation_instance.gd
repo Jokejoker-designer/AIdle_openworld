@@ -18,6 +18,7 @@ var art_style: String = ""
 var target_space: String = "private_reality"
 var provenance: Dictionary = {}
 var entity_size: Vector3 = Vector3(2.0, 2.0, 2.0)
+var recipe_id: String = ""
 
 var _stage: String = "wireframe"
 var _progress: float = 0.0
@@ -27,6 +28,8 @@ var _collision_shape: CollisionShape3D
 var _material: StandardMaterial3D
 var _finalized: bool = false
 var _cancelled: bool = false
+## Ordered stages entered this attempt (for G3 complete/cancel receipts).
+var _stages_observed: PackedStringArray = PackedStringArray()
 ## When true, skip Mesh/Material (presentation-only) under headless/dummy renderer.
 var _presentation_enabled: bool = true
 
@@ -35,6 +38,7 @@ func _ready() -> void:
 	set_meta(META_PREVIEW, true)
 	set_meta(META_PROMPT_ID, prompt_id)
 	set_meta(META_STAGE, _stage)
+	_record_stage(_stage)
 	_build_visuals_if_needed()
 	_apply_stage_visuals()
 	_set_collision_enabled(false)
@@ -48,13 +52,15 @@ func configure(
 	prompt_id = p_prompt_id
 	art_style = p_art_style
 	target_space = str(geometry.get("target_space", "private_reality"))
+	recipe_id = str(geometry.get("recipe_id", ""))
 	if geometry.get("provenance", {}) is Dictionary:
 		provenance = (geometry.get("provenance", {}) as Dictionary).duplicate(true)
 	else:
 		provenance = {}
 	entity_size = _parse_size(geometry.get("size", geometry.get("bounds", null)))
 	# Use local position — safe before entering the scene tree.
-	position = _parse_vec3(geometry.get("position", Vector3.ZERO))
+	# Accept Godot Vector3 position OR World Prompt 2.5D transform {x,y,elevation}.
+	position = _position_from_geometry(geometry)
 	_build_visuals_if_needed()
 	set_meta(META_PROMPT_ID, prompt_id)
 	_apply_stage_visuals()
@@ -67,6 +73,10 @@ func get_stage() -> String:
 
 func get_progress() -> float:
 	return _progress
+
+
+func get_stages_observed() -> PackedStringArray:
+	return _stages_observed.duplicate()
 
 
 func is_cancelled() -> bool:
@@ -93,6 +103,7 @@ func set_stage(stage: String) -> bool:
 		return false
 	_stage = next
 	_progress = maxf(_progress, _Stages.progress_for_stage(_stage))
+	_record_stage(_stage)
 	set_meta(META_STAGE, _stage)
 	set_meta(META_PREVIEW, not _Stages.allows_durable_collision(_stage))
 	_apply_stage_visuals()
@@ -111,6 +122,9 @@ func set_progress(progress: float) -> void:
 func finalize_complete() -> void:
 	if _cancelled:
 		return
+	# Ensure intermediate stages are recorded when skip-animation jumps to complete.
+	for s in _Stages.ORDERED_STAGES:
+		_record_stage(s)
 	_stage = "complete"
 	_progress = 1.0
 	_finalized = true
@@ -125,6 +139,13 @@ func mark_cancelled() -> void:
 	_finalized = false
 	_set_collision_enabled(false)
 	set_meta(META_PREVIEW, true)
+
+
+func _record_stage(stage: String) -> void:
+	if not _Stages.is_valid_stage(stage):
+		return
+	if not _stages_observed.has(stage):
+		_stages_observed.append(stage)
 
 
 func free_cleanup() -> void:
@@ -263,11 +284,49 @@ func _set_collision_enabled(enabled: bool) -> void:
 		_static_body.collision_mask = 0
 
 
+func _position_from_geometry(geometry: Dictionary) -> Vector3:
+	if geometry.has("position") and geometry.get("position") != null:
+		var p: Variant = geometry.get("position")
+		# Explicit zero is valid; only fall through when key absent.
+		return _parse_vec3(p)
+	var t: Variant = geometry.get("transform", null)
+	if t is Dictionary:
+		return _position_from_transform(t as Dictionary)
+	return Vector3.ZERO
+
+
+func _position_from_transform(t: Dictionary) -> Vector3:
+	## World Prompt 2.5D transform: ground (x, y) + elevation → Godot (x, elevation, y).
+	var gx := float(t.get("x", 0.0))
+	var elev := float(t.get("elevation", 0.0))
+	var gz: float
+	if t.has("z"):
+		gz = float(t.get("z", 0.0))
+	else:
+		gz = float(t.get("y", 0.0))
+	return Vector3(gx, elev, gz)
+
+
 func _parse_size(raw: Variant) -> Vector3:
-	var v := _parse_vec3(raw)
+	var v := _parse_size_vec3(raw)
 	if v == Vector3.ZERO:
 		return Vector3(2.0, 2.0, 2.0)
 	return Vector3(maxf(v.x, 0.25), maxf(v.y, 0.25), maxf(v.z, 0.25))
+
+
+func _parse_size_vec3(raw: Variant) -> Vector3:
+	## Bounds dict uses width/depth/height; Vector3 uses x/y/z.
+	if raw is Vector3:
+		return raw
+	if raw is Dictionary:
+		var d: Dictionary = raw
+		var sx := float(d.get("x", d.get("width", 0.0)))
+		var sy := float(d.get("y", d.get("height", 0.0)))
+		var sz := float(d.get("z", d.get("depth", 0.0)))
+		return Vector3(sx, sy, sz)
+	if raw is Array and raw.size() >= 3:
+		return Vector3(float(raw[0]), float(raw[1]), float(raw[2]))
+	return Vector3.ZERO
 
 
 func _parse_vec3(raw: Variant) -> Vector3:

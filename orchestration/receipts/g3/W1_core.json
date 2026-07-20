@@ -1,0 +1,186 @@
+{
+  "agent_step_id": "G3-001-W1-core-2026-07-20",
+  "agent_type": "aidle-core",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "wave": "W1_DOMAIN_PATCH",
+    "profile": "core",
+    "work_order": "orchestration/work_orders/WO-G3-001.md",
+    "dispatch_map": "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "W1 core PATCH_DRAFT: Starter Realm scene/UI wiring for G3 vertical slice. Controller holds live snapshot id / session context (apply_snapshot_context from fixture or builder call sites only — no bridge ownership). Panel displays quest title, companion text placeholder, status, and preview stage banner. Executor-facing methods: get_session_context(), set_quest_summary(text), set_status(text), show_preview_banner(stage). Mounted from main.gd under UI without changing 2.5D fixed camera. No TTS. No executor transaction logic.",
+    "scope": {
+      "in_scope": [
+        "Starter Realm controller + panel UI shell",
+        "Session context hold + fixture/builder apply call-site API",
+        "Quest / status / preview banner surface for executor",
+        "Companion text placeholder signals (text-only)",
+        "Minimal main.gd mount of controller"
+      ],
+      "out_of_scope": [
+        "Desktop Bridge ownership or network AGM",
+        "Executor transaction coordinator / E2E smoke (W2)",
+        "Manifestation lifecycle (W1 manifestation)",
+        "Companion module dialogue apply (W1 companion)",
+        "House recipe resolution (W1 asset)",
+        "contracts/, tasks.json, architecture, codex_directive",
+        "TTS/STT, camera free-look, World Commit service"
+      ]
+    },
+    "exported_apis_for_w2_executor": {
+      "lookup": {
+        "group": "g3_starter_realm",
+        "scene_path_when_mounted": "UI/StarterRealmController",
+        "static_helper": "StarterRealmController.find_in_tree(get_tree()) via group",
+        "preload": "res://scripts/modules/g3_ui/starter_realm_controller.gd"
+      },
+      "required_methods": {
+        "get_session_context": {
+          "signature": "() -> Dictionary",
+          "returns": "duplicate of live session keys including snapshot_id/live_snapshot_id, session_id, space_id, world_revision, progression_phase, edition, player_id, companion_id, starter_realm, trace_id, slice"
+        },
+        "set_quest_summary": {
+          "signature": "(text: String) -> void",
+          "effects": "updates panel Quest line; emits quest_summary_changed and companion_text_placeholder"
+        },
+        "set_status": {
+          "signature": "(text: String) -> void",
+          "effects": "updates panel Status line; emits status_changed"
+        },
+        "show_preview_banner": {
+          "signature": "(stage: String) -> void",
+          "effects": "shows center banner for wireframe|hologram|materializing|complete; empty/none/idle hides; emits preview_banner_changed"
+        }
+      },
+      "call_site_helpers": {
+        "apply_snapshot_context": "(snapshot: Dictionary) -> void — merge World State Snapshot fields into live context (fixture path or BridgeSnapshotBuilder.build output; core does not own bridge)",
+        "set_session_context": "(context: Dictionary, replace: bool = false) -> void",
+        "get_live_snapshot_id": "() -> String",
+        "set_companion_text_placeholder": "(text: String) -> void — explicit companion dialogue placeholder",
+        "get_quest_summary / get_status / get_preview_stage": "readback helpers"
+      },
+      "signals": [
+        "quest_summary_changed(text: String)",
+        "companion_text_placeholder(text: String)",
+        "status_changed(text: String)",
+        "preview_banner_changed(stage: String)",
+        "session_context_changed(context: Dictionary)"
+      ],
+      "default_session_context_identity": {
+        "session_id": "session_starter_01",
+        "space_id": "home_01",
+        "companion_id": "companion_aida",
+        "player_id": "player_01",
+        "starter_realm": true,
+        "progression_phase": "onboarding",
+        "edition": "desktop_bridge_free",
+        "slice": "g3_onboarding_vertical",
+        "note": "Mirrors valid_snapshot_desktop_bridge.json identity; snapshot_id empty until apply_snapshot_context"
+      },
+      "recommended_w2_fixture": "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json"
+    },
+    "changed_files": [
+      "game/scripts/modules/g3_ui/starter_realm_controller.gd",
+      "game/scripts/modules/g3_ui/starter_realm_panel.gd",
+      "game/scenes/ui/starter_realm_panel.tscn",
+      "game/scripts/main/main.gd",
+      "orchestration/receipts/g3/W1_core.json"
+    ],
+    "did_not_touch": [
+      "game/scripts/modules/executor/**",
+      "game/scripts/modules/bridge/**",
+      "game/scripts/modules/companion/**",
+      "game/scripts/modules/manifestation/**",
+      "game/scripts/modules/g3/**",
+      "contracts/**",
+      "orchestration/tasks.json",
+      "orchestration/control/codex_directive.json",
+      "orchestration/ARCHITECTURE_LOCK.md",
+      "game/scripts/camera/**"
+    ],
+    "invariants_preserved": [
+      "2.5D fixed-angle camera unchanged (main still wires CozyCamera only)",
+      "text-only companion placeholder (no TTS/STT)",
+      "no durable mutation / no World Commit call",
+      "no bridge export/import ownership",
+      "no executor transaction logic"
+    ],
+    "not_done": [
+      "W2 executor integration of transaction coordinator",
+      "W1 manifestation / companion / asset domain patches",
+      "E2E Godot complete/cancel/undo smoke (W2)",
+      "self_accept false — parent/Codex only"
+    ]
+  },
+  "smoke_test": {
+    "executed": true,
+    "scope": "domain surface mount + script load; full E2E owned by W2",
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game --quit-after 3",
+        "exit_code": 0,
+        "purpose": "Boot → main → mount StarterRealmController; no SCRIPT ERROR",
+        "markers_found": [
+          "[StarterRealmController] Mounted | snapshot_id= session_id=session_starter_01 space=home_01",
+          "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS)."
+        ],
+        "log_clean": true,
+        "forbidden_log_patterns_absent": [
+          "SCRIPT ERROR",
+          "Parse Error",
+          "Compile Error"
+        ]
+      }
+    ],
+    "api_contract_static": {
+      "get_session_context": true,
+      "set_quest_summary": true,
+      "set_status": true,
+      "show_preview_banner": true,
+      "apply_snapshot_context": true
+    }
+  },
+  "self_audit": {
+    "authority_token": "PATCH_DRAFT",
+    "allowed_write_paths_only": true,
+    "writes": [
+      "game/scripts/modules/g3_ui/starter_realm_controller.gd",
+      "game/scripts/modules/g3_ui/starter_realm_panel.gd",
+      "game/scenes/ui/starter_realm_panel.tscn",
+      "game/scripts/main/main.gd",
+      "orchestration/receipts/g3/W1_core.json"
+    ],
+    "did_not_edit_contracts": true,
+    "did_not_edit_tasks_or_directive": true,
+    "did_not_edit_architecture": true,
+    "did_not_edit_executor_bridge_companion_manifestation": true,
+    "no_nested_subagents": true,
+    "no_children_spawned": true,
+    "no_api_sdk_credentials": true,
+    "no_tts_stt": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md + ARCHITECTURE_LOCK + WO-G3-001 + DISPATCH_MAP + W0 receipts + main/world modules manually",
+    "mvp_lock_respected": "2.5D fixed-angle; text-only Companion surface; World Commit not invoked"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001.md",
+    "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g3/W0_schema.json",
+    "orchestration/receipts/g3/W0_network.json",
+    "orchestration/receipts/g3/W0_persist.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+    "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json",
+    "game/scripts/modules/g3_ui/starter_realm_controller.gd",
+    "game/scripts/modules/g3_ui/starter_realm_panel.gd",
+    "game/scenes/ui/starter_realm_panel.tscn",
+    "game/scripts/main/main.gd",
+    "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json"
+  ],
+  "next_route": "W2_EXECUTOR_INTEGRATE"
+}

@@ -1,20 +1,31 @@
 {
   "schema_version": "1.0.0",
   "agent": "aidle-conductor",
-  "last_directive_id": 9,
+  "last_directive_id": 10,
   "state": "WAITING_CODEX",
   "active_task_ids": [],
-  "submitted_task_ids": ["G2-001", "G2-002"],
+  "submitted_task_ids": ["G3-001"],
+  "active_wave": "W3_PURPLE_REVIEW_DONE",
+  "dispatch_map": "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+  "work_order": "orchestration/work_orders/WO-G3-001.md",
+  "profiles_used": ["schema", "network", "persist", "core", "manifestation", "companion", "asset", "executor"],
   "evidence_paths": [
-    "orchestration/receipts/G2-001.json",
-    "orchestration/receipts/G2-002.json",
-    "orchestration/work_orders/WO-G2-MANIFESTATION-CORRECTION-002.md",
-    "game/scripts/modules/manifestation/manifestation_instance.gd",
-    "game/scripts/world/world_root.gd",
-    "game/scripts/player/player_controller.gd",
-    "game/scripts/core/constants.gd"
+    "orchestration/receipts/G3-001.json",
+    "orchestration/receipts/g3/W0_schema.json",
+    "orchestration/receipts/g3/W0_network.json",
+    "orchestration/receipts/g3/W0_persist.json",
+    "orchestration/receipts/g3/W1_core.json",
+    "orchestration/receipts/g3/W1_manifestation.json",
+    "orchestration/receipts/g3/W1_companion.json",
+    "orchestration/receipts/g3/W1_asset.json",
+    "orchestration/receipts/g3/W2_executor.json",
+    "orchestration/reviews/G3-001_PURPLE_REVIEW.md",
+    "orchestration/logs/g3-e2e-parent.log",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+    "game/scripts/modules/executor/exports/g3_undo_receipt.json"
   ],
   "failure_signature": null,
-  "updated_at": "2026-07-20T23:20:00+07:00",
-  "message_to_codex": "Directive 9 G2-001+G2-002 presentation correction complete → REVIEW_REQUESTED. Manifestation smoke PASS checks=8 (no ERROR:/SCRIPT ERROR), integrated headless boot exit 0 clean, validator PASS. Presentation meshes skipped under headless only; stage/cancel/collision logic preserved. No self-ACCEPT. Awaiting Codex."
+  "updated_at": "2026-07-21T00:10:00+07:00",
+  "message_to_codex": "Directive 10 G3-001 complete → REVIEW_REQUESTED. 8-profile waves W0→W1→W2→W3 executed. Parent re-ran G3_E2E_SMOKE=PASS checks=62 (clean log) + AIDLE_VALIDATION=PASS. Purple VERIFY_ONLY ACCEPTED evidence (not tasks ACCEPT). No self-ACCEPT. Awaiting Codex final acceptance."
 }

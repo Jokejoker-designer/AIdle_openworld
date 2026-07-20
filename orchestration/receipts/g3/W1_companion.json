@@ -1,0 +1,286 @@
+{
+  "agent_step_id": "G3-001-W1-companion-2026-07-20",
+  "agent_type": "aidle-companion",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "wave": "W1_DOMAIN_PATCH",
+    "profile": "companion",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "G3 text-only onboarding presentation: AGM Decision dialogue lines + quest_operations fold into presentable soft state via CompanionG3OnboardingPresenter.apply_decision → {dialogue_lines, quest_summaries, mood_delta}. Companion still has no commit tool and never performs durable world mutation. Personality drift caps and inspect/lock/reset/delete remain intact. TTS/STT/voice not introduced.",
+    "artifacts": [
+      "game/scripts/modules/companion/g3_onboarding_presenter.gd",
+      "game/scripts/modules/companion/companion_module.gd",
+      "game/scripts/modules/companion/agm_decision_applier.gd",
+      "orchestration/receipts/g3/W1_companion.json"
+    ],
+    "owned_writes_only": [
+      "game/scripts/modules/companion/companion_module.gd",
+      "game/scripts/modules/companion/agm_decision_applier.gd",
+      "game/scripts/modules/companion/g3_onboarding_presenter.gd",
+      "orchestration/receipts/g3/W1_companion.json"
+    ],
+    "acceptance_mapped": {
+      "text_only_dialogue_and_quest_presentation": true,
+      "apply_decision_returns_dialogue_lines_quest_summaries_mood_delta": true,
+      "no_commit_tool": true,
+      "no_durable_world_mutation": true,
+      "personality_drift_caps_intact": true,
+      "inspect_lock_reset_delete_intact": true,
+      "no_tts_stt_voice": true,
+      "fixture_shape_reference": "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json"
+    },
+    "exported_apis_for_w2_executor": {
+      "note": "W2 executor / G3 coordinator should call these; Companion never confirms or World-Commits.",
+      "CompanionG3OnboardingPresenter": {
+        "class_name": "CompanionG3OnboardingPresenter",
+        "path": "game/scripts/modules/companion/g3_onboarding_presenter.gd",
+        "methods": {
+          "apply_decision": {
+            "signature": "apply_decision(decision_dict: Dictionary) -> Dictionary",
+            "returns_required_keys": [
+              "ok",
+              "dialogue_lines",
+              "quest_summaries",
+              "mood_delta"
+            ],
+            "returns_extra_keys": [
+              "mood_reason",
+              "relationship_delta",
+              "expression",
+              "emotional_mood",
+              "status_banner",
+              "onboarding_quest_id",
+              "event_notes",
+              "next_trigger",
+              "text_only",
+              "committed",
+              "durable_mutation",
+              "decision_id"
+            ],
+            "side_effects": "Soft presentation board only; does not project world_prompts; does not mark decision_id applied via AGM applier project()"
+          },
+          "format_from_projected": {
+            "signature": "format_from_projected(projected: Dictionary) -> Dictionary",
+            "use": "After CompanionAgmDecisionApplier.project / CompanionModule.apply_agm_decision"
+          },
+          "get_last_presentation": "() -> Dictionary",
+          "get_dialogue_lines": "() -> Array",
+          "get_quest_summaries": "() -> Array",
+          "get_mood_delta": "() -> float",
+          "get_quest_board": "() -> Dictionary",
+          "inspect_presentation_text": "() -> String",
+          "clear_presentation": "() -> void",
+          "set_applier": "(applier: CompanionAgmDecisionApplier) -> void",
+          "set_live_snapshot_id": "(snapshot_id: String) -> void"
+        }
+      },
+      "CompanionModule": {
+        "class_name": "CompanionModule",
+        "path": "game/scripts/modules/companion/companion_module.gd",
+        "methods": {
+          "set_live_snapshot_id": "(snapshot_id: String) -> void — bind live snapshot for stale rejection",
+          "apply_agm_decision": "(envelope: Dictionary) -> Dictionary — validate+project soft effects + pending SWP; attaches onboarding_presentation; committed=false",
+          "present_g3_onboarding_decision": "(envelope: Dictionary) -> Dictionary — preferred G3 entry: apply_agm_decision + presentation {dialogue_lines, quest_summaries, mood_delta, agm_result}",
+          "present_g3_decision_text_only": "(envelope: Dictionary) -> Dictionary — presentation-only path without elevating build proposals / without project() apply mark",
+          "get_last_onboarding_presentation": "() -> Dictionary",
+          "get_g3_onboarding_presenter": "() -> CompanionG3OnboardingPresenter",
+          "get_quest_summaries": "() -> Array",
+          "get_quest_notes": "() -> Array",
+          "get_last_agm_result": "() -> Dictionary",
+          "get_agm_applier": "() -> CompanionAgmDecisionApplier",
+          "inspect_personality": "() -> Dictionary — unchanged",
+          "lock_trait / unlock_trait / reset_personality / delete_adaptation_history": "unchanged",
+          "has_commit_tool": "() -> bool — always false",
+          "list_tools": "() -> Array — all commits=false mutates_world=false"
+        },
+        "signals": [
+          "agm_decision_applied(result)",
+          "agm_decision_rejected(errors, decision_id)",
+          "g3_onboarding_presented(presentation)",
+          "proposal_ready(proposal)",
+          "chat_message(role, text)",
+          "personality_control(action, detail)"
+        ],
+        "text_commands": [
+          "/inspect",
+          "/lock <trait>",
+          "/unlock <trait>",
+          "/reset",
+          "/delete",
+          "/tools",
+          "/agm",
+          "/onboarding|/g3|/quests",
+          "/gift"
+        ]
+      },
+      "CompanionAgmDecisionApplier": {
+        "class_name": "CompanionAgmDecisionApplier",
+        "path": "game/scripts/modules/companion/agm_decision_applier.gd",
+        "methods": {
+          "validate": "(envelope) -> {ok, errors}",
+          "project": "(envelope, builder) -> projected; now includes quest_summaries[]; text_only=true; committed=false; never durable",
+          "summarize_quest_operation": "static (q: Dictionary) -> Dictionary {quest_id, op, title, objective_summary, reason, display_status, status_text}",
+          "quest_status_text": "static (summary: Dictionary) -> String",
+          "expression_to_mood": "static (expression: String) -> String",
+          "set_live_snapshot_id": "(snapshot_id: String) -> void",
+          "was_applied / clear_applied_history / get_applied_ids": "replay policy helpers"
+        },
+        "quest_display_status_map": {
+          "offer": "offered",
+          "update_objective": "active",
+          "mark_ready": "ready",
+          "complete": "completed",
+          "fail": "failed",
+          "cancel": "cancelled"
+        }
+      },
+      "recommended_w2_sequence": [
+        "1. companion.set_live_snapshot_id(snapshot.snapshot_id) using valid_snapshot_desktop_bridge.json",
+        "2. companion.present_g3_onboarding_decision(valid_decision_desktop_bridge.json) → dialogue + quest offer onboarding_first_home",
+        "3. companion.present_g3_onboarding_decision(valid_decision_with_build_proposal.json) → quest update + pending cozy_house_small SWP",
+        "4. Executor owns preview→confirm→commit handoff stub; Companion must not confirm_prompt",
+        "5. Cancel/undo receipts remain executor-owned (W0_persist evidence contract)"
+      ],
+      "presentation_shape_example": {
+        "ok": true,
+        "text_only": true,
+        "committed": false,
+        "durable_mutation": false,
+        "decision_id": "22222222-2222-4222-8222-222222222222",
+        "dialogue_lines": [
+          {
+            "speaker": "companion",
+            "text": "Let's start small — plant a seed on the farm plot and claim your first home light."
+          }
+        ],
+        "quest_summaries": [
+          {
+            "quest_id": "onboarding_first_home",
+            "op": "offer",
+            "title": "First Light at Home",
+            "objective_summary": "Visit the farm plot and acknowledge the house placeholder.",
+            "display_status": "offered",
+            "status_text": "Offered: First Light at Home — Visit the farm plot and acknowledge the house placeholder."
+          }
+        ],
+        "mood_delta": 0.02,
+        "expression": "warm",
+        "emotional_mood": "soft",
+        "onboarding_quest_id": "onboarding_first_home"
+      }
+    },
+    "invariants_preserved": {
+      "has_commit_tool": false,
+      "build_proposals_confirmation_state": "pending",
+      "build_proposals_preview_required": true,
+      "build_proposals_routes_through": "preview_confirm_commit",
+      "mood_delta_cap": "[-0.1, 0.1]",
+      "relationship_delta_cap": "[-0.05, 0.05]",
+      "personality_max_delta_per_turn": 0.005,
+      "personality_max_delta_per_day": 0.03,
+      "personality_max_distance_from_base": 0.25,
+      "forbidden_fields_rejected": [
+        "commit_request",
+        "durable_mutation",
+        "tts_audio",
+        "voice_sample",
+        "script",
+        "code",
+        "api_key"
+      ]
+    },
+    "w0_handoffs_consumed": [
+      "orchestration/receipts/g3/W0_schema.json — decision envelope required fields + onboarding fixture mapping",
+      "orchestration/receipts/g3/W0_network.json — companion cannot durable mutate; dual soft-apply residual risk noted",
+      "orchestration/receipts/g3/W0_persist.json — soft AGM effects are non-canonical; cancel/undo owned by W2 executor"
+    ],
+    "residual_risks": [
+      {
+        "id": "RR-COMP-G3-01",
+        "severity": "medium",
+        "detail": "Dual soft-apply (Companion.apply_agm_decision vs Executor.execute_decision) can double dialogue/quest/mood if W2 wires both without a single coordinator (W0_network RR-NET-02)."
+      },
+      {
+        "id": "RR-COMP-G3-02",
+        "severity": "low",
+        "detail": "present_g3_decision_text_only does not mark decision_id applied; callers must not treat it as full AGM apply. Prefer present_g3_onboarding_decision for the vertical slice."
+      },
+      {
+        "id": "RR-COMP-G3-03",
+        "severity": "low",
+        "detail": "Quest board is session soft UI state only — not snapshot.quests authority and not durable persistence (G4)."
+      }
+    ],
+    "not_done": [
+      "Did not edit executor/manifestation/core/asset (out of ownership)",
+      "Did not write G3-001 parent receipt or E2E smoke (W2)",
+      "Did not edit contracts, tasks.json, architecture",
+      "Did not add TTS/STT/voice or network AI provider",
+      "Did not self-ACCEPT"
+    ],
+    "product_writes": 3,
+    "receipt_write": "orchestration/receipts/g3/W1_companion.json"
+  },
+  "smoke_test": {
+    "executed": false,
+    "reason": "W1 companion domain patch only; headless smoke extension reserved — existing G2-003 godot smoke still valid for AGM applier/personality; G3 E2E owned by W2 executor",
+    "static_checks": [
+      "CompanionG3OnboardingPresenter.apply_decision shape matches mission contract",
+      "has_commit_tool remains false via CompanionWorldPromptBuilder",
+      "valid_decision_desktop_bridge.json fields map to dialogue_lines + quest offer + mood_delta 0.02"
+    ],
+    "referenced_prior_smoke": [
+      "game/scripts/modules/companion/smoke_g2_003.py",
+      "game/scripts/modules/companion/companion_headless_smoke.gd"
+    ],
+    "recommended_w2_command": "Godot headless E2E via executor g3 smoke assembling snapshot→decision→present→preview→confirm stub→cancel/undo"
+  },
+  "self_audit": {
+    "authority_token": "PATCH_DRAFT",
+    "allowed_write_paths_only": true,
+    "writes": [
+      "game/scripts/modules/companion/companion_module.gd",
+      "game/scripts/modules/companion/agm_decision_applier.gd",
+      "game/scripts/modules/companion/g3_onboarding_presenter.gd",
+      "orchestration/receipts/g3/W1_companion.json"
+    ],
+    "did_not_edit_executor": true,
+    "did_not_edit_manifestation": true,
+    "did_not_edit_core": true,
+    "did_not_edit_contracts": true,
+    "did_not_edit_tasks_or_directive": true,
+    "did_not_edit_architecture": true,
+    "no_nested_subagents": true,
+    "no_children": true,
+    "no_tts_stt_voice_mic": true,
+    "no_commit_tool": true,
+    "no_durable_world_mutation": true,
+    "no_api_sdk_credentials": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G3-001, G3-001_DISPATCH_MAP, W0 receipts, companion modules, valid_decision_desktop_bridge.json manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001.md",
+    "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g3/W0_schema.json",
+    "orchestration/receipts/g3/W0_network.json",
+    "orchestration/receipts/g3/W0_persist.json",
+    "contracts/agm/decision_envelope.schema.json",
+    "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json",
+    "contracts/fixtures/agm/valid/valid_decision_with_build_proposal.json",
+    "contracts/personality_profile.schema.json",
+    "game/scripts/modules/companion/g3_onboarding_presenter.gd",
+    "game/scripts/modules/companion/companion_module.gd",
+    "game/scripts/modules/companion/agm_decision_applier.gd",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "Agents.md"
+  ],
+  "next_route": "W2"
+}

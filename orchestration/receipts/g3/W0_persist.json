@@ -1,0 +1,306 @@
+{
+  "agent_step_id": "G3-001-W0-persist-2026-07-20",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "wave": "W0_VERIFY",
+    "profile": "persist",
+    "work_order": "orchestration/work_orders/WO-G3-001.md",
+    "dispatch_map": "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "state": "HANDOFF_TO_W1",
+    "self_accept": false,
+    "summary": "W0_VERIFY (persist): defined deterministic cancel and undo EVIDENCE requirements for G3 vertical slice without implementing G4 persistence. Cancel-before-complete means no canonical durable mutation (preview-only teardown). Undo is a compensating-mutation receipt stub that never erases history. Entity hash / append-only log / save-reload deferred to G4-001.",
+    "scope": {
+      "in_scope": [
+        "Evidence field contracts for complete / cancel / undo smoke exports",
+        "Semantic definition of no canonical durable mutation on cancel",
+        "Undo as compensating mutation (not history erase) for G3 stub path",
+        "Pointers to existing G2 pipeline + manifestation cancel invariants"
+      ],
+      "out_of_scope": [
+        "G4 append-only mutation log, snapshots, chunk/object storage",
+        "Entity content hashes after save/reload",
+        "Live World Commit service invocation",
+        "Product code, contracts, architecture, tasks.json edits",
+        "Implementing undo apply logic in game modules (W2 executor owns smoke exports)"
+      ]
+    },
+    "definitions": {
+      "canonical_durable_mutation": {
+        "meaning": "A successful World Commit service mutation that advances authoritative world state: new_world_revision > old_world_revision, entity_ids assigned, artifact_hashes recorded, and (online) outbox event world.mutation_committed published. Sole mutator is world_commit_service (ARCHITECTURE_LOCK + commit_policy).",
+        "not_canonical": [
+          "AGM Decision soft effects (dialogue, quest objective text, mood/relationship deltas within executor caps)",
+          "Schema-valid World Prompt proposals and preview geometry",
+          "Manifestation stages wireframe|hologram|materializing (non-durable collision)",
+          "commit_request handoff stubs and synthetic commit_receipt_stub with status rejected/policy",
+          "Local UI/session pipeline records (pipeline_stage, confirmation pending)"
+        ]
+      },
+      "cancel_before_complete_no_canonical_durable_mutation": {
+        "authority": [
+          "AIdle_Openworld_Blueprint_v1.1/05_Authority_and_Multiplayer.md: Cancellation before commit removes preview only",
+          "AIdle_Openworld_Blueprint_v1.1/06_Progressive_Construction_Spec.md: Preview stages never create durable ownership or collision authority",
+          "contracts/commit/commit_policy.md: only World Commit mutates durable online state",
+          "game/scripts/modules/executor/prompt_pipeline.gd: durable_mutation_applied always false; cancel sets pipeline_stage cancelled",
+          "game/scripts/modules/manifestation/*: cancel/free_cleanup leaves no durable collision"
+        ],
+        "required_meaning_for_G3": [
+          "Cancel may occur at any stage before an authoritative committed receipt exists (G3: before or without live World Commit; after handoff stub still durable_mutation_applied=false).",
+          "After cancel: pipeline_stage == cancelled; durable_mutation_applied == false.",
+          "After cancel: no world_revision bump is asserted or simulated as committed.",
+          "After cancel: no entity_ids from this prompt remain as durable world entities.",
+          "After cancel: manifestation has_durable_collision == false and preview nodes are freed (no orphan StaticBody/CollisionShape).",
+          "After cancel: no commit_request is treated as applied; if a handoff stub existed it remains non-authoritative (stub / rejected / not invoked).",
+          "Cancel is NOT a compensating mutation and does NOT require mutation_class compensating. Cancel removes preview only; it does not rewrite or delete a prior commit log entry (there is none).",
+          "Idempotent re-cancel returns ok with pipeline_stage cancelled and still durable_mutation_applied false."
+        ],
+        "forbidden_on_cancel_path": [
+          "status committed or idempotent_replay on any real/authoritative commit receipt for this prompt",
+          "new_world_revision advancement attributed to this prompt",
+          "client_authoritative durable write to inventory/ownership/economy/world store",
+          "Leaving preview collision enabled after cancel"
+        ]
+      },
+      "undo_as_compensating_mutation_not_history_erase": {
+        "authority": [
+          "AIdle_Openworld_Blueprint_v1.1/05_Authority_and_Multiplayer.md: Undo creates a compensating mutation; history is not erased",
+          "AIdle_Openworld_Blueprint_v1.1/Interfaces/Event_Bus.md: world.mutation_committed|compensated|conflicted",
+          "contracts/commit/commit_request.schema.json: mutation_class enum includes compensating",
+          "contracts/commit/commit_receipt.schema.json: receipts are outcomes; no erase API"
+        ],
+        "required_meaning_for_G3": [
+          "Undo NEVER deletes, mutates-in-place, or redacts a prior complete/commit receipt. Prior receipt_id remains referenceable.",
+          "Undo is modeled as a NEW compensating request + receipt (or export stub of that shape) that reverses effects of a prior successful complete path.",
+          "Compensating request uses mutation_class = compensating, a NEW request_id (idempotency key), and links to the prior commit via prior_receipt_id and/or prior_request_id and/or compensated_entity_ids.",
+          "G3 vertical slice: live World Commit is NOT invoked. Undo smoke produces a compensating receipt STUB with durable_mutation_applied false (or equivalent stub flag), proving shape and non-erase semantics without G4 log append.",
+          "If G3 complete path itself is only a handoff stub (no real commit), undo may still emit a compensating stub that references the complete-path export receipt_id; smoke must assert history_preserved == true and no prior receipt file deleted.",
+          "Event intent (documentary for G3, not required bus publish): world.mutation_compensated would carry new world_revision only when a real commit service applies compensation (G4+)."
+        ],
+        "forbidden_on_undo_path": [
+          "Deleting or overwriting complete/cancel export files as 'undo'",
+          "Setting prior receipt status to cancelled retroactively",
+          "Silent client-side entity delete without a compensating receipt record",
+          "Claiming G4 save/reload hash equality in G3 (deferred)"
+        ]
+      }
+    },
+    "smoke_export_locations": {
+      "owner": "W2 executor (PATCH_DRAFT)",
+      "directory": "game/scripts/modules/executor/exports/",
+      "required_files": [
+        "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+        "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+        "game/scripts/modules/executor/exports/g3_undo_receipt.json"
+      ],
+      "note": "Filenames may match dispatcher alternate naming if documented in W2 receipt, but three distinct deterministic artifacts are mandatory. Parent may collate into orchestration/receipts/G3-001.json smoke section."
+    },
+    "required_receipt_fields": {
+      "common_all_three": {
+        "schema_version": "string (export local version e.g. g3_slice/1.0.0 or commit 1.0.0 when shaping to commit_receipt)",
+        "receipt_kind": "enum: complete | cancel | undo",
+        "receipt_id": "uuid",
+        "request_id": "uuid (idempotency key for this operation)",
+        "prompt_id": "uuid of World Prompt under test",
+        "space_id": "string (e.g. home_01 / starter realm space)",
+        "occurred_at": "ISO-8601 date-time",
+        "trace_id": "string for correlation across snapshot → decision → prompt → receipt",
+        "durable_mutation_applied": "boolean — for G3 slice must be false on cancel and undo stubs; complete path documents handoff vs real commit",
+        "world_commit_invoked": "boolean — G3 must be false (handoff stub only)",
+        "slice": "const g3_onboarding_vertical"
+      },
+      "complete_smoke": {
+        "purpose": "Player confirmed preview; manifestation reached complete; commit handoff prepared (not live commit).",
+        "required_fields": {
+          "receipt_kind": "complete",
+          "pipeline_stage": "commit_handoff_stubbed | complete (document which executor uses)",
+          "confirmation": {
+            "preview_required": true,
+            "state": "confirmed",
+            "confirmed_by": "player id string"
+          },
+          "manifestation": {
+            "final_stage": "complete",
+            "stages_observed": ["wireframe", "hologram", "materializing", "complete"],
+            "has_durable_collision": true
+          },
+          "commit_request": "object shaped for contracts/commit/commit_request.schema.json (handoff)",
+          "commit_receipt_stub": {
+            "status": "rejected | (documented stub) — not committed in G3",
+            "authority.commit_path": "world_commit_service",
+            "rejection or stub reason": "World Commit not invoked / policy handoff",
+            "durable_mutation_applied": false
+          },
+          "durable_mutation_applied": false,
+          "world_commit_invoked": false,
+          "expected_world_revision": "integer from World Prompt target (recorded, not advanced by client)",
+          "entity_recipe_id": "e.g. cozy_house_small",
+          "source_snapshot_id": "uuid",
+          "decision_id": "uuid of AGM onboarding decision"
+        },
+        "assertions": [
+          "World Prompt validated against contracts/world_prompt.schema.json before confirm",
+          "Cannot complete without explicit confirmation",
+          "commit_request.authority.commit_path == world_commit_service",
+          "commit_request.authority.source != client_authoritative",
+          "No live durable store write"
+        ]
+      },
+      "cancel_smoke": {
+        "purpose": "Abort before authoritative complete/commit; preview torn down; zero durable mutation.",
+        "required_fields": {
+          "receipt_kind": "cancel",
+          "pipeline_stage": "cancelled",
+          "status": "cancelled",
+          "cancel_reason": "non-empty string (e.g. player_cancel | abort_before_complete)",
+          "cancelled_at": "ISO-8601",
+          "cancelled_during_stage": "wireframe | hologram | materializing (recommended: hologram per blueprint MVP)",
+          "manifestation": {
+            "final_stage": "cancelled | absent",
+            "has_durable_collision": false,
+            "orphan_collision_count": 0
+          },
+          "durable_mutation_applied": false,
+          "world_commit_invoked": false,
+          "entity_ids_durable": [],
+          "world_revision_advanced": false,
+          "commit_receipt_status_if_any": "none | rejected stub only — never committed"
+        },
+        "assertions": [
+          "has_durable_collision false after cancel",
+          "No orphan collision bodies for prompt_id",
+          "Re-cancel is idempotent and still durable_mutation_applied false",
+          "Confirm after cancel fails (prompt cancelled)",
+          "Does not emit compensating mutation_class (cancel != undo)"
+        ]
+      },
+      "undo_smoke": {
+        "purpose": "Demonstrate compensating-mutation receipt stub after a complete-path export; history preserved.",
+        "required_fields": {
+          "receipt_kind": "undo",
+          "mutation_class": "compensating",
+          "status": "compensating_stub | compensated (stub only in G3)",
+          "request_id": "NEW uuid (not equal to prior complete request_id)",
+          "receipt_id": "NEW uuid",
+          "prior_receipt_id": "uuid of complete smoke receipt (required link)",
+          "prior_request_id": "uuid of complete path request (required link)",
+          "compensated_prompt_id": "same prompt_id or documented inverse prompt",
+          "compensated_entity_ids": "array (may be empty or synthetic ids in G3 stub)",
+          "history_erased": false,
+          "history_preserved": true,
+          "prior_complete_receipt_still_exists": true,
+          "durable_mutation_applied": false,
+          "world_commit_invoked": false,
+          "world_revision_advanced": false,
+          "note": "G3 stub only — real compensation commit + revision bump is G4 / live World Commit"
+        },
+        "assertions": [
+          "prior complete export file still readable after undo export written",
+          "undo request_id != prior_request_id",
+          "mutation_class == compensating",
+          "history_erased == false",
+          "No claim of entity content-hash equality (G4)",
+          "No deletion of append-only history (none implemented yet; stub must not simulate erase)"
+        ]
+      }
+    },
+    "g4_deferrals": {
+      "task": "G4-001 Deterministic save/reload and compensation",
+      "deferred_items": [
+        "Append-only mutation log + snapshots + chunk/object storage (ARCHITECTURE_LOCK persistence)",
+        "Entity content hashes stable across save/reload (tasks.json G4 acceptance)",
+        "Duplicate request_id must not create duplicate durable entities (idempotent_replay with prior_receipt_id)",
+        "Real new_world_revision / old_world_revision on committed and compensated receipts",
+        "artifact_hashes[] on committed receipts (sha256 roles)",
+        "Offline Private Reality local signed journal reconcile (offline_journal_reconcile)",
+        "Transactional outbox publish of world.mutation_committed / world.mutation_compensated after real commit"
+      ],
+      "g3_must_not": [
+        "Implement G4 persistence modules under guise of cancel/undo evidence",
+        "Claim ACCEPTED multiplayer or durable ownership from slice stubs",
+        "Edit contracts/commit/* to invent erase semantics"
+      ]
+    },
+    "reuse_from_g2": {
+      "executor_pipeline": "game/scripts/modules/executor/prompt_pipeline.gd (submit/confirm/cancel; durable_mutation_applied false)",
+      "existing_exports": [
+        "game/scripts/modules/executor/exports/execution_receipt_build.json",
+        "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+        "game/scripts/modules/executor/exports/world_prompt_from_build.json"
+      ],
+      "manifestation_cancel": "game/scripts/modules/manifestation/manifestation_smoke.gd cancel checks; allows_durable_collision only at complete",
+      "commit_receipt_schema": "contracts/commit/commit_receipt.schema.json (status committed|idempotent_replay|rejected|conflicted)",
+      "commit_request_schema": "contracts/commit/commit_request.schema.json (mutation_class durable_world|compensating|offline_reconcile)"
+    },
+    "w1_w2_handoff_notes": {
+      "W1": "Domain writers must not invent durable stores. Manifestation keeps cancel cleanup + collision gate. Companion/asset proposals remain non-mutators.",
+      "W2_executor": [
+        "Own transaction coordinator + E2E smoke producing the three export receipts",
+        "Wire complete → confirm → handoff stub; cancel mid-preview; undo compensating stub after complete export",
+        "Assert durable_mutation_applied and world_commit_invoked per this contract",
+        "Do not implement G4 log/hash/reload"
+      ],
+      "W3_purple": "Challenge that cancel leaves no durable collision/entities and that undo is compensating stub not history erase"
+    },
+    "product_writes": 0,
+    "only_write": "orchestration/receipts/g3/W0_persist.json"
+  },
+  "smoke_test": {
+    "type": "verify_only_document_contract",
+    "executable_smoke_run": false,
+    "reason": "W0_VERIFY persist defines evidence requirements only; executable complete/cancel/undo smoke is W2 executor ownership",
+    "downstream_required_markers": [
+      "G3 complete export with durable_mutation_applied=false and world_commit_invoked=false",
+      "G3 cancel export with has_durable_collision=false and world_revision_advanced=false",
+      "G3 undo export with mutation_class=compensating, history_erased=false, prior_receipt_id set"
+    ],
+    "related_existing_evidence": [
+      "G2-006 pipeline_no_durable_on_confirm / commit_handoff_stub_no_durable_mutation",
+      "G2-002 cancel / free_cleanup leaves no durable collision"
+    ]
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g3/W0_persist.json"],
+    "no_product_code_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_codex_directive_edit": true,
+    "no_g4_persistence_implementation": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G3-001, DISPATCH_MAP, commit contracts, blueprint 05/06/Event_Bus, executor exports manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001.md",
+    "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "contracts/commit/commit_receipt.schema.json",
+    "contracts/commit/commit_request.schema.json",
+    "contracts/commit/commit_policy.md",
+    "AIdle_Openworld_Blueprint_v1.1/05_Authority_and_Multiplayer.md",
+    "AIdle_Openworld_Blueprint_v1.1/06_Progressive_Construction_Spec.md",
+    "AIdle_Openworld_Blueprint_v1.1/Interfaces/Event_Bus.md",
+    "AIdle_Openworld_Blueprint_v1.1/Interfaces/Common_Contracts.md",
+    "game/scripts/modules/executor/prompt_pipeline.gd",
+    "game/scripts/modules/executor/exports/execution_receipt_build.json",
+    "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+    "game/scripts/modules/manifestation/manifestation_stages.gd",
+    "orchestration/receipts/G2-006.json",
+    "orchestration/receipts/G2-002.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "W2 may invent alternate export field names — purple must map them to this contract",
+    "commit_receipt.schema.json has no dedicated status compensated; G3 uses export-local receipt_kind/status until G4 or contract extension under separate WO",
+    "If complete path is only a stub, undo compensation is semantic demonstration only; G4 must re-bind to real revisions",
+    "Soft AGM effects (mood/quest) on cancel/undo policy not fully specified — recommend cancel leaves soft effects as session-only unless separate WO"
+  ],
+  "next_route": "W1"
+}

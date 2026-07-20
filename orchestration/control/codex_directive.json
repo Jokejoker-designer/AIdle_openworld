@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
-  "directive_id": 10,
-  "issued_at": "2026-07-20T23:24:00+07:00",
+  "directive_id": 11,
+  "issued_at": "2026-07-21T00:18:00+07:00",
   "issued_by": "codex",
   "state": "EXECUTE",
-  "milestone": "G3 AGM onboarding vertical slice",
+  "milestone": "G3 revision binding and test-honesty correction",
   "architecture_decisions": [
     "Blueprint v1.1 is the source of truth",
     "MVP is fixed-angle 2.5D",
@@ -16,8 +16,8 @@
   "permitted_task_ids": ["G3-001"],
   "required_workflow": {
     "parent_session": "existing Grok Desktop conductor only",
-    "subagent_profiles": ["schema", "network", "persist", "core", "manifestation", "companion", "asset", "executor"],
-    "wave_order": ["W0_VERIFY", "W1_DOMAIN_PATCH", "W2_EXECUTOR_INTEGRATE", "W3_PURPLE_REVIEW"],
+    "subagent_profiles": ["schema", "executor", "persist", "network"],
+    "wave_order": ["C0_SCHEMA_VERIFY", "C1_EXECUTOR_PATCH", "C2_PERSIST_VERIFY", "C3_NETWORK_PURPLE"],
     "one_writer_per_file": true,
     "step_contract_per_subagent": true,
     "parent_may_self_accept": false
@@ -36,5 +36,5 @@
     "adversarial review",
     "remaining risks"
   ],
-  "supersedes_directive_id": 9
+  "supersedes_directive_id": 10
 }

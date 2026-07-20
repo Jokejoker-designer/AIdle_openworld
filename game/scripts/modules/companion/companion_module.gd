@@ -1,6 +1,7 @@
-## Agent-Companion module (G2-003 AGM rework): text-only + AGM Decision Envelope consumer.
+## Agent-Companion module (G2-003 AGM + G3-001 onboarding presenter): text-only.
 ## Produces schema-valid World Prompt proposals. NO commit / NO durable world mutation.
 ## AGM dialogue/proposals are untrusted until validated; Companion never invents world truth.
+## G3: presents dialogue lines + quest_operations as soft text state only.
 ## Never calls Voxel. May hand proposals to Executor.submit_prompt when available
 ## (Executor owns pipeline; Companion does not commit).
 class_name CompanionModule
@@ -13,6 +14,7 @@ signal chat_message(role: String, text: String)
 signal personality_control(action: String, detail: Dictionary)
 signal agm_decision_applied(result: Dictionary)
 signal agm_decision_rejected(errors: PackedStringArray, decision_id: String)
+signal g3_onboarding_presented(presentation: Dictionary)
 
 @export var companion_id: String = "companion_lumi"
 @export var player_id: String = "player_01"
@@ -22,6 +24,7 @@ signal agm_decision_rejected(errors: PackedStringArray, decision_id: String)
 var _personality: CompanionPersonalityProfile
 var _builder: CompanionWorldPromptBuilder
 var _agm: CompanionAgmDecisionApplier
+var _g3_presenter: CompanionG3OnboardingPresenter
 var _mood: String = "calm"
 var _player: Node3D
 var _last_proposal: Dictionary = {}
@@ -29,6 +32,7 @@ var _proposals: Array = []
 var _chat_log: Array = []
 var _spawned: bool = false
 var _last_agm_result: Dictionary = {}
+var _last_onboarding_presentation: Dictionary = {}
 var _quest_notes: Array = []
 var _event_notes: Array = []
 var _next_trigger: Dictionary = {}
@@ -57,10 +61,14 @@ func is_stub() -> bool:
 
 
 func get_status() -> String:
-	return "Companion online | mood=%s | proposals=%d | agm=%d | rev=%d" % [
+	var quest_n := 0
+	if _g3_presenter != null:
+		quest_n = _g3_presenter.get_quest_summaries().size()
+	return "Companion online | mood=%s | proposals=%d | agm=%d | quests=%d | rev=%d | text_only" % [
 		_mood,
 		_proposals.size(),
 		_agm.get_applied_ids().size() if _agm else 0,
+		quest_n,
 		_personality.revision,
 	]
 
@@ -125,6 +133,8 @@ func set_live_snapshot_id(snapshot_id: String) -> void:
 	_live_snapshot_id = snapshot_id
 	_ensure_logic_state()
 	_agm.set_live_snapshot_id(snapshot_id)
+	if _g3_presenter != null:
+		_g3_presenter.set_live_snapshot_id(snapshot_id)
 
 
 ## Apply a provider-neutral AGM Decision Envelope after schema-informed validation.
@@ -195,6 +205,13 @@ func apply_agm_decision(envelope: Dictionary) -> Dictionary:
 	if projected.get("next_trigger") is Dictionary:
 		_next_trigger = (projected["next_trigger"] as Dictionary).duplicate(true)
 
+	# G3 text-only onboarding presentation (dialogue + quest summaries + mood_delta).
+	var presentation := _g3_presenter.format_from_projected(projected)
+	_last_onboarding_presentation = presentation.duplicate(true)
+	projected["onboarding_presentation"] = presentation
+	projected["quest_summaries"] = presentation.get("quest_summaries", [])
+	g3_onboarding_presented.emit(presentation)
+
 	projected["world_prompts"] = stored_prompts
 	projected["applied_by"] = companion_id
 	projected["text_only"] = true
@@ -213,6 +230,60 @@ func apply_agm_decision(envelope: Dictionary) -> Dictionary:
 	return _last_agm_result.duplicate(true)
 
 
+## G3 entry: present + apply AGM onboarding decision as text state only.
+## Same authority as apply_agm_decision (no commit / no durable mutation).
+## Returns { dialogue_lines, quest_summaries, mood_delta, ... } from presenter,
+## with full projected AGM result under "agm_result".
+func present_g3_onboarding_decision(envelope: Dictionary) -> Dictionary:
+	_ensure_logic_state()
+	var applied := apply_agm_decision(envelope)
+	if not bool(applied.get("ok", false)):
+		return {
+			"ok": false,
+			"errors": applied.get("errors", PackedStringArray()),
+			"dialogue_lines": [],
+			"quest_summaries": [],
+			"mood_delta": 0.0,
+			"text_only": true,
+			"committed": false,
+			"durable_mutation": false,
+			"decision_id": str(applied.get("decision_id", "")),
+			"agm_result": applied,
+		}
+	var presentation: Dictionary = applied.get("onboarding_presentation", {}) as Dictionary
+	if presentation.is_empty():
+		presentation = _g3_presenter.get_last_presentation()
+	presentation = presentation.duplicate(true)
+	presentation["agm_result"] = applied
+	presentation["world_prompt_count"] = (applied.get("world_prompts", []) as Array).size()
+	return presentation
+
+
+## Present-only path: dialogue/quest/mood text state without elevating build proposals.
+## Does not mark decision applied via project(); use apply_agm_decision for full soft apply.
+func present_g3_decision_text_only(envelope: Dictionary) -> Dictionary:
+	_ensure_logic_state()
+	var presentation := _g3_presenter.apply_decision(envelope)
+	if bool(presentation.get("ok", false)):
+		_last_onboarding_presentation = presentation.duplicate(true)
+		for line_v in presentation.get("dialogue_lines", []):
+			if typeof(line_v) != TYPE_DICTIONARY:
+				continue
+			var line: Dictionary = line_v
+			var speaker := str(line.get("speaker", "companion"))
+			var text := str(line.get("text", ""))
+			if text.is_empty():
+				continue
+			if speaker == "companion":
+				_append_chat("companion", _style_reply(text))
+			elif speaker == "narrator":
+				_append_chat("narrator", text)
+			else:
+				_append_chat("npc:%s" % str(line.get("npc_id", "npc")), text)
+		g3_onboarding_presented.emit(presentation)
+	return presentation.duplicate(true)
+
+
 func _ensure_logic_state() -> void:
 	if _personality == null:
 		_personality = CompanionPersonalityProfile.new(companion_id)
@@ -229,16 +300,35 @@ func _ensure_logic_state() -> void:
 		})
 	if _agm == null:
 		_agm = CompanionAgmDecisionApplier.new()
+	if _g3_presenter == null:
+		_g3_presenter = CompanionG3OnboardingPresenter.new(_agm)
+	else:
+		_g3_presenter.set_applier(_agm)
 	if not _live_snapshot_id.is_empty():
 		_agm.set_live_snapshot_id(_live_snapshot_id)
+		_g3_presenter.set_live_snapshot_id(_live_snapshot_id)
 
 
 func get_last_agm_result() -> Dictionary:
 	return _last_agm_result.duplicate(true)
 
 
+func get_last_onboarding_presentation() -> Dictionary:
+	return _last_onboarding_presentation.duplicate(true)
+
+
+func get_g3_onboarding_presenter() -> CompanionG3OnboardingPresenter:
+	_ensure_logic_state()
+	return _g3_presenter
+
+
 func get_quest_notes() -> Array:
 	return _quest_notes.duplicate(true)
+
+
+func get_quest_summaries() -> Array:
+	_ensure_logic_state()
+	return _g3_presenter.get_quest_summaries()
 
 
 func get_event_notes() -> Array:
@@ -405,6 +495,11 @@ func receive_message(text: String) -> String:
 		]
 		_append_chat("companion", agm_msg)
 		return agm_msg
+	if lower == "/onboarding" or lower == "/g3" or lower == "/quests":
+		_ensure_logic_state()
+		var onboard_msg := _g3_presenter.inspect_presentation_text()
+		_append_chat("companion", onboard_msg)
+		return onboard_msg
 	if lower.begins_with("/gift"):
 		var gift_proposal := propose_gift()
 		var msg_g := "Gift proposal pending: %s" % str(gift_proposal.get("prompt_id", "failed"))
@@ -421,7 +516,7 @@ func receive_message(text: String) -> String:
 		return str(last_entry.get("text", ""))
 
 	var fallback := _style_reply(
-		"Mình nghe bạn đây (text-only, AGM-driven). Gõ ý định xây ('xây nhà'), /inspect, /lock warmth, /reset, /delete, /tools, /agm."
+		"Mình nghe bạn đây (text-only, AGM-driven). Gõ ý định xây ('xây nhà'), /inspect, /lock warmth, /reset, /delete, /tools, /agm, /onboarding."
 	)
 	_append_chat("companion", fallback)
 	return fallback

@@ -1,0 +1,200 @@
+{
+  "agent_step_id": "G3-001-W1-manifestation-2026-07-20",
+  "agent_type": "aidle-manifestation",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "wave": "W1_DOMAIN_PATCH",
+    "profile": "manifestation",
+    "work_order": "orchestration/work_orders/WO-G3-001.md",
+    "dispatch_map": "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "G3 preview lifecycle integration: start_house_preview(prompt_or_geometry) walks wireframe→hologram→materializing→complete; cancel_preview(prompt_id) tears down with has_durable_collision=false and durable_mutation_applied=false; reduced_motion/skip_animation preserved; g3_preview_bridge.gd thin facade for executor; headless presentation skip retained (no dummy BoxMesh ERROR path).",
+    "scope": {
+      "in_scope": [
+        "House preview lifecycle API on ManifestationModule",
+        "World Prompt → geometry normalization (bounds/transform)",
+        "stages_observed for G3 complete/cancel receipt fields",
+        "g3_preview_bridge.gd facade for W2 executor",
+        "cancel_preview no durable collision"
+      ],
+      "out_of_scope": [
+        "Companion / executor / core UI edits",
+        "World Commit live service",
+        "Contract or architecture edits",
+        "G4 persistence / undo apply",
+        "Voxel digging"
+      ]
+    },
+    "exported_apis_for_w2_executor": {
+      "bridge": {
+        "path": "game/scripts/modules/manifestation/g3_preview_bridge.gd",
+        "class_name": "G3PreviewBridge",
+        "construct": "var bridge = G3PreviewBridge.new(); bridge.resolve(parent_node) or bridge.bind(manifestation_module)",
+        "methods": {
+          "start_house_preview": {
+            "signature": "start_house_preview(prompt_or_geometry: Variant, options: Dictionary = {}) -> Dictionary",
+            "input": "Structured World Prompt dict OR {prompt_id, art_style?, geometry?|bounds|transform|size}",
+            "options": {
+              "auto_advance": "bool default true — walk stages after start",
+              "stop_at_stage": "String optional — halt at stage for cancel demos (e.g. hologram)",
+              "skip_animation": "bool optional temporary override (honours reduced_motion when unset)"
+            },
+            "returns": {
+              "ok": "bool",
+              "prompt_id": "string",
+              "stage": "wireframe|hologram|materializing|complete",
+              "stages_observed": "array of stages entered",
+              "has_durable_collision": "bool — true only at complete",
+              "durable_mutation_applied": "const false (presentation only)",
+              "finalized": "bool",
+              "recipe_id": "string when known"
+            },
+            "stages": ["wireframe", "hologram", "materializing", "complete"]
+          },
+          "cancel_preview": {
+            "signature": "cancel_preview(prompt_id: String, reason: String = \"player_cancel\") -> Dictionary",
+            "returns": {
+              "ok": "bool",
+              "status": "cancelled|already_absent",
+              "has_durable_collision": "const false",
+              "durable_mutation_applied": "const false",
+              "cancelled_during_stage": "stage at cancel time",
+              "stages_observed": "stages entered before cancel"
+            }
+          },
+          "get_preview_snapshot": "get_preview_snapshot(prompt_id) -> Dictionary",
+          "get_stage": "get_stage(prompt_id) -> String",
+          "has_durable_collision": "has_durable_collision(prompt_id) -> bool",
+          "set_skip_animation": "set_skip_animation(enabled: bool) -> void",
+          "geometry_from_world_prompt": "geometry_from_world_prompt(world_prompt) -> Dictionary"
+        }
+      },
+      "module": {
+        "path": "game/scripts/modules/manifestation/manifestation_module.gd",
+        "same_methods": [
+          "start_house_preview",
+          "cancel_preview",
+          "get_preview_snapshot",
+          "geometry_from_world_prompt",
+          "start_manifestation",
+          "cancel_manifestation",
+          "update_construction_progress",
+          "finalize_manifestation",
+          "set_skip_animation",
+          "has_durable_collision",
+          "get_manifestation_stage"
+        ],
+        "note": "Prefer bridge from coordinator; module remains ModuleRegistry MODULE_VOXEL implementation"
+      },
+      "instance": {
+        "path": "game/scripts/modules/manifestation/manifestation_instance.gd",
+        "additions": [
+          "get_stages_observed() -> PackedStringArray",
+          "recipe_id",
+          "2.5D transform {x,y,elevation} → Node3D position",
+          "bounds width/depth/height size parse",
+          "headless: no MeshInstance3D/StandardMaterial3D (collision body still built)"
+        ]
+      },
+      "recommended_w2_usage": [
+        "bridge.resolve(coordinator_or_root); bridge.start_house_preview(world_prompt)",
+        "For cancel smoke: start_house_preview(wp, {stop_at_stage: \"hologram\"}) then cancel_preview(prompt_id)",
+        "For reduced_motion: set_skip_animation(true) or Settings gameplay/reduced_motion — complete with stages_observed all four",
+        "Do not treat has_durable_collision at complete as World Commit success (RR-NET-01)"
+      ]
+    },
+    "invariants_preserved": [
+      "Preview stages wireframe|hologram|materializing never enable durable collision",
+      "complete enables local LAYER_MANIFESTATION collision only (presentation, not commit-log)",
+      "cancel/free_cleanup disables collision and queue_frees instance",
+      "reduced_motion / skip_manifestation_animation / set_skip_animation still work",
+      "Headless/dummy presentation skip — no BoxMesh construction",
+      "durable_mutation_applied always false on G3 preview APIs",
+      "World Commit not invoked"
+    ],
+    "w0_handoff_alignment": {
+      "W0_network": "Local complete collision remains presentation residual risk; cancel path still no durable collision",
+      "W0_persist": "cancel_preview maps to cancel smoke fields (has_durable_collision false, stages_observed, cancelled_during_stage)",
+      "W0_schema": "Accepts create_cozy_house / world_prompt_from_build shapes via geometry_from_world_prompt"
+    },
+    "product_writes": [
+      "game/scripts/modules/manifestation/manifestation_module.gd",
+      "game/scripts/modules/manifestation/manifestation_instance.gd",
+      "game/scripts/modules/manifestation/g3_preview_bridge.gd"
+    ],
+    "only_owned_files_written": true,
+    "no_children_spawned": true
+  },
+  "smoke_test": {
+    "executed": true,
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
+        "log_notes": "Expected warnings only: No mount for module voxel; No manifestation host using local fallback. No SCRIPT ERROR / Parse Error / dummy mesh ERROR."
+      }
+    ],
+    "g3_api_coverage": "Existing G2 smoke covers stage order, cancel no collision, complete collision, skip_animation, interface. New start_house_preview/cancel_preview/bridge exercised by W2 e2e; API surface documented in exported_apis_for_w2_executor."
+  },
+  "self_audit": {
+    "authority_token": "PATCH_DRAFT",
+    "self_accept": false,
+    "worker_cannot_self_accept": true,
+    "no_tasks_json_edit": true,
+    "no_codex_directive_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_companion_executor_core_ui_edit": true,
+    "no_accept_receipt": true,
+    "no_children_spawned": true,
+    "owned_write_surface_only": [
+      "game/scripts/modules/manifestation/manifestation_module.gd",
+      "game/scripts/modules/manifestation/manifestation_instance.gd",
+      "game/scripts/modules/manifestation/g3_preview_bridge.gd",
+      "orchestration/receipts/g3/W1_manifestation.json"
+    ],
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, WO-G3-001, G3-001_DISPATCH_MAP, W0 receipts, manifestation sources manually"
+  },
+  "changed_files": [
+    "game/scripts/modules/manifestation/manifestation_module.gd",
+    "game/scripts/modules/manifestation/manifestation_instance.gd",
+    "game/scripts/modules/manifestation/g3_preview_bridge.gd",
+    "orchestration/receipts/g3/W1_manifestation.json"
+  ],
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001.md",
+    "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g3/W0_network.json",
+    "orchestration/receipts/g3/W0_persist.json",
+    "orchestration/receipts/g3/W0_schema.json",
+    "orchestration/receipts/G2-002.json",
+    "game/scripts/modules/manifestation/manifestation_stages.gd",
+    "game/scripts/modules/manifestation/manifestation_smoke.gd",
+    "game/scripts/modules/interfaces/i_manifestation_module.gd",
+    "contracts/fixtures/valid/create_cozy_house.json",
+    "game/scripts/modules/executor/exports/world_prompt_from_build.json"
+  ],
+  "residual_risks": [
+    {
+      "id": "RR-MAN-G3-01",
+      "severity": "medium",
+      "detail": "complete still enables local LAYER_MANIFESTATION collision (presentation). W2 must not equate finalize with World Commit; undo/cancel after complete path still owned by executor handoff stubs."
+    },
+    {
+      "id": "RR-MAN-G3-02",
+      "severity": "low",
+      "detail": "start_house_preview stage walk is synchronous (deterministic for smoke). Timed presentation_duration_seconds visual pacing not animated frame-by-frame in this wave."
+    },
+    {
+      "id": "RR-MAN-G3-03",
+      "severity": "low",
+      "detail": "Dedicated G3 bridge unit smoke deferred to W2 e2e; regression covered by existing manifestation_smoke.gd."
+    }
+  ],
+  "next_route": "W2_EXECUTOR_INTEGRATE — wire G3PreviewBridge into onboarding transaction coordinator + e2e complete/cancel/undo exports; W3 purple VERIFY_ONLY; self_accept false"
+}

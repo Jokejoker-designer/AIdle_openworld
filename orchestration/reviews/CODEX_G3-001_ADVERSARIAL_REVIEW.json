@@ -1,0 +1,42 @@
+{
+  "review_id": "CODEX-G3-001-2026-07-21",
+  "reviewer_role": "codex-final-acceptor",
+  "intent_anchor": {
+    "user_goal": "Keep the AIdle multi-agent workflow smooth while building a trustworthy 2.5D AGM vertical slice.",
+    "current_priority": "Accept G3-001 only when its commit handoff is revision-correct and its cancel evidence is runtime-derived.",
+    "allowed_scope": ["G3-001 transaction integration", "revision binding", "complete cancel undo evidence", "independent receipts"],
+    "forbidden_scope": ["live durable commit", "self-acceptance", "new top-level Grok session", "error hiding", "task or architecture edits by Grok"]
+  },
+  "claim_under_review": "Directive 10 G3-001 is ready for final Codex acceptance.",
+  "what_i_accept": [
+    "All eight installed profiles were used through the required waves.",
+    "Godot E2E passes 62 checks with no forbidden error markers.",
+    "Project validator passes and all nine MAF receipts validate.",
+    "No writer conflicts were found in receipt ownership maps.",
+    "The World Commit path remains a rejected handoff stub with no canonical durable mutation."
+  ],
+  "what_i_challenge": [
+    "The exported complete handoff binds expected_world_revision 0 while the loaded snapshot is revision 3.",
+    "The cancel receipt hardcodes collision and orphan counts instead of deriving them from the runtime cancellation result.",
+    "Grok appended status to the Codex-owned work order outside its authorized product/receipt write scope; Codex removed that metadata change."
+  ],
+  "strongest_counter_argument": "Even though no live commit occurs in G3, accepting a semantically stale revision handoff would normalize an authority defect directly on the future commit boundary.",
+  "missing_evidence": [
+    "A test proving commit_request.expected_world_revision equals the live snapshot world_revision.",
+    "A test proving cancel receipt collision fields change when the runtime cancellation payload changes.",
+    "The installed adversarial-review skill references absent schema files, so this object follows its documented fields but could not be schema-validated."
+  ],
+  "scope_drift_risk": "low_if_correction_remains_executor_only",
+  "final_verdict": "CHANGES_REQUESTED",
+  "self_audit": {
+    "preserved_user_intent": true,
+    "did_not_invent_objection": true,
+    "evidence_based": true,
+    "no_scope_hijack": true
+  },
+  "blind_spots": ["Headed visual QA and real compensating persistence remain later gates."],
+  "confidence_before_challenge": 0.90,
+  "confidence_penalty": 0.24,
+  "confidence_after_challenge": 0.66,
+  "next_action": "Run a bounded same-session schema-executor-persist-network correction and request Codex re-review."
+}

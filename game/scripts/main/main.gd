@@ -1,6 +1,9 @@
 ## Main playable 2.5D shell – wires player, fixed-angle camera, world, UI.
 extends Node3D
 
+## G3 Starter Realm UI shell (W1 core). Preload path avoids class_name DB under -s.
+const _StarterRealmController := preload("res://scripts/modules/g3_ui/starter_realm_controller.gd")
+
 @onready var world_root: WorldRoot = $WorldRoot
 @onready var player: CharacterBody3D = $Player
 @onready var camera_rig: CozyCamera = $CozyCamera
@@ -26,6 +29,9 @@ func _ready() -> void:
 
 	# Mount lightweight stubs so ModuleRegistry is non-empty and agents see slots.
 	_spawn_module_stubs()
+
+	# G3-001: Starter Realm UI surface for AGM onboarding vertical slice (no camera change).
+	_mount_starter_realm_controller()
 
 	if SettingsManager.get_value(SettingsManager.SECTION_DEBUG, "verbose_logs", true):
 		print("[Main] Entered Private Reality | style=%s" % ArtStyleManager.get_active_style_id())
@@ -58,3 +64,14 @@ func _spawn_module_stubs() -> void:
 			pass
 		if not ModuleRegistry.has_module(mid):
 			ModuleRegistry.register_module(mid, stub)
+
+
+func _mount_starter_realm_controller() -> void:
+	## Mount only; does not load fixtures or own bridge/executor. W2 wires transaction.
+	var ui := get_node_or_null("UI")
+	var parent: Node = ui if ui != null else self
+	if parent.get_node_or_null("StarterRealmController") != null:
+		return
+	var ctrl: Node = _StarterRealmController.new()
+	ctrl.name = "StarterRealmController"
+	parent.add_child(ctrl)

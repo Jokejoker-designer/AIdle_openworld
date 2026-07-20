@@ -1,0 +1,331 @@
+{
+  "agent_step_id": "G3-001-W0-schema-2026-07-20",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "wave": "W0_VERIFY",
+    "profile": "schema",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "READ_ONLY_AUDIT/VERIFY_ONLY of Snapshot, Decision Envelope, World Prompt, and Commit receipt boundaries for G3-001 vertical slice (Starter Realm → AGM onboarding → house preview → confirm → executor handoff stub). Free/paid share identical payload semantics (edition + optional non-authoritative transport only). Build proposals are schema-locked to preview_required=true, confirmation_state=pending, routes_through=preview_confirm_commit. Direct durable mutation fields on AGM decisions are banned (additionalProperties:false + propertyNames deny-list + invalid fixtures). cozy_house_small recipe aligns with create_cozy_house world_prompt fixture. Contracts are sufficient for W1 domain patches; no contract edits required for G3 slice.",
+    "boundary_checklist": [
+      {
+        "id": "snapshot_schema_locked",
+        "check": "World State Snapshot Draft 2020-12 schema present; additionalProperties false; edition enum desktop_bridge_free|api_paid",
+        "status": "pass",
+        "evidence": "contracts/agm/world_state_snapshot.schema.json"
+      },
+      {
+        "id": "decision_schema_locked",
+        "check": "Decision Envelope Draft 2020-12 schema present; additionalProperties false; edition enum shared with snapshot",
+        "status": "pass",
+        "evidence": "contracts/agm/decision_envelope.schema.json"
+      },
+      {
+        "id": "world_prompt_schema_locked",
+        "check": "Structured World Prompt 1.1.0 schema present; manifestation stages locked; confirmation.preview_required const true",
+        "status": "pass",
+        "evidence": "contracts/world_prompt.schema.json"
+      },
+      {
+        "id": "commit_request_authority",
+        "check": "Commit request requires world_commit_service path, non-client source, confirmation confirmed, durable_mutation true",
+        "status": "pass",
+        "evidence": "contracts/commit/commit_request.schema.json; contracts/commit/commit_policy.md"
+      },
+      {
+        "id": "commit_receipt_statuses",
+        "check": "Commit receipt statuses committed|idempotent_replay|rejected|conflicted with issuer world_commit_service",
+        "status": "pass",
+        "evidence": "contracts/commit/commit_receipt.schema.json"
+      },
+      {
+        "id": "free_paid_identical_payload_semantics",
+        "check": "Free Desktop Bridge and Paid API share identical payload semantics after stripping edition/transport; only edition (and optional transport) differs",
+        "status": "pass",
+        "evidence": "contracts/fixtures/agm/policy/edition_identity_pair.json; valid_snapshot_* and valid_decision_* free/paid pairs; scripts/validate_project.py check_agm_contracts"
+      },
+      {
+        "id": "build_proposals_pending_preview",
+        "check": "build_proposals items force preview_required const true, confirmation_state const pending, routes_through const preview_confirm_commit; bypass fixture rejected",
+        "status": "pass",
+        "evidence": "decision_envelope.schema.json build_proposals; invalid_decision_build_bypasses_preview.json; valid_decision_with_build_proposal.json"
+      },
+      {
+        "id": "no_direct_durable_mutation_in_agm_decision",
+        "check": "AGM decision cannot carry durable_mutation, commit_request, scene_tree_mutation, script/code, secrets, TTS/voice; invalid fixture rejects",
+        "status": "pass",
+        "evidence": "decision_envelope propertyNames banlist; invalid_decision_direct_durable_mutation.json; invalid_decision_with_script_code.json; invalid_decision_with_tts_voice.json"
+      },
+      {
+        "id": "world_prompt_no_preview_bypass",
+        "check": "World Prompt confirmation.preview_required is const true; preview_required_false fixture invalid",
+        "status": "pass",
+        "evidence": "world_prompt.schema.json; contracts/fixtures/invalid/preview_required_false.json"
+      },
+      {
+        "id": "starter_house_recipe_aligns",
+        "check": "cozy_house_small recipe_id/kind/bounds/tags align with create_cozy_house world_prompt and AGM build_proposal fixture",
+        "status": "pass",
+        "evidence": "contracts/assets/recipes/cozy_house_small.json; contracts/fixtures/valid/create_cozy_house.json; valid_decision_with_build_proposal.json"
+      },
+      {
+        "id": "stale_and_replay_policy_fixtures",
+        "check": "Policy fixtures require source_snapshot_id==live snapshot_id and decision_id replay reject",
+        "status": "pass",
+        "evidence": "contracts/fixtures/agm/policy/stale_snapshot_rejection.json; replay_decision_pair.json"
+      },
+      {
+        "id": "execution_receipt_for_snapshot_loop",
+        "check": "Snapshot last_execution_receipt statuses include awaiting_player; G2 executor export models build handoff without durable mutation",
+        "status": "pass",
+        "evidence": "world_state_snapshot.schema.json last_execution_receipt; game/scripts/modules/executor/exports/execution_receipt_build.json"
+      },
+      {
+        "id": "g3_commit_is_handoff_stub_only",
+        "check": "G3 vertical slice must not invent live World Commit durability; commit_request schema remains boundary for post-confirm handoff stub",
+        "status": "pass",
+        "evidence": "WO-G3-001.md; commit_request.schema.json; executor exports/commit_request_handoff_stub.json"
+      },
+      {
+        "id": "no_contract_edits_required_for_g3",
+        "check": "Existing contracts/fixtures suffice for Starter Realm onboarding slice; W1 must not edit contracts",
+        "status": "pass",
+        "evidence": "G3-001_DISPATCH_MAP.md constraints; contracts/agm/*; contracts/world_prompt.schema.json"
+      }
+    ],
+    "required_fields": {
+      "world_state_snapshot": [
+        "schema_version",
+        "snapshot_id",
+        "created_at",
+        "edition",
+        "session_id",
+        "space_id",
+        "world_revision",
+        "progression_phase",
+        "art_style",
+        "player",
+        "companion",
+        "world",
+        "quests",
+        "latest_player_action",
+        "last_execution_receipt",
+        "memory",
+        "trace_id"
+      ],
+      "decision_envelope": [
+        "schema_version",
+        "decision_id",
+        "source_snapshot_id",
+        "created_at",
+        "edition",
+        "session_id",
+        "dialogue",
+        "quest_operations",
+        "build_proposals",
+        "event_proposals",
+        "mood_delta",
+        "relationship_delta",
+        "next_trigger",
+        "trace"
+      ],
+      "world_prompt": [
+        "schema_version",
+        "prompt_id",
+        "request_id",
+        "session_id",
+        "actor",
+        "operation",
+        "target",
+        "style_profile",
+        "entity",
+        "manifestation",
+        "budget",
+        "provenance",
+        "confirmation"
+      ],
+      "commit_request": [
+        "schema_version",
+        "request_id",
+        "prompt_id",
+        "session_id",
+        "space_id",
+        "expected_world_revision",
+        "actor",
+        "authority",
+        "confirmation",
+        "mutation_class"
+      ],
+      "commit_receipt": [
+        "schema_version",
+        "receipt_id",
+        "request_id",
+        "status",
+        "occurred_at",
+        "space_id",
+        "authority"
+      ],
+      "build_proposal_item_required": [
+        "proposal_id",
+        "operation",
+        "recipe_id",
+        "entity_kind",
+        "routes_through",
+        "preview_required",
+        "confirmation_state"
+      ],
+      "build_proposal_const_locks": {
+        "routes_through": "preview_confirm_commit",
+        "preview_required": true,
+        "confirmation_state": "pending"
+      }
+    },
+    "g3_vertical_slice_mapping": {
+      "1_create_snapshot": "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json (starter_realm true, progression onboarding)",
+      "2_agm_onboarding_decision": "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json (quest offer onboarding_first_home)",
+      "3_house_build_proposal": "contracts/fixtures/agm/valid/valid_decision_with_build_proposal.json (recipe cozy_house_small)",
+      "4_elevate_to_world_prompt": "contracts/fixtures/valid/create_cozy_house.json OR game/scripts/modules/executor/exports/world_prompt_from_build.json (confirmation pending)",
+      "5_preview_stages": "manifestation.stages = wireframe→hologram→materializing→complete (world_prompt const)",
+      "6_player_confirm": "world_prompt.confirmation.state becomes confirmed + confirmed_by; never from AGM decision",
+      "7_commit_handoff_stub": "contracts/commit/commit_request.schema.json + executor exports/commit_request_handoff_stub.json (no live durable mutation in G3)",
+      "8_execution_receipt": "snapshot.last_execution_receipt + executor exports/execution_receipt_build.json (awaiting_player / applied soft effects)"
+    },
+    "recommended_executor_inputs": {
+      "note": "Handoff for W1 domains and W2 executor: use these fixture paths as deterministic inputs; do not invent alternate schemas.",
+      "snapshot_starter": "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+      "snapshot_api_paid_identity": "contracts/fixtures/agm/valid/valid_snapshot_api_paid.json",
+      "decision_onboarding_offer": "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json",
+      "decision_onboarding_api_paid_identity": "contracts/fixtures/agm/valid/valid_decision_api_paid.json",
+      "decision_house_build": "contracts/fixtures/agm/valid/valid_decision_with_build_proposal.json",
+      "decision_quest_complete": "contracts/fixtures/agm/valid/valid_decision_quest_complete.json",
+      "world_prompt_house_pending": "contracts/fixtures/valid/create_cozy_house.json",
+      "world_prompt_from_executor_export": "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+      "recipe_cozy_house": "contracts/assets/recipes/cozy_house_small.json",
+      "recipe_game_mirror": "game/assets/recipes/cozy_house_small.json",
+      "commit_request_shape": "contracts/fixtures/commit/valid_commit_request.json",
+      "commit_handoff_stub_export": "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+      "execution_receipt_build_export": "game/scripts/modules/executor/exports/execution_receipt_build.json",
+      "adversarial_build_bypass": "contracts/fixtures/agm/invalid/invalid_decision_build_bypasses_preview.json",
+      "adversarial_direct_durable": "contracts/fixtures/agm/invalid/invalid_decision_direct_durable_mutation.json",
+      "policy_edition_identity": "contracts/fixtures/agm/policy/edition_identity_pair.json",
+      "policy_replay": "contracts/fixtures/agm/policy/replay_decision_pair.json",
+      "policy_stale": "contracts/fixtures/agm/policy/stale_snapshot_rejection.json",
+      "schemas": {
+        "snapshot": "contracts/agm/world_state_snapshot.schema.json",
+        "decision": "contracts/agm/decision_envelope.schema.json",
+        "world_prompt": "contracts/world_prompt.schema.json",
+        "commit_request": "contracts/commit/commit_request.schema.json",
+        "commit_receipt": "contracts/commit/commit_receipt.schema.json"
+      }
+    },
+    "residual_risks_for_g3": [
+      {
+        "id": "revision_bind_runtime",
+        "severity": "medium",
+        "detail": "AGM build_proposal does not carry expected_world_revision; elevation to world_prompt must copy live snapshot.world_revision. Fixture export world_prompt_from_build uses revision 0 while starter snapshot uses 3 — runtime must rebind or risk false conflict later."
+      },
+      {
+        "id": "companion_id_consistency",
+        "severity": "low",
+        "detail": "Starter snapshot fixtures use companion_aida; world_prompt builder/export often uses companion_lumi. G3 UI/executor must pick one session companion_id for actor fields."
+      },
+      {
+        "id": "execution_receipt_not_schemaed",
+        "severity": "medium",
+        "detail": "Full decision execution receipt (actions_applied, build_handoffs) is runtime/export shape, not a contracts/ schema. G3 complete/cancel/undo receipts must stay consistent with snapshot.last_execution_receipt allowlist and commit boundary without inventing durable authority."
+      },
+      {
+        "id": "no_single_chained_g3_fixture",
+        "severity": "low",
+        "detail": "Slice steps exist as separate fixtures; no single chained fixture file covers snapshot→decision→world_prompt→confirm→handoff. W2 smoke must assemble the chain."
+      },
+      {
+        "id": "shallow_propertynames_ban",
+        "severity": "low",
+        "detail": "Secret/code/TTS bans on decision/snapshot are root propertyNames + additionalProperties false; nested smuggling is not deeply schema-enforced. Runtime executor must continue denylist checks (G2-006 pattern)."
+      },
+      {
+        "id": "commit_service_stub",
+        "severity": "info",
+        "detail": "G3 forbids inventing live World Commit persistence; durable mutation remains stubbed. Cancel/undo must prove no canonical durable mutation (persist W0 owns evidence definition)."
+      },
+      {
+        "id": "validator_not_reexecuted_this_step",
+        "severity": "low",
+        "detail": "This VERIFY_ONLY step performed static schema/fixture/policy audit matching scripts/validate_project.py check_agm_contracts + world_prompt/commit locks. Parent/W2 should re-run python scripts/validate_project.py for executable PASS evidence before REVIEW_REQUESTED collation."
+      }
+    ],
+    "not_done": [
+      "Did not edit contracts, tasks.json, architecture, or product code (authority VERIFY_ONLY)",
+      "Did not implement G3 transaction coordinator (W2 executor)",
+      "Did not run Godot E2E smoke (W2)",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g3/W0_schema.json"
+    ]
+  },
+  "smoke_test": {
+    "command": "static_audit_only (no shell in this subagent): read contracts + fixtures + scripts/validate_project.py check_agm_contracts/check_schema/check_commit",
+    "exit_code": null,
+    "stdout": "STATIC_BOUNDARY_CHECKLIST=PASS (14/14); re-run: python scripts/validate_project.py",
+    "scope": "snapshot,decision_envelope,world_prompt,commit_request,commit_receipt,agm_fixtures,edition_identity,build_preview_lock,durable_mutation_ban,cozy_house_recipe_align",
+    "fixture_inventory": {
+      "agm_valid": 7,
+      "agm_invalid": 14,
+      "agm_policy": 3
+    },
+    "recommended_parent_command": "python scripts/validate_project.py"
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "writes": [
+      "orchestration/receipts/g3/W0_schema.json"
+    ],
+    "did_not_edit_contracts": true,
+    "did_not_edit_tasks_or_directive": true,
+    "did_not_edit_architecture": true,
+    "did_not_edit_product_code": true,
+    "no_nested_subagents": true,
+    "no_api_sdk_credentials": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "authority_token": "VERIFY_ONLY",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded AGENTS.md + ARCHITECTURE_LOCK + WO-G3-001 + dispatch map + contracts manually",
+    "mvp_lock_respected": "2.5D text-only Companion; free/paid same payload; World Commit handoff stub only"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001.md",
+    "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "Agents.md",
+    "contracts/agm/world_state_snapshot.schema.json",
+    "contracts/agm/decision_envelope.schema.json",
+    "contracts/world_prompt.schema.json",
+    "contracts/commit/commit_request.schema.json",
+    "contracts/commit/commit_receipt.schema.json",
+    "contracts/commit/commit_policy.md",
+    "contracts/assets/recipes/cozy_house_small.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+    "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json",
+    "contracts/fixtures/agm/valid/valid_decision_with_build_proposal.json",
+    "contracts/fixtures/agm/valid/valid_decision_api_paid.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_api_paid.json",
+    "contracts/fixtures/agm/invalid/invalid_decision_build_bypasses_preview.json",
+    "contracts/fixtures/agm/invalid/invalid_decision_direct_durable_mutation.json",
+    "contracts/fixtures/agm/policy/edition_identity_pair.json",
+    "contracts/fixtures/valid/create_cozy_house.json",
+    "contracts/fixtures/invalid/preview_required_false.json",
+    "scripts/validate_project.py",
+    "AIdle_Openworld_Blueprint_v1.1/Interfaces/AGM_Contracts.md",
+    "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+    "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+    "game/scripts/modules/executor/exports/execution_receipt_build.json"
+  ],
+  "next_route": "W1_DOMAIN_PATCH"
+}

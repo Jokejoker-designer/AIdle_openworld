@@ -1,0 +1,218 @@
+{
+  "agent_step_id": "G3-001-W0-network-2026-07-20",
+  "agent_type": "aidle-network",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "wave": "W0_VERIFY",
+    "profile": "network",
+    "state": "HANDOFF_READY",
+    "summary": "READ_ONLY_AUDIT / VERIFY_ONLY: client, Companion, AGM Decision application, and Free Desktop Bridge cannot perform canonical durable world mutation. World Commit remains a server-authoritative handoff stub for G3. client_forged / client_authoritative rejection paths exist in commit contracts and fixtures. No silent durable commit code path found; residual risks are soft-state double-apply, local manifestation collision at complete, and offline-journal reconcile not yet implemented.",
+    "verdict": "PASS_WITH_RESIDUAL_RISKS",
+    "findings": {
+      "client_cannot_durable_mutate": true,
+      "companion_cannot_durable_mutate": true,
+      "agm_decision_cannot_durable_mutate": true,
+      "desktop_bridge_cannot_durable_mutate": true,
+      "world_commit_is_handoff_stub_for_g3": true,
+      "client_forged_rejection_path_exists": true,
+      "silent_durable_commit_paths_found": []
+    },
+    "audit_detail": {
+      "contracts_commit": {
+        "commit_request_authority": {
+          "commit_path_const": "world_commit_service",
+          "source_enum": ["server_authoritative", "offline_journal_reconcile"],
+          "excluded_sources": ["client_authoritative", "client_forged"],
+          "durable_mutation_const": true
+        },
+        "commit_receipt_rejection_codes": [
+          "client_forged",
+          "client_authoritative_durable_forbidden"
+        ],
+        "issuer_const": "world_commit_service",
+        "policy_doc": "contracts/commit/commit_policy.md states clients render/predict; only World Commit validates/commits durable online mutations",
+        "fixtures": {
+          "invalid_client_forged_durable_request": "authority.commit_path=client_local + source=client_authoritative → schema-invalid",
+          "invalid_client_authoritative_source": "commit_path world_commit_service but source=client_authoritative → schema-invalid",
+          "valid_client_forged_rejection_receipt": "status=rejected rejection.code=client_forged"
+        }
+      },
+      "companion": {
+        "has_commit_tool": false,
+        "list_tools_commits_flags": "all commits=false mutates_world=false",
+        "apply_agm_decision": "projects dialogue/soft deltas/pending World Prompts only; committed=false",
+        "submit_path": "may call Executor.submit_prompt (preview only); never confirm_prompt or World Commit",
+        "forbidden_decision_fields": [
+          "commit_request",
+          "durable_mutation",
+          "scene_tree_mutation",
+          "direct_world_write"
+        ],
+        "build_invariants": "routes_through=preview_confirm_commit; preview_required=true; confirmation_state=pending"
+      },
+      "agm_decision_executor": {
+        "effects": "allowlisted soft dialogue/quest/event/mood/relationship only",
+        "builds": "elevate to world_prompt handoff with durable_mutation_applied=false; pipeline_stage=preview",
+        "idempotency": "decision_id replay returns prior receipt without re-apply",
+        "stale_snapshot": "source_snapshot_id != live snapshot_id → stale_snapshot reject",
+        "receipt_flag": "durable_mutation_applied always false on executor receipts"
+      },
+      "executor_prompt_pipeline": {
+        "stages": ["preview", "confirmed", "commit_handoff_stubbed", "cancelled"],
+        "submit": "rejects pre-confirmed prompts; forces preview_required + pending",
+        "confirm": "builds schema-shaped commit_request with authority.world_commit_service + server_authoritative; does NOT invoke a live service",
+        "confirm_stub_receipt": "status=rejected code=policy reason=G2-006 stub; durable_mutation_applied=false",
+        "cancel": "no durable mutation; durable_mutation_applied=false",
+        "module_confirm_comment": "executor_module.confirm_prompt intentionally does NOT finalize manifestation to durable collision"
+      },
+      "desktop_bridge": {
+        "uses_network": false,
+        "export": "redacted World State Snapshot only",
+        "import": "Decision Envelope validate → pending consent → confirm; executed=false routes_to=agm_decision_executor",
+        "rejects": ["malformed", "stale source_snapshot_id", "replayed decision_id", "forbidden fields including durable_mutation"],
+        "build_guard": "preview_required must be true; confirmation_state pending; routes_through preview_confirm_commit",
+        "no_commit_call": "bridge never calls confirm_prompt / World Commit"
+      },
+      "network_module": {
+        "implementation": "interface only (i_network_module.gd); no client NetworkModule durable mutator present",
+        "reality_space": "private_reality may mark authority=client for local simulation metadata; not a commit service"
+      },
+      "events": {
+        "event_envelope": "post-commit outbox shape only; not world truth; forbidden secret/prompt keys"
+      },
+      "silent_or_near_silent_paths_reviewed": [
+        {
+          "path": "game/scripts/modules/executor/prompt_pipeline.gd::confirm",
+          "assessment": "NOT silent durable commit — prepares handoff + synthetic rejected stub receipt; durable_mutation_applied=false",
+          "risk": "low — future consumer must not treat stub as committed"
+        },
+        {
+          "path": "game/scripts/modules/companion/companion_module.gd::_hand_off_to_executor_if_present",
+          "assessment": "submit_prompt only (preview); no confirm",
+          "risk": "none for durable"
+        },
+        {
+          "path": "game/scripts/modules/bridge/desktop_bridge_module.gd::confirm_pending_decision",
+          "assessment": "accepts decision handoff to executor only; executed=false",
+          "risk": "low — auto_consent=true exists for smoke; production default false + consent UI"
+        },
+        {
+          "path": "game/scripts/modules/manifestation/** complete/finalize",
+          "assessment": "local presentation collision on LAYER_MANIFESTATION at complete; not commit-log / world_revision mutation",
+          "risk": "medium residual — visual solid ≠ canonical durable ownership; G3 must keep preview-until-commit discipline"
+        },
+        {
+          "path": "soft quest/mood/relationship stores in companion + decision_executor",
+          "assessment": "local soft UI state; not inventory/ownership/economy/world revision",
+          "risk": "low-medium — dual apply paths (companion.apply_agm_decision vs executor.execute_decision) could double soft effects if both wired without coordinator"
+        }
+      ]
+    },
+    "acceptance_mapped_to_wo": {
+      "client_agm_cannot_canonical_durable_mutation": true,
+      "world_commit_server_authoritative_handoff_stub_g3": true,
+      "client_forged_rejection_in_contracts": true,
+      "silent_durable_commits_listed": true
+    },
+    "not_done": [
+      "No live World Commit service (by design for G3 stub)",
+      "No offline_journal_reconcile implementation (G4+)",
+      "No NetworkModule multiplayer sync implementation",
+      "Did not execute godot/python smoke in this VERIFY_ONLY wave (static code+contract audit)",
+      "self_accept false"
+    ]
+  },
+  "smoke_test": {
+    "executed": false,
+    "reason": "W0_VERIFY network is READ_ONLY_AUDIT / VERIFY_ONLY static audit; no product smoke owned by this profile",
+    "referenced_prior_smoke": [
+      "game/scripts/modules/executor/smoke_g2_006.py (commit handoff stub, durable_mutation_applied=false)",
+      "game/scripts/modules/companion/smoke_g2_003.py (no commit tool; durable_mutation reject)",
+      "game/scripts/modules/bridge/smoke_g2_005.py (no network; durable_mutation forbidden field)"
+    ]
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_write": "orchestration/receipts/g3/W0_network.json",
+    "did_not_edit_contracts": true,
+    "did_not_edit_game_scripts": true,
+    "did_not_edit_architecture_or_tasks": true,
+    "no_children_spawned": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded AGENTS.md, ARCHITECTURE_LOCK.md, WO-G3-001.md, G3-001_DISPATCH_MAP.md, contracts, and modules manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001.md",
+    "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "Agents.md",
+    "contracts/commit/commit_policy.md",
+    "contracts/commit/commit_request.schema.json",
+    "contracts/commit/commit_receipt.schema.json",
+    "contracts/events/event_envelope.schema.json",
+    "contracts/fixtures/commit/invalid_client_forged_durable_request.json",
+    "contracts/fixtures/commit/invalid_client_authoritative_source.json",
+    "contracts/fixtures/commit/valid_client_forged_rejection_receipt.json",
+    "contracts/fixtures/commit/valid_commit_request.json",
+    "contracts/fixtures/agm/invalid/invalid_decision_direct_durable_mutation.json",
+    "game/scripts/modules/executor/decision_executor.gd",
+    "game/scripts/modules/executor/prompt_pipeline.gd",
+    "game/scripts/modules/executor/executor_module.gd",
+    "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+    "game/scripts/modules/companion/companion_module.gd",
+    "game/scripts/modules/companion/agm_decision_applier.gd",
+    "game/scripts/modules/companion/world_prompt_builder.gd",
+    "game/scripts/modules/bridge/desktop_bridge_module.gd",
+    "game/scripts/modules/bridge/decision_import_guard.gd",
+    "game/scripts/modules/interfaces/i_network_module.gd",
+    "game/scripts/modules/interfaces/i_companion_module.gd",
+    "game/scripts/modules/interfaces/i_executor_module.gd",
+    "game/scripts/core/reality_space.gd",
+    "game/scripts/modules/manifestation/manifestation_instance.gd"
+  ],
+  "residual_risks": [
+    {
+      "id": "RR-NET-01",
+      "severity": "medium",
+      "title": "Manifestation complete enables local collision",
+      "detail": "LAYER_MANIFESTATION solid at stage complete is presentation, not commit-log authority. G3 coordinator must not treat finalize_complete as World Commit success; cancel/undo must still leave no orphan local solids without commit."
+    },
+    {
+      "id": "RR-NET-02",
+      "severity": "medium",
+      "title": "Dual AGM soft-apply surfaces",
+      "detail": "Companion.apply_agm_decision and Executor.execute_decision both apply soft dialogue/quest/mood. Without a single G3 coordinator, wiring both can double soft effects (still not durable world revision)."
+    },
+    {
+      "id": "RR-NET-03",
+      "severity": "low",
+      "title": "Commit handoff stub looks like a commit_request",
+      "detail": "confirm builds a schema-valid commit_request with server_authoritative source while only attaching a synthetic rejected stub receipt. Future code must not invent local apply of that request."
+    },
+    {
+      "id": "RR-NET-04",
+      "severity": "low",
+      "title": "Bridge auto_consent for smoke",
+      "detail": "import_decision_from_text(..., auto_consent=true) bypasses UI for tests. Production path defaults show_consent_ui=true and auto_consent=false; keep G3 smoke explicit."
+    },
+    {
+      "id": "RR-NET-05",
+      "severity": "low",
+      "title": "Offline journal reconcile not implemented",
+      "detail": "Schema allows source=offline_journal_reconcile; no client journal mutator or reconcile pipeline exists. Out of G3 scope (G4+)."
+    },
+    {
+      "id": "RR-NET-06",
+      "severity": "info",
+      "title": "No NetworkModule implementation",
+      "detail": "Only INetworkModule interface exists. Correct for G3 local Private Reality vertical slice; do not invent multiplayer durable sync in G3."
+    }
+  ],
+  "next_route": "W1_DOMAIN_PATCH — disjoint writers (core, manifestation, companion, asset) per G3-001_DISPATCH_MAP.md; executor reserved for W2; World Commit remains handoff stub; self_accept false"
+}

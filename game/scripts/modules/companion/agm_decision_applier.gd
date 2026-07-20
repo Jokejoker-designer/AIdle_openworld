@@ -2,6 +2,7 @@
 ## Consumes contracts/agm/decision_envelope.schema.json (schema-informed checks).
 ## Does NOT commit world state. Build proposals become pending World Prompts only.
 ## Text-only: rejects TTS/voice/mic/secrets/code/durable mutation fields.
+## G3: also emits quest_summaries for onboarding text presentation (no durable quest store).
 class_name CompanionAgmDecisionApplier
 extends RefCounted
 
@@ -291,12 +292,15 @@ func project(
 			"dialogue_lines": [],
 			"world_prompts": [],
 			"quest_operations": [],
+			"quest_summaries": [],
 			"event_proposals": [],
 			"mood_delta": 0.0,
 			"relationship_delta": 0.0,
 			"expression": "neutral",
 			"next_trigger": {},
 			"trace": {},
+			"text_only": true,
+			"committed": false,
 		}
 
 	var dialogue: Dictionary = envelope.get("dialogue", {}) as Dictionary
@@ -348,9 +352,12 @@ func project(
 	var rel_delta := float(rel_d.get("delta", 0.0))
 
 	var quests: Array = []
+	var quest_summaries: Array = []
 	for q in envelope.get("quest_operations", []):
 		if typeof(q) == TYPE_DICTIONARY:
-			quests.append((q as Dictionary).duplicate(true))
+			var q_copy: Dictionary = (q as Dictionary).duplicate(true)
+			quests.append(q_copy)
+			quest_summaries.append(summarize_quest_operation(q_copy))
 
 	var events: Array = []
 	for e in envelope.get("event_proposals", []):
@@ -372,6 +379,7 @@ func project(
 		"dialogue_lines": lines_out,
 		"world_prompts": world_prompts,
 		"quest_operations": quests,
+		"quest_summaries": quest_summaries,
 		"event_proposals": events,
 		"mood_delta": mood_delta,
 		"relationship_delta": rel_delta,
@@ -380,6 +388,8 @@ func project(
 		"expression": expression,
 		"next_trigger": next_trigger,
 		"trace": tr.duplicate(true),
+		"text_only": true,
+		"committed": false,
 		"pacing_hint": (
 			(envelope["pacing_hint"] as Dictionary).duplicate(true)
 			if envelope.get("pacing_hint") is Dictionary
@@ -390,6 +400,7 @@ func project(
 		"applied_at": Time.get_datetime_string_from_system(true, true),
 		"world_prompt_count": world_prompts.size(),
 		"dialogue_count": lines_out.size(),
+		"quest_count": quests.size(),
 	}
 	return result
 
@@ -411,6 +422,80 @@ static func expression_to_mood(expression: String) -> String:
 			return "calm"
 		_:
 			return "calm"
+
+
+## Project a single quest_operations item into presentable text summary (soft UI only).
+static func summarize_quest_operation(q: Dictionary) -> Dictionary:
+	var op := str(q.get("op", ""))
+	var quest_id := str(q.get("quest_id", ""))
+	var title := str(q.get("title", ""))
+	var objective := str(q.get("objective_summary", ""))
+	var reason := str(q.get("reason", ""))
+	var display_status := _quest_op_to_display_status(op)
+	var summary := {
+		"quest_id": quest_id,
+		"op": op,
+		"title": title,
+		"objective_summary": objective,
+		"reason": reason,
+		"display_status": display_status,
+		"status_text": "",
+	}
+	summary["status_text"] = quest_status_text(summary)
+	return summary
+
+
+## Human-readable one-line quest status for text HUD / onboarding presenter.
+static func quest_status_text(summary: Dictionary) -> String:
+	var op := str(summary.get("op", ""))
+	var title := str(summary.get("title", ""))
+	var objective := str(summary.get("objective_summary", ""))
+	var reason := str(summary.get("reason", ""))
+	var quest_id := str(summary.get("quest_id", ""))
+	var label := title if not title.is_empty() else quest_id
+	match op:
+		"offer":
+			if not objective.is_empty():
+				return "Offered: %s — %s" % [label, objective]
+			return "Offered: %s" % label
+		"update_objective":
+			if not objective.is_empty():
+				return "Updated: %s — %s" % [label, objective]
+			return "Updated: %s" % label
+		"mark_ready":
+			return "Ready to complete: %s" % label
+		"complete":
+			if not reason.is_empty():
+				return "Completed: %s (%s)" % [label, reason]
+			return "Completed: %s" % label
+		"fail":
+			if not reason.is_empty():
+				return "Failed: %s (%s)" % [label, reason]
+			return "Failed: %s" % label
+		"cancel":
+			if not reason.is_empty():
+				return "Cancelled: %s (%s)" % [label, reason]
+			return "Cancelled: %s" % label
+		_:
+			return "Quest %s op=%s" % [quest_id, op]
+
+
+static func _quest_op_to_display_status(op: String) -> String:
+	match op:
+		"offer":
+			return "offered"
+		"update_objective":
+			return "active"
+		"mark_ready":
+			return "ready"
+		"complete":
+			return "completed"
+		"fail":
+			return "failed"
+		"cancel":
+			return "cancelled"
+		_:
+			return "unknown"
 
 
 func _validate_build_item(item: Variant, index: int, errors: PackedStringArray) -> void:

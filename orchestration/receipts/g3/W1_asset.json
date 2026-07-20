@@ -1,0 +1,201 @@
+{
+  "agent_step_id": "G3-001-W1-asset-2026-07-20",
+  "agent_type": "aidle-asset",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G3-001",
+    "wave": "W1_DOMAIN_PATCH",
+    "profile": "asset",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "House-recipe resolution + provenance validation for G3 Starter Realm: resolve_recipe(cozy_house_small) returns 14 parts, build_order, collision_policy (active_from_stage=complete), style_tokens_ref; validate_provenance(recipe:cozy_house_small) enforces paid_generation_apis=false and neural_world_model=false; export_geometry_dict builds manifestation preview geometry with Starter Realm defaults (position x=8 elevation=0 z=6, size 8×5×6). No paid gen APIs, no neural world model. Mirror recipe left unchanged (already present).",
+    "exported_apis_for_w2_executor": {
+      "HouseRecipeResolver": {
+        "path": "game/scripts/modules/asset/house_recipe_resolver.gd",
+        "class_name": "HouseRecipeResolver",
+        "methods": {
+          "resolve_recipe": "func resolve_recipe(recipe_id: String) -> Dictionary  # parts, build_order, collision_policy, style_tokens_ref",
+          "validate_provenance": "func validate_provenance(asset_id: String) -> Dictionary  # recipe:cozy_house_small or bare id",
+          "export_geometry_dict": "func export_geometry_dict(recipe_id: String, overrides: Dictionary = {}) -> Dictionary  # manifestation geometry",
+          "resolve_cozy_house_for_starter": "func resolve_cozy_house_for_starter(overrides: Dictionary = {}) -> Dictionary  # resolve+prov+geometry bundle"
+        }
+      },
+      "AssetModule": {
+        "path": "game/scripts/modules/asset/asset_module.gd",
+        "class_name": "AssetModule",
+        "module_id": "asset",
+        "methods": {
+          "resolve_recipe": "func resolve_recipe(recipe_id: String = \"cozy_house_small\") -> Dictionary",
+          "validate_provenance": "func validate_provenance(asset_id: String = \"recipe:cozy_house_small\") -> Dictionary",
+          "export_geometry_for_preview": "func export_geometry_for_preview(recipe_id: String = \"cozy_house_small\", overrides: Dictionary = {}) -> Dictionary",
+          "resolve_cozy_house_for_starter": "func resolve_cozy_house_for_starter(overrides: Dictionary = {}) -> Dictionary",
+          "get_resolver": "func get_resolver() -> RefCounted",
+          "is_stub": "func is_stub() -> bool  # always false"
+        },
+        "mount_note": "Self-registers ModuleRegistry slot asset when parented; module_stub does not auto-upgrade (not owned). W2 may load() AssetModule or HouseRecipeResolver directly."
+      },
+      "G3RecipeExport": {
+        "path": "game/scripts/modules/asset/g3_recipe_export.gd",
+        "static_methods": {
+          "export_cozy_house_geometry": "static export_cozy_house_geometry(write_file:=true, overrides:={}) -> Dictionary",
+          "write_geometry_json": "static write_geometry_json(geometry, path) -> Dictionary"
+        }
+      }
+    },
+    "geometry_contract_for_manifestation": {
+      "required_keys": [
+        "ok",
+        "preview_only",
+        "target_space",
+        "recipe_id",
+        "size",
+        "bounds",
+        "position",
+        "transform",
+        "parts",
+        "build_order",
+        "collision_policy",
+        "style_tokens_ref",
+        "provenance"
+      ],
+      "starter_realm_defaults": {
+        "target_space": "private_reality",
+        "space_id": "home_01",
+        "chunk_id": "0_0",
+        "transform": { "x": 8.0, "y": 6.0, "elevation": 0.0, "rotation_deg": 0.0 },
+        "position": { "x": 8.0, "y": 0.0, "z": 6.0 },
+        "size": { "x": 8.0, "y": 5.0, "z": 6.0 },
+        "bounds": { "width": 8.0, "depth": 6.0, "height": 5.0 },
+        "preview_only": true
+      },
+      "consumer": "ManifestationModule.start_manifestation(prompt_id, art_style, geometry) uses size/position/target_space/provenance"
+    },
+    "resolve_recipe_cozy_house_small": {
+      "recipe_id": "cozy_house_small",
+      "kind": "modular_structure_2_5d",
+      "part_count": 14,
+      "build_order": [
+        "foundation",
+        "floor_deck",
+        "wall_back",
+        "wall_left",
+        "wall_right",
+        "wall_front",
+        "doorway_frame",
+        "door_panel",
+        "window_left",
+        "window_right",
+        "roof_main",
+        "chimney",
+        "porch_step",
+        "porch_glow"
+      ],
+      "collision_policy": {
+        "active_from_stage": "complete",
+        "blocks_navigation_when_complete": true,
+        "interior_nav_tag": "enterable"
+      },
+      "style_tokens_ref": {
+        "default_base_concept": "cozy_cyber_pixel_2_5d",
+        "allowed_base_concepts": [
+          "cozy_cyber_pixel_2_5d",
+          "pastoral_fantasy_2_5d",
+          "soft_scifi_2_5d"
+        ],
+        "shared_tokens_path": "res://resources/art_styles/tokens/shared_2_5d_tokens.json",
+        "profile_path": "res://resources/art_styles/cozy_cyber_pixel_2_5d.json"
+      },
+      "source_recipe_mirror": "game/assets/recipes/cozy_house_small.json",
+      "source_recipe_canonical": "contracts/assets/recipes/cozy_house_small.json"
+    },
+    "provenance_validation": {
+      "asset_id": "recipe:cozy_house_small",
+      "manifest": "contracts/assets/provenance_manifest.json",
+      "policy_locks": {
+        "paid_generation_apis": false,
+        "neural_world_model": false,
+        "third_party_meshes": false
+      },
+      "entry_generator": "none",
+      "license": "CC0-1.0-equivalent-original",
+      "embedded_fallback": "starter-only if contracts tree not mounted at runtime"
+    },
+    "not_done": [
+      "Did not auto-upgrade ModuleStub asset slot (module_stub.gd not owned; W2 may parent AssetModule)",
+      "Did not edit world_prompt schema or contracts",
+      "Did not implement live mesh instancing of modular parts (presentation remains ManifestationInstance box + recipe parts metadata)",
+      "Did not wire executor→asset resolve (W2 owns integration)",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "game/scripts/modules/asset/house_recipe_resolver.gd",
+      "game/scripts/modules/asset/asset_module.gd",
+      "game/scripts/modules/asset/g3_recipe_export.gd",
+      "game/scripts/modules/asset/g3_recipe_smoke.gd",
+      "game/scripts/modules/asset/exports/cozy_house_geometry_preview.json",
+      "orchestration/receipts/g3/W1_asset.json"
+    ]
+  },
+  "smoke_test": {
+    "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/asset/g3_recipe_smoke.gd",
+    "exit_code": 0,
+    "stdout_marker": "G3_W1_ASSET_SMOKE=PASS checks=16",
+    "log": "orchestration/logs/g3-w1-asset-smoke.log",
+    "checks": [
+      "resolve_recipe cozy_house_small ok part_count=14",
+      "build_order length 14",
+      "collision_policy.active_from_stage=complete",
+      "style_tokens_ref present",
+      "validate_provenance recipe:cozy_house_small ok",
+      "policy paid_generation_apis=false",
+      "policy neural_world_model=false",
+      "export_geometry size 8x5x6 position x=8 z=6",
+      "preview_only true",
+      "AssetModule API + resolve"
+    ]
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "writes": [
+      "game/scripts/modules/asset/house_recipe_resolver.gd",
+      "game/scripts/modules/asset/asset_module.gd",
+      "game/scripts/modules/asset/g3_recipe_export.gd",
+      "game/scripts/modules/asset/g3_recipe_smoke.gd",
+      "game/scripts/modules/asset/exports/cozy_house_geometry_preview.json",
+      "orchestration/receipts/g3/W1_asset.json"
+    ],
+    "did_not_edit_contracts": true,
+    "did_not_edit_world_prompt_schema": true,
+    "did_not_edit_executor": true,
+    "did_not_edit_tasks_or_directive": true,
+    "did_not_edit_architecture": true,
+    "mirror_recipe_update_needed": false,
+    "no_nested_subagents": true,
+    "no_paid_generation_apis": true,
+    "no_neural_world_model": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "authority_token": "PATCH_DRAFT",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded AGENTS.md + ARCHITECTURE_LOCK + WO-G3-001 + dispatch map + W0_schema + recipes/provenance manually",
+    "mvp_lock_respected": "2.5D modular placeholders; deterministic recipe resolution only"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G3-001.md",
+    "orchestration/work_orders/G3-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g3/W0_schema.json",
+    "contracts/assets/recipes/cozy_house_small.json",
+    "contracts/assets/provenance_manifest.json",
+    "game/assets/recipes/cozy_house_small.json",
+    "game/assets/placeholders/modular/catalog.json",
+    "contracts/fixtures/valid/create_cozy_house.json",
+    "contracts/fixtures/agm/valid/valid_decision_with_build_proposal.json",
+    "game/scripts/modules/asset/house_recipe_resolver.gd",
+    "game/scripts/modules/asset/exports/cozy_house_geometry_preview.json",
+    "orchestration/logs/g3-w1-asset-smoke.log"
+  ],
+  "next_route": "W2_EXECUTOR_INTEGRATE"
+}

@@ -2,7 +2,7 @@
 
 Authority: `PATCH_DRAFT`  
 Final acceptor: Codex  
-Permitted tasks: G2-001, G2-002, G2-005, G2-006
+Permitted tasks: G2-001, G2-002, G2-005
 
 ## Corrections
 
@@ -22,12 +22,6 @@ Permitted tasks: G2-001, G2-002, G2-005, G2-006
   parse errors is forbidden.
 - Retain manual visible consent, no networking, stale/replay rejection and
   explicit secret deny-lists.
-
-### G2-006
-
-- Preserve the currently passing Python and Godot executor behavior.
-- Produce `orchestration/receipts/G2-006.json` as a valid MAF step contract.
-- Do not implement durable commit; retain preview/confirm/commit handoff only.
 
 ## File ownership
 

@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.1.0",
+  "prompt_id": "e2d7f8a1-4b3c-4d5e-9f0a-1b2c3d4e5f60",
+  "request_id": "b1a2c3d4-e5f6-7890-abcd-ef1234567890",
+  "session_id": "session_terrain_01",
+  "actor": {"player_id": "player_07", "companion_id": "companion_lumi"},
+  "operation": "create",
+  "target": {
+    "space_type": "exoplanet",
+    "space_id": "exo_aurora_ridge",
+    "chunk_id": "10_3",
+    "expected_world_revision": 0
+  },
+  "style_profile": {
+    "profile_id": "custom_aurora",
+    "profile_version": "0.1.0",
+    "base_concept": "custom",
+    "surrealism_budget": 0.55,
+    "custom_profile_ref": "style_profiles/aurora_ridge_v1"
+  },
+  "entity": {
+    "kind": "terrain_patch_2_5d",
+    "recipe_id": "ridge_grass_soft",
+    "transform": {"x": 32, "y": 16, "elevation": 2.5, "rotation_deg": 270},
+    "bounds": {"width": 24, "depth": 12, "height": 3},
+    "interaction_tags": ["walkable", "climbable"]
+  },
+  "manifestation": {
+    "stages": ["wireframe", "hologram", "materializing", "complete"],
+    "presentation_duration_seconds": 30
+  },
+  "budget": {"max_compute_units": 1500, "max_entities": 64, "paid_compute_allowed": true},
+  "provenance": {
+    "source_type": "random_alchemist",
+    "requested_by": "system_alchemist",
+    "generated_by": "alchemist_pipeline",
+    "created_at": "2026-07-21T09:45:00+00:00",
+    "model_receipt_ref": "receipts/alchemist_terrain_01"
+  },
+  "confirmation": {
+    "preview_required": true,
+    "state": "pending",
+    "rollback_window_seconds": 0
+  }
+}

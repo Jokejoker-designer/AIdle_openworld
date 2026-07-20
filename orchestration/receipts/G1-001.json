@@ -1,0 +1,38 @@
+{
+  "agent_step_id": "G1-001-aidle-schema-2026-07-20",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G1-001",
+    "state": "REVIEW_REQUESTED",
+    "validation": "AIDLE_VALIDATION=PASS",
+    "valid_fixtures": 11,
+    "invalid_fixtures": 12,
+    "format_checker": true,
+    "date_time_format_registered": true,
+    "self_accept": false
+  },
+  "smoke_test": {
+    "command": "python scripts/validate_project.py",
+    "exit_code": 0,
+    "scope": "blueprint-links,all-schema-shapes,world-positive-negative,fixtures-valid-invalid,format-checker,crew,task-dag"
+  },
+  "self_audit": {
+    "allowed_paths_only": true,
+    "no_gameplay_implementation": true,
+    "no_g1_002_claim": true,
+    "no_package_install_push_deploy": true,
+    "mvp_lock_respected": "2.5D first; Companion text-only",
+    "worker_cannot_self_accept": true
+  },
+  "evidence_refs": [
+    "contracts/world_prompt.schema.json",
+    "contracts/fixtures/valid/",
+    "contracts/fixtures/invalid/",
+    "scripts/validate_project.py",
+    "orchestration/work_orders/WO-G1-001.md"
+  ],
+  "next_route": "consumer/Purple review of G1-001; ACCEPTED only after independent VERIFY_ONLY; G2 unlock only after ACCEPT (not by this worker)"
+}

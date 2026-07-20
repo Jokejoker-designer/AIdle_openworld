@@ -1,0 +1,76 @@
+{
+  "agent_step_id": "G1-002-2026-07-20-aidle-network",
+  "agent_type": "aidle-network",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G1-002",
+    "state": "REVIEW_REQUESTED",
+    "summary": "Locked commit authority and event envelope contracts: server-only durable commit path, client-forged rejection, idempotency by request_id, revision conflict receipts, Event_Bus field lock.",
+    "artifacts": [
+      "contracts/commit/commit_request.schema.json",
+      "contracts/commit/commit_receipt.schema.json",
+      "contracts/commit/commit_policy.md",
+      "contracts/events/event_envelope.schema.json",
+      "contracts/fixtures/commit/",
+      "contracts/fixtures/events/",
+      "scripts/validate_project.py",
+      "AIdle_Openworld_Blueprint_v1.1/Interfaces/Event_Bus.md",
+      "AIdle_Openworld_Blueprint_v1.1/Interfaces/Common_Contracts.md"
+    ],
+    "acceptance": {
+      "client_durable_mutation_rejected": true,
+      "idempotency_request_id_modeled": true,
+      "revision_conflict_modeled": true,
+      "event_envelope_fields_locked": true,
+      "validator_exit_0": true
+    },
+    "not_done": [
+      "No Nakama/Colyseus runtime",
+      "No multiplayer server implementation",
+      "No self-ACCEPT"
+    ]
+  },
+  "smoke_test": {
+    "command": "python scripts\\validate_project.py",
+    "exit_code": 0,
+    "stdout": "AIDLE_VALIDATION=PASS",
+    "scope": "blueprint-links,all-schema-shapes,world-positive-negative,fixtures-valid-invalid,format-checker,commit-authority,event-envelope,crew,task-dag",
+    "fixture_checks": [
+      "valid_commit_request accepted",
+      "invalid_client_forged_durable_request rejected",
+      "invalid_client_authoritative_source rejected",
+      "valid_committed_receipt accepted",
+      "valid_idempotent_replay_receipt + pair prior_receipt_id",
+      "valid_revision_conflict_receipt + expected!=actual",
+      "valid_client_forged_rejection_receipt",
+      "valid_event_envelope accepted",
+      "invalid event fixtures rejected"
+    ],
+    "concurrency_note": "Merged additive check_commit_and_event_contracts with concurrent G1-001 check_fixtures; registered date-time FormatChecker so G1-001 invalid datetime fixture rejects without rewriting G1-001 fixture trees."
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "did_not_touch_world_prompt_g1_001_fixture_trees": true,
+    "merged_validator_with_g1_001_checks": true,
+    "no_nakama_colyseus_runtime": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "authority_token": "PATCH_DRAFT"
+  },
+  "evidence_refs": [
+    "contracts/commit/commit_request.schema.json",
+    "contracts/commit/commit_receipt.schema.json",
+    "contracts/commit/commit_policy.md",
+    "contracts/events/event_envelope.schema.json",
+    "contracts/fixtures/commit/invalid_client_forged_durable_request.json",
+    "contracts/fixtures/commit/valid_idempotent_replay_receipt.json",
+    "contracts/fixtures/commit/valid_revision_conflict_receipt.json",
+    "contracts/fixtures/events/valid_event_envelope.json",
+    "scripts/validate_project.py",
+    "orchestration/work_orders/WO-G1-002.md"
+  ],
+  "next_route": "consumer/purple VERIFY_ONLY review of G1-002 contracts; do not ACCEPT until independent verification"
+}

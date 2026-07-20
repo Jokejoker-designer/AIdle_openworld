@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/contracts/commit-receipt/1.0.0",
+  "title": "AIdle World Commit Receipt",
+  "description": "Authoritative outcome of a commit attempt: committed, idempotent replay, rejected (including client-forged), or revision conflict.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "receipt_id",
+    "request_id",
+    "status",
+    "occurred_at",
+    "space_id",
+    "authority"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "receipt_id": {"type": "string", "format": "uuid"},
+    "request_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Idempotency key echoed from the commit request."
+    },
+    "status": {
+      "enum": ["committed", "idempotent_replay", "rejected", "conflicted"]
+    },
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "space_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commit_path", "issuer"],
+      "properties": {
+        "commit_path": {"const": "world_commit_service"},
+        "issuer": {"const": "world_commit_service"}
+      }
+    },
+    "old_world_revision": {"type": "integer", "minimum": 0},
+    "new_world_revision": {"type": "integer", "minimum": 0},
+    "entity_ids": {
+      "type": "array",
+      "maxItems": 256,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 128}
+    },
+    "artifact_hashes": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "algorithm", "hash"],
+        "properties": {
+          "role": {"type": "string", "minLength": 1, "maxLength": 64},
+          "algorithm": {"enum": ["sha256"]},
+          "hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "idempotency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["duplicate_of_request_id", "prior_receipt_id", "replayed"],
+      "properties": {
+        "duplicate_of_request_id": {"type": "string", "format": "uuid"},
+        "prior_receipt_id": {"type": "string", "format": "uuid"},
+        "replayed": {"const": true}
+      }
+    },
+    "rejection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "reason"],
+      "properties": {
+        "code": {
+          "enum": [
+            "client_forged",
+            "client_authoritative_durable_forbidden",
+            "auth_failed",
+            "schema_invalid",
+            "moderation",
+            "quota",
+            "ownership",
+            "spatial_bounds",
+            "collision_nav",
+            "hitl_required",
+            "confirmation_missing",
+            "policy"
+          ]
+        },
+        "reason": {"type": "string", "minLength": 1, "maxLength": 512}
+      }
+    },
+    "conflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "expected_world_revision", "actual_world_revision"],
+      "properties": {
+        "code": {"const": "revision_mismatch"},
+        "expected_world_revision": {"type": "integer", "minimum": 0},
+        "actual_world_revision": {"type": "integer", "minimum": 0},
+        "diff_ref": {"type": "string", "minLength": 1, "maxLength": 256}
+      }
+    },
+    "trace_id": {"type": "string", "minLength": 1, "maxLength": 128}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "committed"}}},
+      "then": {
+        "required": ["old_world_revision", "new_world_revision", "entity_ids", "artifact_hashes"],
+        "properties": {
+          "idempotency": false,
+          "rejection": false,
+          "conflict": false
+        }
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "idempotent_replay"}}},
+      "then": {
+        "required": ["old_world_revision", "new_world_revision", "entity_ids", "idempotency"],
+        "properties": {
+          "rejection": false,
+          "conflict": false
+        }
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "rejected"}}},
+      "then": {
+        "required": ["rejection"],
+        "properties": {
+          "idempotency": false,
+          "conflict": false,
+          "new_world_revision": false
+        }
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "conflicted"}}},
+      "then": {
+        "required": ["conflict"],
+        "properties": {
+          "idempotency": false,
+          "rejection": false,
+          "new_world_revision": false
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "agent_step_id": "G1-002-accept-conductor-2026-07-20",
+  "agent_type": "lead-orchestrator",
+  "skill_id": "maf-mandatory-standard",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G1-002",
+    "state": "ACCEPTED",
+    "worker": "aidle-network",
+    "purple_verdict": "ACCEPTED",
+    "mechanical_validation": "AIDLE_VALIDATION=PASS",
+    "scope_note": "Contract gate only — not runtime multiplayer proof",
+    "residuals_for_G6": [
+      "Schema honor-system: client can lie about commit_path/source; need service identity",
+      "Commit request not yet bound to confirmed world_prompt body",
+      "Event secret blocklist keyword-shallow",
+      "Idempotency/conflict modeled, not executed until G4/G6"
+    ],
+    "self_accept_forbidden": true
+  },
+  "smoke_test": {
+    "command": "python scripts\\validate_project.py",
+    "exit_code": 0,
+    "cwd": "E:\\AIdle_openworld"
+  },
+  "self_audit": {
+    "purple_review_ref": "orchestration/reviews/G1-002_PURPLE_REVIEW.md",
+    "no_nakama_colyseus_coowner": true
+  },
+  "evidence_refs": [
+    "orchestration/receipts/G1-002.json",
+    "orchestration/reviews/G1-002_PURPLE_REVIEW.md",
+    "contracts/commit/",
+    "contracts/events/",
+    "contracts/fixtures/commit/",
+    "contracts/fixtures/events/"
+  ],
+  "next_route": "Carry residuals into G6-001 WO; G2 wave does not depend on G1-002"
+}

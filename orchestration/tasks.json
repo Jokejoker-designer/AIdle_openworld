@@ -3,15 +3,23 @@
   "project_scope": "2.5D vertical slice first",
   "tasks": [
     {"id": "G0-001", "title": "Validate blueprint links and machine contracts", "owner_role": "schema", "state": "ACCEPTED", "dependencies": [], "acceptance": ["project validator exits 0", "all referenced files exist"]},
-    {"id": "G1-001", "title": "Complete World Prompt fixtures and validator", "owner_role": "schema", "state": "READY", "dependencies": ["G0-001"], "acceptance": ["10 valid accepted", "10 invalid rejected", "format checks enabled"]},
-    {"id": "G1-002", "title": "Lock commit authority and event contracts", "owner_role": "network", "state": "READY", "dependencies": ["G0-001"], "acceptance": ["client durable mutation rejected", "idempotency and revision conflict specified"]},
-    {"id": "G2-001", "title": "Create pinned Godot 4 2.5D shell", "owner_role": "core", "state": "TODO", "dependencies": ["G1-001"], "acceptance": ["project boots", "fixed camera", "player moves", "no free 3D camera"]},
-    {"id": "G2-002", "title": "Implement 2.5D manifestation renderer", "owner_role": "manifestation", "state": "TODO", "dependencies": ["G1-001"], "acceptance": ["four ordered stages", "cancel leaves no collision"]},
-    {"id": "G2-003", "title": "Implement Companion proposal and bounded personality boundary", "owner_role": "companion", "state": "TODO", "dependencies": ["G1-001"], "acceptance": ["schema-valid proposal", "no direct commit tool", "slow drift caps", "inspect lock reset delete controls"]},
-    {"id": "G2-004", "title": "Create modular 2.5D starter asset grammar", "owner_role": "asset", "state": "TODO", "dependencies": ["G1-001"], "acceptance": ["house recipe", "style tokens", "license/provenance manifest"]},
+    {"id": "G1-001", "title": "Complete World Prompt fixtures and validator", "owner_role": "schema", "state": "ACCEPTED", "dependencies": ["G0-001"], "acceptance": ["10 valid accepted", "10 invalid rejected", "format checks enabled"], "work_order": "orchestration/work_orders/WO-G1-001.md", "receipts": ["orchestration/receipts/G1-001.json", "orchestration/receipts/G1-001-ACCEPT.json"], "purple": "orchestration/reviews/G1-001_PURPLE_REVIEW.md", "codex_review": "orchestration/reviews/CODEX_G1_ACCEPTANCE.md"},
+    {"id": "G1-002", "title": "Lock commit authority and event contracts", "owner_role": "network", "state": "ACCEPTED", "dependencies": ["G0-001"], "acceptance": ["client durable mutation rejected", "idempotency and revision conflict specified"], "work_order": "orchestration/work_orders/WO-G1-002.md", "receipts": ["orchestration/receipts/G1-002.json", "orchestration/receipts/G1-002-ACCEPT.json"], "purple": "orchestration/reviews/G1-002_PURPLE_REVIEW.md", "codex_review": "orchestration/reviews/CODEX_G1_ACCEPTANCE.md", "residuals": ["service identity for commit_path", "bind commit to world_prompt", "runtime idempotency G4/G6"]},
+    {"id": "G2-001", "title": "Create pinned Godot 4 2.5D shell", "owner_role": "core", "state": "REVIEW_REQUESTED", "dependencies": ["G1-001"], "acceptance": ["project boots", "fixed camera", "player moves", "no free 3D camera"], "work_order": "orchestration/work_orders/WO-G2-001.md", "codex_review": "orchestration/reviews/CODEX_G2_001_REVIEW.md"},
+    {"id": "G2-002", "title": "Implement 2.5D manifestation renderer", "owner_role": "manifestation", "state": "READY", "dependencies": ["G1-001"], "acceptance": ["four ordered stages", "cancel leaves no collision"], "work_order": "orchestration/work_orders/WO-G2-002.md"},
+    {"id": "G2-003", "title": "Implement Companion proposal and bounded personality boundary", "owner_role": "companion", "state": "READY", "dependencies": ["G1-001"], "acceptance": ["schema-valid proposal", "no direct commit tool", "slow drift caps", "inspect lock reset delete controls"], "work_order": "orchestration/work_orders/WO-G2-003.md"},
+    {"id": "G2-004", "title": "Create modular 2.5D starter asset grammar", "owner_role": "asset", "state": "CHANGES_REQUESTED", "dependencies": ["G1-001"], "acceptance": ["house recipe", "style tokens", "license/provenance manifest"], "work_order": "orchestration/work_orders/WO-G2-004.md", "codex_review": "orchestration/reviews/CODEX_G2_004_REVIEW.md"},
     {"id": "G3-001", "title": "Integrate prompt-to-house transaction", "owner_role": "executor", "state": "TODO", "dependencies": ["G2-001", "G2-002", "G2-003", "G2-004"], "acceptance": ["preview before confirm", "complete receipt", "cancel", "undo"]},
     {"id": "G4-001", "title": "Deterministic save/reload and compensation", "owner_role": "persist", "state": "TODO", "dependencies": ["G3-001"], "acceptance": ["same entity hashes after reload", "duplicate request no duplicate entity"]},
     {"id": "G6-001", "title": "Two-client authoritative POC", "owner_role": "network", "state": "TODO", "dependencies": ["G4-001"], "acceptance": ["two clients converge", "forged mutation rejected"]},
     {"id": "G8-001", "title": "Independent 2.5D alpha gate", "owner_role": "core", "state": "TODO", "dependencies": ["G6-001"], "acceptance": ["all receipts attached", "Purple verdict", "Human acceptance"]}
-  ]
+  ],
+  "conductor": {
+    "session": "grok-aidle-conductor-2026-07-20",
+    "bootstrap": "manual_maf_fallback (ps1 parser error known)",
+    "active_dispatches": [],
+    "completed_wave": ["G0-001", "G1-001", "G1-002"],
+    "mvp_lock": ["2.5D first", "companion_text_only"],
+    "godot_pin": "4.3-stable local tools/ (no install this session)"
+  }
 }

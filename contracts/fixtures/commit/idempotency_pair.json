@@ -1,0 +1,12 @@
+{
+  "case": "duplicate_request_id_returns_prior_receipt",
+  "description": "Same request_id on a second commit attempt returns prior receipt identity without re-applying mutation.",
+  "original_receipt_fixture": "valid_committed_receipt.json",
+  "replay_receipt_fixture": "valid_idempotent_replay_receipt.json",
+  "rules": {
+    "same_request_id": true,
+    "prior_receipt_id_matches_original_receipt_id": true,
+    "replayed_const_true": true,
+    "revisions_unchanged_between_original_and_replay": true
+  }
+}

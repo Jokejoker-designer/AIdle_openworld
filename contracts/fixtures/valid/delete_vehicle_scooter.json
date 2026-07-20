@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.1.0",
+  "prompt_id": "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
+  "request_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "session_id": "session_street_03",
+  "actor": {"player_id": "player_03", "companion_id": "companion_nova"},
+  "operation": "delete",
+  "target": {
+    "space_type": "shared_district",
+    "space_id": "district_plaza",
+    "chunk_id": "2_1",
+    "entity_id": "vehicle_scooter_09",
+    "expected_world_revision": 88
+  },
+  "style_profile": {
+    "profile_id": "soft_scifi_default",
+    "profile_version": "2.0.0",
+    "base_concept": "soft_scifi_2_5d",
+    "surrealism_budget": 0.2
+  },
+  "entity": {
+    "kind": "vehicle_2_5d",
+    "recipe_id": "hover_scooter_basic",
+    "transform": {"x": 10, "y": -4, "elevation": 0.1, "rotation_deg": 90},
+    "bounds": {"width": 1.2, "depth": 0.6, "height": 1.1},
+    "interaction_tags": ["rideable"]
+  },
+  "manifestation": {
+    "stages": ["wireframe", "hologram", "materializing", "complete"],
+    "presentation_duration_seconds": 4
+  },
+  "budget": {"max_compute_units": 25, "max_entities": 1, "paid_compute_allowed": false},
+  "provenance": {
+    "source_type": "player_request",
+    "requested_by": "player_03",
+    "generated_by": "companion_nova",
+    "created_at": "2026-07-20T17:00:00.000Z"
+  },
+  "confirmation": {
+    "preview_required": true,
+    "state": "confirmed",
+    "confirmed_by": "player_03",
+    "rollback_window_seconds": 600
+  }
+}

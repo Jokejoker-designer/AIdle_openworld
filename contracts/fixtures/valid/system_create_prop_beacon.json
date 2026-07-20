@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.1.0",
+  "prompt_id": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f80",
+  "request_id": "11223344-5566-4777-8899-aabbccddeeff",
+  "session_id": "session_system_spawn",
+  "actor": {"player_id": "system", "companion_id": "companion_system"},
+  "operation": "create",
+  "target": {
+    "space_type": "shared_district",
+    "space_id": "district_gate",
+    "chunk_id": "0_0",
+    "expected_world_revision": 1000
+  },
+  "style_profile": {
+    "profile_id": "cozy_default",
+    "profile_version": "1.0.0",
+    "base_concept": "cozy_cyber_pixel_2_5d",
+    "surrealism_budget": 0.01
+  },
+  "entity": {
+    "kind": "prop_2_5d",
+    "recipe_id": "nav_beacon_soft",
+    "transform": {"x": 0.5, "y": 0.5, "elevation": 0, "rotation_deg": 359.9},
+    "bounds": {"width": 0.4, "depth": 0.4, "height": 2.5},
+    "interaction_tags": ["lightable"]
+  },
+  "manifestation": {
+    "stages": ["wireframe", "hologram", "materializing", "complete"],
+    "presentation_duration_seconds": 1
+  },
+  "budget": {"max_compute_units": 10, "max_entities": 1, "paid_compute_allowed": false},
+  "provenance": {
+    "source_type": "system",
+    "requested_by": "world_commit",
+    "generated_by": "spawn_service",
+    "created_at": "2026-07-21T11:11:11Z"
+  },
+  "confirmation": {
+    "preview_required": true,
+    "state": "confirmed",
+    "confirmed_by": "system_policy",
+    "rollback_window_seconds": 0
+  }
+}

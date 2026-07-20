@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.1.0",
+  "prompt_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+  "request_id": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "session_id": "session_garden_02",
+  "actor": {"player_id": "player_02", "companion_id": "companion_pix"},
+  "operation": "modify",
+  "target": {
+    "space_type": "private_reality",
+    "space_id": "home_02",
+    "chunk_id": "1_0",
+    "entity_id": "prop_lamp_01",
+    "expected_world_revision": 12
+  },
+  "style_profile": {
+    "profile_id": "pastoral_soft",
+    "profile_version": "1.1.0",
+    "base_concept": "pastoral_fantasy_2_5d",
+    "surrealism_budget": 0.05
+  },
+  "entity": {
+    "kind": "prop_2_5d",
+    "recipe_id": "garden_lamp_warm",
+    "transform": {"x": 3.5, "y": 2.0, "elevation": 0.25, "rotation_deg": 45},
+    "bounds": {"width": 0.5, "depth": 0.5, "height": 1.8},
+    "interaction_tags": ["lightable", "toggleable"]
+  },
+  "manifestation": {
+    "stages": ["wireframe", "hologram", "materializing", "complete"],
+    "presentation_duration_seconds": 6
+  },
+  "budget": {"max_compute_units": 50, "max_entities": 4, "paid_compute_allowed": false},
+  "provenance": {
+    "source_type": "player_request",
+    "requested_by": "player_02",
+    "generated_by": "companion_pix",
+    "created_at": "2026-07-20T16:30:00Z",
+    "parent_prompt_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  "confirmation": {
+    "preview_required": true,
+    "state": "pending",
+    "rollback_window_seconds": 1800
+  }
+}

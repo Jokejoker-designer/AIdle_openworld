@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_id": "c0ffee00-1111-4222-8333-444444444444",
+  "request_id": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
+  "status": "idempotent_replay",
+  "occurred_at": "2026-07-20T12:00:05Z",
+  "space_id": "home_01",
+  "authority": {
+    "commit_path": "world_commit_service",
+    "issuer": "world_commit_service"
+  },
+  "old_world_revision": 7,
+  "new_world_revision": 8,
+  "entity_ids": ["ent_house_01"],
+  "artifact_hashes": [
+    {
+      "role": "entity_snapshot",
+      "algorithm": "sha256",
+      "hash": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    }
+  ],
+  "idempotency": {
+    "duplicate_of_request_id": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
+    "prior_receipt_id": "c0ffee00-1111-4222-8333-444444444444",
+    "replayed": true
+  },
+  "trace_id": "trace-g1-002-commit-req"
+}

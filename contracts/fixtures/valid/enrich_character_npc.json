@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.1.0",
+  "prompt_id": "c9bf9e57-1685-4c89-bafb-ff5af830be8a",
+  "request_id": "16fd2706-8b83-4137-9d92-8f2c4d2d2a1e",
+  "session_id": "session_npc_enrich",
+  "actor": {"player_id": "player_04", "companion_id": "companion_lumi"},
+  "operation": "enrich",
+  "target": {
+    "space_type": "doppelganger_city",
+    "space_id": "mirror_tokyo_block",
+    "chunk_id": "5_5",
+    "entity_id": "npc_shopkeeper_01",
+    "expected_world_revision": 401
+  },
+  "style_profile": {
+    "profile_id": "cozy_default",
+    "profile_version": "1.0.0",
+    "base_concept": "cozy_cyber_pixel_2_5d",
+    "surrealism_budget": 0.35
+  },
+  "entity": {
+    "kind": "character_2_5d",
+    "recipe_id": "npc_vendor_soft",
+    "transform": {"x": 0, "y": 0, "elevation": 0, "rotation_deg": 180},
+    "bounds": {"width": 0.8, "depth": 0.8, "height": 1.7},
+    "interaction_tags": ["talkable", "tradable"]
+  },
+  "manifestation": {
+    "stages": ["wireframe", "hologram", "materializing", "complete"],
+    "presentation_duration_seconds": 18
+  },
+  "budget": {"max_compute_units": 400, "max_entities": 8, "paid_compute_allowed": false},
+  "provenance": {
+    "source_type": "companion_enrichment",
+    "requested_by": "companion_lumi",
+    "generated_by": "companion_lumi",
+    "created_at": "2026-07-20T18:15:30Z",
+    "model_receipt_ref": "receipts/enrich_npc_01"
+  },
+  "confirmation": {
+    "preview_required": true,
+    "state": "pending",
+    "rollback_window_seconds": 7200
+  }
+}

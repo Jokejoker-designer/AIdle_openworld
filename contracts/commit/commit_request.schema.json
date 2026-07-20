@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/contracts/commit-request/1.0.0",
+  "title": "AIdle World Commit Request",
+  "description": "Durable world mutation request accepted only via the authoritative World Commit service. Client-authoritative durable mutation is schema-invalid.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "prompt_id",
+    "session_id",
+    "space_id",
+    "expected_world_revision",
+    "actor",
+    "authority",
+    "confirmation",
+    "mutation_class"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "request_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Idempotency key. Duplicate request_id must return the prior receipt."
+    },
+    "prompt_id": {"type": "string", "format": "uuid"},
+    "session_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "space_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "expected_world_revision": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Optimistic concurrency token. Mismatch yields conflicted receipt."
+    },
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actor_id", "actor_type"],
+      "properties": {
+        "actor_id": {"type": "string", "minLength": 1, "maxLength": 128},
+        "actor_type": {"enum": ["player", "companion", "system"]}
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commit_path", "source", "durable_mutation"],
+      "properties": {
+        "commit_path": {
+          "const": "world_commit_service",
+          "description": "Only the World Commit service may accept durable online mutations."
+        },
+        "source": {
+          "enum": ["server_authoritative", "offline_journal_reconcile"],
+          "description": "client_authoritative and client_forged are intentionally excluded."
+        },
+        "durable_mutation": {
+          "const": true,
+          "description": "This request path is for durable state only."
+        }
+      }
+    },
+    "confirmation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "confirmed_by"],
+      "properties": {
+        "state": {"const": "confirmed"},
+        "confirmed_by": {"type": "string", "minLength": 1, "maxLength": 128}
+      }
+    },
+    "mutation_class": {
+      "enum": ["durable_world", "compensating", "offline_reconcile"]
+    },
+    "trace_id": {"type": "string", "minLength": 1, "maxLength": 128}
+  }
+}

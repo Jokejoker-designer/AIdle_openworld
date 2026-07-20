@@ -1,5 +1,7 @@
 # Event Bus v1.1
 
+Machine contract: `contracts/events/event_envelope.schema.json`.
+
 Events use an envelope: `event_id`, `event_type`, `event_version`, `occurred_at`,
 `request_id`, `space_id`, `world_revision`, `actor_id`, `payload`, `trace_id`.
 

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/contracts/event-envelope/1.0.0",
+  "title": "AIdle Event Bus Envelope",
+  "description": "Versioned event envelope matching Interfaces/Event_Bus.md. Consumers are idempotent by event_id. Payloads must not carry raw prompts, secrets or private memories.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "event_type",
+    "event_version",
+    "occurred_at",
+    "request_id",
+    "space_id",
+    "world_revision",
+    "actor_id",
+    "payload",
+    "trace_id"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Consumer idempotency key."
+    },
+    "event_type": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 128,
+      "pattern": "^(world|manifestation|asset|companion|social)\\.[a-z0-9_]+$",
+      "description": "Dotted type, e.g. world.mutation_committed."
+    },
+    "event_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "request_id": {"type": "string", "format": "uuid"},
+    "space_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "world_revision": {"type": "integer", "minimum": 0},
+    "actor_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "payload": {
+      "type": "object",
+      "description": "Event-specific body. Forbidden keys block raw prompts/secrets/private memory.",
+      "propertyNames": {
+        "type": "string",
+        "not": {
+          "enum": [
+            "raw_prompt",
+            "prompt_text",
+            "secret",
+            "secrets",
+            "private_memory",
+            "api_key",
+            "password",
+            "access_token"
+          ]
+        }
+      }
+    },
+    "trace_id": {"type": "string", "minLength": 1, "maxLength": 128}
+  }
+}

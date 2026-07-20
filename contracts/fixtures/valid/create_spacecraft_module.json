@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.1.0",
+  "prompt_id": "0f5e4d3c-2b1a-4908-8765-43210fedcba9",
+  "request_id": "aa11bb22-cc33-4dd4-8ee5-ff6677889900",
+  "session_id": "session_ship_build",
+  "actor": {"player_id": "player_08", "companion_id": "companion_orbit"},
+  "operation": "create",
+  "target": {
+    "space_type": "spacecraft",
+    "space_id": "ship_wanderer",
+    "chunk_id": "bridge_0",
+    "expected_world_revision": 22
+  },
+  "style_profile": {
+    "profile_id": "soft_scifi_default",
+    "profile_version": "2.0.0",
+    "base_concept": "soft_scifi_2_5d",
+    "surrealism_budget": 0.25
+  },
+  "entity": {
+    "kind": "modular_structure_2_5d",
+    "recipe_id": "ship_console_module",
+    "transform": {"x": 4, "y": 2, "elevation": 0, "rotation_deg": 0},
+    "bounds": {"width": 3, "depth": 2, "height": 2.2},
+    "interaction_tags": ["enterable", "usable", "console"]
+  },
+  "manifestation": {
+    "stages": ["wireframe", "hologram", "materializing", "complete"],
+    "presentation_duration_seconds": 15
+  },
+  "budget": {"max_compute_units": 300, "max_entities": 12, "paid_compute_allowed": false},
+  "provenance": {
+    "source_type": "player_request",
+    "requested_by": "player_08",
+    "generated_by": "companion_orbit",
+    "created_at": "2026-07-21T10:00:00Z"
+  },
+  "confirmation": {
+    "preview_required": true,
+    "state": "confirmed",
+    "confirmed_by": "player_08",
+    "rollback_window_seconds": 1200
+  }
+}

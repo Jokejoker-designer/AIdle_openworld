@@ -1,0 +1,35 @@
+{
+  "agent_step_id": "G1-001-accept-conductor-2026-07-20",
+  "agent_type": "lead-orchestrator",
+  "skill_id": "maf-mandatory-standard",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G1-001",
+    "state": "ACCEPTED",
+    "worker": "aidle-schema",
+    "purple_verdict": "ACCEPTED",
+    "mechanical_validation": "AIDLE_VALIDATION=PASS",
+    "valid_fixtures": 11,
+    "invalid_fixtures": 13,
+    "self_accept_forbidden": true
+  },
+  "smoke_test": {
+    "command": "python scripts\\validate_project.py",
+    "exit_code": 0,
+    "cwd": "E:\\AIdle_openworld"
+  },
+  "self_audit": {
+    "consumer_review": "contracts usable by G2 workers",
+    "purple_review_ref": "orchestration/reviews/G1-001_PURPLE_REVIEW.md",
+    "manual_maf_bootstrap": true
+  },
+  "evidence_refs": [
+    "orchestration/receipts/G1-001.json",
+    "orchestration/reviews/G1-001_PURPLE_REVIEW.md",
+    "contracts/fixtures/valid/",
+    "contracts/fixtures/invalid/",
+    "scripts/validate_project.py"
+  ],
+  "next_route": "Unlock G2-001..G2-004 READY"
+}

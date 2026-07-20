@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.1.0",
+  "prompt_id": "abcdef01-2345-4678-9abc-def012345678",
+  "request_id": "fedcba98-7654-4321-0fed-cba987654321",
+  "session_id": "session_max_bounds",
+  "actor": {"player_id": "player_09", "companion_id": "companion_lumi"},
+  "operation": "create",
+  "target": {
+    "space_type": "private_reality",
+    "space_id": "mega_lot",
+    "chunk_id": "3_3",
+    "expected_world_revision": 7
+  },
+  "style_profile": {
+    "profile_id": "pastoral_soft",
+    "profile_version": "1.2.0",
+    "base_concept": "pastoral_fantasy_2_5d",
+    "surrealism_budget": 1
+  },
+  "entity": {
+    "kind": "modular_structure_2_5d",
+    "recipe_id": "grand_hall_max",
+    "transform": {"x": -10, "y": 20, "elevation": 1, "rotation_deg": 0},
+    "bounds": {"width": 128, "depth": 128, "height": 64},
+    "interaction_tags": [
+      "enterable",
+      "lightable",
+      "climbable",
+      "shelter",
+      "storage"
+    ]
+  },
+  "manifestation": {
+    "stages": ["wireframe", "hologram", "materializing", "complete"],
+    "presentation_duration_seconds": 60
+  },
+  "budget": {"max_compute_units": 10000, "max_entities": 256, "paid_compute_allowed": true},
+  "provenance": {
+    "source_type": "player_request",
+    "requested_by": "player_09",
+    "generated_by": "companion_lumi",
+    "created_at": "2026-07-21T12:00:00Z",
+    "parent_prompt_id": "550e8400-e29b-41d4-a716-446655440000",
+    "model_receipt_ref": "receipts/grand_hall_preview"
+  },
+  "confirmation": {
+    "preview_required": true,
+    "state": "pending",
+    "rollback_window_seconds": 86400
+  }
+}

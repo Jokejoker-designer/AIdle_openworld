@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.1.0",
+  "prompt_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3301",
+  "request_id": "9b2c1e40-6f4a-4d3c-8c1a-2d5e7f8a9b0c",
+  "session_id": "session_gift_01",
+  "actor": {"player_id": "player_05", "companion_id": "companion_pix"},
+  "operation": "gift_proposal",
+  "target": {
+    "space_type": "private_reality",
+    "space_id": "friend_home_07",
+    "chunk_id": "0_1",
+    "expected_world_revision": 3
+  },
+  "style_profile": {
+    "profile_id": "pastoral_soft",
+    "profile_version": "1.1.0",
+    "base_concept": "pastoral_fantasy_2_5d",
+    "surrealism_budget": 0.1
+  },
+  "entity": {
+    "kind": "prop_2_5d",
+    "recipe_id": "gift_flower_box",
+    "transform": {"x": 1, "y": 1, "elevation": 0, "rotation_deg": 15},
+    "bounds": {"width": 1, "depth": 1, "height": 0.6},
+    "interaction_tags": ["giftable", "pickupable"]
+  },
+  "manifestation": {
+    "stages": ["wireframe", "hologram", "materializing", "complete"],
+    "presentation_duration_seconds": 10
+  },
+  "budget": {"max_compute_units": 80, "max_entities": 2, "paid_compute_allowed": false},
+  "provenance": {
+    "source_type": "player_request",
+    "requested_by": "player_05",
+    "generated_by": "companion_pix",
+    "created_at": "2026-07-20T19:00:00Z"
+  },
+  "confirmation": {
+    "preview_required": true,
+    "state": "pending",
+    "rollback_window_seconds": 86400
+  }
+}

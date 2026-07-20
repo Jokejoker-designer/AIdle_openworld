@@ -24,6 +24,9 @@ extends Node3D
 func _ready() -> void:
 	_configure_spaces()
 	_bind_module_mounts()
+	# Under headless/dummy: clear presentation meshes before any material write
+	# (avoids dummy mesh_get_surface_count ERROR). Real logic/hierarchy stays.
+	_disable_presentation_meshes_if_headless()
 	_apply_art_style_environment()
 	if not EventBus.art_style_changed.is_connected(_on_art_style_changed):
 		EventBus.art_style_changed.connect(_on_art_style_changed)
@@ -115,15 +118,33 @@ func _on_art_style_changed(style_id: String) -> void:
 	_apply_art_style_environment()
 
 
+func _is_headless_presentation() -> bool:
+	if AIdleConstants != null and AIdleConstants.has_method("is_headless_or_dummy_presentation"):
+		return bool(AIdleConstants.is_headless_or_dummy_presentation())
+	return OS.has_feature("headless") or DisplayServer.get_name() == "headless"
+
+
+func _disable_presentation_meshes_if_headless() -> void:
+	if not _is_headless_presentation():
+		return
+	var ground := get_node_or_null("Systems/Ground/MeshInstance3D") as MeshInstance3D
+	if ground != null:
+		ground.mesh = null
+		ground.material_override = null
+		ground.visible = false
+
+
 func _apply_art_style_environment() -> void:
 	var style := ArtStyleManager.get_active_style()
 	var palette: Dictionary = style.get("palette", {})
-	var ground := get_node_or_null("Systems/Ground/MeshInstance3D") as MeshInstance3D
-	if ground and ground.mesh:
-		var mat := StandardMaterial3D.new()
-		mat.albedo_color = palette.get("ground", Color("8FBC8F"))
-		mat.roughness = 0.85
-		ground.material_override = mat
+	# Presentation-only material on ground mesh — skip under headless/dummy renderer.
+	if not _is_headless_presentation():
+		var ground := get_node_or_null("Systems/Ground/MeshInstance3D") as MeshInstance3D
+		if ground and ground.mesh:
+			var mat := StandardMaterial3D.new()
+			mat.albedo_color = palette.get("ground", Color("8FBC8F"))
+			mat.roughness = 0.85
+			ground.material_override = mat
 	var world_env := get_node_or_null("Systems/WorldEnvironment") as WorldEnvironment
 	if world_env and world_env.environment:
 		var sky_color: Color = palette.get("sky", Color("8EC5E8"))

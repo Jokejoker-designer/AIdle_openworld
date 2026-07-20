@@ -1,8 +1,8 @@
 # Work Order — G2-001/G2-002 Manifestation Correction 002
 
-Authority: `PATCH_DRAFT`  
-Final acceptor: Codex  
-Directive: 8  
+Authority: `PATCH_DRAFT`
+Final acceptor: Codex
+Directive: 8
 Tasks: `G2-001`, `G2-002`
 
 ## Objective
@@ -30,4 +30,3 @@ existing fixed-angle 2.5D world and progressive manifestation behavior.
 Do not edit bridge, companion, executor, task/control/architecture/contract
 files or create acceptance files. Return `REVIEW_REQUESTED` with changed files,
 exact commands, full logs, residual risks, and valid MAF step-contract receipts.
-

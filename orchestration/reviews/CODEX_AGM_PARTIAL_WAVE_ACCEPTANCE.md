@@ -2,7 +2,7 @@
 
 Date: 2026-07-20  
 Final acceptor: Codex  
-Accepted: `G1-003`, `G2-003`, `G2-004`, `G2-005`, `G2-006`, `G2-007`
+Accepted: `G1-003`, `G2-001`, `G2-002`, `G2-003`, `G2-004`, `G2-005`, `G2-006`, `G2-007`
 
 ## Evidence
 
@@ -16,17 +16,16 @@ Accepted: `G1-003`, `G2-003`, `G2-004`, `G2-005`, `G2-006`, `G2-007`
 - Free Desktop Bridge Python and Godot smokes pass independently with clean
   parse/compile/runtime logs; manual consent, stale/replay rejection and
   no-network boundaries are exercised. Its MAF receipt validates.
+- The fixed-angle 2.5D shell and manifestation renderer pass independent
+  headless boot/smoke validation with no forbidden error markers. Presentation
+  meshes are skipped only under headless rendering; stage and collision logic
+  remain active.
 - Decision-executor Python and Godot smokes pass, including allowlist rejection,
   replay idempotency, stale-snapshot rejection, and enforced
   preview/confirm/commit handoff. Its scoped MAF receipt validates and does not
   claim self-acceptance.
 - Edition-selector Godot smoke: PASS; both editions share contract semantics
   and the settings layer rejects client secrets.
-
-## Not accepted
-
-- `G2-001`: integrated headless run still emits dummy-renderer mesh errors.
-- `G2-002`: functional smoke passes but emits mesh/fallback log noise.
 
 All out-of-directive source files are preserved. Acceptance state was reset;
 no gameplay code was rolled back.

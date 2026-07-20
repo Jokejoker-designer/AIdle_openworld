@@ -27,6 +27,8 @@ var _collision_shape: CollisionShape3D
 var _material: StandardMaterial3D
 var _finalized: bool = false
 var _cancelled: bool = false
+## When true, skip Mesh/Material (presentation-only) under headless/dummy renderer.
+var _presentation_enabled: bool = true
 
 
 func _ready() -> void:
@@ -135,7 +137,42 @@ func free_cleanup() -> void:
 	queue_free()
 
 
+func _presentation_allowed() -> bool:
+	# Prefer autoload when available; fall back to DisplayServer for pure -s smoke.
+	if AIdleConstants != null and AIdleConstants.has_method("is_headless_or_dummy_presentation"):
+		return not bool(AIdleConstants.is_headless_or_dummy_presentation())
+	if OS.has_feature("headless"):
+		return false
+	return DisplayServer.get_name() != "headless"
+
+
 func _build_visuals_if_needed() -> void:
+	_presentation_enabled = _presentation_allowed()
+
+	# Collision body is always built (logic + cancel/preview tests). Mesh is presentation-only.
+	if _static_body == null:
+		_static_body = StaticBody3D.new()
+		_static_body.name = "CollisionBody"
+		_static_body.collision_layer = 0
+		_static_body.collision_mask = 0
+		add_child(_static_body)
+
+		_collision_shape = CollisionShape3D.new()
+		_collision_shape.name = "Shape"
+		var shape := BoxShape3D.new()
+		shape.size = entity_size
+		_collision_shape.shape = shape
+		_collision_shape.position = Vector3(0.0, entity_size.y * 0.5, 0.0)
+		_collision_shape.disabled = true
+		_static_body.add_child(_collision_shape)
+	else:
+		_update_mesh_size()
+
+	if not _presentation_enabled:
+		# Headless/dummy: do not construct BoxMesh / StandardMaterial3D (avoids dummy ERROR: m is null).
+		# Stage ordering, cancel, reduced-motion, and collision gating still run.
+		return
+
 	if _mesh_instance != null:
 		_update_mesh_size()
 		return
@@ -157,24 +194,9 @@ func _build_visuals_if_needed() -> void:
 	_mesh_instance.material_override = _material
 	add_child(_mesh_instance)
 
-	_static_body = StaticBody3D.new()
-	_static_body.name = "CollisionBody"
-	_static_body.collision_layer = 0
-	_static_body.collision_mask = 0
-	add_child(_static_body)
-
-	_collision_shape = CollisionShape3D.new()
-	_collision_shape.name = "Shape"
-	var shape := BoxShape3D.new()
-	shape.size = entity_size
-	_collision_shape.shape = shape
-	_collision_shape.position = Vector3(0.0, entity_size.y * 0.5, 0.0)
-	_collision_shape.disabled = true
-	_static_body.add_child(_collision_shape)
-
 
 func _update_mesh_size() -> void:
-	if _mesh_instance and _mesh_instance.mesh is BoxMesh:
+	if _presentation_enabled and _mesh_instance and _mesh_instance.mesh is BoxMesh:
 		(_mesh_instance.mesh as BoxMesh).size = entity_size
 		_mesh_instance.position = Vector3(0.0, entity_size.y * 0.5, 0.0)
 	if _collision_shape and _collision_shape.shape is BoxShape3D:
@@ -183,7 +205,8 @@ func _update_mesh_size() -> void:
 
 
 func _apply_stage_visuals() -> void:
-	if _material == null:
+	# Stage state always updates via set_stage / meta; material tint is presentation-only.
+	if not _presentation_enabled or _material == null:
 		return
 	var opacity: float = _Stages.visual_opacity(_stage)
 	var emission_e: float = _Stages.visual_emission_energy(_stage)

@@ -1,19 +1,20 @@
 {
   "schema_version": "1.0.0",
   "agent": "aidle-conductor",
-  "last_directive_id": 8,
+  "last_directive_id": 9,
   "state": "WAITING_CODEX",
   "active_task_ids": [],
-  "submitted_task_ids": ["G2-005"],
+  "submitted_task_ids": ["G2-001", "G2-002"],
   "evidence_paths": [
-    "orchestration/receipts/G2-005.json",
-    "orchestration/work_orders/WO-G2-BRIDGE-CORRECTION-002.md",
-    "game/scripts/modules/bridge/desktop_bridge_module.gd",
-    "game/scripts/modules/bridge/desktop_bridge_smoke.gd",
-    "game/scripts/modules/bridge/snapshot_builder.gd",
-    "game/scripts/modules/bridge/decision_import_guard.gd"
+    "orchestration/receipts/G2-001.json",
+    "orchestration/receipts/G2-002.json",
+    "orchestration/work_orders/WO-G2-MANIFESTATION-CORRECTION-002.md",
+    "game/scripts/modules/manifestation/manifestation_instance.gd",
+    "game/scripts/world/world_root.gd",
+    "game/scripts/player/player_controller.gd",
+    "game/scripts/core/constants.gd"
   ],
   "failure_signature": null,
-  "updated_at": "2026-07-20T22:55:00+07:00",
-  "message_to_codex": "Directive 8 G2-005 Bridge Correction 002 complete → REVIEW_REQUESTED. Godot smoke PASS checks=11 (exit 0, no parse/load errors), Python smoke PASS, project validator PASS. No self-ACCEPT. Awaiting Codex independent acceptance."
+  "updated_at": "2026-07-20T23:20:00+07:00",
+  "message_to_codex": "Directive 9 G2-001+G2-002 presentation correction complete → REVIEW_REQUESTED. Manifestation smoke PASS checks=8 (no ERROR:/SCRIPT ERROR), integrated headless boot exit 0 clean, validator PASS. Presentation meshes skipped under headless only; stage/cancel/collision logic preserved. No self-ACCEPT. Awaiting Codex."
 }

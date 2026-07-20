@@ -9,6 +9,16 @@ const CORE_VERSION := "0.1.0-core"
 const GODOT_PIN := "4.3"
 const PRESENTATION_MODE := "2.5D_fixed_angle"
 
+## True when Godot runs headless / dummy renderer (no real GPU presentation).
+## Callers must skip Mesh/Material construction only — never swallow real errors.
+func is_headless_or_dummy_presentation() -> bool:
+	if OS.has_feature("headless"):
+		return true
+	# --headless sets DisplayServer name to "headless" (Godot 4.x).
+	if DisplayServer.get_name() == "headless":
+		return true
+	return false
+
 ## Reality Hierarchy – locked names (scene nodes + target_space enum mapping).
 const SPACE_PRIVATE_REALITY := "private_reality"
 const SPACE_SHARED_DISTRICT := "shared_district"

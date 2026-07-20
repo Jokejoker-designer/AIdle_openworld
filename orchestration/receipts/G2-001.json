@@ -1,98 +1,76 @@
 {
-  "agent_step_id": "G2-001-aidle-core-2026-07-20",
+  "agent_step_id": "G2-001-presentation-correction-002-2026-07-20",
   "agent_type": "aidle-core",
   "skill_id": "maf-mandatory-standard",
-  "skill_version": "1.0",
   "authority_token": "PATCH_DRAFT",
   "output_schema_version": "agent_step_contract/1.0",
   "result": {
     "task_id": "G2-001",
+    "work_order": "orchestration/work_orders/WO-G2-MANIFESTATION-CORRECTION-002.md",
+    "directive_id": 9,
     "state": "REVIEW_REQUESTED",
-    "summary": "Pinned Godot 4.3 2.5D shell: project boots via tools binary, fixed-angle three-quarter CozyCamera (no free orbit/FPS), CharacterBody3D player XZ ground movement, headless boot auto-selects default art style for smoke.",
-    "artifacts": [
-      "game/project.godot",
-      "game/scripts/camera/cozy_camera.gd",
-      "game/scripts/player/player_controller.gd",
-      "game/scripts/main/boot.gd",
-      "game/scripts/main/main.gd",
-      "game/scripts/core/constants.gd",
-      "game/scenes/main/main.tscn",
-      "game/scenes/camera/cozy_camera.tscn",
-      "game/docs/SMOKE_G2_001.md"
+    "self_accept": false,
+    "summary": "Headless/dummy presentation correction for 2.5D shell: skip presentation-only mesh/material init under headless (ground + player visual), keep fixed-angle camera and XZ locomotion. Does not filter or relabel real errors.",
+    "corrections": [
+      "AIdleConstants.is_headless_or_dummy_presentation()",
+      "world_root: clear ground MeshInstance3D mesh/material under headless; skip material_override write",
+      "player_controller: clear presentation MeshInstance3D under headless (collision/locomotion intact)"
     ],
-    "acceptance": {
-      "godot_4_3_headless_smoke_exit_0": true,
-      "fixed_angle_camera_code_evidence": true,
-      "player_xz_movement_code_evidence": true,
-      "no_free_3d_camera": true,
-      "smoke_docs_written": true,
-      "self_accept": false
-    },
-    "not_done": [
-      "No interactive visual playtest screenshot in this receipt",
-      "No manifestation stage system (G2-002)",
-      "No companion module (G2-003)",
-      "No self-ACCEPT"
+    "preserved": [
+      "fixed-angle 2.5D camera",
+      "CharacterBody3D XZ ground locomotion",
+      "no free 3D camera",
+      "Godot 4.3 pin"
     ]
   },
   "smoke_test": {
-    "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 5",
-    "binary": "tools/Godot_v4.3-stable_win64_console.exe",
-    "godot_version": "4.3.stable.official.77dcf97d8",
-    "exit_code": 0,
-    "stdout_highlights": [
-      "Godot Engine v4.3.stable.official.77dcf97d8",
-      "[GameManager] AIdle Core 0.1.0-core booting…",
-      "[Boot] Headless smoke → main with default art style.",
-      "[WorldRoot] Hierarchy ready (Blueprint v1.0).",
-      "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
-      "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.",
-      "[GameManager] World ready. Art style=cozy_cyber_pixel",
-      "[Main] Entered Private Reality | style=cozy_cyber_pixel"
-    ],
-    "non_fatal_notes": [
-      "Headless dummy renderer may emit mesh_get_surface_count Parameter m is null; exit code still 0; no GDScript parse/compile errors."
-    ],
-    "scope": "boot-to-main,fixed-angle-camera,player-controller,world-root-hierarchy,module-stubs"
-  },
-  "camera_review": {
-    "script": "game/scripts/camera/cozy_camera.gd",
-    "fixed_pitch_export": "pitch_degrees=42.0",
-    "yaw_policy": "discrete 45° snaps only when allow_yaw_snaps; no InputEventMouseMotion look",
-    "is_fixed_angle_method": true,
-    "forbidden_absent": [
-      "free orbit",
-      "FPS mouse look",
-      "continuous yaw drag"
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 5",
+        "exit_code": 0,
+        "log_clean": true,
+        "markers": [
+          "[Main] Camera mode=fixed-angle 2.5D",
+          "[Main] Player ready: CharacterBody3D XZ locomotion"
+        ],
+        "forbidden_log_patterns": [
+          "SCRIPT ERROR",
+          "Parse Error",
+          "Compile Error",
+          "ERROR:"
+        ]
+      },
+      {
+        "command": "python scripts\\validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
     ]
   },
-  "player_review": {
-    "script": "game/scripts/player/player_controller.gd",
-    "type": "CharacterBody3D",
-    "locomotion": "camera-relative XZ on ground plane; walk/sprint; soft gravity",
-    "scene": "game/scenes/player/player.tscn",
-    "wired_in": "game/scenes/main/main.tscn (camera_rig_path + target_path)"
-  },
   "self_audit": {
-    "allowed_paths_only": true,
-    "did_not_touch_contracts": true,
-    "did_not_install_godot_or_packages": true,
-    "did_not_touch_g2_002_manifestation": true,
-    "did_not_touch_g2_003_companion": true,
-    "did_not_touch_g2_004_asset_grammar": true,
-    "mvp_2_5d_first": true,
-    "no_self_accept": true,
-    "authority_token": "PATCH_DRAFT"
+    "no_tasks_json_edit": true,
+    "no_codex_directive_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_bridge_companion_executor_edit": true,
+    "no_accept_receipt": true,
+    "no_error_filtering": true,
+    "worker_cannot_self_accept": true
   },
-  "evidence_refs": [
-    "game/project.godot",
-    "game/scripts/camera/cozy_camera.gd",
+  "changed_files": [
+    "game/scripts/core/constants.gd",
+    "game/scripts/world/world_root.gd",
     "game/scripts/player/player_controller.gd",
-    "game/scripts/main/boot.gd",
-    "game/scripts/main/main.gd",
-    "game/docs/SMOKE_G2_001.md",
-    "orchestration/work_orders/WO-G2-001.md",
-    "tools/Godot_v4.3-stable_win64_console.exe"
+    "orchestration/receipts/G2-001.json"
   ],
-  "next_route": "consumer/purple VERIFY_ONLY review of G2-001 shell; ACCEPTED only after independent verification; no self-ACCEPT by aidle-core"
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G2-MANIFESTATION-CORRECTION-002.md",
+    "orchestration/control/codex_directive.json",
+    "game/docs/SMOKE_G2_001.md"
+  ],
+  "remaining_risks": [
+    "Other modules outside G2-001/G2-002 write scope may still create meshes if not guarded",
+    "Headed visual QA not re-run this pass (logic-only headless evidence)",
+    "Environment background still set under headless (not mesh; no ERROR observed)"
+  ],
+  "next_route": "WAITING_CODEX independent acceptance"
 }

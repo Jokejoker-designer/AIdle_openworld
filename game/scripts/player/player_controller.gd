@@ -27,6 +27,24 @@ func _ready() -> void:
 		_camera_rig = get_node_or_null(camera_rig_path) as Node3D
 	if _camera_rig == null:
 		_camera_rig = get_tree().get_first_node_in_group("cozy_camera") as Node3D
+	# Presentation-only capsule mesh: clear under headless/dummy to avoid dummy ERROR.
+	# Locomotion / collision capsule stay intact.
+	_disable_presentation_mesh_if_headless()
+
+
+func _disable_presentation_mesh_if_headless() -> void:
+	var headless := false
+	if AIdleConstants != null and AIdleConstants.has_method("is_headless_or_dummy_presentation"):
+		headless = bool(AIdleConstants.is_headless_or_dummy_presentation())
+	else:
+		headless = OS.has_feature("headless") or DisplayServer.get_name() == "headless"
+	if not headless:
+		return
+	var visual := get_node_or_null("MeshInstance3D") as MeshInstance3D
+	if visual != null:
+		visual.mesh = null
+		visual.material_override = null
+		visual.visible = false
 
 
 func set_camera_rig(rig: Node3D) -> void:

@@ -1,77 +1,72 @@
 {
-  "agent_step_id": "G2-002-2026-07-20-aidle-manifestation",
+  "agent_step_id": "G2-002-presentation-correction-002-2026-07-20",
   "agent_type": "aidle-manifestation",
   "skill_id": "maf-mandatory-standard",
-  "skill_version": "1.0",
   "authority_token": "PATCH_DRAFT",
   "output_schema_version": "agent_step_contract/1.0",
   "result": {
     "task_id": "G2-002",
+    "work_order": "orchestration/work_orders/WO-G2-MANIFESTATION-CORRECTION-002.md",
+    "directive_id": 9,
     "state": "REVIEW_REQUESTED",
-    "summary": "Implemented 2.5D manifestation renderer with ordered stages wireframe→hologram→materializing→complete; preview stages never enable durable collision; cancel/free_cleanup disables collision and removes geometry; skip-animation / reduced_motion flag-ready.",
-    "artifacts": [
-      "game/scripts/modules/interfaces/i_manifestation_module.gd",
-      "game/scripts/modules/manifestation/manifestation_stages.gd",
-      "game/scripts/modules/manifestation/manifestation_instance.gd",
-      "game/scripts/modules/manifestation/manifestation_module.gd",
-      "game/scripts/modules/manifestation/manifestation_smoke.gd",
-      "game/scenes/modules/manifestation/manifestation_module.tscn"
+    "self_accept": false,
+    "summary": "Skip presentation-only BoxMesh/StandardMaterial under headless/dummy; keep wireframe→hologram→materializing→complete stage machine, cancel (no durable collision), reduced-motion flags, preview collision gated until complete.",
+    "corrections": [
+      "manifestation_instance: _presentation_allowed() via headless/dummy detection",
+      "Always build StaticBody3D/CollisionShape3D for cancel/complete collision tests",
+      "Skip MeshInstance3D + material under headless (prevents dummy mesh_get_surface_count ERROR)",
+      "_apply_stage_visuals no-ops materials when presentation disabled; stage meta still updates"
     ],
-    "acceptance": {
-      "four_ordered_stages_enforced": true,
-      "cancel_leaves_no_collision": true,
-      "preview_no_durable_collision": true,
-      "reduced_motion_skip_animation_flag_ready": true,
-      "smoke_pass": true,
-      "self_accept": false
-    },
-    "not_done": [
-      "Not wired into main.tscn boot (G3 integrator owns prompt-to-house transaction)",
-      "No full art-style mesh library (placeholder BoxMesh)",
-      "No server-authoritative commit (visual module only)",
-      "No self-ACCEPT"
+    "preserved": [
+      "ordered stages wireframe → hologram → materializing → complete",
+      "cancel / free_cleanup leaves no durable collision",
+      "preview non-durable until complete",
+      "skip_animation / reduced_motion paths unchanged in module"
     ]
   },
   "smoke_test": {
-    "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
-    "exit_code": 0,
-    "stdout_marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
-    "checks": [
-      "ordered_stages_const",
-      "progress_mapping",
-      "monotonic_enforcement",
-      "collision_gate",
-      "instance_cancel_no_collision",
-      "instance_complete_has_collision",
-      "module_pipeline",
-      "interface_surface"
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
+        "log_clean": true,
+        "forbidden_log_patterns": [
+          "SCRIPT ERROR",
+          "Parse Error",
+          "Compile Error",
+          "ERROR:"
+        ]
+      },
+      {
+        "command": "python scripts\\validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
     ]
   },
-  "design_notes": {
-    "stages": ["wireframe", "hologram", "materializing", "complete"],
-    "collision_policy": "enabled only at complete; cancel zeros layer and disables shape then queue_free",
-    "skip_animation": "ManifestationModule.set_skip_animation(true) or SettingsManager gameplay/reduced_motion | gameplay/skip_manifestation_animation",
-    "mount": "Registers on ModuleRegistry slot 'voxel' (legacy name; not voxel digging) via duck-typed stub replacement",
-    "events": "EventBus manifestation_started|progress_updated|completed|cancelled"
-  },
   "self_audit": {
-    "allowed_write_paths_only": true,
-    "no_contracts_edits": true,
-    "no_player_camera_core_edits": true,
-    "no_voxel_digging": true,
-    "no_paid_apis": true,
-    "no_self_accept": true,
-    "authority_token": "PATCH_DRAFT"
+    "no_tasks_json_edit": true,
+    "no_codex_directive_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_bridge_companion_executor_edit": true,
+    "no_accept_receipt": true,
+    "no_error_filtering": true,
+    "worker_cannot_self_accept": true
   },
-  "evidence_refs": [
-    "game/scripts/modules/manifestation/manifestation_stages.gd",
+  "changed_files": [
     "game/scripts/modules/manifestation/manifestation_instance.gd",
-    "game/scripts/modules/manifestation/manifestation_module.gd",
-    "game/scripts/modules/manifestation/manifestation_smoke.gd",
-    "game/scripts/modules/interfaces/i_manifestation_module.gd",
-    "game/scenes/modules/manifestation/manifestation_module.tscn",
-    "orchestration/work_orders/WO-G2-002.md",
-    "AIdle_Openworld_Blueprint_v1.1/06_Progressive_Construction_Spec.md"
+    "orchestration/receipts/G2-002.json"
   ],
-  "next_route": "Purple VERIFY_ONLY review of G2-002; do not ACCEPT until independent verification; G3-001 depends on ACCEPTED"
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G2-MANIFESTATION-CORRECTION-002.md",
+    "game/scripts/modules/manifestation/manifestation_smoke.gd",
+    "game/scripts/modules/manifestation/manifestation_stages.gd"
+  ],
+  "remaining_risks": [
+    "Headed rendering of stage tints not re-screenshoted this pass",
+    "Module still not fully wired into main prompt-to-house (G3)",
+    "Smoke does not assert reduced-motion Settings keys (flag API covered elsewhere)"
+  ],
+  "next_route": "WAITING_CODEX independent acceptance"
 }

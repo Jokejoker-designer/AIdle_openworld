@@ -11,6 +11,11 @@ not a god and not the authority over the player's property.
 `Speak -> Interpret -> Structured Proposal -> Policy/Cost/Schema Validate ->
 Preview -> Human Confirm -> Progressive Manifestation -> Commit -> Observe`
 
+At the experience layer, an AI Game Master receives a bounded World State
+Snapshot and proposes dialogue, quests, pacing, events, mood changes and build
+requests. Free Desktop Bridge and Paid API editions share exactly the same AGM
+Decision Envelope, which is validated before any subsystem acts.
+
 ## Experience pillars
 
 1. Conversation is the primary creative tool.

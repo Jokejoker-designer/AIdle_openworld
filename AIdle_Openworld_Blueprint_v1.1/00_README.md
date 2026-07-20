@@ -18,9 +18,10 @@ becomes persistent reality.
 5. `05_Authority_and_Multiplayer.md`
 6. `06_Progressive_Construction_Spec.md`
 7. `07_Companion_Personality_and_Voice.md`
-8. `Interfaces/Common_Contracts.md` and `Interfaces/Event_Bus.md`
-9. `Docs/Development_Roadmap.md`
-10. `../orchestration/ARCHITECTURE_LOCK.md`
+8. `08_AI_Game_Master_and_Edition_Modes.md`
+9. `Interfaces/AGM_Contracts.md`, `Interfaces/Common_Contracts.md` and `Interfaces/Event_Bus.md`
+10. `Docs/Development_Roadmap.md`
+11. `../orchestration/ARCHITECTURE_LOCK.md`
 
 ## MVP truth
 

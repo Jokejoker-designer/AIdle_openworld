@@ -12,8 +12,15 @@ Status: ACTIVE · Owner: Human Product Lead · Date: 2026-07-20
 - Canonical world mutations: authoritative World Commit service.
 - Contracts: JSON Schema Draft 2020-12 plus versioned events.
 - Persistence: append-only mutation log + snapshots + chunk/object storage.
-- AI: provider-neutral Companion gateway; local inference is optional, not required.
+- AI: provider-neutral AI Game Master (AGM) gateway using one versioned Snapshot
+  and Decision Envelope contract across all editions.
 - MVP Companion interface: text-only. TTS/voice is post-alpha research.
+- Free edition: manual Desktop Bridge through clipboard or inbox/outbox files;
+  no API and no hidden desktop automation.
+- Paid edition: API adapter behind a trusted gateway; provider credentials are
+  never stored in the Godot client or world files.
+- First-run edition selector: `desktop_bridge_free` or `api_paid`. Both execute
+  through the same validator and World Commit boundary.
 
 ## Ownership boundaries
 
@@ -33,9 +40,18 @@ Status: ACTIVE · Owner: Human Product Lead · Date: 2026-07-20
 | Shared/Doppelganger | Server | Server |
 | Spacecraft/Exoplanet | Owner proposes | Server validates and commits |
 
+The AGM directs quests, dialogue, mood, pacing, events and build proposals. It
+does not own collision, inventory, currency, persistence, or durable mutation.
+Godot is the presentation/execution client, while policy, schema and World
+Commit remain the safety and authority boundary.
+
 ## Forbidden paths
 
 - No direct LLM -> scene tree/database mutation.
+- No parsing arbitrary prose as executable commands; accept only the versioned
+  AGM Decision Envelope.
+- No API key, session cookie, Desktop AI credential, or auth token in Godot,
+  clipboard snapshots, bridge files, logs, saves or prompt recipes.
 - No client-authoritative inventory, ownership, currency or marketplace state.
 - No arbitrary generated scripts or shaders in authoritative runtime.
 - No Matrix/Oasis video state treated as collision/navigation/world state.

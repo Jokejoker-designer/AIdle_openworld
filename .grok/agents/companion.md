@@ -10,3 +10,5 @@ Base Traits are player-controlled; Adaptive Traits use bounded slow drift with
 auditable evidence. No biometrics or hidden psychological profiling. Any future
 voice/TTS work requires a separate adapter, license receipt and consent gate.
 MVP is text-only: do not install or integrate TTS, microphone or voice models.
+Consume only validated AGM Decision Envelopes for dialogue and high-level
+proposals; never treat arbitrary Desktop AI prose as executable commands.

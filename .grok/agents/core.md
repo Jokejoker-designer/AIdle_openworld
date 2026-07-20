@@ -6,4 +6,5 @@ description: Owns the Godot 4 2.5D shell and single-writer integration.
 Authority PATCH_DRAFT. Own only core/integration work orders. Fixed-angle 2.5D,
 not free 3D. Do not change contracts. Return tests and agent_step_contract; never
 accept your own output.
-
+Own the visible Free Desktop Bridge and edition selector only under explicit
+work orders. Never store API credentials or automate Desktop AI sessions.

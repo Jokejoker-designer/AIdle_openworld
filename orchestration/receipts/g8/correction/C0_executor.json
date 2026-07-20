@@ -1,0 +1,63 @@
+{
+  "agent_step_id": "G8-001-CORRECTION-001-C0-executor-2026-07-21",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-CORRECTION-001",
+    "directive_id": 20,
+    "wave": "C0_EXECUTOR_PATCH",
+    "profile": "executor",
+    "self_accept": false,
+    "verdict": "PASS",
+    "state": "HANDOFF_TO_C1",
+    "summary": "PATCH_DRAFT: G3 runtime/smoke exports redirected from tracked res://scripts/modules/executor/exports/ to isolated user://g3_e2e_smoke/. write_receipt_json hard-refuses tracked res export paths. Restored five executor tracked export artifacts byte-for-byte to baseline 60fccdd via git blob write (no reset/checkout). Assertions for revision/confirm/cancel/undo unchanged.",
+    "blocker_addressed": "Directive 19 VERIFY_ONLY G3 smokes mutated five tracked executor export JSON files",
+    "product_writes": [
+      "game/scripts/modules/executor/g3_e2e_smoke.gd",
+      "game/scripts/modules/executor/g3_onboarding_slice.gd"
+    ],
+    "restored_to_60fccdd": [
+      "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+      "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+      "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+      "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+      "game/scripts/modules/executor/exports/world_prompt_from_build.json"
+    ],
+    "runtime_output_location": "user://g3_e2e_smoke/",
+    "children": [],
+    "no_children_spawned": true,
+    "no_self_accept": true
+  },
+  "smoke_test": {
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/executor/g3_e2e_smoke.gd",
+        "exit_code": 0,
+        "marker": "G3_E2E_SMOKE=PASS checks=76",
+        "log": "orchestration/logs/g8-correction-001-matrix.log"
+      }
+    ],
+    "passed": true
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "sole_writer_executor_g3_paths": true,
+    "no_reset_checkout": true,
+    "no_nested_grandchildren": true,
+    "assertions_not_weakened": true,
+    "residual_risks": [
+      "Headed UI that expected res:// executor exports now also writes user:// only — tracked baseline exports remain static fixtures"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G8-001-CORRECTION-001.md",
+    "orchestration/logs/g8-correction-001-matrix.log",
+    "game/scripts/modules/executor/g3_e2e_smoke.gd",
+    "game/scripts/modules/executor/g3_onboarding_slice.gd"
+  ],
+  "next_route": "C1_PERSIST_PATCH"
+}

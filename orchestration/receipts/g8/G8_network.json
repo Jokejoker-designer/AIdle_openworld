@@ -1,0 +1,539 @@
+{
+  "agent_step_id": "G8-001-Z0-network-2026-07-21",
+  "agent_type": "aidle-network",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "wave": "Z0_EIGHT_DOMAIN_VERIFY",
+    "profile": "network",
+    "work_order": "orchestration/work_orders/WO-G8-001.md",
+    "dispatch_map": "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "verdict": "PASS",
+    "machine_verdict": "PASS_FOR_HUMAN_REVIEW",
+    "summary": "VERIFY_ONLY network domain gate for G8-001. Independent re-runs: G5_AGM_GATEWAY_SMOKE=PASS (36 tests, exit 0); G5_PAID_ADAPTER_SMOKE=PASS (14 checks, exit 0); G6_WORLD_AUTHORITY_SMOKE=PASS (21 tests, exit 0); G6_TWO_CLIENT_SMOKE=PASS (13 checks, exit 0). Secret/public-bind scan PASS on agm_gateway, world_authority_poc, game network modules, and paid bridge adapter (no 0.0.0.0 bind, no HTTP/socket listen, no live sk-/OPENAI keys; test-only Bearer redaction fixture noted). Explicit limitations: gateway is FixtureProvider-only (real provider HITL_REQUIRED); world authority is local in-process POC (not production multiplayer, not Nakama/Colyseus, no public bind). No product edits; no children; self_accept=false; next_route parent Z1 collate.",
+    "scope": {
+      "in_scope": [
+        "G5 trusted AGM gateway suite re-run (fixture boundary, redaction, budget, idempotency, retry)",
+        "G5 Paid adapter Godot smoke re-run (untrusted proposal consumer)",
+        "G6 world authority POC suite re-run (commit path, forged reject, idempotency, reconnect)",
+        "G6 Godot two-client smoke re-run (converge + forged + reconnect)",
+        "Secret, public-bind, and forbidden transport scan for network-owned trees",
+        "Document fixture-only gateway and local authority POC limits",
+        "Write orchestration/receipts/g8/G8_network.json only"
+      ],
+      "out_of_scope": [
+        "Product/test/contract/task/directive/architecture/prior-evidence edits",
+        "Other G8 domain receipts (schema/core/manifestation/companion/asset/executor/persist)",
+        "Parent collate G8-001.json / alpha evidence report / human checklist / grok_status.json",
+        "Real provider enablement, credentials, outbound live network",
+        "Nakama / Colyseus / public bind / cloud multiplayer",
+        "Self-ACCEPT / tasks.json ACCEPT",
+        "Children / nested grandchildren"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — receipt only; challenge evidence, do not patch",
+        "only_write": [
+          "orchestration/receipts/g8/G8_network.json"
+        ],
+        "network_product_trees_read_only": [
+          "services/agm_gateway/**",
+          "services/world_authority_poc/**",
+          "game/scripts/modules/network/**",
+          "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+          "game/scripts/modules/bridge/paid_gateway_smoke.gd"
+        ],
+        "architecture_lock": {
+          "paid_gateway": "Paid edition: API adapter behind trusted gateway; credentials never in Godot client or world files; fixture only unless HITL real-provider path",
+          "authority": "Server owns durable shared/visited state; Offline Private Reality may simulate locally; World Commit is sole durable mutator"
+        },
+        "explicit_not": [
+          "product patches",
+          "self-ACCEPT of G8-001 or tasks.json ACCEPT",
+          "claim production multiplayer or live AI provider",
+          "public bind / Nakama / Colyseus co-ownership"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_writes": [
+      "orchestration/receipts/g8/G8_network.json"
+    ],
+    "children": [],
+    "no_children_spawned": true,
+    "no_product_edits": true,
+    "no_contracts_edits": true,
+    "no_tasks_accept": true,
+    "prior_evidence_index": {
+      "G5-001": {
+        "state": "ACCEPTED",
+        "worker_receipts": [
+          "orchestration/receipts/g5/A0_schema.json",
+          "orchestration/receipts/g5/A1_network.json",
+          "orchestration/receipts/g5/A2_executor.json",
+          "orchestration/receipts/g5/A3_core.json",
+          "orchestration/receipts/g5/A4_persist.json",
+          "orchestration/receipts/g5/C0_schema.json",
+          "orchestration/receipts/g5/C1_network.json",
+          "orchestration/receipts/g5/C2_executor.json",
+          "orchestration/receipts/g5/C3_core.json",
+          "orchestration/receipts/g5/C4_persist.json",
+          "orchestration/receipts/G5-001.json",
+          "orchestration/receipts/G5-001-CORRECTION-001.json"
+        ],
+        "role": "Provider-neutral Paid AGM gateway + fixture Paid adapter"
+      },
+      "G6-001": {
+        "state": "ACCEPTED",
+        "worker_receipts": [
+          "orchestration/receipts/g6/M0_schema.json",
+          "orchestration/receipts/g6/M1_network.json",
+          "orchestration/receipts/g6/M2_executor.json",
+          "orchestration/receipts/g6/M3_persist.json",
+          "orchestration/receipts/g6/M4_core.json",
+          "orchestration/receipts/g6/R0_schema.json",
+          "orchestration/receipts/g6/R1_network.json",
+          "orchestration/receipts/g6/R2_executor.json",
+          "orchestration/receipts/g6/R3_persist.json",
+          "orchestration/receipts/g6/R4_core.json",
+          "orchestration/receipts/G6-001.json",
+          "orchestration/receipts/G6-001-CORRECTION-001.json"
+        ],
+        "role": "Local two-client authoritative World Commit POC"
+      }
+    },
+    "challenge_matrix": [
+      {
+        "id": "CH-N1",
+        "challenge": "G5 gateway suite green: fixture-only path, redaction, budget authority, idempotency fingerprint, retry matrix",
+        "invariant": "INV-G5-GATEWAY-FIXTURE-BOUNDARY",
+        "status": "PASS",
+        "evidence": {
+          "command": "python services/agm_gateway/run_gateway_tests.py",
+          "exit_code": 0,
+          "tests_run": 36,
+          "tests_failed": 0,
+          "marker": "G5_AGM_GATEWAY_SMOKE=PASS",
+          "observed_classes": [
+            "TestBudget",
+            "TestDecisionDurableDenied",
+            "TestEditionIdentity",
+            "TestErrorCategories",
+            "TestFixtureProviderDefault",
+            "TestIdempotency",
+            "TestIdempotencyFingerprint",
+            "TestNoSecretsInArtifacts",
+            "TestProviderAuthority",
+            "TestRedaction",
+            "TestRetryMatrix",
+            "TestSchemaValidation",
+            "TestServerBudgetAuthority",
+            "TestUntrustedAndHappyPath",
+            "TestValidationOrder"
+          ],
+          "product_proof_read_only": [
+            "GatewayService defaults to FixtureProvider; ALLOWED_PROVIDER_MODES = {fixture}",
+            "allow_real_provider alone never enables real modes (HITL_REQUIRED separate path)",
+            "is_approved_fixture_provider rejects non-FixtureProvider when real disabled",
+            "world_commit_invoked always false; success returns untrusted proposal only"
+          ]
+        }
+      },
+      {
+        "id": "CH-N2",
+        "challenge": "G5 Paid Godot adapter remains untrusted fixture consumer (no SDK/secrets/network)",
+        "invariant": "INV-G5-PAID-ADAPTER-UNTRUSTED",
+        "status": "PASS",
+        "evidence": {
+          "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/bridge/paid_gateway_smoke.gd",
+          "exit_code": 0,
+          "checks_passed": 14,
+          "marker": "G5_PAID_ADAPTER_SMOKE=PASS",
+          "observed_checks": [
+            "source_secret_scan",
+            "source_no_network_symbols",
+            "interface_surface",
+            "snapshot_api_paid_identity",
+            "happy_path_untrusted_proposal",
+            "consent_required_no_commit",
+            "confirm_no_execute",
+            "validation_error_category",
+            "budget_reject",
+            "policy_provider_mode",
+            "error_categories_list",
+            "idempotency_replay",
+            "fixture_files_no_secrets",
+            "production_path_note"
+          ],
+          "boot_note": "PaidGatewayAdapter Ready – fixture/local path only (no provider SDK, no secrets)."
+        }
+      },
+      {
+        "id": "CH-N3",
+        "challenge": "G6 world authority POC suite: valid commit, forged/stale/schema reject, idempotency, reconnect, confirm-bypass closed",
+        "invariant": "INV-G6-AUTHORITY-MATRIX",
+        "status": "PASS",
+        "evidence": {
+          "command": "python services/world_authority_poc/run_poc_tests.py",
+          "exit_code": 0,
+          "tests_run": 21,
+          "tests_failed": 0,
+          "marker": "G6_WORLD_AUTHORITY_SMOKE=PASS",
+          "client_ids_banner": "client_a client_b",
+          "observed_tests": [
+            "test_commit_without_confirm_proposal_after_confirmed_submit_attempt",
+            "test_rc_fake_event",
+            "test_submit_preview_no_mutation",
+            "test_submit_rejects_client_supplied_confirmed_state",
+            "test_tm_altered_receipt",
+            "test_tm_client_authoritative_schema_reject",
+            "test_tm_direct_write_reject",
+            "test_tm_forged_actor_reject",
+            "test_tm_forged_client_reject",
+            "test_tm_forged_leaves_peer_unchanged",
+            "test_tm_forged_owner_reject",
+            "test_tm_idempotency_payload_conflict",
+            "test_tm_idempotent_replay_same_payload",
+            "test_tm_invalid_schema_reject",
+            "test_tm_out_of_order_event",
+            "test_tm_reconnect_replay",
+            "test_tm_reconnect_snapshot_resync",
+            "test_tm_stale_revision_conflict",
+            "test_tm_two_client_headless_smoke",
+            "test_tm_unconfirmed_reject",
+            "test_tm_valid_commit_converge"
+          ],
+          "product_proof_read_only": [
+            "Commit path: submit_proposal → confirm_proposal → commit with server-stamped authority",
+            "Direct client write APIs reject with no state change",
+            "In-process only — no sockets/HTTP"
+          ]
+        }
+      },
+      {
+        "id": "CH-N4",
+        "challenge": "Godot two-client smoke: both client IDs, one canonical commit, converge, forged reject, reconnect",
+        "invariant": "INV-G6-TWO-CLIENT-GODOT",
+        "status": "PASS",
+        "evidence": {
+          "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/network/g6_two_client_smoke.gd",
+          "exit_code": 0,
+          "checks_passed": 13,
+          "marker": "G6_TWO_CLIENT_SMOKE=PASS",
+          "observed": {
+            "poc_class": "LOCAL_IN_PROCESS (not Nakama, not Colyseus)",
+            "transport": "in-process direct method calls (no HTTP, no sockets)",
+            "client_ids": ["client_a", "client_b"],
+            "valid_commit_status": "committed",
+            "new_world_revision": 1,
+            "entity_id": "ent_bd5a83512b09",
+            "entity_set_hash_prefix": "acbef0e69a104bcd",
+            "forged_rejection_code": "client_forged",
+            "confirm_bypass_code": "client_forged",
+            "confirm_bypass_commit": "confirmation_missing",
+            "reconnect_mode": "replay",
+            "final_converge": true,
+            "summary": "clients=client_a,client_b committed_once=true converge=true forged_rejected=true reconnect_ok=true"
+          }
+        }
+      },
+      {
+        "id": "CH-N5",
+        "challenge": "Secret and public-bind scan on network trees",
+        "invariant": "INV-NO-SECRET-NO-PUBLIC-BIND",
+        "status": "PASS",
+        "evidence": {
+          "scopes": [
+            "services/agm_gateway/**",
+            "services/world_authority_poc/**",
+            "game/scripts/modules/network/**",
+            "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+            "game/scripts/modules/bridge/paid_gateway_smoke.gd"
+          ],
+          "public_bind": {
+            "bind_0_0_0_0": false,
+            "HTTPServer_TCPServer_UDPServer_listen": false,
+            "uvicorn_flask_fastapi": false,
+            "socket_listen": false,
+            "HTTPRequest_WebSocket_runtime_use": false,
+            "note_agm_false_positive": "fixture_provider.py _rebind method name only — not network bind"
+          },
+          "secrets": {
+            "sk_prefix_live_keys": false,
+            "OPENAI_API_KEY": false,
+            "AKIA_aws_keys": false,
+            "api_key_literal_credentials": false,
+            "noted_test_fixture_only": "services/agm_gateway/tests/test_gateway.py contains Authorization Bearer abc as redaction deny-list input (not a live credential)"
+          },
+          "nakama_colyseus": {
+            "runtime_integration": false,
+            "mentions": "documentation-only negation in world_authority_local.gd / network_module.gd / g6_two_client_smoke.gd / authority_client.gd"
+          },
+          "paid_bridge_smoke_asserted": [
+            "source_secret_scan",
+            "source_no_network_symbols",
+            "fixture_files_no_secrets"
+          ]
+        }
+      },
+      {
+        "id": "CH-N6",
+        "challenge": "Honest POC/fixture limitations recorded (not production alpha claims)",
+        "invariant": "INV-POC-LIMITS-HONESTY",
+        "status": "PASS",
+        "evidence": {
+          "fixture_only_gateway": true,
+          "local_authority_poc": true,
+          "no_production_multiplayer_claim": true,
+          "no_live_provider_claim": true
+        }
+      },
+      {
+        "id": "CH-N7",
+        "challenge": "No self-accept; no product edits; no children",
+        "invariant": "INV-NO-SELF-ACCEPT",
+        "status": "PASS",
+        "evidence": {
+          "self_accept": false,
+          "product_writes": 0,
+          "children": [],
+          "tasks_json_accept": false
+        }
+      }
+    ],
+    "challenge_summary": {
+      "total": 7,
+      "pass": 7,
+      "fail": 0,
+      "overall": "PASS"
+    },
+    "executable_proof": {
+      "g5_gateway_suite": {
+        "class": "executable",
+        "marker": "G5_AGM_GATEWAY_SMOKE=PASS",
+        "tests": 36,
+        "exit_code": 0
+      },
+      "g5_paid_adapter_smoke": {
+        "class": "executable",
+        "marker": "G5_PAID_ADAPTER_SMOKE=PASS",
+        "checks": 14,
+        "exit_code": 0
+      },
+      "g6_authority_suite": {
+        "class": "executable",
+        "marker": "G6_WORLD_AUTHORITY_SMOKE=PASS",
+        "tests": 21,
+        "exit_code": 0
+      },
+      "g6_two_client_godot": {
+        "class": "executable",
+        "marker": "G6_TWO_CLIENT_SMOKE=PASS",
+        "checks": 13,
+        "exit_code": 0
+      },
+      "secret_public_bind_scan": {
+        "class": "static_scan_executable_grep",
+        "result": "PASS"
+      }
+    },
+    "documentation_only_claims": [
+      "Network module headers declaring NOT Nakama/Colyseus (enforced by absence of runtime symbols, not by a production mesh test)",
+      "Architecture Lock multiplayer roadmap text beyond the local POC"
+    ],
+    "local_poc_limitations": [
+      {
+        "id": "LIM-FIXTURE-ONLY-GATEWAY",
+        "severity": "boundary",
+        "detail": "services/agm_gateway uses FixtureProvider only. ALLOWED_PROVIDER_MODES={fixture}. allow_real_provider is a HITL flag and is never sufficient alone to enable outbound real providers. No live AI provider, credentials, or paid compute path is exercised."
+      },
+      {
+        "id": "LIM-LOCAL-AUTHORITY-POC",
+        "severity": "boundary",
+        "detail": "services/world_authority_poc and game/scripts/modules/network are in-process dual simulators. Two logical clients share one authority object via direct method calls. No HTTP listener, no public bind, no durable multi-process transport, no mTLS, no matchmaking."
+      },
+      {
+        "id": "LIM-NOT-PRODUCTION-MULTIPLAYER",
+        "severity": "boundary",
+        "detail": "Not Nakama, not Colyseus, not Shared District scale, not marketplace/economy server authority. G6 proves local commit/converge invariants only."
+      },
+      {
+        "id": "LIM-DUAL-RUNTIME-SIMULATORS",
+        "severity": "info",
+        "detail": "Python POC and GDScript WorldAuthorityLocal are separate in-process simulators. entity_set_hash is not byte-compared across runtimes on an identical entity set in this gate."
+      },
+      {
+        "id": "LIM-BOOT-NETWORK-SLOT",
+        "severity": "info",
+        "detail": "Integrated Godot boot still mounts network as a stub in the live module slot; G6 harness is script-invoked (-s g6_two_client_smoke.gd), not the production network service."
+      }
+    ],
+    "deferred_roadmap_items": [
+      "live AI provider selection and credentials (HITL_REQUIRED)",
+      "production multiplayer backend (Nakama/Colyseus evaluation still roadmap)",
+      "public bind / TLS / mTLS session auth",
+      "Shared District / visited-space scale",
+      "marketplace / economy server authority",
+      "voice / free-form 3D / voxel terrain / real cities (out of network scope; product deferred)"
+    ],
+    "wo_acceptance_evidence": {
+      "g5_gateway_suite_and_paid_adapter_smoke": true,
+      "g6_authority_suite_and_godot_two_client_smoke": true,
+      "secret_dependency_public_bind_forbidden_scope_scan_network_trees": true,
+      "fixture_only_and_local_poc_limits_documented": true,
+      "maf_agent_step_contract_fields_present": true,
+      "self_accept_false": true,
+      "no_product_edits": true,
+      "no_children": true
+    },
+    "not_done": [
+      "Did not edit services/agm_gateway/**, services/world_authority_poc/**, or game/**",
+      "Did not enable real provider or outbound network",
+      "Did not claim production multiplayer or commercial network alpha",
+      "Did not write other G8 domain receipts or parent collate artifacts",
+      "Did not ACCEPT orchestration/tasks.json",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g8/G8_network.json"
+    ],
+    "product_writes_count": 0
+  },
+  "smoke_test": {
+    "type": "verify_only_network_alpha_gate",
+    "executable_smoke_run": true,
+    "working_directory": "E:\\AIdle_openworld",
+    "commands": [
+      {
+        "command": "python services/agm_gateway/run_gateway_tests.py",
+        "exit_code": 0,
+        "tests_run": 36,
+        "tests_failed": 0,
+        "marker": "G5_AGM_GATEWAY_SMOKE=PASS",
+        "suite": "services/agm_gateway/tests/test_gateway.py",
+        "note": "fixture-only gateway; includes server budget authority + provider injection gate regressions"
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/bridge/paid_gateway_smoke.gd",
+        "exit_code": 0,
+        "checks_passed": 14,
+        "marker": "G5_PAID_ADAPTER_SMOKE=PASS",
+        "note": "Godot Paid adapter fixture/local path; untrusted proposal; no World Commit"
+      },
+      {
+        "command": "python services/world_authority_poc/run_poc_tests.py",
+        "exit_code": 0,
+        "tests_run": 21,
+        "tests_failed": 0,
+        "marker": "G6_WORLD_AUTHORITY_SMOKE=PASS",
+        "suite": "services/world_authority_poc/tests/test_poc.py",
+        "note": "local in-process authority POC; includes confirm-bypass closed regressions"
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/network/g6_two_client_smoke.gd",
+        "exit_code": 0,
+        "checks_passed": 13,
+        "marker": "G6_TWO_CLIENT_SMOKE=PASS",
+        "observed": {
+          "client_ids": ["client_a", "client_b"],
+          "valid_commit_status": "committed",
+          "new_world_revision": 1,
+          "entity_set_hash_prefix": "acbef0e69a104bcd",
+          "forged_rejection_code": "client_forged",
+          "final_converge": true
+        },
+        "note": "LOCAL_IN_PROCESS dual-client harness; not Nakama/Colyseus"
+      }
+    ],
+    "secret_public_bind_scan": {
+      "scopes": [
+        "services/agm_gateway",
+        "services/world_authority_poc",
+        "game/scripts/modules/network",
+        "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+        "game/scripts/modules/bridge/paid_gateway_smoke.gd"
+      ],
+      "bind_0_0_0_0": false,
+      "http_server_listen": false,
+      "socket_listen": false,
+      "nakama_colyseus_runtime": false,
+      "sk_keys": false,
+      "openai_api_key": false,
+      "outbound_http_runtime": false,
+      "test_fixture_bearer_redaction_input_only": true,
+      "result": "PASS"
+    },
+    "challenge_coverage": {
+      "CH-N1": "executable G5 gateway 36/36",
+      "CH-N2": "executable G5 paid adapter 14/14",
+      "CH-N3": "executable G6 POC 21/21",
+      "CH-N4": "executable G6 Godot two-client 13/13",
+      "CH-N5": "static secret/public-bind scan PASS",
+      "CH-N6": "documented fixture + local POC limits",
+      "CH-N7": "self_accept=false; no product edits; no children"
+    }
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "allowed_write_paths_only": true,
+    "only_wrote": [
+      "orchestration/receipts/g8/G8_network.json"
+    ],
+    "did_not_edit_contracts": true,
+    "did_not_edit_product": true,
+    "did_not_edit_agm_gateway": true,
+    "did_not_edit_world_authority_poc": true,
+    "did_not_edit_godot_network": true,
+    "did_not_edit_paid_adapter": true,
+    "did_not_edit_tasks_or_architecture": true,
+    "did_not_edit_prior_receipts": true,
+    "did_not_edit_other_g8_domain_receipts": true,
+    "did_not_edit_parent_collate_artifacts": true,
+    "did_not_accept_tasks_json": true,
+    "no_nakama_colyseus_runtime": true,
+    "no_public_listener": true,
+    "no_real_provider_enablement": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "children": [],
+    "maf_smoke_test_object_present": true,
+    "verdict": "PASS",
+    "fixture_only_gateway_limit_recorded": true,
+    "local_authority_poc_limit_recorded": true
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G8-001.md",
+    "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "orchestration/receipts/g5/A1_network.json",
+    "orchestration/receipts/g5/C1_network.json",
+    "orchestration/receipts/g5/C4_persist.json",
+    "orchestration/receipts/G5-001.json",
+    "orchestration/receipts/G5-001-CORRECTION-001.json",
+    "orchestration/receipts/g6/M1_network.json",
+    "orchestration/receipts/g6/M2_executor.json",
+    "orchestration/receipts/g6/M4_core.json",
+    "orchestration/receipts/G6-001.json",
+    "orchestration/receipts/G6-001-CORRECTION-001.json",
+    "services/agm_gateway/gateway.py",
+    "services/agm_gateway/providers/fixture_provider.py",
+    "services/agm_gateway/run_gateway_tests.py",
+    "services/agm_gateway/tests/test_gateway.py",
+    "services/world_authority_poc/server.py",
+    "services/world_authority_poc/run_poc_tests.py",
+    "services/world_authority_poc/tests/test_poc.py",
+    "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+    "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+    "game/scripts/modules/network/world_authority_local.gd",
+    "game/scripts/modules/network/authority_client.gd",
+    "game/scripts/modules/network/g6_two_client_smoke.gd",
+    "game/scripts/modules/network/network_module.gd",
+    "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json"
+  ],
+  "next_route": "Z1_INTEGRATED_MATRIX_PARENT_COLLATE"
+}

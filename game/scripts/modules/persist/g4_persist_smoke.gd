@@ -14,7 +14,8 @@ const MODULE_PATH := "res://scripts/modules/persist/persist_module.gd"
 const IFACE_PATH := "res://scripts/modules/interfaces/i_persist_module.gd"
 const SEAL_PATH := "res://scripts/modules/persist/journal_seal.gd"
 const KEY_PATH := "res://scripts/modules/persist/test_journal_key_provider.gd"
-const EXPORT_DIR := "res://scripts/modules/persist/exports"
+## Evidence only under user:// (G8-001 CORRECTION-001 — no tracked res:// dual-write).
+const USER_EVIDENCE := "user://g4_persist_smoke/g4_persist_smoke_evidence.json"
 const USER_JOURNAL := "user://g4_persist_smoke/journal.json"
 const USER_MALFORMED := "user://g4_persist_smoke/malformed.json"
 const USER_SCHEMA := "user://g4_persist_smoke/bad_schema.json"
@@ -1157,7 +1158,7 @@ func _write_user_file(path: String, content: String) -> void:
 
 
 func _write_evidence_export() -> void:
-	var out_path := "user://g4_persist_smoke/g4_persist_smoke_evidence.json"
+	var out_path := USER_EVIDENCE
 	var payload := {
 		"schema_version": "g4_persist_smoke/1.1.0",
 		"task_id": "G4-001",
@@ -1184,26 +1185,12 @@ func _write_evidence_export() -> void:
 			"not": ["shared_district", "server_economy", "multiplayer_ownership"],
 			"local_seal_meaning": "Device-local tamper-evident reconciliation evidence only",
 		},
+		"isolation": {
+			"runtime_path": USER_EVIDENCE,
+			"tracked_res_export_dual_write": false,
+			"note": "G8-001 CORRECTION-001: no write to res://scripts/modules/persist/exports/",
+		},
 	}
 	var text: String = JSON.stringify(payload, "\t")
 	_write_user_file(out_path, text)
-
-	var export_abs := ProjectSettings.globalize_path(EXPORT_DIR)
-	if not DirAccess.dir_exists_absolute(export_abs):
-		DirAccess.make_dir_recursive_absolute(export_abs)
-	var exp_path := export_abs.path_join("g4_persist_smoke_evidence.json")
-	var ef: FileAccess = FileAccess.open(exp_path, FileAccess.WRITE)
-	if ef != null:
-		ef.store_string(text)
-		ef.close()
-		print("  wrote evidence %s" % exp_path)
-	else:
-		var rf: FileAccess = FileAccess.open(
-			"res://scripts/modules/persist/exports/g4_persist_smoke_evidence.json", FileAccess.WRITE
-		)
-		if rf != null:
-			rf.store_string(text)
-			rf.close()
-			print("  wrote evidence res://scripts/modules/persist/exports/g4_persist_smoke_evidence.json")
-		else:
-			print("  note: could not write res export (user:// evidence still written)")
+	print("  wrote evidence %s (isolated user:// only)" % out_path)

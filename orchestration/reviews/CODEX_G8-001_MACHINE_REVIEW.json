@@ -1,0 +1,54 @@
+{
+  "review_id": "CODEX-G8-001-MACHINE-REVIEW-001",
+  "reviewer_role": "codex-final-machine-acceptor",
+  "intent_anchor": {
+    "user_goal": "Reach a trustworthy local 2.5D text-only AIdle alpha while the existing Grok Desktop parent follows the installed subagent workflow.",
+    "current_priority": "Independently verify G8 without allowing a VERIFY_ONLY gate to mutate tracked product or prior evidence.",
+    "allowed_scope": [
+      "read and execute local validators and smokes",
+      "write orchestration review, status and correction work-order artifacts",
+      "dispatch a narrowly authorized correction to the existing Grok Desktop parent"
+    ],
+    "forbidden_scope": [
+      "self-acceptance by Grok or a worker",
+      "new top-level Grok session or grok.exe CLI",
+      "silent rollback or deletion",
+      "install, live provider, credential, push, deploy or publish"
+    ]
+  },
+  "claim_under_review": "Directive 19 completed G8-001 as VERIFY_ONLY with product_patches_this_gate=0, no prior-evidence edits, and PASS_FOR_HUMAN_REVIEW.",
+  "what_i_accept": [
+    "All eight domain receipts and the parent collate receipt validate against the canonical MAF step schema.",
+    "The recorded G3, G4, G5 and G6 test markers report passing functional checks.",
+    "The report correctly keeps final alpha acceptance with the Human Product Lead."
+  ],
+  "what_i_challenge": [
+    "Six tracked G3/G4 export and evidence files have non-empty diffs after the VERIFY_ONLY matrix run.",
+    "The report, collate receipt and status assert that prior evidence was untouched, which is contradicted by git diff.",
+    "The G6 log contains a PowerShell NativeCommandError wrapper even though the Python test suite itself passes; the final correction report must distinguish wrapper noise from clean product boot evidence."
+  ],
+  "strongest_counter_argument": "The six diffs are only regenerated UUIDs, timestamps, linked receipt IDs and an HMAC seal, so functional semantics remain unchanged. Even so, the work order prohibited any prior-evidence edit and the machine-pass claim explicitly says none occurred; verification output side effects therefore remain a material scope and evidence-honesty failure.",
+  "missing_evidence": [
+    "A rerun proving G3/G4 smokes no longer change the six tracked files.",
+    "Schema-valid correction receipts from the authorized executor, persist and core/schema verification steps.",
+    "A corrected report that preserves rather than erases the original failed scope claim."
+  ],
+  "scope_drift_risk": "medium: accepting the gate as-is would normalize hidden write side effects in future VERIFY_ONLY release gates.",
+  "final_verdict": "CHANGES_REQUESTED",
+  "self_audit": {
+    "preserved_user_intent": true,
+    "did_not_invent_objection": true,
+    "evidence_based": true,
+    "no_scope_hijack": true
+  },
+  "blind_spots": [
+    "The adversarial-review skill's referenced local schemas directory is unavailable, so this review follows the documented field contract but could not be validated against that missing schema."
+  ],
+  "alternative_explanations": [
+    "The matrix runner likely invoked accepted smoke scripts that intentionally refresh tracked evidence artifacts; this explains the diffs but does not authorize them under G8."
+  ],
+  "confidence_before_challenge": 0.86,
+  "confidence_penalty": 0.31,
+  "confidence_after_challenge": 0.55,
+  "next_action": "Execute WO-G8-001-CORRECTION-001 in the same Grok Desktop parent, then return WAITING_CODEX for independent rerun and machine review."
+}

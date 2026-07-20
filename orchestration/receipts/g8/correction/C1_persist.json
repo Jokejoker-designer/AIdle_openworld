@@ -1,0 +1,58 @@
+{
+  "agent_step_id": "G8-001-CORRECTION-001-C1-persist-2026-07-21",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-CORRECTION-001",
+    "directive_id": 20,
+    "wave": "C1_PERSIST_PATCH",
+    "profile": "persist",
+    "self_accept": false,
+    "verdict": "PASS",
+    "state": "HANDOFF_TO_C2",
+    "summary": "PATCH_DRAFT: removed dual-write of G4 HMAC evidence into tracked res://scripts/modules/persist/exports/g4_persist_smoke_evidence.json. Evidence remains only at user://g4_persist_smoke/g4_persist_smoke_evidence.json. Restored tracked g4 evidence file to baseline 60fccdd via git blob write (no reset/checkout). All 22 G4 assertions retained.",
+    "blocker_addressed": "Directive 19 VERIFY_ONLY G4 smoke mutated tracked g4_persist_smoke_evidence.json",
+    "product_writes": [
+      "game/scripts/modules/persist/g4_persist_smoke.gd"
+    ],
+    "restored_to_60fccdd": [
+      "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json"
+    ],
+    "runtime_output_location": "user://g4_persist_smoke/",
+    "tracked_res_export_dual_write": false,
+    "children": [],
+    "no_children_spawned": true,
+    "no_self_accept": true
+  },
+  "smoke_test": {
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/persist/g4_persist_smoke.gd",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22",
+        "log": "orchestration/logs/g8-correction-001-matrix.log"
+      }
+    ],
+    "passed": true
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "sole_writer_persist_smoke": true,
+    "no_reset_checkout": true,
+    "no_nested_grandchildren": true,
+    "assertions_not_weakened": true,
+    "residual_risks": [
+      "Tracked g4_persist_smoke_evidence.json is now a static baseline fixture; live HMAC seals only in user://"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G8-001-CORRECTION-001.md",
+    "orchestration/logs/g8-correction-001-matrix.log",
+    "game/scripts/modules/persist/g4_persist_smoke.gd"
+  ],
+  "next_route": "C2_CORE_PURPLE_VERIFY"
+}

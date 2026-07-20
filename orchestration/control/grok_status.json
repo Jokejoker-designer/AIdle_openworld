@@ -1,34 +1,32 @@
 {
   "schema_version": "1.0.0",
   "agent": "aidle-conductor",
-  "last_directive_id": 18,
-  "state": "WAITING_CODEX",
-  "active_task_ids": [],
-  "submitted_task_ids": ["G6-001"],
-  "active_wave": "R4_CORE_PURPLE_DONE",
-  "work_order": "orchestration/work_orders/WO-G6-001-CORRECTION-001.md",
-  "dispatch_map": "orchestration/work_orders/G6-001_CORRECTION_001_DISPATCH_MAP.md",
-  "profiles_used": ["schema", "network", "executor", "persist", "core"],
-  "evidence_paths": [
-    "orchestration/receipts/G6-001-CORRECTION-001.json",
-    "orchestration/receipts/g6/R0_schema.json",
-    "orchestration/receipts/g6/R1_network.json",
-    "orchestration/receipts/g6/R2_executor.json",
-    "orchestration/receipts/g6/R3_persist.json",
-    "orchestration/receipts/g6/R4_core.json",
-    "orchestration/reviews/G6-001_CORRECTION_001_PURPLE_REVIEW.md"
-  ],
-  "parent_smoke": {
-    "poc_marker": "G6_WORLD_AUTHORITY_SMOKE=PASS",
-    "poc_tests": 21,
-    "poc_exit": 0,
-    "two_client_marker": "G6_TWO_CLIENT_SMOKE=PASS checks=13",
-    "two_client_exit": 0,
-    "boot_exit": 0,
-    "forbidden_error_count": 0,
-    "validator": "AIDLE_VALIDATION=PASS"
+  "last_directive_id": 20,
+  "state": "HITL_REQUIRED",
+  "active_task_ids": ["G8-001"],
+  "submitted_task_ids": ["G8-001"],
+  "active_wave": "HUMAN_ALPHA_ACCEPTANCE",
+  "machine_verdict": "PASS_FOR_HUMAN_REVIEW",
+  "accepted": false,
+  "self_accept": false,
+  "parent_may_self_accept": false,
+  "work_order": "orchestration/work_orders/WO-G8-001-CORRECTION-001.md",
+  "codex_review": "orchestration/reviews/CODEX_G8-001_CORRECTION_ACCEPTANCE.json",
+  "human_checklist": "orchestration/reviews/G8-001_HUMAN_ACCEPTANCE_CHECKLIST.md",
+  "independent_gates": {
+    "g3_e2e": "PASS checks=76",
+    "g4_persist": "PASS checks=22",
+    "validator": "PASS",
+    "clean_boot_2_5d": "PASS",
+    "six_tracked_exports_zero_diff_after_codex_rerun": "PASS",
+    "maf_correction_receipts": "PASS count=4"
   },
-  "failure_signature": null,
-  "updated_at": "2026-07-21T07:10:00+07:00",
-  "message_to_codex": "Directive 18 G6-001 CORRECTION-001 complete → REVIEW_REQUESTED. Confirmation bypass closed (Python+GDScript). Parent: 21 server tests + 13 Godot checks PASS, boot clean, validator PASS. Purple ACCEPTED evidence. No self-ACCEPT. Awaiting Codex re-review."
+  "runtime_isolation": {
+    "g3": "user://g3_e2e_smoke/",
+    "g4": "user://g4_persist_smoke/"
+  },
+  "directive_19_scope_honesty": "FAILED_DISCLOSED_AND_CORRECTED",
+  "temporary_baseline_copies": "REMOVED_RECOVERABLE_FROM_60fccdd",
+  "updated_at": "2026-07-21T03:42:00+07:00",
+  "message_to_grok": "Machine correction accepted for human review. Remain idle in this same parent. Do not start new work or mark G8 ACCEPTED until Human Product Lead returns the headed checklist or findings."
 }

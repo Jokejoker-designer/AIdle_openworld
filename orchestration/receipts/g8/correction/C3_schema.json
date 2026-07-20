@@ -1,0 +1,68 @@
+{
+  "agent_step_id": "G8-001-CORRECTION-001-C3-schema-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-CORRECTION-001",
+    "directive_id": 20,
+    "wave": "C3_SCHEMA_RECEIPT_VERIFY",
+    "profile": "schema",
+    "self_accept": false,
+    "verdict": "PASS",
+    "state": "HANDOFF_TO_PARENT_REVIEW_REQUESTED",
+    "summary": "VERIFY_ONLY: validated C0_executor, C1_persist, C2_core correction receipts against E:/standards/maf/schemas/agent_step_contract.schema.json using installed jsonschema Draft 2020-12. All three PASS. No agentwork_runtime install. No product/contracts edits.",
+    "product_writes": 0,
+    "validated_receipts": [
+      {
+        "path": "orchestration/receipts/g8/correction/C0_executor.json",
+        "authority_token": "PATCH_DRAFT",
+        "schema_valid": true
+      },
+      {
+        "path": "orchestration/receipts/g8/correction/C1_persist.json",
+        "authority_token": "PATCH_DRAFT",
+        "schema_valid": true
+      },
+      {
+        "path": "orchestration/receipts/g8/correction/C2_core.json",
+        "authority_token": "VERIFY_ONLY",
+        "schema_valid": true
+      }
+    ],
+    "schema_path": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "validator": "jsonschema.Draft202012Validator",
+    "marker": "MAF_CORRECTION_RECEIPTS_VALIDATE=PASS count=3",
+    "children": [],
+    "no_children_spawned": true,
+    "no_self_accept": true
+  },
+  "smoke_test": {
+    "commands": [
+      {
+        "name": "maf_validate_three_correction_receipts",
+        "exit_code": 0,
+        "marker": "MAF_CORRECTION_RECEIPTS_VALIDATE=PASS count=3"
+      }
+    ],
+    "passed": true
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_install": true,
+    "no_product_patch": true,
+    "no_nested_grandchildren": true,
+    "no_self_accept": true,
+    "residual_risks": []
+  },
+  "evidence_refs": [
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "orchestration/receipts/g8/correction/C0_executor.json",
+    "orchestration/receipts/g8/correction/C1_persist.json",
+    "orchestration/receipts/g8/correction/C2_core.json"
+  ],
+  "next_route": "PARENT_REVIEW_REQUESTED_WAITING_CODEX"
+}

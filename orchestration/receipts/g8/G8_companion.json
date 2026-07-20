@@ -1,0 +1,282 @@
+{
+  "agent_step_id": "G8-001-Z0-companion-verify-2026-07-20T20:19:57Z",
+  "agent_type": "aidle-companion",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "wave": "Z0_EIGHT_DOMAIN_VERIFY",
+    "profile": "companion",
+    "work_order": "orchestration/work_orders/WO-G8-001.md",
+    "dispatch_map": "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "state": "HANDOFF_TO_PARENT",
+    "self_accept": false,
+    "verdict": "PASS",
+    "machine_verdict": "PASS_DOMAIN_COMPANION",
+    "summary": "VERIFY_ONLY re-run of Companion AGM/text-only boundary for G8-001 alpha evidence gate. Independent Godot headless smoke companion_headless_smoke.gd EXIT=0 G2-003_GODOT_SMOKE=PASS (clean log, no SCRIPT ERROR/Parse/Compile/ERROR:). Python smoke_g2_003.py EXIT=0 G2-003_SMOKE=PASS with agm_dialogue_consumed=true, no_commit_tool_surface=true, drift_caps_ok=true, text_only=true. Static audit: Companion has no commit tool; proposals remain pending+preview_required; AGM applier rejects tts_audio/voice_sample/microphone_buffer/durable_mutation/commit_request; personality inspect/lock/reset/delete and drift caps intact; no STT/TTS/voice/mic runtime surface. No product edits. self_accept=false. No children.",
+    "scope": {
+      "in_scope": [
+        "Independent re-run of companion_headless_smoke.gd",
+        "Independent re-run of smoke_g2_003.py",
+        "Prove text-only AGM dialogue and personality boundary",
+        "Prove no commit tool and no durable world mutation from Companion",
+        "Prove no TTS/STT/voice/mic surface",
+        "Write only orchestration/receipts/g8/G8_companion.json"
+      ],
+      "out_of_scope": [
+        "Any product/test/contract/task/directive/architecture patch",
+        "Prior evidence edits under orchestration/receipts (except own G8_companion.json)",
+        "Self-ACCEPT or tasks.json ACCEPT",
+        "Nested children / grandchildren subagents",
+        "Install, live AI provider, credentials, push, deploy, publish"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — challenge evidence only; do not patch product",
+        "only_write": [
+          "orchestration/receipts/g8/G8_companion.json"
+        ],
+        "next_writer": "parent Z1_INTEGRATED_MATRIX / Z2_PURPLE_ALPHA_VERDICT collate",
+        "explicit_not": [
+          "product patches",
+          "self-ACCEPT",
+          "children subagents",
+          "TTS/STT introduction"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_owned_files_written": true,
+    "only_writes": [
+      "orchestration/receipts/g8/G8_companion.json"
+    ],
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_product_edits": true,
+    "no_tasks_accept": true,
+    "acceptance_mapped": {
+      "text_only_agm_dialogue": true,
+      "text_only_personality": true,
+      "no_commit_tool": true,
+      "no_durable_world_mutation": true,
+      "no_tts": true,
+      "no_stt": true,
+      "no_voice_mic_audio_models": true,
+      "proposals_confirmation_pending": true,
+      "proposals_preview_required": true,
+      "personality_inspect_lock_reset_delete": true,
+      "personality_drift_caps": {
+        "max_delta_per_turn": 0.005,
+        "max_delta_per_day": 0.03,
+        "max_distance_from_base": 0.25
+      },
+      "agm_forbidden_fields_rejected": [
+        "tts_audio",
+        "voice_sample",
+        "microphone_buffer",
+        "durable_mutation",
+        "commit_request",
+        "script",
+        "code",
+        "api_key"
+      ],
+      "godot_smoke_pass": true,
+      "python_smoke_pass": true
+    },
+    "executable_proof": {
+      "godot_headless_smoke": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/companion/companion_headless_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "G2-003_GODOT_SMOKE=PASS",
+        "clean_log": true,
+        "no_script_error": true,
+        "no_parse_error": true,
+        "no_compile_error": true,
+        "no_error_prefix_lines": true,
+        "log_path": "orchestration/logs/g8-companion-headless-smoke.log",
+        "err_log_path": "orchestration/logs/g8-companion-headless-smoke.err.log",
+        "stdout_excerpt": [
+          "Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org",
+          "G2-003_GODOT_SMOKE=PASS",
+          "[CompanionModule] Ready – AGM-driven text-only, proposal-only (no commit tool)."
+        ],
+        "covers": [
+          "NL WorldPromptBuilder → pending preview_required SWP (cozy_house_small)",
+          "has_commit_tool() == false; list_tools commits/mutates_world all false",
+          "apply_agm_decision tool present without commit",
+          "Personality turn cap, lock, reset, delete, inspect with Caps section",
+          "AGM project dialogue_lines + pending SWP from build_proposals",
+          "AGM replay rejection",
+          "tts_audio validation reject",
+          "durable_mutation validation reject",
+          "stale source_snapshot_id reject",
+          "preview_required=false / confirmation confirmed bypass reject",
+          "dialogue-only AGM (zero world_prompts)",
+          "expression_to_mood text-only mapping",
+          "CompanionModule.apply_agm_decision + chat companion line + ICompanionModule.audit_no_commit_tools"
+        ]
+      },
+      "python_smoke": {
+        "command": "python game/scripts/modules/companion/smoke_g2_003.py",
+        "exit_code": 0,
+        "pass_marker": "G2-003_SMOKE=PASS",
+        "stdout_flags": {
+          "agm_dialogue_consumed": true,
+          "no_commit_tool_surface": true,
+          "drift_caps_ok": true,
+          "text_only": true
+        },
+        "exports_referenced": [
+          "game/scripts/modules/companion/exports/companion_proposal_cozy_house.json",
+          "game/scripts/modules/companion/exports/companion_proposal_from_agm_cozy_house.json",
+          "game/scripts/modules/companion/exports/default_personality_profile.json",
+          "contracts/fixtures/agm/valid/valid_decision_with_build_proposal.json"
+        ]
+      }
+    },
+    "static_audit": {
+      "companion_module_header": "proposal-only; NO commit / NO durable world mutation; AGM-driven text-only",
+      "has_commit_tool_always_false": true,
+      "no_func_commit_or_world_commit_in_companion_gd": true,
+      "agm_decision_applier_forbidden_keys_include": [
+        "tts_audio",
+        "voice_sample",
+        "microphone_buffer",
+        "commit_request",
+        "durable_mutation",
+        "scene_tree_mutation",
+        "direct_world_write",
+        "script",
+        "code"
+      ],
+      "no_AudioStreamPlayer_Microphone_StyleTTS_XTTS_runtime_in_companion_modules": true,
+      "chat_panel_text_only_banner": "no STT/TTS; AGM dialogue + pending proposals only; no commit",
+      "g3_onboarding_presenter": "text-only soft presentation; committed=false; durable_mutation=false",
+      "personality_caps_source": "game/scripts/modules/companion/personality_profile.gd CAP_* constants match personality_profile.schema.json",
+      "interface_contract": "game/scripts/modules/interfaces/i_companion_module.gd requires has_commit_tool + audit_no_commit_tools",
+      "sha256": {
+        "companion_headless_smoke.gd": "C1D7759A73832DC9EDB68DED9BB6AEB4AFCF2943A2C2D2CB0387DCB7A1B76870",
+        "companion_module.gd": "293ADAB9D4B7ECD373222C82F44797DC3D6602EC2235E37C425BE032C2245AFB",
+        "agm_decision_applier.gd": "2F2CB4C31DCA9E4423B57D4545270CE0C12351ED34FA910986236C688A66A767"
+      }
+    },
+    "prior_accepted_evidence": {
+      "G2-003": {
+        "receipt": "orchestration/receipts/G2-003.json",
+        "accept": "orchestration/receipts/G2-003-ACCEPT.json",
+        "purple": "orchestration/reviews/G2-003_PURPLE_REVIEW.md",
+        "note": "Original text-only Companion + AGM rework; smokes re-run here for G8 gate"
+      },
+      "G3-001_W1_companion": {
+        "receipt": "orchestration/receipts/g3/W1_companion.json",
+        "note": "G3 onboarding presenter soft state only; no commit; TTS/STT not introduced"
+      }
+    },
+    "documentation_only_claims": [
+      "Full visual/HUD presentation of companion chat panel inside main shell is not re-proved by this headless smoke (panel scene exists; headless proves module/APIs)."
+    ],
+    "local_poc_limitations": [
+      "No live LLM/provider; AGM decisions applied from fixtures / deterministic recipes only",
+      "Quest board and mood soft state are session UI, not durable world authority"
+    ],
+    "deferred_roadmap": [
+      "Voice / STT / TTS",
+      "Free-form NL→SWP beyond recipe map",
+      "Network AI companion providers"
+    ],
+    "residual_risks": [
+      {
+        "id": "RR-G8-COMP-01",
+        "severity": "medium",
+        "detail": "Dual soft-apply (Companion.apply_agm_decision vs Executor.execute_decision) can double dialogue/quest/mood if both wired without a single coordinator — residual from G3 W0/W1; not a commit-boundary breach."
+      },
+      {
+        "id": "RR-G8-COMP-02",
+        "severity": "low",
+        "detail": "Headless smoke proves APIs and invariants, not human-visible chat UX in the integrated 2.5D shell (parent integrated matrix / human checklist)."
+      }
+    ],
+    "not_done": [
+      "Did not edit product, contracts, tests, tasks, architecture, or prior receipts",
+      "Did not self-ACCEPT",
+      "Did not spawn children",
+      "Did not claim full G8 alpha ACCEPT (parent + Purple + Human own that)",
+      "Did not add TTS/STT/voice"
+    ]
+  },
+  "smoke_test": {
+    "executed": true,
+    "profile": "companion",
+    "commands": [
+      {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/companion/companion_headless_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "G2-003_GODOT_SMOKE=PASS",
+        "log": "orchestration/logs/g8-companion-headless-smoke.log"
+      },
+      {
+        "command": "python game/scripts/modules/companion/smoke_g2_003.py",
+        "exit_code": 0,
+        "pass_marker": "G2-003_SMOKE=PASS"
+      }
+    ],
+    "all_exit_zero": true,
+    "clean_godot_log": true,
+    "ran_at_utc": "2026-07-20T20:19:57Z"
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "no_self_accept": true,
+    "allowed_write_paths_only": true,
+    "writes": [
+      "orchestration/receipts/g8/G8_companion.json"
+    ],
+    "product_writes": 0,
+    "did_not_edit_product": true,
+    "did_not_edit_contracts": true,
+    "did_not_edit_tests": true,
+    "did_not_edit_tasks_or_directive": true,
+    "did_not_edit_architecture": true,
+    "did_not_edit_prior_receipts": true,
+    "no_nested_subagents": true,
+    "no_children": true,
+    "no_tts_stt_voice_mic": true,
+    "no_commit_tool": true,
+    "no_durable_world_mutation": true,
+    "no_api_sdk_credentials": true,
+    "no_package_install_push_deploy": true,
+    "no_live_provider_network": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, WO-G8-001, G8-001_DISPATCH_MAP, companion modules, prior G2-003/G3 W1 receipts, agent_step_contract.schema.json manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G8-001.md",
+    "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "game/scripts/modules/companion/companion_headless_smoke.gd",
+    "game/scripts/modules/companion/smoke_g2_003.py",
+    "game/scripts/modules/companion/companion_module.gd",
+    "game/scripts/modules/companion/agm_decision_applier.gd",
+    "game/scripts/modules/companion/personality_profile.gd",
+    "game/scripts/modules/companion/world_prompt_builder.gd",
+    "game/scripts/modules/companion/g3_onboarding_presenter.gd",
+    "game/scripts/modules/companion/companion_chat_panel.gd",
+    "game/scripts/modules/interfaces/i_companion_module.gd",
+    "game/scripts/modules/companion/exports/companion_proposal_cozy_house.json",
+    "game/scripts/modules/companion/exports/companion_proposal_from_agm_cozy_house.json",
+    "game/scripts/modules/companion/exports/default_personality_profile.json",
+    "contracts/personality_profile.schema.json",
+    "contracts/world_prompt.schema.json",
+    "contracts/agm/decision_envelope.schema.json",
+    "contracts/fixtures/agm/valid/valid_decision_with_build_proposal.json",
+    "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json",
+    "orchestration/receipts/G2-003.json",
+    "orchestration/receipts/G2-003-ACCEPT.json",
+    "orchestration/receipts/g3/W1_companion.json",
+    "orchestration/logs/g8-companion-headless-smoke.log",
+    "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "Agents.md"
+  ],
+  "next_route": "parent Z1_INTEGRATED_MATRIX collate; Z2 Purple alpha verdict; domain companion PASS with self_accept=false"
+}

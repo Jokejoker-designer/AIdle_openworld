@@ -1,0 +1,743 @@
+{
+  "agent_step_id": "G8-001-Z0-schema-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "wave": "Z0_EIGHT_DOMAIN_VERIFY",
+    "profile": "schema",
+    "work_order": "orchestration/work_orders/WO-G8-001.md",
+    "dispatch_map": "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "directive": "orchestration/control/codex_directive.json",
+    "directive_id": 19,
+    "state": "HANDOFF_TO_Z1",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY G8 schema domain gate. Contracts/fixtures trees complete and meet validate_project thresholds. Executable proof: python scripts/validate_project.py → exit 0, AIDLE_VALIDATION=PASS (scope includes blueprint-links, all-schema-shapes, world-positive-negative, fixtures-valid-invalid, format-checker, commit-authority, event-envelope, agm-snapshot-decision, crew, task-dag, asset-grammar) recorded in orchestration/logs/g8-integrated-matrix.log. G0–G6 task states ACCEPTED in tasks.json with worker receipts, purple reviews, and Codex final acceptance artifacts present (with noted ACCEPT-file shape variance for G2-005/006/007). Distinguishes executable proof vs documentation-only claims. No product/contracts edits; no children; self_accept=false; next_route Z1_INTEGRATED_MATRIX. No ACCEPTED claim for G8-001.",
+    "scope": {
+      "in_scope": [
+        "contracts/** schema inventory and shape locks",
+        "contracts/fixtures/** completeness vs validate_project minimums",
+        "scripts/validate_project.py PASS evidence",
+        "G0–G6 worker/accept/purple/codex receipt completeness notes",
+        "Executable proof vs documentation-only classification",
+        "Write orchestration/receipts/g8/G8_schema.json only"
+      ],
+      "out_of_scope": [
+        "Product patches under game/** or services/**",
+        "contracts/** edits",
+        "tasks.json ACCEPT / G8-001 ACCEPTED claim",
+        "Other domain smokes (core/manifestation/companion/asset/executor/persist/network own receipts)",
+        "Z1 integrated matrix collate (parent)",
+        "Z2 purple alpha verdict / Z3 HITL handoff",
+        "Children subagents",
+        "Visual/commercial/production alpha claim",
+        "Install, live provider/network, credentials, push, deploy, publish"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — domain receipt only; challenge evidence, do not patch",
+        "only_write": ["orchestration/receipts/g8/G8_schema.json"],
+        "next_writer": "parent Z1_INTEGRATED_MATRIX collate",
+        "architecture_lock": "orchestration/ARCHITECTURE_LOCK.md — LLM proposes; World Commit mutates; Free/Paid identical AGM payload semantics; world_prompt is mutation proposal contract",
+        "explicit_not": [
+          "product or contracts patches",
+          "self-ACCEPT of G8-001",
+          "nested children",
+          "claim that fixture/schema validity alone is multiplayer or visual alpha"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_owned_files_written": true,
+    "only_writes": ["orchestration/receipts/g8/G8_schema.json"],
+    "no_children_spawned": true,
+    "children": [],
+    "no_contracts_edits": true,
+    "no_product_edits": true,
+    "no_tasks_accept": true,
+    "contracts_inventory": {
+      "schemas_present": [
+        {
+          "path": "contracts/world_prompt.schema.json",
+          "version": "1.1.0",
+          "locks": [
+            "additionalProperties:false",
+            "manifestation.stages const wireframe|hologram|materializing|complete",
+            "confirmation.preview_required const true"
+          ]
+        },
+        {
+          "path": "contracts/commit/commit_request.schema.json",
+          "version": "1.0.0",
+          "locks": [
+            "authority.commit_path const world_commit_service",
+            "authority.source excludes client_authoritative",
+            "confirmation.state const confirmed",
+            "durable_mutation const true"
+          ]
+        },
+        {
+          "path": "contracts/commit/commit_receipt.schema.json",
+          "version": "1.0.0",
+          "locks": ["statuses committed|idempotent_replay|rejected|conflicted", "issuer world_commit_service"]
+        },
+        {
+          "path": "contracts/commit/commit_policy.md",
+          "kind": "policy_doc",
+          "role": "Human-readable authority policy; not machine-validated alone"
+        },
+        {
+          "path": "contracts/events/event_envelope.schema.json",
+          "version": "1.0.0",
+          "locks": ["required Event_Bus field set", "additionalProperties:false"]
+        },
+        {
+          "path": "contracts/agm/world_state_snapshot.schema.json",
+          "version": "1.0.0",
+          "locks": ["edition desktop_bridge_free|api_paid", "additionalProperties:false", "required field set locked by validator"]
+        },
+        {
+          "path": "contracts/agm/decision_envelope.schema.json",
+          "version": "1.0.0",
+          "locks": [
+            "edition desktop_bridge_free|api_paid",
+            "build_proposals preview_required const true",
+            "confirmation_state const pending",
+            "routes_through const preview_confirm_commit",
+            "propertyNames deny-list secrets/code/direct durable mutation"
+          ]
+        },
+        {
+          "path": "contracts/personality_profile.schema.json",
+          "version": "1.0.0",
+          "role": "Companion personality boundary (drift caps)"
+        },
+        {
+          "path": "contracts/assets/recipe.schema.json",
+          "role": "Modular 2.5D recipe schema for asset grammar"
+        },
+        {
+          "path": "contracts/assets/recipes/cozy_house_small.json",
+          "role": "Starter house recipe canonical"
+        },
+        {
+          "path": "contracts/assets/provenance_manifest.json",
+          "role": "License/provenance index"
+        },
+        {
+          "path": "contracts/assets/index.json",
+          "role": "Assets index"
+        }
+      ],
+      "examples": [
+        "contracts/examples/valid_house.json",
+        "contracts/examples/invalid_reversed_stages.json"
+      ]
+    },
+    "fixtures_completeness": {
+      "world_prompt": {
+        "valid_dir": "contracts/fixtures/valid",
+        "invalid_dir": "contracts/fixtures/invalid",
+        "valid_count": 11,
+        "invalid_count": 13,
+        "min_required_valid": 10,
+        "min_required_invalid": 10,
+        "status": "PASS",
+        "valid_files": [
+          "create_cozy_house.json",
+          "create_spacecraft_module.json",
+          "create_terrain_patch.json",
+          "create_tile_layer_floor.json",
+          "delete_vehicle_scooter.json",
+          "enrich_character_npc.json",
+          "gift_proposal_prop.json",
+          "max_bounds_structure.json",
+          "modify_empty_tags_character.json",
+          "modify_prop_garden_lamp.json",
+          "system_create_prop_beacon.json"
+        ],
+        "invalid_files": [
+          "bad_created_at_datetime.json",
+          "bad_interaction_tag_pattern.json",
+          "bad_prompt_id_uuid.json",
+          "bounds_height_too_large.json",
+          "confirmed_without_confirmed_by.json",
+          "custom_style_missing_ref.json",
+          "invalid_operation.json",
+          "missing_required_actor.json",
+          "preview_required_false.json",
+          "reversed_manifestation_stages.json",
+          "rotation_out_of_range.json",
+          "unknown_top_level_field.json",
+          "wrong_schema_version.json"
+        ]
+      },
+      "commit": {
+        "dir": "contracts/fixtures/commit",
+        "count": 8,
+        "status": "PASS",
+        "files": [
+          "idempotency_pair.json",
+          "invalid_client_authoritative_source.json",
+          "invalid_client_forged_durable_request.json",
+          "valid_client_forged_rejection_receipt.json",
+          "valid_commit_request.json",
+          "valid_committed_receipt.json",
+          "valid_idempotent_replay_receipt.json",
+          "valid_revision_conflict_receipt.json"
+        ]
+      },
+      "events": {
+        "dir": "contracts/fixtures/events",
+        "count": 3,
+        "status": "PASS",
+        "files": [
+          "valid_event_envelope.json",
+          "invalid_event_missing_fields.json",
+          "invalid_event_with_secret_payload.json"
+        ]
+      },
+      "agm": {
+        "valid_dir": "contracts/fixtures/agm/valid",
+        "invalid_dir": "contracts/fixtures/agm/invalid",
+        "policy_dir": "contracts/fixtures/agm/policy",
+        "valid_count": 7,
+        "invalid_count": 14,
+        "policy_count": 3,
+        "min_required_valid": 5,
+        "min_required_invalid": 10,
+        "status": "PASS",
+        "policy_files": [
+          "edition_identity_pair.json",
+          "replay_decision_pair.json",
+          "stale_snapshot_rejection.json"
+        ],
+        "free_paid_identity": {
+          "strip_keys": ["edition", "transport"],
+          "snapshot_pair": {
+            "desktop_bridge_free": "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+            "api_paid": "contracts/fixtures/agm/valid/valid_snapshot_api_paid.json"
+          },
+          "decision_pair": {
+            "desktop_bridge_free": "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json",
+            "api_paid": "contracts/fixtures/agm/valid/valid_decision_api_paid.json"
+          },
+          "static_read": "edition differs; core semantic fields match after strip (validator enforces equality)"
+        }
+      },
+      "asset_grammar_support_files": {
+        "status": "PASS_PRESENT",
+        "paths": [
+          "contracts/assets/recipe.schema.json",
+          "contracts/assets/recipes/cozy_house_small.json",
+          "contracts/assets/provenance_manifest.json",
+          "contracts/assets/index.json",
+          "game/assets/recipes/cozy_house_small.json",
+          "game/assets/placeholders/modular/catalog.json",
+          "game/assets/grammar/index.json",
+          "game/resources/art_styles/tokens/shared_2_5d_tokens.json",
+          "game/resources/art_styles/cozy_cyber_pixel_2_5d.json",
+          "game/resources/art_styles/pastoral_fantasy_2_5d.json",
+          "game/resources/art_styles/soft_scifi_2_5d.json"
+        ]
+      }
+    },
+    "validator_gate": {
+      "command": "python scripts/validate_project.py",
+      "exit_code": 0,
+      "marker": "AIDLE_VALIDATION=PASS",
+      "scope_line": "scope=blueprint-links,all-schema-shapes,world-positive-negative,fixtures-valid-invalid,format-checker,commit-authority,event-envelope,agm-snapshot-decision,crew,task-dag,asset-grammar",
+      "evidence_log": "orchestration/logs/g8-integrated-matrix.log",
+      "evidence_section": "=== VALIDATOR ===",
+      "proof_class": "executable",
+      "checks_covered_by_validator": [
+        "check_markdown_links",
+        "check_schema (world_prompt + root schemas + positive/negative examples)",
+        "check_fixtures (world_prompt valid>=10 / invalid>=10)",
+        "check_commit_and_event_contracts",
+        "check_agm_contracts (snapshot/decision + free/paid identity + replay/stale policy)",
+        "check_orchestration (8 crew workers + task DAG)",
+        "check_asset_grammar (recipe/build_order/placeholders/styles/provenance)"
+      ]
+    },
+    "g0_g6_receipt_completeness": {
+      "tasks_json_states": {
+        "source": "orchestration/tasks.json",
+        "G0-001": "ACCEPTED",
+        "G1-001": "ACCEPTED",
+        "G1-002": "ACCEPTED",
+        "G1-003": "ACCEPTED",
+        "G2-001": "ACCEPTED",
+        "G2-002": "ACCEPTED",
+        "G2-003": "ACCEPTED",
+        "G2-004": "ACCEPTED",
+        "G2-005": "ACCEPTED",
+        "G2-006": "ACCEPTED",
+        "G2-007": "ACCEPTED",
+        "G3-001": "ACCEPTED",
+        "G4-001": "ACCEPTED",
+        "G5-001": "ACCEPTED",
+        "G6-001": "ACCEPTED",
+        "G8-001": "IN_PROGRESS (this gate; not ACCEPTED by schema agent)"
+      },
+      "notes": [
+        {
+          "id": "RC-G0",
+          "task": "G0-001",
+          "status": "COMPLETE",
+          "worker_receipt": "orchestration/receipts/G0-001.json",
+          "codex_or_accept": "embedded ACCEPTED in G0-001.json (local gate)",
+          "proof_class": "mixed: executable validator claimed + documentation accept"
+        },
+        {
+          "id": "RC-G1-001",
+          "task": "G1-001",
+          "status": "COMPLETE",
+          "worker_receipt": "orchestration/receipts/G1-001.json",
+          "accept_receipt": "orchestration/receipts/G1-001-ACCEPT.json",
+          "purple": "orchestration/reviews/G1-001_PURPLE_REVIEW.md",
+          "codex": "orchestration/reviews/CODEX_G1_ACCEPTANCE.md",
+          "proof_class": "executable validator + accept docs"
+        },
+        {
+          "id": "RC-G1-002",
+          "task": "G1-002",
+          "status": "COMPLETE",
+          "worker_receipt": "orchestration/receipts/G1-002.json",
+          "accept_receipt": "orchestration/receipts/G1-002-ACCEPT.json",
+          "purple": "orchestration/reviews/G1-002_PURPLE_REVIEW.md",
+          "codex": "orchestration/reviews/CODEX_G1_ACCEPTANCE.md",
+          "proof_class": "executable validator + accept docs"
+        },
+        {
+          "id": "RC-G1-003",
+          "task": "G1-003",
+          "status": "COMPLETE",
+          "worker_receipt": "orchestration/receipts/G1-003.json",
+          "accept_receipt": "orchestration/receipts/G1-003-ACCEPT.json",
+          "purple": "orchestration/reviews/G1-003_PURPLE_REVIEW.md",
+          "codex": "orchestration/reviews/CODEX_AGM_PARTIAL_WAVE_ACCEPTANCE.md",
+          "proof_class": "executable validator (agm scope) + accept docs"
+        },
+        {
+          "id": "RC-G2-001",
+          "task": "G2-001",
+          "status": "COMPLETE",
+          "worker_receipt": "orchestration/receipts/G2-001.json",
+          "accept_receipt": "orchestration/receipts/G2-001-ACCEPT.json",
+          "purple": "orchestration/reviews/G2-001_PURPLE_REVIEW.md",
+          "codex": "orchestration/reviews/CODEX_G2-001_G2-002_ADVERSARIAL_REVIEW.json",
+          "proof_class": "executable Godot boot smoke (domain-owned) + accept docs"
+        },
+        {
+          "id": "RC-G2-002",
+          "task": "G2-002",
+          "status": "COMPLETE",
+          "worker_receipt": "orchestration/receipts/G2-002.json",
+          "accept_receipt": "orchestration/receipts/G2-002-ACCEPT.json",
+          "purple": "orchestration/reviews/G2-002_PURPLE_REVIEW.md",
+          "codex": "orchestration/reviews/CODEX_G2-001_G2-002_ADVERSARIAL_REVIEW.json",
+          "proof_class": "executable manifestation smoke + accept docs"
+        },
+        {
+          "id": "RC-G2-003",
+          "task": "G2-003",
+          "status": "COMPLETE",
+          "worker_receipt": "orchestration/receipts/G2-003.json",
+          "accept_receipt": "orchestration/receipts/G2-003-ACCEPT.json",
+          "purple": "orchestration/reviews/G2-003_PURPLE_REVIEW.md",
+          "codex": "orchestration/reviews/CODEX_AGM_PARTIAL_WAVE_ACCEPTANCE.md",
+          "proof_class": "executable companion smoke + accept docs"
+        },
+        {
+          "id": "RC-G2-004",
+          "task": "G2-004",
+          "status": "COMPLETE",
+          "worker_receipt": "orchestration/receipts/G2-004.json",
+          "accept_receipt": "orchestration/receipts/G2-004-ACCEPT.json",
+          "purple": "orchestration/reviews/G2-004_PURPLE_REVIEW.md",
+          "codex": "orchestration/reviews/CODEX_AGM_PARTIAL_WAVE_ACCEPTANCE.md",
+          "proof_class": "executable asset-grammar in validate_project + accept docs"
+        },
+        {
+          "id": "RC-G2-005",
+          "task": "G2-005",
+          "status": "COMPLETE_WITH_ACCEPT_SHAPE_VARIANCE",
+          "worker_receipt": "orchestration/receipts/G2-005.json",
+          "accept_receipt": "NONE (no G2-005-ACCEPT.json file)",
+          "accept_path_note": "tasks.json ACCEPTED + CODEX_G2-005_ADVERSARIAL_REVIEW.json final_verdict ACCEPT + CODEX_AGM_PARTIAL_WAVE_ACCEPTANCE.md",
+          "purple": "orchestration/reviews/G2-005 related purple materials under reviews/",
+          "proof_class": "executable bridge smoke + documentation accept (missing dedicated *-ACCEPT.json)"
+        },
+        {
+          "id": "RC-G2-006",
+          "task": "G2-006",
+          "status": "COMPLETE_WITH_ACCEPT_SHAPE_VARIANCE",
+          "worker_receipt": "orchestration/receipts/G2-006.json",
+          "accept_receipt": "NONE (no G2-006-ACCEPT.json file)",
+          "accept_path_note": "tasks.json ACCEPTED + CODEX_AGM_PARTIAL_WAVE_ACCEPTANCE.md lists G2-006",
+          "proof_class": "executable executor smoke + documentation accept (missing dedicated *-ACCEPT.json)"
+        },
+        {
+          "id": "RC-G2-007",
+          "task": "G2-007",
+          "status": "COMPLETE_WITH_ACCEPT_SHAPE_VARIANCE",
+          "worker_receipt": "orchestration/receipts/G2-007.json",
+          "accept_receipt": "NONE (no G2-007-ACCEPT.json file)",
+          "accept_path_note": "tasks.json ACCEPTED + CODEX_AGM_PARTIAL_WAVE_ACCEPTANCE.md lists G2-007",
+          "proof_class": "executable edition smoke + documentation accept (missing dedicated *-ACCEPT.json)"
+        },
+        {
+          "id": "RC-G3-001",
+          "task": "G3-001",
+          "status": "COMPLETE",
+          "parent_receipts": [
+            "orchestration/receipts/G3-001.json",
+            "orchestration/receipts/G3-001-CORRECTION-001.json"
+          ],
+          "wave_receipts": [
+            "orchestration/receipts/g3/W0_schema.json",
+            "orchestration/receipts/g3/W0_network.json",
+            "orchestration/receipts/g3/W0_persist.json",
+            "orchestration/receipts/g3/W1_core.json",
+            "orchestration/receipts/g3/W1_manifestation.json",
+            "orchestration/receipts/g3/W1_companion.json",
+            "orchestration/receipts/g3/W1_asset.json",
+            "orchestration/receipts/g3/W2_executor.json",
+            "orchestration/receipts/g3/C0_schema.json",
+            "orchestration/receipts/g3/C1_executor.json",
+            "orchestration/receipts/g3/C2_persist.json",
+            "orchestration/receipts/g3/C3_network.json"
+          ],
+          "purple": [
+            "orchestration/reviews/G3-001_PURPLE_REVIEW.md",
+            "orchestration/reviews/G3-001_CORRECTION_001_PURPLE_REVIEW.md"
+          ],
+          "codex_final": "orchestration/reviews/CODEX_G3-001_CORRECTION_ACCEPTANCE.json final_verdict ACCEPT",
+          "proof_class": "executable G3_E2E_SMOKE checks=76 + validator + accept docs"
+        },
+        {
+          "id": "RC-G4-001",
+          "task": "G4-001",
+          "status": "COMPLETE",
+          "parent_receipts": [
+            "orchestration/receipts/G4-001.json",
+            "orchestration/receipts/G4-001-CORRECTION-001.json"
+          ],
+          "wave_receipts": [
+            "orchestration/receipts/g4/P0_schema.json",
+            "orchestration/receipts/g4/P1_persist.json",
+            "orchestration/receipts/g4/P2_executor.json",
+            "orchestration/receipts/g4/P3_core.json",
+            "orchestration/receipts/g4/P4_network.json",
+            "orchestration/receipts/g4/R0_schema.json",
+            "orchestration/receipts/g4/R1_persist.json",
+            "orchestration/receipts/g4/R2_core.json",
+            "orchestration/receipts/g4/R3_executor.json",
+            "orchestration/receipts/g4/R4_network.json"
+          ],
+          "purple": [
+            "orchestration/reviews/G4-001_PURPLE_REVIEW.md",
+            "orchestration/reviews/G4-001_CORRECTION_001_PURPLE_REVIEW.md"
+          ],
+          "codex_final": "orchestration/reviews/CODEX_G4-001_CORRECTION_ACCEPTANCE.json final_verdict ACCEPT",
+          "proof_class": "executable G4_PERSIST_SMOKE checks=22 + boot mount + validator + accept docs"
+        },
+        {
+          "id": "RC-G5-001",
+          "task": "G5-001",
+          "status": "COMPLETE",
+          "parent_receipts": [
+            "orchestration/receipts/G5-001.json",
+            "orchestration/receipts/G5-001-CORRECTION-001.json"
+          ],
+          "wave_receipts": [
+            "orchestration/receipts/g5/A0_schema.json",
+            "orchestration/receipts/g5/A1_network.json",
+            "orchestration/receipts/g5/A2_executor.json",
+            "orchestration/receipts/g5/A3_core.json",
+            "orchestration/receipts/g5/A4_persist.json",
+            "orchestration/receipts/g5/C0_schema.json",
+            "orchestration/receipts/g5/C1_network.json",
+            "orchestration/receipts/g5/C2_executor.json",
+            "orchestration/receipts/g5/C3_core.json",
+            "orchestration/receipts/g5/C4_persist.json"
+          ],
+          "purple": [
+            "orchestration/reviews/G5-001_PURPLE_REVIEW.md",
+            "orchestration/reviews/G5-001_CORRECTION_001_PURPLE_REVIEW.md"
+          ],
+          "codex_final": "orchestration/reviews/CODEX_G5-001_FINAL_ACCEPTANCE.json final_verdict ACCEPT",
+          "proof_class": "executable G5_AGM_GATEWAY_SMOKE tests=36 + paid adapter checks=14 + validator + accept docs"
+        },
+        {
+          "id": "RC-G6-001",
+          "task": "G6-001",
+          "status": "COMPLETE",
+          "parent_receipts": [
+            "orchestration/receipts/G6-001.json",
+            "orchestration/receipts/G6-001-CORRECTION-001.json"
+          ],
+          "wave_receipts": [
+            "orchestration/receipts/g6/M0_schema.json",
+            "orchestration/receipts/g6/M1_network.json",
+            "orchestration/receipts/g6/M2_executor.json",
+            "orchestration/receipts/g6/M3_persist.json",
+            "orchestration/receipts/g6/M4_core.json",
+            "orchestration/receipts/g6/R0_schema.json",
+            "orchestration/receipts/g6/R1_network.json",
+            "orchestration/receipts/g6/R2_executor.json",
+            "orchestration/receipts/g6/R3_persist.json",
+            "orchestration/receipts/g6/R4_core.json"
+          ],
+          "purple": [
+            "orchestration/reviews/G6-001_PURPLE_REVIEW.md",
+            "orchestration/reviews/G6-001_CORRECTION_001_PURPLE_REVIEW.md"
+          ],
+          "codex_final": "orchestration/reviews/CODEX_G6-001_FINAL_ACCEPTANCE.json final_verdict ACCEPT",
+          "proof_class": "executable G6_WORLD_AUTHORITY_SMOKE tests=21 + G6_TWO_CLIENT_SMOKE checks=13 + validator + accept docs; LOCAL POC only"
+        }
+      ],
+      "completeness_verdict": "PASS",
+      "completeness_caveats": [
+        "G2-005/G2-006/G2-007 lack dedicated *-ACCEPT.json files; acceptance is via Codex partial-wave docs + tasks.json ACCEPTED. Not a FAIL for alpha schema gate, but noted as receipt-shape variance.",
+        "G3–G6 acceptance is correction-path final Codex ACCEPT (initial adversarial often CHANGES_REQUESTED). Correction receipts are required evidence.",
+        "tasks.json is Codex state authority (grok_may_write_task_state=false); this schema agent does not mutate it."
+      ]
+    },
+    "executable_vs_doc_only": {
+      "executable_proof": [
+        {
+          "id": "EX-VALIDATOR",
+          "claim": "Project contracts/fixtures/orchestration/asset grammar validate",
+          "command": "python scripts/validate_project.py",
+          "marker": "AIDLE_VALIDATION=PASS",
+          "evidence": "orchestration/logs/g8-integrated-matrix.log === VALIDATOR ==="
+        },
+        {
+          "id": "EX-FIXTURE-MACHINE-CHECKS",
+          "claim": "Valid fixtures accepted; invalid fixtures rejected; free/paid identity; commit/event/agm locks",
+          "runner": "scripts/validate_project.py check_* functions",
+          "evidence": "same validator PASS scope line"
+        },
+        {
+          "id": "EX-PRIOR-DOMAIN-SMOKES-IN-MATRIX-LOG",
+          "claim": "Parent matrix re-ran domain smokes (not schema-owned re-execution here)",
+          "note": "Schema profile ownership is contracts/validator/receipts; domain smoke ownership is peer G8_* receipts. Matrix log is collated executable evidence for Z1, referenced not re-owned.",
+          "markers_observed_in_matrix_log": [
+            "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
+            "G2-003_GODOT_SMOKE=PASS",
+            "G2-005_GODOT_SMOKE=PASS checks=11",
+            "G2-007_GODOT_SMOKE=PASS",
+            "G3_E2E_SMOKE=PASS checks=76",
+            "G4_PERSIST_SMOKE=PASS checks=22",
+            "G5_AGM_GATEWAY_SMOKE=PASS",
+            "G5_PAID_ADAPTER_SMOKE=PASS checks=14",
+            "G6_WORLD_AUTHORITY_SMOKE=PASS",
+            "G6_TWO_CLIENT_SMOKE=PASS checks=13"
+          ]
+        }
+      ],
+      "documentation_only_or_static": [
+        {
+          "id": "DOC-TASKS-ACCEPTED",
+          "claim": "G0–G6 task state ACCEPTED",
+          "evidence": "orchestration/tasks.json",
+          "class": "state_machine_record"
+        },
+        {
+          "id": "DOC-CODEX-FINAL",
+          "claim": "Codex final_verdict ACCEPT for G3/G4/G5/G6 corrections and earlier waves",
+          "evidence": "orchestration/reviews/CODEX_*",
+          "class": "review_artifact"
+        },
+        {
+          "id": "DOC-PURPLE",
+          "claim": "Purple reviews ACCEPTED evidence gates",
+          "evidence": "orchestration/reviews/G*_PURPLE_REVIEW.md",
+          "class": "review_artifact"
+        },
+        {
+          "id": "DOC-COMMIT-POLICY-MD",
+          "claim": "commit_policy.md narrative rules",
+          "evidence": "contracts/commit/commit_policy.md",
+          "class": "policy_documentation (not fully machine-enforced by validate_project alone)"
+        },
+        {
+          "id": "STATIC-RECEIPT-INVENTORY",
+          "claim": "Wave/worker receipt files present under orchestration/receipts/** for G0–G6",
+          "class": "filesystem inventory by schema agent",
+          "result": "PASS with G2-005/006/007 accept-file variance"
+        }
+      ],
+      "local_poc_limitations": [
+        "G6 world authority is LOCAL in-process simulator — not production multiplayer, Nakama, or Colyseus",
+        "G5 gateway is fixture-provider only — real provider HITL_REQUIRED",
+        "G4 local HMAC journal is Offline Private Reality reconciliation evidence — not Shared District/server authority",
+        "G3 World Commit path remains handoff stub for rejected durable mutation in slice; durable online commit is G6/server path"
+      ],
+      "deferred_roadmap_not_proved_by_schema_gate": [
+        "voice / TTS / STT",
+        "free-form 3D camera",
+        "voxel terrain as world truth",
+        "real cities / city-data licensing",
+        "production multiplayer scale",
+        "marketplace / economy ownership",
+        "live AI provider credentials"
+      ]
+    },
+    "acceptance_matrix": {
+      "AT-WORLD-PROMPT-SCHEMA-PRESENT": "PASS",
+      "AT-COMMIT-EVENT-SCHEMAS-PRESENT": "PASS",
+      "AT-AGM-SCHEMAS-PRESENT": "PASS",
+      "AT-WORLD-PROMPT-FIXTURES-MIN-COUNTS": "PASS (11 valid / 13 invalid)",
+      "AT-AGM-FIXTURES-MIN-COUNTS": "PASS (7 valid / 14 invalid)",
+      "AT-COMMIT-EVENT-FIXTURES-PRESENT": "PASS",
+      "AT-FREE-PAID-IDENTITY-POLICY-FIXTURE": "PASS",
+      "AT-REPLAY-STALE-POLICY-FIXTURES": "PASS",
+      "AT-ASSET-GRAMMAR-SUPPORT-FILES": "PASS",
+      "AT-VALIDATE-PROJECT-PASS": "PASS",
+      "AT-G0-G6-RECEIPTS-COMPLETE": "PASS_WITH_NOTED_ACCEPT_SHAPE_VARIANCE",
+      "AT-EXECUTABLE-VS-DOC-CLASSIFIED": "PASS",
+      "AT-NO-PRODUCT-EDITS": "PASS",
+      "AT-NO-CONTRACTS-EDITS": "PASS",
+      "AT-NO-SELF-ACCEPT": "PASS",
+      "AT-NO-CHILDREN": "PASS",
+      "AT-NO-G8-ACCEPTED-CLAIM": "PASS"
+    },
+    "residual_risks": [
+      {
+        "id": "RR-SCHEMA-G8-01",
+        "severity": "low",
+        "detail": "G2-005/006/007 lack dedicated conductor *-ACCEPT.json files; acceptance rests on Codex partial-wave docs + tasks.json. Acceptable for schema completeness note; Z2 purple may still want uniform index."
+      },
+      {
+        "id": "RR-SCHEMA-G8-02",
+        "severity": "info",
+        "detail": "JSON Schema propertyNames deny-lists are root-level; deep secret smuggling still requires runtime redaction (G5 gateway) beyond pure schema validation."
+      },
+      {
+        "id": "RR-SCHEMA-G8-03",
+        "severity": "info",
+        "detail": "commit_request has no mutation body — G1-002 residual mitigated by G6 prompt-bind, not by schema rewrite."
+      },
+      {
+        "id": "RR-SCHEMA-G8-04",
+        "severity": "info",
+        "detail": "Validator PASS is contract/fixture/orchestration integrity, not headed visual alpha or production multiplayer certification."
+      }
+    ],
+    "not_done": [
+      "Did not claim G8-001 ACCEPTED",
+      "Did not edit product or contracts",
+      "Did not run domain Godot smokes as schema owner (peer profiles / matrix)",
+      "Did not spawn children",
+      "Did not write tasks.json or grok_status.json"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g8/G8_schema.json"
+    ]
+  },
+  "smoke_test": {
+    "type": "verify_only_schema_domain",
+    "executed": true,
+    "executable_smoke_run": true,
+    "independent_reverification": true,
+    "proof_class": "executable_validator_plus_static_inventory",
+    "commands": [
+      {
+        "id": "CMD-VALIDATE-PROJECT",
+        "command": "python scripts\\validate_project.py",
+        "cwd": "E:\\AIdle_openworld",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS",
+        "scope": "blueprint-links,all-schema-shapes,world-positive-negative,fixtures-valid-invalid,format-checker,commit-authority,event-envelope,agm-snapshot-decision,crew,task-dag,asset-grammar",
+        "evidence_log": "orchestration/logs/g8-integrated-matrix.log",
+        "evidence_lines": "=== VALIDATOR === / AIDLE_VALIDATION=PASS / scope=..."
+      }
+    ],
+    "static_audit": {
+      "world_prompt_fixtures_valid_count": 11,
+      "world_prompt_fixtures_invalid_count": 13,
+      "agm_valid_count": 7,
+      "agm_invalid_count": 14,
+      "commit_fixtures_count": 8,
+      "event_fixtures_count": 3,
+      "agm_policy_fixtures_count": 3,
+      "crew_workers": 8,
+      "schema_files_required_present": true,
+      "g0_g6_tasks_accepted_in_tasks_json": true,
+      "g0_g6_wave_receipt_trees_present": true
+    },
+    "downstream_parent_note": "Z1_INTEGRATED_MATRIX collates all eight G8_* domain receipts + matrix log; Z2 purple verdict; Z3 HITL only. Schema domain does not self-ACCEPT G8-001."
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g8/G8_schema.json"],
+    "no_product_code_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_prior_receipt_edits": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "worker_cannot_self_accept": true,
+    "no_children_subagents": true,
+    "no_accept_receipt": true,
+    "no_g8_accepted_claim": true,
+    "no_install_or_live_network": true,
+    "verdict": "PASS",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, WO-G8-001, G8-001_DISPATCH_MAP, codex_directive, agent_step_contract schema, contracts trees, tasks.json, G0–G6 receipts/reviews, g8-integrated-matrix.log manually"
+  },
+  "changed_files": [
+    "orchestration/receipts/g8/G8_schema.json"
+  ],
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G8-001.md",
+    "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "orchestration/control/codex_directive.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "orchestration/tasks.json",
+    "scripts/validate_project.py",
+    "orchestration/logs/g8-integrated-matrix.log",
+    "contracts/world_prompt.schema.json",
+    "contracts/commit/commit_request.schema.json",
+    "contracts/commit/commit_receipt.schema.json",
+    "contracts/commit/commit_policy.md",
+    "contracts/events/event_envelope.schema.json",
+    "contracts/agm/world_state_snapshot.schema.json",
+    "contracts/agm/decision_envelope.schema.json",
+    "contracts/fixtures/valid/",
+    "contracts/fixtures/invalid/",
+    "contracts/fixtures/commit/",
+    "contracts/fixtures/events/",
+    "contracts/fixtures/agm/",
+    "contracts/assets/",
+    "orchestration/receipts/G0-001.json",
+    "orchestration/receipts/G1-001.json",
+    "orchestration/receipts/G1-002.json",
+    "orchestration/receipts/G1-003.json",
+    "orchestration/receipts/G2-001.json",
+    "orchestration/receipts/G2-002.json",
+    "orchestration/receipts/G2-003.json",
+    "orchestration/receipts/G2-004.json",
+    "orchestration/receipts/G2-005.json",
+    "orchestration/receipts/G2-006.json",
+    "orchestration/receipts/G2-007.json",
+    "orchestration/receipts/G3-001-CORRECTION-001.json",
+    "orchestration/receipts/G4-001-CORRECTION-001.json",
+    "orchestration/receipts/G5-001-CORRECTION-001.json",
+    "orchestration/receipts/G6-001-CORRECTION-001.json",
+    "orchestration/reviews/CODEX_G3-001_CORRECTION_ACCEPTANCE.json",
+    "orchestration/reviews/CODEX_G4-001_CORRECTION_ACCEPTANCE.json",
+    "orchestration/reviews/CODEX_G5-001_FINAL_ACCEPTANCE.json",
+    "orchestration/reviews/CODEX_G6-001_FINAL_ACCEPTANCE.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "Z1_INTEGRATED_MATRIX"
+}

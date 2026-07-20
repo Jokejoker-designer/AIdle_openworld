@@ -10,11 +10,12 @@
 extends SceneTree
 
 const SLICE_PATH := "res://scripts/modules/executor/g3_onboarding_slice.gd"
-const COMPLETE_EXPORT := "res://scripts/modules/executor/exports/g3_complete_receipt.json"
-const CANCEL_EXPORT := "res://scripts/modules/executor/exports/g3_cancel_receipt.json"
-const UNDO_EXPORT := "res://scripts/modules/executor/exports/g3_undo_receipt.json"
-const WORLD_PROMPT_EXPORT := "res://scripts/modules/executor/exports/world_prompt_from_build.json"
-const COMMIT_REQUEST_EXPORT := "res://scripts/modules/executor/exports/commit_request_handoff_stub.json"
+## Isolated user:// runtime outputs only (G8-001 CORRECTION-001 — never tracked res://).
+const COMPLETE_EXPORT := "user://g3_e2e_smoke/g3_complete_receipt.json"
+const CANCEL_EXPORT := "user://g3_e2e_smoke/g3_cancel_receipt.json"
+const UNDO_EXPORT := "user://g3_e2e_smoke/g3_undo_receipt.json"
+const WORLD_PROMPT_EXPORT := "user://g3_e2e_smoke/world_prompt_from_build.json"
+const COMMIT_REQUEST_EXPORT := "user://g3_e2e_smoke/commit_request_handoff_stub.json"
 ## Live fixture: contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json
 const EXPECTED_LIVE_REVISION := 3
 

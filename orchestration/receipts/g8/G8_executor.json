@@ -1,0 +1,340 @@
+{
+  "agent_step_id": "G8-001-Z0-executor-2026-07-21",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "wave": "Z0_EIGHT_DOMAIN_VERIFY",
+    "profile": "executor",
+    "work_order": "orchestration/work_orders/WO-G8-001.md",
+    "dispatch_map": "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY G8 alpha-gate executor domain. Independently re-ran g3_e2e_smoke.gd: G3_E2E_SMOKE=PASS checks=76 exit=0. Live snapshot world_revision=3 binds world_prompt.target.expected_world_revision, commit_request.expected_world_revision, complete receipt expected_world_revision and nested commit_request (export fields all 3; zero-leak contrast green). Complete path: four manifestation stages → explicit confirm → commit handoff stub only (durable_mutation_applied=false, world_commit_invoked=false, stub not committed). Cancel path: no durable collision/orphan, revision not advanced, confirm-after-cancel rejected; inject probes prove collision/orphan evidence is runtime-derived. Undo path: mutation_class=compensating, history_preserved=true, history not erased, new request/receipt ids, prior complete export retained. Paid adapter boundary re-confirmed: G5_PAID_ADAPTER_SMOKE=PASS checks=14 (fixture/local untrusted proposal → consent → executor; no secrets/SDK/network; executed=false committed=false). No product edits. No children. self_accept=false.",
+    "scope": {
+      "in_scope": [
+        "Deterministic AGM Decision / G3 onboarding transaction re-verify",
+        "g3_e2e_smoke complete / cancel / undo paths",
+        "Revision-binding chain live snapshot world_revision=3",
+        "Cancel runtime collision/orphan evidence",
+        "Undo compensating stub without history erase",
+        "Paid adapter untrusted-consumer handoff (relevant executor consumer boundary)",
+        "orchestration/receipts/g8/G8_executor.json only write"
+      ],
+      "out_of_scope": [
+        "Product/test/contract/task/directive/architecture patches",
+        "Prior evidence edits",
+        "Other G8 domain receipts (schema/core/manifestation/companion/asset/persist/network)",
+        "Parent collate / alpha report / human checklist",
+        "Live World Commit service, production multiplayer, real provider/network",
+        "Dependency install, push, deploy, publish",
+        "Self-ACCEPT",
+        "Children subagents"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — receipt only; no product code edits",
+        "only_write": [
+          "orchestration/receipts/g8/G8_executor.json"
+        ],
+        "next_writer": "parent Z1_INTEGRATED_MATRIX / Z2_PURPLE_ALPHA_VERDICT (collate eight domain receipts)",
+        "poc_class": "Local/offline G3 onboarding vertical slice + paid fixture adapter — not production World Commit or live provider",
+        "explicit_not": [
+          "Durable world mutation",
+          "Client-authoritative commit",
+          "Real AGM provider / credentials / outbound network",
+          "Self-ACCEPT of G8-001 or prior gates"
+        ]
+      }
+    },
+    "product_writes": [],
+    "only_owned_files_written": true,
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_godot_product_edits": true,
+    "product_patch_required": false,
+    "verdicts": {
+      "overall": "PASS",
+      "g3_e2e_complete_cancel_undo": "PASS",
+      "revision_chain_live_equals_3": "PASS",
+      "zero_leak_negative_contrast": "PASS",
+      "cancel_no_durable_collision": "PASS",
+      "cancel_runtime_evidence_not_hardcoded": "PASS",
+      "undo_compensating_history_preserved": "PASS",
+      "world_commit_never_invoked": "PASS",
+      "paid_adapter_untrusted_consumer": "PASS",
+      "no_product_file_edits": "PASS"
+    },
+    "revision_invariant": {
+      "id": "snapshot_world_prompt_commit_revision_equality",
+      "live_snapshot_world_revision": 3,
+      "world_prompt_target_expected_world_revision": 3,
+      "commit_request_expected_world_revision": 3,
+      "complete_receipt_expected_world_revision": 3,
+      "complete_receipt_nested_commit_request": 3,
+      "export_world_prompt_from_build": 3,
+      "export_commit_request_handoff_stub": 3,
+      "export_g3_complete_receipt": 3,
+      "export_g3_complete_nested_commit_request": 3,
+      "negative_contrast_zero_leak_fails_closed": true,
+      "status": "PASS",
+      "smoke_checks": [
+        "live_snapshot_revision",
+        "rev_eq_world_prompt",
+        "rev_eq_commit_request",
+        "rev_eq_complete_receipt",
+        "rev_chain_equality",
+        "export_wp_rev",
+        "export_cr_rev",
+        "export_complete_rev",
+        "export_complete_nested_cr_rev"
+      ]
+    },
+    "path_evidence": {
+      "complete": {
+        "status": "PASS",
+        "pipeline_stage": "commit_handoff_stubbed",
+        "confirmation": "confirmed with preview_required=true",
+        "manifestation_stages_observed": [
+          "wireframe",
+          "hologram",
+          "materializing",
+          "complete"
+        ],
+        "final_stage": "complete",
+        "entity_recipe_id": "cozy_house_small",
+        "durable_mutation_applied": false,
+        "world_commit_invoked": false,
+        "commit_path": "world_commit_service",
+        "commit_source_not_client_authoritative": true,
+        "commit_receipt_stub_status_not_committed": true,
+        "export": "game/scripts/modules/executor/exports/g3_complete_receipt.json"
+      },
+      "cancel": {
+        "status": "PASS",
+        "pipeline_stage": "cancelled",
+        "receipt_status": "cancelled",
+        "cancelled_during_stage": "hologram",
+        "durable_mutation_applied": false,
+        "world_commit_invoked": false,
+        "world_revision_advanced": false,
+        "has_durable_collision": false,
+        "orphan_collision_count": 0,
+        "not_compensating": true,
+        "confirm_after_cancel_rejected": true,
+        "runtime_evidence": {
+          "live_collision_matches_runtime": true,
+          "live_orphan_matches_runtime": true,
+          "inject_collision_true_reflected": true,
+          "inject_orphan_2_reflected": true,
+          "inject_top_level_orphan_3_reflected": true
+        },
+        "export": "game/scripts/modules/executor/exports/g3_cancel_receipt.json"
+      },
+      "undo": {
+        "status": "PASS",
+        "mutation_class": "compensating",
+        "history_preserved": true,
+        "history_erased": false,
+        "durable_mutation_applied": false,
+        "world_commit_invoked": false,
+        "prior_receipt_id_linked": true,
+        "prior_request_id_linked": true,
+        "new_request_id": true,
+        "new_receipt_id": true,
+        "prior_complete_export_retained": true,
+        "export": "game/scripts/modules/executor/exports/g3_undo_receipt.json"
+      }
+    },
+    "paid_adapter": {
+      "relevant": true,
+      "role": "Untrusted AGM proposal consumer; same consent → executor handoff as Free Desktop Bridge; never commits",
+      "smoke_marker": "G5_PAID_ADAPTER_SMOKE=PASS",
+      "checks": 14,
+      "exit_code": 0,
+      "uses_network": false,
+      "holds_provider_secrets": false,
+      "provider_mode": "fixture",
+      "edition": "api_paid",
+      "success_envelope": {
+        "untrusted": true,
+        "executed": false,
+        "committed": false,
+        "routes_to": "consent_then_agm_decision_executor"
+      },
+      "confirm_envelope": {
+        "routes_to": "agm_decision_executor",
+        "executed": false,
+        "committed": false
+      },
+      "log": "orchestration/logs/g8-executor-paid-adapter.log",
+      "note": "G8 executor domain re-verifies the paid adapter as an executor-pipeline consumer only; server gateway authority remains G5 network/persist ownership — not re-patched here"
+    },
+    "invariants_preserved": [
+      "Prompt → structured proposal → validate → preview → explicit confirm → World Commit handoff stub only",
+      "Manifestation wireframe → hologram → materializing → complete on complete path",
+      "Cancel is not mutation_class=compensating; undo is compensating and does not erase history",
+      "durable_mutation_applied=false and world_commit_invoked=false on complete/cancel/undo",
+      "commit_request.authority.commit_path=world_commit_service; source != client_authoritative",
+      "expected_world_revision bound to live snapshot.world_revision=3 (builder default 0 must not win)",
+      "Cancel collision/orphan fields track runtime evidence (not hardcoded constants)",
+      "Paid adapter: untrusted proposal; no secrets/SDK/network; consent required; no execute/commit",
+      "2.5D text-only companion boundary (executor consumes, does not own companion voice/3D)"
+    ],
+    "domain_acceptance": {
+      "AT-G3-E2E-HEADLESS": "PASS",
+      "AT-REVISION-CHAIN-EQ-3": "PASS",
+      "AT-COMPLETE-PREVIEW-CONFIRM-STUB": "PASS",
+      "AT-CANCEL-NO-DURABLE": "PASS",
+      "AT-CANCEL-RUNTIME-EVIDENCE": "PASS",
+      "AT-UNDO-COMPENSATING-NO-ERASE": "PASS",
+      "AT-NO-WORLD-COMMIT-INVOKE": "PASS",
+      "AT-PAID-ADAPTER-UNTRUSTED-CONSUMER": "PASS",
+      "AT-VERIFY-ONLY-NO-PRODUCT-WRITE": "PASS"
+    },
+    "executable_vs_doc": {
+      "executable_proof": [
+        "g3_e2e_smoke.gd headless exit 0, G3_E2E_SMOKE=PASS checks=76",
+        "Export JSON fields expected_world_revision=3 on world_prompt, commit_request, complete (+ nested)",
+        "paid_gateway_smoke.gd headless exit 0, G5_PAID_ADAPTER_SMOKE=PASS checks=14"
+      ],
+      "documentation_only_not_claimed_as_runtime": [
+        "Visual presentation quality of manifestation stages (headless fallback host only)",
+        "Human UX of companion dialogue and onboarding quest banner",
+        "Production World Commit durability / multiplayer authority"
+      ],
+      "local_poc_limitations": [
+        "World Commit is a rejected handoff stub — no server-authoritative durable mutation in G3 slice",
+        "Manifestation host missing in headless → local fallback warnings expected",
+        "Paid adapter is fixture/local only — not live provider",
+        "No visual/commercial alpha claim from headless alone"
+      ],
+      "deferred_roadmap": [
+        "Live World Commit service integration beyond handoff stub",
+        "Real paid AGM provider path (HITL_REQUIRED)",
+        "Voice, free-form 3D, voxel terrain, real cities, production multiplayer, marketplace/economy"
+      ]
+    },
+    "not_done": [
+      "Did not patch any product, test, contract, task, directive, or architecture files",
+      "Did not write other G8 domain receipts",
+      "Did not collate G8-001 parent receipt or alpha evidence report",
+      "Did not claim visual/commercial/production alpha",
+      "Did not self-ACCEPT",
+      "Did not spawn children"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g8/G8_executor.json",
+      "orchestration/logs/g8-executor-g3-e2e.log",
+      "orchestration/logs/g8-executor-paid-adapter.log"
+    ],
+    "children": []
+  },
+  "smoke_test": {
+    "type": "executable_godot_headless",
+    "executable_smoke_run": true,
+    "working_directory": "E:\\AIdle_openworld",
+    "commands": [
+      {
+        "id": "g3_e2e",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/executor/g3_e2e_smoke.gd",
+        "exit_code": 0,
+        "marker": "G3_E2E_SMOKE=PASS checks=76",
+        "checks_passed": 76,
+        "log": "orchestration/logs/g8-executor-g3-e2e.log",
+        "clean_boot": {
+          "script_error": false,
+          "parse_error": false,
+          "compile_error": false,
+          "error_prefix": false
+        },
+        "expected_warnings_only": [
+          "No mount for module: voxel",
+          "No manifestation host; using local fallback"
+        ],
+        "revision_chain": {
+          "live": 3,
+          "world_prompt": 3,
+          "commit_request": 3,
+          "complete_receipt": 3,
+          "complete_nested_commit_request": 3
+        },
+        "paths": {
+          "complete": "PASS",
+          "cancel": "PASS",
+          "undo": "PASS"
+        }
+      },
+      {
+        "id": "paid_adapter",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/bridge/paid_gateway_smoke.gd",
+        "exit_code": 0,
+        "marker": "G5_PAID_ADAPTER_SMOKE=PASS checks=14",
+        "checks_passed": 14,
+        "log": "orchestration/logs/g8-executor-paid-adapter.log",
+        "clean_boot": {
+          "script_error": false,
+          "parse_error": false,
+          "compile_error": false,
+          "error_prefix": false
+        },
+        "network": false,
+        "real_provider": false,
+        "dependency_install": false
+      }
+    ],
+    "product_files_modified_this_wave": false
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": [
+      "orchestration/receipts/g8/G8_executor.json"
+    ],
+    "no_product_code_edits": true,
+    "no_test_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_prior_receipt_edits": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "no_provider_calls": true,
+    "no_dependency_install": true,
+    "no_outbound_http": true,
+    "no_push_deploy_publish": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, WO-G8-001, G8-001_DISPATCH_MAP, g3_e2e_smoke.gd, prior G3/G5 executor receipts, agent_step_contract schema manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G8-001.md",
+    "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "game/scripts/modules/executor/g3_e2e_smoke.gd",
+    "game/scripts/modules/executor/g3_onboarding_slice.gd",
+    "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+    "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+    "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+    "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+    "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+    "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+    "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+    "orchestration/receipts/g3/W2_executor.json",
+    "orchestration/receipts/g3/C1_executor.json",
+    "orchestration/receipts/g5/A2_executor.json",
+    "orchestration/receipts/g5/C2_executor.json",
+    "orchestration/logs/g8-executor-g3-e2e.log",
+    "orchestration/logs/g8-executor-paid-adapter.log",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "Headless G3 E2E does not prove visual manifestation quality or companion UX — human checklist required for presentation alpha",
+    "World Commit remains a handoff stub; durable ownership/economy still out of G3 scope",
+    "Paid adapter fixture path is not production gateway authority; real provider remains HITL_REQUIRED",
+    "Expected warnings (voxel mount / manifestation host fallback) are benign in headless but must not be mistaken for SCRIPT ERROR"
+  ],
+  "next_route": "PARENT_Z1_INTEGRATED_MATRIX"
+}

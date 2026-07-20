@@ -1,0 +1,83 @@
+{
+  "agent_step_id": "G8-001-CORRECTION-001-C2-core-2026-07-21",
+  "agent_type": "aidle-core",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-CORRECTION-001",
+    "directive_id": 20,
+    "wave": "C2_CORE_PURPLE_VERIFY",
+    "profile": "core",
+    "self_accept": false,
+    "verdict": "PASS",
+    "state": "HANDOFF_TO_C3",
+    "summary": "VERIFY_ONLY Purple gate after C0/C1 patches. Re-ran G3 E2E (76), G4 persist (22), project validator, clean fixed-angle 2.5D boot. Proved all six tracked export/evidence files have zero git diff vs commit 60fccdd after the reruns (git hash-object match + git diff empty).",
+    "product_writes": 0,
+    "children": [],
+    "no_children_spawned": true,
+    "no_self_accept": true,
+    "six_tracked_exports_zero_diff": true,
+    "baseline_commit": "60fccdd792d6d8f682441bbfe9ff6e7d67a27226",
+    "six_files": [
+      "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+      "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+      "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+      "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+      "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+      "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json"
+    ],
+    "directive_19_disclosure": "Directive 19 falsely claimed no prior-evidence edits while G3/G4 smokes mutated the six tracked files; this correction closes the mutability hole and restores baseline."
+  },
+  "smoke_test": {
+    "log": "orchestration/logs/g8-correction-001-matrix.log",
+    "commands": [
+      {
+        "name": "g3_e2e",
+        "exit_code": 0,
+        "marker": "G3_E2E_SMOKE=PASS checks=76"
+      },
+      {
+        "name": "g4_persist",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22"
+      },
+      {
+        "name": "validator",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      },
+      {
+        "name": "clean_boot_2_5d",
+        "exit_code": 0,
+        "marker": "Camera mode=fixed-angle 2.5D"
+      },
+      {
+        "name": "six_tracked_zero_diff",
+        "exit_code": 0,
+        "marker": "SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS"
+      }
+    ],
+    "passed": true
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "verify_only_no_product_patch": true,
+    "no_nested_grandchildren": true,
+    "no_self_accept": true,
+    "purple_honest_about_directive_19": true,
+    "residual_risks": [
+      "Codex must independently re-verify zero-diff and markers",
+      "PowerShell NativeCommandError wrapper noise in older matrix logs is not product boot failure"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-correction-001-matrix.log",
+    "orchestration/receipts/g8/correction/C0_executor.json",
+    "orchestration/receipts/g8/correction/C1_persist.json",
+    "orchestration/reviews/CODEX_G8-001_MACHINE_REVIEW.json"
+  ],
+  "next_route": "C3_SCHEMA_RECEIPT_VERIFY"
+}

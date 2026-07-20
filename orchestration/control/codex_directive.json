@@ -1,40 +1,41 @@
 {
   "schema_version": "1.0.0",
-  "directive_id": 19,
-  "issued_at": "2026-07-21T07:20:00+07:00",
+  "directive_id": 20,
+  "issued_at": "2026-07-21T03:31:00+07:00",
   "issued_by": "codex",
-  "state": "EXECUTE",
-  "milestone": "G8 independent 2.5D alpha evidence gate",
+  "state": "HITL_REQUIRED",
+  "milestone": "G8 non-mutating verification correction",
   "architecture_decisions": [
-    "Blueprint v1.1 is the source of truth",
-    "MVP is fixed-angle 2.5D",
-    "Companion is text-only and cannot commit world mutations",
-    "Durable world changes are authoritative, revisioned and idempotent",
-    "Free Desktop Bridge and Paid API use one AGM Snapshot and Decision contract",
-    "AGM directs content but all durable effects remain validated proposals"
+    "Blueprint v1.1 remains the source of truth",
+    "MVP remains fixed-angle 2.5D and Companion text-only",
+    "VERIFY_ONLY gates must not mutate tracked product or prior evidence",
+    "Runtime-generated smoke evidence belongs in isolated user:// locations",
+    "Codex remains final machine acceptor and Human Product Lead final alpha acceptor"
   ],
   "permitted_task_ids": ["G8-001"],
   "required_workflow": {
     "parent_session": "existing Grok Desktop conductor only",
-    "subagent_profiles": ["schema", "core", "manifestation", "companion", "asset", "executor", "persist", "network"],
-    "wave_order": ["Z0_EIGHT_DOMAIN_VERIFY", "Z1_INTEGRATED_MATRIX", "Z2_PURPLE_ALPHA_VERDICT", "Z3_HITL_HANDOFF"],
+    "work_order": "orchestration/work_orders/WO-G8-001-CORRECTION-001.md",
+    "subagent_profiles": ["executor", "persist", "core", "schema"],
+    "wave_order": ["C0_EXECUTOR_PATCH", "C1_PERSIST_PATCH", "C2_CORE_PURPLE_VERIFY", "C3_SCHEMA_RECEIPT_VERIFY"],
     "one_writer_per_file": true,
     "step_contract_per_subagent": true,
     "parent_may_self_accept": false
   },
   "forbidden_actions": [
-    "modify Blueprint v1.0",
-    "add STT, TTS, voice, voxel or blockchain dependencies",
-    "push, deploy, publish or upload externally",
-    "mark worker output ACCEPTED"
+    "modify Blueprint or architecture contracts",
+    "reset, checkout, delete or silently discard the six generated diffs",
+    "add dependencies or live provider/network behavior",
+    "create or resume another top-level Grok session",
+    "mark G8-001 ACCEPTED"
   ],
   "completion_state": "REVIEW_REQUESTED",
   "required_evidence": [
-    "agent_step_contract",
-    "test receipt",
-    "changed file list",
-    "adversarial review",
-    "remaining risks"
+    "three schema-valid correction agent_step_contract receipts",
+    "G3 76-check and G4 22-check rerun logs",
+    "validator and clean Godot boot",
+    "post-run zero diff for the six tracked exports against 60fccdd",
+    "corrected alpha report and remaining risks"
   ],
-  "supersedes_directive_id": 18
+  "supersedes_directive_id": 19
 }

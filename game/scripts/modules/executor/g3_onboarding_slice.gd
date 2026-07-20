@@ -9,12 +9,13 @@ const SLICE_ID := "g3_onboarding_vertical"
 const SCHEMA_VERSION := "g3_slice/1.0.0"
 const RECIPE_ID := "cozy_house_small"
 
-const EXPORT_DIR_RES := "res://scripts/modules/executor/exports"
-const COMPLETE_EXPORT := "res://scripts/modules/executor/exports/g3_complete_receipt.json"
-const CANCEL_EXPORT := "res://scripts/modules/executor/exports/g3_cancel_receipt.json"
-const UNDO_EXPORT := "res://scripts/modules/executor/exports/g3_undo_receipt.json"
-const WORLD_PROMPT_EXPORT := "res://scripts/modules/executor/exports/world_prompt_from_build.json"
-const COMMIT_REQUEST_EXPORT := "res://scripts/modules/executor/exports/commit_request_handoff_stub.json"
+## Runtime smoke/demo exports only — isolated user:// (never mutate tracked res:// evidence).
+const EXPORT_DIR_RES := "user://g3_e2e_smoke"
+const COMPLETE_EXPORT := "user://g3_e2e_smoke/g3_complete_receipt.json"
+const CANCEL_EXPORT := "user://g3_e2e_smoke/g3_cancel_receipt.json"
+const UNDO_EXPORT := "user://g3_e2e_smoke/g3_undo_receipt.json"
+const WORLD_PROMPT_EXPORT := "user://g3_e2e_smoke/world_prompt_from_build.json"
+const COMMIT_REQUEST_EXPORT := "user://g3_e2e_smoke/commit_request_handoff_stub.json"
 
 const SNAPSHOT_FIXTURE_REL := "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json"
 const DECISION_ONBOARD_REL := "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json"
@@ -931,9 +932,17 @@ func build_undo_receipt(prior_complete: Dictionary) -> Dictionary:
 func write_receipt_json(receipt: Dictionary, path: String) -> Dictionary:
 	if path.is_empty():
 		return {"ok": false, "reason": "empty path"}
+	# Hard guard: never write runtime evidence into tracked res:// executor exports.
+	if path.begins_with("res://scripts/modules/executor/exports"):
+		return {
+			"ok": false,
+			"reason": "refused_tracked_res_export",
+			"path": path,
+			"hint": "use user://g3_e2e_smoke/ for smoke/runtime receipts",
+		}
 	var text := JSON.stringify(receipt, "\t")
 	var abs_path := path
-	if path.begins_with("res://"):
+	if path.begins_with("res://") or path.begins_with("user://"):
 		abs_path = ProjectSettings.globalize_path(path)
 	var dir_path := abs_path.get_base_dir()
 	DirAccess.make_dir_recursive_absolute(dir_path)

@@ -1,0 +1,202 @@
+{
+  "agent_step_id": "G8-001-Z0-manifestation-2026-07-21",
+  "agent_type": "aidle-manifestation",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "wave": "Z0_EIGHT_DOMAIN_VERIFY",
+    "profile": "manifestation",
+    "work_order": "orchestration/work_orders/WO-G8-001.md",
+    "dispatch_map": "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "state": "HANDOFF_TO_PARENT",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "G8-001 manifestation domain VERIFY_ONLY gate. Independent re-run of manifestation_smoke.gd → EXIT=0, AIDLE_MANIFESTATION_SMOKE=PASS checks=8. Proved: ORDERED_STAGES wireframe→hologram→materializing→complete; preview stages never allow durable collision; cancel/free_cleanup leaves no orphan enabled StaticBody3D collision; complete enables presentation collision; skip_animation jumps to complete with collision; headless presentation skip (no BoxMesh/StandardMaterial3D path; no dummy mesh_get_surface_count ERROR / SCRIPT ERROR / Parse Error). No product edits; self_accept=false; no children; only write surface is this receipt.",
+    "scope": {
+      "in_scope": [
+        "Independent re-run of game/scripts/modules/manifestation/manifestation_smoke.gd",
+        "Stage order wireframe → hologram → materializing → complete",
+        "Cancel before complete: no durable collision / no orphan collision bodies",
+        "Headless presentation skip evidence (no dummy mesh ERROR)",
+        "Write orchestration/receipts/g8/G8_manifestation.json only"
+      ],
+      "out_of_scope": [
+        "Product patches under game/**",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders, prior receipts",
+        "Companion / executor / core / asset / persist / network domains",
+        "Self-ACCEPT / tasks.json ACCEPT",
+        "Children subagents",
+        "Headed visual/screenshot proof (Human Acceptance Checklist)",
+        "World Commit / multiplayer durability of collision"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — re-run smoke and write domain receipt only; do not patch",
+        "only_write": [
+          "orchestration/receipts/g8/G8_manifestation.json"
+        ],
+        "next_writer": "Parent collate Z1_INTEGRATED_MATRIX / Z2_PURPLE_ALPHA_VERDICT",
+        "explicit_not": [
+          "product patches",
+          "tasks.json ACCEPT",
+          "self-ACCEPT of G8-001",
+          "nested children"
+        ]
+      }
+    },
+    "acceptance_matrix": [
+      {
+        "id": "MAN-G8-01",
+        "criterion": "Four ordered stages wireframe → hologram → materializing → complete",
+        "result": "PASS",
+        "evidence": "smoke OK ordered_stages_const + progress_mapping + monotonic_enforcement; module_pipeline advances wireframe→hologram→materializing; ManifestationStages.ORDERED_STAGES"
+      },
+      {
+        "id": "MAN-G8-02",
+        "criterion": "Preview stages never enable durable collision",
+        "result": "PASS",
+        "evidence": "smoke OK collision_gate (wireframe/hologram/materializing allows_durable_collision=false; complete=true); instance hologram and module stages assert has_durable_collision=false before complete"
+      },
+      {
+        "id": "MAN-G8-03",
+        "criterion": "Cancel leaves no durable / orphan collision",
+        "result": "PASS",
+        "evidence": "smoke OK instance_cancel_no_collision + module_pipeline cancel_manifestation before complete (stage cleared, has_durable_collision=false, _count_enabled_collision==0)"
+      },
+      {
+        "id": "MAN-G8-04",
+        "criterion": "Complete enables presentation collision; cleanup after complete still free of orphans",
+        "result": "PASS",
+        "evidence": "smoke OK instance_complete_has_collision (finalize_complete → has_durable_collision=true; free_cleanup → zero enabled collision)"
+      },
+      {
+        "id": "MAN-G8-05",
+        "criterion": "skip_animation / reduced-motion path reaches complete with collision",
+        "result": "PASS",
+        "evidence": "smoke module_pipeline set_skip_animation(true) → stage=complete and has_durable_collision=true"
+      },
+      {
+        "id": "MAN-G8-06",
+        "criterion": "Headless presentation skip (no dummy BoxMesh ERROR path)",
+        "result": "PASS",
+        "evidence": "Headless re-run log has no SCRIPT ERROR / Parse Error / Compile Error / mesh_get_surface_count ERROR; manifestation_instance._presentation_allowed() skips MeshInstance3D/BoxMesh/StandardMaterial3D under headless while collision body still built"
+      },
+      {
+        "id": "MAN-G8-07",
+        "criterion": "IManifestationModule (+ legacy IVoxelModule) surface still validates",
+        "result": "PASS",
+        "evidence": "smoke OK interface_surface"
+      }
+    ],
+    "checks_observed": [
+      "ordered_stages_const",
+      "progress_mapping",
+      "monotonic_enforcement",
+      "collision_gate",
+      "instance_cancel_no_collision",
+      "instance_complete_has_collision",
+      "module_pipeline",
+      "interface_surface"
+    ],
+    "invariants_verified": [
+      "ORDERED_STAGES = wireframe | hologram | materializing | complete",
+      "allows_durable_collision only at complete",
+      "cancel/free_cleanup disables collision and leaves no enabled StaticBody3D under root",
+      "skip_animation path finalizes to complete with collision",
+      "Headless/dummy presentation skip — no BoxMesh construction on smoke path",
+      "Preview is presentation-only; not a World Commit mutation"
+    ],
+    "product_writes": 0,
+    "only_owned_files_written": true,
+    "only_writes": [
+      "orchestration/receipts/g8/G8_manifestation.json"
+    ],
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_product_edits": true,
+    "no_tasks_accept": true,
+    "prior_evidence": {
+      "G2-002": "orchestration/receipts/G2-002.json + G2-002-ACCEPT.json + orchestration/reviews/G2-002_PURPLE_REVIEW.md",
+      "G3-W1-manifestation": "orchestration/receipts/g3/W1_manifestation.json"
+    }
+  },
+  "smoke_test": {
+    "executed": true,
+    "independent_rerun": true,
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
+        "cwd": "E:\\AIdle_openworld",
+        "exit_code": 0,
+        "marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
+        "log_clean": true,
+        "forbidden_log_patterns_absent": [
+          "SCRIPT ERROR",
+          "Parse Error",
+          "Compile Error",
+          "mesh_get_surface_count",
+          "ERROR: m is null"
+        ],
+        "expected_nonfatal_warnings": [
+          "[ModuleRegistry] No mount for module: voxel",
+          "[ManifestationModule] No manifestation host; using local fallback."
+        ],
+        "log_notes": "All 8 checks OK. Godot 4.3.stable. EventBus/ArtStyleManager/ModuleRegistry/GameManager boot noise only. No presentation mesh ERROR under headless."
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "worker_cannot_self_accept": true,
+    "no_tasks_json_edit": true,
+    "no_codex_directive_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_product_edits": true,
+    "no_accept_receipt": true,
+    "no_children_spawned": true,
+    "no_nested_grandchildren": true,
+    "owned_write_surface_only": [
+      "orchestration/receipts/g8/G8_manifestation.json"
+    ],
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, WO-G8-001, G8-001_DISPATCH_MAP, manifestation sources + prior G2/G3 receipts manually"
+  },
+  "changed_files": [
+    "orchestration/receipts/g8/G8_manifestation.json"
+  ],
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G8-001.md",
+    "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "game/scripts/modules/manifestation/manifestation_smoke.gd",
+    "game/scripts/modules/manifestation/manifestation_stages.gd",
+    "game/scripts/modules/manifestation/manifestation_instance.gd",
+    "game/scripts/modules/manifestation/manifestation_module.gd",
+    "game/scripts/modules/manifestation/g3_preview_bridge.gd",
+    "game/scripts/modules/interfaces/i_manifestation_module.gd",
+    "orchestration/receipts/G2-002.json",
+    "orchestration/receipts/G2-002-ACCEPT.json",
+    "orchestration/reviews/G2-002_PURPLE_REVIEW.md",
+    "orchestration/receipts/g3/W1_manifestation.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "residual_risks": [
+    {
+      "id": "RR-MAN-G8-01",
+      "severity": "info",
+      "detail": "Headless smoke is not headed visual proof of stage tints/meshes. Human Acceptance Checklist owns presentation/look confirmation."
+    },
+    {
+      "id": "RR-MAN-G8-02",
+      "severity": "info",
+      "detail": "complete enables local LAYER_MANIFESTATION collision for presentation only; not World Commit / durable ownership. Same residual as G2/G3 (RR-MAN-G3-01)."
+    },
+    {
+      "id": "RR-MAN-G8-03",
+      "severity": "info",
+      "detail": "Isolated -s smoke still emits non-fatal ModuleRegistry voxel mount + manifestation host fallback warnings; expected, not FAIL."
+    }
+  ],
+  "next_route": "Parent Z1_INTEGRATED_MATRIX collate eight domain receipts; Z2_PURPLE_ALPHA_VERDICT; self_accept false; no product patch from this profile"
+}

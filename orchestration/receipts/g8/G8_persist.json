@@ -1,0 +1,422 @@
+{
+  "agent_step_id": "G8-001-Z0-persist-2026-07-21",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "wave": "Z0_EIGHT_DOMAIN_VERIFY",
+    "profile": "persist",
+    "work_order": "orchestration/work_orders/WO-G8-001.md",
+    "dispatch_map": "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "prior_product_receipt": "orchestration/receipts/g4/R1_persist.json",
+    "prior_purple": "orchestration/reviews/G4-001_CORRECTION_001_PURPLE_REVIEW.md",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY G8-001 alpha-domain gate for persist. Independent headless re-run of g4_persist_smoke.gd → exit 0, G4_PERSIST_SMOKE=PASS checks=22, failed_checks=0. Executable proof covers: signed journal (HMAC-SHA256 prev_seal chain + TEST_ONLY_G4 key provider), save/reload entity_hash and entity_set_hash equality, integrity fail-closed matrix (wrong key / tamper / remove / reorder / broken prev / invalid seal / missing key provider), offline_private_reality consumer gate (rejects shared/online/economy/ownership/marketplace + G3 rejected handoff no auto-journal; explicit offline confirmed OK), and G3 rev3 preservation (expected_world_revision=3 never coerced to 0; base_world_revision_seed=3 through apply→4). Also green: compensation append-only, cancel not journaled, idempotent replay, stale revision reject, malformed/schema/space boundary. No product source patches; no children; self_accept=false; does not claim visual/commercial/production alpha.",
+    "scope": {
+      "in_scope": [
+        "Independent re-run of G4 signed persistence smoke (g4_persist_smoke.gd)",
+        "Record signed journal, save/reload hashes, integrity, offline gate, rev3 evidence for alpha gate",
+        "Write orchestration/receipts/g8/G8_persist.json only"
+      ],
+      "out_of_scope": [
+        "Product/source edits under game/** or services/**",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders, prior receipts (except harness evidence rewrite side-effect of smoke)",
+        "Self-ACCEPT / tasks.json ACCEPT / HITL alpha acceptance",
+        "Children subagents",
+        "Visual Godot save/reload UI proof (Human checklist)",
+        "Shared District / server World Commit / production key store"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — receipt only; re-run executable gate; do not patch",
+        "only_write": [
+          "orchestration/receipts/g8/G8_persist.json"
+        ],
+        "architecture_lock": "Offline Private Reality → local signed journal; device-local seal is not server authority",
+        "explicit_not": [
+          "product patches",
+          "self-ACCEPT of G8-001",
+          "production multiplayer / marketplace / live credentials"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_owned_files_written": true,
+    "only_writes": [
+      "orchestration/receipts/g8/G8_persist.json"
+    ],
+    "harness_side_effect_note": "g4_persist_smoke.gd rewrote game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json as its own evidence export (not an agent product patch).",
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_product_edits": true,
+    "no_tasks_json_edit": true,
+    "domain_gate": {
+      "id": "G8-PERSIST-DOMAIN",
+      "wo_charter": "signed journal, save/reload, replay, compensation and G4 integrity",
+      "status": "PASS",
+      "machine_class": "executable_headless",
+      "not_claimed": [
+        "visual save/reload UX",
+        "production key management",
+        "server-authoritative durability",
+        "commercial alpha"
+      ]
+    },
+    "challenge_matrix": [
+      {
+        "id": "CH-G8-P-1",
+        "challenge": "Signed journal happy path: HMAC-SHA256 seals + prev_seal chain verify_ok under TEST_ONLY_G4",
+        "focus": "signed_journal",
+        "status": "PASS",
+        "evidence": {
+          "smoke_check": "sealed_journal_save_reload_verify_ok",
+          "acceptance": "AT-INTEGRITY-HAPPY",
+          "export": {
+            "provider_id": "TEST_ONLY_G4",
+            "test_key": true,
+            "seal_alg": "hmac-sha256",
+            "verify_ok": true,
+            "local_seal_not_server_authority": true,
+            "entity_hash": "e96fadda66c85b6636096218d804173fb5913ed7170e38dea79e5257865d365a",
+            "entity_set_hash": "f1a0241e20d1c55d1d195dfcf31d3806e4155d27c007a372bc3e328ea5ad3ab2",
+            "seal": "351568126ddf376a4efbfb0a5c5385e3c8ea4d930d401989aeb9af77ca7a59f8"
+          },
+          "integrity_header": {
+            "algorithm": "hmac-sha256",
+            "key_provider_id": "TEST_ONLY_G4",
+            "local_seal_not_server_authority": true,
+            "test_key": true
+          }
+        }
+      },
+      {
+        "id": "CH-G8-P-2",
+        "challenge": "Deterministic save/reload: entity_hash and entity_set_hash equal after reload",
+        "focus": "save_reload_hashes",
+        "status": "PASS",
+        "evidence": {
+          "smoke_check": "deterministic_save_reload_same_entity_hashes",
+          "acceptance": "AT-SAVE-RELOAD-HASH",
+          "export": {
+            "base_world_revision": 3,
+            "world_revision_after_apply": 4,
+            "entity_hash": "03933b0b8efa9fb436c50335687506deecbe81ce8b966b9bdda337f9a8bc5534",
+            "reload_entity_hash": "03933b0b8efa9fb436c50335687506deecbe81ce8b966b9bdda337f9a8bc5534",
+            "entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
+            "reload_entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
+            "hashes_equal": true
+          }
+        }
+      },
+      {
+        "id": "CH-G8-P-3",
+        "challenge": "Integrity fail-closed matrix (wrong key, tamper, remove, reorder, broken prev, invalid seal, missing key provider)",
+        "focus": "integrity",
+        "status": "PASS",
+        "evidence": {
+          "smoke_checks": [
+            "missing_key_provider_fail_closed",
+            "wrong_key_fail_closed",
+            "modified_entry_detected",
+            "removed_entry_detected",
+            "reordered_entries_detected",
+            "broken_previous_seal_detected",
+            "invalid_or_missing_seal_fail_closed"
+          ],
+          "acceptance": {
+            "AT-KEY-PROVIDER-MISSING": {
+              "apply_error_code": "key_provider_missing",
+              "create_error_code": "key_provider_missing"
+            },
+            "AT-INTEGRITY-WRONG-KEY": {
+              "error_code": "journal_integrity_invalid",
+              "load_ok": false,
+              "no_entity_materialization": true
+            },
+            "AT-INTEGRITY-TAMPER-ENTRY": {
+              "error_code": "journal_integrity_wrong_key",
+              "fail_closed": true
+            },
+            "AT-INTEGRITY-REMOVE-ENTRY": {
+              "error_code": "journal_integrity_invalid",
+              "fail_closed": true
+            },
+            "AT-INTEGRITY-REORDER": {
+              "error_code": "journal_integrity_invalid",
+              "fail_closed": true
+            },
+            "AT-INTEGRITY-BROKEN-PREV": {
+              "broken_at_index": 1,
+              "error_code": "journal_integrity_invalid",
+              "fail_closed": true
+            },
+            "AT-INTEGRITY-INVALID-SEAL": {
+              "error_code": "journal_integrity_invalid",
+              "fail_closed": true
+            }
+          }
+        }
+      },
+      {
+        "id": "CH-G8-P-4",
+        "challenge": "Offline Private Reality consumer gate: non-offline contexts rejected; G3 rejected handoff not auto-journaled; explicit offline confirmed commits with seal",
+        "focus": "offline_gate",
+        "status": "PASS",
+        "evidence": {
+          "smoke_checks": [
+            "only_offline_private_reality_journals",
+            "g3_rejected_handoff_not_auto_journaled",
+            "explicit_offline_confirmed_apply_succeeds"
+          ],
+          "acceptance": {
+            "AT-GATE-OFFLINE-ONLY": {
+              "entry_count_unchanged": true,
+              "rejected_contexts": [
+                "shared_district",
+                "online_private_reality",
+                "server_economy",
+                "ownership",
+                "marketplace"
+              ]
+            },
+            "AT-GATE-G3-REJECTED-NO-AUTO": {
+              "durable_mutation_applied": false,
+              "entry_count": 0,
+              "error_code": "g3_rejected_handoff_not_journalable",
+              "not_auto_journaled": true,
+              "status": "rejected",
+              "world_commit_invoked": false
+            },
+            "AT-GATE-EXPLICIT-OFFLINE-OK": {
+              "local_seal_not_server_authority": true,
+              "new_world_revision": 4,
+              "old_world_revision": 3,
+              "seal_present": true,
+              "status": "committed"
+            }
+          },
+          "authority_export": {
+            "context": "Offline Private Reality",
+            "space_type": "private_reality",
+            "local_seal_meaning": "Device-local tamper-evident reconciliation evidence only",
+            "not": [
+              "shared_district",
+              "server_economy",
+              "multiplayer_ownership"
+            ]
+          }
+        }
+      },
+      {
+        "id": "CH-G8-P-5",
+        "challenge": "G3 expected_world_revision=3 preserved through seed/apply/save-reload; never coerced to 0",
+        "focus": "rev3",
+        "status": "PASS",
+        "evidence": {
+          "smoke_check": "g3_expected_world_revision_3_through_save_reload",
+          "acceptance": "AT-G3-REV-3-PRESERVED",
+          "export": {
+            "base_snapshot_id": "11111111-1111-4111-8111-111111111111",
+            "base_world_revision": 3,
+            "expected_world_revision_used": 3,
+            "g3_commit_request_expected_world_revision": 3,
+            "g3_complete_receipt_expected_world_revision": 3,
+            "never_coerced_to_0": true,
+            "space_id": "home_01",
+            "space_type": "private_reality",
+            "world_revision_before_apply": 3,
+            "world_revision_after_apply": 4
+          },
+          "g3_revision_binding": {
+            "base_world_revision_seed": 3,
+            "expected_world_revision": 3,
+            "source": "g3_complete_receipt / commit_request_handoff_stub / valid_snapshot_desktop_bridge"
+          }
+        }
+      },
+      {
+        "id": "CH-G8-P-6",
+        "challenge": "Replay / compensation / cancel / stale / fail-closed journal hygiene under sealed path",
+        "focus": "replay_compensation_hygiene",
+        "status": "PASS",
+        "evidence": {
+          "smoke_checks": [
+            "duplicate_request_id_no_duplicate_entity",
+            "stale_expected_world_revision_rejected",
+            "compensation_append_only_history_preserved",
+            "cancelled_preview_never_in_journal",
+            "truncated_malformed_journal_fail_closed",
+            "incompatible_schema_version_fail_closed",
+            "reject_non_private_reality_journal",
+            "canonical_json_key_order_and_float_format",
+            "interface_surface"
+          ],
+          "acceptance": {
+            "AT-DUP-REQUEST": {
+              "entity_count": 1,
+              "status": "idempotent_replay",
+              "world_revision": 4
+            },
+            "AT-STALE-REVISION": {
+              "conflict_code": "revision_mismatch",
+              "head_unchanged": 3,
+              "no_partial_mutation": true,
+              "status": "conflicted"
+            },
+            "AT-COMPENSATION-APPEND": {
+              "entry_count": 2,
+              "history_erased": false,
+              "prior_entry_unchanged": true,
+              "world_revision": 5
+            },
+            "AT-CANCEL-NOT-JOURNALED": {
+              "cancel_status": "rejected",
+              "entity_ids_durable": [],
+              "entries_unchanged": true,
+              "world_revision": 3
+            },
+            "AT-MALFORMED-JOURNAL": {
+              "malformed_error_code": "journal_truncated",
+              "truncated_error_code": "journal_truncated",
+              "missing_entries_ok": false
+            },
+            "AT-SCHEMA-INCOMPAT": { "pass": true },
+            "AT-SPACE-BOUNDARY": { "pass": true },
+            "AT-CANON-SORT": { "pass": true }
+          }
+        }
+      }
+    ],
+    "challenge_summary": {
+      "total": 6,
+      "pass": 6,
+      "fail": 0,
+      "overall": "PASS"
+    },
+    "acceptance_tests": {
+      "AT-INTEGRITY-HAPPY": "PASS",
+      "AT-INTEGRITY-WRONG-KEY": "PASS",
+      "AT-INTEGRITY-TAMPER-ENTRY": "PASS",
+      "AT-INTEGRITY-REMOVE-ENTRY": "PASS",
+      "AT-INTEGRITY-REORDER": "PASS",
+      "AT-INTEGRITY-BROKEN-PREV": "PASS",
+      "AT-INTEGRITY-INVALID-SEAL": "PASS",
+      "AT-KEY-PROVIDER-MISSING": "PASS",
+      "AT-GATE-OFFLINE-ONLY": "PASS",
+      "AT-GATE-G3-REJECTED-NO-AUTO": "PASS",
+      "AT-GATE-EXPLICIT-OFFLINE-OK": "PASS",
+      "AT-SAVE-RELOAD-HASH": "PASS",
+      "AT-DUP-REQUEST": "PASS",
+      "AT-STALE-REVISION": "PASS",
+      "AT-MALFORMED-JOURNAL": "PASS",
+      "AT-SCHEMA-INCOMPAT": "PASS",
+      "AT-COMPENSATION-APPEND": "PASS",
+      "AT-CANCEL-NOT-JOURNALED": "PASS",
+      "AT-G3-REV-3-PRESERVED": "PASS",
+      "AT-CANON-SORT": "PASS",
+      "AT-SPACE-BOUNDARY": "PASS",
+      "AT-PRESERVE-P0-SUITE": "PASS",
+      "interface_surface": "PASS"
+    },
+    "claim_classification": {
+      "executable_proof": [
+        "G4_PERSIST_SMOKE=PASS checks=22 exit 0",
+        "signed journal HMAC + chain verify",
+        "save/reload hash equality",
+        "integrity fail-closed suite",
+        "offline gate + G3 handoff rejection",
+        "rev3 preservation"
+      ],
+      "documentation_only": [],
+      "local_poc_limitations": [
+        "TEST_ONLY_G4 test key provider — not production device key store",
+        "Local Offline Private Reality seals are not Shared District / server World Commit authority",
+        "Headless only — no visual save/reload UI proof in this receipt"
+      ],
+      "deferred_roadmap": [
+        "production multiplayer durability",
+        "marketplace/economy authority",
+        "device-local secure key store migration",
+        "unsigned journal migrate-under-key path (fail-closed by design)"
+      ]
+    }
+  },
+  "smoke_test": {
+    "executed": true,
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/persist/g4_persist_smoke.gd",
+        "cwd": "E:\\AIdle_openworld",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22",
+        "passed_checks": 22,
+        "failed_checks": 0,
+        "log": "orchestration/logs/g8-persist-smoke.log",
+        "log_notes": "No SCRIPT ERROR / Parse Error / Compile Error / product ERROR lines. Autoload boot lines only (EventBus, ArtStyleManager, ModuleRegistry, GameManager) after smoke marker."
+      }
+    ],
+    "evidence_export": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+    "evidence_export_schema": "g4_persist_smoke/1.1.0",
+    "integrity_sample": {
+      "provider_id": "TEST_ONLY_G4",
+      "test_key": true,
+      "seal_alg": "hmac-sha256",
+      "entity_hash": "e96fadda66c85b6636096218d804173fb5913ed7170e38dea79e5257865d365a",
+      "entity_set_hash": "f1a0241e20d1c55d1d195dfcf31d3806e4155d27c007a372bc3e328ea5ad3ab2",
+      "seal": "351568126ddf376a4efbfb0a5c5385e3c8ea4d930d401989aeb9af77ca7a59f8"
+    },
+    "save_reload_sample": {
+      "entity_hash": "03933b0b8efa9fb436c50335687506deecbe81ce8b966b9bdda337f9a8bc5534",
+      "reload_entity_hash": "03933b0b8efa9fb436c50335687506deecbe81ce8b966b9bdda337f9a8bc5534",
+      "entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
+      "reload_entity_set_hash": "5daf27b3d6aca68eda384ae8780a52d904135f12f922cbc552ec2332e6ef6d48",
+      "hashes_equal": true,
+      "base_world_revision": 3
+    },
+    "rev3_sample": {
+      "expected_world_revision": 3,
+      "never_coerced_to_0": true,
+      "world_revision_before_apply": 3,
+      "world_revision_after_apply": 4
+    }
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "worker_cannot_self_accept": true,
+    "no_tasks_json_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_work_order_edits": true,
+    "no_product_source_edit": true,
+    "no_accept_receipt": true,
+    "no_children_spawned": true,
+    "no_database_or_new_dependencies": true,
+    "no_install_or_live_network": true,
+    "no_push_deploy_publish": true,
+    "owned_write_surface_only": [
+      "orchestration/receipts/g8/G8_persist.json"
+    ],
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G8-001, G8-001_DISPATCH_MAP, R1_persist, agent_step_contract, g4 evidence manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G8-001.md",
+    "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "orchestration/receipts/g4/R1_persist.json",
+    "game/scripts/modules/persist/g4_persist_smoke.gd",
+    "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+    "orchestration/logs/g8-persist-smoke.log",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "Headless smoke is not visual save/reload proof — Human Acceptance Checklist must cover UI path",
+    "TEST_ONLY_G4 is explicit test key; production must inject non-test provider_id",
+    "Local seal ≠ Shared District / Online Private Reality / economy authority",
+    "Alpha machine gate parent still must collate all eight domains + Purple + HITL"
+  ],
+  "next_route": "Z1_INTEGRATED_MATRIX"
+}

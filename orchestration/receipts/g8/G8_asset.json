@@ -1,0 +1,263 @@
+{
+  "agent_step_id": "G8-001-Z0-asset-2026-07-21",
+  "agent_type": "aidle-asset",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "wave": "Z0_EIGHT_DOMAIN_VERIFY",
+    "profile": "asset",
+    "work_order": "orchestration/work_orders/WO-G8-001.md",
+    "dispatch_map": "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "state": "PASS_FOR_Z1_COLLATE",
+    "machine_verdict": "PASS",
+    "self_accept": false,
+    "summary": "VERIFY_ONLY alpha-domain gate for starter house grammar: cozy_house_small modular recipe (14 parts, build_order exact cover, collision active_from_stage=complete), 2.5D style tokens (three base_concepts + shared tokens free_orbit_allowed=false), provenance/licenses (paid_generation_apis=false, neural_world_model=false, recipe/style/placeholder coverage). Project validator PASS with scope including asset-grammar. Optional Godot g3_recipe_smoke PASS (16 checks). No product edits. No children. No self-ACCEPT.",
+    "scope": {
+      "in_scope": [
+        "cozy_house_small recipe (contracts canonical + game mirror)",
+        "style tokens / base_concept profiles + shared_2_5d_tokens",
+        "provenance_manifest licenses and policy locks",
+        "check_asset_grammar via scripts/validate_project.py",
+        "optional headless g3_recipe_smoke.gd resolve/provenance/geometry",
+        "receipt-only write under orchestration/receipts/g8/G8_asset.json"
+      ],
+      "out_of_scope": [
+        "Product/test/contract/task/directive/architecture/prior-evidence patches",
+        "Nested grandchildren / subagents",
+        "Self-ACCEPT or parent G8-001 collate",
+        "Live mesh instancing / commercial art pipeline",
+        "Paid generation APIs or neural world-model paths",
+        "Install, push, deploy, publish, live provider"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — receipt only",
+        "only_write": "orchestration/receipts/g8/G8_asset.json",
+        "self_accept": false,
+        "children": [],
+        "no_nested_subagents": true,
+        "mvp_lock": "2.5D modular low-poly placeholders; meshes untrusted presentation; World Commit remains sole mutator"
+      }
+    },
+    "checks": [
+      {
+        "id": "ASSET-RECIPE-COZY-HOUSE-SMALL",
+        "status": "pass",
+        "detail": {
+          "recipe_id": "cozy_house_small",
+          "kind": "modular_structure_2_5d",
+          "part_count": 14,
+          "build_order_len": 14,
+          "build_order_covers_parts_exactly_once": true,
+          "collision_policy": {
+            "active_from_stage": "complete",
+            "blocks_navigation_when_complete": true,
+            "interior_nav_tag": "enterable"
+          },
+          "style_binding": {
+            "default_base_concept": "cozy_cyber_pixel_2_5d",
+            "allowed_base_concepts": [
+              "cozy_cyber_pixel_2_5d",
+              "pastoral_fantasy_2_5d",
+              "soft_scifi_2_5d"
+            ]
+          },
+          "provenance_ref": "recipe:cozy_house_small",
+          "canonical": "contracts/assets/recipes/cozy_house_small.json",
+          "game_mirror": "game/assets/recipes/cozy_house_small.json",
+          "mirror_structural_match": true,
+          "placeholder_catalog": "game/assets/placeholders/modular/catalog.json",
+          "placeholder_count": 10,
+          "grammar_index": "game/assets/grammar/index.json",
+          "assets_index_lists_recipe": true
+        }
+      },
+      {
+        "id": "ASSET-STYLE-TOKENS-2-5D",
+        "status": "pass",
+        "detail": {
+          "shared_tokens": "game/resources/art_styles/tokens/shared_2_5d_tokens.json",
+          "camera.free_orbit_allowed": false,
+          "manifestation.collision_active_from": "complete",
+          "manifestation.stages": [
+            "wireframe",
+            "hologram",
+            "materializing",
+            "complete"
+          ],
+          "profiles": [
+            {
+              "path": "game/resources/art_styles/cozy_cyber_pixel_2_5d.json",
+              "base_concept": "cozy_cyber_pixel_2_5d",
+              "mvp_default": true
+            },
+            {
+              "path": "game/resources/art_styles/pastoral_fantasy_2_5d.json",
+              "base_concept": "pastoral_fantasy_2_5d"
+            },
+            {
+              "path": "game/resources/art_styles/soft_scifi_2_5d.json",
+              "base_concept": "soft_scifi_2_5d"
+            }
+          ],
+          "base_concepts_match_filenames": true,
+          "base_concepts_in_world_prompt_enum": true
+        }
+      },
+      {
+        "id": "ASSET-PROVENANCE-LICENSES",
+        "status": "pass",
+        "detail": {
+          "manifest": "contracts/assets/provenance_manifest.json",
+          "entry_count": 20,
+          "policy": {
+            "paid_generation_apis": false,
+            "neural_world_model": false,
+            "third_party_meshes": false,
+            "city_data": false,
+            "license_default": "CC0-1.0-equivalent-original",
+            "source_default": "original_handauthored_json"
+          },
+          "required_asset_ids_present": [
+            "recipe:cozy_house_small",
+            "style:cozy_cyber_pixel_2_5d",
+            "style:pastoral_fantasy_2_5d",
+            "style:soft_scifi_2_5d",
+            "style:shared_2_5d_tokens",
+            "placeholders:modular_catalog"
+          ],
+          "assets_index_constraints": {
+            "no_paid_generation_apis": true,
+            "no_neural_world_model_on_critical_path": true,
+            "collision_only_after_complete": true,
+            "meshes_are_untrusted_presentation": true
+          }
+        }
+      },
+      {
+        "id": "ASSET-VALIDATOR-ASSET-GRAMMAR",
+        "status": "pass",
+        "detail": {
+          "command": "python scripts/validate_project.py",
+          "exit_code": 0,
+          "stdout_marker": "AIDLE_VALIDATION=PASS",
+          "scope_includes": "asset-grammar",
+          "function": "check_asset_grammar"
+        }
+      },
+      {
+        "id": "ASSET-GODOT-G3-RECIPE-SMOKE",
+        "status": "pass",
+        "detail": {
+          "optional": true,
+          "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/asset/g3_recipe_smoke.gd",
+          "exit_code": 0,
+          "stdout_marker": "G3_W1_ASSET_SMOKE=PASS checks=16",
+          "log": "orchestration/logs/g8-asset-recipe-smoke.log",
+          "checks": [
+            "resolve_recipe cozy_house_small ok",
+            "part_count=14",
+            "build_order length 14",
+            "collision_policy.active_from_stage=complete",
+            "style_tokens_ref present",
+            "validate_provenance recipe:cozy_house_small ok",
+            "policy paid_generation_apis=false",
+            "policy neural_world_model=false",
+            "export_geometry starter size/position/preview_only",
+            "AssetModule API + resolve"
+          ]
+        }
+      }
+    ],
+    "limitations": [
+      "Executable proof is validator + headless resolve/provenance/geometry smoke — not visual/commercial art acceptance",
+      "Placeholder catalog is deterministic low-poly descriptors; live mesh instancing remains presentation-only and untrusted as world truth",
+      "Provenance qa_status remains draft for starter set; human QA before authoritative commercial use",
+      "G8 alpha visual confirmation is Human Acceptance Checklist (parent Z3), not this receipt"
+    ],
+    "not_done": [
+      "Did not edit product/tests/contracts/tasks/directive/architecture/prior evidence",
+      "Did not spawn children or nested subagents",
+      "Did not self-ACCEPT",
+      "Did not claim visual/production alpha solely from headless tests"
+    ],
+    "artifacts_read_only": [
+      "contracts/assets/recipes/cozy_house_small.json",
+      "contracts/assets/recipe.schema.json",
+      "contracts/assets/provenance_manifest.json",
+      "contracts/assets/index.json",
+      "game/assets/recipes/cozy_house_small.json",
+      "game/assets/placeholders/modular/catalog.json",
+      "game/assets/grammar/index.json",
+      "game/resources/art_styles/tokens/shared_2_5d_tokens.json",
+      "game/resources/art_styles/cozy_cyber_pixel_2_5d.json",
+      "game/resources/art_styles/pastoral_fantasy_2_5d.json",
+      "game/resources/art_styles/soft_scifi_2_5d.json",
+      "game/scripts/modules/asset/g3_recipe_smoke.gd",
+      "game/scripts/modules/asset/house_recipe_resolver.gd",
+      "scripts/validate_project.py"
+    ]
+  },
+  "smoke_test": {
+    "primary": {
+      "command": "python scripts/validate_project.py",
+      "exit_code": 0,
+      "stdout_marker": "AIDLE_VALIDATION=PASS",
+      "scope_line": "scope=blueprint-links,all-schema-shapes,world-positive-negative,fixtures-valid-invalid,format-checker,commit-authority,event-envelope,agm-snapshot-decision,crew,task-dag,asset-grammar",
+      "asset_grammar_function": "check_asset_grammar"
+    },
+    "optional_godot": {
+      "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/asset/g3_recipe_smoke.gd",
+      "exit_code": 0,
+      "stdout_marker": "G3_W1_ASSET_SMOKE=PASS checks=16",
+      "log": "orchestration/logs/g8-asset-recipe-smoke.log"
+    }
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "writes": [
+      "orchestration/receipts/g8/G8_asset.json"
+    ],
+    "evidence_log_capture_only": [
+      "orchestration/logs/g8-asset-recipe-smoke.log"
+    ],
+    "did_not_edit_product": true,
+    "did_not_edit_tests": true,
+    "did_not_edit_contracts": true,
+    "did_not_edit_tasks_or_directive": true,
+    "did_not_edit_architecture": true,
+    "did_not_edit_prior_evidence": true,
+    "no_nested_subagents": true,
+    "children": [],
+    "no_paid_generation_apis": true,
+    "no_neural_world_model": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "authority_token": "VERIFY_ONLY",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded project Agents.md + WO-G8-001 + G8-001_DISPATCH_MAP + prior asset receipts manually",
+    "mvp_lock_respected": "2.5D modular placeholders; deterministic recipe/style/provenance only"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G8-001.md",
+    "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "contracts/assets/recipes/cozy_house_small.json",
+    "contracts/assets/provenance_manifest.json",
+    "contracts/assets/index.json",
+    "game/assets/recipes/cozy_house_small.json",
+    "game/assets/placeholders/modular/catalog.json",
+    "game/assets/grammar/index.json",
+    "game/resources/art_styles/tokens/shared_2_5d_tokens.json",
+    "game/resources/art_styles/cozy_cyber_pixel_2_5d.json",
+    "game/resources/art_styles/pastoral_fantasy_2_5d.json",
+    "game/resources/art_styles/soft_scifi_2_5d.json",
+    "scripts/validate_project.py",
+    "game/scripts/modules/asset/g3_recipe_smoke.gd",
+    "orchestration/logs/g8-asset-recipe-smoke.log",
+    "orchestration/receipts/g3/W1_asset.json",
+    "orchestration/receipts/G2-004.json"
+  ],
+  "next_route": "Z1_INTEGRATED_MATRIX"
+}

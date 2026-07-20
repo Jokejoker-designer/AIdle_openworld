@@ -1,0 +1,245 @@
+{
+  "agent_step_id": "G8-001-Z0-core-2026-07-21",
+  "agent_type": "aidle-core",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "wave": "Z0_EIGHT_DOMAIN_VERIFY",
+    "profile": "core",
+    "work_order": "orchestration/work_orders/WO-G8-001.md",
+    "dispatch_map": "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "directive": "orchestration/control/codex_directive.json",
+    "directive_id": 19,
+    "state": "HANDOFF_TO_Z1",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY G8 core domain gate. Independent re-runs: (1) Godot headless boot --quit-after 4 → EXIT=0 with fixed-angle 2.5D camera + XZ locomotion + Private Reality markers; zero SCRIPT ERROR / Parse Error / Compile Error / ERROR:; (2) edition_headless_smoke.gd → EXIT=0 G2-007_GODOT_SMOKE=PASS edition=api_paid same_contracts=true no_secrets=true. Edition path intentionally emits two ERROR: refuse lines for api_key/client_secret storage (PASS proof, secrets not stored). No product edits; no children; self_accept=false; next_route Z1.",
+    "scope": {
+      "in_scope": [
+        "Fixed-angle 2.5D shell boot markers",
+        "Clean integrated Godot headless boot --quit-after 4",
+        "Edition selection headless smoke (Free/Paid parity, consent, no client secrets)",
+        "Error-log scan on independent re-runs",
+        "Write orchestration/receipts/g8/G8_core.json only"
+      ],
+      "out_of_scope": [
+        "Product edits under game/**",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders, prior receipts",
+        "Other domain smokes (manifestation/companion/asset/executor/persist/network)",
+        "Z1 integrated matrix collate (parent)",
+        "Self-ACCEPT / tasks.json ACCEPT",
+        "Children subagents",
+        "Visual/commercial/production alpha claim from headless alone",
+        "Install, live provider/network, credentials, push, deploy, publish"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — domain receipt only; challenge evidence, do not patch",
+        "only_write": ["orchestration/receipts/g8/G8_core.json"],
+        "next_writer": "parent Z1_INTEGRATED_MATRIX collate",
+        "architecture_lock": "Camera: fixed-angle isometric/three-quarter view; no free 3D camera in MVP; Free/Paid same AGM contracts",
+        "explicit_not": [
+          "product patches",
+          "self-ACCEPT of G8-001",
+          "claim visual/commercial alpha solely from headless tests"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_owned_files_written": true,
+    "only_writes": ["orchestration/receipts/g8/G8_core.json"],
+    "no_children_spawned": true,
+    "children": [],
+    "no_contracts_edits": true,
+    "no_product_edits": true,
+    "no_tasks_accept": true,
+    "confirmations": {
+      "C1_clean_godot_boot_quit_after_4": {
+        "status": "PASS",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 4",
+        "exit_code": 0,
+        "godot_version": "4.3.stable.official.77dcf97d8",
+        "boot_markers_observed": [
+          "[EventBus] Ready – Common Contracts event hub online.",
+          "[ArtStyleManager] Active style: cozy_cyber_pixel",
+          "[GameManager] AIdle Core 0.1.0-core booting…",
+          "[Boot] AGM edition=api_paid same_contracts=true no_client_secrets=true",
+          "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+          "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.",
+          "[GameManager] World ready. Art style=cozy_cyber_pixel",
+          "[ModuleRegistry] Registered module: persist (PersistModule)",
+          "[PersistModule] Ready – Private Reality signed journal (schema 1.0.0).",
+          "[Main] PersistModule mounted (real, not AgentPersistStub).",
+          "[ModuleStub] companion slot upgraded to CompanionModule (G2-003).",
+          "[ModuleStub] executor slot upgraded to ExecutorModule (G2-006).",
+          "[Main] Entered Private Reality | style=cozy_cyber_pixel"
+        ],
+        "error_scan": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 0
+        },
+        "clean_error_log": true
+      },
+      "C2_fixed_angle_2_5d_markers": {
+        "status": "PASS",
+        "architecture_lock": "orchestration/ARCHITECTURE_LOCK.md — Camera: fixed-angle isometric/three-quarter view; no free 3D camera in MVP",
+        "runtime_marker": "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+        "locomotion_marker": "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.",
+        "private_reality_marker": "[Main] Entered Private Reality | style=cozy_cyber_pixel",
+        "free_camera_present": false,
+        "free_orbit_fps_denied_in_marker": true,
+        "source_read_only": {
+          "main": "game/scripts/main/main.gd",
+          "camera": "game/scripts/camera/cozy_camera.gd"
+        }
+      },
+      "C3_edition_headless_smoke": {
+        "status": "PASS",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game -s res://scripts/core/edition_headless_smoke.gd --headless",
+        "exit_code": 0,
+        "marker": "G2-007_GODOT_SMOKE=PASS",
+        "summary_line": "edition=api_paid same_contracts=true no_secrets=true",
+        "checks_covered": [
+          "edition enums desktop_bridge_free | api_paid",
+          "AGM_EDITIONS size 2",
+          "ephemeral free/paid set",
+          "persist free then change without consent fails",
+          "change with consent succeeds",
+          "set_value api_key/client_secret refused (intentional ERROR: refuse lines)",
+          "has_no_client_secrets true",
+          "export contract_semantics identical"
+        ],
+        "intentional_error_lines": {
+          "note": "push_error on forbidden secret keys is PASS proof, not a boot regression",
+          "observed": [
+            "ERROR: [SettingsManager] Refused to store forbidden secret key 'api_key' (section=agm).",
+            "ERROR: [SettingsManager] Refused to store forbidden secret key 'client_secret' (section=agm)."
+          ],
+          "count_ERROR_colon": 2,
+          "secrets_stored": false
+        },
+        "error_scan_excluding_intentional_secret_refuse": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0
+        }
+      },
+      "C4_zero_fatal_script_errors": {
+        "status": "PASS",
+        "scanned_runs": ["headless_quit_after_4", "edition_headless_smoke"],
+        "SCRIPT ERROR": 0,
+        "Parse Error": 0,
+        "Compile Error": 0,
+        "boot_ERROR_colon": 0
+      }
+    },
+    "acceptance_matrix": {
+      "AT-CLEAN-BOOT-QUIT-AFTER-4": "PASS",
+      "AT-FIXED-ANGLE-2.5D-MARKERS": "PASS",
+      "AT-NO-FREE-CAMERA": "PASS",
+      "AT-XZ-LOCOMOTION-MARKER": "PASS",
+      "AT-EDITION-HEADLESS-SMOKE": "PASS",
+      "AT-SAME-AGM-CONTRACTS": "PASS",
+      "AT-NO-CLIENT-SECRETS": "PASS",
+      "AT-CLEAN-BOOT-ERROR-LOG": "PASS",
+      "AT-NO-PRODUCT-EDITS": "PASS",
+      "AT-NO-SELF-ACCEPT": "PASS",
+      "AT-NO-CHILDREN": "PASS"
+    },
+    "limitations": {
+      "proof_class": "headless executable markers only",
+      "not_claimed": [
+        "visual presentation quality",
+        "manual movement feel",
+        "commercial/production alpha",
+        "live multiplayer"
+      ],
+      "human_checklist_owner": "parent Z3 HITL handoff (not this profile)"
+    },
+    "notes": {
+      "boot_edition_observed": "api_paid (persisted from prior edition smoke session state); same_contracts=true no_client_secrets=true",
+      "network_slot": "integrated boot still mounts AgentNetworkStub for network ModuleRegistry slot (expected at G8 core domain; G6 POC is separate -s / service path)",
+      "prior_domain_evidence": "G2-001 shell, G2-007 edition, G4 R2/P3 core mounts, G5 C3 edition verify — re-verified independently for G8 Z0"
+    }
+  },
+  "smoke_test": {
+    "executed": true,
+    "independent_reverification": true,
+    "binary": "tools/Godot_v4.3-stable_win64_console.exe",
+    "godot_version": "4.3.stable.official.77dcf97d8",
+    "commands": [
+      {
+        "id": "CMD-CLEAN-BOOT-QUIT-AFTER-4",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 4",
+        "exit_code": 0,
+        "markers": [
+          "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+          "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.",
+          "[Boot] AGM edition=api_paid same_contracts=true no_client_secrets=true",
+          "[Main] Entered Private Reality | style=cozy_cyber_pixel"
+        ],
+        "error_tokens": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 0
+        },
+        "clean_error_log": true
+      },
+      {
+        "id": "CMD-EDITION-HEADLESS-SMOKE",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game -s res://scripts/core/edition_headless_smoke.gd --headless",
+        "exit_code": 0,
+        "marker": "G2-007_GODOT_SMOKE=PASS",
+        "summary_line": "edition=api_paid same_contracts=true no_secrets=true",
+        "error_tokens": {
+          "SCRIPT ERROR": 0,
+          "Parse Error": 0,
+          "Compile Error": 0,
+          "ERROR:": 2,
+          "ERROR_note": "exactly two intentional SettingsManager refuse lines for api_key and client_secret; not a regression"
+        }
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g8/G8_core.json"],
+    "no_product_code_edits": true,
+    "no_core_product_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_prior_receipt_edits": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "worker_cannot_self_accept": true,
+    "no_children_subagents": true,
+    "no_accept_receipt": true,
+    "no_install_or_live_network": true,
+    "verdict": "PASS",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G8-001, G8-001_DISPATCH_MAP, codex_directive, agent_step_contract schema, prior core receipts manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G8-001.md",
+    "orchestration/work_orders/G8-001_DISPATCH_MAP.md",
+    "orchestration/control/codex_directive.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json",
+    "game/scripts/core/edition_headless_smoke.gd",
+    "game/scripts/main/main.gd",
+    "game/scripts/camera/cozy_camera.gd",
+    "tools/Godot_v4.3-stable_win64_console.exe",
+    "orchestration/receipts/G2-001.json",
+    "orchestration/receipts/G2-007.json",
+    "orchestration/receipts/g4/P3_core.json",
+    "orchestration/receipts/g5/C3_core.json"
+  ],
+  "next_route": "Z1"
+}

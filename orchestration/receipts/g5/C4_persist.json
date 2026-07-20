@@ -326,6 +326,33 @@
       "orchestration/logs/g5-c4-purple-edition-smoke.log"
     ]
   },
+  "smoke_test": {
+    "commands": [
+      {
+        "command": "python services/agm_gateway/run_gateway_tests.py",
+        "exit_code": 0,
+        "marker": "G5_AGM_GATEWAY_SMOKE=PASS",
+        "tests_run": 36
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/bridge/paid_gateway_smoke.gd",
+        "exit_code": 0,
+        "marker": "G5_PAID_ADAPTER_SMOKE=PASS",
+        "checks": 14
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/core/edition_headless_smoke.gd",
+        "exit_code": 0,
+        "marker": "G2-007_GODOT_SMOKE=PASS"
+      },
+      {
+        "command": "python scripts/validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    ],
+    "note": "Truthful copy of C4 Purple independent re-runs; no product re-execution required this WO."
+  },
   "self_audit": {
     "authority_token": "VERIFY_ONLY",
     "read_only_product": true,

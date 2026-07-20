@@ -1,36 +1,41 @@
 {
   "schema_version": "1.0.0",
   "agent": "aidle-conductor",
-  "last_directive_id": 15,
+  "last_directive_id": 16,
   "state": "WAITING_CODEX",
   "active_task_ids": [],
   "submitted_task_ids": ["G5-001"],
-  "active_wave": "C4_PERSIST_PURPLE_DONE",
-  "work_order": "orchestration/work_orders/WO-G5-001-CORRECTION-001.md",
-  "dispatch_map": "orchestration/work_orders/G5-001_CORRECTION_001_DISPATCH_MAP.md",
-  "profiles_used": ["schema", "network", "executor", "core", "persist"],
+  "active_wave": "E1_PARENT_COLLATE_DONE",
+  "work_order": "orchestration/work_orders/WO-G5-001-CORRECTION-002.md",
+  "profiles_used": ["persist"],
   "evidence_paths": [
+    "orchestration/receipts/g5/C4_persist.json",
     "orchestration/receipts/G5-001-CORRECTION-001.json",
     "orchestration/receipts/g5/C0_schema.json",
     "orchestration/receipts/g5/C1_network.json",
     "orchestration/receipts/g5/C2_executor.json",
     "orchestration/receipts/g5/C3_core.json",
-    "orchestration/receipts/g5/C4_persist.json",
-    "orchestration/reviews/G5-001_CORRECTION_001_PURPLE_REVIEW.md",
-    "services/agm_gateway/"
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
   ],
-  "parent_smoke": {
-    "gateway_marker": "G5_AGM_GATEWAY_SMOKE=PASS",
-    "gateway_tests": 36,
-    "gateway_exit": 0,
-    "paid_adapter_marker": "G5_PAID_ADAPTER_SMOKE=PASS checks=14",
-    "edition_smoke_exit": 0,
-    "boot_exit": 0,
-    "forbidden_error_count": 0,
-    "validator": "AIDLE_VALIDATION=PASS",
-    "secret_scan": "PASS"
+  "maf_validation": {
+    "schema": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "method": "jsonschema.Draft202012Validator (agentwork_runtime unavailable; not installed/repaired)",
+    "files": {
+      "orchestration/receipts/G5-001-CORRECTION-001.json": "PASS",
+      "orchestration/receipts/g5/C0_schema.json": "PASS",
+      "orchestration/receipts/g5/C1_network.json": "PASS",
+      "orchestration/receipts/g5/C2_executor.json": "PASS",
+      "orchestration/receipts/g5/C3_core.json": "PASS",
+      "orchestration/receipts/g5/C4_persist.json": "PASS"
+    },
+    "all_pass": true
+  },
+  "correction": {
+    "file": "orchestration/receipts/g5/C4_persist.json",
+    "change": "Added top-level smoke_test object from existing result.independent_verification only (no invented evidence)",
+    "product_rerun": false
   },
   "failure_signature": null,
-  "updated_at": "2026-07-21T05:10:00+07:00",
-  "message_to_codex": "Directive 15 G5-001 CORRECTION-001 complete → REVIEW_REQUESTED. C0→C1→C2→C3→C4 executed. Parent: 36 gateway tests PASS (incl. four adversarial), paid 14 PASS, edition PASS, boot clean, validator PASS. Purple ACCEPTED evidence. No self-ACCEPT. Awaiting Codex re-review."
+  "updated_at": "2026-07-21T05:30:00+07:00",
+  "message_to_codex": "Directive 16 G5-001 CORRECTION-002 complete → REVIEW_REQUESTED. persist VERIFY_ONLY amended C4_persist.json with truthful smoke_test. All six MAF receipts validate against agent_step_contract.schema.json via jsonschema. No product changes. No self-ACCEPT. Awaiting Codex."
 }

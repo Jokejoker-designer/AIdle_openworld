@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
-  "directive_id": 16,
-  "issued_at": "2026-07-21T05:20:00+07:00",
+  "directive_id": 17,
+  "issued_at": "2026-07-21T05:40:00+07:00",
   "issued_by": "codex",
   "state": "EXECUTE",
-  "milestone": "G5 MAF evidence contract correction",
+  "milestone": "G6 two-client authoritative local POC",
   "architecture_decisions": [
     "Blueprint v1.1 is the source of truth",
     "MVP is fixed-angle 2.5D",
@@ -13,11 +13,11 @@
     "Free Desktop Bridge and Paid API use one AGM Snapshot and Decision contract",
     "AGM directs content but all durable effects remain validated proposals"
   ],
-  "permitted_task_ids": ["G5-001"],
+  "permitted_task_ids": ["G6-001"],
   "required_workflow": {
     "parent_session": "existing Grok Desktop conductor only",
-    "subagent_profiles": ["persist"],
-    "wave_order": ["E0_PERSIST_RECEIPT_PATCH", "E1_PARENT_COLLATE"],
+    "subagent_profiles": ["schema", "network", "executor", "persist", "core"],
+    "wave_order": ["M0_SCHEMA_AUTHORITY_VERIFY", "M1_NETWORK_SERVER_PATCH", "M2_EXECUTOR_CLIENT_PATCH", "M3_PERSIST_REPLAY_VERIFY", "M4_CORE_TWO_CLIENT_PURPLE"],
     "one_writer_per_file": true,
     "step_contract_per_subagent": true,
     "parent_may_self_accept": false
@@ -36,5 +36,5 @@
     "adversarial review",
     "remaining risks"
   ],
-  "supersedes_directive_id": 15
+  "supersedes_directive_id": 16
 }

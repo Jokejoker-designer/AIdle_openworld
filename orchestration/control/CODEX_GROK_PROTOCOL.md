@@ -33,6 +33,15 @@ model quota, hold a write lock, or invent work. The scheduled Codex heartbeat
 reviews the handoff and releases a new directive. A resumed Grok session always
 re-reads these files, so interruption does not lose orchestration state.
 
+## File ownership
+
+- `orchestration/tasks.json` and `codex_directive.json` are Codex-owned and
+  read-only to Grok and all Grok subagents.
+- Grok writes progress only to `grok_status.json`, work orders, worker receipts
+  and review requests.
+- Grok must never create an `*-ACCEPT.json` receipt or change any task to
+  `ACCEPTED`. Such files are audit evidence only and confer no authority.
+
 ## Fail closed
 
 Grok must enter `WAITING_CODEX` without editing when the directive is missing,

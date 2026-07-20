@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_id": "modular_lowpoly_placeholders",
+  "version": "1.0.0",
+  "description": "Deterministic modular low-poly placeholder primitives for starter recipes. No paid gen APIs; no neural meshes. Renderers may extrude these into simple MeshInstance3D / CSG boxes.",
+  "units": "meters",
+  "coordinate_space": "local_y_up",
+  "presentation_only": true,
+  "world_truth": "recipes_and_commit_state",
+  "placeholders": [
+    {
+      "placeholder_id": "box_foundation",
+      "primitive": "box",
+      "default_size": {"x": 1, "y": 0.3, "z": 1},
+      "origin": "center_bottom",
+      "triangle_budget": 12,
+      "bevel": 0.02,
+      "material_role_default": "palette.ground",
+      "wireframe_edges": true
+    },
+    {
+      "placeholder_id": "box_floor",
+      "primitive": "box",
+      "default_size": {"x": 1, "y": 0.12, "z": 1},
+      "origin": "center",
+      "triangle_budget": 12,
+      "bevel": 0.01,
+      "material_role_default": "palette.surface_secondary",
+      "wireframe_edges": true
+    },
+    {
+      "placeholder_id": "box_wall_panel",
+      "primitive": "box",
+      "default_size": {"x": 1, "y": 2.8, "z": 0.2},
+      "origin": "center",
+      "triangle_budget": 12,
+      "bevel": 0.03,
+      "material_role_default": "palette.surface_primary",
+      "wireframe_edges": true
+    },
+    {
+      "placeholder_id": "box_door_frame",
+      "primitive": "box_frame",
+      "default_size": {"x": 1.6, "y": 2.2, "z": 0.25},
+      "frame_thickness": 0.12,
+      "origin": "center",
+      "triangle_budget": 48,
+      "bevel": 0.02,
+      "material_role_default": "palette.accent",
+      "wireframe_edges": true
+    },
+    {
+      "placeholder_id": "box_door_panel",
+      "primitive": "box",
+      "default_size": {"x": 1.2, "y": 2.0, "z": 0.08},
+      "origin": "center",
+      "triangle_budget": 12,
+      "bevel": 0.02,
+      "material_role_default": "palette.surface_secondary",
+      "wireframe_edges": true
+    },
+    {
+      "placeholder_id": "box_window",
+      "primitive": "box",
+      "default_size": {"x": 0.12, "y": 1.0, "z": 1.2},
+      "origin": "center",
+      "triangle_budget": 12,
+      "bevel": 0.01,
+      "material_role_default": "palette.sky",
+      "emissive_when_lightable": true,
+      "wireframe_edges": true
+    },
+    {
+      "placeholder_id": "prism_roof_gable",
+      "primitive": "triangular_prism",
+      "default_size": {"x": 8.2, "y": 1.6, "z": 6.4},
+      "origin": "center_bottom",
+      "triangle_budget": 24,
+      "bevel": 0.04,
+      "material_role_default": "palette.accent",
+      "wireframe_edges": true,
+      "notes": "Gable roof silhouette for three-quarter camera readability."
+    },
+    {
+      "placeholder_id": "box_chimney",
+      "primitive": "box",
+      "default_size": {"x": 0.6, "y": 1.2, "z": 0.6},
+      "origin": "center_bottom",
+      "triangle_budget": 12,
+      "bevel": 0.02,
+      "material_role_default": "palette.shadow",
+      "wireframe_edges": true
+    },
+    {
+      "placeholder_id": "box_step",
+      "primitive": "box",
+      "default_size": {"x": 1.8, "y": 0.24, "z": 0.6},
+      "origin": "center_bottom",
+      "triangle_budget": 12,
+      "bevel": 0.02,
+      "material_role_default": "palette.surface_secondary",
+      "wireframe_edges": true
+    },
+    {
+      "placeholder_id": "box_light_cap",
+      "primitive": "box",
+      "default_size": {"x": 0.25, "y": 0.25, "z": 0.25},
+      "origin": "center",
+      "triangle_budget": 12,
+      "bevel": 0.04,
+      "material_role_default": "palette.manifestation",
+      "emissive_when_lightable": true,
+      "wireframe_edges": true
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "agent_step_id": "G2-006-2026-07-20-aidle-executor",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G2-006",
+    "state": "REVIEW_REQUESTED",
+    "summary": "Deterministic AGM Decision executor: allowlisted dialogue/quest/event/mood/relationship soft effects; build proposals elevated to schema-valid World Prompts forced through preview → confirm → World Commit handoff stub; decision_id idempotency returns prior receipt without re-apply; stale snapshot and unknown/forbidden actions rejected; execution receipt for next snapshot.",
+    "artifacts": [
+      "game/scripts/modules/executor/decision_executor.gd",
+      "game/scripts/modules/executor/prompt_pipeline.gd",
+      "game/scripts/modules/executor/executor_module.gd",
+      "game/scripts/modules/executor/executor_headless_smoke.gd",
+      "game/scripts/modules/executor/smoke_g2_006.py",
+      "game/scripts/modules/executor/exports/execution_receipt_build.json",
+      "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+      "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+      "game/scripts/modules/executor/exports/snapshot_last_execution_receipt.json",
+      "game/scripts/modules/interfaces/i_executor_module.gd",
+      "game/scripts/modules/stubs/module_stub.gd",
+      "orchestration/receipts/G2-006.json"
+    ],
+    "acceptance": {
+      "unknown_action_types_rejected": true,
+      "decision_id_idempotency_returns_prior_receipt": true,
+      "replay_does_not_reapply_effects": true,
+      "stale_source_snapshot_rejected": true,
+      "build_never_skips_preview_confirm_commit": true,
+      "build_elevates_to_world_prompt_pending": true,
+      "commit_handoff_stub_no_durable_mutation": true,
+      "execution_receipt_for_next_snapshot": true,
+      "no_paid_provider_sdks": true
+    },
+    "not_done": [
+      "No live World Commit service (handoff stub only; durable mutation remains server-side)",
+      "No Desktop Bridge import path (G2-005) or Paid API gateway (G5-001)",
+      "No end-to-end onboarding quest transaction (G3-001)",
+      "No self-ACCEPT"
+    ]
+  },
+  "smoke_test": {
+    "python_command": "python game/scripts/modules/executor/smoke_g2_006.py",
+    "python_exit_code": 0,
+    "python_stdout": "G2-006_SMOKE=PASS",
+    "godot_command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/executor/executor_headless_smoke.gd",
+    "godot_exit_code": 0,
+    "godot_stdout": "G2-006_GODOT_SMOKE=PASS checks=11",
+    "project_validator": "python scripts/validate_project.py → AIDLE_VALIDATION=PASS",
+    "godot_checks": [
+      "interface_surface",
+      "unknown_action_rejected",
+      "forbidden_field_rejected",
+      "stale_snapshot_rejected",
+      "decision_id_idempotency",
+      "build_routes_preview_confirm_commit",
+      "build_bypass_rejected",
+      "mood_cap_rejected",
+      "valid_soft_decision",
+      "pipeline_no_durable_on_confirm",
+      "module_execute_and_submit"
+    ]
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "did_not_edit_contracts_schemas": true,
+    "no_direct_scene_tree_durable_mutation": true,
+    "no_paid_provider_sdks": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "authority_token": "PATCH_DRAFT",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded AGENTS + WO + contracts manually",
+    "mvp_lock_respected": "2.5D text companion bridge only; commit path stubbed"
+  },
+  "evidence_refs": [
+    "game/scripts/modules/executor/decision_executor.gd",
+    "game/scripts/modules/executor/prompt_pipeline.gd",
+    "game/scripts/modules/executor/executor_module.gd",
+    "game/scripts/modules/executor/exports/execution_receipt_build.json",
+    "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+    "game/scripts/modules/interfaces/i_executor_module.gd",
+    "contracts/agm/decision_envelope.schema.json",
+    "contracts/commit/commit_request.schema.json",
+    "contracts/world_prompt.schema.json",
+    "contracts/fixtures/agm/valid/valid_decision_with_build_proposal.json",
+    "contracts/fixtures/agm/policy/replay_decision_pair.json",
+    "contracts/fixtures/agm/policy/stale_snapshot_rejection.json",
+    "orchestration/work_orders/WO-G2-006.md",
+    "AIdle_Openworld_Blueprint_v1.1/Interfaces/AGM_Contracts.md"
+  ],
+  "next_route": "consumer/purple VERIFY_ONLY review of G2-006; do not ACCEPT until independent verification of idempotency + build preview/commit handoff"
+}

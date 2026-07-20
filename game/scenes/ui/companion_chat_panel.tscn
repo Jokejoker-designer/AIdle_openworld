@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/modules/companion/companion_chat_panel.gd" id="1_panel"]
+
+[node name="CompanionChatPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -220.0
+offset_right = 420.0
+offset_bottom = -12.0
+grow_vertical = 0
+script = ExtResource("1_panel")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "Companion (text-only)"
+
+[node name="PersonalityStatus" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Personality: —"
+
+[node name="ProposalStatus" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Proposal: (none)"
+
+[node name="Controls" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="InspectBtn" type="Button" parent="Panel/VBox/Controls"]
+layout_mode = 2
+text = "Inspect"
+
+[node name="ResetBtn" type="Button" parent="Panel/VBox/Controls"]
+layout_mode = 2
+text = "Reset"
+
+[node name="DeleteBtn" type="Button" parent="Panel/VBox/Controls"]
+layout_mode = 2
+text = "Delete hist."
+
+[node name="ChatLog" type="RichTextLabel" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
+fit_content = false
+custom_minimum_size = Vector2(0, 100)
+
+[node name="ChatInput" type="LineEdit" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Text only — xây nhà · /inspect · /lock warmth · /reset · /delete"
+
+[connection signal="pressed" from="Panel/VBox/Controls/InspectBtn" to="." method="_on_inspect_pressed"]
+[connection signal="pressed" from="Panel/VBox/Controls/ResetBtn" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Panel/VBox/Controls/DeleteBtn" to="." method="_on_delete_pressed"]

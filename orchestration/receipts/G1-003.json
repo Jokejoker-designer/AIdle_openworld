@@ -1,0 +1,87 @@
+{
+  "agent_step_id": "G1-003-2026-07-20-aidle-schema",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G1-003",
+    "state": "REVIEW_REQUESTED",
+    "summary": "Locked provider-neutral AGM World State Snapshot and Decision Envelope Draft 2020-12 contracts. Free/Paid share identical payload semantics (edition field only; transport is non-authoritative delivery metadata). Build proposals forced through preview_confirm_commit with preview_required true and confirmation pending. Replay decision_id and stale source_snapshot_id rejected via policy fixtures; adversarial invalids cover secrets, code, TTS/voice, unknown events, excessive deltas, and direct durable mutation.",
+    "artifacts": [
+      "contracts/agm/world_state_snapshot.schema.json",
+      "contracts/agm/decision_envelope.schema.json",
+      "contracts/fixtures/agm/valid/",
+      "contracts/fixtures/agm/invalid/",
+      "contracts/fixtures/agm/policy/",
+      "scripts/validate_project.py",
+      "AIdle_Openworld_Blueprint_v1.1/Interfaces/AGM_Contracts.md",
+      "orchestration/work_orders/WO-G1-003.md",
+      "orchestration/receipts/G1-003.json"
+    ],
+    "acceptance": {
+      "draft_2020_12_schemas": true,
+      "free_paid_identical_payload_semantics": true,
+      "min_valid_fixtures": true,
+      "min_invalid_fixtures": true,
+      "replay_decision_id_rejected": true,
+      "stale_snapshot_rejected": true,
+      "build_cannot_bypass_preview_commit": true,
+      "no_direct_durable_mutation": true,
+      "no_tts_voice": true,
+      "validator_extended_additively": true
+    },
+    "not_done": [
+      "No Desktop Bridge runtime (G2-005)",
+      "No decision executor runtime (G2-006)",
+      "No API gateway (G5-001)",
+      "No self-ACCEPT"
+    ]
+  },
+  "smoke_test": {
+    "command": "python scripts\\validate_project.py",
+    "exit_code": 0,
+    "stdout": "AIDLE_VALIDATION=PASS",
+    "scope": "blueprint-links,all-schema-shapes,world-positive-negative,fixtures-valid-invalid,format-checker,commit-authority,event-envelope,agm-snapshot-decision,crew,task-dag,asset-grammar",
+    "fixture_checks": [
+      "7 valid AGM fixtures accepted",
+      "13 invalid AGM fixtures rejected",
+      "edition_identity_pair free/paid payload match after strip",
+      "replay_decision_pair same decision_id policy reject",
+      "stale_snapshot_rejection source!=live policy reject",
+      "build_bypasses_preview schema reject",
+      "direct_durable_mutation schema reject",
+      "excessive mood/relationship delta schema reject"
+    ]
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "did_not_break_world_prompt_commit_event_asset_grammar": true,
+    "no_api_sdk_credentials_billing_network": true,
+    "no_godot_gameplay_changes": true,
+    "no_package_install_push_deploy": true,
+    "no_tts_voice_pipeline": true,
+    "no_self_accept": true,
+    "authority_token": "PATCH_DRAFT",
+    "mvp_lock_respected": "2.5D first; Companion text-only"
+  },
+  "evidence_refs": [
+    "contracts/agm/world_state_snapshot.schema.json",
+    "contracts/agm/decision_envelope.schema.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_api_paid.json",
+    "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json",
+    "contracts/fixtures/agm/valid/valid_decision_api_paid.json",
+    "contracts/fixtures/agm/valid/valid_decision_with_build_proposal.json",
+    "contracts/fixtures/agm/invalid/invalid_decision_direct_durable_mutation.json",
+    "contracts/fixtures/agm/invalid/invalid_decision_build_bypasses_preview.json",
+    "contracts/fixtures/agm/policy/replay_decision_pair.json",
+    "contracts/fixtures/agm/policy/stale_snapshot_rejection.json",
+    "contracts/fixtures/agm/policy/edition_identity_pair.json",
+    "scripts/validate_project.py",
+    "AIdle_Openworld_Blueprint_v1.1/Interfaces/AGM_Contracts.md",
+    "orchestration/work_orders/WO-G1-003.md"
+  ],
+  "next_route": "consumer/purple VERIFY_ONLY review of G1-003 contracts; do not ACCEPT until independent verification"
+}

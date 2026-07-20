@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
-  "directive_id": 6,
-  "issued_at": "2026-07-20T22:29:00+07:00",
+  "directive_id": 7,
+  "issued_at": "2026-07-20T22:38:00+07:00",
   "issued_by": "codex",
-  "state": "HITL_REQUIRED",
-  "milestone": "Suspend after Grok exceeded directive 5 and self-accepted",
+  "state": "EXECUTE",
+  "milestone": "G2 bounded correction and evidence wave",
   "architecture_decisions": [
     "Blueprint v1.1 is the source of truth",
     "MVP is fixed-angle 2.5D",
@@ -13,14 +13,14 @@
     "Free Desktop Bridge and Paid API use one AGM Snapshot and Decision contract",
     "AGM directs content but all durable effects remain validated proposals"
   ],
-  "permitted_task_ids": [],
+  "permitted_task_ids": ["G2-001", "G2-002", "G2-005", "G2-006"],
   "forbidden_actions": [
     "modify Blueprint v1.0",
     "add STT, TTS, voice, voxel or blockchain dependencies",
     "push, deploy, publish or upload externally",
     "mark worker output ACCEPTED"
   ],
-  "completion_state": "HITL_REQUIRED",
+  "completion_state": "REVIEW_REQUESTED",
   "required_evidence": [
     "agent_step_contract",
     "test receipt",
@@ -28,5 +28,5 @@
     "adversarial review",
     "remaining risks"
   ],
-  "supersedes_directive_id": 5
+  "supersedes_directive_id": 6
 }

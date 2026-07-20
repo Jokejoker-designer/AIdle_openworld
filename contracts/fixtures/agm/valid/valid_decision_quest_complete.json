@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "decision_id": "66666666-6666-4666-8666-666666666666",
+  "source_snapshot_id": "55555555-5555-4555-8555-555555555555",
+  "created_at": "2026-07-20T17:00:10Z",
+  "edition": "api_paid",
+  "session_id": "session_starter_01",
+  "dialogue": {
+    "lines": [
+      {
+        "speaker": "companion",
+        "text": "First light claimed. The Starter Realm is yours to grow — slowly, together."
+      },
+      {
+        "speaker": "narrator",
+        "text": "Onboarding quest complete."
+      }
+    ],
+    "companion_expression": "proud"
+  },
+  "quest_operations": [
+    {
+      "op": "complete",
+      "quest_id": "onboarding_first_home",
+      "reason": "Player returned after house materialization."
+    }
+  ],
+  "build_proposals": [],
+  "event_proposals": [
+    {
+      "event_type": "pacing.slow_down",
+      "summary": "Let the player explore without new pressure.",
+      "intensity": 0.3
+    }
+  ],
+  "mood_delta": { "delta": 0.04, "reason": "quest success" },
+  "relationship_delta": { "delta": 0.03, "reason": "shared milestone" },
+  "next_trigger": { "kind": "timer", "timer_seconds": 120, "hint": "soft ambient check-in" },
+  "pacing_hint": { "tempo": "steady" },
+  "trace": {
+    "trace_id": "trace_snap_mid_01",
+    "model_receipt_ref": "gateway:route_a:decision:010",
+    "provider_label": "gateway_route_a"
+  }
+}

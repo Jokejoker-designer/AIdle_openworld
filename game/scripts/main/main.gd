@@ -1,4 +1,4 @@
-## Main playable scene controller – wires player, camera, world, UI.
+## Main playable 2.5D shell – wires player, fixed-angle camera, world, UI.
 extends Node3D
 
 @onready var world_root: WorldRoot = $WorldRoot
@@ -12,6 +12,12 @@ func _ready() -> void:
 	if player and camera_rig and player is PlayerController:
 		(player as PlayerController).set_camera_rig(camera_rig)
 
+	# Acceptance trace for G2-001 headless smoke.
+	if camera_rig and camera_rig.has_method("is_fixed_angle") and camera_rig.is_fixed_angle():
+		print("[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).")
+	if player:
+		print("[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.")
+
 	GameManager.enter_world(world_root, player)
 
 	# Notify private reality occupancy (client space).
@@ -21,7 +27,6 @@ func _ready() -> void:
 	# Mount lightweight stubs so ModuleRegistry is non-empty and agents see slots.
 	_spawn_module_stubs()
 
-	# Enable debug overlay by default in core dev builds if not set.
 	if SettingsManager.get_value(SettingsManager.SECTION_DEBUG, "verbose_logs", true):
 		print("[Main] Entered Private Reality | style=%s" % ArtStyleManager.get_active_style_id())
 

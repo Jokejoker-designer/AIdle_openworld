@@ -16,9 +16,14 @@ script = ExtResource("1_main")
 
 [node name="Player" parent="." instance=ExtResource("3_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 2)
+camera_rig_path = NodePath("../CozyCamera")
 
 [node name="CozyCamera" parent="." instance=ExtResource("4_cam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 10)
+target_path = NodePath("../Player")
+pitch_degrees = 42.0
+distance = 10.0
+allow_yaw_snaps = true
 
 [node name="UI" type="Node" parent="."]
 

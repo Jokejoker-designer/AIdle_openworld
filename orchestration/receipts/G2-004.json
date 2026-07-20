@@ -1,0 +1,95 @@
+{
+  "agent_step_id": "G2-004-aidle-asset-2026-07-20-remediation",
+  "agent_type": "aidle-asset",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G2-004",
+    "state": "REVIEW_REQUESTED",
+    "summary": "Remediation for Purple CHANGES_REQUESTED: added check_asset_grammar() to scripts/validate_project.py (executable recipe schema, build_order, placeholders, style tokens, provenance, contracts↔game mirror). Content artifacts unchanged from prior delivery. State remains REVIEW_REQUESTED; no self-ACCEPT.",
+    "artifacts": [
+      "scripts/validate_project.py",
+      "contracts/assets/recipe.schema.json",
+      "contracts/assets/recipes/cozy_house_small.json",
+      "contracts/assets/index.json",
+      "contracts/assets/provenance_manifest.json",
+      "game/assets/recipes/cozy_house_small.json",
+      "game/assets/placeholders/modular/catalog.json",
+      "game/assets/grammar/index.json",
+      "game/resources/art_styles/tokens/shared_2_5d_tokens.json",
+      "game/resources/art_styles/cozy_cyber_pixel_2_5d.json",
+      "game/resources/art_styles/pastoral_fantasy_2_5d.json",
+      "game/resources/art_styles/soft_scifi_2_5d.json"
+    ],
+    "acceptance": {
+      "house_recipe_modular_parts": true,
+      "recipe_id": "cozy_house_small",
+      "part_count": 14,
+      "placeholder_count": 10,
+      "style_tokens_2_5d": true,
+      "base_concepts": [
+        "cozy_cyber_pixel_2_5d",
+        "pastoral_fantasy_2_5d",
+        "soft_scifi_2_5d"
+      ],
+      "license_provenance_manifest": true,
+      "provenance_entry_count": 20,
+      "executable_asset_grammar_checks": true,
+      "aligned_with_create_cozy_house_fixture": true
+    },
+    "not_done": [
+      "No manifestation renderer implementation (G2-002)",
+      "No Godot mesh instancing runtime for placeholders",
+      "No neural or paid asset generation",
+      "No self-ACCEPT"
+    ]
+  },
+  "smoke_test": {
+    "command": "python scripts/validate_project.py",
+    "exit_code": 0,
+    "stdout_marker": "AIDLE_VALIDATION=PASS",
+    "scope_line": "scope=blueprint-links,all-schema-shapes,world-positive-negative,fixtures-valid-invalid,format-checker,commit-authority,event-envelope,crew,task-dag,asset-grammar",
+    "asset_grammar_function": "check_asset_grammar",
+    "asset_grammar_checks": [
+      "recipe schema validation for contracts/assets/recipes/cozy_house_small.json",
+      "recipe_id=cozy_house_small kind=modular_structure_2_5d",
+      "build_order covers all parts exactly once",
+      "every part placeholder_id exists in modular catalog",
+      "collision_policy.active_from_stage=complete",
+      "game mirror recipe matches contracts on recipe_id/kind/build_order/parts/collision",
+      "style files cozy_cyber_pixel_2_5d / pastoral_fantasy_2_5d / soft_scifi_2_5d base_concept ⊆ world_prompt enum",
+      "shared tokens free_orbit_allowed=false and collision_active_from=complete",
+      "provenance policy paid_generation_apis=false and neural_world_model=false",
+      "provenance covers catalogs/recipes/styles/placeholders (fragment paths resolved via catalog membership)"
+    ]
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "did_not_rewrite_world_prompt_schema": true,
+    "no_manifestation_renderer_g2_002": true,
+    "no_paid_generation_apis": true,
+    "no_neural_world_model_critical_path": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "authority_token": "PATCH_DRAFT",
+    "mvp_lock_respected": "2.5D modular grammar; deterministic placeholders",
+    "purple_blockers_addressed": [
+      "executable check_asset_grammar in validate_project.py",
+      "honest smoke_test scope includes asset-grammar",
+      "REVIEW_REQUESTED only"
+    ]
+  },
+  "evidence_refs": [
+    "scripts/validate_project.py",
+    "contracts/assets/recipes/cozy_house_small.json",
+    "contracts/assets/provenance_manifest.json",
+    "contracts/assets/recipe.schema.json",
+    "game/resources/art_styles/cozy_cyber_pixel_2_5d.json",
+    "game/assets/placeholders/modular/catalog.json",
+    "orchestration/reviews/G2-004_PURPLE_REVIEW.md",
+    "orchestration/work_orders/WO-G2-004.md"
+  ],
+  "next_route": "consumer/Purple VERIFY_ONLY re-review of G2-004; ACCEPTED only after independent verification of check_asset_grammar; G3-001 still waits all G2 deps"
+}

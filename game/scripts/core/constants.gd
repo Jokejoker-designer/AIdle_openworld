@@ -5,6 +5,9 @@ extends Node
 const SCHEMA_VERSION := "1.0"
 const PROJECT_CODE_NAME := "AIdle Openworld"
 const CORE_VERSION := "0.1.0-core"
+## Client runtime pin (must match project.godot config/features + tools binary).
+const GODOT_PIN := "4.3"
+const PRESENTATION_MODE := "2.5D_fixed_angle"
 
 ## Reality Hierarchy – locked names (scene nodes + target_space enum mapping).
 const SPACE_PRIVATE_REALITY := "private_reality"
@@ -29,6 +32,17 @@ const ART_PASTORAL_FANTASY := "pastoral_fantasy"
 const ART_CUSTOM := "custom"
 
 const DEFAULT_ART_STYLE := ART_COZY_CYBER_PIXEL
+
+## AGM edition modes (transport only — identical snapshot/decision schemas).
+## Blueprint: 08_AI_Game_Master_and_Edition_Modes.md + contracts/agm/*.schema.json
+const EDITION_DESKTOP_BRIDGE_FREE := "desktop_bridge_free"
+const EDITION_API_PAID := "api_paid"
+## Free Desktop Bridge is the safe first-run default (no gateway, no secrets).
+const DEFAULT_EDITION := EDITION_DESKTOP_BRIDGE_FREE
+const AGM_EDITIONS: PackedStringArray = [
+	EDITION_DESKTOP_BRIDGE_FREE,
+	EDITION_API_PAID,
+]
 
 ## Manifestation stages (Progressive Construction).
 const STAGE_WIREFRAME := "wireframe"

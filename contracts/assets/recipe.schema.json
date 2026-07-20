@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/contracts/assets/recipe/1.0.0",
+  "title": "AIdle Modular 2.5D Entity Recipe",
+  "description": "Deterministic modular grammar for modular_structure_2_5d and related starter entities. Recipes are world truth for part layout; meshes/videos are untrusted presentation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "recipe_id",
+    "kind",
+    "version",
+    "display_name",
+    "default_bounds",
+    "interaction_tags",
+    "grid",
+    "parts",
+    "build_order",
+    "style_binding",
+    "collision_policy",
+    "provenance_ref"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "recipe_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Must match entity.recipe_id in world_prompt when used."
+    },
+    "kind": {
+      "enum": [
+        "tile_layer",
+        "terrain_patch_2_5d",
+        "modular_structure_2_5d",
+        "prop_2_5d",
+        "character_2_5d",
+        "vehicle_2_5d"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "display_name": {"type": "string", "minLength": 1, "maxLength": 128},
+    "description": {"type": "string", "maxLength": 1024},
+    "default_bounds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "depth", "height"],
+      "properties": {
+        "width": {"type": "number", "exclusiveMinimum": 0, "maximum": 128},
+        "depth": {"type": "number", "exclusiveMinimum": 0, "maximum": 128},
+        "height": {"type": "number", "exclusiveMinimum": 0, "maximum": 64}
+      }
+    },
+    "interaction_tags": {
+      "type": "array",
+      "maxItems": 32,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[a-z0-9_]+$"}
+    },
+    "grid": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cell_size", "elevation_step", "snap"],
+      "properties": {
+        "cell_size": {"type": "number", "exclusiveMinimum": 0},
+        "elevation_step": {"type": "number", "exclusiveMinimum": 0},
+        "snap": {"type": "boolean"}
+      }
+    },
+    "parts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "items": {"$ref": "#/$defs/part"}
+    },
+    "build_order": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Ordered part_id list for materializing stage. Must cover every part exactly once.",
+      "items": {"type": "string", "minLength": 1, "maxLength": 64}
+    },
+    "sockets": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {"$ref": "#/$defs/socket"}
+    },
+    "style_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed_base_concepts", "default_base_concept", "token_roles"],
+      "properties": {
+        "allowed_base_concepts": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "cozy_cyber_pixel_2_5d",
+              "pastoral_fantasy_2_5d",
+              "soft_scifi_2_5d",
+              "custom"
+            ]
+          }
+        },
+        "default_base_concept": {
+          "enum": [
+            "cozy_cyber_pixel_2_5d",
+            "pastoral_fantasy_2_5d",
+            "soft_scifi_2_5d",
+            "custom"
+          ]
+        },
+        "token_roles": {
+          "type": "object",
+          "additionalProperties": {"type": "string", "minLength": 1},
+          "description": "Logical role -> style token path (e.g. wall -> palette.surface_primary)."
+        }
+      }
+    },
+    "collision_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["active_from_stage", "blocks_navigation_when_complete", "interior_nav_tag"],
+      "properties": {
+        "active_from_stage": {
+          "enum": ["wireframe", "hologram", "materializing", "complete"],
+          "description": "MVP: collision authority only at complete (server-confirmed)."
+        },
+        "blocks_navigation_when_complete": {"type": "boolean"},
+        "interior_nav_tag": {"type": "string", "pattern": "^[a-z0-9_]+$"}
+      }
+    },
+    "presentation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default_duration_seconds": {"type": "number", "minimum": 1, "maximum": 60},
+        "wireframe_accent_role": {"type": "string"},
+        "hologram_opacity": {"type": "number", "minimum": 0, "maximum": 1},
+        "reduced_motion_duration_seconds": {"type": "number", "minimum": 1, "maximum": 60}
+      }
+    },
+    "provenance_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Path or asset_id into the starter provenance manifest."
+    }
+  },
+  "$defs": {
+    "vec3": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "z"],
+      "properties": {
+        "x": {"type": "number"},
+        "y": {"type": "number"},
+        "z": {"type": "number"}
+      }
+    },
+    "socket": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["socket_id", "role", "local_position"],
+      "properties": {
+        "socket_id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+        "role": {
+          "enum": [
+            "ground",
+            "wall_attach",
+            "roof_attach",
+            "doorway",
+            "window",
+            "prop_attach",
+            "light_attach",
+            "interior"
+          ]
+        },
+        "local_position": {"$ref": "#/$defs/vec3"},
+        "facing_deg": {"type": "number", "minimum": 0, "exclusiveMaximum": 360}
+      }
+    },
+    "part": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "part_id",
+        "placeholder_id",
+        "local_position",
+        "local_size",
+        "material_role",
+        "collision",
+        "nav"
+      ],
+      "properties": {
+        "part_id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+        "placeholder_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Key into game/assets/placeholders modular set."
+        },
+        "local_position": {"$ref": "#/$defs/vec3"},
+        "local_rotation_deg": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 360,
+          "default": 0
+        },
+        "local_size": {"$ref": "#/$defs/vec3"},
+        "material_role": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Style token role used at materializing/complete."
+        },
+        "socket_id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+        "collision": {"type": "boolean"},
+        "nav": {
+          "enum": ["none", "block", "floor", "doorway", "interior_floor"]
+        },
+        "lightable": {"type": "boolean"},
+        "optional": {"type": "boolean"},
+        "notes": {"type": "string", "maxLength": 256}
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "description": "Free Desktop Bridge and Paid API must share identical payload semantics. Compare after stripping edition and transport (delivery metadata only).",
+  "snapshot_pair": {
+    "desktop_bridge_free": "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+    "api_paid": "contracts/fixtures/agm/valid/valid_snapshot_api_paid.json"
+  },
+  "decision_pair": {
+    "desktop_bridge_free": "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json",
+    "api_paid": "contracts/fixtures/agm/valid/valid_decision_api_paid.json"
+  },
+  "strip_keys": ["edition", "transport"],
+  "rules": {
+    "payload_semantics_identical": true,
+    "edition_field_only_differs": true
+  }
+}

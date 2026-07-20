@@ -1,0 +1,100 @@
+{
+	"schema_version": "1.0.0",
+	"receipt_id": "366990b7-f787-4d9b-a20d-fd6480cf05f2",
+	"decision_id": "33333333-3333-4333-8333-333333333333",
+	"source_snapshot_id": "11111111-1111-4111-8111-111111111111",
+	"status": "awaiting_player",
+	"executed_at": "2026-07-20T15:36:10Z",
+	"notes": "status=awaiting_player",
+	"actions_applied": [
+		"event:narrative.beat",
+		"quest:update_objective",
+		"mood_delta",
+		"relationship_delta",
+		"build_preview:44444444-4444-4444-8444-444444444444"
+	],
+	"actions_rejected": [],
+	"build_handoffs": [
+		{
+			"proposal_id": "44444444-4444-4444-8444-444444444444",
+			"prompt_id": "b6f5eb0e-014a-4268-8f4f-f1453790fd4b",
+			"request_id": "3a3c11bd-89f8-4c4c-8f98-78487b546950",
+			"recipe_id": "cozy_house_small",
+			"routes_through": "preview_confirm_commit",
+			"preview_required": true,
+			"confirmation_state": "pending",
+			"pipeline_stage": "preview",
+			"durable_mutation_applied": false,
+			"world_prompt": {
+				"schema_version": "1.1.0",
+				"prompt_id": "70f53975-33c6-48a7-b2ff-206151eba818",
+				"request_id": "f1b7b9a0-e172-4001-ba24-3fa6f51cf7af",
+				"session_id": "session_starter_01",
+				"actor": {
+					"player_id": "player_01",
+					"companion_id": "companion_lumi"
+				},
+				"operation": "create",
+				"target": {
+					"space_type": "private_reality",
+					"space_id": "home_01",
+					"chunk_id": "0_0",
+					"expected_world_revision": 0
+				},
+				"style_profile": {
+					"profile_id": "cozy_default",
+					"profile_version": "1.0.0",
+					"base_concept": "cozy_cyber_pixel_2_5d",
+					"surrealism_budget": 0.15
+				},
+				"entity": {
+					"kind": "modular_structure_2_5d",
+					"recipe_id": "cozy_house_small",
+					"transform": {
+						"x": 8.0,
+						"y": 6.0,
+						"elevation": 0.0,
+						"rotation_deg": 0.0
+					},
+					"bounds": {
+						"width": 8.0,
+						"depth": 6.0,
+						"height": 5.0
+					},
+					"interaction_tags": [
+						"enterable",
+						"lightable"
+					]
+				},
+				"manifestation": {
+					"stages": [
+						"wireframe",
+						"hologram",
+						"materializing",
+						"complete"
+					],
+					"presentation_duration_seconds": 12.0
+				},
+				"budget": {
+					"max_compute_units": 200,
+					"max_entities": 32,
+					"paid_compute_allowed": false
+				},
+				"provenance": {
+					"source_type": "system",
+					"requested_by": "companion_lumi",
+					"generated_by": "agm_decision_executor",
+					"created_at": "2026-07-20T16:05:00Z"
+				},
+				"confirmation": {
+					"preview_required": true,
+					"state": "pending",
+					"rollback_window_seconds": 3600
+				}
+			}
+		}
+	],
+	"mood_after": 0.53,
+	"relationship_after": 0.52,
+	"durable_mutation_applied": false
+}

@@ -1,0 +1,23 @@
+{
+  "agent_step_id": "G2-004-accept-conductor-2026-07-20",
+  "agent_type": "lead-orchestrator",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "result": {
+    "task_id": "G2-004",
+    "state": "ACCEPTED",
+    "purple": "ACCEPTED after CHANGES_REQUESTED remediation",
+    "remediation": "check_asset_grammar + honest receipt"
+  },
+  "smoke_test": {
+    "command": "python scripts\\validate_project.py",
+    "exit_code": 0,
+    "scope_includes": "asset-grammar"
+  },
+  "self_audit": {"purple_ref": "orchestration/reviews/G2-004_PURPLE_REVIEW.md"},
+  "evidence_refs": [
+    "contracts/assets/recipes/cozy_house_small.json",
+    "contracts/assets/provenance_manifest.json",
+    "scripts/validate_project.py"
+  ],
+  "next_route": "G3 still blocked on G2-003/005/006/007 after G1-003"
+}

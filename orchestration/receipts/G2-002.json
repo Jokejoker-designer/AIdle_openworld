@@ -1,0 +1,77 @@
+{
+  "agent_step_id": "G2-002-2026-07-20-aidle-manifestation",
+  "agent_type": "aidle-manifestation",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G2-002",
+    "state": "REVIEW_REQUESTED",
+    "summary": "Implemented 2.5D manifestation renderer with ordered stages wireframe→hologram→materializing→complete; preview stages never enable durable collision; cancel/free_cleanup disables collision and removes geometry; skip-animation / reduced_motion flag-ready.",
+    "artifacts": [
+      "game/scripts/modules/interfaces/i_manifestation_module.gd",
+      "game/scripts/modules/manifestation/manifestation_stages.gd",
+      "game/scripts/modules/manifestation/manifestation_instance.gd",
+      "game/scripts/modules/manifestation/manifestation_module.gd",
+      "game/scripts/modules/manifestation/manifestation_smoke.gd",
+      "game/scenes/modules/manifestation/manifestation_module.tscn"
+    ],
+    "acceptance": {
+      "four_ordered_stages_enforced": true,
+      "cancel_leaves_no_collision": true,
+      "preview_no_durable_collision": true,
+      "reduced_motion_skip_animation_flag_ready": true,
+      "smoke_pass": true,
+      "self_accept": false
+    },
+    "not_done": [
+      "Not wired into main.tscn boot (G3 integrator owns prompt-to-house transaction)",
+      "No full art-style mesh library (placeholder BoxMesh)",
+      "No server-authoritative commit (visual module only)",
+      "No self-ACCEPT"
+    ]
+  },
+  "smoke_test": {
+    "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
+    "exit_code": 0,
+    "stdout_marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
+    "checks": [
+      "ordered_stages_const",
+      "progress_mapping",
+      "monotonic_enforcement",
+      "collision_gate",
+      "instance_cancel_no_collision",
+      "instance_complete_has_collision",
+      "module_pipeline",
+      "interface_surface"
+    ]
+  },
+  "design_notes": {
+    "stages": ["wireframe", "hologram", "materializing", "complete"],
+    "collision_policy": "enabled only at complete; cancel zeros layer and disables shape then queue_free",
+    "skip_animation": "ManifestationModule.set_skip_animation(true) or SettingsManager gameplay/reduced_motion | gameplay/skip_manifestation_animation",
+    "mount": "Registers on ModuleRegistry slot 'voxel' (legacy name; not voxel digging) via duck-typed stub replacement",
+    "events": "EventBus manifestation_started|progress_updated|completed|cancelled"
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "no_contracts_edits": true,
+    "no_player_camera_core_edits": true,
+    "no_voxel_digging": true,
+    "no_paid_apis": true,
+    "no_self_accept": true,
+    "authority_token": "PATCH_DRAFT"
+  },
+  "evidence_refs": [
+    "game/scripts/modules/manifestation/manifestation_stages.gd",
+    "game/scripts/modules/manifestation/manifestation_instance.gd",
+    "game/scripts/modules/manifestation/manifestation_module.gd",
+    "game/scripts/modules/manifestation/manifestation_smoke.gd",
+    "game/scripts/modules/interfaces/i_manifestation_module.gd",
+    "game/scenes/modules/manifestation/manifestation_module.tscn",
+    "orchestration/work_orders/WO-G2-002.md",
+    "AIdle_Openworld_Blueprint_v1.1/06_Progressive_Construction_Spec.md"
+  ],
+  "next_route": "Purple VERIFY_ONLY review of G2-002; do not ACCEPT until independent verification; G3-001 depends on ACCEPTED"
+}

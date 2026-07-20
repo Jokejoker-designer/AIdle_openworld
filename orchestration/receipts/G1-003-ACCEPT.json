@@ -1,0 +1,29 @@
+{
+  "agent_step_id": "G1-003-accept-conductor-2026-07-20",
+  "agent_type": "lead-orchestrator",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "result": {
+    "task_id": "G1-003",
+    "state": "ACCEPTED",
+    "purple": "ACCEPTED",
+    "valid_fixtures": 7,
+    "invalid_fixtures": 14,
+    "residuals": [
+      "replay/stale policy fixtures not runtime executor",
+      "build proposals not full world_prompt bind yet",
+      "secret banlist shallow"
+    ]
+  },
+  "smoke_test": {
+    "command": "python scripts\\validate_project.py",
+    "exit_code": 0,
+    "scope_includes": "agm-snapshot-decision"
+  },
+  "self_audit": {"purple_ref": "orchestration/reviews/G1-003_PURPLE_REVIEW.md"},
+  "evidence_refs": [
+    "contracts/agm/world_state_snapshot.schema.json",
+    "contracts/agm/decision_envelope.schema.json",
+    "orchestration/receipts/G1-003.json"
+  ],
+  "next_route": "G2-003 rework + G2-005 + G2-006 + G2-007"
+}

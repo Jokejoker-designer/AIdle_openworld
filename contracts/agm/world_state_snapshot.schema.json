@@ -1,0 +1,305 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/contracts/agm/world-state-snapshot/1.0.0",
+  "title": "AIdle World State Snapshot",
+  "description": "Bounded, redacted world state exported by Godot for the AI Game Master. Free Desktop Bridge and Paid API editions share identical payload semantics; only the edition field differs. Sensitive credentials, raw system prompts, TTS/voice payloads and unrestricted memory are forbidden. AGM cannot mutate the world from a snapshot — snapshots are read-only inputs.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "snapshot_id",
+    "created_at",
+    "edition",
+    "session_id",
+    "space_id",
+    "world_revision",
+    "progression_phase",
+    "art_style",
+    "player",
+    "companion",
+    "world",
+    "quests",
+    "latest_player_action",
+    "last_execution_receipt",
+    "memory",
+    "trace_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0",
+      "description": "Snapshot contract version. Breaking changes require migration."
+    },
+    "snapshot_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique snapshot identity. Decisions must reference this as source_snapshot_id."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "edition": {
+      "enum": ["desktop_bridge_free", "api_paid"],
+      "description": "Transport edition only. Payload semantics are identical across editions."
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "space_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "world_revision": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Optimistic concurrency token of the live world when the snapshot was taken."
+    },
+    "progression_phase": {
+      "enum": ["onboarding", "early", "mid", "late", "sandbox"]
+    },
+    "art_style": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_id", "base_concept"],
+      "properties": {
+        "profile_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "base_concept": {
+          "enum": [
+            "cozy_cyber_pixel_2_5d",
+            "pastoral_fantasy_2_5d",
+            "soft_scifi_2_5d",
+            "custom"
+          ]
+        },
+        "profile_version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        }
+      }
+    },
+    "player": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["player_id", "location"],
+      "properties": {
+        "player_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "display_name": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "location": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["chunk_id", "x", "y"],
+          "properties": {
+            "chunk_id": { "type": "string", "minLength": 1, "maxLength": 64 },
+            "x": { "type": "number" },
+            "y": { "type": "number" },
+            "elevation": { "type": "number" }
+          }
+        }
+      }
+    },
+    "companion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["companion_id", "mood", "relationship"],
+      "properties": {
+        "companion_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "mood": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Expressive mood in [0,1]. Not player clinical state."
+        },
+        "relationship": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "personality_revision": { "type": "integer", "minimum": 0 },
+        "recent_dialogue_summary": {
+          "type": "string",
+          "maxLength": 512,
+          "description": "Bounded redacted summary only; not raw unrestricted history."
+        }
+      }
+    },
+    "world": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["space_type", "entity_count", "known_entity_ids"],
+      "properties": {
+        "space_type": {
+          "enum": [
+            "private_reality",
+            "shared_district",
+            "doppelganger_city",
+            "spacecraft",
+            "exoplanet"
+          ]
+        },
+        "entity_count": { "type": "integer", "minimum": 0, "maximum": 100000 },
+        "known_entity_ids": {
+          "type": "array",
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1, "maxLength": 128 },
+          "description": "Bounded visible/nearby entity IDs only."
+        },
+        "starter_realm": { "type": "boolean" }
+      }
+    },
+    "quests": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["active", "completed_ids"],
+      "properties": {
+        "active": {
+          "type": "array",
+          "maxItems": 16,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["quest_id", "title", "status"],
+            "properties": {
+              "quest_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "title": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "status": {
+                "enum": ["offered", "active", "blocked", "ready_to_turn_in"]
+              },
+              "objective_summary": { "type": "string", "maxLength": 256 }
+            }
+          }
+        },
+        "completed_ids": {
+          "type": "array",
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1, "maxLength": 128 }
+        }
+      }
+    },
+    "latest_player_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action_type", "occurred_at", "summary"],
+      "properties": {
+        "action_type": {
+          "enum": [
+            "session_start",
+            "move",
+            "interact",
+            "dialogue",
+            "build_request",
+            "quest_accept",
+            "quest_abandon",
+            "quest_complete",
+            "idle",
+            "edition_select",
+            "bridge_import",
+            "cancel_preview"
+          ]
+        },
+        "occurred_at": { "type": "string", "format": "date-time" },
+        "summary": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "target_entity_id": { "type": "string", "minLength": 1, "maxLength": 128 }
+      }
+    },
+    "last_execution_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "decision_id": {
+          "type": ["string", "null"],
+          "format": "uuid",
+          "description": "Prior decision that was executed, or null on first turn."
+        },
+        "status": {
+          "enum": [
+            "none",
+            "applied",
+            "partial",
+            "rejected",
+            "stale_snapshot",
+            "replayed",
+            "awaiting_player"
+          ]
+        },
+        "executed_at": { "type": "string", "format": "date-time" },
+        "notes": { "type": "string", "maxLength": 256 }
+      }
+    },
+    "memory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recent_turns", "summary"],
+      "properties": {
+        "recent_turns": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["role", "text"],
+            "properties": {
+              "role": { "enum": ["player", "companion", "system"] },
+              "text": { "type": "string", "minLength": 1, "maxLength": 280 }
+            }
+          },
+          "description": "Bounded recent conversation only; not unrestricted history."
+        },
+        "summary": {
+          "type": "string",
+          "maxLength": 512
+        }
+      }
+    },
+    "trace_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "transport": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Optional non-authoritative delivery metadata. Must not alter payload semantics.",
+      "properties": {
+        "channel": {
+          "enum": ["clipboard", "inbox_outbox_file", "api_gateway"]
+        },
+        "bridge_path_hint": {
+          "type": "string",
+          "maxLength": 256,
+          "description": "Desktop Bridge file path hint only; not a secret."
+        }
+      }
+    }
+  },
+  "propertyNames": {
+    "type": "string",
+    "not": {
+      "enum": [
+        "api_key",
+        "access_token",
+        "password",
+        "secret",
+        "secrets",
+        "credentials",
+        "cookie",
+        "cookies",
+        "session_cookie",
+        "auth_token",
+        "raw_system_prompt",
+        "system_prompt",
+        "private_memory",
+        "raw_prompt",
+        "tts_audio",
+        "voice_sample",
+        "microphone_buffer",
+        "provider_credentials"
+      ]
+    }
+  }
+}

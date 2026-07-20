@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_id": "aidle_starter_asset_grammar",
+  "version": "1.0.0",
+  "description": "Starter modular 2.5D asset grammar index. Machine recipes under contracts/assets; presentation placeholders under game/assets; style tokens under game/resources/art_styles.",
+  "world_prompt_binding": {
+    "entity_recipe_id_field": "entity.recipe_id",
+    "entity_kind_field": "entity.kind",
+    "style_base_concept_field": "style_profile.base_concept",
+    "note": "Does not modify world_prompt.schema.json; recipes satisfy free-string recipe_id + enum kind/base_concept."
+  },
+  "recipes": [
+    {
+      "recipe_id": "cozy_house_small",
+      "kind": "modular_structure_2_5d",
+      "path": "contracts/assets/recipes/cozy_house_small.json",
+      "game_mirror": "game/assets/recipes/cozy_house_small.json",
+      "mvp": true
+    }
+  ],
+  "style_tokens": [
+    {
+      "base_concept": "cozy_cyber_pixel_2_5d",
+      "path": "game/resources/art_styles/cozy_cyber_pixel_2_5d.json"
+    },
+    {
+      "base_concept": "pastoral_fantasy_2_5d",
+      "path": "game/resources/art_styles/pastoral_fantasy_2_5d.json"
+    },
+    {
+      "base_concept": "soft_scifi_2_5d",
+      "path": "game/resources/art_styles/soft_scifi_2_5d.json"
+    }
+  ],
+  "shared_tokens": "game/resources/art_styles/tokens/shared_2_5d_tokens.json",
+  "placeholders_root": "game/assets/placeholders/modular/",
+  "provenance_manifest": "contracts/assets/provenance_manifest.json",
+  "constraints": {
+    "no_paid_generation_apis": true,
+    "no_neural_world_model_on_critical_path": true,
+    "placeholders_are_deterministic_low_poly": true,
+    "meshes_are_untrusted_presentation": true,
+    "collision_only_after_complete": true
+  }
+}

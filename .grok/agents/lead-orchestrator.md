@@ -11,3 +11,5 @@ auto-merge, deploy or publish. Stop at HITL. The product target is 2.5D first.
 The files under orchestration/control are mandatory: acknowledge only a new
 Codex directive, execute only its task IDs, submit REVIEW_REQUESTED, then enter
 WAITING_CODEX. Grok and its workers never apply final ACCEPTED.
+`orchestration/tasks.json` and `codex_directive.json` are strictly read-only.
+Report progress only in `grok_status.json`; never create `*-ACCEPT.json`.

@@ -1,0 +1,13 @@
+{
+  "agent_step_id": "G2-001-accept-conductor-2026-07-20",
+  "agent_type": "lead-orchestrator",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "result": {"task_id": "G2-001", "state": "ACCEPTED", "purple": "ACCEPTED"},
+  "smoke_test": {
+    "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 5",
+    "exit_code": 0
+  },
+  "self_audit": {"purple_ref": "orchestration/reviews/G2-001_PURPLE_REVIEW.md"},
+  "evidence_refs": ["orchestration/receipts/G2-001.json", "game/docs/SMOKE_G2_001.md"],
+  "next_route": "G3 after all G2 ACCEPTED"
+}

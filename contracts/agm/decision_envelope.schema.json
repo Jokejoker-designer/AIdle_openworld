@@ -1,0 +1,341 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/contracts/agm/decision-envelope/1.0.0",
+  "title": "AIdle AGM Decision Envelope",
+  "description": "Provider-neutral AGM decision returned for a World State Snapshot. Free Desktop Bridge and Paid API editions share identical payload semantics; only the edition field differs. Decisions are untrusted until schema, policy, budget, consent and authority checks pass. AGM cannot mutate durable world state: build proposals must route through Structured World Prompt preview, player confirmation and World Commit. Unknown fields, arbitrary code/scripts, raw secrets, TTS/voice and direct durable mutation are rejected.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "decision_id",
+    "source_snapshot_id",
+    "created_at",
+    "edition",
+    "session_id",
+    "dialogue",
+    "quest_operations",
+    "build_proposals",
+    "event_proposals",
+    "mood_delta",
+    "relationship_delta",
+    "next_trigger",
+    "trace"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0",
+      "description": "Decision envelope contract version."
+    },
+    "decision_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Idempotency key for the decision executor. Replayed decision_id must be rejected at runtime policy."
+    },
+    "source_snapshot_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Must equal the live snapshot_id. Mismatch is a stale-snapshot rejection."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "edition": {
+      "enum": ["desktop_bridge_free", "api_paid"],
+      "description": "Transport edition only. Payload semantics are identical across editions."
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "dialogue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lines"],
+      "properties": {
+        "lines": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["speaker", "text"],
+            "properties": {
+              "speaker": {
+                "enum": ["companion", "narrator", "npc"]
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 480,
+                "description": "Text-only Companion interface for MVP. No TTS/voice payloads."
+              },
+              "npc_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              }
+            },
+            "allOf": [
+              {
+                "if": { "properties": { "speaker": { "const": "npc" } } },
+                "then": { "required": ["npc_id"] }
+              }
+            ]
+          }
+        },
+        "companion_expression": {
+          "enum": [
+            "neutral",
+            "warm",
+            "curious",
+            "playful",
+            "concerned",
+            "proud",
+            "tired"
+          ]
+        }
+      }
+    },
+    "quest_operations": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["op", "quest_id"],
+        "properties": {
+          "op": {
+            "enum": [
+              "offer",
+              "update_objective",
+              "mark_ready",
+              "complete",
+              "fail",
+              "cancel"
+            ]
+          },
+          "quest_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+          "title": { "type": "string", "minLength": 1, "maxLength": 128 },
+          "objective_summary": { "type": "string", "maxLength": 256 },
+          "reason": { "type": "string", "maxLength": 256 }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "op": { "const": "offer" } } },
+            "then": { "required": ["title", "objective_summary"] }
+          }
+        ]
+      }
+    },
+    "build_proposals": {
+      "type": "array",
+      "maxItems": 4,
+      "description": "Structured build intents only. Never durable mutations. Must keep preview_required true and confirmation_state pending; World Commit remains the sole mutator.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "proposal_id",
+          "operation",
+          "recipe_id",
+          "entity_kind",
+          "routes_through",
+          "preview_required",
+          "confirmation_state"
+        ],
+        "properties": {
+          "proposal_id": { "type": "string", "format": "uuid" },
+          "operation": {
+            "enum": ["create", "modify", "delete", "enrich", "gift_proposal"]
+          },
+          "recipe_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+          "entity_kind": {
+            "enum": [
+              "tile_layer",
+              "terrain_patch_2_5d",
+              "modular_structure_2_5d",
+              "prop_2_5d",
+              "character_2_5d",
+              "vehicle_2_5d"
+            ]
+          },
+          "routes_through": {
+            "const": "preview_confirm_commit",
+            "description": "Build proposals always enter the world_prompt preview → confirm → World Commit path."
+          },
+          "preview_required": {
+            "const": true
+          },
+          "confirmation_state": {
+            "const": "pending",
+            "description": "AGM cannot pre-confirm. Player confirmation is required."
+          },
+          "space_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+          "chunk_id": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "transform": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["x", "y", "elevation", "rotation_deg"],
+            "properties": {
+              "x": { "type": "number" },
+              "y": { "type": "number" },
+              "elevation": { "type": "number" },
+              "rotation_deg": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMaximum": 360
+              }
+            }
+          },
+          "rationale": { "type": "string", "maxLength": 256 }
+        }
+      }
+    },
+    "event_proposals": {
+      "type": "array",
+      "maxItems": 8,
+      "description": "Allowlisted narrative/world event proposals only. Not event bus envelopes and not durable commits.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["event_type", "summary"],
+        "properties": {
+          "event_type": {
+            "enum": [
+              "pacing.slow_down",
+              "pacing.speed_up",
+              "ambient.weather_hint",
+              "ambient.time_of_day_hint",
+              "narrative.beat",
+              "companion.attention",
+              "quest.hint",
+              "onboarding.nudge"
+            ]
+          },
+          "summary": { "type": "string", "minLength": 1, "maxLength": 256 },
+          "intensity": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "mood_delta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["delta"],
+      "properties": {
+        "delta": {
+          "type": "number",
+          "minimum": -0.1,
+          "maximum": 0.1,
+          "description": "Bounded per-decision mood change. Excessive deltas are schema-invalid."
+        },
+        "reason": { "type": "string", "maxLength": 128 }
+      }
+    },
+    "relationship_delta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["delta"],
+      "properties": {
+        "delta": {
+          "type": "number",
+          "minimum": -0.05,
+          "maximum": 0.05,
+          "description": "Bounded per-decision relationship change. Excessive deltas are schema-invalid."
+        },
+        "reason": { "type": "string", "maxLength": 128 }
+      }
+    },
+    "next_trigger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind"],
+      "properties": {
+        "kind": {
+          "enum": [
+            "player_action",
+            "timer",
+            "quest_progress",
+            "location_enter",
+            "manual_bridge",
+            "none"
+          ]
+        },
+        "timer_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3600
+        },
+        "hint": { "type": "string", "maxLength": 128 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "const": "timer" } } },
+          "then": { "required": ["timer_seconds"] }
+        }
+      ]
+    },
+    "pacing_hint": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tempo": { "enum": ["slow", "steady", "brisk"] },
+        "note": { "type": "string", "maxLength": 128 }
+      }
+    },
+    "trace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["trace_id", "model_receipt_ref"],
+      "properties": {
+        "trace_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "model_receipt_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "description": "Opaque provider-neutral receipt/handle. Never a raw API key."
+        },
+        "provider_label": {
+          "type": "string",
+          "maxLength": 64,
+          "description": "Optional non-secret label e.g. desktop_bridge or gateway_route_a."
+        }
+      }
+    }
+  },
+  "propertyNames": {
+    "type": "string",
+    "not": {
+      "enum": [
+        "api_key",
+        "access_token",
+        "password",
+        "secret",
+        "secrets",
+        "credentials",
+        "cookie",
+        "cookies",
+        "session_cookie",
+        "auth_token",
+        "raw_system_prompt",
+        "system_prompt",
+        "private_memory",
+        "raw_prompt",
+        "tts_audio",
+        "voice_sample",
+        "microphone_buffer",
+        "provider_credentials",
+        "script",
+        "scripts",
+        "code",
+        "shader",
+        "executable",
+        "commit_request",
+        "durable_mutation",
+        "scene_tree_mutation",
+        "direct_world_write"
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "agent_step_id": "G2-003-accept-conductor-2026-07-20",
+  "agent_type": "lead-orchestrator",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "result": {"task_id": "G2-003", "state": "ACCEPTED", "purple": "ACCEPTED", "text_only": true},
+  "smoke_test": {
+    "commands": [
+      "python game\\scripts\\modules\\companion\\smoke_g2_003.py",
+      "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/companion/companion_headless_smoke.gd"
+    ],
+    "exit_codes": [0, 0]
+  },
+  "self_audit": {"purple_ref": "orchestration/reviews/G2-003_PURPLE_REVIEW.md", "no_tts_stt": true},
+  "evidence_refs": [
+    "orchestration/receipts/G2-003.json",
+    "game/scripts/modules/companion/exports/companion_proposal_cozy_house.json"
+  ],
+  "next_route": "G3 after all G2 ACCEPTED"
+}

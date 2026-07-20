@@ -1,0 +1,78 @@
+{
+  "agent_step_id": "G2-003-2026-07-20-aidle-companion",
+  "agent_type": "aidle-companion",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G2-003",
+    "state": "REVIEW_REQUESTED",
+    "summary": "Text-only Companion module: schema-valid World Prompt proposals (pending only), no commit/durable-mutate tool, personality drift caps from personality_profile.schema.json, inspect/lock/reset/delete controls (API + text UI + commands).",
+    "artifacts": [
+      "game/scripts/modules/companion/companion_module.gd",
+      "game/scripts/modules/companion/personality_profile.gd",
+      "game/scripts/modules/companion/world_prompt_builder.gd",
+      "game/scripts/modules/companion/companion_chat_panel.gd",
+      "game/scripts/modules/companion/companion_headless_smoke.gd",
+      "game/scripts/modules/companion/smoke_g2_003.py",
+      "game/scripts/modules/companion/exports/companion_proposal_cozy_house.json",
+      "game/scripts/modules/companion/exports/default_personality_profile.json",
+      "game/scripts/modules/interfaces/i_companion_module.gd",
+      "game/scripts/modules/stubs/module_stub.gd",
+      "game/scenes/modules/companion/companion_module.tscn",
+      "game/scenes/ui/companion_chat_panel.tscn"
+    ],
+    "acceptance": {
+      "proposal_validates_world_prompt_schema": true,
+      "exported_proposal": "game/scripts/modules/companion/exports/companion_proposal_cozy_house.json",
+      "no_commit_tool": true,
+      "no_durable_world_mutation_from_companion": true,
+      "drift_caps_max_delta_per_turn": 0.005,
+      "drift_caps_max_delta_per_day": 0.03,
+      "drift_caps_max_distance_from_base": 0.25,
+      "inspect_lock_reset_delete_controls": true,
+      "text_only_no_stt_tts_voice": true
+    },
+    "not_done": [
+      "No LLM/provider gateway for free-form NL→SWP (deterministic recipe map only)",
+      "Companion chat panel not auto-instanced into main HUD (scene provided; main.gd out of allowed paths)",
+      "No Executor hand-off runtime proof (Executor still stub)",
+      "No self-ACCEPT"
+    ]
+  },
+  "smoke_test": {
+    "python_command": "python game/scripts/modules/companion/smoke_g2_003.py",
+    "python_exit_code": 0,
+    "python_stdout": "G2-003_SMOKE=PASS",
+    "godot_command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/companion/companion_headless_smoke.gd",
+    "godot_exit_code": 0,
+    "godot_stdout": "G2-003_GODOT_SMOKE=PASS",
+    "project_validator": "python scripts/validate_project.py → AIDLE_VALIDATION=PASS",
+    "boot_note": "Godot --headless --path game --quit-after 5 registers CompanionModule via ModuleStub companion slot upgrade"
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "did_not_edit_contracts_schemas": true,
+    "no_stt_tts_voice_mic_audio_models": true,
+    "no_direct_commit_tool": true,
+    "no_scene_tree_durable_mutation": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "authority_token": "PATCH_DRAFT",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded AGENTS + WO + contracts manually"
+  },
+  "evidence_refs": [
+    "game/scripts/modules/companion/exports/companion_proposal_cozy_house.json",
+    "game/scripts/modules/companion/exports/default_personality_profile.json",
+    "game/scripts/modules/companion/personality_profile.gd",
+    "game/scripts/modules/companion/world_prompt_builder.gd",
+    "game/scripts/modules/companion/companion_module.gd",
+    "game/scripts/modules/interfaces/i_companion_module.gd",
+    "contracts/world_prompt.schema.json",
+    "contracts/personality_profile.schema.json",
+    "orchestration/work_orders/WO-G2-003.md",
+    "AIdle_Openworld_Blueprint_v1.1/07_Companion_Personality_and_Voice.md"
+  ],
+  "next_route": "consumer/purple VERIFY_ONLY review of G2-003; do not ACCEPT until independent verification"
+}

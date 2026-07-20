@@ -1,0 +1,115 @@
+{
+  "agent_step_id": "G2-007-aidle-core-2026-07-20",
+  "agent_type": "aidle-core",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G2-007",
+    "state": "REVIEW_REQUESTED",
+    "summary": "First-run Free vs Paid AGM edition selector: desktop_bridge_free | api_paid enums, boot gate, SettingsManager persistence with consent-on-change, paid path stores no client secret/API key. Same AGM contract semantics (transport only).",
+    "artifacts": [
+      "game/scripts/core/constants.gd",
+      "game/autoload/settings_manager.gd",
+      "game/scripts/main/boot.gd",
+      "game/scripts/core/edition_select.gd",
+      "game/scenes/ui/edition_select.tscn",
+      "game/scripts/core/edition_headless_smoke.gd",
+      "orchestration/receipts/G2-007.json"
+    ],
+    "acceptance": {
+      "first_run_selector_desktop_bridge_free_or_api_paid": true,
+      "edition_choice_persisted_user_settings": true,
+      "change_requires_consent": true,
+      "same_snapshot_decision_contract_semantics": true,
+      "paid_path_stores_no_client_secret_or_api_key": true,
+      "boot_edition_gate": true,
+      "headless_ephemeral_default_not_persisted": true,
+      "self_accept": false
+    },
+    "not_done": [
+      "No Desktop Bridge transport (G2-005)",
+      "No AGM decision executor (G2-006)",
+      "No paid API gateway / network adapter (G5)",
+      "No settings_menu edition toggle UI (API present: set_edition with consent)",
+      "No self-ACCEPT"
+    ]
+  },
+  "edition_contract": {
+    "enum": ["desktop_bridge_free", "api_paid"],
+    "default": "desktop_bridge_free",
+    "schema_source": [
+      "contracts/agm/world_state_snapshot.schema.json",
+      "contracts/agm/decision_envelope.schema.json"
+    ],
+    "policy": "contracts/fixtures/agm/policy/edition_identity_pair.json",
+    "invariant": "Free and Paid share identical payload semantics; only the edition field differs"
+  },
+  "smoke_test": {
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game -s res://scripts/core/edition_headless_smoke.gd --headless",
+        "exit_code": 0,
+        "stdout_marker": "G2-007_GODOT_SMOKE=PASS",
+        "checks": [
+          "edition enums match contract",
+          "ephemeral set free/paid",
+          "persist free then change without consent fails",
+          "change with consent succeeds",
+          "set_value api_key/client_secret refused",
+          "get_edition_export stores_api_key=false stores_client_secret=false contract_semantics=identical",
+          "has_no_client_secrets true"
+        ]
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 5",
+        "exit_code": 0,
+        "stdout_highlights": [
+          "[Boot] Headless smoke → default AGM edition (not persisted).",
+          "[Boot] AGM edition=desktop_bridge_free same_contracts=true no_client_secrets=true",
+          "[Boot] Headless smoke → main with default art style.",
+          "[Main] Entered Private Reality | style=cozy_cyber_pixel"
+        ],
+        "non_fatal_notes": [
+          "Headless dummy renderer may emit mesh_get_surface_count Parameter m is null; exit code still 0.",
+          "Unrelated concurrent module parse noise (CompanionAgmDecisionApplier) may appear; outside G2-007 allowed paths."
+        ]
+      }
+    ],
+    "binary": "tools/Godot_v4.3-stable_win64_console.exe",
+    "godot_version": "4.3.stable.official.77dcf97d8",
+    "scope": "edition-enums,first-run-gate,persist-consent,no-client-secrets,boot-to-main"
+  },
+  "self_audit": {
+    "allowed_write_paths_only": true,
+    "allowed_paths": [
+      "game/scripts/core/**",
+      "game/autoload/settings_manager.gd",
+      "game/scenes/ui/** (first-run selector)",
+      "game/scripts/main/boot.gd (edition gate only)",
+      "orchestration/receipts/G2-007.json"
+    ],
+    "did_not_implement_bridge_transport_g2_005": true,
+    "did_not_implement_executor_g2_006": true,
+    "did_not_embed_api_keys": true,
+    "did_not_install_packages": true,
+    "did_not_touch_agm_schemas": true,
+    "no_self_accept": true,
+    "authority_token": "PATCH_DRAFT"
+  },
+  "evidence_refs": [
+    "game/scripts/core/constants.gd",
+    "game/autoload/settings_manager.gd",
+    "game/scripts/main/boot.gd",
+    "game/scripts/core/edition_select.gd",
+    "game/scenes/ui/edition_select.tscn",
+    "game/scripts/core/edition_headless_smoke.gd",
+    "orchestration/work_orders/WO-G2-007.md",
+    "contracts/agm/world_state_snapshot.schema.json",
+    "contracts/agm/decision_envelope.schema.json",
+    "AIdle_Openworld_Blueprint_v1.1/08_AI_Game_Master_and_Edition_Modes.md",
+    "tools/Godot_v4.3-stable_win64_console.exe"
+  ],
+  "next_route": "consumer/purple VERIFY_ONLY review of G2-007; ACCEPTED only after independent verification; no self-ACCEPT by aidle-core"
+}

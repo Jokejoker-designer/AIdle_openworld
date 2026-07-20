@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "token_set_id": "shared_2_5d_tokens",
+  "version": "1.0.0",
+  "description": "Shared dimensional style tokens for all 2.5D base_concept profiles (Visual Concept Pillars).",
+  "camera": {
+    "mode": "fixed_three_quarter",
+    "free_orbit_allowed": false,
+    "readable_silhouette_priority": true,
+    "foreground_fade": true
+  },
+  "shape_language": {
+    "default": "rounded_readable",
+    "allowed": ["rounded_readable", "faceted_soft", "soft_organic", "angular_soft"],
+    "isometric_readability": "high",
+    "max_local_detail_density": 0.55
+  },
+  "material": {
+    "final_surface": "matte_tactile",
+    "construction_surface": "translucent_luminous",
+    "no_photoreal_mix": true
+  },
+  "motion": {
+    "easing": "ease_in_out",
+    "noisy_by_default": false,
+    "manifestation_duration_seconds_range": [8, 15],
+    "reduced_motion_supported": true
+  },
+  "manifestation": {
+    "stages": ["wireframe", "hologram", "materializing", "complete"],
+    "wireframe_describes": ["volume", "sockets"],
+    "collision_active_from": "complete"
+  },
+  "accessibility": {
+    "color_never_only_state_signal": true,
+    "state_signals": ["stage_label", "opacity", "outline", "icon"]
+  },
+  "budget": {
+    "starter_part_triangle_soft_cap": 96,
+    "starter_entity_triangle_soft_cap": 1200,
+    "paid_compute_allowed_default": false
+  },
+  "anti_patterns": [
+    "dense_neon_soup",
+    "photoreal_beside_toy_low_poly",
+    "instant_pop_in",
+    "free_3d_camera_mvp",
+    "neural_mesh_as_world_truth"
+  ]
+}

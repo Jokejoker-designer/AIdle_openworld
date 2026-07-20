@@ -1,0 +1,67 @@
+{
+  "description": "Decision whose source_snapshot_id does not match the live snapshot_id is stale and must be rejected.",
+  "rules": {
+    "source_must_equal_live_snapshot_id": true,
+    "stale_must_reject": true
+  },
+  "live_snapshot": {
+    "schema_version": "1.0.0",
+    "snapshot_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+    "created_at": "2026-07-20T18:00:00Z",
+    "edition": "desktop_bridge_free",
+    "session_id": "session_starter_01",
+    "space_id": "home_01",
+    "world_revision": 20,
+    "progression_phase": "early",
+    "art_style": {
+      "profile_id": "cozy_default",
+      "base_concept": "cozy_cyber_pixel_2_5d"
+    },
+    "player": {
+      "player_id": "player_01",
+      "location": { "chunk_id": "0_0", "x": 1.0, "y": 1.0 }
+    },
+    "companion": {
+      "companion_id": "companion_aida",
+      "mood": 0.5,
+      "relationship": 0.5
+    },
+    "world": {
+      "space_type": "private_reality",
+      "entity_count": 5,
+      "known_entity_ids": ["house_placeholder"]
+    },
+    "quests": { "active": [], "completed_ids": [] },
+    "latest_player_action": {
+      "action_type": "idle",
+      "occurred_at": "2026-07-20T17:59:00Z",
+      "summary": "waiting"
+    },
+    "last_execution_receipt": { "decision_id": null, "status": "none" },
+    "memory": { "recent_turns": [], "summary": "live turn" },
+    "trace_id": "trace_live_snap"
+  },
+  "stale_decision": {
+    "schema_version": "1.0.0",
+    "decision_id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
+    "source_snapshot_id": "11111111-1111-4111-8111-111111111111",
+    "created_at": "2026-07-20T16:00:05Z",
+    "edition": "desktop_bridge_free",
+    "session_id": "session_starter_01",
+    "dialogue": {
+      "lines": [
+        { "speaker": "companion", "text": "This decision targets an old snapshot." }
+      ]
+    },
+    "quest_operations": [],
+    "build_proposals": [],
+    "event_proposals": [],
+    "mood_delta": { "delta": 0.0 },
+    "relationship_delta": { "delta": 0.0 },
+    "next_trigger": { "kind": "none" },
+    "trace": {
+      "trace_id": "trace_stale",
+      "model_receipt_ref": "bridge:decision:stale"
+    }
+  }
+}

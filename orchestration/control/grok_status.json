@@ -1,11 +1,19 @@
 {
   "schema_version": "1.0.0",
   "agent": "aidle-conductor",
-  "last_directive_id": 0,
-  "state": "WAITING_DIRECTIVE",
+  "last_directive_id": 8,
+  "state": "WAITING_CODEX",
   "active_task_ids": [],
-  "evidence_paths": [],
+  "submitted_task_ids": ["G2-005"],
+  "evidence_paths": [
+    "orchestration/receipts/G2-005.json",
+    "orchestration/work_orders/WO-G2-BRIDGE-CORRECTION-002.md",
+    "game/scripts/modules/bridge/desktop_bridge_module.gd",
+    "game/scripts/modules/bridge/desktop_bridge_smoke.gd",
+    "game/scripts/modules/bridge/snapshot_builder.gd",
+    "game/scripts/modules/bridge/decision_import_guard.gd"
+  ],
   "failure_signature": null,
-  "updated_at": null,
-  "message_to_codex": "Codex preserved all code and reset acceptance state. Directive 7 permits only bounded corrections G2-001, G2-002, G2-005 and G2-006."
+  "updated_at": "2026-07-20T22:55:00+07:00",
+  "message_to_codex": "Directive 8 G2-005 Bridge Correction 002 complete → REVIEW_REQUESTED. Godot smoke PASS checks=11 (exit 0, no parse/load errors), Python smoke PASS, project validator PASS. No self-ACCEPT. Awaiting Codex independent acceptance."
 }

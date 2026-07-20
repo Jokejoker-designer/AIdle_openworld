@@ -4,7 +4,7 @@
 ##     -s res://scripts/modules/bridge/desktop_bridge_smoke.gd
 ##
 ## Exit 0 on pass. Prints G2-005_GODOT_SMOKE=PASS|FAIL.
-## Uses load() (not only class_name) so concurrent broken modules cannot block.
+## Any required-script load/parse/instantiate failure is a hard FAIL (no PASS beside errors).
 extends SceneTree
 
 const PATHS_PATH := "res://scripts/modules/bridge/bridge_paths.gd"
@@ -12,32 +12,36 @@ const BUILDER_PATH := "res://scripts/modules/bridge/snapshot_builder.gd"
 const GUARD_PATH := "res://scripts/modules/bridge/decision_import_guard.gd"
 const MODULE_PATH := "res://scripts/modules/bridge/desktop_bridge_module.gd"
 const IFACE_PATH := "res://scripts/modules/interfaces/i_desktop_bridge_module.gd"
-
-const FIXTURE_DECISION := "res://../contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json"
-const FIXTURE_STALE := "res://../contracts/fixtures/agm/policy/stale_snapshot_rejection.json"
-const FIXTURE_REPLAY := "res://../contracts/fixtures/agm/policy/replay_decision_pair.json"
-const FIXTURE_BAD_SCRIPT := "res://../contracts/fixtures/agm/invalid/invalid_decision_with_script_code.json"
-const FIXTURE_MISSING := "res://../contracts/fixtures/agm/invalid/invalid_decision_missing_required.json"
+const CONSENT_SCENE := "res://scenes/ui/bridge_consent_dialog.tscn"
+const CONSENT_SCRIPT := "res://scripts/modules/bridge/bridge_consent_dialog.gd"
 
 var _failures: PackedStringArray = []
 var _passed: int = 0
+var _fatal: bool = false
 var _Builder: GDScript
 var _Guard: GDScript
 var _Module: GDScript
 var _Iface: GDScript
 var _Paths: GDScript
+var _ConsentScript: GDScript
 
 
 func _initialize() -> void:
 	print("[G2-005 smoke] starting…")
-	_Paths = load(PATHS_PATH) as GDScript
-	_Builder = load(BUILDER_PATH) as GDScript
-	_Guard = load(GUARD_PATH) as GDScript
-	_Module = load(MODULE_PATH) as GDScript
-	_Iface = load(IFACE_PATH) as GDScript
 
-	if _Builder == null or _Guard == null or _Module == null:
-		_fail("load_scripts", "builder/guard/module load failed")
+	_Paths = _require_script(PATHS_PATH, "BridgePaths")
+	_Builder = _require_script(BUILDER_PATH, "BridgeSnapshotBuilder")
+	_Guard = _require_script(GUARD_PATH, "BridgeDecisionImportGuard")
+	_Module = _require_script(MODULE_PATH, "DesktopBridgeModule")
+	_Iface = _require_script(IFACE_PATH, "IDesktopBridgeModule")
+	_ConsentScript = _require_script(CONSENT_SCRIPT, "bridge_consent_dialog")
+
+	if not ResourceLoader.exists(CONSENT_SCENE):
+		_fail("consent_scene_missing", CONSENT_SCENE)
+		_fatal = true
+
+	if _fatal or not _failures.is_empty():
+		printerr("[G2-005 smoke] hard fail during script load — aborting tests")
 		_finish()
 		return
 
@@ -51,18 +55,47 @@ func _initialize() -> void:
 	_test_reject_replay()
 	_test_no_network()
 	_test_interface_surface()
+	_test_consent_scene_loads()
 
 	_finish()
 
 
+func _require_script(path: String, label: String) -> GDScript:
+	if not ResourceLoader.exists(path):
+		_fail("script_missing", "%s path=%s" % [label, path])
+		_fatal = true
+		return null
+	var loaded: Resource = load(path)
+	if loaded == null:
+		_fail("script_load_null", "%s path=%s" % [label, path])
+		_fatal = true
+		return null
+	var script: GDScript = loaded as GDScript
+	if script == null:
+		_fail("script_not_gdscript", "%s path=%s" % [label, path])
+		_fatal = true
+		return null
+	# Parse/compile failures leave a GDScript that cannot instantiate.
+	if not script.can_instantiate():
+		_fail("script_cannot_instantiate", "%s path=%s (parse/compile error)" % [label, path])
+		_fatal = true
+		return null
+	print("  LOAD OK  %s" % label)
+	return script
+
+
 func _finish() -> void:
-	if _failures.is_empty():
+	# Fail-closed: any recorded failure → FAIL (never PASS beside errors).
+	if _failures.is_empty() and not _fatal:
 		print("G2-005_GODOT_SMOKE=PASS checks=%d" % _passed)
 		quit(0)
 	else:
 		for f in _failures:
 			printerr("[FAIL] %s" % f)
-		print("G2-005_GODOT_SMOKE=FAIL failed=%d passed=%d" % [_failures.size(), _passed])
+		print(
+			"G2-005_GODOT_SMOKE=FAIL failed=%d passed=%d fatal=%s"
+			% [_failures.size(), _passed, str(_fatal)]
+		)
 		quit(1)
 
 
@@ -78,44 +111,47 @@ func _fail(label: String, detail: String = "") -> void:
 
 
 func _new_module() -> Node:
-	var mod: Node = _Module.new() as Node
+	if _Module == null or not _Module.can_instantiate():
+		_fail("module_script_unavailable")
+		return null
+	var instance: Object = _Module.new()
+	if instance == null:
+		_fail("module_new_null")
+		return null
+	var mod: Node = instance as Node
+	if mod == null:
+		_fail("module_not_node")
+		return null
 	mod.set("show_consent_ui", false)
-	# Attach so Node lifecycle is valid; ModuleRegistry may register on _ready.
 	root.add_child(mod)
 	return mod
 
 
-func _read_project_json(rel_from_game: String) -> Variant:
-	# game/ is project root for --path game; contracts sit one level up.
-	var path := ProjectSettings.globalize_path("res://").path_join("..").path_join(
-		rel_from_game.trim_prefix("res://../")
-	) if rel_from_game.begins_with("res://../") else ProjectSettings.globalize_path(rel_from_game)
-	# Normalize: prefer absolute path from known workspace layout.
-	if rel_from_game.begins_with("res://../"):
-		var game_root := ProjectSettings.globalize_path("res://")
-		path = game_root.path_join("..").path_join(rel_from_game.substr(len("res://../")))
-		path = path.simplify_path()
-	if not FileAccess.file_exists(path):
-		# Fallback absolute relative to this script location is unreliable; try user fixtures copy.
-		return null
-	var f := FileAccess.open(path, FileAccess.READ)
-	if f == null:
-		return null
-	var text := f.get_as_text()
-	f.close()
-	var json := JSON.new()
-	if json.parse(text) != OK:
-		return null
-	return json.data
-
-
 func _test_snapshot_export_structure() -> void:
-	var builder = _Builder.new()
-	var snap: Dictionary = builder.build({
+	if _Builder == null or not _Builder.can_instantiate():
+		_fail("builder_unavailable")
+		return
+	var builder: Object = _Builder.new()
+	if builder == null:
+		_fail("builder_new_null")
+		return
+	var snap_v: Variant = builder.call("build", {
 		"snapshot_id": "11111111-1111-4111-8111-111111111111",
 		"session_id": "session_starter_01",
 	})
-	var errs: PackedStringArray = builder.validate_structure(snap)
+	if typeof(snap_v) != TYPE_DICTIONARY:
+		_fail("snapshot_not_dict")
+		return
+	var snap: Dictionary = snap_v
+	var errs_v: Variant = builder.call("validate_structure", snap)
+	var errs: PackedStringArray = errs_v as PackedStringArray
+	if errs == null:
+		# Fallback if typed array boxing differs
+		if typeof(errs_v) == TYPE_PACKED_STRING_ARRAY:
+			errs = errs_v
+		else:
+			_fail("validate_structure_type")
+			return
 	if not errs.is_empty():
 		_fail("snapshot_structure", ", ".join(errs))
 		return
@@ -134,6 +170,8 @@ func _test_snapshot_export_structure() -> void:
 
 func _test_export_file_roundtrip() -> void:
 	var mod := _new_module()
+	if mod == null:
+		return
 	var result: Dictionary = mod.call("export_snapshot_to_file", {
 		"snapshot_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
 	})
@@ -146,13 +184,16 @@ func _test_export_file_roundtrip() -> void:
 		_fail("export_file_missing", path)
 		mod.queue_free()
 		return
-	var live_id: String = mod.call("get_live_snapshot_id")
+	var live_id: String = str(mod.call("get_live_snapshot_id"))
 	if live_id != "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa":
 		_fail("live_snapshot_id", live_id)
 		mod.queue_free()
 		return
-	# Structural re-read
 	var f := FileAccess.open(path, FileAccess.READ)
+	if f == null:
+		_fail("export_file_open")
+		mod.queue_free()
+		return
 	var text := f.get_as_text()
 	f.close()
 	var json := JSON.new()
@@ -170,6 +211,8 @@ func _test_export_file_roundtrip() -> void:
 
 func _test_import_valid_requires_consent() -> void:
 	var mod := _new_module()
+	if mod == null:
+		return
 	mod.call("export_snapshot_to_file", {
 		"snapshot_id": "11111111-1111-4111-8111-111111111111",
 	})
@@ -206,7 +249,6 @@ func _test_import_valid_requires_consent() -> void:
 		_fail("has_pending_consent")
 		mod.queue_free()
 		return
-	# Must NOT be accepted yet without confirm.
 	var accepted: Dictionary = mod.call("get_accepted_decision")
 	if not accepted.is_empty():
 		_fail("auto_applied_without_consent")
@@ -218,6 +260,8 @@ func _test_import_valid_requires_consent() -> void:
 
 func _test_confirm_accepts() -> void:
 	var mod := _new_module()
+	if mod == null:
+		return
 	mod.call("export_snapshot_to_file", {
 		"snapshot_id": "11111111-1111-4111-8111-111111111111",
 	})
@@ -258,24 +302,27 @@ func _test_confirm_accepts() -> void:
 
 func _test_reject_malformed() -> void:
 	var mod := _new_module()
+	if mod == null:
+		return
 	mod.call("set_live_snapshot_for_tests", "11111111-1111-4111-8111-111111111111")
 	var result: Dictionary = mod.call("import_decision_from_text", "this is not json {{{", false)
 	if bool(result.get("ok", true)):
 		_fail("malformed_should_reject")
 		mod.queue_free()
 		return
-	if str(result.get("reason", "")) != "malformed_json" and str(result.get("reason", "")) != "empty_input":
-		# parse may yield malformed_json
-		if str(result.get("reason", "")) == "":
-			_fail("malformed_reason_empty")
-			mod.queue_free()
-			return
+	var reason := str(result.get("reason", ""))
+	if reason.is_empty():
+		_fail("malformed_reason_empty")
+		mod.queue_free()
+		return
 	_ok("reject_malformed")
 	mod.queue_free()
 
 
 func _test_reject_forbidden_script() -> void:
 	var mod := _new_module()
+	if mod == null:
+		return
 	mod.call("set_live_snapshot_for_tests", "11111111-1111-4111-8111-111111111111")
 	var bad := {
 		"schema_version": "1.0.0",
@@ -311,7 +358,8 @@ func _test_reject_forbidden_script() -> void:
 
 func _test_reject_stale() -> void:
 	var mod := _new_module()
-	# Live snapshot is bbbb…; decision points at 1111… → stale.
+	if mod == null:
+		return
 	mod.call("set_live_snapshot_for_tests", "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb")
 	var stale := {
 		"schema_version": "1.0.0",
@@ -344,6 +392,8 @@ func _test_reject_stale() -> void:
 
 func _test_reject_replay() -> void:
 	var mod := _new_module()
+	if mod == null:
+		return
 	mod.call("set_live_snapshot_for_tests", "11111111-1111-4111-8111-111111111111")
 	var decision_id := "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa"
 	mod.call("mark_decision_seen_for_tests", decision_id)
@@ -378,6 +428,8 @@ func _test_reject_replay() -> void:
 
 func _test_no_network() -> void:
 	var mod := _new_module()
+	if mod == null:
+		return
 	if bool(mod.call("uses_network")):
 		_fail("uses_network_true")
 		mod.queue_free()
@@ -387,19 +439,49 @@ func _test_no_network() -> void:
 
 
 func _test_interface_surface() -> void:
-	if _Iface == null:
-		_fail("iface_load")
+	if _Iface == null or not _Iface.can_instantiate():
+		_fail("iface_unavailable")
 		return
 	var mod := _new_module()
-	var missing: PackedStringArray = _Iface.validate(mod)
+	if mod == null:
+		return
+	var missing: PackedStringArray = _Iface.call("validate", mod) as PackedStringArray
+	if missing == null:
+		_fail("iface_validate_type")
+		mod.queue_free()
+		return
 	if not missing.is_empty():
 		_fail("iface_methods", ", ".join(missing))
 		mod.queue_free()
 		return
-	var net_issues: PackedStringArray = _Iface.audit_no_network(mod)
+	var net_issues: PackedStringArray = _Iface.call("audit_no_network", mod) as PackedStringArray
+	if net_issues == null:
+		_fail("iface_audit_type")
+		mod.queue_free()
+		return
 	if not net_issues.is_empty():
 		_fail("iface_network", ", ".join(net_issues))
 		mod.queue_free()
 		return
 	_ok("interface_surface")
 	mod.queue_free()
+
+
+func _test_consent_scene_loads() -> void:
+	if not ResourceLoader.exists(CONSENT_SCENE):
+		_fail("consent_scene_missing")
+		return
+	var scene: PackedScene = load(CONSENT_SCENE) as PackedScene
+	if scene == null:
+		_fail("consent_scene_load_null")
+		return
+	var node: Node = scene.instantiate() as Node
+	if node == null:
+		_fail("consent_scene_instantiate_null")
+		return
+	if not node.has_method("bind") or not node.has_method("open_dialog"):
+		_fail("consent_scene_methods")
+		node.queue_free()
+		return
+	node.queue_free()
+	_ok("consent_scene_loads")

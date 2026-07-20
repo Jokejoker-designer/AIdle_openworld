@@ -1,8 +1,11 @@
 ## Builds redacted World State Snapshot dictionaries for Free Desktop Bridge.
 ## Shape matches contracts/agm/world_state_snapshot.schema.json (structural).
 ## Never includes secrets, credentials, raw system prompts, or TTS/voice.
+## Preload BridgePaths so helpers resolve under Godot --script / -s (no class DB).
 class_name BridgeSnapshotBuilder
 extends RefCounted
+
+const BridgePaths = preload("res://scripts/modules/bridge/bridge_paths.gd")
 
 const SCHEMA_VERSION := "1.0.0"
 const EDITION := "desktop_bridge_free"

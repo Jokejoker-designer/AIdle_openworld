@@ -4,8 +4,13 @@
 ## - Manual visible consent required — no auto-apply of decisions.
 ## - Reject malformed JSON, stale source_snapshot_id, replayed decision_id.
 ## - No network/API SDK. Bridge never mutates durable world state (G2-006 executes).
+## Preload helpers so BridgePaths / builder / guard resolve under Godot --script / -s.
 class_name DesktopBridgeModule
 extends Node
+
+const BridgePaths = preload("res://scripts/modules/bridge/bridge_paths.gd")
+const BridgeSnapshotBuilder = preload("res://scripts/modules/bridge/snapshot_builder.gd")
+const BridgeDecisionImportGuard = preload("res://scripts/modules/bridge/decision_import_guard.gd")
 
 const MODULE_ID := "desktop_bridge"
 
@@ -18,21 +23,22 @@ signal consent_cancelled(reason: String)
 @export var show_consent_ui: bool = true
 @export var edition: String = BridgePaths.EDITION_DESKTOP_BRIDGE_FREE
 
-var _builder: BridgeSnapshotBuilder
-var _guard: BridgeDecisionImportGuard
+## Typed as RefCounted so preload scripts do not need global class DB at parse time.
+var _builder: RefCounted
+var _guard: RefCounted
 var _live_snapshot: Dictionary = {}
 var _live_snapshot_id: String = ""
 var _pending_decision: Dictionary = {}
 var _accepted_decision: Dictionary = {}
 var _seen_decision_ids: Dictionary = {}  # decision_id -> true
 var _last_rejection: Dictionary = {}
-var _consent_dialog: Control
+## Node (not Control): AcceptDialog is a Window, CanvasLayer is not a Control.
+var _consent_dialog: Node = null
 var _registered: bool = false
 
 
 func _ready() -> void:
-	_builder = BridgeSnapshotBuilder.new()
-	_guard = BridgeDecisionImportGuard.new()
+	_ensure_helpers()
 	BridgePaths.ensure_bridge_dirs()
 	if not ModuleRegistry.has_module(MODULE_ID):
 		ModuleRegistry.register_module(MODULE_ID, self)
@@ -44,6 +50,14 @@ func _exit_tree() -> void:
 	if _registered and ModuleRegistry.has_module(MODULE_ID):
 		if ModuleRegistry.get_module(MODULE_ID) == self:
 			ModuleRegistry.unregister_module(MODULE_ID)
+
+
+## Eager helper init — required because smoke may call APIs before deferred _ready.
+func _ensure_helpers() -> void:
+	if _builder == null:
+		_builder = BridgeSnapshotBuilder.new() as RefCounted
+	if _guard == null:
+		_guard = BridgeDecisionImportGuard.new() as RefCounted
 
 
 func is_stub() -> bool:
@@ -66,11 +80,12 @@ func uses_network() -> bool:
 # ─── Snapshot export ─────────────────────────────────────────────────────────
 
 func build_snapshot(context: Dictionary = {}) -> Dictionary:
-	var ctx := context.duplicate(true)
+	_ensure_helpers()
+	var ctx: Dictionary = context.duplicate(true)
 	if not ctx.has("edition"):
 		ctx["edition"] = edition
-	var snap := _builder.build(ctx)
-	var errs := _builder.validate_structure(snap)
+	var snap: Dictionary = _builder.call("build", ctx) as Dictionary
+	var errs: PackedStringArray = _builder.call("validate_structure", snap) as PackedStringArray
 	if not errs.is_empty():
 		push_warning("[DesktopBridgeModule] snapshot structure issues: %s" % ", ".join(errs))
 	_live_snapshot = snap.duplicate(true)
@@ -87,10 +102,11 @@ func get_live_snapshot_id() -> String:
 
 
 func export_snapshot_to_clipboard(context: Dictionary = {}) -> Dictionary:
-	var ctx := context.duplicate(true)
+	_ensure_helpers()
+	var ctx: Dictionary = context.duplicate(true)
 	ctx["channel"] = BridgePaths.CHANNEL_CLIPBOARD
-	var snap := build_snapshot(ctx)
-	var payload := _builder.clipboard_payload(snap)
+	var snap: Dictionary = build_snapshot(ctx)
+	var payload: String = str(_builder.call("clipboard_payload", snap))
 	DisplayServer.clipboard_set(payload)
 	snapshot_exported.emit(snap, BridgePaths.CHANNEL_CLIPBOARD, "")
 	return {
@@ -103,14 +119,15 @@ func export_snapshot_to_clipboard(context: Dictionary = {}) -> Dictionary:
 
 
 func export_snapshot_to_file(context: Dictionary = {}, path: String = "") -> Dictionary:
+	_ensure_helpers()
 	BridgePaths.ensure_bridge_dirs()
-	var ctx := context.duplicate(true)
+	var ctx: Dictionary = context.duplicate(true)
 	ctx["channel"] = BridgePaths.CHANNEL_FILE
 	if path.is_empty():
 		path = BridgePaths.outbox_snapshot_path()
 	ctx["bridge_path_hint"] = path
-	var snap := build_snapshot(ctx)
-	var text := _builder.to_pretty_json(snap)
+	var snap: Dictionary = build_snapshot(ctx)
+	var text: String = str(_builder.call("to_pretty_json", snap))
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	if file == null:
 		return {
@@ -134,10 +151,11 @@ func export_snapshot_to_file(context: Dictionary = {}, path: String = "") -> Dic
 
 ## Convenience: export to both clipboard and outbox file.
 func export_snapshot_both(context: Dictionary = {}) -> Dictionary:
-	var file_result := export_snapshot_to_file(context)
+	_ensure_helpers()
+	var file_result: Dictionary = export_snapshot_to_file(context)
 	# Re-export clipboard using the same live snapshot (do not rebuild id).
 	if not _live_snapshot.is_empty():
-		var payload := _builder.clipboard_payload(_live_snapshot)
+		var payload: String = str(_builder.call("clipboard_payload", _live_snapshot))
 		DisplayServer.clipboard_set(payload)
 		snapshot_exported.emit(_live_snapshot, BridgePaths.CHANNEL_CLIPBOARD, "")
 	return {
@@ -153,7 +171,10 @@ func export_snapshot_both(context: Dictionary = {}) -> Dictionary:
 ## Import raw text. Never auto-applies unless auto_consent=true (smoke/tests only).
 ## Production UI always leaves auto_consent=false and shows consent dialog.
 func import_decision_from_text(raw_text: String, auto_consent: bool = false) -> Dictionary:
-	var result := _guard.evaluate(raw_text, _live_snapshot_id, _seen_decision_ids)
+	_ensure_helpers()
+	var result: Dictionary = _guard.call(
+		"evaluate", raw_text, _live_snapshot_id, _seen_decision_ids
+	) as Dictionary
 	if not bool(result.get("ok", false)):
 		_record_rejection(str(result.get("reason", "")), str(result.get("detail", "")))
 		return {
@@ -167,7 +188,7 @@ func import_decision_from_text(raw_text: String, auto_consent: bool = false) -> 
 
 	var decision: Dictionary = result.get("decision", {}) as Dictionary
 	_pending_decision = decision.duplicate(true)
-	var summary := _summarize_decision(decision)
+	var summary: String = _summarize_decision(decision)
 	decision_pending_consent.emit(decision, summary)
 
 	if show_consent_ui and not auto_consent:
@@ -190,11 +211,13 @@ func import_decision_from_text(raw_text: String, auto_consent: bool = false) -> 
 
 
 func import_decision_from_clipboard(auto_consent: bool = false) -> Dictionary:
+	_ensure_helpers()
 	var text := DisplayServer.clipboard_get()
 	return import_decision_from_text(text, auto_consent)
 
 
 func import_decision_from_file(path: String = "", auto_consent: bool = false) -> Dictionary:
+	_ensure_helpers()
 	if path.is_empty():
 		path = BridgePaths.inbox_decision_path()
 	if not FileAccess.file_exists(path):
@@ -234,6 +257,7 @@ func get_pending_decision() -> Dictionary:
 ## Explicit player confirm — sole path from pending → accepted.
 ## Bridge does not execute; G2-006 consumes accepted decisions.
 func confirm_pending_decision() -> Dictionary:
+	_ensure_helpers()
 	if _pending_decision.is_empty():
 		_record_rejection(BridgePaths.REJECT_NO_PENDING, "nothing to confirm")
 		return {
@@ -356,14 +380,16 @@ func mark_decision_seen_for_tests(decision_id: String) -> void:
 func _open_consent_dialog(decision: Dictionary, summary: String) -> void:
 	_close_consent_dialog()
 	var scene: PackedScene = load("res://scenes/ui/bridge_consent_dialog.tscn") as PackedScene
+	var dialog_node: Node = null
 	if scene == null:
 		# Fallback programmatic dialog if scene missing.
-		_consent_dialog = _make_fallback_dialog(summary)
+		dialog_node = _make_fallback_dialog(summary)
 	else:
-		_consent_dialog = scene.instantiate() as Control
-	if _consent_dialog == null:
+		dialog_node = scene.instantiate() as Node
+	if dialog_node == null:
 		push_warning("[DesktopBridgeModule] consent dialog failed to instantiate")
 		return
+	_consent_dialog = dialog_node
 	if _consent_dialog.has_method("bind"):
 		_consent_dialog.call("bind", self, decision, summary)
 	elif _consent_dialog.has_signal("confirmed"):
@@ -373,22 +399,22 @@ func _open_consent_dialog(decision: Dictionary, summary: String) -> void:
 		if _consent_dialog.has_signal("canceled"):
 			if not _consent_dialog.is_connected("canceled", Callable(self, "_on_dialog_canceled")):
 				_consent_dialog.connect("canceled", Callable(self, "_on_dialog_canceled"))
-	var host := get_tree().root if get_tree() else null
-	if host:
+	var tree := get_tree()
+	var host: Node = tree.root if tree != null else null
+	if host != null:
 		host.add_child(_consent_dialog)
 	else:
 		add_child(_consent_dialog)
 	if _consent_dialog.has_method("open_dialog"):
 		_consent_dialog.call("open_dialog")
-	elif _consent_dialog is Window:
-		(_consent_dialog as Window).popup_centered()
 	elif _consent_dialog.has_method("popup_centered"):
+		# AcceptDialog / Window path — duck-typed (not Control cast).
 		_consent_dialog.call("popup_centered")
 	else:
 		_consent_dialog.visible = true
 
 
-func _make_fallback_dialog(summary: String) -> AcceptDialog:
+func _make_fallback_dialog(summary: String) -> Node:
 	var dlg := AcceptDialog.new()
 	dlg.name = "BridgeConsentFallback"
 	dlg.title = "Import AGM Decision?"
@@ -415,7 +441,7 @@ func _close_consent_dialog() -> void:
 
 
 func _summarize_decision(decision: Dictionary) -> String:
-	var did := str(decision.get("decision_id", "?"))
+	var did: String = str(decision.get("decision_id", "?"))
 	var lines: Array = []
 	var dialogue: Variant = decision.get("dialogue", {})
 	if typeof(dialogue) == TYPE_DICTIONARY:
@@ -426,11 +452,11 @@ func _summarize_decision(decision: Dictionary) -> String:
 					lines.append(str((line as Dictionary).get("text", "")))
 	var quests: Variant = decision.get("quest_operations", [])
 	var builds: Variant = decision.get("build_proposals", [])
-	var qn := quests.size() if typeof(quests) == TYPE_ARRAY else 0
-	var bn := builds.size() if typeof(builds) == TYPE_ARRAY else 0
-	var first_line := lines[0] if lines.size() > 0 else "(no dialogue)"
-	if str(first_line).length() > 120:
-		first_line = str(first_line).substr(0, 117) + "..."
+	var qn: int = quests.size() if typeof(quests) == TYPE_ARRAY else 0
+	var bn: int = builds.size() if typeof(builds) == TYPE_ARRAY else 0
+	var first_line: String = str(lines[0]) if lines.size() > 0 else "(no dialogue)"
+	if first_line.length() > 120:
+		first_line = first_line.substr(0, 117) + "..."
 	return "decision_id=%s\nquests=%d builds=%d\n\"%s\"" % [did, qn, bn, first_line]
 
 

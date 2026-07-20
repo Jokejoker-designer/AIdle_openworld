@@ -2,8 +2,12 @@
 ## Rejects: malformed JSON, structural schema failures, forbidden fields,
 ## stale source_snapshot_id, and replayed decision_id.
 ## Does NOT execute decisions (G2-006). Does NOT auto-consent.
+## Preload helpers so constants resolve under Godot --script / -s.
 class_name BridgeDecisionImportGuard
 extends RefCounted
+
+const BridgePaths = preload("res://scripts/modules/bridge/bridge_paths.gd")
+const BridgeSnapshotBuilder = preload("res://scripts/modules/bridge/snapshot_builder.gd")
 
 const SCHEMA_VERSION := "1.0.0"
 const EXPECTED_EDITION := "desktop_bridge_free"

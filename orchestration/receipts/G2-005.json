@@ -1,0 +1,88 @@
+{
+  "agent_step_id": "G2-005-bridge-correction-002-2026-07-20",
+  "agent_type": "aidle-core",
+  "skill_id": "maf-mandatory-standard",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G2-005",
+    "work_order": "orchestration/work_orders/WO-G2-BRIDGE-CORRECTION-002.md",
+    "directive_id": 8,
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "Repaired Free Desktop Bridge for Godot --script loading: preload BridgePaths/helpers, fix dialog Node typing and inferred-null, eager helper init before deferred _ready, harden smoke to fail on script load/parse/instantiate errors. Preserved manual consent, clipboard/file-only, no network, stale/replay rejection, secret deny-list.",
+    "corrections": [
+      "preload BridgePaths in snapshot_builder, decision_import_guard, desktop_bridge_module (class_name fails under -s)",
+      "preload builder/guard in module; call via RefCounted.call after _ensure_helpers()",
+      "_consent_dialog typed as Node (AcceptDialog is Window, not Control); duck-typed popup_centered",
+      "explicit Dictionary/String/int types to clear inferred-null parse errors",
+      "desktop_bridge_smoke: can_instantiate hard-fail; no PASS beside load failures; null module guards",
+      "eager _ensure_helpers so APIs work before deferred _ready"
+    ],
+    "preserved_invariants": [
+      "manual visible consent (auto_consent default false)",
+      "clipboard + inbox/outbox file only",
+      "uses_network() == false",
+      "stale_snapshot and replayed_decision rejection",
+      "secret/script/code deny-list on import",
+      "bridge does not execute durable mutation (executed=false)"
+    ]
+  },
+  "smoke_test": {
+    "commands": [
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/bridge/desktop_bridge_smoke.gd",
+        "exit_code": 0,
+        "marker": "G2-005_GODOT_SMOKE=PASS checks=11",
+        "notes": "No SCRIPT ERROR / Parse Error / Failed to load on pass path"
+      },
+      {
+        "command": "python game\\scripts\\modules\\bridge\\smoke_g2_005.py",
+        "exit_code": 0,
+        "marker": "G2-005_SMOKE=PASS"
+      },
+      {
+        "command": "python scripts\\validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    ]
+  },
+  "self_audit": {
+    "no_tasks_json_edit": true,
+    "no_control_edit_except_grok_status": true,
+    "no_architecture_edit": true,
+    "no_contracts_edit": true,
+    "no_accept_receipt": true,
+    "no_rollback_delete": true,
+    "no_network_sdk": true,
+    "no_tts_stt": true,
+    "worker_cannot_self_accept": true
+  },
+  "changed_files": [
+    "game/scripts/modules/bridge/bridge_paths.gd",
+    "game/scripts/modules/bridge/snapshot_builder.gd",
+    "game/scripts/modules/bridge/decision_import_guard.gd",
+    "game/scripts/modules/bridge/desktop_bridge_module.gd",
+    "game/scripts/modules/bridge/desktop_bridge_smoke.gd",
+    "game/scripts/modules/bridge/bridge_consent_dialog.gd",
+    "game/scenes/ui/bridge_consent_dialog.tscn",
+    "game/scripts/modules/interfaces/i_desktop_bridge_module.gd",
+    "game/scripts/modules/bridge/smoke_g2_005.py",
+    "orchestration/receipts/G2-005.json"
+  ],
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G2-BRIDGE-CORRECTION-002.md",
+    "orchestration/control/codex_directive.json",
+    "game/scripts/modules/bridge/desktop_bridge_module.gd",
+    "game/scripts/modules/bridge/desktop_bridge_smoke.gd"
+  ],
+  "remaining_risks": [
+    "class_name global DB still incomplete under pure -s for other modules; bridge now self-preloads",
+    "clipboard path not exercised under headless (file path covered)",
+    "secret deny-list is top-level keyword fence, not deep nested secret scanning",
+    "consent UI visual QA not run in headed Godot (scene instantiate covered headless)",
+    "G2-006 executor handoff still stub-level outside this WO"
+  ],
+  "next_route": "WAITING_CODEX — independent Codex acceptance only; worker does not ACCEPT"
+}

@@ -1,0 +1,52 @@
+{
+  "review_id": "CODEX-G2-005-2026-07-20",
+  "reviewer_role": "codex-final-acceptor",
+  "intent_anchor": {
+    "user_goal": "Continue the existing AIdle build without rollback while keeping one Grok Desktop session and independent Codex acceptance.",
+    "current_priority": "Accept the Free Desktop Bridge only if its Godot and Python evidence is clean and scope-bounded.",
+    "allowed_scope": [
+      "G2-005 bridge implementation",
+      "G2-005 smoke hardening",
+      "Grok status and worker receipt"
+    ],
+    "forbidden_scope": [
+      "rollback or deletion of preserved gameplay code",
+      "network or provider SDK in the Free bridge",
+      "worker self-acceptance",
+      "task, architecture or contract mutation by Grok"
+    ]
+  },
+  "claim_under_review": "G2-005 Bridge Correction 002 is ready for independent acceptance.",
+  "what_i_accept": [
+    "Python smoke passes.",
+    "Godot smoke passes 11 checks with no parse, compile, load or runtime error markers.",
+    "Project validator passes.",
+    "MAF worker receipt validates and remains REVIEW_REQUESTED without self-acceptance.",
+    "The actual correction diff stays inside bridge code plus Grok status and receipt."
+  ],
+  "what_i_challenge": [
+    "The receipt changed_files list includes preserved G2-005 artifacts that were not all modified in this correction delta.",
+    "Clipboard behavior and consent visuals were not exercised in a headed interactive run."
+  ],
+  "strongest_counter_argument": "A headless pass cannot prove the visible consent dialog and real OS clipboard experience are visually correct.",
+  "missing_evidence": [
+    "Headed visual QA remains for the later alpha gate.",
+    "The adversarial-review skill references schema files that are absent from its installed folder, so this object follows the documented field contract but could not be schema-validated."
+  ],
+  "scope_drift_risk": "low",
+  "final_verdict": "ACCEPT",
+  "self_audit": {
+    "preserved_user_intent": true,
+    "did_not_invent_objection": true,
+    "evidence_based": true,
+    "no_scope_hijack": true
+  },
+  "blind_spots": [
+    "OS clipboard integration is platform-dependent.",
+    "Visual layout is intentionally deferred and is not claimed by this acceptance."
+  ],
+  "confidence_before_challenge": 0.91,
+  "confidence_penalty": 0.06,
+  "confidence_after_challenge": 0.85,
+  "next_action": "Commit accepted G2-005 evidence and dispatch directive 9 for G2-001/G2-002 in the same Grok Desktop session."
+}

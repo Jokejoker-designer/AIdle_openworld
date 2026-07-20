@@ -1,38 +1,34 @@
 {
   "schema_version": "1.0.0",
   "agent": "aidle-conductor",
-  "last_directive_id": 17,
+  "last_directive_id": 18,
   "state": "WAITING_CODEX",
   "active_task_ids": [],
   "submitted_task_ids": ["G6-001"],
-  "active_wave": "M4_CORE_TWO_CLIENT_PURPLE_DONE",
-  "work_order": "orchestration/work_orders/WO-G6-001.md",
-  "dispatch_map": "orchestration/work_orders/G6-001_DISPATCH_MAP.md",
+  "active_wave": "R4_CORE_PURPLE_DONE",
+  "work_order": "orchestration/work_orders/WO-G6-001-CORRECTION-001.md",
+  "dispatch_map": "orchestration/work_orders/G6-001_CORRECTION_001_DISPATCH_MAP.md",
   "profiles_used": ["schema", "network", "executor", "persist", "core"],
   "evidence_paths": [
-    "orchestration/receipts/G6-001.json",
-    "orchestration/receipts/g6/M0_schema.json",
-    "orchestration/receipts/g6/M1_network.json",
-    "orchestration/receipts/g6/M2_executor.json",
-    "orchestration/receipts/g6/M3_persist.json",
-    "orchestration/receipts/g6/M4_core.json",
-    "orchestration/reviews/G6-001_PURPLE_REVIEW.md",
-    "orchestration/logs/g6-m2-parent-two-client.log",
-    "orchestration/logs/g6-boot-parent.log",
-    "services/world_authority_poc/",
-    "game/scripts/modules/network/"
+    "orchestration/receipts/G6-001-CORRECTION-001.json",
+    "orchestration/receipts/g6/R0_schema.json",
+    "orchestration/receipts/g6/R1_network.json",
+    "orchestration/receipts/g6/R2_executor.json",
+    "orchestration/receipts/g6/R3_persist.json",
+    "orchestration/receipts/g6/R4_core.json",
+    "orchestration/reviews/G6-001_CORRECTION_001_PURPLE_REVIEW.md"
   ],
   "parent_smoke": {
     "poc_marker": "G6_WORLD_AUTHORITY_SMOKE=PASS",
-    "poc_tests": 19,
+    "poc_tests": 21,
     "poc_exit": 0,
-    "two_client_marker": "G6_TWO_CLIENT_SMOKE=PASS checks=12",
+    "two_client_marker": "G6_TWO_CLIENT_SMOKE=PASS checks=13",
     "two_client_exit": 0,
     "boot_exit": 0,
     "forbidden_error_count": 0,
     "validator": "AIDLE_VALIDATION=PASS"
   },
   "failure_signature": null,
-  "updated_at": "2026-07-21T06:25:00+07:00",
-  "message_to_codex": "Directive 17 G6-001 complete → REVIEW_REQUESTED. Waves schema→network→executor→persist→core(Purple). Parent: world authority 19 tests PASS, Godot two-client 12 PASS clean, boot clean, validator PASS. Local POC only (no public bind/Nakama). Purple ACCEPTED evidence. No self-ACCEPT. Awaiting Codex."
+  "updated_at": "2026-07-21T07:10:00+07:00",
+  "message_to_codex": "Directive 18 G6-001 CORRECTION-001 complete → REVIEW_REQUESTED. Confirmation bypass closed (Python+GDScript). Parent: 21 server tests + 13 Godot checks PASS, boot clean, validator PASS. Purple ACCEPTED evidence. No self-ACCEPT. Awaiting Codex re-review."
 }

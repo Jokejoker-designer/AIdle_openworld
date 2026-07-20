@@ -1,0 +1,267 @@
+{
+  "agent_step_id": "G6-001-R2-executor-confirm-bypass-2026-07-21",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G6-001",
+    "wave": "R2_EXECUTOR_GODOT_PATCH",
+    "profile": "executor",
+    "correction_work_order": "orchestration/work_orders/WO-G6-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G6-001_CORRECTION_001_DISPATCH_MAP.md",
+    "codex_review": "orchestration/reviews/CODEX_G6-001_ADVERSARIAL_REVIEW.json",
+    "parent_schema": "orchestration/receipts/g6/R0_schema.json",
+    "parent_m0": "orchestration/receipts/g6/M0_schema.json",
+    "parent_m2": "orchestration/receipts/g6/M2_executor.json",
+    "state": "HANDOFF_TO_R3",
+    "self_accept": false,
+    "summary": "G6-001 CORRECTION-001 R2 Godot mirror fix for INV-CONFIRM-SERVER-TRANSITION. world_authority_local.gd submit_proposal no longer admits client-supplied confirmation.state=confirmed (even when confirmed_by matches session actor). Fail closed with ok=false status=rejected code=client_forged retryable=false before proposal registration; no revision/entity/hash/outbox/receipt change. Valid submits force confirmation.state=pending and prop.state=pending. Only session-bound confirm_proposal transitions pending→confirmed and binds confirmed_by + expected_world_revision. commit still rejects pending/missing/forged confirmation (confirmation_missing / client_forged). Added AT-G6-CONFIRM-BYPASS-REJECT in g6_two_client_smoke.gd. Headless smoke PASS checks=13 (prior 12 baseline green + 1 new). Did not edit services/world_authority_poc/**. self_accept=false.",
+    "scope": {
+      "in_scope": [
+        "game/scripts/modules/network/**",
+        "orchestration/receipts/g6/R2_executor.json"
+      ],
+      "out_of_scope": [
+        "services/world_authority_poc/** (R1 sole writer)",
+        "contracts/**",
+        "R3 persist state-unchanged VERIFY_ONLY",
+        "R4 core Purple integrated gates",
+        "Nakama / Colyseus / public bind / credentials / dependency install",
+        "tasks.json / architecture / prior receipt / work-order edits",
+        "Self-ACCEPT"
+      ],
+      "authority_boundary": {
+        "this_wave": "PATCH_DRAFT sole writer for Godot confirm-bypass fix",
+        "only_write": [
+          "game/scripts/modules/network/**",
+          "orchestration/receipts/g6/R2_executor.json"
+        ],
+        "next_writer": "R3_PERSIST_STATE_VERIFY (persist, VERIFY_ONLY)",
+        "poc_class": "LOCAL authoritative World Commit client harness — not production multiplayer",
+        "explicit_not": [
+          "Nakama world-state co-owner",
+          "Colyseus world-state co-owner",
+          "client-authoritative confirmation or durable mutation",
+          "public bind / production deployment",
+          "silent coercion of client-supplied confirmed into pending without rejection"
+        ]
+      }
+    },
+    "defect_closed": {
+      "id": "G6-CONF-DEF-GD-SUBMIT-ACCEPTS-CONFIRMED",
+      "runtime": "gdscript",
+      "file": "game/scripts/modules/network/world_authority_local.gd",
+      "function": "submit_proposal",
+      "prior_behavior": "if confirmation.state==confirmed and confirmed_by==session actor → register prop.state=confirmed (bypass confirm_proposal)",
+      "fixed_behavior": "if confirmation.state==confirmed → reject client_forged before _proposals write; otherwise force pending and register pending only"
+    },
+    "implementation": {
+      "invariant": "INV-CONFIRM-SERVER-TRANSITION",
+      "submit_proposal": {
+        "client_supplied_confirmed": "reject before registration",
+        "code": "client_forged",
+        "status": "rejected",
+        "retryable": false,
+        "reason": "confirmation.state=confirmed is not accepted on submit; only confirm_proposal may confirm",
+        "valid_path": "force prompt.confirmation.state=pending; prop.state=pending; return status=pending",
+        "no_side_effects_on_reject": [
+          "no _proposals registration for request_id",
+          "no world_revision change",
+          "no entity mutation",
+          "no outbox event",
+          "no commit receipt"
+        ]
+      },
+      "confirm_proposal": {
+        "sole_transition_pending_to_confirmed": true,
+        "unchanged": true,
+        "binds": [
+          "confirmation.state=confirmed",
+          "confirmation.confirmed_by=session actor",
+          "target.expected_world_revision=server head"
+        ]
+      },
+      "commit": {
+        "still_rejects": [
+          "pending_proposal → confirmation_missing",
+          "missing_proposal → confirmation_missing",
+          "forged_confirmation_confirmed_by → client_forged",
+          "forged_actor → client_forged",
+          "bypass_after_rejected_confirmed_submit → confirmation_missing"
+        ],
+        "gates_not_weakened": true
+      },
+      "rejection_code_alignment": {
+        "code": "client_forged",
+        "note": "Matches R0 recommended reject code for client-supplied confirmed on submit; R1 Python must use the same string"
+      }
+    },
+    "product_writes": [
+      "game/scripts/modules/network/world_authority_local.gd",
+      "game/scripts/modules/network/g6_two_client_smoke.gd"
+    ],
+    "only_owned_files_written": true,
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_server_poc_edits": true,
+    "test_matrix_coverage": {
+      "TM-VALID-COMMIT-CONVERGE": "PASS",
+      "TM-FORGED-ACTOR-REJECT": "PASS",
+      "TM-FORGED-LEAVES-PEER-UNCHANGED": "PASS",
+      "TM-DIRECT-WRITE-REJECT": "PASS",
+      "AT-G6-CONFIRM-BYPASS-REJECT": "PASS",
+      "TM-RECONNECT-REPLAY": "PASS",
+      "TM-RECONNECT-SNAPSHOT-RESYNC": "PASS",
+      "TM-TWO-CLIENT-HEADLESS-SMOKE": "PASS"
+    },
+    "baseline_checks": {
+      "prior_two_client_checks": 12,
+      "new_checks": 1,
+      "total_checks": 13,
+      "prior_12_remain_green": true,
+      "new_check_marker": "AT-G6-CONFIRM-BYPASS-REJECT"
+    },
+    "r2_acceptance_checklist": {
+      "submit_rejects_client_supplied_confirmed": true,
+      "fail_closed_before_registration": true,
+      "force_pending_on_valid_submit": true,
+      "only_confirm_proposal_transitions_confirmed": true,
+      "commit_rejects_pending_missing_forged": true,
+      "AT_G6_CONFIRM_BYPASS_REJECT_pass": true,
+      "existing_12_green": true,
+      "total_checks_reported": 13,
+      "headless_smoke_clean": true,
+      "R2_executor_json_with_smoke_test": true,
+      "not_nakama_colyseus": true,
+      "no_http_listen": true,
+      "no_services_world_authority_poc_edit": true,
+      "self_accept": false
+    },
+    "not_done": [
+      "Did not edit services/world_authority_poc/** (R1)",
+      "Did not run R3 persist state-unchanged VERIFY_ONLY",
+      "Did not run R4 Purple integrated gates",
+      "Did not self-ACCEPT G6-001",
+      "Did not claim production multiplayer or transport security"
+    ],
+    "artifacts": [
+      "game/scripts/modules/network/world_authority_local.gd",
+      "game/scripts/modules/network/g6_two_client_smoke.gd",
+      "orchestration/receipts/g6/R2_executor.json"
+    ],
+    "product_writes_count": 2,
+    "children": []
+  },
+  "smoke_test": {
+    "type": "executable_godot_headless",
+    "executable_smoke_run": true,
+    "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/network/g6_two_client_smoke.gd",
+    "working_directory": "E:\\AIdle_openworld",
+    "exit_code": 0,
+    "marker": "G6_TWO_CLIENT_SMOKE=PASS",
+    "checks_passed": 13,
+    "baseline_checks_prior": 12,
+    "new_checks": 1,
+    "clean_boot": {
+      "script_error": false,
+      "parse_error": false,
+      "error_prefix": false
+    },
+    "evidence": {
+      "harness": "game/scripts/modules/network/g6_two_client_smoke.gd",
+      "server": "game/scripts/modules/network/world_authority_local.gd",
+      "client": "game/scripts/modules/network/authority_client.gd",
+      "client_ids_logged": ["client_a", "client_b"],
+      "matrix_ids_covered": [
+        "TM-VALID-COMMIT-CONVERGE",
+        "TM-FORGED-ACTOR-REJECT",
+        "TM-FORGED-LEAVES-PEER-UNCHANGED",
+        "TM-DIRECT-WRITE-REJECT",
+        "AT-G6-CONFIRM-BYPASS-REJECT",
+        "TM-RECONNECT-REPLAY",
+        "TM-RECONNECT-SNAPSHOT-RESYNC",
+        "TM-TWO-CLIENT-HEADLESS-SMOKE"
+      ],
+      "confirm_bypass_regression": {
+        "marker": "AT-G6-CONFIRM-BYPASS-REJECT",
+        "submit_with_state_confirmed": {
+          "ok": false,
+          "status": "rejected",
+          "code": "client_forged",
+          "retryable": false
+        },
+        "follow_on_commit": {
+          "status": "rejected",
+          "rejection.code": "confirmation_missing"
+        },
+        "state_unchanged": {
+          "world_revision": true,
+          "entity_set_hash": true,
+          "entity_count": true,
+          "outbox_len": true
+        }
+      },
+      "observed": {
+        "valid_commit_status": "committed",
+        "submit_status_pending": "pending",
+        "confirm_confirmation_state": "confirmed",
+        "new_world_revision": 1,
+        "entity_id": "ent_bd5a83512b09",
+        "forged_rejection_code": "client_forged",
+        "confirm_bypass_reject_code": "client_forged",
+        "confirm_bypass_commit_code": "confirmation_missing",
+        "reconnect_mode": "replay",
+        "final_converge": true,
+        "checks": 13
+      }
+    },
+    "public_bind_scan": {
+      "bind_0_0_0_0": false,
+      "http_server_listen": false,
+      "nakama_colyseus": false,
+      "outbound_internet": false
+    }
+  },
+  "self_audit": {
+    "authority_token": "PATCH_DRAFT",
+    "allowed_write_paths_only": true,
+    "only_wrote": [
+      "game/scripts/modules/network/world_authority_local.gd",
+      "game/scripts/modules/network/g6_two_client_smoke.gd",
+      "orchestration/receipts/g6/R2_executor.json"
+    ],
+    "did_not_edit_contracts": true,
+    "did_not_edit_world_authority_poc": true,
+    "did_not_edit_tasks_or_architecture": true,
+    "did_not_edit_prior_receipts": true,
+    "did_not_edit_work_orders": true,
+    "no_nakama_colyseus_runtime": true,
+    "no_public_listener": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "children": [],
+    "maf_smoke_test_object_present": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, WO-G6-001-CORRECTION-001, R0_schema, world_authority_local.gd, g6_two_client_smoke.gd, authority_client.gd manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G6-001-CORRECTION-001.md",
+    "orchestration/work_orders/G6-001_CORRECTION_001_DISPATCH_MAP.md",
+    "orchestration/reviews/CODEX_G6-001_ADVERSARIAL_REVIEW.json",
+    "orchestration/receipts/g6/R0_schema.json",
+    "orchestration/receipts/g6/M0_schema.json",
+    "orchestration/receipts/g6/M2_executor.json",
+    "game/scripts/modules/network/world_authority_local.gd",
+    "game/scripts/modules/network/g6_two_client_smoke.gd",
+    "game/scripts/modules/network/authority_client.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "R1 Python must use the same reject code client_forged for client-supplied confirmed on submit (R0 alignment)",
+    "R3 must re-verify state-unchanged invariants across dual runtime",
+    "Schema still allows confirmation.state=confirmed on world_prompt documents — authority-layer submit gate is mandatory"
+  ],
+  "next_route": "R3_PERSIST_STATE_VERIFY"
+}

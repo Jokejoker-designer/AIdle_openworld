@@ -1,0 +1,40 @@
+{
+  "review_id": "CODEX-G6-001-FINAL-2026-07-21",
+  "reviewer_role": "codex-final-acceptor",
+  "intent_anchor": {
+    "user_goal": "Prove two clients converge through an authoritative commit boundary before the alpha gate.",
+    "current_priority": "Accept G6 only after closing confirmation bypass and independently rerunning authority tests.",
+    "allowed_scope": ["local authority POC", "two clients", "confirmation", "replay and convergence"],
+    "forbidden_scope": ["production multiplayer claim", "public listener", "backend selection", "client-authoritative mutation"]
+  },
+  "claim_under_review": "G6-001 Correction 001 closes the confirmation bypass while preserving convergence and forged-mutation rejection.",
+  "what_i_accept": [
+    "All 21 Python authority tests pass.",
+    "Codex independently replayed the confirmed-on-submit exploit; submit is rejected, commit reports confirmation_missing and revision/hash/entity/outbox remain unchanged.",
+    "Godot two-client smoke passes 13 checks including the same bypass regression.",
+    "Both clients converge to one canonical revision and entity-set hash after a valid explicit confirm flow.",
+    "Forged actor/client/owner/direct write, stale revision, invalid schema, altered receipt, event order and idempotency cases remain covered.",
+    "Integrated boot, validator, secret/public-bind scans and all six correction receipts pass."
+  ],
+  "what_i_challenge": [
+    "This remains an in-process local simulator with no production authentication, transport or backend decision."
+  ],
+  "strongest_counter_argument": "The POC does not prove internet multiplayer, but G6 was explicitly scoped to authority and convergence semantics without selecting or deploying a backend.",
+  "missing_evidence": [
+    "Production transport security, matchmaking, scaling and backend selection remain future HITL work.",
+    "The adversarial-review skill references absent schema files, so this object follows its documented fields but could not be validated against that skill schema."
+  ],
+  "scope_drift_risk": "low",
+  "final_verdict": "ACCEPT",
+  "self_audit": {
+    "preserved_user_intent": true,
+    "did_not_invent_objection": true,
+    "evidence_based": true,
+    "no_scope_hijack": true
+  },
+  "blind_spots": ["Cross-runtime hash byte parity is not claimed as production protocol certification."],
+  "confidence_before_challenge": 0.96,
+  "confidence_penalty": 0.04,
+  "confidence_after_challenge": 0.92,
+  "next_action": "Run the independent eight-domain 2.5D alpha evidence gate, then request Human Product Lead acceptance."
+}

@@ -707,6 +707,76 @@ class TestWorldAuthorityPoc(unittest.TestCase):
         self.assertEqual(self.server.world_revision(), r0)
         self.assertEqual(self.server.entity_count(), 0)
 
+    # ---------- G6-001 CORRECTION-001: client-supplied confirmed on submit ----------
+
+    def test_submit_rejects_client_supplied_confirmed_state(self) -> None:
+        """Client-supplied confirmation.state=confirmed is rejected before registration."""
+        r0 = self.server.world_revision()
+        h0 = self.server.entity_set_hash()
+        e0 = self.server.entity_count()
+        o0 = self.server.outbox_len()
+        receipts0 = len(self.server._receipts)
+
+        prompt = make_create_prompt(
+            actor_id="player_a",
+            state="confirmed",
+            confirmed_by="player_a",
+        )
+        request_id = prompt["request_id"]
+        sub = self.server.submit_proposal(self.tok_a, prompt)
+
+        self.assertFalse(sub.get("ok"))
+        self.assertEqual(sub.get("status"), "rejected")
+        self.assertEqual(sub.get("code"), "client_forged")
+        self.assertNotEqual(sub.get("retryable"), True)
+        self.assertIn("confirm_proposal", str(sub.get("reason", "")).lower())
+
+        # No proposal authority for that request_id
+        self.assertNotIn(request_id, self.server._proposals)
+
+        # Zero side effects
+        self.assertEqual(self.server.world_revision(), r0)
+        self.assertEqual(self.server.entity_set_hash(), h0)
+        self.assertEqual(self.server.entity_count(), e0)
+        self.assertEqual(self.server.outbox_len(), o0)
+        self.assertEqual(len(self.server._receipts), receipts0)
+        self.assertFalse(
+            any(r.get("request_id") == request_id for r in self.server._receipts.values())
+        )
+
+    def test_commit_without_confirm_proposal_after_confirmed_submit_attempt(self) -> None:
+        """Bypass chain closed: rejected confirmed-submit leaves no commit path."""
+        r0 = self.server.world_revision()
+        h0 = self.server.entity_set_hash()
+        e0 = self.server.entity_count()
+        o0 = self.server.outbox_len()
+
+        prompt = make_create_prompt(
+            actor_id="player_a",
+            state="confirmed",
+            confirmed_by="player_a",
+        )
+        request_id = prompt["request_id"]
+        sub = self.server.submit_proposal(self.tok_a, prompt)
+        self.assertFalse(sub.get("ok"))
+        self.assertEqual(sub.get("code"), "client_forged")
+        self.assertNotIn(request_id, self.server._proposals)
+
+        creq = make_commit_request(
+            request_id=request_id,
+            prompt_id=prompt["prompt_id"],
+            actor_id="player_a",
+            confirmed_by="player_a",
+            expected_world_revision=r0,
+        )
+        receipt = self.server.commit(self.tok_a, creq)
+        self.assertEqual(receipt["status"], "rejected")
+        self.assertEqual(receipt["rejection"]["code"], "confirmation_missing")
+        self.assertEqual(self.server.world_revision(), r0)
+        self.assertEqual(self.server.entity_set_hash(), h0)
+        self.assertEqual(self.server.entity_count(), e0)
+        self.assertEqual(self.server.outbox_len(), o0)
+
 
 if __name__ == "__main__":
     unittest.main()

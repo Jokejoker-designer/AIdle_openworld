@@ -1,0 +1,589 @@
+{
+  "agent_step_id": "G6-001-R0-schema-confirm-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G6-001",
+    "wave": "R0_SCHEMA_CONFIRM_VERIFY",
+    "profile": "schema",
+    "correction_work_order": "orchestration/work_orders/WO-G6-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G6-001_CORRECTION_001_DISPATCH_MAP.md",
+    "codex_review": "orchestration/reviews/CODEX_G6-001_ADVERSARIAL_REVIEW.json",
+    "parent_schema": "orchestration/receipts/g6/M0_schema.json",
+    "parent_task_receipt": "orchestration/receipts/G6-001.json",
+    "state": "HANDOFF_TO_R1",
+    "self_accept": false,
+    "summary": "VERIFY_ONLY confirmation state-machine invariant for G6-001 CORRECTION-001. Codex CHANGES_REQUESTED is confirmed: both Python WorldAuthorityPoc.submit_proposal and Godot world_authority_local.gd submit_proposal accept client-supplied confirmation.state=confirmed (when confirmed_by matches session actor), register the proposal already confirmed, and thereby allow commit without ever calling confirm_proposal — bypassing the required preview→confirm→commit boundary. Required fix: submit always forces pending or rejects client-supplied confirmed before registration; only session-bound confirm_proposal may transition pending→confirmed and bind confirmed_by + expected_world_revision; commit must continue rejecting pending/missing/forged confirmation. No product or contracts edits in this wave.",
+    "scope": {
+      "in_scope": [
+        "Record confirmation state-machine invariant (submit → pending only; confirm_proposal sole transition to confirmed)",
+        "Document exact defect loci (file:line) in Python and Godot submit_proposal",
+        "Define required reject code/behavior for client-supplied state=confirmed on submit",
+        "Define required regression tests for Python and Godot (including no revision/entity/outbox/receipt change)",
+        "Restate that commit must still reject pending, missing, or forged confirmation",
+        "Handoff contract to R1_NETWORK_SERVER_PATCH then R2_EXECUTOR_GODOT_PATCH"
+      ],
+      "out_of_scope": [
+        "Product edits under services/world_authority_poc/** (R1 sole writer)",
+        "Product edits under game/scripts/modules/network/** (R2 sole writer)",
+        "R3 persist state-unchanged VERIFY_ONLY execution",
+        "R4 core Purple integrated gates",
+        "contracts/** edits (world_prompt.schema.json confirmation enum stays pending|confirmed; authority layer enforces submit gate)",
+        "Nakama / Colyseus / public listener / credentials / dependency install",
+        "tasks.json / architecture / prior receipt / work-order edits",
+        "Self-ACCEPT"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — receipt only",
+        "only_write": "orchestration/receipts/g6/R0_schema.json",
+        "next_writer": "R1_NETWORK_SERVER_PATCH (network, PATCH_DRAFT)",
+        "following_writer": "R2_EXECUTOR_GODOT_PATCH (executor, PATCH_DRAFT)",
+        "poc_class": "LOCAL authoritative World Commit simulator — not production multiplayer",
+        "architecture_lock": "orchestration/ARCHITECTURE_LOCK.md — Online Private Reality / Private with visitors / Shared: Server owns durable state",
+        "explicit_not": [
+          "Nakama or Colyseus world-state co-owner",
+          "client-authoritative confirmation or durable mutation",
+          "public bind / production deployment",
+          "silent coercion of client-supplied confirmed into pending without rejection when state=confirmed was asserted"
+        ]
+      }
+    },
+    "codex_challenges_mapped": [
+      {
+        "codex_challenge": "Both Python and Godot submit_proposal paths accept a client-supplied confirmation.state=confirmed when confirmed_by matches the session actor.",
+        "invariant_id": "INV-CONFIRM-SERVER-TRANSITION",
+        "status": "CONFIRMED_FAIL"
+      },
+      {
+        "codex_challenge": "A client can then call commit without ever invoking the explicit confirm_proposal transition, bypassing the required preview-confirm boundary.",
+        "invariant_id": "INV-CONFIRM-SERVER-TRANSITION",
+        "sub": "commit_without_confirm_proposal",
+        "status": "CONFIRMED_FAIL"
+      }
+    ],
+    "contract_authority_read": {
+      "world_prompt_confirmation": {
+        "schema": "contracts/world_prompt.schema.json",
+        "path": "properties.confirmation",
+        "required_fields": ["preview_required", "state", "rollback_window_seconds"],
+        "preview_required": {"const": true},
+        "state_enum": ["pending", "confirmed"],
+        "confirmed_requires": "confirmed_by (allOf if state=confirmed then required confirmed_by)",
+        "schema_note": "Schema permits state=confirmed on a world_prompt document (needed after server-side confirm and for commit binding). Schema permission is NOT submit-time admission. Authority layer must reject client-supplied confirmed on submit even when Draft 2020-12 schema validation passes."
+      },
+      "m0_valid_path": {
+        "source": "orchestration/receipts/g6/M0_schema.json result.valid_path",
+        "name": "preview_confirm_commit_server_authoritative",
+        "submit_step": "submit_proposal stores pending only; no entity mutation; no revision advance",
+        "confirm_step": "confirm marks proposal confirmed only via explicit confirm path with session-bound confirmed_by",
+        "commit_step": "commit eligible only when bound proposal state is confirmed",
+        "api_return_contract": {
+          "submit_proposal": "{ ok, request_id, status: pending } | error",
+          "confirm_proposal": "{ ok, request_id, confirmation_state: confirmed } | error"
+        }
+      },
+      "commit_request_confirmation": {
+        "schema": "contracts/commit/commit_request.schema.json",
+        "confirmation_state": "const confirmed",
+        "confirmed_by": "must match registered session actor; server still requires registered proposal prop.state==confirmed"
+      }
+    },
+    "confirmation_state_machine": {
+      "id": "INV-CONFIRM-SERVER-TRANSITION",
+      "status": "FAIL",
+      "statement": "A valid proposal always enters the store as pending. submit_proposal must never treat client-supplied confirmation.state=confirmed as an authoritative confirmation. Only the explicit, session-bound confirm_proposal method may transition a registered proposal from pending to confirmed, bind confirmation.confirmed_by to the session actor, and re-bind target.expected_world_revision to the current server head. commit remains gated on prop.state==confirmed and continues to reject pending, missing, or forged confirmation.",
+      "states": {
+        "none": "request_id not present in proposal store",
+        "pending": "registered after successful submit_proposal; not commit-eligible",
+        "confirmed": "registered after successful confirm_proposal; commit-eligible if other gates pass"
+      },
+      "transitions": [
+        {
+          "from": "none",
+          "to": "pending",
+          "via": "submit_proposal",
+          "conditions": [
+            "session authenticated",
+            "world_prompt schema-valid",
+            "preview_required === true",
+            "actor matches session for player commits",
+            "space_id matches server space",
+            "confirmation.state is absent or pending (NOT confirmed)",
+            "request_id not already registered with a different body"
+          ],
+          "effects": [
+            "store proposal with state=pending",
+            "force prompt.confirmation.state = pending in stored body",
+            "NO world_revision change",
+            "NO entity mutation",
+            "NO outbox event",
+            "NO commit receipt"
+          ],
+          "return_on_success": {
+            "ok": true,
+            "status": "pending"
+          }
+        },
+        {
+          "from": "pending",
+          "to": "confirmed",
+          "via": "confirm_proposal",
+          "conditions": [
+            "session authenticated",
+            "request_id registered",
+            "proposal.client_id == session.client_id",
+            "confirmed_by == session.actor_id"
+          ],
+          "effects": [
+            "prop.state = confirmed",
+            "prompt.confirmation.state = confirmed",
+            "prompt.confirmation.confirmed_by = confirmed_by (session actor)",
+            "prompt.target.expected_world_revision = current server world_revision",
+            "NO world_revision change",
+            "NO entity mutation",
+            "NO outbox event"
+          ],
+          "return_on_success": {
+            "ok": true,
+            "confirmation_state": "confirmed"
+          },
+          "idempotent_reconfirm": "If already confirmed by same ownership path, return ok confirmation_state=confirmed without further mutation (existing behavior may remain)"
+        },
+        {
+          "from": "confirmed",
+          "to": "applied_via_commit",
+          "via": "commit",
+          "conditions": [
+            "session authenticated",
+            "commit_request schema-valid",
+            "authority.source server_authoritative (POC)",
+            "actor and confirmation.confirmed_by match session",
+            "prop exists and prop.state == confirmed",
+            "prompt_id / space_id / ownership bind",
+            "expected_world_revision == head",
+            "idempotency fingerprint rules"
+          ],
+          "effects": [
+            "entity apply",
+            "world_revision += 1",
+            "committed receipt",
+            "outbox event"
+          ]
+        }
+      ],
+      "forbidden_transitions": [
+        {
+          "via": "submit_proposal",
+          "from": "none",
+          "to": "confirmed",
+          "rule": "NEVER. Client-supplied confirmation.state=confirmed on submit is non-retryable reject BEFORE registration."
+        },
+        {
+          "via": "client declaration alone",
+          "to": "confirmed",
+          "rule": "A world_prompt body declaring state=confirmed is not evidence that preview was shown or that confirm_proposal ran."
+        },
+        {
+          "via": "commit",
+          "from": ["none", "pending"],
+          "rule": "Reject confirmation_missing; no mutation."
+        }
+      ],
+      "product_path_alignment": "Prompt → structured proposal → validate → preview → confirm → commit (Agents.md / ARCHITECTURE_LOCK / M0 valid_path)"
+    },
+    "exact_defects": [
+      {
+        "id": "G6-CONF-DEF-PY-SUBMIT-ACCEPTS-CONFIRMED",
+        "runtime": "python",
+        "file": "services/world_authority_poc/server.py",
+        "function": "WorldAuthorityPoc.submit_proposal",
+        "lines": "139-155",
+        "registration_lines": "188-194",
+        "evidence": "After preview_required check, code does: if conf.get('state') == 'confirmed': if conf.get('confirmed_by') != session['actor_id']: return client_forged; else state = 'confirmed'. Otherwise forces pending. Then self._proposals[request_id] = {..., 'state': state, ...}. When client supplies confirmation.state=confirmed and confirmed_by matching the session actor, the proposal is registered already confirmed.",
+        "impact": "Client can skip confirm_proposal entirely and proceed to commit with a schema-valid commit_request, bypassing the preview→confirm server-observed transition."
+      },
+      {
+        "id": "G6-CONF-DEF-GD-SUBMIT-ACCEPTS-CONFIRMED",
+        "runtime": "gdscript",
+        "file": "game/scripts/modules/network/world_authority_local.gd",
+        "function": "submit_proposal",
+        "lines": "125-136",
+        "registration_lines": "175-181",
+        "evidence": "Mirror of Python: if str(conf.get('state','')) == 'confirmed': if confirmed_by != session actor → client_forged; else state = 'confirmed'. Else force pending. Then _proposals[request_id] = { prompt, state, ... }. Same client-supplied confirmed admission.",
+        "impact": "Godot local authority mirror allows the same confirmation-bypass exploit as the Python POC."
+      },
+      {
+        "id": "G6-CONF-DEF-EXPLOIT-CHAIN",
+        "runtime": "both",
+        "description": "Exploit sequence currently possible",
+        "steps": [
+          "connect as player_a / client_a",
+          "submit_proposal with schema-valid world_prompt carrying confirmation.state=confirmed, confirmed_by=player_a, preview_required=true",
+          "observe ok=true and status=confirmed (or registered prop.state confirmed) without calling confirm_proposal",
+          "commit with matching request_id/prompt_id and confirmation.state=confirmed",
+          "observe committed mutation (revision advance, entity, receipt, outbox) without server-side confirm_proposal transition"
+        ],
+        "status": "OPEN — must be closed by R1 then R2"
+      }
+    ],
+    "required_reject_on_submit_confirmed": {
+      "trigger": "submit_proposal receives world_prompt where confirmation.state == 'confirmed' (string-equal after normal coercion)",
+      "timing": "BEFORE proposal registration (_proposals write), BEFORE any revision/entity/outbox/receipt change",
+      "even_when": [
+        "world_prompt is otherwise schema-valid",
+        "preview_required === true",
+        "confirmed_by == session.actor_id",
+        "actor.player_id == session.actor_id",
+        "space_id matches"
+      ],
+      "must_not": [
+        "register the proposal as confirmed",
+        "register the proposal as pending after silently rewriting confirmed→pending (WO: fail closed; do not silently treat supplied confirmed as authoritative — prefer explicit reject of the asserted confirmed state)",
+        "advance world_revision",
+        "mutate entity set",
+        "emit outbox event",
+        "create commit receipt",
+        "leave any authority-bearing proposal for that request_id that is commit-eligible"
+      ],
+      "rejection_envelope": {
+        "ok": false,
+        "status": "rejected",
+        "code": "client_forged",
+        "code_rationale": "Client asserts confirmation authority without the server-observed confirm_proposal transition. Aligns with existing submit-time client_forged when confirmed_by mismatches, and with actor/client forge vocabulary. Alternative acceptable only if both runtimes use the same documented non-retryable code: policy with stable reason containing confirmation client-supplied / bypass — R1 must pick ONE and R2 must match.",
+        "recommended_reason": "confirmation.state=confirmed is not accepted on submit; only confirm_proposal may confirm",
+        "retryable": false,
+        "world_revision": "unchanged server head (echo only)",
+        "entity_set_hash": "unchanged"
+      },
+      "state_invariants_after_reject": {
+        "proposal_store": "request_id MUST NOT be present (zero proposal authority for that id from this attempt)",
+        "world_revision": "unchanged",
+        "entity_count": "unchanged",
+        "entity_set_hash": "unchanged",
+        "outbox_length": "unchanged",
+        "receipt_store": "no new receipt for that request_id"
+      },
+      "follow_on_commit": {
+        "if_client_then_calls_commit_without_valid_confirm": "commit returns status=rejected, rejection.code=confirmation_missing (no registered confirmed proposal), world_revision/entity/outbox unchanged"
+      }
+    },
+    "required_submit_behavior_for_pending": {
+      "when": "confirmation.state is pending, or after non-confirmed paths that do not assert confirmed",
+      "behavior": "Force stored prompt.confirmation.state = pending; register prop.state = pending; return status=pending",
+      "note": "If client omits state, existing schema validation may already fail (state is required on confirmation). Authority still forces pending for any non-confirmed admission path."
+    },
+    "required_confirm_proposal_behavior": {
+      "sole_transition": true,
+      "binds": [
+        "confirmation.state = confirmed",
+        "confirmation.confirmed_by = session actor (argument must match session)",
+        "target.expected_world_revision = server head at confirm time"
+      ],
+      "no_mutation": true,
+      "session_bound_checks_preserved": [
+        "unknown request_id → policy reject",
+        "other client owns proposal → client_forged",
+        "confirmed_by != session.actor_id → client_forged"
+      ]
+    },
+    "commit_must_still_reject": {
+      "id": "INV-COMMIT-CONFIRMATION-GATE",
+      "status": "MUST_PRESERVE (already implemented; do not weaken)",
+      "cases": [
+        {
+          "name": "pending_proposal",
+          "setup": "submit_proposal with pending (or forced pending); skip confirm_proposal",
+          "expect": {
+            "status": "rejected",
+            "rejection.code": "confirmation_missing",
+            "reason_contains": "proposal not confirmed",
+            "no_mutation": true
+          },
+          "existing_test_python": "services/world_authority_poc/tests/test_poc.py::test_tm_unconfirmed_reject"
+        },
+        {
+          "name": "missing_proposal",
+          "setup": "commit with request_id never registered",
+          "expect": {
+            "status": "rejected",
+            "rejection.code": "confirmation_missing",
+            "reason_contains": "no registered proposal",
+            "no_mutation": true
+          },
+          "loci": {
+            "python": "services/world_authority_poc/server.py:368-376",
+            "godot": "game/scripts/modules/network/world_authority_local.gd:331-334"
+          }
+        },
+        {
+          "name": "forged_confirmation_confirmed_by",
+          "setup": "confirmed proposal under player_a; commit_request.confirmation.confirmed_by != session actor (or actor forge)",
+          "expect": {
+            "status": "rejected",
+            "rejection.code": "client_forged",
+            "no_mutation": true
+          },
+          "loci": {
+            "python": "services/world_authority_poc/server.py:345-351",
+            "godot": "game/scripts/modules/network/world_authority_local.gd:315-321"
+          }
+        },
+        {
+          "name": "forged_actor",
+          "setup": "commit_request.actor.actor_id != session.actor_id",
+          "expect": {
+            "status": "rejected",
+            "rejection.code": "client_forged",
+            "no_mutation": true
+          }
+        },
+        {
+          "name": "bypass_after_rejected_confirmed_submit",
+          "setup": "submit with state=confirmed is rejected; then commit for same request_id",
+          "expect": {
+            "status": "rejected",
+            "rejection.code": "confirmation_missing",
+            "no_mutation": true
+          }
+        }
+      ],
+      "do_not_weaken": [
+        "actor/client/owner checks",
+        "schema validation",
+        "revision mismatch conflict",
+        "idempotency same-payload replay / different-payload conflict",
+        "receipt integrity / replay checks",
+        "server_authoritative source-only POC policy"
+      ]
+    },
+    "required_regression_tests": {
+      "baseline_must_remain_green": {
+        "python_server_tests": {
+          "path": "services/world_authority_poc/tests/test_poc.py",
+          "count_at_codex_review": 19,
+          "note": "Existing 19 server tests remain green after R1; new regression(s) increase the reported count explicitly"
+        },
+        "godot_two_client_checks": {
+          "path": "game/scripts/modules/network/g6_two_client_smoke.gd",
+          "count_at_codex_review": 12,
+          "note": "Existing 12 two-client checks remain green after R2; new exploit check(s) increase the reported count explicitly"
+        }
+      },
+      "python_new_tests_r1_must_add": [
+        {
+          "name": "test_submit_rejects_client_supplied_confirmed_state",
+          "owner_wave": "R1",
+          "file": "services/world_authority_poc/tests/test_poc.py",
+          "steps": [
+            "Snapshot r0=world_revision, h0=entity_set_hash, e0=entity_count, o0=outbox length (or equivalent)",
+            "Build schema-valid create prompt for player_a with confirmation.state=confirmed, confirmed_by=player_a, preview_required=true",
+            "sub = submit_proposal(tok_a, prompt)",
+            "Assert sub.ok is False, sub.status == rejected, sub.code == client_forged (or the single documented non-retryable code), retryable is not true",
+            "Assert request_id not in proposal store / no commit-eligible proposal",
+            "Assert world_revision==r0, entity_set_hash==h0, entity_count==e0, outbox unchanged, no receipt for request_id"
+          ],
+          "pass_criteria": "Client-supplied confirmed rejected before registration; zero authority side effects"
+        },
+        {
+          "name": "test_commit_without_confirm_proposal_after_confirmed_submit_attempt",
+          "owner_wave": "R1",
+          "file": "services/world_authority_poc/tests/test_poc.py",
+          "steps": [
+            "Attempt submit with state=confirmed (rejected as above)",
+            "Build matching commit_request with confirmation.state=confirmed, confirmed_by=player_a",
+            "receipt = commit(tok_a, creq)",
+            "Assert receipt.status == rejected and rejection.code == confirmation_missing",
+            "Assert revision/hash/entity/outbox unchanged"
+          ],
+          "pass_criteria": "Bypass chain closed: no commit without confirm_proposal"
+        },
+        {
+          "name": "test_valid_path_still_requires_confirm_proposal",
+          "owner_wave": "R1",
+          "file": "services/world_authority_poc/tests/test_poc.py",
+          "steps": [
+            "submit with pending → ok status pending",
+            "commit without confirm → confirmation_missing (existing TM-UNCONFIRMED)",
+            "confirm_proposal → confirmation_state confirmed",
+            "commit → committed; revision +1"
+          ],
+          "pass_criteria": "Happy path unchanged; confirm_proposal remains the sole elevating transition",
+          "note": "May be covered by existing valid_commit_flow + test_tm_unconfirmed_reject if those stay green; still require at least one explicit bypass regression named above"
+        }
+      ],
+      "godot_new_tests_r2_must_add": [
+        {
+          "name": "AT-G6-CONFIRM-BYPASS-REJECT (or equivalent marker in g6_two_client_smoke.gd)",
+          "owner_wave": "R2",
+          "file": "game/scripts/modules/network/g6_two_client_smoke.gd (preferred) and/or unit path on world_authority_local.gd",
+          "steps": [
+            "Connect client_a",
+            "Snapshot revision, entity_set_hash, entity count / outbox head",
+            "submit_proposal with confirmation.state=confirmed, confirmed_by=player_a (schema-valid otherwise)",
+            "Assert rejected non-retryable (code client_forged or same documented code as Python)",
+            "Assert no proposal authority / commit for that request_id fails confirmation_missing",
+            "Assert revision, entity_set_hash, entity count, outbox unchanged"
+          ],
+          "pass_criteria": "Identical state invariants to Python exploit regression"
+        },
+        {
+          "name": "existing valid path markers remain",
+          "owner_wave": "R2",
+          "markers": [
+            "submit_proposal pending path",
+            "confirm confirmation_state=confirmed",
+            "TM-VALID-COMMIT-CONVERGE remains green"
+          ]
+        }
+      ],
+      "r3_persist_verify_focus": {
+        "owner_wave": "R3",
+        "proof": "Rejected bypass attempts leave revision, entity hash, entity count, outbox and receipts unchanged (WO Required evidence + persist wave)",
+        "inputs": "R1/R2 regression outputs + re-run or static dual-runtime audit"
+      }
+    },
+    "fix_checklist_for_r1": {
+      "file_root": "services/world_authority_poc/**",
+      "must_change": [
+        "server.py submit_proposal: remove confirmed-admission branch (lines 139-155); reject state==confirmed before _proposals registration",
+        "tests/test_poc.py: add bypass regression tests; keep 19 baseline green"
+      ],
+      "must_not_change_semantics": [
+        "confirm_proposal session-bound transition",
+        "commit confirmation_missing / client_forged gates",
+        "idempotency, revision, ownership, schema rejects"
+      ],
+      "receipt": "orchestration/receipts/g6/R1_network.json"
+    },
+    "fix_checklist_for_r2": {
+      "file_root": "game/scripts/modules/network/**",
+      "must_change": [
+        "world_authority_local.gd submit_proposal: remove confirmed-admission branch (lines 125-136); reject state==confirmed before _proposals registration — match R1 code/reason",
+        "g6_two_client_smoke.gd (or companion): add AT-G6-CONFIRM-BYPASS-REJECT; keep 12 baseline green"
+      ],
+      "must_not": [
+        "Weaken confirm_proposal or commit gates",
+        "Edit services/world_authority_poc/** (R1 sole writer)"
+      ],
+      "receipt": "orchestration/receipts/g6/R2_executor.json"
+    },
+    "preserved_working_invariants": [
+      "TM-VALID-COMMIT-CONVERGE (pending → confirm → commit → two-client hash/revision converge)",
+      "TM-UNCONFIRMED-REJECT (commit without confirm → confirmation_missing)",
+      "Forged actor/client/owner rejects",
+      "Direct client write APIs absent",
+      "Stale expected_world_revision → conflicted/rejected no silent merge",
+      "Idempotent same request_id + same payload replay",
+      "Idempotency payload mismatch conflict",
+      "Altered receipt not trusted as world truth",
+      "Reconnect replay / snapshot resync",
+      "No public bind / no Nakama-Colyseus selection"
+    ],
+    "handoff_to_r1": {
+      "next_route": "R1_NETWORK_SERVER_PATCH",
+      "sole_product_writer": "network profile, PATCH_DRAFT",
+      "write_roots": [
+        "services/world_authority_poc/**",
+        "orchestration/receipts/g6/R1_network.json"
+      ],
+      "must_implement": [
+        "INV-CONFIRM-SERVER-TRANSITION on Python submit_proposal",
+        "required_reject_on_submit_confirmed",
+        "python_new_tests_r1_must_add",
+        "Preserve commit confirmation gates and baseline 19 tests"
+      ],
+      "must_not": [
+        "game/scripts/modules/network/** product edits (R2)",
+        "contracts/** edits",
+        "tasks.json / architecture / prior receipt edits",
+        "Self-ACCEPT",
+        "Nakama/Colyseus/listener/credentials"
+      ]
+    },
+    "not_done": [
+      "Did not patch services/world_authority_poc/** (R1)",
+      "Did not patch game/scripts/modules/network/** (R2)",
+      "Did not execute new bypass regressions as green proof (R1/R2/R3)",
+      "Did not self-ACCEPT G6-001"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g6/R0_schema.json"
+    ],
+    "product_writes": 0,
+    "only_write": "orchestration/receipts/g6/R0_schema.json",
+    "children": []
+  },
+  "smoke_test": {
+    "type": "verify_only_schema_contract",
+    "executable_smoke_run": false,
+    "reason": "R0_SCHEMA_CONFIRM_VERIFY records confirmation state-machine invariant, exact defect file:line evidence, reject contract, and required Python/Godot regressions only; product patches and executable bypass proofs are R1_NETWORK_SERVER_PATCH and R2_EXECUTOR_GODOT_PATCH ownership",
+    "static_audit": {
+      "codex_challenges_mapped": true,
+      "confirmation_state_machine_documented": true,
+      "defect_file_line_evidence_collected": true,
+      "python_defect": "services/world_authority_poc/server.py:139-155 (register 188-194)",
+      "godot_defect": "game/scripts/modules/network/world_authority_local.gd:125-136 (register 175-181)",
+      "required_reject_code_documented": true,
+      "required_tests_named": true,
+      "commit_gates_preserved_in_contract": true,
+      "product_code_edited": false,
+      "contracts_edited": false,
+      "children_spawned": false
+    },
+    "downstream_required_markers": [
+      "test_submit_rejects_client_supplied_confirmed_state pass",
+      "test_commit_without_confirm_proposal_after_confirmed_submit_attempt pass",
+      "existing_19_server_tests pass (plus new count reported)",
+      "AT-G6-CONFIRM-BYPASS-REJECT pass",
+      "existing_12_two_client_checks pass (plus new count reported)",
+      "submit never registers confirmed",
+      "only confirm_proposal transitions pending→confirmed",
+      "commit still rejects pending/missing/forged confirmation",
+      "bypass attempt: revision/hash/entity/outbox/receipt unchanged",
+      "R3 persist state-unchanged verify",
+      "R4 Purple integrated gates"
+    ]
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g6/R0_schema.json"],
+    "no_product_code_edits": true,
+    "no_services_world_authority_poc_edit": true,
+    "no_godot_network_edit": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_prior_receipt_edits": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "no_dependency_install": true,
+    "no_public_bind": true,
+    "no_nakama_colyseus_selection": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G6-001-CORRECTION-001, G6-001_CORRECTION_001_DISPATCH_MAP, CODEX_G6-001_ADVERSARIAL_REVIEW, M0_schema, server.py submit_proposal/confirm_proposal/commit, world_authority_local.gd submit_proposal/confirm_proposal/commit, contracts/world_prompt.schema.json confirmation, test_poc.py, agent_step_contract.schema.json manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G6-001-CORRECTION-001.md",
+    "orchestration/work_orders/G6-001_CORRECTION_001_DISPATCH_MAP.md",
+    "orchestration/reviews/CODEX_G6-001_ADVERSARIAL_REVIEW.json",
+    "orchestration/receipts/g6/M0_schema.json",
+    "contracts/world_prompt.schema.json",
+    "services/world_authority_poc/server.py",
+    "services/world_authority_poc/tests/test_poc.py",
+    "game/scripts/modules/network/world_authority_local.gd",
+    "game/scripts/modules/network/g6_two_client_smoke.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "R1 and R2 must use the same rejection code string for client-supplied confirmed on submit (recommended: client_forged)",
+    "Schema still allows confirmation.state=confirmed on world_prompt documents — authority-layer submit gate is mandatory; do not 'fix' by weakening schema",
+    "Existing helpers that build prompts with state=confirmed for commit fixtures must not be reused as submit payloads without expecting reject",
+    "Idempotent re-submit after a rejected confirmed attempt must not accidentally register on a second call with pending unless intentionally a new valid pending body"
+  ],
+  "next_route": "R1_NETWORK_SERVER_PATCH"
+}

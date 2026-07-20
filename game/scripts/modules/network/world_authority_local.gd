@@ -122,25 +122,27 @@ func submit_proposal(session_token: String, world_prompt: Dictionary) -> Diction
 			"entity_set_hash": entity_set_hash(),
 		}
 
-	var state: String
+	# INV-CONFIRM-SERVER-TRANSITION: never admit client-supplied confirmed on submit.
+	# Fail closed BEFORE proposal registration / revision / entity / outbox / receipt.
+	# Only confirm_proposal may transition pending → confirmed.
 	if str(conf.get("state", "")) == "confirmed":
-		if str(conf.get("confirmed_by", "")) != str(sess["actor_id"]):
-			return {
-				"ok": false,
-				"status": "rejected",
-				"code": "client_forged",
-				"reason": "confirmed_by does not match session actor on submit",
-				"world_revision": _world_revision,
-				"entity_set_hash": entity_set_hash(),
-			}
-		state = "confirmed"
-	else:
-		if not prompt.has("confirmation"):
-			prompt["confirmation"] = {}
-		var conf2: Dictionary = prompt["confirmation"]
-		conf2["state"] = "pending"
-		prompt["confirmation"] = conf2
-		state = "pending"
+		return {
+			"ok": false,
+			"status": "rejected",
+			"code": "client_forged",
+			"reason": "confirmation.state=confirmed is not accepted on submit; only confirm_proposal may confirm",
+			"retryable": false,
+			"world_revision": _world_revision,
+			"entity_set_hash": entity_set_hash(),
+		}
+
+	# Force pending on every valid admission path (omit / pending / other non-confirmed).
+	if not prompt.has("confirmation"):
+		prompt["confirmation"] = {}
+	var conf2: Dictionary = prompt["confirmation"]
+	conf2["state"] = "pending"
+	prompt["confirmation"] = conf2
+	var state: String = "pending"
 
 	var space := str((prompt.get("target", {}) as Dictionary).get("space_id", ""))
 	if space != space_id:

@@ -22,6 +22,9 @@ const PROMPT_ID := "550e8400-e29b-41d4-a716-446655440000"
 const REQUEST_ID := "bd5a8351-2b09-4acd-9520-19875098c928"
 const FORGE_REQUEST_ID := "aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee"
 const FORGE_PROMPT_ID := "ffffffff-1111-4222-8333-444444444444"
+## Confirm-bypass exploit fixtures (client-supplied confirmation.state=confirmed on submit)
+const BYPASS_REQUEST_ID := "cccccccc-dddd-4eee-8fff-000000000001"
+const BYPASS_PROMPT_ID := "cccccccc-dddd-4eee-8fff-000000000002"
 
 var _failures: PackedStringArray = []
 var _passed: int = 0
@@ -232,6 +235,78 @@ func _run_matrix() -> void:
 		_fail("direct_write_mutation", "revision changed")
 		return
 	_ok("TM-DIRECT-WRITE-REJECT")
+
+	# ---- AT-G6-CONFIRM-BYPASS-REJECT ----
+	# Client must NOT skip confirm_proposal by submitting state=confirmed.
+	# Reject before registration; revision/hash/entity/outbox unchanged; commit fails.
+	var pre_bypass_rev := int(server.call("world_revision"))
+	var pre_bypass_hash := str(server.call("entity_set_hash"))
+	var pre_bypass_entities := int(server.call("entity_count"))
+	var pre_bypass_outbox := int(server.call("outbox_len"))
+
+	var bypass_prompt: Dictionary = _make_create_prompt(
+		BYPASS_REQUEST_ID, BYPASS_PROMPT_ID, ACTOR_A, pre_bypass_rev
+	)
+	var bypass_ent: Dictionary = bypass_prompt["entity"]
+	bypass_ent["recipe_id"] = "cozy_house_confirm_bypass_attempt"
+	bypass_prompt["entity"] = bypass_ent
+	var bypass_conf: Dictionary = bypass_prompt["confirmation"]
+	bypass_conf["state"] = "confirmed"
+	bypass_conf["confirmed_by"] = ACTOR_A
+	bypass_prompt["confirmation"] = bypass_conf
+
+	var bypass_sub: Dictionary = client_a.call("submit_and_preview", bypass_prompt)
+	if bypass_sub.get("ok", true) != false:
+		_fail("confirm_bypass_ok", "expected ok=false got %s" % bypass_sub)
+		return
+	if str(bypass_sub.get("status", "")) != "rejected":
+		_fail("confirm_bypass_status", "expected rejected got %s" % bypass_sub.get("status"))
+		return
+	if str(bypass_sub.get("code", "")) != "client_forged":
+		_fail("confirm_bypass_code", "expected client_forged got %s" % bypass_sub.get("code"))
+		return
+	if bypass_sub.get("retryable", false) == true:
+		_fail("confirm_bypass_retryable", "expected non-retryable reject")
+		return
+	var bypass_reason := str(bypass_sub.get("reason", ""))
+	if bypass_reason.find("not accepted on submit") < 0 and bypass_reason.find("confirm_proposal") < 0:
+		_fail("confirm_bypass_reason", "unexpected reason=%s" % bypass_reason)
+		return
+
+	# Follow-on commit without registered confirmed proposal → confirmation_missing
+	var bypass_commit: Dictionary = _make_commit_request(
+		BYPASS_REQUEST_ID, BYPASS_PROMPT_ID, ACTOR_A, "player", pre_bypass_rev
+	)
+	var bypass_receipt: Dictionary = client_a.call("commit", bypass_commit)
+	if str(bypass_receipt.get("status", "")) != "rejected":
+		_fail(
+			"confirm_bypass_commit_status",
+			"expected rejected got %s" % bypass_receipt.get("status")
+		)
+		return
+	var bypass_rej := str(
+		(bypass_receipt.get("rejection", {}) as Dictionary).get("code", "")
+	)
+	if bypass_rej != "confirmation_missing":
+		_fail("confirm_bypass_commit_code", "expected confirmation_missing got %s" % bypass_rej)
+		return
+
+	if int(server.call("world_revision")) != pre_bypass_rev:
+		_fail("confirm_bypass_revision", "revision mutated after bypass attempt")
+		return
+	if str(server.call("entity_set_hash")) != pre_bypass_hash:
+		_fail("confirm_bypass_hash", "entity_set_hash mutated after bypass attempt")
+		return
+	if int(server.call("entity_count")) != pre_bypass_entities:
+		_fail("confirm_bypass_entities", "entity_count mutated after bypass attempt")
+		return
+	if int(server.call("outbox_len")) != pre_bypass_outbox:
+		_fail("confirm_bypass_outbox", "outbox mutated after bypass attempt")
+		return
+	_ok(
+		"AT-G6-CONFIRM-BYPASS-REJECT code=client_forged commit=confirmation_missing rev=%d"
+		% pre_bypass_rev
+	)
 
 	# ---- TM-RECONNECT-REPLAY ----
 	# Disconnect B conceptually: clear session; A already committed once.

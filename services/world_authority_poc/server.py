@@ -136,23 +136,28 @@ class WorldAuthorityServer:
                 "entity_set_hash": self.entity_set_hash(),
             }
 
-        # Force pending at submit (preview → confirm path)
+        # INV-CONFIRM-SERVER-TRANSITION: client-supplied confirmation.state=confirmed
+        # is NEVER authoritative on submit. Fail closed BEFORE proposal registration.
+        # Only session-bound confirm_proposal may transition pending → confirmed.
         if conf.get("state") == "confirmed":
-            # Allow storing already-confirmed only if confirmed_by matches; still treat as confirmed
-            if conf.get("confirmed_by") != session["actor_id"]:
-                return {
-                    "ok": False,
-                    "status": "rejected",
-                    "code": "client_forged",
-                    "reason": "confirmed_by does not match session actor on submit",
-                    "world_revision": self._world_revision,
-                    "entity_set_hash": self.entity_set_hash(),
-                }
-            state = "confirmed"
-        else:
-            prompt.setdefault("confirmation", {})
-            prompt["confirmation"]["state"] = "pending"
-            state = "pending"
+            return {
+                "ok": False,
+                "status": "rejected",
+                "code": "client_forged",
+                "reason": (
+                    "confirmation.state=confirmed is not accepted on submit; "
+                    "only confirm_proposal may confirm"
+                ),
+                "retryable": False,
+                "world_revision": self._world_revision,
+                "entity_set_hash": self.entity_set_hash(),
+            }
+
+        # Valid submit always enters pending; strip any client-supplied confirmed_by
+        prompt.setdefault("confirmation", {})
+        prompt["confirmation"]["state"] = "pending"
+        prompt["confirmation"].pop("confirmed_by", None)
+        state = "pending"
 
         space_id = str(prompt.get("target", {}).get("space_id", ""))
         if space_id != self.space_id:

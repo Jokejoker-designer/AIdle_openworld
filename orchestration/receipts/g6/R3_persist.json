@@ -1,0 +1,437 @@
+{
+  "agent_step_id": "G6-001-R3-persist-state-verify-2026-07-21",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G6-001",
+    "wave": "R3_PERSIST_STATE_VERIFY",
+    "profile": "persist",
+    "correction_work_order": "orchestration/work_orders/WO-G6-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G6-001_CORRECTION_001_DISPATCH_MAP.md",
+    "codex_review": "orchestration/reviews/CODEX_G6-001_ADVERSARIAL_REVIEW.json",
+    "parent_schema": "orchestration/receipts/g6/R0_schema.json",
+    "parent_r1": "orchestration/receipts/g6/R1_network.json",
+    "parent_r2": "orchestration/receipts/g6/R2_executor.json",
+    "state": "HANDOFF_TO_R4",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY persist state-unchanged proof for G6-001 CORRECTION-001 INV-CONFIRM-SERVER-TRANSITION. Independent re-runs: python services/world_authority_poc/run_poc_tests.py → EXIT=0, 21/21 OK, G6_WORLD_AUTHORITY_SMOKE=PASS (includes test_submit_rejects_client_supplied_confirmed_state + test_commit_without_confirm_proposal_after_confirmed_submit_attempt); Godot g6_two_client_smoke.gd → EXIT=0, G6_TWO_CLIENT_SMOKE=PASS checks=13 with AT-G6-CONFIRM-BYPASS-REJECT. Rejected confirmation-bypass (client-supplied confirmation.state=confirmed on submit) leaves world_revision, entity_set_hash, entity_count, outbox_len and receipts unchanged on both runtimes; no proposal authority for bypass request_id; follow-on commit → confirmation_missing. Dual-runtime reject code=client_forged, retryable=false. No product edits; no children; self_accept=false; next_route R4_CORE_PURPLE.",
+    "scope": {
+      "in_scope": [
+        "Prove rejected confirmation-bypass attempts leave revision, entity_set_hash, entity count, outbox and receipts unchanged",
+        "Cite R1/R2 exploit regression tests + independent dual-runtime re-run",
+        "Write orchestration/receipts/g6/R3_persist.json only"
+      ],
+      "out_of_scope": [
+        "Product edits under services/world_authority_poc/** or game/**",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders, prior receipts",
+        "Nakama / Colyseus / public bind / cloud / credentials",
+        "Self-ACCEPT / tasks.json ACCEPT",
+        "Children subagents",
+        "R4 core Purple integrated gates"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — receipt only; challenge evidence, do not patch",
+        "only_write": [
+          "orchestration/receipts/g6/R3_persist.json"
+        ],
+        "next_writer": "R4_CORE_PURPLE (core, VERIFY_ONLY Purple)",
+        "poc_class": "LOCAL authoritative World Commit simulator — not production multiplayer",
+        "explicit_not": [
+          "product patches",
+          "self-ACCEPT of G6-001",
+          "public bind / Nakama / Colyseus"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_owned_files_written": true,
+    "only_writes": [
+      "orchestration/receipts/g6/R3_persist.json"
+    ],
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_product_edits": true,
+    "invariant": {
+      "id": "INV-CONFIRM-SERVER-TRANSITION",
+      "r0_status_was": "CONFIRMED_FAIL",
+      "r1_status": "FIXED_PYTHON",
+      "r2_status": "FIXED_GODOT",
+      "r3_verify": "STATE_UNCHANGED_PROVED_DUAL_RUNTIME"
+    },
+    "prior_wave_receipts": {
+      "R0_schema": {
+        "path": "orchestration/receipts/g6/R0_schema.json",
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "role": "Confirm state-machine invariant + reject contract + required R1/R2 regressions"
+      },
+      "R1_network": {
+        "path": "orchestration/receipts/g6/R1_network.json",
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "state": "HANDOFF_TO_R2",
+        "role": "Python submit_proposal fail-closed client_forged; 2 regression tests; 21 total green"
+      },
+      "R2_executor": {
+        "path": "orchestration/receipts/g6/R2_executor.json",
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "state": "HANDOFF_TO_R3",
+        "role": "Godot submit_proposal fail-closed client_forged; AT-G6-CONFIRM-BYPASS-REJECT; checks=13"
+      }
+    },
+    "state_unchanged_proof": {
+      "focus": "Rejected client-supplied confirmation.state=confirmed on submit must leave durable authority surfaces identical to pre-attempt snapshot",
+      "surfaces": [
+        "world_revision",
+        "entity_set_hash",
+        "entity_count",
+        "outbox_len",
+        "receipts (count + no receipt for bypass request_id)"
+      ],
+      "also_proved": [
+        "request_id not registered in proposal store",
+        "follow-on commit without confirm_proposal → rejection.code=confirmation_missing",
+        "reject envelope: ok=false status=rejected code=client_forged retryable=false"
+      ]
+    },
+    "challenge_matrix": [
+      {
+        "id": "CH-R3-1",
+        "challenge": "Python: submit with confirmation.state=confirmed is rejected with zero authority side effects",
+        "invariant": "INV-CONFIRM-SERVER-TRANSITION",
+        "r0_required_test": "test_submit_rejects_client_supplied_confirmed_state",
+        "status": "PASS",
+        "evidence": {
+          "r1_receipt_claim": "orchestration/receipts/g6/R1_network.json regression_tests_added[0] PASS",
+          "r1_test": "services/world_authority_poc/tests/test_poc.py::test_submit_rejects_client_supplied_confirmed_state",
+          "product_proof_read_only": [
+            "server.py WorldAuthorityServer.submit_proposal: if conf.state=='confirmed' → return client_forged BEFORE space_id check and BEFORE _proposals write (lines ~139-154)",
+            "Return path does not call _proposals registration, entity apply, _append_outbox_event, or receipt creation"
+          ],
+          "assertions_executable": [
+            "sub.ok is False",
+            "sub.status == rejected",
+            "sub.code == client_forged",
+            "retryable is not True",
+            "reason references confirm_proposal",
+            "request_id not in server._proposals",
+            "world_revision == r0",
+            "entity_set_hash == h0",
+            "entity_count == e0",
+            "outbox_len == o0",
+            "len(_receipts) == receipts0",
+            "no receipt with request_id in _receipts"
+          ],
+          "independent_rerun": "test_submit_rejects_client_supplied_confirmed_state ... ok (suite 21/21)"
+        }
+      },
+      {
+        "id": "CH-R3-2",
+        "challenge": "Python: commit after rejected confirmed-submit → confirmation_missing; state still unchanged",
+        "invariant": "INV-COMMIT-CONFIRMATION-GATE + INV-CONFIRM-SERVER-TRANSITION",
+        "r0_required_test": "test_commit_without_confirm_proposal_after_confirmed_submit_attempt",
+        "status": "PASS",
+        "evidence": {
+          "r1_receipt_claim": "orchestration/receipts/g6/R1_network.json regression_tests_added[1] PASS",
+          "r1_test": "services/world_authority_poc/tests/test_poc.py::test_commit_without_confirm_proposal_after_confirmed_submit_attempt",
+          "product_proof_read_only": [
+            "submit rejects client_forged → no proposal registration",
+            "commit path: missing proposal → rejection confirmation_missing (no apply)"
+          ],
+          "assertions_executable": [
+            "submit code=client_forged",
+            "request_id not in _proposals",
+            "commit receipt.status == rejected",
+            "receipt.rejection.code == confirmation_missing",
+            "world_revision == r0",
+            "entity_set_hash == h0",
+            "entity_count == e0",
+            "outbox_len == o0"
+          ],
+          "independent_rerun": "test_commit_without_confirm_proposal_after_confirmed_submit_attempt ... ok (suite 21/21)"
+        }
+      },
+      {
+        "id": "CH-R3-3",
+        "challenge": "Godot: AT-G6-CONFIRM-BYPASS-REJECT identical state invariants",
+        "invariant": "INV-CONFIRM-SERVER-TRANSITION",
+        "r0_required_marker": "AT-G6-CONFIRM-BYPASS-REJECT",
+        "status": "PASS",
+        "evidence": {
+          "r2_receipt_claim": "orchestration/receipts/g6/R2_executor.json smoke_test.evidence.confirm_bypass_regression + AT-G6-CONFIRM-BYPASS-REJECT PASS",
+          "r2_harness": "game/scripts/modules/network/g6_two_client_smoke.gd",
+          "product_proof_read_only": [
+            "world_authority_local.gd submit_proposal: if confirmation.state==confirmed → reject client_forged before _proposals write (lines ~125-138)",
+            "smoke snapshots pre_bypass_rev/hash/entity_count/outbox_len then asserts equality after bypass submit + failed commit"
+          ],
+          "assertions_executable": [
+            "bypass_sub.ok == false",
+            "bypass_sub.status == rejected",
+            "bypass_sub.code == client_forged",
+            "bypass_sub.retryable != true",
+            "reason contains 'not accepted on submit' or 'confirm_proposal'",
+            "follow-on commit status=rejected rejection.code=confirmation_missing",
+            "world_revision == pre_bypass_rev",
+            "entity_set_hash == pre_bypass_hash",
+            "entity_count == pre_bypass_entities",
+            "outbox_len == pre_bypass_outbox"
+          ],
+          "independent_rerun_log": "OK  AT-G6-CONFIRM-BYPASS-REJECT code=client_forged commit=confirmation_missing rev=1",
+          "note": "Godot smoke runs bypass after one valid commit (rev=1); Python unit tests run on empty head (rev=0). Both prove delta-zero on the five surfaces relative to their pre-attempt snapshot."
+        }
+      },
+      {
+        "id": "CH-R3-4",
+        "challenge": "Dual-runtime reject-code and no-side-effect alignment",
+        "invariant": "INV-CONFIRM-SERVER-TRANSITION",
+        "status": "PASS",
+        "evidence": {
+          "python_code": "client_forged",
+          "godot_code": "client_forged",
+          "retryable": false,
+          "reason_intent": "confirmation.state=confirmed is not accepted on submit; only confirm_proposal may confirm",
+          "state_surfaces_both_runtimes": {
+            "world_revision": "unchanged",
+            "entity_set_hash": "unchanged",
+            "entity_count": "unchanged",
+            "outbox_len": "unchanged",
+            "receipts": "unchanged (Python asserts receipt store; Godot asserts via outbox_len + confirmation_missing so no committed receipt)"
+          },
+          "r1_r2_alignment": "R2 rejection_code_alignment.code matches R1 and R0 recommended client_forged"
+        }
+      },
+      {
+        "id": "CH-R3-5",
+        "challenge": "Baseline matrix remains green with correction regressions counted explicitly",
+        "invariant": "preserved_working_invariants (R0)",
+        "status": "PASS",
+        "evidence": {
+          "python": {
+            "prior_baseline_at_codex": 19,
+            "correction_regressions": 2,
+            "total_this_rerun": 21,
+            "all_green": true,
+            "marker": "G6_WORLD_AUTHORITY_SMOKE=PASS"
+          },
+          "godot": {
+            "prior_baseline_at_codex": 12,
+            "correction_checks": 1,
+            "total_this_rerun": 13,
+            "all_green": true,
+            "marker": "G6_TWO_CLIENT_SMOKE=PASS",
+            "new_marker": "AT-G6-CONFIRM-BYPASS-REJECT"
+          }
+        }
+      }
+    ],
+    "challenge_summary": {
+      "total": 5,
+      "pass": 5,
+      "fail": 0,
+      "overall": "PASS"
+    },
+    "cited_r1_r2_exploit_tests": {
+      "r1_python": [
+        {
+          "name": "test_submit_rejects_client_supplied_confirmed_state",
+          "file": "services/world_authority_poc/tests/test_poc.py",
+          "receipt": "orchestration/receipts/g6/R1_network.json",
+          "rerun": "PASS"
+        },
+        {
+          "name": "test_commit_without_confirm_proposal_after_confirmed_submit_attempt",
+          "file": "services/world_authority_poc/tests/test_poc.py",
+          "receipt": "orchestration/receipts/g6/R1_network.json",
+          "rerun": "PASS"
+        }
+      ],
+      "r2_godot": [
+        {
+          "name": "AT-G6-CONFIRM-BYPASS-REJECT",
+          "file": "game/scripts/modules/network/g6_two_client_smoke.gd",
+          "server": "game/scripts/modules/network/world_authority_local.gd",
+          "receipt": "orchestration/receipts/g6/R2_executor.json",
+          "rerun": "PASS"
+        }
+      ]
+    },
+    "residuals_for_r4_purple": [
+      {
+        "id": "RES-SCHEMA-STILL-ALLOWS-CONFIRMED",
+        "severity": "info",
+        "detail": "contracts/world_prompt still permits confirmation.state=confirmed on documents; authority-layer submit gate remains mandatory. Not a product-patch residual for R3."
+      },
+      {
+        "id": "RES-CROSS-RUNTIME-HASH-PARITY",
+        "severity": "info",
+        "detail": "Python and Godot POCs are separate in-process simulators; entity_set_hash not byte-compared across runtimes on identical entity sets. Acceptable for LOCAL dual simulators."
+      },
+      {
+        "id": "RES-POC-NOT-PRODUCTION",
+        "severity": "info",
+        "detail": "No transport security, public bind, Nakama/Colyseus, or durable multi-process persistence claims."
+      }
+    ],
+    "r3_acceptance_checklist": {
+      "re_ran_python_poc_tests": true,
+      "re_ran_godot_two_client_smoke": true,
+      "ch_r3_1_python_submit_zero_side_effects": true,
+      "ch_r3_2_python_commit_confirmation_missing": true,
+      "ch_r3_3_godot_at_confirm_bypass_reject": true,
+      "ch_r3_4_dual_runtime_code_alignment": true,
+      "ch_r3_5_baseline_green_with_new_counts": true,
+      "state_unchanged_revision": true,
+      "state_unchanged_entity_set_hash": true,
+      "state_unchanged_entity_count": true,
+      "state_unchanged_outbox": true,
+      "state_unchanged_receipts": true,
+      "verdict_pass": true,
+      "self_accept_false": true,
+      "only_wrote_r3_persist_json": true,
+      "no_product_edits": true,
+      "no_children": true,
+      "R3_persist_json_with_smoke_test": true
+    },
+    "not_done": [
+      "Did not edit services/world_authority_poc/** or game/**",
+      "Did not run python scripts/validate_project.py (R4 integrated gate)",
+      "Did not perform full Purple secret/public-bind/ownership-map review (R4)",
+      "Did not claim production multiplayer or durable network transport",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g6/R3_persist.json"
+    ],
+    "product_writes_count": 0,
+    "children": []
+  },
+  "smoke_test": {
+    "type": "verify_only_independent_rerun",
+    "executable_smoke_run": true,
+    "working_directory": "E:\\AIdle_openworld",
+    "focus": "confirmation-bypass state-unchanged surfaces",
+    "commands": [
+      {
+        "command": "python services/world_authority_poc/run_poc_tests.py",
+        "exit_code": 0,
+        "tests_run": 21,
+        "tests_failed": 0,
+        "baseline_tests_prior": 19,
+        "new_regression_tests": 2,
+        "marker": "G6_WORLD_AUTHORITY_SMOKE=PASS",
+        "suite": "services/world_authority_poc/tests/test_poc.py",
+        "correction_regressions_ok": [
+          "test_submit_rejects_client_supplied_confirmed_state",
+          "test_commit_without_confirm_proposal_after_confirmed_submit_attempt"
+        ],
+        "state_unchanged_assertions_covered": [
+          "world_revision",
+          "entity_set_hash",
+          "entity_count",
+          "outbox_len",
+          "receipts count and no receipt for bypass request_id"
+        ]
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/network/g6_two_client_smoke.gd",
+        "exit_code": 0,
+        "marker": "G6_TWO_CLIENT_SMOKE=PASS",
+        "checks_passed": 13,
+        "baseline_checks_prior": 12,
+        "new_checks": 1,
+        "clean_boot": {
+          "script_error": false,
+          "parse_error": false,
+          "error_prefix": false
+        },
+        "observed": {
+          "client_ids": ["client_a", "client_b"],
+          "valid_commit_status": "committed",
+          "submit_status_pending": "pending",
+          "confirm_confirmation_state": "confirmed",
+          "new_world_revision": 1,
+          "entity_id": "ent_bd5a83512b09",
+          "entity_set_hash_prefix": "acbef0e69a104bcd",
+          "forged_rejection_code": "client_forged",
+          "confirm_bypass_reject_code": "client_forged",
+          "confirm_bypass_commit_code": "confirmation_missing",
+          "confirm_bypass_marker": "AT-G6-CONFIRM-BYPASS-REJECT",
+          "confirm_bypass_log": "OK  AT-G6-CONFIRM-BYPASS-REJECT code=client_forged commit=confirmation_missing rev=1",
+          "reconnect_mode": "replay",
+          "final_converge": true,
+          "summary": "clients=client_a,client_b committed_once=true converge=true forged_rejected=true reconnect_ok=true",
+          "checks": 13
+        },
+        "state_unchanged_assertions_covered": [
+          "world_revision",
+          "entity_set_hash",
+          "entity_count",
+          "outbox_len"
+        ]
+      }
+    ],
+    "challenge_coverage": {
+      "CH-R3-1": "Python executable (submit client_forged + zero side effects)",
+      "CH-R3-2": "Python executable (commit confirmation_missing after bypass)",
+      "CH-R3-3": "Godot executable (AT-G6-CONFIRM-BYPASS-REJECT)",
+      "CH-R3-4": "Dual-runtime code/surface alignment (read-only + re-run)",
+      "CH-R3-5": "Baseline green + explicit new counts (21 python / 13 godot)"
+    },
+    "public_bind_scan": {
+      "bind_0_0_0_0": false,
+      "http_server_listen": false,
+      "nakama_colyseus": false,
+      "note": "VERIFY_ONLY re-ran existing LOCAL in-process POCs only; no new listeners"
+    }
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "allowed_write_paths_only": true,
+    "only_wrote": [
+      "orchestration/receipts/g6/R3_persist.json"
+    ],
+    "did_not_edit_contracts": true,
+    "did_not_edit_product": true,
+    "did_not_edit_world_authority_poc": true,
+    "did_not_edit_godot_network": true,
+    "did_not_edit_tasks_or_architecture": true,
+    "did_not_edit_prior_receipts": true,
+    "did_not_edit_work_orders": true,
+    "no_nakama_colyseus_runtime": true,
+    "no_public_listener": true,
+    "no_package_install_push_deploy": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "children": [],
+    "maf_smoke_test_object_present": true,
+    "verdict": "PASS",
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, WO-G6-001-CORRECTION-001, R0/R1/R2 receipts, test_poc.py, g6_two_client_smoke.gd, server.py, world_authority_local.gd manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G6-001-CORRECTION-001.md",
+    "orchestration/work_orders/G6-001_CORRECTION_001_DISPATCH_MAP.md",
+    "orchestration/reviews/CODEX_G6-001_ADVERSARIAL_REVIEW.json",
+    "orchestration/receipts/g6/R0_schema.json",
+    "orchestration/receipts/g6/R1_network.json",
+    "orchestration/receipts/g6/R2_executor.json",
+    "orchestration/receipts/g6/M0_schema.json",
+    "services/world_authority_poc/server.py",
+    "services/world_authority_poc/tests/test_poc.py",
+    "services/world_authority_poc/run_poc_tests.py",
+    "game/scripts/modules/network/world_authority_local.gd",
+    "game/scripts/modules/network/g6_two_client_smoke.gd",
+    "game/scripts/modules/network/authority_client.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "R4 must still run integrated Purple gates (validator, clean boot, ownership map, no self-accept chain)",
+    "Schema still allows confirmation.state=confirmed on world_prompt documents — authority-layer submit gate remains mandatory",
+    "LOCAL POC only — not production multiplayer"
+  ],
+  "next_route": "R4_CORE_PURPLE"
+}

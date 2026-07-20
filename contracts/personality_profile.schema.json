@@ -12,14 +12,16 @@
     "adaptive_traits": {"$ref": "#/$defs/traits"},
     "adaptation_policy": {
       "type": "object", "additionalProperties": false,
-      "required": ["enabled", "max_delta_per_session", "max_delta_per_day", "max_distance_from_base", "minimum_observations"],
+      "required": ["enabled", "max_delta_per_turn", "max_delta_per_day", "max_distance_from_base", "minimum_observations", "minimum_independent_sessions", "minimum_confidence"],
       "properties": {
         "enabled": {"type": "boolean"},
-        "max_delta_per_session": {"type": "number", "minimum": 0, "maximum": 0.05},
-        "max_delta_per_day": {"type": "number", "minimum": 0, "maximum": 0.1},
-        "max_distance_from_base": {"type": "number", "minimum": 0, "maximum": 0.3},
-        "minimum_observations": {"type": "integer", "minimum": 2, "maximum": 100},
-        "locked_traits": {"type": "array", "uniqueItems": true, "items": {"enum": ["warmth", "curiosity", "calmness", "humor", "protectiveness", "brevity", "formality", "initiative"]}}
+        "max_delta_per_turn": {"type": "number", "minimum": 0, "maximum": 0.005},
+        "max_delta_per_day": {"type": "number", "minimum": 0, "maximum": 0.03},
+        "max_distance_from_base": {"type": "number", "minimum": 0, "maximum": 0.25},
+        "minimum_observations": {"type": "integer", "minimum": 3, "maximum": 100},
+        "minimum_independent_sessions": {"type": "integer", "minimum": 3, "maximum": 30},
+        "minimum_confidence": {"type": "number", "minimum": 0.65, "maximum": 1},
+        "locked_traits": {"type": "array", "uniqueItems": true, "items": {"enum": ["warmth", "curiosity", "calmness", "humor", "supportive_guardianship", "precision", "brevity", "initiative"]}}
       }
     },
     "privacy_mode": {"enum": ["session_only", "local_durable", "account_sync"]},
@@ -28,18 +30,17 @@
   "$defs": {
     "traits": {
       "type": "object", "additionalProperties": false,
-      "required": ["warmth", "curiosity", "calmness", "humor", "protectiveness", "brevity", "formality", "initiative"],
+      "required": ["warmth", "curiosity", "calmness", "humor", "supportive_guardianship", "precision", "brevity", "initiative"],
       "properties": {
         "warmth": {"type": "number", "minimum": 0, "maximum": 1},
         "curiosity": {"type": "number", "minimum": 0, "maximum": 1},
         "calmness": {"type": "number", "minimum": 0, "maximum": 1},
         "humor": {"type": "number", "minimum": 0, "maximum": 1},
-        "protectiveness": {"type": "number", "minimum": 0, "maximum": 1},
+        "supportive_guardianship": {"type": "number", "minimum": 0, "maximum": 0.7},
+        "precision": {"type": "number", "minimum": 0, "maximum": 1},
         "brevity": {"type": "number", "minimum": 0, "maximum": 1},
-        "formality": {"type": "number", "minimum": 0, "maximum": 1},
         "initiative": {"type": "number", "minimum": 0, "maximum": 1}
       }
     }
   }
 }
-

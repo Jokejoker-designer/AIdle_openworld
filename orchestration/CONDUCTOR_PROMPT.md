@@ -6,6 +6,10 @@ development, not production deployment or public publishing.
 Read `AGENTS.md`, the v1.1 blueprint, architecture lock, workflow, tasks and
 skills manifest. Target **2.5D world first**.
 
+The shared bootstrap PowerShell script is known broken. Do not run it. Perform
+the documented manual fallback by reading COMPLIANCE, registry, MASTER_PLAN and
+JOURNAL_LATEST, then continue; record the limitation once.
+
 Operate a maximum of eight domain workers: core, schema, manifestation,
 companion, executor, network, asset and persist. Do not force all eight to write
 at once: dispatch only tasks whose dependencies are ACCEPTED. Use independent
@@ -30,4 +34,3 @@ auto-merge, push, deploy, paid APIs or external uploads.
 Current deliverable: complete and verify the foundation/contract wave, then
 report exact evidence and the next ready work orders. Documentation alone is not
 proof that the game runs.
-

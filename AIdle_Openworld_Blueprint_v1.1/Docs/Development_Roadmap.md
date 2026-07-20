@@ -29,7 +29,7 @@ idempotent; revision conflict is visible and recoverable.
 
 Conversation, intent proposal, inspectable memory, emotion expression and tool
 allowlist. Add bounded Base/Adaptive Traits, slow-drift receipts, lock/reset/delete
-controls and a TTS adapter benchmark. Companion cannot commit directly.
+controls. The MVP is text-only; Companion cannot commit directly.
 
 ## G6 Two-client authority
 
@@ -46,4 +46,4 @@ on the target device. Generated assets remain async and optional.
 End-to-end 2.5D vertical slice, independent Purple report and Human acceptance.
 
 Post-alpha only: voxel terrain, real-city hubs, marketplace money, spacecraft,
-exoplanets, neural world-model portals and unrestricted Text-to-3D.
+exoplanets, TTS/voice, neural world-model portals and unrestricted Text-to-3D.

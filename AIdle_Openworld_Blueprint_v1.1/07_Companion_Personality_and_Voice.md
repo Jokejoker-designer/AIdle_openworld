@@ -11,7 +11,7 @@ style; it never changes ownership, permissions, prices or safety policy.
 1. **Base Traits** — chosen at creation and changed only by an explicit player
    edit: warmth, curiosity, calmness, humor and protectiveness.
 2. **Adaptive Traits** — bounded deltas that drift slowly: conversational
-   warmth, brevity, playfulness, initiative and formality.
+   warmth, brevity, humor, precision and initiative.
 3. **Situational State** — short-lived expression for the current scene; it is
    not stored as a durable personality fact unless the player consents.
 4. **Relationship Context** — shared events and explicit preferences. A level
@@ -39,8 +39,11 @@ signal, not proof of a human emotional state.
   reason, timestamp and algorithm version.
 - Contradictory evidence reduces confidence rather than causing oscillation.
 
-Recommended initial caps: maximum `0.03` change per trait per session, `0.08`
-per day and `0.25` away from baseline. These are hypotheses until play-tested.
+Recommended initial caps: maximum `0.005` change per trait per turn, `0.03`
+per day and `0.25` away from baseline. Persist an inferred preference only after
+three independent sessions with confidence at least `0.65`. Weak adaptation
+decays toward baseline with an initial 30-day half-life. These are hypotheses
+until play-tested.
 
 ## Player controls
 
@@ -55,14 +58,22 @@ Aura renders the Companion's expressive state, not the player's diagnosed mood.
 Color, shape, pulse and animation jointly encode state, with reduced-motion and
 hide-aura settings. Multiplayer shares only the public expression state.
 
-## Emotional TTS boundary
+## MVP interface: text only
+
+The 2.5D vertical slice uses text chat, subtitles and 2.5D Aura/animation only.
+No TTS model, microphone input, voice cloning or raw-audio storage is required.
+
+## Post-alpha Emotional TTS boundary
 
 Voice is a provider adapter receiving text, locale, speaking style and bounded
 prosody controls. It does not receive raw private memory. Cache only consented
 outputs; record model/voice/license/version receipts. Voice cloning and uploading
 a real person's voice require verified consent and a separate HITL workflow.
 
-StyleTTS 2, OpenVoice and Coqui are candidates, not locked dependencies, until
-code license, model/checkpoint license, maintenance and target-device benchmarks
-are independently verified.
-
+This section is research-only until the text Companion passes the alpha gate.
+OpenVoice V2 may later be benchmarked as an adapter but does not provide native
+Vietnamese base TTS. StyleTTS 2 remains R&D. Coqui toolkit and each checkpoint
+must be licensed separately; XTTS-v2 is blocked from a commercial build under
+its current non-commercial model license. No TTS dependency is locked until a
+Vietnamese Windows benchmark passes intelligibility, latency, resource and
+license gates.

@@ -13,6 +13,7 @@ Status: ACTIVE · Owner: Human Product Lead · Date: 2026-07-20
 - Contracts: JSON Schema Draft 2020-12 plus versioned events.
 - Persistence: append-only mutation log + snapshots + chunk/object storage.
 - AI: provider-neutral Companion gateway; local inference is optional, not required.
+- MVP Companion interface: text-only. TTS/voice is post-alpha research.
 
 ## Ownership boundaries
 
@@ -41,6 +42,7 @@ Status: ACTIVE · Owner: Human Product Lead · Date: 2026-07-20
 - No real-city branding/data import without source and license record.
 - No blockchain dependency in MVP.
 - No free-form 3D world, spherical planets or voxel digging on the MVP critical path.
+- No TTS model, voice cloning or raw-audio pipeline on the MVP critical path.
 
 Do not translate product, security or UX recommendations into a deprecated or
 parallel stack. Propose an ADR if this lock must change; do not silently diverge.

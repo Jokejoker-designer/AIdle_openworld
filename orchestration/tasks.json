@@ -2,9 +2,9 @@
   "version": "1.0.0",
   "project_scope": "2.5D vertical slice first",
   "tasks": [
-    {"id": "G0-001", "title": "Validate blueprint links and machine contracts", "owner_role": "schema", "state": "READY", "dependencies": [], "acceptance": ["project validator exits 0", "all referenced files exist"]},
-    {"id": "G1-001", "title": "Complete World Prompt fixtures and validator", "owner_role": "schema", "state": "TODO", "dependencies": ["G0-001"], "acceptance": ["10 valid accepted", "10 invalid rejected", "format checks enabled"]},
-    {"id": "G1-002", "title": "Lock commit authority and event contracts", "owner_role": "network", "state": "TODO", "dependencies": ["G0-001"], "acceptance": ["client durable mutation rejected", "idempotency and revision conflict specified"]},
+    {"id": "G0-001", "title": "Validate blueprint links and machine contracts", "owner_role": "schema", "state": "ACCEPTED", "dependencies": [], "acceptance": ["project validator exits 0", "all referenced files exist"]},
+    {"id": "G1-001", "title": "Complete World Prompt fixtures and validator", "owner_role": "schema", "state": "READY", "dependencies": ["G0-001"], "acceptance": ["10 valid accepted", "10 invalid rejected", "format checks enabled"]},
+    {"id": "G1-002", "title": "Lock commit authority and event contracts", "owner_role": "network", "state": "READY", "dependencies": ["G0-001"], "acceptance": ["client durable mutation rejected", "idempotency and revision conflict specified"]},
     {"id": "G2-001", "title": "Create pinned Godot 4 2.5D shell", "owner_role": "core", "state": "TODO", "dependencies": ["G1-001"], "acceptance": ["project boots", "fixed camera", "player moves", "no free 3D camera"]},
     {"id": "G2-002", "title": "Implement 2.5D manifestation renderer", "owner_role": "manifestation", "state": "TODO", "dependencies": ["G1-001"], "acceptance": ["four ordered stages", "cancel leaves no collision"]},
     {"id": "G2-003", "title": "Implement Companion proposal and bounded personality boundary", "owner_role": "companion", "state": "TODO", "dependencies": ["G1-001"], "acceptance": ["schema-valid proposal", "no direct commit tool", "slow drift caps", "inspect lock reset delete controls"]},

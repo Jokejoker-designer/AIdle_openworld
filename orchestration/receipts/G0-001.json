@@ -1,0 +1,33 @@
+{
+  "agent_step_id": "G0-001-final-2026-07-20-manual-maf",
+  "agent_type": "lead-orchestrator",
+  "skill_id": "maf-mandatory-standard",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G0-001",
+    "state": "ACCEPTED",
+    "validation": "AIDLE_VALIDATION=PASS",
+    "crew_workers": 8,
+    "g1_started_during_verification": false
+  },
+  "smoke_test": {
+    "command": "python scripts\\validate_project.py",
+    "exit_code": 0,
+    "scope": "blueprint-links,all-schema-shapes,world-positive-negative,crew,task-dag"
+  },
+  "self_audit": {
+    "manual_maf_fallback": true,
+    "no_product_completion_claim": true,
+    "independent_adversarial_verdict": "ACCEPTED",
+    "local_gate_authorized_by_human_product_lead": true
+  },
+  "evidence_refs": [
+    "scripts/validate_project.py",
+    "orchestration/tasks.json",
+    "contracts/world_prompt.schema.json",
+    ".grok/agents"
+  ],
+  "next_route": "G1-001+G1-002"
+}
+

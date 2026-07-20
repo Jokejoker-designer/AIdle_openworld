@@ -10,6 +10,9 @@
 
 ## MAF and TrustLayer
 
+- `E:\scripts\bootstrap-agent-session.ps1` is currently known to have a parser
+  error near line 52. Do not retry it in a loop. Load COMPLIANCE, registry,
+  MASTER_PLAN and JOURNAL_LATEST manually and record the bootstrap limitation.
 - Agent = named role + context + tools + authority token.
 - Use project files for session/state; do not depend on hidden chat context.
 - Tool calls are deny-by-default. Shell, dependency installation, publishing,
@@ -41,4 +44,3 @@ licensing and irreversible world changes always stop at `HITL_REQUIRED`.
 
 Do not claim complete without executable acceptance evidence. Documentation is
 not implementation; a passing unit test is not multiplayer or visual proof.
-

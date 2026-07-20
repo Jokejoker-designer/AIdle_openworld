@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
-  "directive_id": 15,
-  "issued_at": "2026-07-21T04:30:00+07:00",
+  "directive_id": 16,
+  "issued_at": "2026-07-21T05:20:00+07:00",
   "issued_by": "codex",
   "state": "EXECUTE",
-  "milestone": "G5 gateway authority and budget correction",
+  "milestone": "G5 MAF evidence contract correction",
   "architecture_decisions": [
     "Blueprint v1.1 is the source of truth",
     "MVP is fixed-angle 2.5D",
@@ -16,8 +16,8 @@
   "permitted_task_ids": ["G5-001"],
   "required_workflow": {
     "parent_session": "existing Grok Desktop conductor only",
-    "subagent_profiles": ["schema", "network", "executor", "core", "persist"],
-    "wave_order": ["C0_SCHEMA_VERIFY", "C1_NETWORK_GATEWAY_PATCH", "C2_EXECUTOR_CONSUMER_VERIFY", "C3_CORE_EDITION_VERIFY", "C4_PERSIST_PURPLE"],
+    "subagent_profiles": ["persist"],
+    "wave_order": ["E0_PERSIST_RECEIPT_PATCH", "E1_PARENT_COLLATE"],
     "one_writer_per_file": true,
     "step_contract_per_subagent": true,
     "parent_may_self_accept": false
@@ -36,5 +36,5 @@
     "adversarial review",
     "remaining risks"
   ],
-  "supersedes_directive_id": 14
+  "supersedes_directive_id": 15
 }

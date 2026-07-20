@@ -1,0 +1,39 @@
+{
+  "review_id": "CODEX-G5-001-CORRECTION-001-2026-07-21",
+  "reviewer_role": "codex-final-acceptor",
+  "intent_anchor": {
+    "user_goal": "Deliver a safe Paid AGM gateway through the installed-subagent workflow.",
+    "current_priority": "Verify the four authority fixes and require complete MAF evidence before acceptance.",
+    "allowed_scope": ["G5 correction code", "gateway tests", "Godot tests", "MAF receipts"],
+    "forbidden_scope": ["real provider", "credentials", "outbound network", "self-acceptance"]
+  },
+  "claim_under_review": "G5-001 Correction 001 closes all product blockers and supplies schema-valid MAF evidence.",
+  "what_i_accept": [
+    "All 36 gateway tests pass.",
+    "Codex independently reproduced PASS for hard server caps, non-finite rejection, provider authority and idempotency fingerprint conflict.",
+    "Godot paid adapter passes 14 checks; edition smoke, integrated boot and project validator pass.",
+    "Product secret and network-import scans are clean.",
+    "Correction writer scope is limited to services/agm_gateway and tests."
+  ],
+  "what_i_challenge": [
+    "orchestration/receipts/g5/C4_persist.json is not valid against the canonical agent_step_contract schema because required property smoke_test is absent."
+  ],
+  "strongest_counter_argument": "The missing field is evidence-only and the tests themselves passed, but the project explicitly requires a schema-valid agent_step_contract for every significant subagent step, so Codex cannot waive it.",
+  "missing_evidence": [
+    "A corrected C4 receipt containing the required smoke_test field and passing E:/standards/maf/schemas/agent_step_contract.schema.json.",
+    "The installed adversarial-review skill references absent local schemas, so this review follows its documented fields but could not be validated against that skill schema."
+  ],
+  "scope_drift_risk": "low",
+  "final_verdict": "CHANGES_REQUESTED",
+  "self_audit": {
+    "preserved_user_intent": true,
+    "did_not_invent_objection": true,
+    "evidence_based": true,
+    "no_scope_hijack": true
+  },
+  "blind_spots": ["Real provider enablement remains outside G5 and HITL_REQUIRED."],
+  "confidence_before_challenge": 0.96,
+  "confidence_penalty": 0.03,
+  "confidence_after_challenge": 0.93,
+  "next_action": "Have the installed persist profile amend only C4_persist.json, validate all six correction receipts, and return to Codex without changing product code."
+}

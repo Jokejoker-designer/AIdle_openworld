@@ -11,6 +11,7 @@ from .budget import (
     SessionBudgetLedger,
     check_budget,
     estimate_budget,
+    resolve_effective_caps,
 )
 from .errors import (
     ErrorCategories,
@@ -20,7 +21,7 @@ from .errors import (
     ProviderUnavailable,
     build_error_envelope,
 )
-from .idempotency import IdempotencyStore
+from .idempotency import IdempotencyStore, compute_request_fingerprint
 from .providers.base import ProviderInterface
 from .providers.fixture_provider import FixtureProvider
 from .redact import (
@@ -33,6 +34,14 @@ from .retry import DEFAULT_MAX_ATTEMPTS, RetryPolicy
 from .validators import validate_decision, validate_snapshot
 
 ALLOWED_PROVIDER_MODES = frozenset({"fixture"})
+
+
+def is_approved_fixture_provider(provider: Any) -> bool:
+    """MVP approval: only FixtureProvider instances are approved for dispatch.
+
+    Real providers remain a separate HITL path; allow_real_provider alone is never enough.
+    """
+    return isinstance(provider, FixtureProvider)
 
 
 class GatewayService:
@@ -48,18 +57,24 @@ class GatewayService:
         per_request_cap: float = DEFAULT_PER_REQUEST_CAP,
         session_cap: float = DEFAULT_SESSION_CAP,
         require_api_paid_edition: bool = True,
-        allow_real_provider: bool = False,  # HITL only; default False
+        allow_real_provider: bool = False,  # HITL flag only; never sufficient alone
     ) -> None:
-        self.provider: ProviderInterface = provider or FixtureProvider()
-        self.idempotency = idempotency_store or IdempotencyStore()
-        self.retry_policy = retry_policy or RetryPolicy(max_attempts=DEFAULT_MAX_ATTEMPTS)
+        self.provider: ProviderInterface = provider if provider is not None else FixtureProvider()
+        # Empty store has __len__==0 and would be falsy under `or` — use explicit None check
+        self.idempotency = (
+            idempotency_store if idempotency_store is not None else IdempotencyStore()
+        )
+        self.retry_policy = (
+            retry_policy if retry_policy is not None else RetryPolicy(max_attempts=DEFAULT_MAX_ATTEMPTS)
+        )
         self.ledger = SessionBudgetLedger(session_spent=session_spent)
         self.per_request_cap = float(per_request_cap)
         self.session_cap = float(session_cap)
-        self.require_api_paid_edition = require_api_paid_edition
+        self.require_api_paid_edition = bool(require_api_paid_edition)
         self.allow_real_provider = bool(allow_real_provider)
         # Observability: never log secrets
         self.last_provider_input_keys: list[str] | None = None
+        self.last_fingerprint: str | None = None
         self.world_commit_invoked = False  # always false — gateway never commits
 
     def redact_payload(
@@ -93,11 +108,113 @@ class GatewayService:
             session_spent if session_spent is not None else self.ledger.session_spent,
         )
 
+    def _assert_provider_approved(self) -> None:
+        """Fail closed before any provider method when object is not approved fixture.
+
+        allow_real_provider=True is intentionally insufficient without a separate
+        HITL-approved real-provider path (not implemented).
+        """
+        if is_approved_fixture_provider(self.provider):
+            return
+        raise GatewayError(
+            ErrorCategories.POLICY,
+            "provider_not_approved",
+            "Injected provider is not an approved fixture provider; "
+            "real provider enablement requires a separate HITL-approved path",
+            retryable=False,
+            details={
+                "provider_type": type(self.provider).__name__,
+                "allow_real_provider": self.allow_real_provider,
+            },
+        )
+
+    def _assert_provider_mode_allowed(self, provider_mode: str) -> None:
+        """Only fixture mode is allowed. allow_real_provider alone does not open real modes."""
+        if provider_mode in ALLOWED_PROVIDER_MODES:
+            return
+        # Real modes remain HITL_REQUIRED even when allow_real_provider is True
+        # (flag alone is not a real-provider implementation gate).
+        raise GatewayError(
+            ErrorCategories.POLICY,
+            "provider_mode_denied",
+            "Real provider selection is HITL_REQUIRED; only fixture mode allowed",
+            retryable=False,
+            details={
+                "provider_mode": provider_mode,
+                "allow_real_provider": self.allow_real_provider,
+            },
+        )
+
+    def _build_fingerprint(
+        self,
+        *,
+        snapshot: dict[str, Any],
+        effective_per_request_cap: float,
+        effective_session_cap: float,
+        provider_mode: str,
+        session_id: Any,
+    ) -> str:
+        """Canonical fingerprint over redacted result-affecting inputs only (no secrets)."""
+        material = {
+            "snapshot": snapshot,
+            "effective_per_request_cap": effective_per_request_cap,
+            "effective_session_cap": effective_session_cap,
+            "provider_mode": provider_mode,
+            "session_id": session_id,
+            "edition": snapshot.get("edition"),
+            "require_api_paid_edition": self.require_api_paid_edition,
+        }
+        return compute_request_fingerprint(material)
+
+    def _idempotency_lookup(
+        self, request_id: str, gateway_request_id: str, fingerprint: str
+    ) -> dict[str, Any] | None:
+        """Return stored response on fingerprint match; raise on mismatch; None on miss."""
+        keys: list[str] = []
+        if request_id:
+            keys.append(request_id)
+        if gateway_request_id and gateway_request_id not in keys:
+            keys.append(gateway_request_id)
+
+        first_hit: dict[str, Any] | None = None
+        for key in keys:
+            status, response = self.idempotency.lookup(key, fingerprint)
+            if status == "conflict":
+                raise GatewayError(
+                    ErrorCategories.POLICY,
+                    "idempotency_key_conflict",
+                    "Idempotency key reused with a different request fingerprint",
+                    retryable=False,
+                    details={
+                        "key_kind": (
+                            "request_id" if key == request_id else "gateway_request_id"
+                        ),
+                    },
+                )
+            if status == "hit" and first_hit is None:
+                first_hit = response
+        return first_hit
+
+    def _idempotency_store(
+        self,
+        request_id: str,
+        gateway_request_id: str,
+        fingerprint: str,
+        response: dict[str, Any],
+    ) -> None:
+        if not fingerprint:
+            return
+        if request_id:
+            self.idempotency.put(request_id, fingerprint, response)
+        if gateway_request_id and gateway_request_id != request_id:
+            self.idempotency.put(gateway_request_id, fingerprint, response)
+
     def handle_request(self, gateway_request: dict[str, Any]) -> dict[str, Any]:
-        """Pipeline: redact → validate snapshot → budget → idempotency → provider → validate decision."""
+        """Pipeline: redact → validate → fingerprint → idempotency → budget → provider → decision."""
         request_id = ""
         gateway_request_id = ""
         trace_id = ""
+        fingerprint: str | None = None
 
         try:
             if not isinstance(gateway_request, dict):
@@ -128,16 +245,6 @@ class GatewayService:
                     "request_id exceeds max length 128",
                     retryable=False,
                 )
-
-            # Idempotency short-circuit: completed request_id returns prior without
-            # re-dispatch / re-billing (checked before budget to avoid false rejects).
-            prior = self.idempotency.get(request_id)
-            if prior is not None:
-                return prior
-            if gateway_request_id and gateway_request_id != request_id:
-                prior_gw = self.idempotency.get(gateway_request_id)
-                if prior_gw is not None:
-                    return prior_gw
 
             # --- 1. Redact secrets (wrapper + snapshot) before schema / provider ---
             # Detect smuggling on raw snapshot body (names only — never log values).
@@ -211,7 +318,7 @@ class GatewayService:
                     details={"edition": snapshot.get("edition")},
                 )
 
-            # --- 3. Budget + policy precheck (before provider) ---
+            # --- 3. Provider mode normalize + budget authority (before provider) ---
             provider_mode = str(
                 redacted_request.get("provider_mode")
                 or "fixture"
@@ -219,16 +326,6 @@ class GatewayService:
             # Normalize fixture provider label to mode "fixture"
             if provider_mode in ("fixture", "fixture_provider"):
                 provider_mode = "fixture"
-
-            if provider_mode not in ALLOWED_PROVIDER_MODES:
-                if not self.allow_real_provider:
-                    raise GatewayError(
-                        ErrorCategories.POLICY,
-                        "provider_mode_denied",
-                        "Real provider selection is HITL_REQUIRED; only fixture mode allowed",
-                        retryable=False,
-                        details={"provider_mode": provider_mode},
-                    )
 
             budget_context = redacted_request.get("budget_context") or {}
             if not isinstance(budget_context, dict):
@@ -239,33 +336,46 @@ class GatewayService:
                     retryable=False,
                 )
 
-            per_request_cap = float(
-                budget_context.get("per_request_cap", self.per_request_cap)
+            # Server caps are hard upper bounds; client may only lower them.
+            # Client session_spent is validated if present but NEVER seeds/replaces ledger.
+            effective_per_request_cap, effective_session_cap = resolve_effective_caps(
+                self.per_request_cap,
+                self.session_cap,
+                budget_context,
             )
-            session_cap = float(budget_context.get("session_cap", self.session_cap))
-            # Prefer request-provided session_spent only as override for first ledger init;
-            # ongoing ledger is authoritative for multi-call sessions on this instance.
-            if "session_spent" in budget_context and self.ledger.session_spent == 0.0:
-                requested_spent = float(budget_context["session_spent"])
-                if requested_spent < 0:
-                    raise GatewayError(
-                        ErrorCategories.BUDGET,
-                        "budget_negative_balance",
-                        "session_spent must be non-negative",
-                        retryable=False,
-                    )
-                self.ledger = SessionBudgetLedger(session_spent=requested_spent)
 
+            # --- 4. Canonical fingerprint (redacted result-affecting inputs only) ---
+            fingerprint = self._build_fingerprint(
+                snapshot=snapshot,
+                effective_per_request_cap=effective_per_request_cap,
+                effective_session_cap=effective_session_cap,
+                provider_mode=provider_mode,
+                session_id=snapshot.get("session_id")
+                or redacted_request.get("session_id"),
+            )
+            self.last_fingerprint = fingerprint
+
+            # --- 5. Idempotency: match → stored response; mismatch → conflict ---
+            prior = self._idempotency_lookup(
+                request_id, gateway_request_id, fingerprint
+            )
+            if prior is not None:
+                return prior
+
+            # --- 6. Budget check (server ledger authoritative) ---
             est = estimate_budget(snapshot, {"request_id": request_id})
             estimate = float(est["estimate"])
             check_budget(
                 estimate,
-                per_request_cap,
-                session_cap,
+                effective_per_request_cap,
+                effective_session_cap,
                 self.ledger.session_spent,
             )
 
-            # --- 4. (idempotency already checked) Provider interface call ---
+            # --- 7. Provider object + mode authority gates (BEFORE any provider method) ---
+            self._assert_provider_approved()
+            self._assert_provider_mode_allowed(provider_mode)
+
             # Final assert: provider never sees deny-list keys
             residual = contains_deny_keys(snapshot, SNAPSHOT_DENY_KEYS)
             if residual:
@@ -306,7 +416,7 @@ class GatewayService:
                     retryable=False,
                 )
 
-            # --- 6. Validate decision + re-redact deny list ---
+            # --- 8. Validate decision + re-redact deny list ---
             # Provider-smuggled deny keys (durable_mutation, script, secrets, …)
             # are rejected — not silently accepted after strip.
             pre_deny = contains_deny_keys(decision, DECISION_DENY_KEYS)
@@ -354,7 +464,7 @@ class GatewayService:
                     retryable=False,
                 )
 
-            # --- 7. Return untrusted proposal; charge budget only on success ---
+            # --- 9. Return untrusted proposal; charge budget only on success ---
             session_spent_after = self.ledger.charge(estimate)
             response: dict[str, Any] = {
                 "ok": True,
@@ -366,17 +476,17 @@ class GatewayService:
                 "budget": {
                     "estimate": estimate,
                     "session_spent_after": session_spent_after,
-                    "per_request_cap": per_request_cap,
-                    "session_cap": session_cap,
+                    "per_request_cap": effective_per_request_cap,
+                    "session_cap": effective_session_cap,
                 },
                 "fields_stripped_count": len(stripped_fields),
             }
             # Gateway never invokes World Commit or sets confirmation confirmed
             assert self.world_commit_invoked is False
 
-            self.idempotency.put(request_id, response)
-            if gateway_request_id and gateway_request_id != request_id:
-                self.idempotency.put(gateway_request_id, response)
+            self._idempotency_store(
+                request_id, gateway_request_id, fingerprint, response
+            )
             return response
 
         except GatewayError as exc:
@@ -389,17 +499,23 @@ class GatewayService:
                 retryable=exc.retryable,
                 details=exc.details,
             )
-            # Store failed completed outcomes for true idempotency of terminal failures
-            # only when request_id present and category is non-retryable terminal
-            if request_id and exc.category in (
-                ErrorCategories.VALIDATION,
-                ErrorCategories.POLICY,
-                ErrorCategories.BUDGET,
-                ErrorCategories.RETRY_EXHAUSTED,
+            # Store terminal non-retryable outcomes only when fingerprint is known
+            # (post-redaction/validation) so replays bind to the same inputs.
+            if (
+                fingerprint
+                and request_id
+                and exc.category
+                in (
+                    ErrorCategories.VALIDATION,
+                    ErrorCategories.POLICY,
+                    ErrorCategories.BUDGET,
+                    ErrorCategories.RETRY_EXHAUSTED,
+                )
+                and exc.code != "idempotency_key_conflict"
             ):
-                # Do not cache validation failures that were incomplete requests without id —
-                # we already require request_id above for most paths
-                self.idempotency.put(request_id, envelope)
+                self._idempotency_store(
+                    request_id, gateway_request_id, fingerprint, envelope
+                )
             return envelope
 
         except (ProviderTimeout, ProviderUnavailable) as exc:

@@ -1,0 +1,293 @@
+{
+  "agent_step_id": "G5-001-C2-executor-2026-07-21",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G5-001",
+    "wave": "C2_EXECUTOR_CONSUMER_VERIFY",
+    "profile": "executor",
+    "correction_work_order": "orchestration/work_orders/WO-G5-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G5-001_CORRECTION_001_DISPATCH_MAP.md",
+    "codex_review": "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json",
+    "parent_schema": "orchestration/receipts/g5/C0_schema.json",
+    "parent_network": "orchestration/receipts/g5/C1_network.json",
+    "prior_product_wave": "orchestration/receipts/g5/A2_executor.json",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY confirmation that the Godot paid adapter remains an untrusted proposal consumer after C1 server-side gateway authority fixes. Adapter: no secrets/SDK/network; success path marks untrusted=true, executed=false, committed=false; receive_untrusted_response requires untrusted=true then consent → routes_to=agm_decision_executor. Client does not own server budget caps or idempotency authority — production path is Godot→trusted gateway only; the four CORRECTION-001 invariants are enforced in services/agm_gateway/** (C1). No Godot product patch required. Re-ran paid_gateway_smoke: G5_PAID_ADAPTER_SMOKE=PASS checks=14 EXIT=0. git shows game paid-adapter paths clean; only services/agm_gateway/** modified by C1.",
+    "scope": {
+      "in_scope": [
+        "Godot paid adapter untrusted-consumer posture (read-only audit)",
+        "No-secrets / no-SDK / no-network boundary on paid adapter",
+        "Consent → executor handoff still mandatory after gateway success",
+        "Client independence from raising server caps or poisoning server idempotency",
+        "Whether any game/** product edit is required for CORRECTION-001",
+        "Optional re-run of paid_gateway_smoke",
+        "orchestration/receipts/g5/C2_executor.json only write"
+      ],
+      "out_of_scope": [
+        "services/agm_gateway/** product patches (C1 sole writer — already done)",
+        "game/** product patches (VERIFY_ONLY — none required)",
+        "contracts/** edits",
+        "Real provider / credentials / outbound network (HITL_REQUIRED)",
+        "C3 edition/boot verify",
+        "C4 Purple review",
+        "tasks.json / architecture / work_order / prior receipt edits",
+        "Self-ACCEPT",
+        "Children subagents"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — receipt only; no product code edits",
+        "only_write": [
+          "orchestration/receipts/g5/C2_executor.json"
+        ],
+        "next_writer": "C3_CORE_EDITION_VERIFY (core, VERIFY_ONLY)",
+        "provider_selection": "HITL_REQUIRED — fixture only; adapter never holds credentials",
+        "architecture_lock": "Paid edition: Godot → trusted gateway only; credentials never in Godot client; decision untrusted until consent → executor → preview → World Commit"
+      }
+    },
+    "product_writes": [],
+    "only_owned_files_written": true,
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_godot_product_edits": true,
+    "no_services_agm_gateway_edit": true,
+    "product_patch_required": false,
+    "verdicts": {
+      "overall": "PASS",
+      "adapter_no_secrets_sdk_network": "PASS",
+      "untrusted_proposal_consent_executor_route": "PASS",
+      "no_client_authority_over_server_caps_or_idempotency": "PASS",
+      "no_product_file_edits_required": "PASS"
+    },
+    "boundary_checklist": [
+      {
+        "id": "INV-ADAPTER-NO-SECRETS-SDK-NETWORK",
+        "check": "Paid adapter has no provider secrets, no provider SDK, no outbound network",
+        "status": "pass",
+        "evidence": [
+          "paid_gateway_adapter.gd uses_network() returns false (fixture/test path; production still only trusted gateway, never provider SDK)",
+          "paid_gateway_adapter.gd holds_provider_secrets() returns false",
+          "Header contract: NO provider SDK, NO secrets, NO outbound internet",
+          "IPaidGatewayAdapter FORBIDDEN_NETWORK_SYMBOLS + audit_no_network/audit_no_secrets",
+          "paid_gateway_smoke: source_secret_scan OK; source_no_network_symbols OK; interface_surface OK (uses_network false, holds_provider_secrets false); fixture_files_no_secrets OK",
+          "Static scan of paid_* bridge paths: no HTTPRequest/HTTPClient/WebSocket product usage; network symbols appear only as forbidden lists in smoke"
+        ],
+        "observed": {
+          "uses_network": false,
+          "holds_provider_secrets": false,
+          "provider_mode_default": "fixture",
+          "edition": "api_paid",
+          "transport_channel": "api_gateway",
+          "provider_sdk_imports": false,
+          "live_secret_value_markers": 0
+        }
+      },
+      {
+        "id": "INV-UNTRUSTED-PROPOSAL-CONSENT-EXECUTOR",
+        "check": "Gateway success remains untrusted proposal; still routes through consent then executor; never commits",
+        "status": "pass",
+        "evidence": [
+          "handle_request success: untrusted=true, executed=false, committed=false, routes_to=consent_then_agm_decision_executor",
+          "receive_untrusted_response rejects when untrusted != true (not_marked_untrusted)",
+          "receive_untrusted_response → BridgeDecisionImportGuard.evaluate → pending consent (status=awaiting_consent)",
+          "confirm_pending_decision sole pending→accepted path; routes_to=agm_decision_executor; executed=false; committed=false; untrusted_was=true",
+          "Error envelopes also mark untrusted=true, executed=false, committed=false",
+          "production_path_note: Decision remains untrusted: consent → executor soft effects → world_prompt preview → player confirm → World Commit",
+          "Smoke: happy_path_untrusted_proposal, consent_required_no_commit, confirm_no_execute all OK"
+        ],
+        "observed": {
+          "success_untrusted": true,
+          "success_executed": false,
+          "success_committed": false,
+          "success_routes_to": "consent_then_agm_decision_executor",
+          "confirm_routes_to": "agm_decision_executor",
+          "confirm_executed": false,
+          "confirm_committed": false,
+          "requires_untrusted_flag_on_receive": true,
+          "import_guard": "decision_import_guard.gd"
+        }
+      },
+      {
+        "id": "INV-CLIENT-DOES-NOT-OWN-SERVER-AUTHORITY",
+        "check": "Adapter does not depend on client raising server caps or poisoning server idempotency; server (C1) enforces the four CORRECTION-001 authority invariants",
+        "status": "pass",
+        "evidence": [
+          "WO-G5-001-CORRECTION-001 product fixes are server-owned under services/agm_gateway/** (budget, provider object gate, idempotency fingerprint) — C1_network.json FIXED",
+          "Architecture: production path Godot → trusted gateway only; client budget_context and request ids are untrusted inputs to the gateway",
+          "Client adapter fixture mirror holds local per_request_cap/session_cap/_session_spent/_idempotency for offline smoke only — not the authoritative ledger",
+          "Adapter does not claim or implement server cap hard-upper-bound authority; it cannot raise GatewayService.per_request_cap/session_cap because those live server-side",
+          "Adapter does not implement server fingerprint binding; server IdempotencyStore (C1) rejects ID reuse with different fingerprint",
+          "C1 remaining_risks explicitly required C2 only to verify untrusted-proposal consumer posture — not to re-implement server fixes in Godot",
+          "git status: game paid-adapter paths clean; modified product paths are services/agm_gateway/{budget,gateway,idempotency,tests} only"
+        ],
+        "observed": {
+          "server_budget_authority_owner": "services/agm_gateway (C1)",
+          "server_provider_authority_owner": "services/agm_gateway (C1)",
+          "server_idempotency_fingerprint_owner": "services/agm_gateway (C1)",
+          "godot_adapter_role": "untrusted proposal consumer + local fixture mirror for offline smoke",
+          "client_can_raise_server_caps": false,
+          "client_can_reset_server_ledger": false,
+          "client_can_poison_server_idempotency": false,
+          "depends_on_client_bypassing_server": false
+        },
+        "four_gateway_fixes_client_impact": {
+          "INV-SERVER-BUDGET-AUTHORITY": "no Godot change — server min(server, client) clamp + ledger authority",
+          "INV-PROVIDER-AUTHORITY": "no Godot change — server FixtureProvider isinstance gate; adapter already fixture-only and denies non-fixture provider_mode",
+          "INV-IDEMPOTENCY-FINGERPRINT": "no Godot change — server fingerprint bind + conflict; client local store is smoke-only",
+          "non_finite_budget_reject": "no Godot change — server parse_budget_number before dispatch"
+        }
+      },
+      {
+        "id": "INV-NO-PRODUCT-PATCH-REQUIRED",
+        "check": "No game/** or other product file edits required for CORRECTION-001 from executor scope",
+        "status": "pass",
+        "evidence": [
+          "Dispatch map C2 writes only orchestration/receipts/g5/C2_executor.json",
+          "WO step 3: executor VERIFY_ONLY confirms adapter remains untrusted consumer and does not patch product files",
+          "All four mandatory corrections are server-owned (C1 completed under services/agm_gateway/**)",
+          "Re-run smoke green without any adapter source change",
+          "This wave product_writes=[]"
+        ],
+        "product_patch_required": false,
+        "files_not_edited": [
+          "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+          "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+          "game/scripts/modules/interfaces/i_paid_gateway_adapter.gd",
+          "game/scripts/modules/bridge/exports/valid_decision_api_paid.json",
+          "game/scripts/modules/bridge/exports/valid_snapshot_api_paid.json",
+          "services/agm_gateway/**",
+          "contracts/**"
+        ]
+      }
+    ],
+    "acceptance_mapping": [
+      {
+        "id": "AT-GODOT-NO-SDK-BOUNDARY",
+        "status": "pass",
+        "note": "Reconfirmed via smoke source_no_network_symbols + uses_network/holds_provider_secrets false"
+      },
+      {
+        "id": "AT-UNTRUSTED-PROPOSAL",
+        "status": "pass",
+        "note": "happy_path_untrusted_proposal OK"
+      },
+      {
+        "id": "AT-CONSENT-NO-COMMIT",
+        "status": "pass",
+        "note": "consent_required_no_commit + confirm_no_execute OK"
+      },
+      {
+        "id": "AT-NO-SECRETS-IN-ADAPTER",
+        "status": "pass",
+        "note": "source_secret_scan + fixture_files_no_secrets OK"
+      },
+      {
+        "id": "AT-CORRECTION-NO-CLIENT-AUTHORITY-DEPENDENCY",
+        "status": "pass",
+        "note": "Server enforces C1 authority; adapter remains consumer; no product patch"
+      }
+    ],
+    "not_done": [
+      "Did not patch any product files",
+      "Did not re-run Python gateway suite (C1 ownership; C2 scope is Godot consumer)",
+      "Did not run C3 edition/boot verify",
+      "Did not self-ACCEPT",
+      "Did not enable real provider / network / credentials"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g5/C2_executor.json"
+    ],
+    "children": []
+  },
+  "smoke_test": {
+    "type": "godot_paid_gateway_adapter_headless",
+    "executable_smoke_run": true,
+    "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/bridge/paid_gateway_smoke.gd",
+    "working_directory": "E:\\AIdle_openworld",
+    "exit_code": 0,
+    "marker": "G5_PAID_ADAPTER_SMOKE=PASS",
+    "checks": 14,
+    "checks_observed": [
+      "source_secret_scan",
+      "source_no_network_symbols",
+      "interface_surface",
+      "snapshot_api_paid_identity",
+      "happy_path_untrusted_proposal",
+      "consent_required_no_commit",
+      "confirm_no_execute",
+      "validation_error_category",
+      "budget_reject",
+      "policy_provider_mode",
+      "error_categories_list",
+      "idempotency_replay",
+      "fixture_files_no_secrets",
+      "production_path_note"
+    ],
+    "log_clean": true,
+    "no_script_error": true,
+    "no_parse_error": true,
+    "no_error_prefix": true,
+    "network": false,
+    "real_provider": false,
+    "dependency_install": false,
+    "product_files_modified_this_wave": false,
+    "git_product_status_note": "game paid-adapter paths unstaged-clean; C1 modifications only under services/agm_gateway/**",
+    "secret_scan": {
+      "status": "pass",
+      "method": "paid_gateway_smoke source_secret_scan + fixture_files_no_secrets + static grep of paid_* bridge paths",
+      "files_scanned": [
+        "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+        "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+        "game/scripts/modules/interfaces/i_paid_gateway_adapter.gd",
+        "game/scripts/modules/bridge/exports/valid_decision_api_paid.json",
+        "game/scripts/modules/bridge/exports/valid_snapshot_api_paid.json"
+      ],
+      "secret_values_found": 0
+    }
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g5/C2_executor.json"],
+    "no_product_code_edits": true,
+    "no_godot_bridge_edit": true,
+    "no_services_agm_gateway_edit": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_prior_receipt_edits": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "no_provider_calls": true,
+    "no_dependency_install": true,
+    "no_outbound_http": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, WO-G5-001-CORRECTION-001, G5-001_CORRECTION_001_DISPATCH_MAP, C0_schema, C1_network, A2_executor, paid_gateway_adapter.gd, paid_gateway_smoke.gd, i_paid_gateway_adapter.gd, agent_step_contract schema manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G5-001-CORRECTION-001.md",
+    "orchestration/work_orders/G5-001_CORRECTION_001_DISPATCH_MAP.md",
+    "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json",
+    "orchestration/receipts/g5/C0_schema.json",
+    "orchestration/receipts/g5/C1_network.json",
+    "orchestration/receipts/g5/A2_executor.json",
+    "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+    "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+    "game/scripts/modules/interfaces/i_paid_gateway_adapter.gd",
+    "game/scripts/modules/bridge/decision_import_guard.gd",
+    "services/agm_gateway/gateway.py",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "Local fixture mirror budget/idempotency in Godot is not server-authoritative — correct by design; must never be treated as production authority",
+    "Real-provider HITL path remains unimplemented; adapter production_path_note documents trusted-gateway-only",
+    "C3 must reconfirm edition parity and integrated boot after C1 gateway changes (no Godot product change expected)"
+  ],
+  "next_route": "C3_CORE_EDITION_VERIFY"
+}

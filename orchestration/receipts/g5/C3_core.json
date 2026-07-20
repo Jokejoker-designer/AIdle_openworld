@@ -1,0 +1,279 @@
+{
+  "agent_step_id": "G5-001-C3-core-2026-07-21",
+  "agent_type": "aidle-core",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G5-001",
+    "wave": "C3_CORE_EDITION_VERIFY",
+    "profile": "core",
+    "correction_work_order": "orchestration/work_orders/WO-G5-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G5-001_CORRECTION_001_DISPATCH_MAP.md",
+    "codex_review": "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json",
+    "parent_schema": "orchestration/receipts/g5/C0_schema.json",
+    "parent_network": "orchestration/receipts/g5/C1_network.json",
+    "parent_executor": "orchestration/receipts/g5/C2_executor.json",
+    "prior_product_wave": "orchestration/receipts/g5/A3_core.json",
+    "state": "HANDOFF_TO_C4",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY re-verification after C1 gateway authority patches and C2 untrusted-consumer confirm. Free/Paid edition parity holds: editions are exactly desktop_bridge_free | api_paid (transport only); uses_same_agm_contracts=true; contract_semantics=identical; no client secrets (api_key/client_secret refused). Integrated headless boot clean with fixed-angle 2.5D camera. Executable re-runs: G2-007_GODOT_SMOKE=PASS (edition=api_paid same_contracts=true no_secrets=true) EXIT=0; --quit-after 4 EXIT=0 with Boot edition + Main fixed-angle 2.5D markers, no SCRIPT ERROR / parse error. No product edits. No children.",
+    "scope": {
+      "in_scope": [
+        "Free vs Paid edition enum identity and parity after CORRECTION-001",
+        "Same Snapshot/Decision contract semantics across editions",
+        "Paid path: no client secret / no provider SDK in Godot",
+        "First-run selector persistence + consent gate (via edition smoke)",
+        "Integrated boot cleanliness with 2.5D fixed-angle camera",
+        "Re-run of edition_headless_smoke and integrated --quit-after 4",
+        "orchestration/receipts/g5/C3_core.json only write"
+      ],
+      "out_of_scope": [
+        "Product code patches (VERIFY_ONLY)",
+        "services/agm_gateway/** (C1 sole writer — not re-patched)",
+        "Godot paid adapter product edits (C2 verified; none required)",
+        "Purple budget/secret deep review (C4_PERSIST_PURPLE)",
+        "contracts/** edits",
+        "Real provider selection / credentials / outbound network (HITL_REQUIRED)",
+        "tasks.json / ARCHITECTURE_LOCK / work_orders / prior receipt edits",
+        "Self-ACCEPT",
+        "Children subagents"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — receipt only",
+        "only_write": "orchestration/receipts/g5/C3_core.json",
+        "next_writer": "C4_PERSIST_PURPLE (persist, VERIFY_ONLY Purple)",
+        "provider_selection": "HITL_REQUIRED — fixture only in G5-001",
+        "architecture_lock": "Paid edition: API adapter behind trusted gateway; credentials never in Godot client or world files; MVP 2.5D fixed-angle camera"
+      }
+    },
+    "boundary_checklist": [
+      {
+        "id": "INV-EDITION-ENUM",
+        "check": "Editions are exactly desktop_bridge_free | api_paid",
+        "status": "pass",
+        "evidence": [
+          "edition_headless_smoke re-run: G2-007_GODOT_SMOKE=PASS validates EDITION_DESKTOP_BRIDGE_FREE / EDITION_API_PAID / AGM_EDITIONS size 2",
+          "is_valid_edition free+paid true; bogus enterprise_secret rejected",
+          "Prior A3_core INV-EDITION-ENUM + C2 paid adapter edition=api_paid"
+        ],
+        "observed": {
+          "desktop_bridge_free": true,
+          "api_paid": true,
+          "other_editions_accepted": false,
+          "smoke_final_edition": "api_paid"
+        }
+      },
+      {
+        "id": "INV-SAME-CONTRACT-SEMANTICS",
+        "check": "Free and Paid share identical Snapshot/Decision payload semantics; only edition (+ optional non-authoritative transport) differs",
+        "status": "pass",
+        "evidence": [
+          "edition smoke marker: same_contracts=true",
+          "SettingsManager.uses_same_agm_contracts() always returns true (smoke asserts)",
+          "export contract_semantics == 'identical' (smoke asserts)",
+          "C2 free_bridge_parity posture: shared snapshot_builder + decision_import_guard; paid edition=api_paid + transport.channel=api_gateway"
+        ],
+        "free_path": {
+          "edition": "desktop_bridge_free",
+          "transport_channels": ["clipboard", "inbox_outbox_file"],
+          "uses_network": false
+        },
+        "paid_path": {
+          "edition": "api_paid",
+          "transport_channel": "api_gateway",
+          "provider_mode_default": "fixture",
+          "uses_network": false,
+          "holds_provider_secrets": false
+        }
+      },
+      {
+        "id": "INV-PAID-NO-CLIENT-SECRET-NO-SDK",
+        "check": "Paid path has no client secret and no provider SDK in Godot",
+        "status": "pass",
+        "evidence": [
+          "edition smoke intentionally set api_key/client_secret → ERROR refuse lines (PASS proof)",
+          "no_secrets=true / has_no_client_secrets true after refuse",
+          "export stores_api_key=false stores_client_secret=false (smoke asserts)",
+          "C2 INV-ADAPTER-NO-SECRETS-SDK-NETWORK pass; paid adapter uses_network=false holds_provider_secrets=false"
+        ],
+        "rules_confirmed": [
+          "No provider API key / client secret stored via SettingsManager",
+          "No OpenAI/Anthropic/xAI SDK in Godot paid adapter",
+          "No outbound HTTP from paid adapter in G5-001 fixture path",
+          "Production: Godot → trusted gateway only; credentials server-side; real provider HITL_REQUIRED"
+        ]
+      },
+      {
+        "id": "INV-FIRST-RUN-SELECTOR-CONSENT",
+        "check": "First-run selector persists edition; later changes require explicit consent",
+        "status": "pass",
+        "evidence": [
+          "edition_headless_smoke: ephemeral free→paid OK; persist free then paid without consent WARNING fail; with consent OK",
+          "Observed WARNING: Edition change from desktop_bridge_free → api_paid requires consent",
+          "Consent gate remains enforced after C1 server-side gateway patches (client settings path unchanged)"
+        ]
+      },
+      {
+        "id": "INV-BOOT-2_5D-FIXED-CAMERA",
+        "check": "Integrated boot remains clean with 2.5D fixed camera after correction waves",
+        "status": "pass",
+        "evidence": [
+          "Headless --quit-after 4: EXIT=0",
+          "[Boot] AGM edition=api_paid same_contracts=true no_client_secrets=true",
+          "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+          "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.",
+          "No SCRIPT ERROR / parse error in boot log"
+        ],
+        "boot_trace_observed": [
+          "[Boot] AGM edition=api_paid same_contracts=true no_client_secrets=true",
+          "[Boot] Headless smoke → main with default art style.",
+          "[Main] Camera mode=fixed-angle 2.5D (pitch locked, no free orbit/FPS).",
+          "[Main] Player ready: CharacterBody3D XZ locomotion on ground plane.",
+          "[Main] Entered Private Reality | style=cozy_cyber_pixel"
+        ]
+      }
+    ],
+    "parent_handoff_status": {
+      "C0_schema": {
+        "wave": "C0_SCHEMA_VERIFY",
+        "role": "records four failed invariants / test contracts"
+      },
+      "C1_network": {
+        "wave": "C1_NETWORK_GATEWAY_PATCH",
+        "authority": "PATCH_DRAFT sole writer services/agm_gateway/**",
+        "role": "server budget/provider/idempotency authority fixes"
+      },
+      "C2_executor": {
+        "state": "REVIEW_REQUESTED",
+        "verdict": "PASS",
+        "smoke": "G5_PAID_ADAPTER_SMOKE=PASS (14 checks)",
+        "next_route_was": "C3_CORE_EDITION_VERIFY",
+        "product_patch_required": false
+      }
+    },
+    "acceptance_tests_results": [
+      {
+        "id": "AT-EDITION-ENUM-TWO-ONLY",
+        "status": "pass",
+        "detail": "G2-007 smoke PASS: AGM_EDITIONS free+paid only; bogus rejected"
+      },
+      {
+        "id": "AT-SAME-CONTRACTS-FLAG",
+        "status": "pass",
+        "detail": "same_contracts=true; export contract_semantics identical"
+      },
+      {
+        "id": "AT-CONSENT-GATE",
+        "status": "pass",
+        "detail": "persist change without consent fails (WARNING); with consent succeeds"
+      },
+      {
+        "id": "AT-NO-CLIENT-SECRETS",
+        "status": "pass",
+        "detail": "api_key and client_secret set_value refused (ERROR lines); no_secrets=true"
+      },
+      {
+        "id": "AT-BOOT-FIXED-CAMERA",
+        "status": "pass",
+        "detail": "quit-after 4: fixed-angle 2.5D log, EXIT=0, no script/parse errors"
+      },
+      {
+        "id": "AT-FREE-PAID-PARITY-POST-CORRECTION",
+        "status": "pass",
+        "detail": "Edition parity unchanged by C1 gateway patches; C2 confirmed adapter still untrusted consumer"
+      }
+    ],
+    "not_done": [
+      "Did not patch product code (VERIFY_ONLY)",
+      "Did not implement real provider or outbound network",
+      "Did not self-ACCEPT",
+      "Did not write C4 Purple receipt (next_route)",
+      "Did not edit contracts / ARCHITECTURE_LOCK / tasks.json / prior receipts",
+      "Did not re-run paid_gateway_smoke (owned by C2; already PASS) or gateway Python suite (owned by C1)"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g5/C3_core.json"
+    ],
+    "product_writes": 0,
+    "only_write": "orchestration/receipts/g5/C3_core.json",
+    "children": []
+  },
+  "smoke_test": {
+    "type": "core_edition_verify_multi_smoke",
+    "executable_smoke_run": true,
+    "working_directory": "E:\\AIdle_openworld",
+    "runs": [
+      {
+        "name": "edition_headless_smoke",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/core/edition_headless_smoke.gd",
+        "exit_code": 0,
+        "marker": "G2-007_GODOT_SMOKE=PASS",
+        "extras": "edition=api_paid same_contracts=true no_secrets=true",
+        "note": "Expected ERROR/WARNING lines prove consent gate and secret refusal (not failures)"
+      },
+      {
+        "name": "integrated_boot_quit_after",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 4",
+        "exit_code": 0,
+        "markers": [
+          "[Boot] AGM edition=api_paid",
+          "same_contracts=true",
+          "no_client_secrets=true",
+          "[Main] Camera mode=fixed-angle 2.5D"
+        ],
+        "log_clean": true,
+        "no_script_error": true,
+        "no_parse_error": true
+      }
+    ],
+    "network": false,
+    "real_provider": false,
+    "dependency_install": false,
+    "overall": "PASS"
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g5/C3_core.json"],
+    "no_product_code_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_services_agm_gateway_edit": true,
+    "no_godot_bridge_edit": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "no_provider_calls": true,
+    "no_dependency_install": true,
+    "no_outbound_http": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, correction dispatch map, A3/C2 receipts, edition_headless_smoke.gd manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G5-001-CORRECTION-001.md",
+    "orchestration/work_orders/G5-001_CORRECTION_001_DISPATCH_MAP.md",
+    "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json",
+    "orchestration/receipts/g5/C0_schema.json",
+    "orchestration/receipts/g5/C1_network.json",
+    "orchestration/receipts/g5/C2_executor.json",
+    "orchestration/receipts/g5/A3_core.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "game/scripts/core/edition_headless_smoke.gd",
+    "game/scripts/core/constants.gd",
+    "game/autoload/settings_manager.gd",
+    "game/scripts/main/boot.gd",
+    "game/scripts/main/main.gd",
+    "game/scripts/camera/cozy_camera.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "Edition smoke persists last edition (api_paid) into user://settings.cfg during consent path tests — interactive first-run may already show chosen; ephemeral headless boot path still correct when unset",
+    "Paid production still must call trusted Python gateway; C4 Purple should re-confirm secret boundary and four CORRECTION-001 invariants across C0–C3 evidence",
+    "Real provider enablement remains HITL_REQUIRED"
+  ],
+  "next_route": "C4_PERSIST_PURPLE"
+}

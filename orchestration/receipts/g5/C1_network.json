@@ -1,0 +1,260 @@
+{
+  "agent_step_id": "G5-001-C1-network-2026-07-21",
+  "agent_type": "aidle-network",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G5-001",
+    "wave": "C1_NETWORK_GATEWAY_PATCH",
+    "profile": "network",
+    "correction_work_order": "orchestration/work_orders/WO-G5-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G5-001_CORRECTION_001_DISPATCH_MAP.md",
+    "codex_review": "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json",
+    "parent_schema": "orchestration/receipts/g5/C0_schema.json",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "C1 PATCH_DRAFT correction under services/agm_gateway/** for four Codex/C0 authority defects: (1) server-owned budget caps with min(server, client) clamp, ignore client session_spent for ledger, reject bool/NaN/±Inf/non-numeric before dispatch; (2) provider object gate requires isinstance FixtureProvider before any provider method; allow_real_provider=true alone never enables non-fixture object or real mode; (3) idempotency keys bound to SHA-256 fingerprint of redacted result-affecting inputs with conflict on mismatch; (4) 16 adversarial regressions added; baseline 20 remain green. Suite: 36 tests OK, G5_AGM_GATEWAY_SMOKE=PASS, secret scan PASS.",
+    "scope": {
+      "in_scope": [
+        "services/agm_gateway/** product authority fixes",
+        "services/agm_gateway/tests/test_gateway.py adversarial regressions",
+        "orchestration/receipts/g5/C1_network.json"
+      ],
+      "out_of_scope": [
+        "contracts/**",
+        "game/** / Godot product edits",
+        "Real provider / SDK / credentials / outbound network",
+        "tasks.json / architecture / work_order / prior receipt edits",
+        "Self-ACCEPT",
+        "Children subagents"
+      ],
+      "authority_boundary": {
+        "this_wave": "PATCH_DRAFT sole writer under services/agm_gateway/**",
+        "only_write": [
+          "services/agm_gateway/**",
+          "orchestration/receipts/g5/C1_network.json"
+        ],
+        "next_writer": "C2_EXECUTOR_CONSUMER_VERIFY (executor, VERIFY_ONLY)",
+        "provider_selection": "HITL_REQUIRED — fixture only; allow_real_provider insufficient alone"
+      }
+    },
+    "product_writes": [
+      "services/agm_gateway/budget.py",
+      "services/agm_gateway/idempotency.py",
+      "services/agm_gateway/gateway.py",
+      "services/agm_gateway/tests/test_gateway.py",
+      "orchestration/receipts/g5/C1_network.json"
+    ],
+    "only_owned_files_written": true,
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_godot_edits": true,
+    "invariants_implemented": [
+      {
+        "id": "INV-SERVER-BUDGET-AUTHORITY",
+        "status": "FIXED",
+        "implementation": [
+          "budget.parse_budget_number rejects bool, non-Real, NaN, ±Inf, negative",
+          "budget.resolve_effective_caps: effective = min(server_cap, client) when client finite non-negative; else server",
+          "Client session_spent validated when present but never seeds/replaces SessionBudgetLedger",
+          "gateway.handle_request uses server ledger.session_spent for check_budget; charge only on success",
+          "Rejected budget paths never call provider"
+        ],
+        "files": [
+          "services/agm_gateway/budget.py",
+          "services/agm_gateway/gateway.py"
+        ]
+      },
+      {
+        "id": "INV-PROVIDER-AUTHORITY",
+        "status": "FIXED",
+        "implementation": [
+          "is_approved_fixture_provider / isinstance(FixtureProvider) gate before generate_decision",
+          "Non-approved injection → policy provider_not_approved, retryable=false, call_count=0",
+          "provider_mode non-fixture always denied (provider_mode_denied) even when allow_real_provider=True",
+          "No real provider/SDK/credentials/network added"
+        ],
+        "files": [
+          "services/agm_gateway/gateway.py"
+        ]
+      },
+      {
+        "id": "INV-IDEMPOTENCY-FINGERPRINT",
+        "status": "FIXED",
+        "implementation": [
+          "IdempotencyStore records {fingerprint, response} per key",
+          "compute_request_fingerprint: aidle_gateway_idempotency_fp_v1 + redacted snapshot + effective caps + provider_mode + session_id + edition",
+          "Identical fingerprint replay returns stored response, no redispatch, no second charge",
+          "Fingerprint mismatch on request_id or gateway_request_id → policy idempotency_key_conflict, no provider, no charge",
+          "Secrets excluded: fingerprint over post-redaction material only; empty store no longer falsy-replaced via or"
+        ],
+        "files": [
+          "services/agm_gateway/idempotency.py",
+          "services/agm_gateway/gateway.py"
+        ]
+      }
+    ],
+    "pipeline_order": [
+      "parse request_id / gateway_request_id",
+      "redact secrets (deep)",
+      "reject snapshot-body deny-list smuggling",
+      "validate snapshot schema + edition policy",
+      "resolve server-authoritative effective budget caps (validate numeric; min clamp)",
+      "compute canonical fingerprint over redacted result-affecting inputs",
+      "idempotency lookup: match → return stored; mismatch → conflict",
+      "check_budget estimate vs effective caps + server ledger",
+      "provider object authority gate (FixtureProvider only)",
+      "provider_mode policy (fixture only; allow_real_provider insufficient)",
+      "provider call via retry policy",
+      "validate decision + deny-list",
+      "charge ledger only on success",
+      "store idempotency record with fingerprint",
+      "return untrusted proposal"
+    ],
+    "error_codes_used": [
+      "budget_type_invalid",
+      "budget_non_finite",
+      "budget_negative_balance",
+      "budget_per_request_exceeded",
+      "budget_session_exceeded",
+      "provider_not_approved",
+      "provider_mode_denied",
+      "idempotency_key_conflict"
+    ],
+    "baseline_tests_preserved": [
+      "test_free_paid_payload_semantics_identical",
+      "test_valid_api_paid_snapshot_accepted",
+      "test_valid_api_paid_decision_accepted",
+      "test_api_key_stripped_before_provider",
+      "test_deep_deny_list_redaction",
+      "test_provider_not_called_on_invalid_snapshot",
+      "test_invalid_provider_decision_rejected",
+      "test_build_proposal_bypass_rejected",
+      "test_success_marks_untrusted_no_commit",
+      "test_error_envelope_categories_complete",
+      "test_same_request_id_no_second_provider_call",
+      "test_per_request_cap_reject_before_dispatch",
+      "test_session_cap_reject_before_dispatch",
+      "test_timeout_then_success",
+      "test_unavailable_exhausted",
+      "test_validation_no_retry",
+      "test_policy_budget_no_retry",
+      "test_only_fixture_provider_enabled",
+      "test_gateway_package_secret_scan",
+      "test_durable_mutation_from_provider_rejected"
+    ],
+    "new_regression_tests_added": [
+      "test_client_cannot_raise_server_per_request_cap",
+      "test_client_cannot_raise_server_session_cap",
+      "test_client_session_spent_cannot_reset_server_ledger",
+      "test_client_may_request_stricter_lower_cap",
+      "test_budget_nan_rejects_before_dispatch",
+      "test_budget_infinity_rejects_before_dispatch",
+      "test_budget_bool_rejects_before_dispatch",
+      "test_budget_negative_rejects_before_dispatch",
+      "test_budget_non_numeric_rejects_before_dispatch",
+      "test_rejected_budget_never_calls_provider_or_charges_ledger",
+      "test_injected_non_fixture_provider_rejected_when_real_disabled",
+      "test_allow_real_provider_true_not_sufficient_for_real_enablement",
+      "test_idempotency_identical_replay_returns_stored_response",
+      "test_idempotency_conflict_on_request_id_payload_change",
+      "test_idempotency_conflict_on_gateway_request_id_payload_change",
+      "test_idempotency_fingerprint_excludes_secrets"
+    ],
+    "baseline_test_adjustments": [
+      {
+        "name": "test_session_cap_reject_before_dispatch",
+        "change": "Seed session_spent via GatewayService constructor; client session_spent no longer authorizes ledger. Client may still send higher session_cap which is clamped to server."
+      }
+    ],
+    "bugs_fixed_incidental": [
+      {
+        "id": "EMPTY-IDEMPOTENCY-STORE-FALSY",
+        "detail": "IdempotencyStore.__len__ made empty store falsy under `idempotency_store or IdempotencyStore()`, silently replacing injected empty stores. Constructor now uses explicit is not None checks for provider/store/retry_policy."
+      }
+    ],
+    "not_done": [
+      "Did not self-ACCEPT G5-001",
+      "Did not edit Godot adapter (C2 VERIFY_ONLY)",
+      "Did not re-run edition/boot (C3)",
+      "Did not Purple review (C4)",
+      "Did not implement real providers"
+    ],
+    "artifacts": [
+      "services/agm_gateway/budget.py",
+      "services/agm_gateway/idempotency.py",
+      "services/agm_gateway/gateway.py",
+      "services/agm_gateway/tests/test_gateway.py",
+      "orchestration/receipts/g5/C1_network.json"
+    ],
+    "product_writes_count": 4,
+    "children": []
+  },
+  "smoke_test": {
+    "type": "executable_unittest",
+    "command": "python services/agm_gateway/run_gateway_tests.py",
+    "executable_smoke_run": true,
+    "exit_code": 0,
+    "marker": "G5_AGM_GATEWAY_SMOKE=PASS",
+    "test_count": 36,
+    "baseline_20_green": true,
+    "new_regressions_green": true,
+    "secret_scan": {
+      "scope": "services/agm_gateway/** (non-test .py)",
+      "markers": ["sk-live", "sk-proj-", "AKIA", "BEGIN PRIVATE KEY", "aws_secret_access_key"],
+      "result": "PASS",
+      "offenders": 0
+    },
+    "codex_adversarial_four_covered": [
+      "test_client_cannot_raise_server_per_request_cap",
+      "test_budget_nan_rejects_before_dispatch",
+      "test_budget_infinity_rejects_before_dispatch",
+      "test_injected_non_fixture_provider_rejected_when_real_disabled",
+      "test_idempotency_conflict_on_request_id_payload_change",
+      "test_idempotency_identical_replay_returns_stored_response"
+    ]
+  },
+  "self_audit": {
+    "authority_token": "PATCH_DRAFT",
+    "self_accept": false,
+    "only_wrote": [
+      "services/agm_gateway/budget.py",
+      "services/agm_gateway/idempotency.py",
+      "services/agm_gateway/gateway.py",
+      "services/agm_gateway/tests/test_gateway.py",
+      "orchestration/receipts/g5/C1_network.json"
+    ],
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_godot_bridge_edit": true,
+    "no_prior_receipt_edits": true,
+    "no_self_accept": true,
+    "no_children_subagents": true,
+    "no_real_provider": true,
+    "no_credentials": true,
+    "no_outbound_network": true,
+    "no_dependency_install": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, C0_schema, WO-G5-001-CORRECTION-001, gateway modules, agent_step_contract schema manually"
+  },
+  "evidence_refs": [
+    "orchestration/receipts/g5/C0_schema.json",
+    "orchestration/work_orders/WO-G5-001-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json",
+    "services/agm_gateway/budget.py",
+    "services/agm_gateway/idempotency.py",
+    "services/agm_gateway/gateway.py",
+    "services/agm_gateway/tests/test_gateway.py",
+    "services/agm_gateway/run_gateway_tests.py",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "Fingerprint field set is stable for G5 fixtures; future non-result noise in snapshot must not be over-included if false conflicts appear",
+    "Real-provider HITL path remains unimplemented by design — must not be enabled by allow_real_provider alone",
+    "C2 must verify Godot paid adapter still treats gateway output as untrusted proposal only"
+  ],
+  "next_route": "C2_EXECUTOR_CONSUMER_VERIFY"
+}

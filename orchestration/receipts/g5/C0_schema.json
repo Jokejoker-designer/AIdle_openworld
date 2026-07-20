@@ -1,0 +1,784 @@
+{
+  "agent_step_id": "G5-001-C0-schema-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G5-001",
+    "wave": "C0_SCHEMA_VERIFY",
+    "profile": "schema",
+    "correction_work_order": "orchestration/work_orders/WO-G5-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G5-001_CORRECTION_001_DISPATCH_MAP.md",
+    "codex_review": "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json",
+    "parent_schema": "orchestration/receipts/g5/A0_schema.json",
+    "state": "HANDOFF_TO_C1",
+    "self_accept": false,
+    "summary": "VERIFY_ONLY audit of four G5-001 authority-boundary defects challenged by Codex. All four FAIL on current services/agm_gateway product: (1) untrusted budget_context can raise configured server caps and seed/reset ledger; non-finite/bool budget fields are not rejected before dispatch; (2) arbitrary injected ProviderInterface is invoked when provider_mode=fixture even if allow_real_provider=false; allow_real_provider=true alone would open non-fixture modes without a separate HITL path; (3) idempotency store keys only on request_id/gateway_request_id with no canonical fingerprint of redacted result-affecting inputs, so payload-changed ID reuse returns the prior response; (4) regression tests for these cases are absent. C1_NETWORK_GATEWAY_PATCH is sole product writer under services/agm_gateway/**.",
+    "scope": {
+      "in_scope": [
+        "Record exact four failed invariants with file:line evidence",
+        "Define C1 required product fix contracts (budget authority, provider authority, idempotency fingerprint)",
+        "List concrete regression test names and pass criteria C1 must add",
+        "Preserve existing 20 gateway tests as non-regression baseline"
+      ],
+      "out_of_scope": [
+        "Product edits under services/agm_gateway/** (C1 sole writer)",
+        "Godot paid adapter product edits (C2 VERIFY_ONLY consumer only)",
+        "Edition/boot re-verify (C3 core)",
+        "Purple review (C4 persist)",
+        "contracts/** edits",
+        "Real provider, SDK, credentials, outbound network",
+        "tasks.json / codex_directive / architecture / work_order edits",
+        "Self-ACCEPT"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — receipt only",
+        "only_write": "orchestration/receipts/g5/C0_schema.json",
+        "next_writer": "C1_NETWORK_GATEWAY_PATCH (network, PATCH_DRAFT)",
+        "provider_selection": "HITL_REQUIRED — must remain disabled; correction must not make allow_real_provider=true sufficient alone"
+      }
+    },
+    "codex_challenges_mapped": [
+      {
+        "codex_challenge": "Untrusted budget_context can replace configured server caps with larger values, allowing a request to bypass both hard caps.",
+        "invariant_id": "INV-SERVER-BUDGET-AUTHORITY",
+        "status": "CONFIRMED_FAIL"
+      },
+      {
+        "codex_challenge": "NaN and Infinity budget values pass comparisons and reach the provider instead of failing closed.",
+        "invariant_id": "INV-SERVER-BUDGET-AUTHORITY",
+        "sub": "non_finite_reject",
+        "status": "CONFIRMED_FAIL"
+      },
+      {
+        "codex_challenge": "An arbitrary injected ProviderInterface is called when allow_real_provider is false if the request labels its mode fixture.",
+        "invariant_id": "INV-PROVIDER-AUTHORITY",
+        "status": "CONFIRMED_FAIL"
+      },
+      {
+        "codex_challenge": "A reused request_id or gateway_request_id with a different payload returns the prior response because idempotency is not bound to a canonical request fingerprint.",
+        "invariant_id": "INV-IDEMPOTENCY-FINGERPRINT",
+        "status": "CONFIRMED_FAIL"
+      }
+    ],
+    "failed_invariants": [
+      {
+        "id": "INV-SERVER-BUDGET-AUTHORITY",
+        "status": "FAIL",
+        "statement": "Configured GatewayService.per_request_cap and session_cap are hard upper bounds. An untrusted request may only request a stricter lower cap; it cannot raise either configured cap. The server ledger is authoritative: client session_spent must not reset, reduce, or replace it. Reject booleans, negative values, NaN, ±Infinity, and other non-finite/non-numeric budget fields before provider dispatch. A rejected budget request must not call the provider or charge the ledger.",
+        "required_behavior": {
+          "server_caps": "self.per_request_cap / self.session_cap are hard maxima",
+          "client_may": "request a lower (stricter) per_request_cap and/or session_cap only",
+          "client_must_not": [
+            "raise per_request_cap above configured server per_request_cap",
+            "raise session_cap above configured server session_cap",
+            "set or reset server ledger.session_spent via budget_context.session_spent",
+            "pass bool / non-numeric / NaN / ±Inf budget fields"
+          ],
+          "reject_before_dispatch": true,
+          "on_reject": {
+            "category": "budget or validation (document stable code)",
+            "retryable": false,
+            "provider_call_count": 0,
+            "ledger_charge": 0
+          },
+          "recommended_effective_caps": {
+            "effective_per_request_cap": "min(server.per_request_cap, client_requested) when client supplies a valid finite non-negative number; else server.per_request_cap",
+            "effective_session_cap": "min(server.session_cap, client_requested) when client supplies a valid finite non-negative number; else server.session_cap",
+            "session_spent": "always self.ledger.session_spent; ignore or reject client session_spent as authority input (constructor-seeded ledger only)"
+          },
+          "numeric_validation": {
+            "accept": "finite number (int/float subclass of numbers.Real excluding bool), value >= 0",
+            "reject": [
+              "bool (True/False — isinstance(True, int) trap)",
+              "negative",
+              "NaN",
+              "+Infinity",
+              "-Infinity",
+              "non-numeric strings/objects/null where a number is required",
+              "non-finite after coercion"
+            ],
+            "implementation_hint": "Use math.isfinite after type-safe parse; never bare float(x) on untrusted input without type/isfinite guards"
+          }
+        },
+        "current_defects": [
+          {
+            "id": "BUDGET-DEF-RAISE-CAPS",
+            "file": "services/agm_gateway/gateway.py",
+            "lines": "242-245",
+            "evidence": "per_request_cap = float(budget_context.get(\"per_request_cap\", self.per_request_cap)); session_cap = float(budget_context.get(\"session_cap\", self.session_cap)) — client value replaces server cap with no min() against configured hard upper bounds.",
+            "impact": "Client can send per_request_cap=1e15 / session_cap=1e15 and bypass GatewayService configured caps."
+          },
+          {
+            "id": "BUDGET-DEF-CLIENT-LEDGER-SEED",
+            "file": "services/agm_gateway/gateway.py",
+            "lines": "246-257",
+            "evidence": "if \"session_spent\" in budget_context and self.ledger.session_spent == 0.0: self.ledger = SessionBudgetLedger(session_spent=requested_spent) — untrusted request seeds/replaces server ledger when spent is zero.",
+            "impact": "Client can reset or invent session_spent, undermining session_cap accounting (and tests currently rely on this unsafe seed path)."
+          },
+          {
+            "id": "BUDGET-DEF-NO-FINITE-GUARD",
+            "file": "services/agm_gateway/budget.py",
+            "lines": "32-73",
+            "evidence": "check_budget only rejects estimate < 0 or session_spent < 0. No math.isfinite, no bool rejection, no type guard. IEEE NaN comparisons (estimate > cap, session_spent + estimate > session_cap) evaluate False, so NaN/±Inf pass and reach provider.",
+            "impact": "NaN/Infinity (and float(True)==1.0 bool coercion via gateway float()) can pass checks."
+          },
+          {
+            "id": "BUDGET-DEF-UNSAFE-FLOAT-COERCE",
+            "file": "services/agm_gateway/gateway.py",
+            "lines": "242-260",
+            "evidence": "Bare float() on budget_context fields: float('nan'), float('inf'), float(True) succeed without policy/budget rejection path before check_budget.",
+            "impact": "Non-numeric-looking but float-coercible and non-finite values reach estimate/check path."
+          }
+        ],
+        "preserved_good_behavior": [
+          "Failed pre-dispatch budget rejects do not charge ledger when check_budget raises (charge only on success path gateway.py:358)",
+          "estimate_budget returns non-negative finite estimate for normal snapshots",
+          "Existing AT-BUDGET-PER-REQUEST / AT-BUDGET-SESSION tests remain required green (must be updated if they depend on client raising caps or client ledger seed — client may still lower caps)"
+        ]
+      },
+      {
+        "id": "INV-PROVIDER-AUTHORITY",
+        "status": "FAIL",
+        "statement": "When allow_real_provider is false, an injected provider that is not an approved fixture provider must fail with a structured non-retryable policy error BEFORE any provider method is called, even when provider_mode=fixture. Do not add or call a real provider, SDK, credential, or network transport. Future real-provider enablement remains a separate HITL-approved path; allow_real_provider=true alone must NOT be sufficient for real enablement.",
+        "required_behavior": {
+          "when_allow_real_provider_false": {
+            "allowed_provider_objects": "FixtureProvider (or explicit approved fixture registry membership — isinstance FixtureProvider is MVP)",
+            "on_non_approved_injection": {
+              "category": "policy",
+              "code_hint": "provider_not_approved | provider_injection_denied",
+              "retryable": false,
+              "provider_method_call_count": 0,
+              "timing": "BEFORE generate_decision (and before retry_policy.run)"
+            },
+            "provider_mode_fixture_does_not_authorize_arbitrary_objects": true
+          },
+          "when_allow_real_provider_true": {
+            "not_sufficient_alone": true,
+            "must_also_require": [
+              "Separate HITL-approved real provider type/allowlist (not implemented in this correction)",
+              "No automatic enablement of outbound network/SDK merely because the flag is true",
+              "G5-001 correction must still deny real transport; flag true alone must not call arbitrary injected non-fixture providers without an additional approved real-provider path (which remains out of scope / HITL)"
+            ],
+            "correction_constraint": "Do not implement real providers; do not make allow_real_provider=true sufficient by itself to dispatch non-fixture providers"
+          },
+          "forbidden": [
+            "Real provider SDKs",
+            "Credentials in gateway or Godot",
+            "Outbound network enablement",
+            "Calling provider.generate_decision on unapproved injection under allow_real_provider=false"
+          ]
+        },
+        "current_defects": [
+          {
+            "id": "PROV-DEF-NO-OBJECT-GATE",
+            "file": "services/agm_gateway/gateway.py",
+            "lines": "41-53,215-231,288-292",
+            "evidence": "Constructor accepts any ProviderInterface (provider or FixtureProvider()). Policy gate only checks request provider_mode string against ALLOWED_PROVIDER_MODES={'fixture'}. When provider_mode is fixture/fixture_provider, execution always reaches self.provider.generate_decision via retry_policy.run with no isinstance(self.provider, FixtureProvider) (or allowlist) check.",
+            "impact": "Test double / malicious ProviderInterface subclass with label/mode fixture is invoked while allow_real_provider=false."
+          },
+          {
+            "id": "PROV-DEF-FLAG-ALONE-OPENS-MODE",
+            "file": "services/agm_gateway/gateway.py",
+            "lines": "223-231",
+            "evidence": "if provider_mode not in ALLOWED_PROVIDER_MODES: if not self.allow_real_provider: raise ... — when allow_real_provider is true, non-fixture provider_mode is not denied and still calls self.provider (still whatever was injected).",
+            "impact": "allow_real_provider=true alone is treated as sufficient to skip mode deny without a separate HITL real-provider implementation gate."
+          },
+          {
+            "id": "PROV-DEF-BASE-NO-APPROVAL",
+            "file": "services/agm_gateway/providers/base.py",
+            "lines": "9-19",
+            "evidence": "ProviderInterface is an unconstrained ABC; any subclass satisfies injection typing.",
+            "impact": "Type system alone does not encode fixture-only authority."
+          }
+        ],
+        "preserved_good_behavior": [
+          "Default GatewayService() uses FixtureProvider and allow_real_provider=False",
+          "Non-fixture provider_mode string denied with category=policy code=provider_mode_denied when allow_real_provider=False (test_only_fixture_provider_enabled)",
+          "FixtureProvider has no network/credentials"
+        ]
+      },
+      {
+        "id": "INV-IDEMPOTENCY-FINGERPRINT",
+        "status": "FAIL",
+        "statement": "Bind request_id and gateway_request_id records to a deterministic canonical fingerprint of the validated/redacted request inputs that affect the result. An identical replay returns the stored response without redispatch or charge. Reuse of either id with a different fingerprint fails closed with a structured non-retryable conflict/policy response and no provider call (and no charge). Never include raw secrets, hidden prompts, or credential values in a fingerprint, log, error, or receipt.",
+        "required_behavior": {
+          "store_record_shape": {
+            "key": "request_id and/or gateway_request_id",
+            "fingerprint": "canonical hash of result-affecting redacted inputs",
+            "response": "safe success or terminal error envelope (no secrets)"
+          },
+          "fingerprint_material": {
+            "include": [
+              "redacted snapshot body (post deep deny-list strip, schema-validated)",
+              "effective budget caps used for the decision (server-authoritative effective caps)",
+              "provider_mode (normalized)",
+              "session_id if result-affecting",
+              "edition / require_api_paid path inputs that affect outcome"
+            ],
+            "exclude_never_fingerprint": [
+              "api_key",
+              "credentials",
+              "access_token",
+              "password",
+              "secret/secrets",
+              "raw_system_prompt / system_prompt / raw_prompt",
+              "Authorization / Cookie / Bearer values",
+              "tts_audio / voice_sample / microphone_buffer",
+              "private_memory",
+              "any deny-list field values"
+            ],
+            "canonicalization": "Deterministic JSON (sorted keys, compact separators, UTF-8) then SHA-256 hex; version the material schema (e.g. aidle_gateway_idempotency_fp_v1)"
+          },
+          "identical_replay": {
+            "condition": "same request_id (or gateway_request_id) AND same fingerprint",
+            "behavior": "return stored response; provider call_count unchanged; no additional ledger charge"
+          },
+          "conflict": {
+            "condition": "same request_id OR same gateway_request_id AND different fingerprint",
+            "behavior": {
+              "category": "policy (or validation — prefer policy/conflict)",
+              "code_hint": "idempotency_key_conflict | idempotency_fingerprint_mismatch",
+              "retryable": false,
+              "provider_call_count": 0,
+              "ledger_charge": 0,
+              "must_not": "return prior response as success for different payload"
+            }
+          },
+          "pipeline_order_note": "Fingerprint binding must run after redaction (+ snapshot validation of inputs that enter the fingerprint). Lookup that returns prior response must verify fingerprint match; mismatch is conflict, not silent replay. Prefer checking both request_id and gateway_request_id when both present and distinct."
+        },
+        "current_defects": [
+          {
+            "id": "IDEM-DEF-KEY-ONLY-STORE",
+            "file": "services/agm_gateway/idempotency.py",
+            "lines": "9-35",
+            "evidence": "IdempotencyStore maps key -> response only. No fingerprint field, no put(key, fingerprint, response), no conflict detection API.",
+            "impact": "Cannot distinguish identical replay from ID reuse with different payload."
+          },
+          {
+            "id": "IDEM-DEF-BLIND-REPLAY",
+            "file": "services/agm_gateway/gateway.py",
+            "lines": "132-140",
+            "evidence": "prior = self.idempotency.get(request_id); if prior is not None: return prior — and same for gateway_request_id. No comparison of current request body to stored fingerprint.",
+            "impact": "Changed payload with reused request_id/gateway_request_id returns prior decision (Codex challenge exact)."
+          },
+          {
+            "id": "IDEM-DEF-PUT-WITHOUT-FP",
+            "file": "services/agm_gateway/gateway.py",
+            "lines": "377-379",
+            "evidence": "self.idempotency.put(request_id, response) without binding fingerprint of redacted inputs.",
+            "impact": "Store cannot enforce INV-IDEMPOTENCY-FINGERPRINT on subsequent requests."
+          }
+        ],
+        "preserved_good_behavior": [
+          "Identical request_id replay currently skips second provider call (AT-IDEMPOTENCY-REPLAY) — must remain true when fingerprint matches",
+          "Deepcopy on get/put avoids shared mutable response objects",
+          "Docstring claims no secrets in store — fingerprint must uphold that"
+        ]
+      },
+      {
+        "id": "INV-REGRESSION-COVERAGE-GAP",
+        "status": "FAIL",
+        "statement": "Adversarial regression tests proving the three product invariants must exist and pass alongside the existing 20 gateway tests.",
+        "current_defects": [
+          {
+            "id": "TEST-DEF-NO-SERVER-CAP-HARD-BOUND",
+            "file": "services/agm_gateway/tests/test_gateway.py",
+            "lines": "318-363",
+            "evidence": "TestBudget only covers client-lowered caps (est*0.5) and client-seeded session_spent; no test that client-raised caps are clamped/rejected against server GatewayService(per_request_cap=..., session_cap=...).",
+            "impact": "Codex missing_evidence: No adversarial test proves server caps cannot be raised by a client."
+          },
+          {
+            "id": "TEST-DEF-NO-NONFINITE-BUDGET",
+            "file": "services/agm_gateway/tests/test_gateway.py",
+            "lines": "318-363",
+            "evidence": "No NaN/Infinity/bool/non-numeric budget rejection tests.",
+            "impact": "Codex missing_evidence: No test rejects non-finite budget inputs."
+          },
+          {
+            "id": "TEST-DEF-NO-INJECTION-GATE",
+            "file": "services/agm_gateway/tests/test_gateway.py",
+            "lines": "420-429",
+            "evidence": "test_only_fixture_provider_enabled only denies provider_mode string 'anthropic'; still uses FixtureProvider instance. No injected non-FixtureProvider object under allow_real_provider=False.",
+            "impact": "Codex missing_evidence: No test rejects a non-fixture provider object while real-provider authority is disabled."
+          },
+          {
+            "id": "TEST-DEF-NO-FP-CONFLICT",
+            "file": "services/agm_gateway/tests/test_gateway.py",
+            "lines": "302-315",
+            "evidence": "test_same_request_id_no_second_provider_call only exercises identical replay; no changed-payload conflict case for request_id or gateway_request_id.",
+            "impact": "Codex missing_evidence: No test rejects idempotency-key reuse with a changed canonical request."
+          }
+        ]
+      }
+    ],
+    "defects_found": [
+      {
+        "id": "C0-DEF-01",
+        "severity": "critical",
+        "invariant": "INV-SERVER-BUDGET-AUTHORITY",
+        "title": "Client budget_context can raise server hard caps",
+        "detail": "gateway.py uses client per_request_cap/session_cap via float(budget_context.get(...)) without clamping to configured GatewayService caps, so untrusted input can bypass both hard upper bounds.",
+        "evidence": [
+          "services/agm_gateway/gateway.py:242-245",
+          "services/agm_gateway/budget.py:32-73",
+          "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json what_i_challenge[0]"
+        ]
+      },
+      {
+        "id": "C0-DEF-02",
+        "severity": "critical",
+        "invariant": "INV-SERVER-BUDGET-AUTHORITY",
+        "title": "Client session_spent can seed/replace server ledger; non-finite/bool budget fields not rejected",
+        "detail": "When ledger.session_spent==0, client session_spent replaces the ledger. check_budget lacks isfinite/type guards; NaN/±Inf comparisons fail open; bare float() coerces True and non-finite strings.",
+        "evidence": [
+          "services/agm_gateway/gateway.py:246-257",
+          "services/agm_gateway/gateway.py:242-260",
+          "services/agm_gateway/budget.py:39-49",
+          "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json what_i_challenge[1]"
+        ]
+      },
+      {
+        "id": "C0-DEF-03",
+        "severity": "critical",
+        "invariant": "INV-PROVIDER-AUTHORITY",
+        "title": "Injected non-fixture ProviderInterface is called under allow_real_provider=false when provider_mode=fixture",
+        "detail": "No object-level approval gate before generate_decision. Mode string 'fixture' authorizes whatever provider object was injected. allow_real_provider=true alone also skips mode deny without a separate HITL real-provider path.",
+        "evidence": [
+          "services/agm_gateway/gateway.py:53",
+          "services/agm_gateway/gateway.py:215-231",
+          "services/agm_gateway/gateway.py:288-292",
+          "services/agm_gateway/providers/base.py:9-19",
+          "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json what_i_challenge[2]"
+        ]
+      },
+      {
+        "id": "C0-DEF-04",
+        "severity": "critical",
+        "invariant": "INV-IDEMPOTENCY-FINGERPRINT",
+        "title": "Idempotency keys not bound to canonical request fingerprint",
+        "detail": "IdempotencyStore and handle_request short-circuit return prior response by key only. Reuse of request_id or gateway_request_id with a different redacted payload incorrectly replays the prior result instead of non-retryable conflict; provider is not re-called but wrong authorization outcome is returned.",
+        "evidence": [
+          "services/agm_gateway/idempotency.py:9-35",
+          "services/agm_gateway/gateway.py:132-140",
+          "services/agm_gateway/gateway.py:377-379",
+          "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json what_i_challenge[3]"
+        ]
+      },
+      {
+        "id": "C0-DEF-05",
+        "severity": "high",
+        "invariant": "INV-REGRESSION-COVERAGE-GAP",
+        "title": "Missing adversarial regression tests for the four authority cases",
+        "detail": "Existing 20 tests do not cover client-raised caps, non-finite budget inputs, non-fixture object injection, or fingerprint conflict on ID reuse.",
+        "evidence": [
+          "services/agm_gateway/tests/test_gateway.py",
+          "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json missing_evidence"
+        ]
+      }
+    ],
+    "required_fixes_for_c1": [
+      {
+        "id": "C0-FIX-01",
+        "owner": "network",
+        "wave": "C1_NETWORK_GATEWAY_PATCH",
+        "scope": "services/agm_gateway/budget.py + services/agm_gateway/gateway.py",
+        "action": "Implement server-owned budget authority: parse/validate budget fields (reject bool, negative, NaN, ±Inf, non-numeric) before dispatch; effective caps = min(server_cap, client_requested) when client supplies valid lower value; never let client raise caps; never let client session_spent reset/replace server ledger; rejected budget never calls provider or charges ledger."
+      },
+      {
+        "id": "C0-FIX-02",
+        "owner": "network",
+        "wave": "C1_NETWORK_GATEWAY_PATCH",
+        "scope": "services/agm_gateway/gateway.py (+ providers if allowlist helper)",
+        "action": "Before any provider method call, if allow_real_provider is false, require approved fixture provider object (isinstance FixtureProvider or explicit approved set). On failure return structured non-retryable policy error. Do not implement real providers. Ensure allow_real_provider=true alone is not sufficient to enable real/non-approved providers (still deny non-approved objects / require future HITL path)."
+      },
+      {
+        "id": "C0-FIX-03",
+        "owner": "network",
+        "wave": "C1_NETWORK_GATEWAY_PATCH",
+        "scope": "services/agm_gateway/idempotency.py + services/agm_gateway/gateway.py",
+        "action": "Bind request_id and gateway_request_id to canonical fingerprint of redacted/validated result-affecting inputs. Identical replay returns stored response. Different fingerprint with same id → non-retryable conflict, no provider call, no charge. Never fingerprint secrets (compute over redacted material only)."
+      },
+      {
+        "id": "C0-FIX-04",
+        "owner": "network",
+        "wave": "C1_NETWORK_GATEWAY_PATCH",
+        "scope": "services/agm_gateway/tests/test_gateway.py",
+        "action": "Add all result.required_tests regression cases; keep existing 20 green (adjust only if a prior test encoded the unsafe client-ledger-seed or client-raised-cap behavior as expected)."
+      }
+    ],
+    "required_tests": {
+      "baseline": {
+        "statement": "Existing 20 gateway unit tests remain green after correction",
+        "runner": "python services/agm_gateway/run_gateway_tests.py",
+        "existing_test_names": [
+          "test_free_paid_payload_semantics_identical",
+          "test_valid_api_paid_snapshot_accepted",
+          "test_valid_api_paid_decision_accepted",
+          "test_api_key_stripped_before_provider",
+          "test_deep_deny_list_redaction",
+          "test_provider_not_called_on_invalid_snapshot",
+          "test_invalid_provider_decision_rejected",
+          "test_build_proposal_bypass_rejected",
+          "test_success_marks_untrusted_no_commit",
+          "test_error_envelope_categories_complete",
+          "test_same_request_id_no_second_provider_call",
+          "test_per_request_cap_reject_before_dispatch",
+          "test_session_cap_reject_before_dispatch",
+          "test_timeout_then_success",
+          "test_unavailable_exhausted",
+          "test_validation_no_retry",
+          "test_policy_budget_no_retry",
+          "test_only_fixture_provider_enabled",
+          "test_gateway_package_secret_scan",
+          "test_durable_mutation_from_provider_rejected"
+        ],
+        "note": "test_session_cap_reject_before_dispatch currently seeds ledger via client session_spent when spent==0; C1 must rework it to constructor/server ledger seed so the test still proves session_cap reject without encoding client ledger authority."
+      },
+      "new_regression_tests_c1_must_add": [
+        {
+          "name": "test_client_cannot_raise_server_per_request_cap",
+          "maps_to": ["INV-SERVER-BUDGET-AUTHORITY", "C0-DEF-01", "WO evidence item 1"],
+          "steps": [
+            "Construct GatewayService(provider=FixtureProvider(call_log), per_request_cap=5.0, session_cap=1000.0)",
+            "Send valid paid request with budget_context.per_request_cap much larger than 5.0 (e.g. 1e9)",
+            "Force estimate > 5.0 (default snapshot estimate) so raised client cap would have allowed dispatch if trusted"
+          ],
+          "pass_criteria": [
+            "Response ok=false, category=budget, code=budget_per_request_exceeded (or equivalent stable code)",
+            "provider.call_count==0",
+            "ledger.session_spent unchanged (no charge)"
+          ]
+        },
+        {
+          "name": "test_client_cannot_raise_server_session_cap",
+          "maps_to": ["INV-SERVER-BUDGET-AUTHORITY", "C0-DEF-01", "WO evidence item 1"],
+          "steps": [
+            "GatewayService(session_spent=9.0, session_cap=10.0, per_request_cap=1000.0) with estimate such that 9+estimate > 10",
+            "Client budget_context.session_cap=1e9 (attempt raise)"
+          ],
+          "pass_criteria": [
+            "category=budget session exceeded",
+            "provider.call_count==0",
+            "ledger not charged"
+          ]
+        },
+        {
+          "name": "test_client_session_spent_cannot_reset_server_ledger",
+          "maps_to": ["INV-SERVER-BUDGET-AUTHORITY", "C0-DEF-02"],
+          "steps": [
+            "GatewayService(session_spent=50.0, session_cap=1000.0)",
+            "Request budget_context.session_spent=0.0 (attempt reset)",
+            "Successful or budget path as designed"
+          ],
+          "pass_criteria": [
+            "Server ledger remains authoritative (does not become 0 from client)",
+            "If request would only succeed by resetting spent, it must not succeed via that reset",
+            "provider not called if budget should fail under server spent; if success path, charge applies to server ledger only"
+          ]
+        },
+        {
+          "name": "test_client_may_request_stricter_lower_cap",
+          "maps_to": ["INV-SERVER-BUDGET-AUTHORITY"],
+          "steps": [
+            "Server per_request_cap high; client per_request_cap below estimate"
+          ],
+          "pass_criteria": [
+            "budget reject with provider.call_count==0 (client may tighten)"
+          ]
+        },
+        {
+          "name": "test_budget_nan_rejects_before_dispatch",
+          "maps_to": ["INV-SERVER-BUDGET-AUTHORITY", "C0-DEF-02", "WO evidence item 2"],
+          "steps": [
+            "Inject float('nan') or JSON null-coerced NaN into per_request_cap and/or session_cap and/or session_spent budget fields"
+          ],
+          "pass_criteria": [
+            "ok=false before provider",
+            "category in (budget, validation)",
+            "retryable=false",
+            "provider.call_count==0",
+            "ledger unchanged"
+          ]
+        },
+        {
+          "name": "test_budget_infinity_rejects_before_dispatch",
+          "maps_to": ["INV-SERVER-BUDGET-AUTHORITY", "C0-DEF-02", "WO evidence item 2"],
+          "steps": [
+            "Inject float('inf') and float('-inf') into budget_context numeric fields"
+          ],
+          "pass_criteria": [
+            "reject before dispatch; provider.call_count==0; no charge"
+          ]
+        },
+        {
+          "name": "test_budget_bool_rejects_before_dispatch",
+          "maps_to": ["INV-SERVER-BUDGET-AUTHORITY", "C0-DEF-02"],
+          "steps": [
+            "budget_context.per_request_cap=True and/or session_cap=False"
+          ],
+          "pass_criteria": [
+            "reject (bool must not coerce via float(True)==1.0)",
+            "provider.call_count==0"
+          ]
+        },
+        {
+          "name": "test_budget_negative_rejects_before_dispatch",
+          "maps_to": ["INV-SERVER-BUDGET-AUTHORITY"],
+          "steps": [
+            "Negative per_request_cap / session_cap / session_spent in budget_context"
+          ],
+          "pass_criteria": [
+            "reject before dispatch; provider.call_count==0; no charge"
+          ]
+        },
+        {
+          "name": "test_budget_non_numeric_rejects_before_dispatch",
+          "maps_to": ["INV-SERVER-BUDGET-AUTHORITY"],
+          "steps": [
+            "per_request_cap='lots', session_cap={}, session_spent=[]"
+          ],
+          "pass_criteria": [
+            "reject before dispatch; provider.call_count==0"
+          ]
+        },
+        {
+          "name": "test_rejected_budget_never_calls_provider_or_charges_ledger",
+          "maps_to": ["INV-SERVER-BUDGET-AUTHORITY"],
+          "steps": [
+            "Any rejected budget path (raise-cap attempt, non-finite, exceed)"
+          ],
+          "pass_criteria": [
+            "provider.call_count==0",
+            "ledger.session_spent identical to pre-request value"
+          ]
+        },
+        {
+          "name": "test_injected_non_fixture_provider_rejected_when_real_disabled",
+          "maps_to": ["INV-PROVIDER-AUTHORITY", "C0-DEF-03", "WO evidence item 3"],
+          "steps": [
+            "Define a minimal ProviderInterface subclass (not FixtureProvider) that increments call_count on generate_decision",
+            "GatewayService(provider=that_object, allow_real_provider=False)",
+            "handle_request with provider_mode='fixture'"
+          ],
+          "pass_criteria": [
+            "ok=false, category=policy, retryable=false",
+            "injected provider generate_decision never called (call_count==0)",
+            "stable code e.g. provider_not_approved / provider_injection_denied"
+          ]
+        },
+        {
+          "name": "test_allow_real_provider_true_not_sufficient_for_real_enablement",
+          "maps_to": ["INV-PROVIDER-AUTHORITY", "C0-DEF-03", "WO correction note"],
+          "steps": [
+            "GatewayService(provider=non_fixture ProviderInterface, allow_real_provider=True)",
+            "handle_request provider_mode='fixture' and/or a non-fixture mode"
+          ],
+          "pass_criteria": [
+            "Non-approved provider object still not dispatched (or real mode still policy-denied without HITL real provider path)",
+            "No network/SDK side effects",
+            "Documented: flag alone insufficient"
+          ]
+        },
+        {
+          "name": "test_idempotency_identical_replay_returns_stored_response",
+          "maps_to": ["INV-IDEMPOTENCY-FINGERPRINT", "WO evidence item 4"],
+          "steps": [
+            "Success path with request_id R",
+            "Exact same redacted-equivalent payload again with request_id R"
+          ],
+          "pass_criteria": [
+            "same decision_id / stored response",
+            "provider.call_count==1 total",
+            "no second charge (session_spent increases only once)"
+          ]
+        },
+        {
+          "name": "test_idempotency_conflict_on_request_id_payload_change",
+          "maps_to": ["INV-IDEMPOTENCY-FINGERPRINT", "C0-DEF-04", "WO evidence item 4"],
+          "steps": [
+            "Success with request_id R and snapshot A",
+            "Second handle_request with same request_id R but different result-affecting redacted input (e.g. different snapshot_id or latest_player_action) while remaining schema-valid"
+          ],
+          "pass_criteria": [
+            "ok=false, non-retryable conflict/policy (code e.g. idempotency_key_conflict)",
+            "provider.call_count remains 1 (no second call)",
+            "no additional ledger charge",
+            "must NOT return first decision as ok for the changed payload"
+          ]
+        },
+        {
+          "name": "test_idempotency_conflict_on_gateway_request_id_payload_change",
+          "maps_to": ["INV-IDEMPOTENCY-FINGERPRINT", "C0-DEF-04", "WO evidence item 4"],
+          "steps": [
+            "Success with gateway_request_id G (may differ from request_id)",
+            "Reuse gateway_request_id G with different fingerprint payload and a new request_id"
+          ],
+          "pass_criteria": [
+            "non-retryable conflict",
+            "no provider call for second request",
+            "no charge for second request"
+          ]
+        },
+        {
+          "name": "test_idempotency_fingerprint_excludes_secrets",
+          "maps_to": ["INV-IDEMPOTENCY-FINGERPRINT"],
+          "steps": [
+            "Ensure fingerprint/hash material and stored records never contain deny-list values",
+            "Optional: two requests differing only in a wrapper secret that is redacted away produce the SAME fingerprint (if secret not result-affecting after redaction) OR first request with snapshot-body secret is rejected pre-store — either way secrets never appear in store/logs/errors"
+          ],
+          "pass_criteria": [
+            "No raw secrets in idempotency store values, fingerprints, error envelopes, or logs",
+            "Fingerprint computed only over redacted material"
+          ]
+        }
+      ],
+      "minimum_codex_adversarial_four": [
+        "test_client_cannot_raise_server_per_request_cap",
+        "test_budget_nan_rejects_before_dispatch",
+        "test_budget_infinity_rejects_before_dispatch",
+        "test_injected_non_fixture_provider_rejected_when_real_disabled",
+        "test_idempotency_conflict_on_request_id_payload_change",
+        "test_idempotency_identical_replay_returns_stored_response"
+      ]
+    },
+    "pipeline_order_contract_for_c1": {
+      "note": "Correction-strengthened order for handle_request (refine A0 INV-VALIDATION-ORDER)",
+      "order": [
+        "parse request_id / gateway_request_id",
+        "redact secrets (deep)",
+        "reject snapshot-body deny-list smuggling",
+        "validate snapshot schema + edition policy",
+        "compute canonical fingerprint over redacted result-affecting inputs",
+        "idempotency lookup: match → return stored; fingerprint mismatch on same key → conflict (no provider, no charge)",
+        "resolve server-authoritative budget (validate numeric; clamp/reject; ledger authority)",
+        "provider object authority gate (fixture-only when real disabled)",
+        "provider_mode policy",
+        "provider call via retry policy",
+        "validate decision + deny-list",
+        "charge ledger only on success",
+        "store idempotency record with fingerprint",
+        "return untrusted proposal"
+      ]
+    },
+    "error_codes_additive_hints": [
+      "budget_cap_raise_rejected",
+      "budget_non_finite",
+      "budget_type_invalid",
+      "budget_negative_balance",
+      "budget_per_request_exceeded",
+      "budget_session_exceeded",
+      "provider_not_approved",
+      "provider_injection_denied",
+      "provider_mode_denied",
+      "idempotency_key_conflict",
+      "idempotency_fingerprint_mismatch"
+    ],
+    "handoff_to_c1": {
+      "next_route": "C1_NETWORK_GATEWAY_PATCH",
+      "sole_product_writer": "network profile, PATCH_DRAFT",
+      "write_roots": [
+        "services/agm_gateway/**",
+        "orchestration/receipts/g5/C1_network.json"
+      ],
+      "must_implement": [
+        "INV-SERVER-BUDGET-AUTHORITY",
+        "INV-PROVIDER-AUTHORITY",
+        "INV-IDEMPOTENCY-FINGERPRINT",
+        "All result.required_tests.new_regression_tests_c1_must_add (or equivalent names covering same contracts)",
+        "Keep baseline 20 green"
+      ],
+      "must_not": [
+        "Real provider / SDK / credentials / outbound network",
+        "Make allow_real_provider=true sufficient alone for real enablement",
+        "contracts/** edits",
+        "Godot product edits",
+        "tasks.json / architecture / prior receipt edits",
+        "Self-ACCEPT",
+        "Fingerprint or log secrets"
+      ]
+    },
+    "not_done": [
+      "Did not patch services/agm_gateway/** (C1)",
+      "Did not run executable gateway suite as proof of fix (C1/C4)",
+      "Did not edit Godot adapter (C2 verify only)",
+      "Did not self-ACCEPT G5-001"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g5/C0_schema.json"
+    ],
+    "product_writes": 0,
+    "only_write": "orchestration/receipts/g5/C0_schema.json",
+    "children": []
+  },
+  "smoke_test": {
+    "type": "verify_only_schema_contract",
+    "executable_smoke_run": false,
+    "reason": "C0_SCHEMA_VERIFY records four failed authority invariants and C1 test contracts only; product patches and executable adversarial tests are C1_NETWORK_GATEWAY_PATCH ownership",
+    "static_audit": {
+      "codex_four_challenges_mapped": true,
+      "file_line_evidence_collected": true,
+      "required_tests_named": true,
+      "product_code_edited": false
+    },
+    "downstream_required_markers": [
+      "test_client_cannot_raise_server_per_request_cap pass",
+      "test_client_cannot_raise_server_session_cap pass",
+      "test_client_session_spent_cannot_reset_server_ledger pass",
+      "test_budget_nan_rejects_before_dispatch pass",
+      "test_budget_infinity_rejects_before_dispatch pass",
+      "test_budget_bool_rejects_before_dispatch pass",
+      "test_injected_non_fixture_provider_rejected_when_real_disabled pass",
+      "test_allow_real_provider_true_not_sufficient_for_real_enablement pass",
+      "test_idempotency_identical_replay_returns_stored_response pass",
+      "test_idempotency_conflict_on_request_id_payload_change pass",
+      "test_idempotency_conflict_on_gateway_request_id_payload_change pass",
+      "test_idempotency_fingerprint_excludes_secrets pass",
+      "existing_20_gateway_tests pass",
+      "C2 Godot untrusted consumer verify",
+      "C3 edition/boot verify",
+      "C4 Purple review"
+    ]
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g5/C0_schema.json"],
+    "no_product_code_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_services_agm_gateway_edit": true,
+    "no_godot_bridge_edit": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "no_provider_calls": true,
+    "no_dependency_install": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, WO-G5-001-CORRECTION-001, G5-001_CORRECTION_001_DISPATCH_MAP, CODEX_G5-001_ADVERSARIAL_REVIEW, A0_schema, gateway.py, budget.py, idempotency.py, providers/base.py, providers/fixture_provider.py, tests/test_gateway.py, agent_step_contract manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G5-001-CORRECTION-001.md",
+    "orchestration/work_orders/G5-001_CORRECTION_001_DISPATCH_MAP.md",
+    "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json",
+    "orchestration/receipts/g5/A0_schema.json",
+    "services/agm_gateway/gateway.py",
+    "services/agm_gateway/budget.py",
+    "services/agm_gateway/idempotency.py",
+    "services/agm_gateway/providers/base.py",
+    "services/agm_gateway/providers/fixture_provider.py",
+    "services/agm_gateway/tests/test_gateway.py",
+    "services/agm_gateway/errors.py",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "C1 must rework test_session_cap_reject_before_dispatch off client ledger seed without losing session_cap coverage",
+    "Fingerprint field set must be stable — over-including non-result noise causes false conflicts; under-including causes false replays",
+    "bool-as-int Python trap must be explicit in budget parse",
+    "allow_real_provider future path must stay HITL and not land in this correction"
+  ],
+  "next_route": "C1_NETWORK_GATEWAY_PATCH"
+}

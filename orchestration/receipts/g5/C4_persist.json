@@ -1,0 +1,371 @@
+{
+  "agent_step_id": "G5-001-C4-persist-purple-2026-07-21",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G5-001",
+    "wave": "C4_PERSIST_PURPLE",
+    "profile": "persist",
+    "correction_work_order": "orchestration/work_orders/WO-G5-001-CORRECTION-001.md",
+    "dispatch_map": "orchestration/work_orders/G5-001_CORRECTION_001_DISPATCH_MAP.md",
+    "codex_review": "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json",
+    "parent_schema": "orchestration/receipts/g5/C0_schema.json",
+    "parent_network": "orchestration/receipts/g5/C1_network.json",
+    "parent_executor": "orchestration/receipts/g5/C2_executor.json",
+    "parent_core": "orchestration/receipts/g5/C3_core.json",
+    "prior_product_wave": "orchestration/receipts/g5/A4_persist.json",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "verdict": "ACCEPTED",
+    "summary": "VERIFY_ONLY Purple review of G5-001 CORRECTION-001. All four Codex adversarial authority defects FIXED with independent re-runs: G5_AGM_GATEWAY_SMOKE=PASS (36 tests, exit 0); G5_PAID_ADAPTER_SMOKE=PASS (14 checks, exit 0); G2-007_GODOT_SMOKE=PASS (edition parity); AIDLE_VALIDATION=PASS (exit 0). Secret scan PASS (0 offenders). Free/Paid identity, untrusted decision, fixture-only preserved. No product edits; no tasks ACCEPT; no children; self_accept=false; next_route=WAITING_CODEX.",
+    "scope": {
+      "in_scope": [
+        "Challenge four Codex items fixed: server budget caps + ledger, non-finite budget reject, provider injection gate, idempotency fingerprint conflict vs replay",
+        "Preserve: secret scan, Free/Paid identity, untrusted decision, fixture-only",
+        "Independent re-run of gateway tests, paid_gateway_smoke, edition smoke, validate_project.py",
+        "Read C0–C3 receipts, CODEX adversarial, WO correction, gateway budget/idempotency/provider gate code",
+        "Write orchestration/receipts/g5/C4_persist.json + orchestration/reviews/G5-001_CORRECTION_001_PURPLE_REVIEW.md only"
+      ],
+      "out_of_scope": [
+        "Product edits under services/agm_gateway/** or game/**",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders, codex_directive, prior receipts",
+        "Real provider selection / credentials / outbound network enablement",
+        "tasks.json ACCEPT of G5-001 (Codex final acceptor only)",
+        "Children subagents"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY Purple — receipts/review only",
+        "only_write": [
+          "orchestration/receipts/g5/C4_persist.json",
+          "orchestration/reviews/G5-001_CORRECTION_001_PURPLE_REVIEW.md"
+        ],
+        "architecture_lock": "Paid edition: API adapter behind trusted gateway; credentials never in Godot client or world files",
+        "provider_selection": "HITL_REQUIRED — fixture only in G5-001",
+        "explicit_not": [
+          "product patches",
+          "self-ACCEPT of G5-001 or tasks.json ACCEPT",
+          "real provider enablement",
+          "World Commit bypass"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_writes": [
+      "orchestration/receipts/g5/C4_persist.json",
+      "orchestration/reviews/G5-001_CORRECTION_001_PURPLE_REVIEW.md"
+    ],
+    "children": [],
+    "prior_wave_receipts": {
+      "C0_schema": {
+        "path": "orchestration/receipts/g5/C0_schema.json",
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "state": "HANDOFF_TO_C1",
+        "role": "Recorded four CONFIRMED_FAIL authority invariants + required C1 fix/test contracts"
+      },
+      "C1_network": {
+        "path": "orchestration/receipts/g5/C1_network.json",
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "state": "REVIEW_REQUESTED",
+        "role": "Sole product writer under services/agm_gateway/**; implemented three product invariants + 16 adversarial regressions; 36 tests green"
+      },
+      "C2_executor": {
+        "path": "orchestration/receipts/g5/C2_executor.json",
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "verdict": "PASS",
+        "state": "REVIEW_REQUESTED",
+        "role": "Godot paid adapter remains untrusted proposal consumer; no product patch required; G5_PAID_ADAPTER_SMOKE=PASS"
+      },
+      "C3_core": {
+        "path": "orchestration/receipts/g5/C3_core.json",
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "verdict": "PASS",
+        "state": "HANDOFF_TO_C4",
+        "role": "Free/Paid edition parity + integrated boot clean after C1 patches"
+      }
+    },
+    "codex_challenges_verdict": {
+      "overall": "FIXED",
+      "items": [
+        {
+          "id": "CODEX-1",
+          "challenge": "client cannot raise server caps; ledger not client-resettable",
+          "invariant": "INV-SERVER-BUDGET-AUTHORITY",
+          "status": "FIXED",
+          "product_proof": [
+            "budget.resolve_effective_caps: effective = min(server_cap, client) when client finite non-negative; else server",
+            "Client session_spent validated via parse_budget_number when present but never seeds/replaces SessionBudgetLedger",
+            "gateway.handle_request uses self.ledger.session_spent for check_budget; charge only on success",
+            "No remaining client-raise or client-ledger-seed path in gateway.py"
+          ],
+          "executable_evidence": [
+            "test_client_cannot_raise_server_per_request_cap",
+            "test_client_cannot_raise_server_session_cap",
+            "test_client_session_spent_cannot_reset_server_ledger",
+            "test_client_may_request_stricter_lower_cap",
+            "test_rejected_budget_never_calls_provider_or_charges_ledger"
+          ]
+        },
+        {
+          "id": "CODEX-2",
+          "challenge": "NaN/Inf/bool/non-numeric budget rejected before dispatch",
+          "invariant": "INV-SERVER-BUDGET-AUTHORITY",
+          "sub": "non_finite_reject",
+          "status": "FIXED",
+          "product_proof": [
+            "budget.parse_budget_number rejects bool (before numbers.Real), non-Real, NaN, ±Inf, negative",
+            "resolve_effective_caps + check_budget both use finite/type guards",
+            "Rejected budget paths never call provider (gate before _assert_provider_approved / generate_decision)"
+          ],
+          "executable_evidence": [
+            "test_budget_nan_rejects_before_dispatch",
+            "test_budget_infinity_rejects_before_dispatch",
+            "test_budget_bool_rejects_before_dispatch",
+            "test_budget_negative_rejects_before_dispatch",
+            "test_budget_non_numeric_rejects_before_dispatch"
+          ]
+        },
+        {
+          "id": "CODEX-3",
+          "challenge": "non-fixture provider injection rejected with real authority off",
+          "invariant": "INV-PROVIDER-AUTHORITY",
+          "status": "FIXED",
+          "product_proof": [
+            "is_approved_fixture_provider: isinstance(provider, FixtureProvider) only",
+            "_assert_provider_approved before any provider method; policy provider_not_approved retryable=false",
+            "allow_real_provider=true alone insufficient: non-fixture object still denied; non-fixture mode still provider_mode_denied",
+            "No real provider/SDK/credentials/network added"
+          ],
+          "executable_evidence": [
+            "test_injected_non_fixture_provider_rejected_when_real_disabled",
+            "test_allow_real_provider_true_not_sufficient_for_real_enablement",
+            "test_only_fixture_provider_enabled"
+          ]
+        },
+        {
+          "id": "CODEX-4",
+          "challenge": "idempotency fingerprint conflict vs identical replay",
+          "invariant": "INV-IDEMPOTENCY-FINGERPRINT",
+          "status": "FIXED",
+          "product_proof": [
+            "IdempotencyStore records {fingerprint, response}; lookup returns hit|miss|conflict",
+            "compute_request_fingerprint: aidle_gateway_idempotency_fp_v1 + redacted result-affecting inputs",
+            "Identical fingerprint replay returns stored response, no redispatch, no second charge",
+            "Fingerprint mismatch on request_id or gateway_request_id → policy idempotency_key_conflict, no provider, no charge",
+            "Secrets excluded: fingerprint over post-redaction material only"
+          ],
+          "executable_evidence": [
+            "test_idempotency_identical_replay_returns_stored_response",
+            "test_idempotency_conflict_on_request_id_payload_change",
+            "test_idempotency_conflict_on_gateway_request_id_payload_change",
+            "test_idempotency_fingerprint_excludes_secrets",
+            "test_same_request_id_no_second_provider_call"
+          ]
+        }
+      ]
+    },
+    "preserved_invariants": {
+      "secret_scan": {
+        "status": "PASS",
+        "evidence": [
+          "test_gateway_package_secret_scan ok",
+          "Purple independent scan services/agm_gateway/** non-test .py: 13 files, 0 offenders (sk-live/sk-proj-/AKIA/BEGIN PRIVATE KEY/aws_secret_access_key)",
+          "paid_gateway_smoke source_secret_scan + fixture_files_no_secrets OK"
+        ]
+      },
+      "free_paid_identity": {
+        "status": "PASS",
+        "evidence": [
+          "test_free_paid_payload_semantics_identical ok",
+          "C3 + Purple edition smoke: same_contracts=true; editions desktop_bridge_free|api_paid only"
+        ]
+      },
+      "untrusted_decision": {
+        "status": "PASS",
+        "evidence": [
+          "test_success_marks_untrusted_no_commit ok",
+          "gateway success untrusted=true; world_commit_invoked always false",
+          "paid smoke happy_path_untrusted_proposal + consent_required_no_commit + confirm_no_execute OK"
+        ]
+      },
+      "fixture_only": {
+        "status": "PASS",
+        "evidence": [
+          "FixtureProvider default; ALLOWED_PROVIDER_MODES={fixture}",
+          "provider object gate + mode deny; real path HITL_REQUIRED",
+          "test_only_fixture_provider_enabled + TestProviderAuthority regressions ok"
+        ]
+      }
+    },
+    "acceptance_matrix": [
+      {
+        "id": "WO-CORR-SERVER-BUDGET",
+        "criterion": "Server caps hard upper bounds; ledger not client-resettable; non-finite/bool reject before dispatch",
+        "status": "PASS",
+        "evidence": "budget.py + gateway.py + TestServerBudgetAuthority (10 tests) green under Purple re-run"
+      },
+      {
+        "id": "WO-CORR-PROVIDER-AUTHORITY",
+        "criterion": "Non-fixture injection rejected with real authority off; flag alone insufficient",
+        "status": "PASS",
+        "evidence": "is_approved_fixture_provider + TestProviderAuthority green"
+      },
+      {
+        "id": "WO-CORR-IDEMPOTENCY-FP",
+        "criterion": "Fingerprint bind; conflict on ID reuse with changed payload; identical replay idempotent",
+        "status": "PASS",
+        "evidence": "IdempotencyStore.lookup + TestIdempotencyFingerprint green"
+      },
+      {
+        "id": "WO-CORR-BASELINE-20",
+        "criterion": "Existing 20 gateway tests remain green",
+        "status": "PASS",
+        "evidence": "36 total OK includes original 20 baseline names from C0"
+      },
+      {
+        "id": "WO-CORR-GODOT-ADAPTER",
+        "criterion": "Godot paid adapter untrusted consumer; no secrets/SDK",
+        "status": "PASS",
+        "evidence": "C2 PASS + Purple re-run G5_PAID_ADAPTER_SMOKE=PASS checks=14"
+      },
+      {
+        "id": "WO-CORR-EDITION-BOOT",
+        "criterion": "Edition parity + clean boot after correction",
+        "status": "PASS",
+        "evidence": "C3 PASS + Purple re-run G2-007_GODOT_SMOKE=PASS same_contracts=true no_secrets=true"
+      },
+      {
+        "id": "WO-CORR-VALIDATOR",
+        "criterion": "Clean project validator",
+        "status": "PASS",
+        "evidence": "python scripts/validate_project.py → AIDLE_VALIDATION=PASS EXIT=0"
+      },
+      {
+        "id": "WO-CORR-SECRET-SCAN",
+        "criterion": "Secret scan over G5 gateway product paths",
+        "status": "PASS",
+        "evidence": "Gateway non-test package 0 offenders; Godot smoke secret scans OK"
+      },
+      {
+        "id": "WO-CORR-NO-SELF-ACCEPT",
+        "criterion": "Finish REVIEW_REQUESTED; no self-ACCEPT; wait for Codex",
+        "status": "PASS",
+        "evidence": "self_accept=false; next_route=WAITING_CODEX; tasks.json not edited"
+      }
+    ],
+    "independent_verification": {
+      "gateway_unittest": {
+        "command": "python services/agm_gateway/run_gateway_tests.py",
+        "exit_code": 0,
+        "marker": "G5_AGM_GATEWAY_SMOKE=PASS",
+        "tests_run": 36,
+        "tests_failed": 0,
+        "baseline_20_green": true,
+        "new_regressions_green": true
+      },
+      "godot_paid_adapter_smoke": {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/bridge/paid_gateway_smoke.gd",
+        "exit_code": 0,
+        "marker": "G5_PAID_ADAPTER_SMOKE=PASS",
+        "checks": 14,
+        "log": "orchestration/logs/g5-c4-purple-paid-smoke.log",
+        "no_script_error": true,
+        "no_parse_error": true
+      },
+      "edition_headless_smoke_optional": {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/core/edition_headless_smoke.gd",
+        "exit_code": 0,
+        "marker": "G2-007_GODOT_SMOKE=PASS",
+        "extras": "edition=api_paid same_contracts=true no_secrets=true",
+        "log": "orchestration/logs/g5-c4-purple-edition-smoke.log",
+        "note": "Expected ERROR/WARNING lines prove consent gate and secret refusal"
+      },
+      "project_validator": {
+        "command": "python scripts/validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      },
+      "secret_scan": {
+        "scope": "services/agm_gateway/** (non-test .py)",
+        "markers": ["sk-live", "sk-proj-", "AKIA", "BEGIN PRIVATE KEY", "aws_secret_access_key"],
+        "result": "PASS",
+        "files_scanned": 13,
+        "offenders": 0
+      }
+    },
+    "ownership_verified": {
+      "C1_network_sole_gateway_product_writer": true,
+      "C0_C2_C3_C4_verify_only_no_product": true,
+      "C2_no_godot_product_patch_required": true,
+      "disjoint_paths_respected": true
+    },
+    "remaining_risks": [
+      "Idempotency store remains in-memory MVP (no TTL/persistence across process restart)",
+      "Fingerprint field set is stable for G5 fixtures; future non-result noise must not be over-included",
+      "Godot G5 path is a pure GDScript fixture mirror — production must still call trusted server-side gateway",
+      "Real provider enablement remains HITL_REQUIRED; allow_real_provider alone must stay insufficient",
+      "Local fixture mirror budget/idempotency in Godot is not server-authoritative — correct by design"
+    ],
+    "not_done": [
+      "Did not patch product code (VERIFY_ONLY)",
+      "Did not ACCEPT tasks.json G5-001 (Codex only)",
+      "Did not enable real provider or outbound network",
+      "Did not self-ACCEPT",
+      "Did not edit prior receipts / work orders / architecture"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g5/C4_persist.json",
+      "orchestration/reviews/G5-001_CORRECTION_001_PURPLE_REVIEW.md",
+      "orchestration/logs/g5-c4-purple-paid-smoke.log",
+      "orchestration/logs/g5-c4-purple-edition-smoke.log"
+    ]
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": [
+      "orchestration/receipts/g5/C4_persist.json",
+      "orchestration/reviews/G5-001_CORRECTION_001_PURPLE_REVIEW.md"
+    ],
+    "no_product_code_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_services_agm_gateway_edit": true,
+    "no_godot_bridge_edit": true,
+    "no_prior_receipt_edits": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "no_provider_calls": true,
+    "no_dependency_install": true,
+    "no_outbound_http": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, WO-G5-001-CORRECTION-001, G5-001_CORRECTION_001_DISPATCH_MAP, CODEX_G5-001_ADVERSARIAL_REVIEW, C0–C3 receipts, budget.py, idempotency.py, gateway.py, test_gateway.py, agent_step_contract patterns manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G5-001-CORRECTION-001.md",
+    "orchestration/work_orders/G5-001_CORRECTION_001_DISPATCH_MAP.md",
+    "orchestration/reviews/CODEX_G5-001_ADVERSARIAL_REVIEW.json",
+    "orchestration/receipts/g5/C0_schema.json",
+    "orchestration/receipts/g5/C1_network.json",
+    "orchestration/receipts/g5/C2_executor.json",
+    "orchestration/receipts/g5/C3_core.json",
+    "services/agm_gateway/budget.py",
+    "services/agm_gateway/idempotency.py",
+    "services/agm_gateway/gateway.py",
+    "services/agm_gateway/tests/test_gateway.py",
+    "services/agm_gateway/run_gateway_tests.py",
+    "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+    "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+    "orchestration/reviews/G5-001_CORRECTION_001_PURPLE_REVIEW.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "WAITING_CODEX"
+}

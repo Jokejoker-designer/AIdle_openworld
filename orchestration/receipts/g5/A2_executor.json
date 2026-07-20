@@ -1,0 +1,211 @@
+{
+  "agent_step_id": "G5-001-A2-executor-2026-07-21",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G5-001",
+    "wave": "A2_EXECUTOR_CLIENT_PATCH",
+    "profile": "executor",
+    "work_order": "orchestration/work_orders/WO-G5-001.md",
+    "dispatch_map": "orchestration/work_orders/G5-001_DISPATCH_MAP.md",
+    "parent_schema": "orchestration/receipts/g5/A0_schema.json",
+    "parent_network": "orchestration/receipts/g5/A1_network.json",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "Implemented Godot Paid AGM client adapter (fixture/local path only): builds api_paid World State Snapshots, mirrors GatewayService request/response envelopes without provider SDKs or secrets, loads valid_decision_api_paid fixture, marks responses untrusted, and routes through the same consent → executor handoff as Free Desktop Bridge (no direct commit). Smoke G5_PAID_ADAPTER_SMOKE=PASS (14 checks).",
+    "scope": {
+      "in_scope": [
+        "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+        "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+        "game/scripts/modules/interfaces/i_paid_gateway_adapter.gd",
+        "game/scripts/modules/bridge/exports/valid_decision_api_paid.json",
+        "game/scripts/modules/bridge/exports/valid_snapshot_api_paid.json",
+        "orchestration/receipts/g5/A2_executor.json"
+      ],
+      "out_of_scope": [
+        "services/agm_gateway/** (A1 sole writer — not edited)",
+        "contracts/**",
+        "Free Desktop Bridge product behavior (parity baseline only)",
+        "Real provider selection / credentials / outbound network (HITL_REQUIRED)",
+        "Dependency install, push, deploy",
+        "tasks.json / ARCHITECTURE_LOCK / work_orders edits"
+      ],
+      "authority_boundary": {
+        "this_wave": "PATCH_DRAFT sole Godot paid-adapter writer",
+        "only_write": [
+          "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+          "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+          "game/scripts/modules/interfaces/i_paid_gateway_adapter.gd",
+          "game/scripts/modules/bridge/exports/** (paid fixtures without secrets)",
+          "orchestration/receipts/g5/A2_executor.json"
+        ],
+        "next_writer": "A3_CORE_EDITION_VERIFY (core, VERIFY_ONLY)",
+        "provider_selection": "HITL_REQUIRED — fixture only in G5-001",
+        "architecture_lock": "Paid edition: API adapter behind trusted gateway; credentials never in Godot client or world files"
+      }
+    },
+    "product_writes": [
+      "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+      "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+      "game/scripts/modules/interfaces/i_paid_gateway_adapter.gd",
+      "game/scripts/modules/bridge/exports/valid_decision_api_paid.json",
+      "game/scripts/modules/bridge/exports/valid_snapshot_api_paid.json",
+      "orchestration/receipts/g5/A2_executor.json"
+    ],
+    "only_owned_files_written": true,
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_services_agm_gateway_edit": true,
+    "implementation": {
+      "language": "GDScript (Godot 4.3)",
+      "transport": "fixture/local file path only — no HTTP/WebSocket/provider SDK",
+      "edition": "api_paid",
+      "provider_mode_default": "fixture",
+      "gateway_request_shape": {
+        "request_id": "required",
+        "gateway_request_id": "optional (defaults to request_id)",
+        "snapshot": "World State Snapshot edition=api_paid",
+        "budget_context": "per_request_cap / session_cap / session_spent",
+        "provider_mode": "fixture only (real modes → policy deny)"
+      },
+      "success_response_shape": {
+        "ok": true,
+        "untrusted": true,
+        "decision": "AGM Decision Envelope",
+        "provider_label": "fixture_provider",
+        "executed": false,
+        "committed": false,
+        "routes_to": "consent_then_agm_decision_executor"
+      },
+      "error_categories": [
+        "validation",
+        "policy",
+        "budget",
+        "timeout",
+        "retry_exhausted",
+        "provider_unavailable"
+      ],
+      "pipeline": [
+        "idempotency short-circuit",
+        "deep deny-list reject on snapshot body",
+        "structural snapshot validation + edition=api_paid policy",
+        "provider_mode=fixture policy",
+        "budget estimate vs per_request_cap / session_cap",
+        "load fixture decision + rebind source_snapshot_id/session/trace",
+        "decision structure + deny-list validate",
+        "return untrusted proposal",
+        "receive_untrusted_response → import guard → pending consent",
+        "confirm_pending_decision → accepted handoff (executed=false)"
+      ],
+      "free_bridge_parity": {
+        "same_snapshot_decision_contracts": true,
+        "edition_diff_only": "api_paid + transport.channel=api_gateway",
+        "consent_required": true,
+        "no_direct_commit": true,
+        "reuses": [
+          "game/scripts/modules/bridge/snapshot_builder.gd (core fields then rebind edition/transport)",
+          "game/scripts/modules/bridge/decision_import_guard.gd"
+        ]
+      },
+      "production_path_note": "Godot → trusted gateway only; credentials server-side; real provider HITL_REQUIRED. G5 uses pure GDScript fixture mirror of GatewayService (no subprocess required)."
+    },
+    "acceptance_tests_results": [
+      {"id": "AT-GODOT-NO-SDK-BOUNDARY", "status": "pass"},
+      {"id": "AT-EDITION-API-PAID", "status": "pass"},
+      {"id": "AT-UNTRUSTED-PROPOSAL", "status": "pass"},
+      {"id": "AT-CONSENT-NO-COMMIT", "status": "pass"},
+      {"id": "AT-ERROR-CATEGORIES-CLIENT", "status": "pass"},
+      {"id": "AT-BUDGET-CLIENT", "status": "pass"},
+      {"id": "AT-POLICY-PROVIDER-MODE", "status": "pass"},
+      {"id": "AT-IDEMPOTENCY-CLIENT", "status": "pass"},
+      {"id": "AT-NO-SECRETS-IN-ADAPTER", "status": "pass"}
+    ],
+    "not_done": [
+      "Did not call real providers",
+      "Did not enable outbound network",
+      "Did not edit services/agm_gateway/**",
+      "Did not edit contracts",
+      "Did not self-ACCEPT",
+      "Did not implement Free/Paid edition UI selection (A3)"
+    ],
+    "artifacts": [
+      "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+      "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+      "game/scripts/modules/interfaces/i_paid_gateway_adapter.gd",
+      "game/scripts/modules/bridge/exports/valid_decision_api_paid.json",
+      "game/scripts/modules/bridge/exports/valid_snapshot_api_paid.json",
+      "orchestration/receipts/g5/A2_executor.json"
+    ],
+    "children": []
+  },
+  "smoke_test": {
+    "type": "godot_paid_gateway_adapter_headless",
+    "executable_smoke_run": true,
+    "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/bridge/paid_gateway_smoke.gd",
+    "working_directory": "E:\\AIdle_openworld",
+    "exit_code": 0,
+    "marker": "G5_PAID_ADAPTER_SMOKE=PASS",
+    "checks": 14,
+    "log_clean": true,
+    "no_script_error": true,
+    "no_parse_error": true,
+    "no_error_prefix": true,
+    "network": false,
+    "real_provider": false,
+    "dependency_install": false,
+    "secret_scan": {
+      "status": "pass",
+      "files_scanned": [
+        "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+        "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+        "game/scripts/modules/interfaces/i_paid_gateway_adapter.gd",
+        "game/scripts/modules/bridge/exports/valid_decision_api_paid.json",
+        "game/scripts/modules/bridge/exports/valid_snapshot_api_paid.json"
+      ],
+      "secret_values_found": 0
+    }
+  },
+  "self_audit": {
+    "authority_token": "PATCH_DRAFT",
+    "only_wrote_owned_paths": true,
+    "no_services_agm_gateway_edit": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "no_provider_calls": true,
+    "no_dependency_install": true,
+    "no_outbound_http": true,
+    "no_provider_sdk_in_godot": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G5-001, G5-001_DISPATCH_MAP, A0_schema, A1_network, Free bridge modules, gateway.py contract note manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G5-001.md",
+    "orchestration/work_orders/G5-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g5/A0_schema.json",
+    "orchestration/receipts/g5/A1_network.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "services/agm_gateway/gateway.py",
+    "game/scripts/modules/bridge/desktop_bridge_module.gd",
+    "game/scripts/modules/bridge/snapshot_builder.gd",
+    "game/scripts/modules/bridge/decision_import_guard.gd",
+    "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+    "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+    "game/scripts/modules/interfaces/i_paid_gateway_adapter.gd",
+    "contracts/fixtures/agm/valid/valid_decision_api_paid.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_api_paid.json"
+  ],
+  "remaining_risks": [
+    "Fixture path is a GDScript mirror of GatewayService — production must call the trusted Python gateway; client does not re-run full Draft 2020-12 jsonschema",
+    "Idempotency store is in-memory per adapter instance",
+    "A3 must still verify Free/Paid edition selection runtime identity",
+    "Real provider enablement remains HITL_REQUIRED"
+  ],
+  "next_route": "A3_CORE_EDITION_VERIFY"
+}

@@ -1,0 +1,305 @@
+{
+  "agent_step_id": "G5-001-A4-persist-purple-2026-07-21",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G5-001",
+    "wave": "A4_PERSIST_PURPLE",
+    "profile": "persist",
+    "work_order": "orchestration/work_orders/WO-G5-001.md",
+    "dispatch_map": "orchestration/work_orders/G5-001_DISPATCH_MAP.md",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "verdict": "ACCEPTED",
+    "summary": "VERIFY_ONLY Purple review of G5-001 provider-neutral Paid AGM gateway (budget/idempotency/secrets/authority). Independent re-runs: G5_AGM_GATEWAY_SMOKE=PASS (20 tests, exit 0); G5_PAID_ADAPTER_SMOKE=PASS (14 checks, exit 0); AIDLE_VALIDATION=PASS (exit 0). All eight adversarial challenges PASS. No product edits; no tasks ACCEPT; no children; self_accept=false; next_route=WAITING_CODEX.",
+    "scope": {
+      "in_scope": [
+        "No provider secrets in Godot / fixtures / logs / receipts",
+        "Budget hard caps + no negative balance",
+        "Idempotency (request_id / gateway_request_id)",
+        "Retry only timeout/provider_unavailable; never validation/policy/auth-like",
+        "Free/Paid identical Snapshot/Decision contract semantics",
+        "Decision untrusted; no World Commit bypass",
+        "Fixture provider only; real provider HITL_REQUIRED",
+        "No self-accept of worker output or tasks.json ACCEPT",
+        "Independent re-run of gateway tests, paid adapter smoke, validate_project.py",
+        "Write orchestration/receipts/g5/A4_persist.json + orchestration/reviews/G5-001_PURPLE_REVIEW.md only"
+      ],
+      "out_of_scope": [
+        "Product edits under services/agm_gateway/** or game/scripts/**",
+        "contracts/**, tasks.json, ARCHITECTURE_LOCK, work_orders, codex_directive",
+        "Real provider selection / credentials / outbound network enablement",
+        "tasks.json ACCEPT of G5-001 (Codex final acceptor only)"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY Purple — receipts/review only",
+        "only_write": [
+          "orchestration/receipts/g5/A4_persist.json",
+          "orchestration/reviews/G5-001_PURPLE_REVIEW.md"
+        ],
+        "architecture_lock": "Paid edition: API adapter behind trusted gateway; credentials never in Godot client or world files",
+        "provider_selection": "HITL_REQUIRED — fixture only in G5-001",
+        "explicit_not": [
+          "product patches",
+          "self-ACCEPT of G5-001 or tasks.json ACCEPT",
+          "real provider enablement",
+          "World Commit bypass"
+        ]
+      }
+    },
+    "product_writes": 0,
+    "only_writes": [
+      "orchestration/receipts/g5/A4_persist.json",
+      "orchestration/reviews/G5-001_PURPLE_REVIEW.md"
+    ],
+    "children": [],
+    "prior_wave_receipts": {
+      "A0_schema": {
+        "path": "orchestration/receipts/g5/A0_schema.json",
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "state": "HANDOFF_TO_A1",
+        "role": "Defined Snapshot/Decision Free/Paid identity, validation order, redaction deny-list, error categories, budget/idempotency/retry contract for A1"
+      },
+      "A1_network": {
+        "path": "orchestration/receipts/g5/A1_network.json",
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "state": "REVIEW_REQUESTED",
+        "role": "Sole gateway product writer; FixtureProvider GatewayService + 20 unittest smoke"
+      },
+      "A2_executor": {
+        "path": "orchestration/receipts/g5/A2_executor.json",
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "state": "REVIEW_REQUESTED",
+        "role": "Sole Godot paid-adapter writer; fixture mirror + 14-check smoke; no SDK/secrets"
+      },
+      "A3_core": {
+        "path": "orchestration/receipts/g5/A3_core.json",
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "verdict": "PASS",
+        "state": "HANDOFF_TO_A4",
+        "role": "Free/Paid edition semantics, first-run selector, boot cleanliness"
+      }
+    },
+    "adversarial_challenges": {
+      "C1_no_provider_secrets": {
+        "status": "PASS",
+        "statement": "No provider secrets in Godot, fixtures, logs, or receipts.",
+        "evidence": [
+          "paid_gateway_adapter.gd holds_provider_secrets()==false; uses_network()==false; no HTTPRequest/WebSocket product usage",
+          "paid_gateway_smoke source_secret_scan + fixture_files_no_secrets PASS",
+          "gateway package modules free of sk-live/sk-proj-/AKIA markers (AT-NO-SECRETS-IN-ARTIFACTS)",
+          "Test injection strings (sk-MUST-NOT-REACH-PROVIDER, sk-forged) only in test_gateway.py and never echoed in error envelopes",
+          "exports/valid_*_api_paid.json and g5 receipts contain no live credential markers",
+          "ARCHITECTURE_LOCK: credentials never in Godot client or world files"
+        ]
+      },
+      "C2_budget_hard_caps_no_negative": {
+        "status": "PASS",
+        "statement": "Hard per-request and session caps reject before provider; no negative balance; failed pre-dispatch does not charge.",
+        "evidence": [
+          "services/agm_gateway/budget.py check_budget: estimate>cap → budget_per_request_exceeded; session_spent+estimate>session_cap → budget_session_exceeded; estimate/session_spent <0 → budget_negative_balance",
+          "SessionBudgetLedger rejects negative session_spent and negative charge; charge only on success path in gateway.py",
+          "AT-BUDGET-PER-REQUEST / AT-BUDGET-SESSION: provider.call_count=0 on reject; session_spent unchanged after session-cap reject",
+          "Godot adapter mirrors budget reject (paid_gateway_smoke budget_reject OK)"
+        ]
+      },
+      "C3_idempotency": {
+        "status": "PASS",
+        "statement": "Identical request_id returns prior safe response without re-dispatch or re-bill.",
+        "evidence": [
+          "gateway.py short-circuits IdempotencyStore.get(request_id) before redact/budget/provider",
+          "Success and terminal non-retryable failures stored by request_id (and gateway_request_id when distinct)",
+          "AT-IDEMPOTENCY-REPLAY: same request_id → provider.call_count=1; decision_id identical",
+          "Godot adapter _idempotency map + smoke idempotency_replay OK"
+        ]
+      },
+      "C4_retry_timeout_unavailable_only": {
+        "status": "PASS",
+        "statement": "Retry only timeout/provider_unavailable; never validation/policy/budget/auth-like.",
+        "evidence": [
+          "retry.py RETRYABLE_CATEGORIES = timeout | provider_unavailable; RetryPolicy.is_retryable gates",
+          "AT-RETRY-TIMEOUT-ONLY: timeout fail_times=2 then success (3 calls); unavailable exhaust → retry_exhausted retryable=false (3 calls)",
+          "validation invalid_decision → call_count=1; policy real_vendor → call_count=0; budget cap → call_count=0",
+          "No separate auth category; auth-like denials map to policy/validation (both non-retryable)"
+        ]
+      },
+      "C5_free_paid_identical_semantics": {
+        "status": "PASS",
+        "statement": "Free Desktop Bridge and Paid API share identical Snapshot/Decision contract semantics (edition + optional non-authoritative transport only).",
+        "evidence": [
+          "AT-EDITION-IDENTITY: strip edition+transport → free/paid fixtures equal",
+          "A0 INV-FREE-PAID-IDENTICAL-PAYLOAD; A3 uses_same_agm_contracts()==true",
+          "Paid adapter reuses snapshot_builder.gd + decision_import_guard.gd; edition=api_paid + transport.channel=api_gateway",
+          "AIDLE_VALIDATION=PASS includes agm-snapshot-decision scope"
+        ]
+      },
+      "C6_decision_untrusted_no_commit_bypass": {
+        "status": "PASS",
+        "statement": "Decision remains untrusted proposal; cannot bypass consent, executor, preview, or World Commit.",
+        "evidence": [
+          "gateway success: untrusted=true; world_commit_invoked always false",
+          "decision deny-list rejects durable_mutation/script/commit_request; build_proposals schema forces preview_required + pending",
+          "paid adapter: receive_untrusted_response requires untrusted=true; confirm sets executed=false committed=false; routes_to=agm_decision_executor",
+          "smoke consent_required_no_commit + confirm_no_execute OK; AT-UNTRUSTED-FLAG pass"
+        ]
+      },
+      "C7_fixture_only_real_provider_hitl": {
+        "status": "PASS",
+        "statement": "G5-001 uses FixtureProvider only; real provider selection is HITL_REQUIRED and denied by default.",
+        "evidence": [
+          "GatewayService default provider=FixtureProvider; allow_real_provider=False",
+          "provider_mode not in {fixture} → policy provider_mode_denied (AT-FIXTURE-PROVIDER-DEFAULT)",
+          "Godot adapter provider_mode default fixture; non-fixture → policy deny",
+          "No provider SDK dependency in gateway or Godot; no outbound HTTP in product path"
+        ]
+      },
+      "C8_no_self_accept": {
+        "status": "PASS",
+        "statement": "No wave self-accepts G5-001; Purple does not ACCEPT tasks.json.",
+        "evidence": [
+          "A0–A3 receipts: self_accept=false",
+          "A1/A2 state=REVIEW_REQUESTED; A3 verdict=PASS handoff only",
+          "This receipt self_accept=false; verdict is Purple product review only",
+          "tasks.json G5-001 left untouched (still IN_PROGRESS for Codex)"
+        ]
+      }
+    },
+    "acceptance_matrix": [
+      {
+        "id": "WO-gateway-fixture-tests",
+        "criterion": "Gateway fixture-provider tests for schema/redaction/idempotency/budget/timeout/retry",
+        "status": "PASS",
+        "evidence": "python services/agm_gateway/run_gateway_tests.py → 20 OK, G5_AGM_GATEWAY_SMOKE=PASS"
+      },
+      {
+        "id": "WO-godot-paid-adapter",
+        "criterion": "Godot paid adapter proves no secret/SDK and same contracts as Free Desktop Bridge",
+        "status": "PASS",
+        "evidence": "G5_PAID_ADAPTER_SMOKE=PASS checks=14; A3 edition parity PASS"
+      },
+      {
+        "id": "WO-secret-scan",
+        "criterion": "Repository secret scan over changed product paths with zero live secret values",
+        "status": "PASS",
+        "evidence": "Gateway package clean of live markers; Godot exports/receipts clean; only intentional test injection needles"
+      },
+      {
+        "id": "WO-clean-validator",
+        "criterion": "Clean project validator",
+        "status": "PASS",
+        "evidence": "python scripts/validate_project.py → AIDLE_VALIDATION=PASS EXIT=0"
+      },
+      {
+        "id": "WO-maf-receipts-purple",
+        "criterion": "MAF receipts, ownership map, Purple review",
+        "status": "PASS",
+        "evidence": "A0–A4 receipts; G5-001_DISPATCH_MAP ownership; G5-001_PURPLE_REVIEW.md"
+      },
+      {
+        "id": "WO-no-self-accept",
+        "criterion": "Finish REVIEW_REQUESTED; no self-ACCEPT; wait for Codex",
+        "status": "PASS",
+        "evidence": "self_accept=false; next_route=WAITING_CODEX; tasks.json not edited"
+      }
+    ],
+    "independent_verification": {
+      "gateway_unittest": {
+        "command": "python services/agm_gateway/run_gateway_tests.py",
+        "exit_code": 0,
+        "marker": "G5_AGM_GATEWAY_SMOKE=PASS",
+        "tests_run": 20,
+        "tests_failed": 0
+      },
+      "godot_paid_adapter_smoke": {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/bridge/paid_gateway_smoke.gd",
+        "exit_code": 0,
+        "marker": "G5_PAID_ADAPTER_SMOKE=PASS",
+        "checks": 14,
+        "log": "orchestration/logs/g5-a4-purple-paid-smoke.log",
+        "no_script_error": true,
+        "no_parse_error": true
+      },
+      "project_validator": {
+        "command": "python scripts/validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    },
+    "ownership_verified": {
+      "A1_network_sole_gateway_writer": true,
+      "A2_executor_sole_godot_paid_writer": true,
+      "A0_A3_A4_verify_only_no_product": true,
+      "disjoint_paths_respected": true
+    },
+    "remaining_risks": [
+      "Idempotency store is in-memory MVP (no TTL/persistence across process restart)",
+      "Error envelope is runtime shape only (not yet a contracts/ JSON Schema)",
+      "Godot G5 path is a pure GDScript fixture mirror of GatewayService — production must still call the trusted server-side gateway with server-side credentials",
+      "paid_gateway_adapter.gd includes workspace absolute fixture fallback path (non-secret; environment-specific)",
+      "Client-side budget unit scale (GDScript) intentionally mirrors intent only; authoritative hard caps live in trusted gateway",
+      "Real provider enablement remains HITL_REQUIRED"
+    ],
+    "not_done": [
+      "Did not patch product code (VERIFY_ONLY)",
+      "Did not ACCEPT tasks.json G5-001 (Codex only)",
+      "Did not enable real provider or outbound network",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g5/A4_persist.json",
+      "orchestration/reviews/G5-001_PURPLE_REVIEW.md",
+      "orchestration/logs/g5-a4-purple-paid-smoke.log"
+    ]
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": [
+      "orchestration/receipts/g5/A4_persist.json",
+      "orchestration/reviews/G5-001_PURPLE_REVIEW.md"
+    ],
+    "no_product_code_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_services_agm_gateway_edit": true,
+    "no_godot_bridge_edit": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "no_provider_calls": true,
+    "no_dependency_install": true,
+    "no_outbound_http": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G5-001, G5-001_DISPATCH_MAP, A0–A3 receipts, services/agm_gateway/**, paid_gateway_adapter.gd, agent_step_contract patterns manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G5-001.md",
+    "orchestration/work_orders/G5-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g5/A0_schema.json",
+    "orchestration/receipts/g5/A1_network.json",
+    "orchestration/receipts/g5/A2_executor.json",
+    "orchestration/receipts/g5/A3_core.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "services/agm_gateway/gateway.py",
+    "services/agm_gateway/budget.py",
+    "services/agm_gateway/retry.py",
+    "services/agm_gateway/idempotency.py",
+    "services/agm_gateway/redact.py",
+    "services/agm_gateway/errors.py",
+    "services/agm_gateway/providers/fixture_provider.py",
+    "services/agm_gateway/tests/test_gateway.py",
+    "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+    "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+    "game/scripts/modules/interfaces/i_paid_gateway_adapter.gd",
+    "orchestration/reviews/G5-001_PURPLE_REVIEW.md"
+  ],
+  "next_route": "WAITING_CODEX"
+}

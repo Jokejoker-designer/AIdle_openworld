@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
-  "directive_id": 14,
-  "issued_at": "2026-07-21T03:30:00+07:00",
+  "directive_id": 15,
+  "issued_at": "2026-07-21T04:30:00+07:00",
   "issued_by": "codex",
   "state": "EXECUTE",
-  "milestone": "G5 provider-neutral Paid AGM gateway boundary",
+  "milestone": "G5 gateway authority and budget correction",
   "architecture_decisions": [
     "Blueprint v1.1 is the source of truth",
     "MVP is fixed-angle 2.5D",
@@ -17,7 +17,7 @@
   "required_workflow": {
     "parent_session": "existing Grok Desktop conductor only",
     "subagent_profiles": ["schema", "network", "executor", "core", "persist"],
-    "wave_order": ["A0_SCHEMA_VERIFY", "A1_NETWORK_GATEWAY_PATCH", "A2_EXECUTOR_CLIENT_PATCH", "A3_CORE_EDITION_VERIFY", "A4_PERSIST_PURPLE"],
+    "wave_order": ["C0_SCHEMA_VERIFY", "C1_NETWORK_GATEWAY_PATCH", "C2_EXECUTOR_CONSUMER_VERIFY", "C3_CORE_EDITION_VERIFY", "C4_PERSIST_PURPLE"],
     "one_writer_per_file": true,
     "step_contract_per_subagent": true,
     "parent_may_self_accept": false
@@ -36,5 +36,5 @@
     "adversarial review",
     "remaining risks"
   ],
-  "supersedes_directive_id": 13
+  "supersedes_directive_id": 14
 }

@@ -1,0 +1,244 @@
+{
+  "agent_step_id": "G5-001-A1-network-2026-07-21",
+  "agent_type": "aidle-network",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G5-001",
+    "wave": "A1_NETWORK_GATEWAY_PATCH",
+    "profile": "network",
+    "work_order": "orchestration/work_orders/WO-G5-001.md",
+    "dispatch_map": "orchestration/work_orders/G5-001_DISPATCH_MAP.md",
+    "parent_schema": "orchestration/receipts/g5/A0_schema.json",
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "summary": "Implemented provider-neutral trusted AGM gateway under services/agm_gateway/** with FixtureProvider only (no outbound network, no real credentials/SDKs). Pipeline: redact secrets → validate World State Snapshot (jsonschema Draft 2020-12) → budget/policy precheck → idempotency store → fixture provider with bounded retry → validate Decision Envelope → return untrusted proposal. Deep deny-list redaction; six structured error categories; budget estimate/per_request_cap/session_cap; retry only timeout/provider_unavailable. Stdlib unittest smoke: 20 tests PASS, G5_AGM_GATEWAY_SMOKE=PASS.",
+    "scope": {
+      "in_scope": [
+        "services/agm_gateway/**",
+        "orchestration/receipts/g5/A1_network.json"
+      ],
+      "out_of_scope": [
+        "contracts/**",
+        "game/** (A2 paid adapter sole writer)",
+        "Real provider selection / credentials / outbound network (HITL_REQUIRED)",
+        "Dependency install, public listener, push, deploy",
+        "tasks.json / ARCHITECTURE_LOCK / work_orders edits"
+      ],
+      "authority_boundary": {
+        "this_wave": "PATCH_DRAFT sole gateway product writer",
+        "only_write": [
+          "services/agm_gateway/**",
+          "orchestration/receipts/g5/A1_network.json"
+        ],
+        "next_writer": "A2_EXECUTOR_CLIENT_PATCH (executor, PATCH_DRAFT)",
+        "provider_selection": "HITL_REQUIRED — fixture only in G5-001",
+        "architecture_lock": "Paid edition: API adapter behind trusted gateway; credentials never in Godot client or world files"
+      }
+    },
+    "product_writes": [
+      "services/agm_gateway/__init__.py",
+      "services/agm_gateway/paths.py",
+      "services/agm_gateway/redact.py",
+      "services/agm_gateway/errors.py",
+      "services/agm_gateway/budget.py",
+      "services/agm_gateway/idempotency.py",
+      "services/agm_gateway/retry.py",
+      "services/agm_gateway/validators.py",
+      "services/agm_gateway/gateway.py",
+      "services/agm_gateway/providers/__init__.py",
+      "services/agm_gateway/providers/base.py",
+      "services/agm_gateway/providers/fixture_provider.py",
+      "services/agm_gateway/tests/__init__.py",
+      "services/agm_gateway/tests/test_gateway.py",
+      "services/agm_gateway/run_gateway_tests.py",
+      "orchestration/receipts/g5/A1_network.json"
+    ],
+    "only_owned_files_written": true,
+    "no_children_spawned": true,
+    "no_contracts_edits": true,
+    "no_godot_edits": true,
+    "implementation": {
+      "language": "Python 3",
+      "dependencies": {
+        "stdlib": true,
+        "jsonschema": "already present (scripts/validate_project.py); no new install",
+        "provider_sdks": false,
+        "outbound_http": false
+      },
+      "pipeline_order": [
+        "idempotency_short_circuit (completed request_id)",
+        "redact_secrets (deep deny-list; wrapper + snapshot)",
+        "snapshot_deny_list_reject (snapshot-body smuggling fail-closed)",
+        "validate_snapshot_schema",
+        "edition_policy (api_paid required for paid path)",
+        "provider_mode_policy (fixture only unless allow_real_provider HITL)",
+        "budget_precheck (estimate vs per_request_cap / session_cap)",
+        "provider_interface_call (FixtureProvider + RetryPolicy)",
+        "decision_deny_list_reject + redact",
+        "validate_decision_schema",
+        "return_untrusted_proposal (ok, untrusted=true; no World Commit)"
+      ],
+      "components": {
+        "GatewayService": "services/agm_gateway/gateway.py handle_request",
+        "Redactor": "services/agm_gateway/redact.py redact_payload deep walk",
+        "SnapshotValidator": "services/agm_gateway/validators.py + world_state_snapshot.schema.json",
+        "DecisionValidator": "services/agm_gateway/validators.py + decision_envelope.schema.json",
+        "BudgetGuard": "services/agm_gateway/budget.py estimate_budget / check_budget / SessionBudgetLedger",
+        "IdempotencyStore": "services/agm_gateway/idempotency.py in-memory request_id map",
+        "ProviderInterface": "services/agm_gateway/providers/base.py",
+        "FixtureProvider": "services/agm_gateway/providers/fixture_provider.py",
+        "RetryPolicy": "services/agm_gateway/retry.py max_attempts default 3",
+        "ErrorEnvelopeBuilder": "services/agm_gateway/errors.py build_error_envelope"
+      },
+      "deny_list_snapshot": [
+        "api_key",
+        "access_token",
+        "password",
+        "secret",
+        "secrets",
+        "credentials",
+        "cookie",
+        "cookies",
+        "session_cookie",
+        "auth_token",
+        "raw_system_prompt",
+        "system_prompt",
+        "private_memory",
+        "raw_prompt",
+        "tts_audio",
+        "voice_sample",
+        "microphone_buffer",
+        "provider_credentials"
+      ],
+      "deny_list_decision_extra": [
+        "script",
+        "scripts",
+        "code",
+        "shader",
+        "executable",
+        "commit_request",
+        "durable_mutation",
+        "scene_tree_mutation",
+        "direct_world_write"
+      ],
+      "error_categories": [
+        "validation",
+        "policy",
+        "budget",
+        "timeout",
+        "retry_exhausted",
+        "provider_unavailable"
+      ],
+      "budget_rules": [
+        "estimate computed pre-dispatch (size-based deterministic units)",
+        "estimate > per_request_cap → budget_per_request_exceeded, no provider call",
+        "session_spent + estimate > session_cap → budget_session_exceeded, no provider call",
+        "failed pre-dispatch rejects do not charge",
+        "session_spent never negative; charge only on success"
+      ],
+      "retry_rules": [
+        "retry only timeout and provider_unavailable",
+        "never retry validation, policy, budget, auth-like, or retry_exhausted",
+        "max_attempts default 3 including first; exhaustion → retry_exhausted retryable=false"
+      ],
+      "idempotency": {
+        "keys": ["request_id", "gateway_request_id"],
+        "store": "in-memory MVP",
+        "behavior": "identical request_id returns prior safe response without re-dispatch or re-bill"
+      },
+      "success_response": {
+        "ok": true,
+        "untrusted": true,
+        "provider_label": "fixture_provider",
+        "decision": "AGM Decision Envelope",
+        "budget": ["estimate", "session_spent_after", "per_request_cap", "session_cap"]
+      },
+      "free_paid_identity": "AT-EDITION-IDENTITY strips edition+transport; fixture pairs identical semantic core"
+    },
+    "acceptance_tests_results": [
+      {"id": "AT-EDITION-IDENTITY", "status": "pass"},
+      {"id": "AT-SNAPSHOT-VALID-PAID", "status": "pass"},
+      {"id": "AT-DECISION-VALID-PAID", "status": "pass"},
+      {"id": "AT-REDACT-API-KEY", "status": "pass"},
+      {"id": "AT-REDACT-DENYLIST-DEEP", "status": "pass"},
+      {"id": "AT-VALIDATION-ORDER", "status": "pass"},
+      {"id": "AT-DECISION-INVALID-AFTER-PROVIDER", "status": "pass"},
+      {"id": "AT-BUILD-PREVIEW-LOCK", "status": "pass"},
+      {"id": "AT-UNTRUSTED-FLAG", "status": "pass"},
+      {"id": "AT-ERROR-CATEGORIES", "status": "pass"},
+      {"id": "AT-IDEMPOTENCY-REPLAY", "status": "pass"},
+      {"id": "AT-BUDGET-PER-REQUEST", "status": "pass"},
+      {"id": "AT-BUDGET-SESSION", "status": "pass"},
+      {"id": "AT-RETRY-TIMEOUT-ONLY", "status": "pass"},
+      {"id": "AT-NO-SECRETS-IN-ARTIFACTS", "status": "pass"},
+      {"id": "AT-FIXTURE-PROVIDER-DEFAULT", "status": "pass"},
+      {"id": "AT-GODOT-NO-SDK-BOUNDARY", "status": "deferred_to_a2", "owned_by": "A2_EXECUTOR_CLIENT_PATCH"}
+    ],
+    "not_done": [
+      "Did not implement Godot paid adapter (A2)",
+      "Did not select or call real providers",
+      "Did not enable outbound network or public listener",
+      "Did not edit contracts",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "services/agm_gateway/**",
+      "orchestration/receipts/g5/A1_network.json"
+    ],
+    "children": []
+  },
+  "smoke_test": {
+    "type": "gateway_fixture_provider_unittest",
+    "executable_smoke_run": true,
+    "command": "python services/agm_gateway/run_gateway_tests.py",
+    "working_directory": "E:\\AIdle_openworld",
+    "exit_code": 0,
+    "marker": "G5_AGM_GATEWAY_SMOKE=PASS",
+    "tests_run": 20,
+    "tests_failed": 0,
+    "network": false,
+    "real_provider": false,
+    "dependency_install": false
+  },
+  "self_audit": {
+    "authority_token": "PATCH_DRAFT",
+    "only_wrote_owned_paths": true,
+    "no_contracts_edits": true,
+    "no_godot_bridge_edit": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "no_provider_calls": true,
+    "no_dependency_install": true,
+    "no_outbound_http": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G5-001, G5-001_DISPATCH_MAP, A0_schema, contracts/agm schemas+fixtures manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G5-001.md",
+    "orchestration/work_orders/G5-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g5/A0_schema.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "contracts/agm/world_state_snapshot.schema.json",
+    "contracts/agm/decision_envelope.schema.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_api_paid.json",
+    "contracts/fixtures/agm/valid/valid_decision_api_paid.json",
+    "contracts/fixtures/agm/policy/edition_identity_pair.json",
+    "services/agm_gateway/gateway.py",
+    "services/agm_gateway/run_gateway_tests.py",
+    "services/agm_gateway/tests/test_gateway.py"
+  ],
+  "remaining_risks": [
+    "Error envelope is runtime shape only (not yet contracts/ schema)",
+    "Idempotency store is in-memory MVP (no TTL/persistence)",
+    "A2 must prove Godot paid adapter has no secrets/SDKs and uses same Snapshot/Decision contracts",
+    "Real provider enablement remains HITL_REQUIRED"
+  ],
+  "next_route": "A2_EXECUTOR_CLIENT_PATCH",
+  "client_contract_note_for_a2": "Paid adapter should call GatewayService-compatible request shape: request_id, snapshot (edition=api_paid), budget_context, provider_mode=fixture (tests). Success: ok=true, untrusted=true, decision envelope. Errors: category in validation|policy|budget|timeout|retry_exhausted|provider_unavailable. No provider secrets or SDKs in Godot; still run consent + executor + preview + World Commit path identical to Free Desktop Bridge semantics."
+}

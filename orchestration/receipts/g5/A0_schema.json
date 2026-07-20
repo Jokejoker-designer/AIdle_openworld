@@ -1,0 +1,900 @@
+{
+  "agent_step_id": "G5-001-A0-schema-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G5-001",
+    "wave": "A0_SCHEMA_VERIFY",
+    "profile": "schema",
+    "work_order": "orchestration/work_orders/WO-G5-001.md",
+    "dispatch_map": "orchestration/work_orders/G5-001_DISPATCH_MAP.md",
+    "state": "HANDOFF_TO_A1",
+    "self_accept": false,
+    "summary": "VERIFY_ONLY audit of World State Snapshot and AGM Decision Envelope contracts for the provider-neutral Paid AGM gateway. Free Desktop Bridge and Paid API share identical payload semantics (edition + optional non-authoritative transport only). Gateway MUST: redact deny-list secrets before any provider interface call; validate snapshot schema; call fixture provider only in tests; validate decision schema; return an untrusted proposal that cannot bypass consent/preview/executor/World Commit. Error envelopes, idempotency, budget caps and retry policy are specified for A1 network sole writer under services/agm_gateway/**. Real provider selection remains HITL_REQUIRED. No product or contracts edits in this wave.",
+    "scope": {
+      "in_scope": [
+        "Snapshot/Decision Free vs Paid identity (edition + optional transport)",
+        "Gateway validation ORDER and redaction deny-list",
+        "Untrusted decision / no durable-mutation bypass invariants",
+        "Structured error envelope categories (no secrets/raw prompts)",
+        "Idempotency key fields (request_id / gateway_request_id)",
+        "Budget fields (estimate, per_request_cap, session_cap) and pre-dispatch reject",
+        "Retry policy (timeout/provider_unavailable only)",
+        "Godot client never holds provider secrets",
+        "Fixture provider only for tests; real provider HITL_REQUIRED",
+        "API surface definition for A1_NETWORK_GATEWAY_PATCH",
+        "Acceptance tests matrix for gateway smoke"
+      ],
+      "out_of_scope": [
+        "Product implementation under services/agm_gateway/** (A1 sole writer)",
+        "Godot paid gateway adapter (A2 executor sole writer)",
+        "Free/Paid edition UI selection runtime (A3 core VERIFY_ONLY)",
+        "Purple budget/secret review (A4 persist VERIFY_ONLY)",
+        "contracts/** edits",
+        "Real provider calls, credentials, outbound network enablement",
+        "Provider SDKs in Godot or gateway",
+        "Dependency install, push, deploy, public listener"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — receipt only",
+        "only_write": "orchestration/receipts/g5/A0_schema.json",
+        "next_writer": "A1_NETWORK_GATEWAY_PATCH (network, PATCH_DRAFT)",
+        "provider_selection": "HITL_REQUIRED — out of G5-001 scope",
+        "architecture_lock": "Paid edition: API adapter behind trusted gateway; credentials never in Godot client or world files"
+      }
+    },
+    "boundary_checklist": [
+      {
+        "id": "INV-FREE-PAID-IDENTICAL-PAYLOAD",
+        "check": "Free Desktop Bridge and Paid API share identical Snapshot/Decision payload semantics; only edition (and optional non-authoritative transport on snapshots) may differ",
+        "status": "pass",
+        "evidence": [
+          "contracts/agm/world_state_snapshot.schema.json description + edition enum desktop_bridge_free|api_paid + optional transport",
+          "contracts/agm/decision_envelope.schema.json description + same edition enum",
+          "contracts/fixtures/agm/policy/edition_identity_pair.json strip_keys=[edition,transport]",
+          "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json vs valid_snapshot_api_paid.json",
+          "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json vs valid_decision_api_paid.json",
+          "scripts/validate_project.py check_agm_contracts edition_identity",
+          "AIdle_Openworld_Blueprint_v1.1/08_AI_Game_Master_and_Edition_Modes.md Single-contract invariant",
+          "orchestration/ARCHITECTURE_LOCK.md lines 15-23"
+        ],
+        "static_comparison": {
+          "snapshot_pair_diff_keys_only": ["edition", "transport"],
+          "decision_pair_diff_keys_only": ["edition"],
+          "semantic_core_identical_after_strip": true,
+          "note": "valid_decision_api_paid.json still carries provider_label=desktop_bridge / model_receipt_ref bridge:manual — non-secret trace labels only; does not alter decision semantics. A1 fixture provider may set provider_label=fixture_provider or gateway_route_fixture for paid path tests without changing payload semantics."
+        }
+      },
+      {
+        "id": "INV-VALIDATION-ORDER",
+        "check": "Gateway processing order is fixed: redact secrets → validate snapshot schema → (fixture provider only in tests) → validate decision schema → return untrusted proposal",
+        "status": "defined_for_a1",
+        "order": [
+          {
+            "step": 1,
+            "name": "redact_secrets",
+            "action": "Deep-strip deny-list keys and value patterns from inbound request/snapshot (and any wrapper metadata) BEFORE schema validation and BEFORE any provider interface call",
+            "fail_closed": "If redaction cannot complete safely, reject with error category=validation (or policy if intentional smuggling detected); never forward original payload"
+          },
+          {
+            "step": 2,
+            "name": "validate_snapshot_schema",
+            "action": "Validate redacted body against contracts/agm/world_state_snapshot.schema.json (Draft 2020-12). Require edition=api_paid for paid gateway path (or accept both editions if adapter is dual-mode, but G5 paid adapter uses api_paid).",
+            "fail_closed": "category=validation; no provider call"
+          },
+          {
+            "step": 3,
+            "name": "budget_and_policy_precheck",
+            "action": "Compute estimate; compare per_request_cap and session_cap; check allowlisted provider interface mode (fixture only unless HITL). Reject before dispatch if cap would be exceeded or negative balance.",
+            "fail_closed": "category=budget or policy; no provider call"
+          },
+          {
+            "step": 4,
+            "name": "idempotency_lookup",
+            "action": "If gateway_request_id/request_id already completed, return prior safe response (decision or error envelope) without re-dispatch",
+            "fail_closed": "Replays must not double-bill or double-call provider"
+          },
+          {
+            "step": 5,
+            "name": "provider_interface_call",
+            "action": "Call ProviderInterface.generate_decision(redacted_snapshot, context). G5-001: FixtureProvider only. Real provider selection HITL_REQUIRED and denied by default.",
+            "fail_closed": "timeout → category=timeout; unavailable → category=provider_unavailable; after retry budget exhausted → category=retry_exhausted"
+          },
+          {
+            "step": 6,
+            "name": "validate_decision_schema",
+            "action": "Validate provider output against contracts/agm/decision_envelope.schema.json. Re-apply redaction/deny-list on decision. Enforce build_proposals locks (preview_required=true, confirmation_state=pending, routes_through=preview_confirm_commit).",
+            "fail_closed": "category=validation; do not return raw provider text"
+          },
+          {
+            "step": 7,
+            "name": "return_untrusted_proposal",
+            "action": "Return Decision Envelope as untrusted proposal. Gateway MUST NOT invoke World Commit, auto-consent, preview confirm, or durable mutation.",
+            "fail_closed": "N/A — success path still untrusted at client/executor"
+          }
+        ]
+      },
+      {
+        "id": "INV-REDACTION-DENYLIST",
+        "check": "Deny-list fields must be stripped before any provider interface call; schema propertyNames also ban them at root",
+        "status": "pass_contracts_defined",
+        "deny_list_fields": [
+          "api_key",
+          "access_token",
+          "password",
+          "secret",
+          "secrets",
+          "credentials",
+          "cookie",
+          "cookies",
+          "session_cookie",
+          "auth_token",
+          "raw_system_prompt",
+          "system_prompt",
+          "private_memory",
+          "raw_prompt",
+          "tts_audio",
+          "voice_sample",
+          "microphone_buffer",
+          "provider_credentials"
+        ],
+        "decision_extra_deny_list": [
+          "script",
+          "scripts",
+          "code",
+          "shader",
+          "executable",
+          "commit_request",
+          "durable_mutation",
+          "scene_tree_mutation",
+          "direct_world_write"
+        ],
+        "runtime_redaction_rules": [
+          "Strip deny-list keys at every object depth (not root-only); schema propertyNames is root-level — gateway redaction must be deep",
+          "Strip header-like fields if present on gateway request wrappers: Authorization, X-Api-Key, Cookie, Bearer tokens",
+          "Never log raw deny-list values; logs may record field_name_stripped counts only",
+          "invalid_snapshot_with_api_key.json is schema-invalid and must also fail gateway redaction/validation path",
+          "Match Free Desktop Bridge FORBIDDEN_KEYS from game/scripts/modules/bridge/snapshot_builder.gd and decision_import_guard.gd FORBIDDEN_TOP"
+        ],
+        "evidence": [
+          "contracts/agm/world_state_snapshot.schema.json propertyNames.not.enum",
+          "contracts/agm/decision_envelope.schema.json propertyNames.not.enum",
+          "contracts/fixtures/agm/invalid/invalid_snapshot_with_api_key.json",
+          "game/scripts/modules/bridge/snapshot_builder.gd FORBIDDEN_KEYS",
+          "game/scripts/modules/bridge/decision_import_guard.gd FORBIDDEN_TOP"
+        ]
+      },
+      {
+        "id": "INV-DECISION-UNTRUSTED",
+        "check": "Returned Decision Envelope remains untrusted; cannot bypass consent, preview, executor, or World Commit",
+        "status": "pass",
+        "rules": [
+          "AGM cannot mutate durable world state from snapshot or decision",
+          "build_proposals items force preview_required=true, confirmation_state=pending, routes_through=preview_confirm_commit",
+          "Direct durable mutation fields banned (commit_request, durable_mutation, scene_tree_mutation, direct_world_write, script/code)",
+          "Client path after gateway: import/guard → visible consent (paid adapter) → executor soft effects → world_prompt preview → player confirm → World Commit only",
+          "Gateway success does not imply consent or commit",
+          "Same executor path as Free Desktop Bridge (ARCHITECTURE_LOCK first-run editions share validator and World Commit boundary)"
+        ],
+        "evidence": [
+          "contracts/agm/decision_envelope.schema.json build_proposals consts",
+          "contracts/fixtures/agm/invalid/invalid_decision_build_bypasses_preview.json",
+          "contracts/fixtures/agm/invalid/invalid_decision_direct_durable_mutation.json",
+          "orchestration/ARCHITECTURE_LOCK.md Authority + Forbidden paths",
+          "AIdle_Openworld_Blueprint_v1.1/08_AI_Game_Master_and_Edition_Modes.md Shared loop steps 4-6"
+        ]
+      },
+      {
+        "id": "INV-ERROR-ENVELOPE",
+        "check": "Structured error envelope distinguishes failure classes without leaking secrets or raw hidden prompts",
+        "status": "defined_for_a1",
+        "categories": [
+          "validation",
+          "policy",
+          "budget",
+          "timeout",
+          "retry_exhausted",
+          "provider_unavailable"
+        ],
+        "envelope_shape": {
+          "schema_hint": "aidle_agm_gateway_error_v1 (runtime shape; not a contracts/ edit this wave)",
+          "required_fields": [
+            "ok",
+            "error",
+            "category",
+            "code",
+            "message",
+            "request_id",
+            "trace_id",
+            "retryable",
+            "occurred_at"
+          ],
+          "field_rules": {
+            "ok": "const false",
+            "error": "const true (or omit ok true path)",
+            "category": "one of the six categories",
+            "code": "stable machine code e.g. snapshot_schema_invalid, budget_per_request_exceeded, provider_timeout",
+            "message": "short safe human string; no secrets, no full system prompts, no raw provider stack dumps",
+            "request_id": "echo client/gateway request id",
+            "trace_id": "correlation id from snapshot.trace_id when available",
+            "retryable": "true only for timeout|provider_unavailable before exhaustion; false for validation|policy|budget|auth-like failures and retry_exhausted",
+            "details": "optional object of non-secret diagnostics (field paths, caps, attempt counts) — never raw deny-list values"
+          },
+          "forbidden_in_error_payload": [
+            "api_key",
+            "credentials",
+            "raw_prompt",
+            "system_prompt",
+            "provider request/response bodies with secrets",
+            "Authorization headers",
+            "clipboard full dumps of secrets"
+          ]
+        }
+      },
+      {
+        "id": "INV-IDEMPOTENCY-KEYS",
+        "check": "Idempotency key fields for gateway requests",
+        "status": "defined_for_a1",
+        "fields": {
+          "request_id": {
+            "role": "Client-supplied idempotency key for a single paid AGM turn",
+            "format": "uuid preferred; non-empty string max 128",
+            "scope": "per session / per gateway deployment store"
+          },
+          "gateway_request_id": {
+            "role": "Gateway-assigned or client-echoed stable id; may equal request_id if client is sole source",
+            "format": "uuid preferred",
+            "rule": "Identical request_id (or gateway_request_id) + same session_id MUST return the same outcome without re-calling provider after first completion"
+          },
+          "decision_id": {
+            "role": "Downstream executor idempotency for applied decisions (existing contract)",
+            "note": "Distinct from gateway request idempotency; replay of decision_id is rejected by decision import guard / executor policy"
+          },
+          "snapshot_id": {
+            "role": "source_snapshot_id binding; stale mismatch is client/executor policy, not re-dispatch"
+          }
+        },
+        "store_requirements": [
+          "Record completed request_id → response fingerprint (decision_id or error category/code)",
+          "No secrets in idempotency store",
+          "Bounded TTL optional; G5 MVP in-memory OK for fixture tests"
+        ]
+      },
+      {
+        "id": "INV-BUDGET-CAPS",
+        "check": "Budget estimate + hard caps; reject before provider dispatch if exceeded; no negative balance",
+        "status": "defined_for_a1",
+        "fields": {
+          "estimate": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Gateway-computed cost/units estimate for this request before dispatch"
+          },
+          "per_request_cap": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Hard max units/cost allowed for a single request"
+          },
+          "session_cap": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Hard max cumulative units/cost for the session"
+          },
+          "session_spent": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Running total; reject if session_spent + estimate > session_cap"
+          }
+        },
+        "rules": [
+          "If estimate > per_request_cap → reject category=budget, code=budget_per_request_exceeded, no provider call",
+          "If session_spent + estimate > session_cap → reject category=budget, code=budget_session_exceeded, no provider call",
+          "session_spent never goes negative; failed pre-dispatch rejects do not charge",
+          "On successful dispatch accounting, session_spent += actual_or_estimate (fixture: estimate)",
+          "Budget fields may live on gateway request context / gateway config — not required on Snapshot schema (contracts untouched)"
+        ]
+      },
+      {
+        "id": "INV-RETRY-POLICY",
+        "check": "Retry only for timeout/provider_unavailable; NEVER retry validation/policy/auth failures",
+        "status": "defined_for_a1",
+        "retryable_categories": ["timeout", "provider_unavailable"],
+        "non_retryable_categories": [
+          "validation",
+          "policy",
+          "budget"
+        ],
+        "also_never_retry": [
+          "auth failures (map to policy or dedicated non-retryable code if exposed)",
+          "schema invalid snapshot/decision",
+          "redaction/deny-list smuggling treated as validation/policy",
+          "after category=retry_exhausted"
+        ],
+        "parameters": {
+          "max_attempts": "bounded small integer (recommend 2-3 total attempts including first)",
+          "timeout_ms": "bounded per-attempt timeout (fixture provider may inject fake delay for tests)",
+          "backoff": "deterministic fixed or linear for tests; no unbounded loops"
+        },
+        "on_exhaustion": "return category=retry_exhausted, retryable=false"
+      },
+      {
+        "id": "INV-GODOT-NO-PROVIDER-SECRETS",
+        "check": "Godot client must never hold provider secrets, API keys, client secrets, bearer tokens, or provider SDKs",
+        "status": "pass_architecture",
+        "rules": [
+          "Paid path: Godot → trusted gateway only; gateway owns authentication",
+          "No API key / session cookie / Desktop AI credential / auth token in Godot, clipboard snapshots, bridge files, logs, saves or prompt recipes (ARCHITECTURE_LOCK Forbidden paths)",
+          "A2 paid adapter under game/scripts/modules/bridge/** must not import provider SDKs",
+          "Free Desktop Bridge uses_network()==false and is comparison baseline for same Snapshot/Decision contracts",
+          "Server-side credential provider boundary only"
+        ],
+        "evidence": [
+          "orchestration/ARCHITECTURE_LOCK.md Free/Paid + Forbidden paths",
+          "AIdle_Openworld_Blueprint_v1.1/08_AI_Game_Master_and_Edition_Modes.md Paid edition",
+          "game/scripts/modules/bridge/* free path comparison (no network, redacted snapshots)"
+        ]
+      },
+      {
+        "id": "INV-FIXTURE-PROVIDER-ONLY",
+        "check": "G5-001 uses deterministic fixture provider only; real provider selection is HITL_REQUIRED",
+        "status": "defined_for_a1",
+        "rules": [
+          "ProviderInterface abstraction is provider-neutral",
+          "FixtureProvider returns schema-valid decisions from contracts/fixtures/agm/valid/* (or gateway test fixtures derived from them)",
+          "Default deny outbound network and real providers",
+          "Provider/domain allowlisting and real network enablement remain HITL",
+          "No provider SDK dependency in gateway for G5-001",
+          "Selecting a non-fixture provider without HITL approval is forbidden"
+        ]
+      },
+      {
+        "id": "INV-SERVICES-GATEWAY-EMPTY-PENDING-A1",
+        "check": "services/agm_gateway/ exists as ownership root but has no product implementation yet — A1 sole writer",
+        "status": "observed",
+        "evidence": "services/agm_gateway/ (empty tree at A0 audit time)"
+      }
+    ],
+    "free_vs_paid": {
+      "id": "INV-FREE-PAID-IDENTICAL-PAYLOAD",
+      "statement": "Free Desktop Bridge and Paid API editions use identical Snapshot and Decision payload semantics. Only the edition field differs for decisions; snapshots may also differ in optional non-authoritative transport delivery metadata.",
+      "edition_enum": ["desktop_bridge_free", "api_paid"],
+      "semantic_strip_keys": ["edition", "transport"],
+      "transport_channels": {
+        "desktop_bridge_free": ["clipboard", "inbox_outbox_file"],
+        "api_paid": ["api_gateway"]
+      },
+      "free_path_reference": {
+        "module": "game/scripts/modules/bridge/desktop_bridge_module.gd",
+        "builder": "game/scripts/modules/bridge/snapshot_builder.gd",
+        "import_guard": "game/scripts/modules/bridge/decision_import_guard.gd",
+        "network": false,
+        "consent": "manual visible consent required"
+      },
+      "paid_path_target": {
+        "gateway": "services/agm_gateway/** (A1)",
+        "client_adapter": "game/scripts/modules/bridge/paid_gateway_adapter.gd or executor-owned path (A2)",
+        "credentials_location": "server-side gateway only",
+        "same_contracts": [
+          "contracts/agm/world_state_snapshot.schema.json",
+          "contracts/agm/decision_envelope.schema.json"
+        ]
+      },
+      "policy_fixture": "contracts/fixtures/agm/policy/edition_identity_pair.json"
+    },
+    "required_fields": {
+      "world_state_snapshot": [
+        "schema_version",
+        "snapshot_id",
+        "created_at",
+        "edition",
+        "session_id",
+        "space_id",
+        "world_revision",
+        "progression_phase",
+        "art_style",
+        "player",
+        "companion",
+        "world",
+        "quests",
+        "latest_player_action",
+        "last_execution_receipt",
+        "memory",
+        "trace_id"
+      ],
+      "decision_envelope": [
+        "schema_version",
+        "decision_id",
+        "source_snapshot_id",
+        "created_at",
+        "edition",
+        "session_id",
+        "dialogue",
+        "quest_operations",
+        "build_proposals",
+        "event_proposals",
+        "mood_delta",
+        "relationship_delta",
+        "next_trigger",
+        "trace"
+      ],
+      "build_proposal_const_locks": {
+        "routes_through": "preview_confirm_commit",
+        "preview_required": true,
+        "confirmation_state": "pending"
+      },
+      "gateway_request_recommended": {
+        "request_id": "uuid",
+        "gateway_request_id": "uuid (optional if equal to request_id)",
+        "session_id": "string",
+        "snapshot": "World State Snapshot object (edition=api_paid)",
+        "budget_context": {
+          "per_request_cap": "number >= 0",
+          "session_cap": "number >= 0",
+          "session_spent": "number >= 0"
+        },
+        "provider_mode": "fixture (only allowed mode in G5-001 without HITL)"
+      }
+    },
+    "api_surface_for_network": {
+      "module_root": "services/agm_gateway/",
+      "sole_product_writer": "A1_NETWORK_GATEWAY_PATCH (network profile, PATCH_DRAFT)",
+      "language_recommendation": "Pure Python stdlib + jsonschema if already used by scripts/validate_project.py; no new dependency install without HITL; no provider SDKs",
+      "deny_by_default": {
+        "outbound_network": true,
+        "real_provider": true,
+        "public_listener": true
+      },
+      "logical_components": [
+        {
+          "name": "GatewayService",
+          "responsibility": "Orchestrate validation order, budget, idempotency, provider call, decision validation, error envelopes"
+        },
+        {
+          "name": "Redactor",
+          "responsibility": "Deep-strip deny-list keys and sensitive headers from snapshots/decisions/wrappers"
+        },
+        {
+          "name": "SnapshotValidator",
+          "responsibility": "JSON Schema Draft 2020-12 validate against world_state_snapshot.schema.json"
+        },
+        {
+          "name": "DecisionValidator",
+          "responsibility": "JSON Schema Draft 2020-12 validate against decision_envelope.schema.json + build proposal locks"
+        },
+        {
+          "name": "BudgetGuard",
+          "responsibility": "estimate, per_request_cap, session_cap checks; reject before dispatch"
+        },
+        {
+          "name": "IdempotencyStore",
+          "responsibility": "request_id / gateway_request_id replay without re-dispatch"
+        },
+        {
+          "name": "ProviderInterface",
+          "responsibility": "Provider-neutral generate_decision(snapshot, context) -> decision dict or raise typed provider errors"
+        },
+        {
+          "name": "FixtureProvider",
+          "responsibility": "Deterministic test-only provider; maps known snapshot_id / intent to valid fixtures"
+        },
+        {
+          "name": "RetryPolicy",
+          "responsibility": "Bounded retries only for timeout/provider_unavailable"
+        },
+        {
+          "name": "ErrorEnvelopeBuilder",
+          "responsibility": "Map failures to safe structured categories without secret leakage"
+        }
+      ],
+      "required_methods": [
+        {
+          "name": "redact_payload",
+          "args": "obj: dict | list | scalar",
+          "returns": "redacted copy + optional stripped_field_names list",
+          "notes": "Deep walk; remove deny-list keys; never mutate caller-owned secret storage into logs"
+        },
+        {
+          "name": "validate_snapshot",
+          "args": "snapshot: dict",
+          "returns": "{ ok, errors[] }",
+          "schema": "contracts/agm/world_state_snapshot.schema.json"
+        },
+        {
+          "name": "validate_decision",
+          "args": "decision: dict",
+          "returns": "{ ok, errors[] }",
+          "schema": "contracts/agm/decision_envelope.schema.json"
+        },
+        {
+          "name": "estimate_budget",
+          "args": "snapshot: dict, context: dict",
+          "returns": "{ estimate: number >= 0 }"
+        },
+        {
+          "name": "check_budget",
+          "args": "estimate, per_request_cap, session_cap, session_spent",
+          "returns": "{ ok, code?, category? }",
+          "notes": "Reject before provider if exceeded"
+        },
+        {
+          "name": "handle_request",
+          "args": "gateway_request: dict",
+          "returns": "success envelope { ok:true, decision, request_id, gateway_request_id, budget? } OR error envelope",
+          "implements_order": "redact → validate_snapshot → budget → idempotency → provider → validate_decision → return untrusted"
+        },
+        {
+          "name": "ProviderInterface.generate_decision",
+          "args": "snapshot: dict, context: dict",
+          "returns": "decision dict",
+          "raises": "ProviderTimeout, ProviderUnavailable (retryable); ProviderProtocolError (non-retryable validation-like)"
+        },
+        {
+          "name": "FixtureProvider.generate_decision",
+          "args": "snapshot: dict, context: dict",
+          "returns": "schema-valid decision with edition=api_paid and source_snapshot_id == snapshot.snapshot_id",
+          "notes": "May load contracts/fixtures/agm/valid/valid_decision_api_paid.json and rebind source_snapshot_id/session_id/trace"
+        }
+      ],
+      "success_response_shape": {
+        "ok": true,
+        "request_id": "string",
+        "gateway_request_id": "string",
+        "decision": "AGM Decision Envelope object",
+        "untrusted": true,
+        "provider_label": "fixture_provider (tests)",
+        "budget": {
+          "estimate": "number",
+          "session_spent_after": "number"
+        }
+      },
+      "recommended_test_layout": [
+        "services/agm_gateway/ (package root)",
+        "services/agm_gateway/gateway.py",
+        "services/agm_gateway/redact.py",
+        "services/agm_gateway/validators.py",
+        "services/agm_gateway/budget.py",
+        "services/agm_gateway/idempotency.py",
+        "services/agm_gateway/retry.py",
+        "services/agm_gateway/errors.py",
+        "services/agm_gateway/providers/base.py",
+        "services/agm_gateway/providers/fixture_provider.py",
+        "services/agm_gateway/tests/ (or tests under same tree)",
+        "orchestration/receipts/g5/A1_network.json"
+      ],
+      "must_not_edit": [
+        "contracts/**",
+        "game/scripts/modules/bridge/** (A2 owns paid adapter; free bridge is baseline only)",
+        "orchestration/tasks.json",
+        "orchestration/ARCHITECTURE_LOCK.md",
+        "orchestration/work_orders/**",
+        "prior receipts other than A1 own receipt"
+      ],
+      "client_contract_note_for_a2": "Paid adapter POSTs/calls gateway with redacted Snapshot edition=api_paid + request_id; receives Decision or error envelope; still runs consent + executor path identical to Free Bridge semantics. No secrets in Godot."
+    },
+    "acceptance_tests": [
+      {
+        "id": "AT-EDITION-IDENTITY",
+        "name": "free_paid_payload_semantics_identical",
+        "steps": [
+          "Load edition_identity_pair.json pairs",
+          "Strip edition and transport",
+          "Assert semantic equality for snapshot and decision pairs"
+        ],
+        "pass_criteria": "Identical core payload; only edition/transport differ",
+        "fixture": "contracts/fixtures/agm/policy/edition_identity_pair.json"
+      },
+      {
+        "id": "AT-SNAPSHOT-VALID-PAID",
+        "name": "valid_api_paid_snapshot_accepted",
+        "steps": [
+          "redact + validate_snapshot(valid_snapshot_api_paid.json)",
+          "assert ok"
+        ],
+        "pass_criteria": "schema valid after redaction"
+      },
+      {
+        "id": "AT-DECISION-VALID-PAID",
+        "name": "valid_api_paid_decision_accepted",
+        "steps": [
+          "validate_decision(valid_decision_api_paid.json)",
+          "assert ok"
+        ],
+        "pass_criteria": "schema valid"
+      },
+      {
+        "id": "AT-REDACT-API-KEY",
+        "name": "api_key_stripped_before_provider",
+        "steps": [
+          "Inject api_key into otherwise valid snapshot wrapper",
+          "Call handle_request with instrumented FixtureProvider",
+          "Assert provider never received api_key key",
+          "Assert invalid_snapshot_with_api_key.json fails validation path"
+        ],
+        "pass_criteria": "provider input has zero deny-list keys; secrets never logged"
+      },
+      {
+        "id": "AT-REDACT-DENYLIST-DEEP",
+        "name": "deep_deny_list_redaction",
+        "steps": [
+          "Nest credentials/system_prompt/tts_audio under nested dicts if smuggled outside schema",
+          "redact_payload",
+          "assert keys removed at all depths"
+        ],
+        "pass_criteria": "deep strip complete"
+      },
+      {
+        "id": "AT-VALIDATION-ORDER",
+        "name": "provider_not_called_on_invalid_snapshot",
+        "steps": [
+          "Send invalid_snapshot_missing_required.json",
+          "Assert FixtureProvider.generate_decision call_count==0",
+          "Assert category=validation"
+        ],
+        "pass_criteria": "fail closed before provider"
+      },
+      {
+        "id": "AT-DECISION-INVALID-AFTER-PROVIDER",
+        "name": "invalid_provider_decision_rejected",
+        "steps": [
+          "FixtureProvider returns decision missing required fields or with durable_mutation",
+          "assert category=validation",
+          "assert no raw provider dump in error"
+        ],
+        "pass_criteria": "gateway never returns schema-invalid decision as ok"
+      },
+      {
+        "id": "AT-BUILD-PREVIEW-LOCK",
+        "name": "build_proposal_bypass_rejected",
+        "steps": [
+          "Provider emits invalid_decision_build_bypasses_preview shape",
+          "validate_decision fails"
+        ],
+        "pass_criteria": "preview_required/confirmation_state/routes_through locks hold"
+      },
+      {
+        "id": "AT-UNTRUSTED-FLAG",
+        "name": "success_marks_untrusted_no_commit",
+        "steps": [
+          "Happy path fixture provider",
+          "assert response.untrusted==true",
+          "assert gateway does not call world_commit or set confirmation confirmed"
+        ],
+        "pass_criteria": "proposal only"
+      },
+      {
+        "id": "AT-ERROR-CATEGORIES",
+        "name": "error_envelope_categories_complete",
+        "steps": [
+          "Force validation, policy, budget, timeout, retry_exhausted, provider_unavailable paths",
+          "assert each category appears exactly as specified",
+          "assert no secret fields in error JSON"
+        ],
+        "pass_criteria": "all six categories covered"
+      },
+      {
+        "id": "AT-IDEMPOTENCY-REPLAY",
+        "name": "same_request_id_no_second_provider_call",
+        "steps": [
+          "handle_request with request_id R1 success",
+          "handle_request again with same request_id R1",
+          "assert provider call_count==1",
+          "assert same decision_id returned"
+        ],
+        "pass_criteria": "idempotent replay"
+      },
+      {
+        "id": "AT-BUDGET-PER-REQUEST",
+        "name": "per_request_cap_reject_before_dispatch",
+        "steps": [
+          "Set estimate > per_request_cap",
+          "assert category=budget",
+          "assert provider call_count==0"
+        ],
+        "pass_criteria": "no dispatch"
+      },
+      {
+        "id": "AT-BUDGET-SESSION",
+        "name": "session_cap_reject_before_dispatch",
+        "steps": [
+          "session_spent + estimate > session_cap",
+          "assert category=budget",
+          "assert provider call_count==0",
+          "assert session_spent unchanged / non-negative"
+        ],
+        "pass_criteria": "no negative balance; no dispatch"
+      },
+      {
+        "id": "AT-RETRY-TIMEOUT-ONLY",
+        "name": "retry_matrix",
+        "steps": [
+          "timeout then success → retries then ok",
+          "provider_unavailable exhausted → retry_exhausted",
+          "validation failure → attempts==1 no retry",
+          "policy/budget failure → no retry"
+        ],
+        "pass_criteria": "retry only timeout/provider_unavailable"
+      },
+      {
+        "id": "AT-NO-SECRETS-IN-ARTIFACTS",
+        "name": "gateway_fixtures_and_logs_secret_scan",
+        "steps": [
+          "Scan services/agm_gateway/** and A1 receipt for api_key-like values",
+          "assert zero secrets"
+        ],
+        "pass_criteria": "clean secret scan"
+      },
+      {
+        "id": "AT-FIXTURE-PROVIDER-DEFAULT",
+        "name": "only_fixture_provider_enabled",
+        "steps": [
+          "Assert default provider_mode=fixture",
+          "Assert real provider selection path raises policy / requires HITL flag not set in G5"
+        ],
+        "pass_criteria": "no real provider call"
+      },
+      {
+        "id": "AT-GODOT-NO-SDK-BOUNDARY",
+        "name": "documented_for_a2_client",
+        "steps": [
+          "A0 defines boundary; A2 must prove paid adapter has no provider SDK/secrets and uses same contracts as Free Bridge"
+        ],
+        "pass_criteria": "A2 smoke owns executable proof; A0 specifies invariant",
+        "owned_by": "A2_EXECUTOR_CLIENT_PATCH"
+      }
+    ],
+    "handoff_to_a1": {
+      "next_route": "A1_NETWORK_GATEWAY_PATCH",
+      "must_implement": [
+        "services/agm_gateway/** Provider-neutral gateway with FixtureProvider",
+        "Validation ORDER as INV-VALIDATION-ORDER",
+        "Redaction deny-list deep strip",
+        "Error envelope six categories",
+        "Idempotency request_id/gateway_request_id",
+        "Budget estimate/per_request_cap/session_cap",
+        "Retry matrix",
+        "Tests covering acceptance_tests AT-* (except AT-GODOT-NO-SDK-BOUNDARY owned by A2)",
+        "orchestration/receipts/g5/A1_network.json"
+      ],
+      "must_not": [
+        "Real provider credentials or SDKs",
+        "Outbound network enablement",
+        "contracts edits",
+        "Godot product edits (A2)",
+        "Self-ACCEPT"
+      ],
+      "canonical_fixtures": {
+        "snapshot_paid": "contracts/fixtures/agm/valid/valid_snapshot_api_paid.json",
+        "decision_paid": "contracts/fixtures/agm/valid/valid_decision_api_paid.json",
+        "snapshot_free_identity": "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+        "decision_free_identity": "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json",
+        "edition_identity": "contracts/fixtures/agm/policy/edition_identity_pair.json",
+        "invalid_secret_snapshot": "contracts/fixtures/agm/invalid/invalid_snapshot_with_api_key.json",
+        "invalid_build_bypass": "contracts/fixtures/agm/invalid/invalid_decision_build_bypasses_preview.json",
+        "invalid_direct_durable": "contracts/fixtures/agm/invalid/invalid_decision_direct_durable_mutation.json",
+        "schemas": {
+          "snapshot": "contracts/agm/world_state_snapshot.schema.json",
+          "decision": "contracts/agm/decision_envelope.schema.json"
+        }
+      }
+    },
+    "residual_risks": [
+      {
+        "id": "shallow_schema_propertynames",
+        "severity": "medium",
+        "detail": "JSON Schema propertyNames deny-list is root-level; nested smuggling requires deep runtime redaction in gateway (and client guards)."
+      },
+      {
+        "id": "decision_fixture_provider_label",
+        "severity": "low",
+        "detail": "valid_decision_api_paid.json still uses provider_label=desktop_bridge for identity pairing; FixtureProvider should rebind labels for paid tests without breaking edition_identity strip comparison (provider_label is inside trace, not stripped by edition_identity)."
+      },
+      {
+        "id": "no_gateway_error_schema_in_contracts",
+        "severity": "low",
+        "detail": "Error envelope is runtime/gateway shape for G5; contracts/** must not be edited this WO. Future contract promotion is out of A0 scope."
+      },
+      {
+        "id": "services_tree_empty",
+        "severity": "info",
+        "detail": "services/agm_gateway/ is empty pending A1; A0 is definition-only."
+      }
+    ],
+    "not_done": [
+      "Did not implement services/agm_gateway/** (A1)",
+      "Did not implement Godot paid adapter (A2)",
+      "Did not edit contracts or product code",
+      "Did not call real providers",
+      "Did not self-ACCEPT"
+    ],
+    "artifacts": [
+      "orchestration/receipts/g5/A0_schema.json"
+    ],
+    "product_writes": 0,
+    "only_write": "orchestration/receipts/g5/A0_schema.json",
+    "children": []
+  },
+  "smoke_test": {
+    "type": "verify_only_schema_contract",
+    "executable_smoke_run": false,
+    "reason": "A0_SCHEMA_VERIFY defines gateway validation order, redaction, Free/Paid identity, error/budget/retry/idempotency contracts only; executable gateway tests are A1_NETWORK_GATEWAY_PATCH ownership; Godot paid adapter smoke is A2",
+    "static_audit": {
+      "free_paid_identity": "pass (fixtures + policy strip edition/transport)",
+      "snapshot_schema": "pass (contracts/agm/world_state_snapshot.schema.json)",
+      "decision_schema": "pass (contracts/agm/decision_envelope.schema.json)",
+      "deny_list_aligned_with_bridge": "pass (snapshot_builder FORBIDDEN_KEYS ⊂ schema propertyNames)",
+      "services_agm_gateway": "empty pending A1"
+    },
+    "downstream_required_markers": [
+      "AT-EDITION-IDENTITY pass",
+      "AT-SNAPSHOT-VALID-PAID pass",
+      "AT-DECISION-VALID-PAID pass",
+      "AT-REDACT-API-KEY pass",
+      "AT-REDACT-DENYLIST-DEEP pass",
+      "AT-VALIDATION-ORDER pass",
+      "AT-DECISION-INVALID-AFTER-PROVIDER pass",
+      "AT-BUILD-PREVIEW-LOCK pass",
+      "AT-UNTRUSTED-FLAG pass",
+      "AT-ERROR-CATEGORIES pass",
+      "AT-IDEMPOTENCY-REPLAY pass",
+      "AT-BUDGET-PER-REQUEST pass",
+      "AT-BUDGET-SESSION pass",
+      "AT-RETRY-TIMEOUT-ONLY pass",
+      "AT-NO-SECRETS-IN-ARTIFACTS pass",
+      "AT-FIXTURE-PROVIDER-DEFAULT pass",
+      "A2 Godot paid adapter no secret/SDK + same contracts as Free Bridge"
+    ],
+    "recommended_parent_command_after_a1": "python -m pytest services/agm_gateway (or project test runner chosen by A1) && python scripts/validate_project.py"
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "read_only_product": true,
+    "only_wrote": ["orchestration/receipts/g5/A0_schema.json"],
+    "no_product_code_edits": true,
+    "no_contracts_edits": true,
+    "no_architecture_edits": true,
+    "no_tasks_json_edit": true,
+    "no_work_order_edits": true,
+    "no_services_agm_gateway_edit": true,
+    "no_godot_bridge_edit": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_children_subagents": true,
+    "no_provider_calls": true,
+    "no_dependency_install": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, ARCHITECTURE_LOCK, WO-G5-001, G5-001_DISPATCH_MAP, contracts/agm schemas+fixtures, bridge modules, blueprint 08, agent_step_contract manually"
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G5-001.md",
+    "orchestration/work_orders/G5-001_DISPATCH_MAP.md",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "Agents.md",
+    "contracts/agm/world_state_snapshot.schema.json",
+    "contracts/agm/decision_envelope.schema.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_api_paid.json",
+    "contracts/fixtures/agm/valid/valid_decision_api_paid.json",
+    "contracts/fixtures/agm/valid/valid_snapshot_desktop_bridge.json",
+    "contracts/fixtures/agm/valid/valid_decision_desktop_bridge.json",
+    "contracts/fixtures/agm/policy/edition_identity_pair.json",
+    "contracts/fixtures/agm/invalid/invalid_snapshot_with_api_key.json",
+    "contracts/fixtures/agm/invalid/invalid_decision_build_bypasses_preview.json",
+    "contracts/fixtures/agm/invalid/invalid_decision_direct_durable_mutation.json",
+    "game/scripts/modules/bridge/desktop_bridge_module.gd",
+    "game/scripts/modules/bridge/snapshot_builder.gd",
+    "game/scripts/modules/bridge/decision_import_guard.gd",
+    "game/scripts/modules/bridge/bridge_paths.gd",
+    "scripts/validate_project.py",
+    "AIdle_Openworld_Blueprint_v1.1/08_AI_Game_Master_and_Edition_Modes.md",
+    "AIdle_Openworld_Blueprint_v1.1/Interfaces/AGM_Contracts.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "remaining_risks": [
+    "Deep redaction must exceed root-only JSON Schema propertyNames",
+    "A1 must not install provider SDKs or enable real network",
+    "A2 must not place secrets in Godot paid adapter",
+    "Error envelope not yet a contracts/ schema — keep stable codes for Purple review"
+  ],
+  "next_route": "A1_NETWORK_GATEWAY_PATCH"
+}

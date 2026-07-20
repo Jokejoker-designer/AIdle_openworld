@@ -1,0 +1,44 @@
+{
+  "review_id": "CODEX-G5-001-ADVERSARIAL-2026-07-21",
+  "reviewer_role": "codex-final-acceptor",
+  "intent_anchor": {
+    "user_goal": "Deliver a safe provider-neutral Paid AGM gateway while preserving the existing Grok workflow.",
+    "current_priority": "Independently verify budget, provider authority, idempotency and secret boundaries before acceptance.",
+    "allowed_scope": ["gateway boundary", "fixture provider", "Godot paid adapter", "tests and receipts"],
+    "forbidden_scope": ["real provider", "credentials", "outbound network", "self-acceptance"]
+  },
+  "claim_under_review": "G5-001 enforces hard budgets, fixture-only provider authority, idempotency and fail-closed validation.",
+  "what_i_accept": [
+    "Gateway unit suite passes 20 tests and the Godot paid adapter passes 14 checks.",
+    "Integrated Godot boot and project validator are clean.",
+    "Snapshot and Decision validation, deep secret-key redaction, retry classification and untrusted proposal routing are present.",
+    "Worker ownership and MAF receipts are consistent, and the parent did not self-accept."
+  ],
+  "what_i_challenge": [
+    "Untrusted budget_context can replace configured server caps with larger values, allowing a request to bypass both hard caps.",
+    "NaN and Infinity budget values pass comparisons and reach the provider instead of failing closed.",
+    "An arbitrary injected ProviderInterface is called when allow_real_provider is false if the request labels its mode fixture.",
+    "A reused request_id or gateway_request_id with a different payload returns the prior response because idempotency is not bound to a canonical request fingerprint."
+  ],
+  "strongest_counter_argument": "The service is currently fixture-only and not publicly exposed, but these are authority-boundary defects in the exact component intended to become the trusted Paid gateway, so accepting them would encode unsafe defaults.",
+  "missing_evidence": [
+    "No adversarial test proves server caps cannot be raised by a client.",
+    "No test rejects non-finite budget inputs.",
+    "No test rejects a non-fixture provider object while real-provider authority is disabled.",
+    "No test rejects idempotency-key reuse with a changed canonical request.",
+    "The adversarial-review skill references schema files absent from its installed directory, so this object follows the documented fields but could not be schema-validated."
+  ],
+  "scope_drift_risk": "low",
+  "final_verdict": "CHANGES_REQUESTED",
+  "self_audit": {
+    "preserved_user_intent": true,
+    "did_not_invent_objection": true,
+    "evidence_based": true,
+    "no_scope_hijack": true
+  },
+  "blind_spots": ["Real provider networking and credential lifecycle remain HITL and are not evaluated."],
+  "confidence_before_challenge": 0.84,
+  "confidence_penalty": 0.28,
+  "confidence_after_challenge": 0.56,
+  "next_action": "Apply WO-G5-001-CORRECTION-001, rerun the four adversarial cases and all existing G5/Godot/validator gates, then return to Codex."
+}

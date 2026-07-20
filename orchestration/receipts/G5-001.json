@@ -1,0 +1,126 @@
+{
+  "agent_step_id": "G5-001-parent-collate-directive-14-2026-07-21",
+  "agent_type": "lead-orchestrator",
+  "skill_id": "maf-mandatory-standard",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G5-001",
+    "directive_id": 14,
+    "state": "REVIEW_REQUESTED",
+    "self_accept": false,
+    "parent_may_self_accept": false,
+    "summary": "Provider-neutral Paid AGM gateway boundary: network owns trusted gateway (fixture provider only); executor owns Godot paid adapter without secrets/SDKs. Redact→validate snapshot→budget/idempotency→fixture provider→validate decision→untrusted proposal. Free/Paid identical contracts. Real provider selection HITL_REQUIRED. Purple ACCEPTED evidence.",
+    "waves": {
+      "A0_SCHEMA_VERIFY": {
+        "profile": "schema",
+        "authority": "VERIFY_ONLY",
+        "receipt": "orchestration/receipts/g5/A0_schema.json"
+      },
+      "A1_NETWORK_GATEWAY_PATCH": {
+        "profile": "network",
+        "authority": "PATCH_DRAFT",
+        "sole_gateway_writer": true,
+        "owned_tree": "services/agm_gateway/**",
+        "receipt": "orchestration/receipts/g5/A1_network.json"
+      },
+      "A2_EXECUTOR_CLIENT_PATCH": {
+        "profile": "executor",
+        "authority": "PATCH_DRAFT",
+        "sole_godot_adapter_writer": true,
+        "owned_paths": [
+          "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+          "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+          "game/scripts/modules/interfaces/i_paid_gateway_adapter.gd"
+        ],
+        "receipt": "orchestration/receipts/g5/A2_executor.json"
+      },
+      "A3_CORE_EDITION_VERIFY": {
+        "profile": "core",
+        "authority": "VERIFY_ONLY",
+        "verdict": "PASS",
+        "receipt": "orchestration/receipts/g5/A3_core.json"
+      },
+      "A4_PERSIST_PURPLE": {
+        "profile": "persist",
+        "authority": "VERIFY_ONLY",
+        "verdict": "ACCEPTED",
+        "receipt": "orchestration/receipts/g5/A4_persist.json",
+        "review": "orchestration/reviews/G5-001_PURPLE_REVIEW.md"
+      }
+    },
+    "dispatch_map": "orchestration/work_orders/G5-001_DISPATCH_MAP.md",
+    "hitl_required": ["provider_selection", "real_credentials", "outbound_network_enablement"]
+  },
+  "smoke_test": {
+    "commands": [
+      {
+        "command": "python services\\agm_gateway\\run_gateway_tests.py",
+        "exit_code": 0,
+        "marker": "G5_AGM_GATEWAY_SMOKE=PASS",
+        "tests": 20
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/bridge/paid_gateway_smoke.gd",
+        "exit_code": 0,
+        "marker": "G5_PAID_ADAPTER_SMOKE=PASS checks=14",
+        "log": "orchestration/logs/g5-a2-parent-paid-smoke.log",
+        "forbidden_log_patterns_count": 0
+      },
+      {
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless --quit-after 4",
+        "exit_code": 0,
+        "log": "orchestration/logs/g5-boot-parent.log",
+        "forbidden_log_patterns_count": 0
+      },
+      {
+        "command": "python scripts\\validate_project.py",
+        "exit_code": 0,
+        "marker": "AIDLE_VALIDATION=PASS"
+      }
+    ],
+    "secret_scan": "zero secret values reported in A1/A2 smokes over changed files"
+  },
+  "ownership_map": {
+    "network": ["services/agm_gateway/**"],
+    "executor": [
+      "game/scripts/modules/bridge/paid_gateway_adapter.gd",
+      "game/scripts/modules/bridge/paid_gateway_smoke.gd",
+      "game/scripts/modules/interfaces/i_paid_gateway_adapter.gd",
+      "game/scripts/modules/bridge/exports/valid_decision_api_paid.json",
+      "game/scripts/modules/bridge/exports/valid_snapshot_api_paid.json"
+    ],
+    "schema_core_persist": "VERIFY_ONLY receipts only"
+  },
+  "self_audit": {
+    "profiles_only": ["schema", "network", "executor", "core", "persist"],
+    "parent_dispatch_collate_only": true,
+    "one_writer_per_file": true,
+    "no_nested_grandchildren": true,
+    "no_tasks_json_edit": true,
+    "no_codex_directive_edit": true,
+    "no_architecture_contracts_edit": true,
+    "no_real_provider_call": true,
+    "no_credentials": true,
+    "no_dependency_install": true,
+    "no_accept_receipt": true
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-G5-001.md",
+    "orchestration/work_orders/G5-001_DISPATCH_MAP.md",
+    "orchestration/receipts/g5/A0_schema.json",
+    "orchestration/receipts/g5/A1_network.json",
+    "orchestration/receipts/g5/A2_executor.json",
+    "orchestration/receipts/g5/A3_core.json",
+    "orchestration/receipts/g5/A4_persist.json",
+    "orchestration/reviews/G5-001_PURPLE_REVIEW.md",
+    "services/agm_gateway/",
+    "game/scripts/modules/bridge/paid_gateway_adapter.gd"
+  ],
+  "remaining_risks": [
+    "Godot adapter uses fixture mirror; production must call trusted gateway process",
+    "Gateway idempotency store is in-memory (process lifetime)",
+    "Real provider selection/credentials remain HITL_REQUIRED"
+  ],
+  "next_route": "WAITING_CODEX — only Codex may ACCEPTED G5-001"
+}

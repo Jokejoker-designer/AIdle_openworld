@@ -6,6 +6,8 @@ extends Node
 var _styles: Dictionary = {}
 var _active_style_id: String = AIdleConstants.DEFAULT_ART_STYLE
 var _world_meta: ConfigFile = ConfigFile.new()
+## Test-only override so saved-choice proofs never touch the human user's real meta.
+var _meta_path_override: String = ""
 
 
 func _ready() -> void:
@@ -34,19 +36,21 @@ func _register_builtin_styles() -> void:
 	_styles[AIdleConstants.ART_SURREALISM_CANVAS] = {
 		"id": AIdleConstants.ART_SURREALISM_CANVAS,
 		"display_name": "Surrealism Canvas",
-		"description": "Floating forms, shifting color, dreamlike proportions.",
+		"description": "Dreamlike accents over a readable ground — purple is accent, not a void field.",
 		"palette": {
 			"primary": Color("C77DFF"),
-			"secondary": Color("7B2CBF"),
+			"secondary": Color("9B6BCF"),
 			"accent": Color("FF9E00"),
-			"ground": Color("3C096C"),
-			"sky": Color("240046"),
-			"shadow": Color(0.1, 0.05, 0.2, 0.5),
+			# Readable diorama base (DESIGN.md: purple as bounded accent, not full field).
+			"ground": Color("8B7AA8"),
+			"sky": Color("A8B4E0"),
+			"shadow": Color(0.12, 0.08, 0.18, 0.4),
 		},
 		"mood": "dreamlike",
 		"geometry_bias": "surreal_scale",
-		"neon_intensity": 0.6,
+		"neon_intensity": 0.45,
 	}
+
 	_styles[AIdleConstants.ART_CYBERPUNK_DENSE] = {
 		"id": AIdleConstants.ART_CYBERPUNK_DENSE,
 		"display_name": "Cyberpunk Dense",
@@ -81,8 +85,19 @@ func _register_builtin_styles() -> void:
 	}
 
 
+func get_world_meta_path() -> String:
+	if not _meta_path_override.is_empty():
+		return _meta_path_override
+	return AIdleConstants.WORLD_META_PATH
+
+
+## Headed/isolation tests only — never point at the human's real save by accident.
+func set_world_meta_path_override(path: String) -> void:
+	_meta_path_override = path
+
+
 func _load_world_meta() -> void:
-	var err := _world_meta.load(AIdleConstants.WORLD_META_PATH)
+	var err := _world_meta.load(get_world_meta_path())
 	if err == OK:
 		var saved: String = str(_world_meta.get_value("world", "art_style", AIdleConstants.DEFAULT_ART_STYLE))
 		if _styles.has(saved):
@@ -93,7 +108,12 @@ func save_world_meta() -> void:
 	_world_meta.set_value("world", "art_style", _active_style_id)
 	_world_meta.set_value("world", "schema_version", AIdleConstants.SCHEMA_VERSION)
 	_world_meta.set_value("world", "updated_at", Time.get_datetime_string_from_system(true))
-	var err := _world_meta.save(AIdleConstants.WORLD_META_PATH)
+	var path := get_world_meta_path()
+	var abs_path := ProjectSettings.globalize_path(path)
+	var parent := abs_path.get_base_dir()
+	if not DirAccess.dir_exists_absolute(parent):
+		DirAccess.make_dir_recursive_absolute(parent)
+	var err := _world_meta.save(path)
 	if err != OK:
 		push_warning("[ArtStyleManager] Could not save world meta: %s" % error_string(err))
 
@@ -103,7 +123,23 @@ func get_active_style_id() -> String:
 
 
 func get_active_style() -> Dictionary:
-	return _styles.get(_active_style_id, _styles[AIdleConstants.DEFAULT_ART_STYLE]).duplicate(true)
+	# ROOT CAUSE (R-MED-06 / WO-P1E-004): GDScript evaluates .get() default args eagerly.
+	# `_styles.get(id, _styles[DEFAULT])` always indexes `_styles[DEFAULT]` even when
+	# `id` is present. Before `_ready` → `_register_builtin_styles()`, `_styles` is empty,
+	# so `_styles["cozy_cyber_pixel"]` (DEFAULT_ART_STYLE) throws:
+	#   Invalid access to property or key 'cozy_cyber_pixel' on a base object of type 'Dictionary'
+	# The cozy_cyber_pixel entry is NOT missing/malformed — it is registered in
+	# `_register_builtin_styles`. Callers (StarterRealmBuilder GLB path, HUD) can run
+	# during early boot / headless -s before this autoload's _ready finishes.
+	# Fix: ensure builtins exist, then index safely without eager default indexing.
+	if _styles.is_empty():
+		_register_builtin_styles()
+	if _styles.has(_active_style_id):
+		return _styles[_active_style_id].duplicate(true)
+	if _styles.has(AIdleConstants.DEFAULT_ART_STYLE):
+		return _styles[AIdleConstants.DEFAULT_ART_STYLE].duplicate(true)
+	push_error("[ArtStyleManager] get_active_style: no styles registered (unexpected)")
+	return {}
 
 
 func get_style(style_id: String) -> Dictionary:
@@ -119,6 +155,9 @@ func list_styles() -> Array:
 
 ## Called from Art Style select UI at first boot / new world.
 func set_active_style(style_id: String, persist: bool = true) -> bool:
+	# Safe when called before _ready completes (headed smoke / early boot).
+	if _styles.is_empty():
+		_register_builtin_styles()
 	if not _styles.has(style_id):
 		push_error("[ArtStyleManager] Unknown art style: %s" % style_id)
 		return false
@@ -132,6 +171,18 @@ func set_active_style(style_id: String, persist: bool = true) -> bool:
 	EventBus.art_style_changed.emit(style_id)
 	print("[ArtStyleManager] Style set → %s" % style_id)
 	return true
+
+
+## True when builtins are registered (smoke may wait on this).
+func is_styles_ready() -> bool:
+	if _styles.is_empty():
+		_register_builtin_styles()
+	return not _styles.is_empty()
+
+
+## Product rule: clean world (no prior choice) uses DEFAULT_ART_STYLE.
+func get_default_style_id() -> String:
+	return AIdleConstants.DEFAULT_ART_STYLE
 
 
 ## Hard constraint: generators must call this before creating content.

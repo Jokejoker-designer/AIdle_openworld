@@ -1,0 +1,351 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "UCBV-001-c0-visual-preflight-002-2026-07-23",
+  "step_id": "UCBV-001-c0-visual-preflight-002",
+  "work_order_id": "WO-UCBV-001-STRICT-CORRECTION-002",
+  "work_order": "orchestration/work_orders/WO-UCBV-001-STRICT-CORRECTION-002.md",
+  "work_order_sha256": "f523432ed21322b856e85c478f340eb8959c985d912eb20e4b728cae811c9478",
+  "directive_id": 83,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "ab4eeb6a40ec96b1d841cb7a31989158cee76ec8c47404ad18d53ed501cb4045",
+  "directive_state": "READY",
+  "directive_verdict": "AUTHORIZED_STRICT_CORRECTION_NO_WAIVER",
+  "human_decision": "AUTHORIZE_STRICT_UCBV_CORRECTION",
+  "waiver": false,
+  "permitted_task_ids": ["UCBV-001"],
+  "queued_not_authorized": ["P2E-002 AI Build Zone drag-selection and text-to-build intake - after Codex and Human accept UCBV-001"],
+  "milestone": "UCBV-001 strict correction C0 visual/production preflight",
+  "agent_id": "aidle-character-style-guardian",
+  "agent_type": "aidle-character-style-guardian",
+  "profile_name": "aidle-character-style-guardian",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-character-style-guardian.md",
+  "profile_sha256": "b9e07074ba7973301740a487ed2e03799f92ec14ca9171ab4f786f48a869860b",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-character-style-guardian; trustlayer_character=blue-team-p0-remediator; ui_character=ui-brand-system-architect; authority_token=PATCH_DRAFT; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,od-reference-design-contract,od-design-md; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set style_lock_and_design_tokens_only under C0 exact lease.",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "exact lease: orchestration/design/ucbv_001/style_lock/** + orchestration/design/ucbv_001/character/nori7/** + orch receipt/log correction_002 C0 only; no meshes/GLBs; no game/scripts; no DNA v1.2/Tier3; no P2E-002; no grandchildren; never ACCEPTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:4514aad8153d1296d5b51990c0a386ab75c4fda59e314dad1ff64f9eab1b96c9",
+  "input_context_hash_16": "4514aad8153d1296",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-UCBV-001-STRICT-CORRECTION-002.md + codex_directive.json + aidle-character-style-guardian.md + UCBV_ANIMATION_BLOCK_INTEGRATION_MAP_001.md + CODEX_UCBV-001_HUMAN_STRICT_AUTHORIZATION_002.json + CODEX_UCBV-001_MACHINE_GATE_001.json + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C0_COMPLETE_ROUTE_C1_CHARACTER_PRODUCTION",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C0_UCBV_VISUAL_PREFLIGHT_PASS_ROUTE_C1_NO_ACCEPT",
+  "need_human": false,
+  "child_task_ref": "019f8bf6-ac4c-7012-911d-06750ea92812",
+  "transcript_ref": "019f8bf6-ac4c-7012-911d-06750ea92812",
+  "writer_transcript_ref": "019f8bf6-ac4c-7012-911d-06750ea92812",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_lineage_note": "U0-U8 immutable under non-correction_002; machine gate NEED_HUMAN; Human AUTHORIZE_STRICT_UCBV_CORRECTION",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f8bf6-ac4c-7012-911d-06750ea92812/",
+  "started_at": "2026-07-22T22:34:00Z",
+  "completed_at_utc": "2026-07-22T22:39:53Z",
+  "next_owner": "C1_CHARACTER_PRODUCTION",
+  "next_route": "C1_CHARACTER_PRODUCTION",
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-brand-system-architect",
+    "ui_file": "E:/agents/ui-design/characters/05-ui-brand-system-architect.md",
+    "ui_sha256": "a962ee391f148ba2ebd67a77045da5882437f59a5eb600217a8aa2d431eb3581",
+    "ui_read": "full_eof",
+    "role": "C0 PATCH_DRAFT sole writer for visual/production preflight design contracts; cream reconciliation; animation intent; no meshes/GLBs; no self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded Agents.md, profile, TrustLayer/UI cards, Directive 83, WO-UCBV-001-STRICT-CORRECTION-002, integration map, human/machine reviews, U1/U2 design, COZY_ART_BIBLE, practical findings, skills (5 ALWAYS + od-reference-design-contract + od-design-md), agent_step_contract schema manually with full-EOF skill loads.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "chunked_and_eof_confirm",
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "od-reference-design-contract",
+      "mode": "PROFILE_REQUIRED",
+      "source": "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+      "sha256": "8b5e62a123a180e5f1b8e0b7f97605d257f85bf0a2b0ca7f8c7475b54e007775",
+      "bytes": 5367,
+      "line_count": 120,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "od-design-md",
+      "mode": "PROFILE_REQUIRED",
+      "source": "E:/shared/skills/library/od-design-md/SKILL.md",
+      "sha256": "516e40f923d65e0f1ce5094edb21ddb336cf33568576e2b366241084759ba965",
+      "bytes": 1175,
+      "line_count": 32,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/design/ucbv_001/style_lock/**",
+    "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/**",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/correction_002/C0_visual_preflight_002.log",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/correction_002/C0_visual_preflight_002.json"
+  ],
+  "product_writes": [
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/style_lock/C0_visual_production_preflight.md",
+      "sha256": "60e259a023687d534e132cc8a164a2603379d3ac79849bc42d034881ba9cec6b",
+      "bytes": 12848
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/style_lock/C0_cream_reconciliation.json",
+      "sha256": "cfeefea3ae099d3c9aba371d225486319551f2f062dfbf56d5a955ce1bb9fc48",
+      "bytes": 4971
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/style_lock/DESIGN.md",
+      "sha256": "048d5580b57617fa7c2f9955cfc8417d1d72bb7b220b93ff504ea771d36a110c",
+      "bytes": 6976
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/style_lock/design-contract.md",
+      "sha256": "f6a3fd046a1666a9980a340998adf1786fccf08d84587665b51e192f6be2998e",
+      "bytes": 7649
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/style_lock/implementation-handoff.md",
+      "sha256": "6fb43841d480a59da0971ce71256a96367bd800cad0a0b5e47f899a83a234694",
+      "bytes": 3842
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/style_lock/U1_unified_style_lock.md",
+      "sha256": "38e1284cd95e52294015b0d658418f86fdab514cfedea00730f6b843c19cafb2",
+      "bytes": 18238
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/style_lock/unified_palette_material_alias_table.json",
+      "sha256": "ef5226da560eb4cca50b30d677169fae1f999675763c0f9a94edccfcd49397d4",
+      "bytes": 12021
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/C0_animation_contract_lock.md",
+      "sha256": "83136cdd7af21382cead63f92f22e7836ab2a834396f98089b9f931db4090487",
+      "bytes": 3281
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/DESIGN.md",
+      "sha256": "ab5ba83d41389cfc8e587fe656859230e6aabb05dbeb4d4a107292b2f6de71ca",
+      "bytes": 5624
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/design-contract.md",
+      "sha256": "bf208e5c31715c96381358e3cd389cf7452c87adaebb784a83b139853a82d61f",
+      "bytes": 4526
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/implementation-handoff.md",
+      "sha256": "c90f5cf436e68ac7df7b07eb63d1c0f09ae162c6c2ac1df1392b0cb7f8baa331",
+      "bytes": 2688
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/modular_body_outfit_definition.json",
+      "sha256": "47b54fb8bb5e72ecac3eb2026b7a2f6704f82fe4d9903135159c36470c313e3f",
+      "bytes": 9880
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/U2_character_visual_silhouette.md",
+      "sha256": "857231b1fc22bc4829f080d531ef418634e4d0b1e2097682910dd69807ab5171",
+      "bytes": 13418
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/technical/implementation-handoff.md",
+      "sha256": "d92dcb151e393cc16e300c13d57fcca7cb5230ef330b5e3bca35ba3c792feb7c",
+      "bytes": 3223
+    }
+  ],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/correction_002/C0_visual_preflight_002.log",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/correction_002/C0_visual_preflight_002.json"
+  ],
+  "out_of_lease_writes": [],
+  "forbidden_paths_not_written": [
+    "game/scripts/**",
+    "game/scenes/**",
+    "game/assets/ucbv_001/**",
+    "game/resources/**",
+    "world_DNA/**",
+    "Scene/**",
+    "game_character/**",
+    "orchestration/receipts/ucbv_001/U0_ssot_preflight_001.json",
+    "orchestration/receipts/ucbv_001/U1_style_lock_001.json",
+    "orchestration/receipts/ucbv_001/U2_character_visual_001.json",
+    "orchestration/receipts/ucbv_001/U3_block_family_001.json",
+    "orchestration/receipts/ucbv_001/U4_character_rig_anim_001.json",
+    "orchestration/receipts/ucbv_001/U5_godot_integration_001.json",
+    "orchestration/receipts/ucbv_001/U6_red_originality_001.json",
+    "orchestration/receipts/ucbv_001/U7_qa_evidence_001.json",
+    "orchestration/receipts/ucbv_001/U8_purple_gate_001.json",
+    "orchestration/evidence/ucbv_001/001/**",
+    "orchestration/logs/ucbv_001/_tmp*"
+  ],
+  "result": {
+    "verdict": "C0_UCBV_VISUAL_PREFLIGHT_PASS_ROUTE_C1_NO_ACCEPT",
+    "style_lock_id": "ucbv_001_style_lock_v1",
+    "summary": "Directive 83 C0 visual/production preflight under exact lease. Explicit cozy-cream reconciliation: bible #fdf3e2/#efe0c8 canonical; DNA #F7E9C6/#78B65B NON_AUTHORITATIVE_ALIAS_ONLY; multi-value body + darker joints/face required against nearly-white uncanny. Fail-closed checklist published for mesh/GLB/skin/rig/animation/palette/28-module catalog/InputMap/delete authority/clean evidence. Animation intent locked: Tier3 anim_robot_gardener_v1 names only; C1 real keyed GLB Layer A+B (turn_left/right, build_place, build_place_hold, confirm); 14-bone hierarchy exact; markers never World Commit. C1 offline Blender Bridge checklist (no install). No GLB/scripts. accepted=false; next_owner=C1_CHARACTER_PRODUCTION.",
+    "cream_reconciliation": {
+      "bible_cream": "#fdf3e2",
+      "bible_cream_shade": "#efe0c8",
+      "bible_leaf": "#7fc98f",
+      "dna_cream": "#F7E9C6",
+      "dna_leaf": "#78B65B",
+      "canonical_art_ssot": "COZY_ART_BIBLE wall_cream #fdf3e2",
+      "dna_status": "NON_AUTHORITATIVE_ALIAS_ONLY",
+      "runtime_body_mat": "MAT_CozyCeramic",
+      "table_path": "orchestration/design/ucbv_001/style_lock/C0_cream_reconciliation.json"
+    },
+    "checklist_status": {
+      "document": "orchestration/design/ucbv_001/style_lock/C0_visual_production_preflight.md",
+      "sections_locked": [
+        "A_real_mesh_glb",
+        "B_skin_materials",
+        "C_rig_14_bone",
+        "D_animation_keyed_glb",
+        "E_palette_contrast",
+        "F_28_module_catalog",
+        "G_inputmap_controls",
+        "H_delete_authority",
+        "I_clean_evidence",
+        "C1_offline_blender_bridge_no_install"
+      ],
+      "c0_implements": "design contracts only",
+      "c1_c2_c4_execute": true
+    },
+    "animation_intent": {
+      "tier3_set": "anim_robot_gardener_v1",
+      "tier3_meaning": "names_and_compatibility_only",
+      "layer_a_required": ["idle", "walk", "scan", "happy", "cancel"],
+      "layer_b_ucbv_extension": ["turn_left", "turn_right", "build_place", "build_place_hold", "confirm"],
+      "bones_14": true,
+      "root_motion": false,
+      "blend_profile": "cozy_bouncy",
+      "markers_mutate_world_commit": false,
+      "lock_path": "orchestration/design/ucbv_001/character/nori7/C0_animation_contract_lock.md"
+    },
+    "selected_character": {
+      "display_name": "Nori-7",
+      "character_id": "CCP-RH-001",
+      "recipe_id": "recipe_nori7_v1"
+    },
+    "no_glb_authored": true,
+    "no_game_scripts_patched": true
+  },
+  "smoke_test": {
+    "ran": true,
+    "all_pass": true,
+    "checks": [
+      {"id": "json_cream_table", "pass": true, "detail": "C0_cream_reconciliation.json parses"},
+      {"id": "json_alias_table", "pass": true, "detail": "unified_palette_material_alias_table.json parses"},
+      {"id": "json_modular_body", "pass": true, "detail": "modular_body_outfit_definition.json parses"},
+      {"id": "bible_cream_hex", "pass": true, "detail": "#fdf3e2 present in cream table"},
+      {"id": "dna_cream_hex", "pass": true, "detail": "#F7E9C6 present and alias-only"},
+      {"id": "canonical_pick_field", "pass": true, "detail": "canonical_art_cream_hex decision present"},
+      {"id": "nearly_white_section", "pass": true, "detail": "preflight includes Nearly-white remediation"},
+      {"id": "checklist_mesh_glb", "pass": true},
+      {"id": "checklist_28_module", "pass": true, "detail": "runtime_catalog 28 module_ids listed"},
+      {"id": "checklist_inputmap", "pass": true},
+      {"id": "checklist_delete", "pass": true},
+      {"id": "checklist_evidence", "pass": true},
+      {"id": "anim_tier3_names_only", "pass": true},
+      {"id": "anim_ucbv_extension", "pass": true, "detail": "build_place_hold present"},
+      {"id": "bones_14_sprout_ctrl", "pass": true},
+      {"id": "c1_no_install_bridge", "pass": true},
+      {"id": "immutable_u0_u8", "pass": true, "detail": "9/9 prior receipts still present"},
+      {"id": "out_of_lease_empty", "pass": true, "detail": "out_of_lease_writes=[]"}
+    ]
+  },
+  "self_audit": {
+    "lease_respected": true,
+    "exact_orch_files_only": true,
+    "no_helper_tmp_sidecars": true,
+    "no_grandchildren": true,
+    "no_support_profiles": true,
+    "no_self_accept": true,
+    "accepted_false": true,
+    "self_accept_false": true,
+    "out_of_lease_writes_empty": true,
+    "immutable_u0_u8_untouched": true,
+    "no_glb_binary": true,
+    "no_game_scripts": true,
+    "p2e_002_not_dispatched": true,
+    "red_f01_network_shipping_hard_stop": true,
+    "dna_v1_2_not_activated": true,
+    "tier3_not_activated": true,
+    "cream_reconciliation_not_silent": true,
+    "child_task_ref_equals_transcript_ref": true,
+    "one_writer_per_file": true,
+    "notes": "C0 design-only wave; production GLB and runtime remain C1/C2. Worker timestamps are artifact claims; parent binds durable meta timing."
+  },
+  "evidence_refs": [
+    "orchestration/design/ucbv_001/style_lock/C0_visual_production_preflight.md",
+    "orchestration/design/ucbv_001/style_lock/C0_cream_reconciliation.json",
+    "orchestration/design/ucbv_001/character/nori7/C0_animation_contract_lock.md",
+    "orchestration/control/UCBV_ANIMATION_BLOCK_INTEGRATION_MAP_001.md",
+    "orchestration/logs/ucbv_001/correction_002/C0_visual_preflight_002.log",
+    "orchestration/receipts/ucbv_001/correction_002/C0_visual_preflight_002.json"
+  ],
+  "next_route": "C1_CHARACTER_PRODUCTION"
+}

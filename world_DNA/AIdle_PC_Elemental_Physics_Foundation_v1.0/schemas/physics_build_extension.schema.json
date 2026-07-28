@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "request_id",
+    "world_profile",
+    "pc_profile_id",
+    "expected_world_revision",
+    "build_graph_ref",
+    "elemental_bindings",
+    "force_fields",
+    "reaction_rules",
+    "system_networks",
+    "simulation",
+    "validation",
+    "rollback"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "world_profile": {
+      "type": "string"
+    },
+    "pc_profile_id": {
+      "type": "string"
+    },
+    "expected_world_revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "build_graph_ref": {
+      "type": "string"
+    },
+    "elemental_bindings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "force_fields": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "reaction_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "system_networks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "simulation": {
+      "type": "object"
+    },
+    "validation": {
+      "type": "object"
+    },
+    "rollback": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

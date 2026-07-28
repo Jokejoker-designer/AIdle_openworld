@@ -1,0 +1,339 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P2E-001-a2-control-ux-audit-001-2026-07-22",
+  "step_id": "P2E-001-a2-control-ux-audit-001",
+  "work_order_id": "WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE",
+  "work_order": "orchestration/work_orders/WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md",
+  "work_order_sha256": "39bf0b224201ec9d38a34aba0209348bfa993540c065d72b8fc186280b0d37e4",
+  "directive_id": 70,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "milestone": "P2E-001 Block Assembly preview slice — A2 Control/UX VERIFY_ONLY audit",
+  "agent_id": "aidle-worldgen-control-input",
+  "agent_type": "aidle-worldgen-control-input",
+  "profile_name": "aidle-worldgen-control-input",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+  "profile_sha256": "c6b718fb24ea7e1b9ca2453b25cff077c023a582b652307572fbe5184450fe6e",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-control-input; trustlayer_character=blue-team-p0-remediator; ui_character=ui-a11y-auditor; profile_default_authority=PATCH_DRAFT; THIS WAVE authority REDUCED to VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_reduced_from_profile": "PATCH_DRAFT",
+  "authority_scope": "findings-only Control/UX audit for P2E-001; exclusive evidence log+receipt; product_writes=[]; never patch product; never ACCEPTED; no grandchildren",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash_method": "sha256 of concatenated bytes: WO-P2E-001 + A1_runtime_implementation_001.json + control_action_catalog.gd + control_context_router.gd + ARCHITECTURE_LOCK.md + aidle-worldgen-control-input.md",
+  "input_context_hash_16": "a2p2e001ctrlux01",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "A2_COMPLETE_ROUTE_A3_RED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "A2_CONTROL_UX_AUDIT_QR_PASS_DISCOVERABILITY_GAPS_NO_ACCEPT",
+  "child_task_ref": "019f8867-27b7-7e50-a78a-c7c606a0c363",
+  "transcript_ref": "019f8867-27b7-7e50-a78a-c7c606a0c363",
+  "writer_transcript_ref": "019f8867-27b7-7e50-a78a-c7c606a0c363",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_child_ref": "019f8858-18aa-7970-a9d5-216a28c17ffa",
+  "prior_a0_ref": "019f8854-9d26-7663-93c3-11e68a2cb537",
+  "prior_a0_receipt": "orchestration/receipts/p2e_001/A0_ssot_preflight_001.json",
+  "prior_a1_receipt": "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8867-27b7-7e50-a78a-c7c606a0c363/meta.json",
+  "durable_meta_sha256_at_start": "5177527e43ec67f7a9e8c276e4aa3ec7f90f4848ba8217f87b939cee6547ba5f",
+  "started_at": "2026-07-22T05:58:09.595116500Z",
+  "completed_at_utc": "2026-07-22T06:01:30Z",
+  "next_owner": "A3_RED",
+  "next_route": "A3_RED",
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_read": "profile_bound_header_eof",
+    "ui_character_id": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "ui_read": "full_header_role_rules",
+    "role": "A2 VERIFY_ONLY Control/UX audit — findings only; no product patch"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO, ARCHITECTURE_LOCK, skills (ALWAYS + architecture-lock full EOF; curiosity-engine through Prime Directive L1123), A0/A1 receipts manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "line_count": 1123,
+      "read_mode": "full_no_limit",
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "also_read_project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027"
+    }
+  ],
+  "writer_lease": [
+    "orchestration/logs/p2e-001-a2-control-ux-001.log",
+    "orchestration/receipts/p2e_001/A2_control_ux_audit_001.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "orchestration/logs/p2e-001-a2-control-ux-001.log",
+    "orchestration/receipts/p2e_001/A2_control_ux_audit_001.json"
+  ],
+  "product_paths_inspected_not_written": [
+    "game/scripts/input/control_action_catalog.gd",
+    "game/autoload/control_context_router.gd",
+    "game/scripts/ui/context_action_hud.gd",
+    "game/scripts/camera/cozy_camera.gd",
+    "game/scripts/main/main.gd",
+    "game/project.godot",
+    "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+    "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+    "game/tests/control_1b_context_router_smoke.gd"
+  ],
+  "hashes_inspected": {
+    "control_action_catalog.gd": "9629e79105baf0af78674f5619e3df9bf0406d61ab8d970a4c7e73f1a8cde032",
+    "control_context_router.gd": "0f49c2945ff55bed4126347d3bcb0197bcc8a07d6d09e7a9f5c1a0140229250f",
+    "context_action_hud.gd": "410bcd8885a850c70992e0aa2777fe58de82d5a9e683c3582057ce2f90cdda8e",
+    "cozy_camera.gd": "d11d4a251a704d1f6ad3dc616b4fba3f06069e59f27bc45d5e1928dbf6f839f6",
+    "main.gd": "3f6d056991b55e508155fc42df4c9ad4d6dd1566541eed4d4c9dee3d711b8596"
+  },
+  "qr_audit": {
+    "exploration_camera_q_r": "PASS",
+    "build_preview_q_r_only": "PASS",
+    "no_dual_fire": "PASS",
+    "remap_logical_actions_still_context_gated": "PASS",
+    "physical_default_shared_qr": true,
+    "isolation_mechanism": "context_allowlist_plus_router_gates_not_unique_physical_keys",
+    "camera_path": "cozy_camera uses ControlContextRouter.is_action_just_pressed for rotate_camera_*",
+    "build_path": "main is_action_allowed then try_dispatch build_rotate_*; _on_build_rotate rotates preview degrees only",
+    "catalog_sha256_unchanged_from_a0": "9629e79105baf0af78674f5619e3df9bf0406d61ab8d970a4c7e73f1a8cde032",
+    "a1_did_not_modify_catalog_router": true
+  },
+  "findings": [
+    {
+      "id": "F-A2-01",
+      "severity": "P2",
+      "title": "No playable select_module entry from main/UI",
+      "classification": "FACT",
+      "status": "OPEN",
+      "detail": "main.gd never calls BlockAssemblyController.select_module / build_place / build_elevation_*. Controller is mounted and authority-bound; only p2e001 tests select modules. Demo Build starts manifestation demo, not BA select.",
+      "impact": "WO playable select/lift/rotate path is not discoverable for headed players without test/API injection",
+      "files": ["game/scripts/main/main.gd", "game/scripts/modules/block_assembly/block_assembly_controller.gd"]
+    },
+    {
+      "id": "F-A2-02",
+      "severity": "P2",
+      "title": "Missing plain-language BA status surface (module/snap/validity)",
+      "classification": "FACT",
+      "status": "OPEN",
+      "detail": "WO requires selected module, snap state, validity reason, confirm and cancel in plain language. A1 left context_action_hud / hud.tscn untouched. No continuous surface bound to get_active_state/get_validity/preview_changed.",
+      "impact": "Discoverability and A4 headed readability of valid/invalid placement incomplete",
+      "files": ["game/scripts/ui/context_action_hud.gd", "game/scripts/main/main.gd"]
+    },
+    {
+      "id": "F-A2-03",
+      "severity": "P3",
+      "title": "Build HUD omits Confirm and rotate-left",
+      "classification": "FACT",
+      "status": "OPEN",
+      "detail": "get_context_hud_actions(build)=build_place,build_rotate_right,build_snap_toggle,cancel_action. confirm_action allowed in build but not HUD; build_rotate_left has binding but no slot. Confirm still available via playable action bar + hold path.",
+      "impact": "Q left-rotate less discoverable; Confirm not in context HUD",
+      "files": ["game/scripts/input/control_action_catalog.gd", "game/scripts/ui/context_action_hud.gd"]
+    },
+    {
+      "id": "F-A2-04",
+      "severity": "P3",
+      "title": "Elevation actions catalogued but unwired to BA",
+      "classification": "FACT",
+      "status": "OPEN",
+      "detail": "build_elevation_up/down in build allow-list and InputMap (PageUp/PageDown); main never dispatches to BlockAssemblyController.",
+      "impact": "Lift/elevation playable path incomplete",
+      "files": ["game/scripts/main/main.gd", "game/scripts/input/control_action_catalog.gd", "game/project.godot"]
+    },
+    {
+      "id": "F-A2-05",
+      "severity": "P3",
+      "title": "Esc cancel_target preview_hologram not auto-armed for BA",
+      "classification": "FACT",
+      "status": "OPEN",
+      "detail": "set_cancel_target(preview_hologram) is demo/manifestation-driven. BA select integration absent so Esc priority may skip BA preview cancel; action-bar cancel still calls cancel_preview.",
+      "impact": "Esc cancel path incomplete for BA-only previews",
+      "files": ["game/scripts/main/main.gd", "game/autoload/control_context_router.gd"]
+    },
+    {
+      "id": "F-A2-06",
+      "severity": "P4",
+      "title": "cozy_camera fallback asymmetric for camera Q in build",
+      "classification": "DEFENSE_IN_DEPTH",
+      "status": "RESIDUAL",
+      "detail": "Fallback without is_action_just_pressed only hard-blocks rotate_camera_right in build, not left. Live path uses router.is_action_just_pressed and is proven by smokes.",
+      "impact": "None on live autoload path; residual if router incomplete",
+      "files": ["game/scripts/camera/cozy_camera.gd"]
+    }
+  ],
+  "pass_assertions": [
+    {
+      "id": "QR-01",
+      "result": "PASS",
+      "detail": "Exploration catalog allows camera Q/R; disallows build_rotate_*"
+    },
+    {
+      "id": "QR-02",
+      "result": "PASS",
+      "detail": "Build catalog allows build_rotate_*; disallows rotate_camera_*"
+    },
+    {
+      "id": "QR-03",
+      "result": "PASS",
+      "detail": "Router + simulate_physical_r: no dual-fire camera+build rotate"
+    },
+    {
+      "id": "QR-04",
+      "result": "PASS",
+      "detail": "p2e001 QR smoke: build R rotates preview, camera yaw unchanged; exploration R does not rotate preview"
+    },
+    {
+      "id": "QR-05",
+      "result": "PASS",
+      "detail": "control_1b router smoke: exploration R real InputMap→router→camera yaw delta=0.7854; remap still works"
+    },
+    {
+      "id": "HUD-A11Y-01",
+      "result": "PASS_RESIDUAL",
+      "detail": "ContextActionHUD ≤4, focusable, text+glyph+pattern, compact lift for 868x517; no headed re-image this wave"
+    },
+    {
+      "id": "A11Y-CONFIRM-01",
+      "result": "PASS_RESIDUAL",
+      "detail": "Confirm hold path treats active BlockAssembly as significant confirm target"
+    }
+  ],
+  "result": {
+    "verdict": "A2_CONTROL_UX_AUDIT_QR_PASS_DISCOVERABILITY_GAPS_NO_ACCEPT",
+    "summary": "A2 VERIFY_ONLY audit: Exploration Q/R camera vs Build Q/R preview-only isolation is intact (catalog/router/camera/main wiring + headless smokes PASS 8 and 16 with 0 ERROR). Physical Q/R remain shared defaults; dual-fire is fail-closed by context allow-lists. Discoverability/playability gaps remain: no main/UI select_module path for Block Assembly, no plain-language module/snap/validity surface, elevation unwired, Esc cancel_target not BA-armed, Build HUD omits confirm and rotate-left. product_writes=[]; accepted=false; self_accept=false; next_owner=A3_RED.",
+    "qr_kernel": "PASS",
+    "discoverability": "FAIL_OPEN_FINDINGS",
+    "responsive_a11y_control_1b": "PASS_RESIDUAL_NO_HEADED_RECAPTURE"
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "headless_godot_qr_and_control_1b_router",
+    "pass": true,
+    "commands": [
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+        "cwd": "E:/AIdle_openworld",
+        "exit_code": 0,
+        "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+        "error_lines": 0,
+        "script_errors": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+        "cwd": "E:/AIdle_openworld",
+        "exit_code": 0,
+        "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+        "error_lines": 0,
+        "script_errors": 0,
+        "notes": "exploration R yaw delta=0.7854 rad; build R preview-only camera unchanged; remap works"
+      }
+    ],
+    "exit_code": 0
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "authority_token_is_verify_only": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "one_writer_per_file": true,
+    "exclusive_lease_only": true,
+    "did_not_patch_product": true,
+    "did_not_modify_catalog_router_hud": true,
+    "skills_transcript_backed": true,
+    "characters_bound": true,
+    "maf_required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "residual_risks": [
+      "Headed layout/contrast not re-captured by A2; A4 must prove 1280x720 and 868x517 for BA UX if surfaces are added later.",
+      "F-A2-01 may block honest playable headed demos of BA select without test harness injection.",
+      "A3 red should treat Q/R dual-fire as closed for kernel path and focus on playable integration gaps and authority boundaries."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "orchestration/receipts/p2e_001/A0_ssot_preflight_001.json",
+    "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json",
+    "game/scripts/input/control_action_catalog.gd",
+    "game/autoload/control_context_router.gd",
+    "game/scripts/ui/context_action_hud.gd",
+    "game/scripts/camera/cozy_camera.gd",
+    "game/scripts/main/main.gd",
+    "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+    "game/tests/control_1b_context_router_smoke.gd",
+    "orchestration/logs/p2e-001-a2-control-ux-001.log",
+    "orchestration/receipts/p2e_001/A2_control_ux_audit_001.json"
+  ],
+  "trace": {
+    "handoff_from": "A1_RUNTIME",
+    "handoff_to": "A3_RED",
+    "wave": "A2",
+    "task_id": "P2E-001",
+    "log": "orchestration/logs/p2e-001-a2-control-ux-001.log",
+    "receipt": "orchestration/receipts/p2e_001/A2_control_ux_audit_001.json"
+  }
+}

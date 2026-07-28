@@ -1,0 +1,1406 @@
+{
+  "schema_version": "town_chessboard_plan/1.0",
+  "plan_id": "TOWN_CHESSBOARD_PLAN_V1",
+  "title": "Thị trấn Cozy — Quy hoạch bàn cờ (chessboard city)",
+  "status": "DESIGN_CHESSBOARD_ACTIVE",
+  "accepted": false,
+  "self_accept": false,
+  "mockup_ssot": "MOCKUP_SSOT_V2",
+  "world_profile": "cozy_cyber_pixel",
+  "planning_style": "orthogonal_chessboard_city_grid",
+  "planning_style_vi": "Lưới bàn cờ + trục đô thị chữ thập + block chức năng — giống thành phố quy hoạch, không rải ngẫu nhiên.",
+  "coordinate_convention": "game_godot: x=east, z=north, y=up; rotation_deg about y",
+  "fits_map": {
+    "content_bounds": {
+      "min": {
+        "x": -11.5,
+        "z": -11.5
+      },
+      "max": {
+        "x": 11.5,
+        "z": 11.5
+      }
+    },
+    "cadastre_bounds": {
+      "min": {
+        "x": -12,
+        "z": -12
+      },
+      "max": {
+        "x": 12,
+        "z": 12
+      }
+    },
+    "note": "Fits current starter realm ±12."
+  },
+  "grid": {
+    "pattern": "chessboard",
+    "cell_size_units": 2.0,
+    "cols": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L"
+    ],
+    "rows": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "origin": "A1 = northwest cell center (-11,+11); L12 = southeast (+11,-11)",
+    "label_format": "COLROW e.g. G7",
+    "alternating_tone": "visual chessboard for planning readability"
+  },
+  "streets": {
+    "Ave_W": {
+      "axis": "z",
+      "at_x": -5.0,
+      "z0": -11.0,
+      "z1": 11.0,
+      "class": "avenue",
+      "name": "Đại lộ Tây"
+    },
+    "Ave_C": {
+      "axis": "z",
+      "at_x": 0.0,
+      "z0": -11.0,
+      "z1": 11.0,
+      "class": "avenue",
+      "name": "Trục Trung tâm (N–S)"
+    },
+    "Ave_E": {
+      "axis": "z",
+      "at_x": 5.0,
+      "z0": -11.0,
+      "z1": 11.0,
+      "class": "avenue",
+      "name": "Đại lộ Đông"
+    },
+    "St_N": {
+      "axis": "x",
+      "at_z": 5.0,
+      "x0": -11.0,
+      "x1": 11.0,
+      "class": "street",
+      "name": "Phố Bắc"
+    },
+    "St_C": {
+      "axis": "x",
+      "at_z": 0.0,
+      "x0": -11.0,
+      "x1": 11.0,
+      "class": "street",
+      "name": "Phố Trung (Đ–T)"
+    },
+    "St_S": {
+      "axis": "x",
+      "at_z": -5.0,
+      "x0": -11.0,
+      "x1": 11.0,
+      "class": "street",
+      "name": "Phố Nam"
+    },
+    "Ring": {
+      "axis": "ring",
+      "class": "ring",
+      "name": "Vành đai ngoài",
+      "waypoints": [
+        [
+          -11,
+          11
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          11,
+          -11
+        ],
+        [
+          -11,
+          -11
+        ],
+        [
+          -11,
+          11
+        ]
+      ]
+    }
+  },
+  "districts": [
+    {
+      "district_id": "HOME",
+      "name": "Khu nhà (tâm)",
+      "block": "E5–H8",
+      "function_vi": "Trung tâm cư trú / Private Reality hub",
+      "color": "#f5c451",
+      "center": {
+        "x": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "district_id": "MARKET",
+      "name": "Khu chợ",
+      "block": "I3–L6",
+      "function_vi": "Thương mại / tụ họp",
+      "color": "#e07a5f",
+      "center": {
+        "x": 7.0,
+        "z": 5.0
+      }
+    },
+    {
+      "district_id": "WORKSHOP",
+      "name": "Khu xưởng",
+      "block": "I7–L10",
+      "function_vi": "Thủ công / sửa chữa",
+      "color": "#c98a5e",
+      "center": {
+        "x": 7.0,
+        "z": -3.0
+      }
+    },
+    {
+      "district_id": "GARDEN",
+      "name": "Công viên",
+      "block": "E1–H4",
+      "function_vi": "Cảnh quan / nghỉ",
+      "color": "#72A96B",
+      "center": {
+        "x": 0.0,
+        "z": 7.0
+      }
+    },
+    {
+      "district_id": "GREENHOUSE",
+      "name": "Khu canh tác",
+      "block": "A1–D4",
+      "function_vi": "Nông nghiệp kính + luống",
+      "color": "#7fc98f",
+      "center": {
+        "x": -7.0,
+        "z": 7.0
+      }
+    },
+    {
+      "district_id": "WELL",
+      "name": "Khu nước",
+      "block": "A5–D8",
+      "function_vi": "Giếng / ao / tiện ích nước",
+      "color": "#9ED7E5",
+      "center": {
+        "x": -7.0,
+        "z": 0.0
+      }
+    },
+    {
+      "district_id": "WINDMILL",
+      "name": "Khu cối xay",
+      "block": "A9–D12",
+      "function_vi": "Cơ khí / landmark tây-nam",
+      "color": "#6b8cae",
+      "center": {
+        "x": -7.0,
+        "z": -7.0
+      }
+    },
+    {
+      "district_id": "BARN",
+      "name": "Khu kho",
+      "block": "E9–H12",
+      "function_vi": "Kho / sân bãi",
+      "color": "#a67c52",
+      "center": {
+        "x": 0.0,
+        "z": -7.0
+      }
+    },
+    {
+      "district_id": "BRIDGE",
+      "name": "Khu cầu",
+      "block": "E11–H12 + trục nam",
+      "function_vi": "Cầu vòm / lối cảnh quan",
+      "color": "#8a8378",
+      "center": {
+        "x": 0.0,
+        "z": -9.0
+      }
+    },
+    {
+      "district_id": "LOOKOUT",
+      "name": "Khu vọng",
+      "block": "I11–L12",
+      "function_vi": "Tháp canh / nhìn ra",
+      "color": "#b08d57",
+      "center": {
+        "x": 7.0,
+        "z": -9.0
+      }
+    }
+  ],
+  "counts": {
+    "building": 10,
+    "prop": 30,
+    "character_spawn": 10,
+    "plots": 50
+  },
+  "plots": [
+    {
+      "plot_id": "HOME.BLD",
+      "role": "building",
+      "district": "HOME",
+      "object_id": "cozy_house_small_A",
+      "grid_cell": "F6",
+      "occupancy_cells": [
+        "F6",
+        "F7",
+        "G6",
+        "G7",
+        "H6",
+        "H7"
+      ],
+      "footprint_units": [
+        6.0,
+        4.0
+      ],
+      "chessboard": {
+        "pattern": "city_block",
+        "parcel": "F6+3x2"
+      },
+      "transform": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 0.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "HOME.CHAR",
+      "role": "character_spawn",
+      "district": "HOME",
+      "object_id": "CCP-RH-001",
+      "character_name": "Nori-7",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_or_visitor",
+      "grid_cell": "G8",
+      "chessboard": {
+        "pattern": "frontage_cell"
+      },
+      "transform": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": -1.5,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "HOME.P1",
+      "role": "prop",
+      "district": "HOME",
+      "object_id": "cozy_path_stone_A",
+      "grid_cell": "E7",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -3.0,
+        "y": 0.0,
+        "z": -1.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "HOME.P2",
+      "role": "prop",
+      "district": "HOME",
+      "object_id": "cozy_garden_lamp_A",
+      "grid_cell": "I6",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": 1.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "HOME.P3",
+      "role": "prop",
+      "district": "HOME",
+      "object_id": "cozy_mailbox_A",
+      "grid_cell": "G8",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": -3.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "MARKET.BLD",
+      "role": "building",
+      "district": "MARKET",
+      "object_id": "cozy_market_stall_A",
+      "grid_cell": "J4",
+      "occupancy_cells": [
+        "J4",
+        "J5",
+        "K4",
+        "K5",
+        "L4",
+        "L5"
+      ],
+      "footprint_units": [
+        6.0,
+        4.0
+      ],
+      "chessboard": {
+        "pattern": "city_block",
+        "parcel": "J4+3x2"
+      },
+      "transform": {
+        "x": 9.0,
+        "y": 0.0,
+        "z": 4.0,
+        "rotation_deg": 180.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "MARKET.CHAR",
+      "role": "character_spawn",
+      "district": "MARKET",
+      "object_id": "CCP-NS-002",
+      "character_name": "Mây Mạch",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_or_visitor",
+      "grid_cell": "K6",
+      "chessboard": {
+        "pattern": "frontage_cell"
+      },
+      "transform": {
+        "x": 9.0,
+        "y": 0.0,
+        "z": 2.5,
+        "rotation_deg": 180.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "MARKET.P1",
+      "role": "prop",
+      "district": "MARKET",
+      "object_id": "cozy_bench_A",
+      "grid_cell": "I4",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": 5.0,
+        "rotation_deg": 90.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "MARKET.P2",
+      "role": "prop",
+      "district": "MARKET",
+      "object_id": "cozy_cart_A",
+      "grid_cell": "L5",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 11.0,
+        "y": 0.0,
+        "z": 3.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "MARKET.P3",
+      "role": "prop",
+      "district": "MARKET",
+      "object_id": "cozy_signpost_A",
+      "grid_cell": "J3",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 7.0,
+        "y": 0.0,
+        "z": 7.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WORKSHOP.BLD",
+      "role": "building",
+      "district": "WORKSHOP",
+      "object_id": "cozy_workshop_A",
+      "grid_cell": "J8",
+      "occupancy_cells": [
+        "J8",
+        "J9",
+        "K8",
+        "K9"
+      ],
+      "footprint_units": [
+        4.0,
+        4.0
+      ],
+      "chessboard": {
+        "pattern": "city_block",
+        "parcel": "J8+2x2"
+      },
+      "transform": {
+        "x": 8.0,
+        "y": 0.0,
+        "z": -4.0,
+        "rotation_deg": 270.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WORKSHOP.CHAR",
+      "role": "character_spawn",
+      "district": "WORKSHOP",
+      "object_id": "CCP-NW-003",
+      "character_name": "Bác Bắp",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_or_visitor",
+      "grid_cell": "K10",
+      "chessboard": {
+        "pattern": "frontage_cell"
+      },
+      "transform": {
+        "x": 8.5,
+        "y": 0.0,
+        "z": -5.5,
+        "rotation_deg": 270.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WORKSHOP.P1",
+      "role": "prop",
+      "district": "WORKSHOP",
+      "object_id": "cozy_tool_rack_A",
+      "grid_cell": "I8",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": -3.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WORKSHOP.P2",
+      "role": "prop",
+      "district": "WORKSHOP",
+      "object_id": "cozy_crate_small_A",
+      "grid_cell": "L8",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 11.0,
+        "y": 0.0,
+        "z": -3.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WORKSHOP.P3",
+      "role": "prop",
+      "district": "WORKSHOP",
+      "object_id": "cozy_barrel_A",
+      "grid_cell": "L10",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 11.0,
+        "y": 0.0,
+        "z": -7.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GARDEN.BLD",
+      "role": "building",
+      "district": "GARDEN",
+      "object_id": "cozy_gazebo_A",
+      "grid_cell": "F2",
+      "occupancy_cells": [
+        "F2",
+        "F3",
+        "G2",
+        "G3"
+      ],
+      "footprint_units": [
+        4.0,
+        4.0
+      ],
+      "chessboard": {
+        "pattern": "city_block",
+        "parcel": "F2+2x2"
+      },
+      "transform": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 8.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GARDEN.CHAR",
+      "role": "character_spawn",
+      "district": "GARDEN",
+      "object_id": "CCP-CT-004",
+      "character_name": "Bụi Mơ",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_or_visitor",
+      "grid_cell": "G4",
+      "chessboard": {
+        "pattern": "frontage_cell"
+      },
+      "transform": {
+        "x": 0.5,
+        "y": 0.0,
+        "z": 6.5,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GARDEN.P1",
+      "role": "prop",
+      "district": "GARDEN",
+      "object_id": "cozy_flower_cluster_A",
+      "grid_cell": "E2",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -3.0,
+        "y": 0.0,
+        "z": 9.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GARDEN.P2",
+      "role": "prop",
+      "district": "GARDEN",
+      "object_id": "cozy_flower_bed_B",
+      "grid_cell": "H2",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 3.0,
+        "y": 0.0,
+        "z": 9.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GARDEN.P3",
+      "role": "prop",
+      "district": "GARDEN",
+      "object_id": "cozy_bush_round_A",
+      "grid_cell": "G4",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 5.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GREENHOUSE.BLD",
+      "role": "building",
+      "district": "GREENHOUSE",
+      "object_id": "cozy_greenhouse_A",
+      "grid_cell": "B2",
+      "occupancy_cells": [
+        "B2",
+        "B3",
+        "C2",
+        "C3",
+        "D2",
+        "D3"
+      ],
+      "footprint_units": [
+        6.0,
+        4.0
+      ],
+      "chessboard": {
+        "pattern": "city_block",
+        "parcel": "B2+3x2"
+      },
+      "transform": {
+        "x": -7.0,
+        "y": 0.0,
+        "z": 8.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GREENHOUSE.CHAR",
+      "role": "character_spawn",
+      "district": "GREENHOUSE",
+      "object_id": "SPH-RH-011",
+      "character_name": "Kito Thụ Phấn",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_or_visitor",
+      "grid_cell": "C4",
+      "chessboard": {
+        "pattern": "frontage_cell"
+      },
+      "transform": {
+        "x": -7.0,
+        "y": 0.0,
+        "z": 6.5,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GREENHOUSE.P1",
+      "role": "prop",
+      "district": "GREENHOUSE",
+      "object_id": "cozy_farm_plot_A",
+      "grid_cell": "A2",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -11.0,
+        "y": 0.0,
+        "z": 9.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GREENHOUSE.P2",
+      "role": "prop",
+      "district": "GREENHOUSE",
+      "object_id": "cozy_crop_row_A",
+      "grid_cell": "A4",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -11.0,
+        "y": 0.0,
+        "z": 5.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GREENHOUSE.P3",
+      "role": "prop",
+      "district": "GREENHOUSE",
+      "object_id": "cozy_scarecrow_A",
+      "grid_cell": "D4",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -5.0,
+        "y": 0.0,
+        "z": 5.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "role": "building",
+      "district": "WELL",
+      "object_id": "cozy_well_house_A",
+      "grid_cell": "B6",
+      "occupancy_cells": [
+        "B6",
+        "B7",
+        "C6",
+        "C7"
+      ],
+      "footprint_units": [
+        4.0,
+        4.0
+      ],
+      "chessboard": {
+        "pattern": "city_block",
+        "parcel": "B6+2x2"
+      },
+      "transform": {
+        "x": -8.0,
+        "y": 0.0,
+        "z": 0.0,
+        "rotation_deg": 90.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WELL.CHAR",
+      "role": "character_spawn",
+      "district": "WELL",
+      "object_id": "OA-RG-021",
+      "character_name": "Nereu-5",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_or_visitor",
+      "grid_cell": "C8",
+      "chessboard": {
+        "pattern": "frontage_cell"
+      },
+      "transform": {
+        "x": -7.5,
+        "y": 0.0,
+        "z": -1.5,
+        "rotation_deg": 90.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WELL.P1",
+      "role": "prop",
+      "district": "WELL",
+      "object_id": "cozy_pond_small_A",
+      "grid_cell": "A6",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -11.0,
+        "y": 0.0,
+        "z": 1.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WELL.P2",
+      "role": "prop",
+      "district": "WELL",
+      "object_id": "cozy_water_pump_A",
+      "grid_cell": "D6",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -5.0,
+        "y": 0.0,
+        "z": 1.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WELL.P3",
+      "role": "prop",
+      "district": "WELL",
+      "object_id": "cozy_birdbath_A",
+      "grid_cell": "D8",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -5.0,
+        "y": 0.0,
+        "z": -3.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "role": "building",
+      "district": "WINDMILL",
+      "object_id": "cozy_windmill_A",
+      "grid_cell": "B10",
+      "occupancy_cells": [
+        "B10",
+        "B11",
+        "C10",
+        "C11"
+      ],
+      "footprint_units": [
+        4.0,
+        4.0
+      ],
+      "chessboard": {
+        "pattern": "city_block",
+        "parcel": "B10+2x2"
+      },
+      "transform": {
+        "x": -8.0,
+        "y": 0.0,
+        "z": -8.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WINDMILL.CHAR",
+      "role": "character_spawn",
+      "district": "WINDMILL",
+      "object_id": "AC-CO-015",
+      "character_name": "Cinder-04",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_or_visitor",
+      "grid_cell": "C12",
+      "chessboard": {
+        "pattern": "frontage_cell"
+      },
+      "transform": {
+        "x": -7.5,
+        "y": 0.0,
+        "z": -9.5,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WINDMILL.P1",
+      "role": "prop",
+      "district": "WINDMILL",
+      "object_id": "cozy_fence_section_A",
+      "grid_cell": "A10",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -11.0,
+        "y": 0.0,
+        "z": -7.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WINDMILL.P2",
+      "role": "prop",
+      "district": "WINDMILL",
+      "object_id": "cozy_grass_tuft_A",
+      "grid_cell": "D10",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -5.0,
+        "y": 0.0,
+        "z": -7.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WINDMILL.P3",
+      "role": "prop",
+      "district": "WINDMILL",
+      "object_id": "cozy_rock_cluster_A",
+      "grid_cell": "D12",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -5.0,
+        "y": 0.0,
+        "z": -11.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BARN.BLD",
+      "role": "building",
+      "district": "BARN",
+      "object_id": "cozy_barn_small_A",
+      "grid_cell": "F9",
+      "occupancy_cells": [
+        "F9",
+        "F10",
+        "G9",
+        "G10",
+        "H9",
+        "H10"
+      ],
+      "footprint_units": [
+        6.0,
+        4.0
+      ],
+      "chessboard": {
+        "pattern": "city_block",
+        "parcel": "F9+3x2"
+      },
+      "transform": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": -6.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BARN.CHAR",
+      "role": "character_spawn",
+      "district": "BARN",
+      "object_id": "TD-CT-028",
+      "character_name": "Patch Gấu Nút",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_or_visitor",
+      "grid_cell": "G11",
+      "chessboard": {
+        "pattern": "frontage_cell"
+      },
+      "transform": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": -7.5,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BARN.P1",
+      "role": "prop",
+      "district": "BARN",
+      "object_id": "cozy_tree_fruit_A",
+      "grid_cell": "E9",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -3.0,
+        "y": 0.0,
+        "z": -5.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BARN.P2",
+      "role": "prop",
+      "district": "BARN",
+      "object_id": "cozy_rock_small_A",
+      "grid_cell": "I9",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": -5.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BARN.P3",
+      "role": "prop",
+      "district": "BARN",
+      "object_id": "cozy_rock_stacked_A",
+      "grid_cell": "I10",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": -7.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "role": "building",
+      "district": "BRIDGE",
+      "object_id": "cozy_bridge_arch_A",
+      "grid_cell": "F11",
+      "occupancy_cells": [
+        "F11",
+        "F12",
+        "G11",
+        "G12",
+        "H11",
+        "H12"
+      ],
+      "footprint_units": [
+        6.0,
+        4.0
+      ],
+      "chessboard": {
+        "pattern": "city_block",
+        "parcel": "F11+3x2"
+      },
+      "transform": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": -10.0,
+        "rotation_deg": 90.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BRIDGE.CHAR",
+      "role": "character_spawn",
+      "district": "BRIDGE",
+      "object_id": "SV-NW-019",
+      "character_name": "Trúc Nhi",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_or_visitor",
+      "grid_cell": "G10",
+      "chessboard": {
+        "pattern": "frontage_cell"
+      },
+      "transform": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": -8.5,
+        "rotation_deg": 90.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BRIDGE.P1",
+      "role": "prop",
+      "district": "BRIDGE",
+      "object_id": "cozy_tree_willow_A",
+      "grid_cell": "E11",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": -3.0,
+        "y": 0.0,
+        "z": -9.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BRIDGE.P2",
+      "role": "prop",
+      "district": "BRIDGE",
+      "object_id": "cozy_tree_blossom_A",
+      "grid_cell": "I11",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": -9.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BRIDGE.P3",
+      "role": "prop",
+      "district": "BRIDGE",
+      "object_id": "cozy_rock_mossy_A",
+      "grid_cell": "G12",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": -11.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "role": "building",
+      "district": "LOOKOUT",
+      "object_id": "cozy_watchtower_A",
+      "grid_cell": "J11",
+      "occupancy_cells": [
+        "J11",
+        "J12",
+        "K11",
+        "K12"
+      ],
+      "footprint_units": [
+        4.0,
+        4.0
+      ],
+      "chessboard": {
+        "pattern": "city_block",
+        "parcel": "J11+2x2"
+      },
+      "transform": {
+        "x": 8.0,
+        "y": 0.0,
+        "z": -10.0,
+        "rotation_deg": 180.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "LOOKOUT.CHAR",
+      "role": "character_spawn",
+      "district": "LOOKOUT",
+      "object_id": "SPH-NG-009",
+      "character_name": "Luma Tán Lá",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_or_visitor",
+      "grid_cell": "K10",
+      "chessboard": {
+        "pattern": "frontage_cell"
+      },
+      "transform": {
+        "x": 8.5,
+        "y": 0.0,
+        "z": -8.5,
+        "rotation_deg": 180.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "LOOKOUT.P1",
+      "role": "prop",
+      "district": "LOOKOUT",
+      "object_id": "cozy_tree_landmark_A",
+      "grid_cell": "I12",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": -11.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "LOOKOUT.P2",
+      "role": "prop",
+      "district": "LOOKOUT",
+      "object_id": "cozy_tree_pine_A",
+      "grid_cell": "L11",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 11.0,
+        "y": 0.0,
+        "z": -9.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "LOOKOUT.P3",
+      "role": "prop",
+      "district": "LOOKOUT",
+      "object_id": "cozy_tree_cluster_A",
+      "grid_cell": "L12",
+      "footprint_units": [
+        1.0,
+        1.0
+      ],
+      "chessboard": {
+        "pattern": "single_cell"
+      },
+      "transform": {
+        "x": 11.0,
+        "y": 0.0,
+        "z": -11.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    }
+  ],
+  "design_principles_vi": [
+    "Bàn cờ 12×12: mọi thửa gắn ô có tên — không plot ‘bay’ ngoài lưới.",
+    "Trục chữ thập Ave_C + St_C cắt tại HOME (tâm thành phố).",
+    "Ba đại lộ dọc (Tây/Trung/Đông) + ba phố ngang (Bắc/Trung/Nam).",
+    "10 block 4×4 (hoặc 4×2 phía nam) = 10 district chức năng rõ.",
+    "Building = lô đa ô; prop = đúng 1 ô; character = frontage trước nhà.",
+    "ID object chỉ lấy từ MOCKUP_SSOT_V2 — không invent module_id.",
+    "Cyan không dùng tô block màu quy hoạch (chỉ manifestation in-game).",
+    "Import game/** chỉ sau wave build + Human batch-accept."
+  ],
+  "relation_to_prior": {
+    "TOWN_GRID_PLAN_V1": "radial/organic district placement — still legal cadastre source if Human keeps it",
+    "TOWN_MASTERPLAN_MOCKUP_V1": "narrative masterplan on V1 coords",
+    "TOWN_CHESSBOARD_PLAN_V1": "THIS — formal chessboard replan of same 50 SSOT objects"
+  },
+  "html": "TOWN_CHESSBOARD_PLAN_V1.html",
+  "svg": "TOWN_CHESSBOARD_PLAN_V1.svg",
+  "payload_fingerprint": "a478e2073bbebeb5e162c56275b6afc1f1f3c1eee15884ecd403ffd4d4f2ccae"
+}

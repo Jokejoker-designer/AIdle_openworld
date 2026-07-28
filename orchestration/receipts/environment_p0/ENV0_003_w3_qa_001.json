@@ -1,0 +1,337 @@
+{
+  "agent_step_id": "ENV0-003-w3-qa-001-2026-07-21",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:5aa0d3e291379ac206a35d05427049a1e43652177ff106ccec96c3139ecc603a",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f84bd-cbdd-7360-beb6-2fec828d43f5",
+  "transcript_ref": "019f84bd-cbdd-7360-beb6-2fec828d43f5",
+  "writer_transcript_ref": "019f84bd-cbdd-7360-beb6-2fec828d43f5",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/env0-003-w3-qa-001.log",
+  "handoff_ref": "ENV0_003_W4_PURPLE",
+  "start_time": "2026-07-21T12:54:18Z",
+  "end_time": "2026-07-21T12:58:00Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-qa-evidence; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; authority_token=VERIFY_ONLY; required_skills always×5 + evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches product.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "evidence-memory-ledger"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE concepts via Agents.md + profile + WO-ENV0-003 + W1/W2 receipts + product sources manually. No bootstrap loop.",
+  "files_read": [
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-003-CHARACTER-BUSY-409.md",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_003_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_003_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_api.py",
+    "E:/agents/characters/12-purple-team-finding-triage.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_003_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/env0-003-w3-qa-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "ENV0-003",
+    "directive_id": 50,
+    "work_order": "orchestration/work_orders/WO-ENV0-003-CHARACTER-BUSY-409.md",
+    "wave": "ENV0_003_W3_QA",
+    "profile": "aidle-worldgen-qa-evidence",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS_FOR_PURPLE",
+    "summary": "VERIFY_ONLY W3 QA evidence after W1 Blue CLOSED_IN_DRAFT and W2 Red CLOSED_CONFIRMED for ENV0-C2-R01. Independent re-run: compileall exit 0; named test_character_create_returns_409_when_bridge_lease_held 1 passed; full pytest tests/ 44 passed. Source reconfirm: jobs.py BridgeBusyError→HTTP 409 reason=worker_lease_busy; environment_jobs.py EnvironmentBusyError→HTTP 409 reason=worker_lease_busy still present and unchanged. Env busy path still 409; character now 409 with reason worker_lease_busy (not 500). product_writes=[]. Handoff ENV0_003_W4_PURPLE. accepted=false.",
+    "character_binding": {
+      "trustlayer_character_id": "purple-team-finding-triage",
+      "trustlayer_card": "E:/agents/characters/12-purple-team-finding-triage.md",
+      "ui_character_id": "ui-a11y-auditor",
+      "ui_card": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; VERIFY_ONLY; no inventing evidence; no product patch; no self-accept"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: slot 12 purple-team-finding-triage VERIFY_ONLY; Red finds never fixes; Blue already patched W1; Purple never patches; one writer per file"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: hub E:/; handoff ENV0_003_W4_PURPLE after W3 QA evidence; do not skip purple chain"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: exclusive receipt/log lease only; product_writes empty; parent 019f7ffd only; no grandchildren"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: FACT from pytest named 1 + full 44 passed + compileall 0; env+character 409 parity labeled from source+tests"
+      },
+      {
+        "skill_id": "evidence-memory-ledger",
+        "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL profile-routed: preserved test counts, 409 reason worker_lease_busy both APIs, durable child_task_ref, exclusive W3 receipt/log"
+      }
+    ],
+    "prior_wave_refs": {
+      "w1_blue": {
+        "receipt": "orchestration/receipts/environment_p0/ENV0_003_w1_blue_001.json",
+        "child_task_ref": "019f84b6-e544-79d2-9b17-2ca923813668",
+        "authority_token": "PATCH_DRAFT",
+        "claims": "ENV0-C2-R01 CLOSED_IN_DRAFT; jobs.py BridgeBusyError→409; suite 44"
+      },
+      "w2_red": {
+        "receipt": "orchestration/receipts/environment_p0/ENV0_003_w2_red_001.json",
+        "child_task_ref": "019f84b9-d8ec-79a3-81ef-6fedeefb761e",
+        "authority_token": "READ_ONLY_AUDIT",
+        "claims": "ENV0-C2-R01 CLOSED_CONFIRMED; env path unchanged; suite 44; handoff W3 QA"
+      }
+    },
+    "test_counts": {
+      "named_character_409": {
+        "command": "python -m pytest tests/test_api.py::test_character_create_returns_409_when_bridge_lease_held -v --tb=short",
+        "passed": 1,
+        "failed": 0,
+        "exit_code": 0,
+        "status": "PASS",
+        "assertions": [
+          "response.status_code == 409",
+          "detail.reason == worker_lease_busy",
+          "detail.message present and non-empty"
+        ]
+      },
+      "full_suite": {
+        "command": "python -m pytest tests/ -v --tb=line",
+        "passed": 44,
+        "failed": 0,
+        "exit_code": 0,
+        "breakdown": "test_api 8; test_bridge_lease 10; test_environment_api 17; test_environment_runner 5; test_runner 2; test_security 2",
+        "status": "PASS"
+      },
+      "env_api_and_lease": {
+        "command": "python -m pytest tests/test_bridge_lease.py tests/test_environment_api.py -q --tb=line",
+        "passed": 27,
+        "failed": 0,
+        "exit_code": 0,
+        "breakdown": "test_bridge_lease 10 + test_environment_api 17",
+        "status": "PASS"
+      },
+      "compileall": {
+        "command": "python -m compileall -q app tests blender_scripts",
+        "exit_code": 0,
+        "status": "PASS"
+      }
+    },
+    "http_busy_parity": {
+      "environment": {
+        "handler": "app/api/environment_jobs.py except EnvironmentBusyError",
+        "status_code": 409,
+        "reason": "worker_lease_busy",
+        "status": "STILL_PRESENT_UNCHANGED",
+        "evidence": "source L64-68; lease suite service-level EnvironmentBusyError green; env_api suite 17 green"
+      },
+      "character": {
+        "handler": "app/api/jobs.py except BridgeBusyError",
+        "status_code": 409,
+        "reason": "worker_lease_busy",
+        "status": "CONFIRMED_GREEN",
+        "evidence": "source L5+L25-29; test_character_create_returns_409_when_bridge_lease_held 1 passed under held public worker_lease"
+      },
+      "parity": "BOTH return HTTP 409 with detail.reason=worker_lease_busy"
+    },
+    "finding_status": [
+      {
+        "finding_id": "ENV0-C2-R01",
+        "prior_w1": "CLOSED_IN_DRAFT",
+        "prior_w2": "CLOSED_CONFIRMED",
+        "qa_status": "GREEN",
+        "reopen": false,
+        "title": "Character API jobs.py maps BridgeBusyError to HTTP 409 worker_lease_busy",
+        "evidence": "Independent W3 pytest named 1 + full 44; source jobs.py BridgeBusyError handler present; env path still 409"
+      }
+    ],
+    "acceptance_criteria_map": [
+      {
+        "id": "WO-AC1",
+        "claim": "Character job create returns 409 (not 500) when Bridge-wide lease held, detail shaped like environment API",
+        "status": "PASS",
+        "evidence": "named test holds runner.worker_lease; asserts 409 + reason worker_lease_busy + message"
+      },
+      {
+        "id": "WO-AC2",
+        "claim": "Environment API busy handling unchanged",
+        "status": "PASS",
+        "evidence": "environment_jobs.py EnvironmentBusyError→409 still present; lease+env suites green; QA did not patch"
+      },
+      {
+        "id": "WO-AC3",
+        "claim": "Pre-existing tests remain green",
+        "status": "PASS",
+        "evidence": "pytest tests/ → 44 passed exit 0"
+      },
+      {
+        "id": "WO-AC4",
+        "claim": "New regression test proves the fix",
+        "status": "PASS",
+        "evidence": "test_character_create_returns_409_when_bridge_lease_held 1 passed"
+      },
+      {
+        "id": "WO-AC5",
+        "claim": "No file outside writer allowlist touched (this QA child)",
+        "status": "PASS",
+        "evidence": "product_writes=[]; exclusive writes only ENV0_003_w3_qa_001.json + env0-003-w3-qa-001.log"
+      }
+    ],
+    "residuals_noted": [
+      {
+        "finding_id": "ENV0-C2-R01",
+        "status": "CLOSED_GREEN_AWAITING_PURPLE",
+        "detail": "W3 QA independent evidence green; Purple W4 still owns VERIFIED|CHANGES_REQUESTED|NEED_HUMAN"
+      },
+      {
+        "note": "F01 auth, F07 secondary registry ids, F08 output toggles, F10 network deny still out of scope",
+        "action_this_child": "catalog only"
+      },
+      {
+        "note": "ENV0-001 product acceptance remains WAITING_HUMAN; G8 HITL_REQUIRED; P1E blocked",
+        "action_this_child": "catalog only"
+      }
+    ],
+    "input_context_hash": "sha256:5aa0d3e291379ac206a35d05427049a1e43652177ff106ccec96c3139ecc603a",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-003-CHARACTER-BUSY-409.md",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_003_w1_blue_001.json",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_003_w2_red_001.json"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "5aa0d3e291379ac206a35d05427049a1e43652177ff106ccec96c3139ecc603a",
+      "BYTE_LEN": 33115
+    },
+    "child_task_ref": "019f84bd-cbdd-7360-beb6-2fec828d43f5",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "trace_ref": "orchestration/logs/env0-003-w3-qa-001.log",
+    "handoff_ref": "ENV0_003_W4_PURPLE",
+    "handoff_note": "W3 QA evidence complete. Handoff ENV0_003_W4_PURPLE aidle-worldgen-purple-acceptance VERIFY_ONLY: re-verify ENV0-C2-R01 closed, full suite 44, character+env HTTP 409 reason=worker_lease_busy parity, compileall clean. QA did not patch product. Purple returns VERIFIED | CHANGES_REQUESTED | NEED_HUMAN only. No grandchildren. G8 HITL_REQUIRED; P1E blocked. accepted=false.",
+    "g8_hitl_note": "G8 stays HITL_REQUIRED. ENV0-003 W3 QA evidence does not imply G8 or ENV0-001 acceptance. No Godot/Scene/Control/Foundry/P1E edits.",
+    "product_writes": [],
+    "out_of_scope_this_child": [
+      "Product patches (Blue only after triage)",
+      "Purple acceptance decision (W4)",
+      "P1E production content",
+      "Godot/Scene runtime",
+      "Grandchildren",
+      "codex_directive.json"
+    ],
+    "children": [],
+    "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE concepts via skills + profile/cards + WO/W1/W2 + evidence sources manually."
+  },
+  "smoke_test": {
+    "passed": true,
+    "attributed_to_transcript_ref": "019f84bd-cbdd-7360-beb6-2fec828d43f5",
+    "commands": [
+      {
+        "command": "python -m compileall -q app tests blender_scripts",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "compileall clean for app, tests, blender_scripts",
+        "mutating": false
+      },
+      {
+        "command": "python -m pytest tests/test_api.py::test_character_create_returns_409_when_bridge_lease_held -v --tb=short",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "1 passed — character create under lease → 409 worker_lease_busy",
+        "mutating": false
+      },
+      {
+        "command": "python -m pytest tests/ -v --tb=line",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "44 passed full suite",
+        "mutating": false
+      },
+      {
+        "command": "python -m pytest tests/test_bridge_lease.py tests/test_environment_api.py -q --tb=line",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "27 passed (10 lease + 17 env_api) — env busy path non-regression",
+        "mutating": false
+      }
+    ],
+    "note": "VERIFY_ONLY smoke is evidence confirmation only; not acceptance. No product source mutation."
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "VERIFY_ONLY",
+    "no_self_accept": true,
+    "accepted": false,
+    "self_accept": false,
+    "product_writes_empty": true,
+    "never_patched_product": true,
+    "no_nested_grandchildren": true,
+    "character_skill_trace_present": true,
+    "no_invented_gate_pass": true,
+    "codex_directive_untouched": true,
+    "no_install_no_credentials_no_public_network_no_push_deploy": true,
+    "child_task_ref_is_durable_grok_desktop_id": true,
+    "exclusive_writes_only": [
+      "orchestration/receipts/environment_p0/ENV0_003_w3_qa_001.json",
+      "orchestration/logs/env0-003-w3-qa-001.log"
+    ],
+    "notes": [
+      "Durable child_task_ref/transcript_ref = 019f84bd-cbdd-7360-beb6-2fec828d43f5 (subagent under parent 019f7ffd)",
+      "Prior W1 blue = 019f84b6-e544-79d2-9b17-2ca923813668",
+      "Prior W2 red = 019f84b9-d8ec-79a3-81ef-6fedeefb761e",
+      "No invent acceptance; handoff Purple only"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/receipts/environment_p0/ENV0_003_w3_qa_001.json",
+    "orchestration/logs/env0-003-w3-qa-001.log",
+    "orchestration/receipts/environment_p0/ENV0_003_w1_blue_001.json",
+    "orchestration/receipts/environment_p0/ENV0_003_w2_red_001.json",
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_api.py"
+  ],
+  "next_route": "ENV0_003_W4_PURPLE"
+}

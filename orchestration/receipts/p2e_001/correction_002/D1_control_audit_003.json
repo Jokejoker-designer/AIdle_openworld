@@ -1,0 +1,371 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P2E-001-d1-control-audit-003-2026-07-22",
+  "step_id": "P2E-001-d1-control-audit-003",
+  "agent_type": "aidle-worldgen-control-input",
+  "agent_id": "aidle-worldgen-control-input",
+  "profile_name": "aidle-worldgen-control-input",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+  "profile_sha256": "c6b718fb24ea7e1b9ca2453b25cff077c023a582b652307572fbe5184450fe6e",
+  "authority_token": "VERIFY_ONLY",
+  "authority_reduced": true,
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:p2e001-d1-d72-control-audit",
+  "directive_id": 72,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "9904f244ae221a5c3788701cf40c09da884d709b3d6eb13d80055b44b2fbfcbc",
+  "work_order": "orchestration/work_orders/WO-P2E-001-PLAYABILITY-CORRECTION-002.md",
+  "work_order_sha256": "c5355883cc20f1ecc2e370e3d55edcd336c8fae76fdf6f44b505047f34c6c990",
+  "review": "orchestration/reviews/CODEX_P2E-001_CORRECTION_REVIEW_002.json",
+  "review_sha256": "e8512f70398015637719788c504f3fcb3e409cb3bfd2747ba59f6b0b57b50ca1",
+  "prior_d0_receipt": "orchestration/receipts/p2e_001/correction_002/D0_runtime_correction_003.json",
+  "prior_d0_sha256": "f16cf71cb7a84cabf777547c87b4a6df5d986e9f00ceeee2fb98189a4a694dfd",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "D1_COMPLETE_ROUTE_D2",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "CONTROL_PASS_WITH_RESIDUALS_NO_ACCEPT",
+  "child_task_ref": "019f88ad-1662-7252-a753-934dcefaed03",
+  "prior_d0_ref": "019f88a6-4067-77c3-b2f2-a1de3e11301b",
+  "resume_c0_ref": "019f8883-4c2b-7341-9093-074ac8449a5c",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "transcript_ref": "019f88ad-1662-7252-a753-934dcefaed03",
+  "started_at": "2026-07-22T07:12:00Z",
+  "completed_at_utc": "2026-07-22T07:17:00Z",
+  "next_route": "D2_QA",
+  "next_owner": "D2_QA",
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "ui_character_id": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "role": "D1 VERIFY_ONLY control/UX audit after D0; never patch product"
+  },
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "eof_marker": "Hard stops"
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "eof_marker": "agent_step_contract.schema.json"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "eof_marker": "E:\\shared\\LOOP.md"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "eof_marker": "E:\\agents\\projects\\README.md"
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "line_count": 1123,
+      "eof_marker": "Prime Directive"
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    }
+  ],
+  "finding_ids_control": {
+    "P2E-CODEX-F03-R2": {
+      "closed_headless_code": true,
+      "headed_deferred_d2": true,
+      "how": "KEY_P on build_place via ensure_input_map/_ensure_build_place_key_p; main wires InputMap cycle/place/rotate/elev/confirm/cancel; handle_player_confirm immediate; player_input smoke PASS without select_module API injection"
+    },
+    "P2E-CODEX-F04-R2": {
+      "closed_headless_code": true,
+      "headed_deferred_d2": true,
+      "how": "Catalog/router isolation + cozy_camera Build yaw freeze under D72 lease + main freeze_yaw; QR + router smokes PASS"
+    },
+    "P2E-CODEX-F05-R2": {
+      "closed_code_smoke": true,
+      "headed_deferred_d2": true,
+      "how": "resolve_escape build never pause; main force no-pause; BA + context HUD compact responsive; declutter diagnostics in Build"
+    },
+    "P2E-CODEX-F02-R2": {
+      "closed": false,
+      "owner": "D2_QA",
+      "note": "D0 product-side dispose/cursor clear; headed zero-ERROR RID/null RenderingServer is D2 exclusive; third identical failure NEED_HUMAN"
+    },
+    "P2E-CODEX-LEASE-R2": {
+      "closed_under_d72": true,
+      "does_not_rehabilitate_d71": true,
+      "how": "cozy_camera.gd explicitly leased WO D72; hash d4b90892… MATCH; get_directive_lease_note documents D72 attribution"
+    }
+  },
+  "findings_open": [
+    {
+      "id": "D1-R01",
+      "severity": "P3",
+      "axis": "inputmap_persistence",
+      "finding": "project.godot build_place events are LMB-only; KEY_P is added only by CatalogScript._ensure_build_place_key_p at runtime. build_module_prev/next are not project-persisted.",
+      "impact": "Play path works after ControlContextRouter/catalog bootstrap; remappable but not project.godot-persisted for KEY_P and module picker.",
+      "blocking_control_pass": false
+    },
+    {
+      "id": "D1-R02",
+      "severity": "P2",
+      "axis": "headed_real_key_proof",
+      "finding": "player_input smoke exercises controller entrypoints wired by main (cycle_module/place_highlighted/rotate/elevate/handle_player_confirm) rather than synthetic InputEventKey presses through _input.",
+      "impact": "Headless path honesty is good; D2 headed harness must drive real keys and forbid select_module/confirm_and_commit_direct in capture log.",
+      "blocking_control_pass": false
+    },
+    {
+      "id": "D1-R03",
+      "severity": "P3",
+      "axis": "confirm_fallback_dead_path",
+      "finding": "main._on_confirm prefers handle_player_confirm but still has elif confirm_and_commit(true) if method missing.",
+      "impact": "Not exercised while handle_player_confirm exists; residual for adversarial review / harness scan.",
+      "blocking_control_pass": false
+    },
+    {
+      "id": "D1-R04",
+      "severity": "P3",
+      "axis": "context_hud_slot_side_effects",
+      "finding": "ContextActionHud slot press only calls router.try_dispatch; does not invoke BlockAssembly cycle_module/place_highlighted_module for build_module_*/build_place.",
+      "impact": "Keyboard/mouse InputMap path in main.gd is complete; HUD buttons incomplete for picker/place.",
+      "blocking_control_pass": false
+    },
+    {
+      "id": "D1-R05",
+      "severity": "P3",
+      "axis": "build_cancel_wiring",
+      "finding": "build_cancel (default RMB) is catalog-allowed in build but main.gd has no BA cancel handler; Esc/cancel_action owns preview cancel.",
+      "impact": "Esc ownership for preview cancel works; RMB alias dead for BA.",
+      "blocking_control_pass": false
+    },
+    {
+      "id": "D1-LEASE-01",
+      "severity": "P3",
+      "axis": "lease_path_honesty",
+      "finding": "WO lists game/scripts/input/control_context_router.gd; product router is game/autoload/control_context_router.gd (scripts/input copy does not exist). D0 edited autoload path and self-disclosed.",
+      "impact": "Report-only path nomenclature; exclusive real router is autoload. cozy_camera D72 lease is honest and verified.",
+      "blocking_control_pass": false
+    },
+    {
+      "id": "D1-R06",
+      "severity": "P2",
+      "axis": "headed_visual_responsive",
+      "finding": "Responsive HUD code present for 1280x720/868x517 compact layouts; D1 did not capture headed PNGs.",
+      "impact": "D2 exclusive evidence tree 003/** must prove no clip/overlap/Pause/diagnostic-primary.",
+      "blocking_control_pass": false
+    }
+  ],
+  "findings_closed_control": [
+    "keyboard_inputmap_player_path_headless",
+    "build_place_key_p_runtime",
+    "build_qr_preview_only_camera_hard_block",
+    "exploration_qr_camera_preserved",
+    "dual_fire_impossible_headless",
+    "elevation_wired",
+    "esc_build_never_pause",
+    "esc_preview_cancel_only",
+    "plain_language_ba_hud_responsive_code",
+    "context_hud_compact_build_mode",
+    "cozy_camera_d72_lease_attributed",
+    "d0_product_hashes_match_working_tree",
+    "control_1b_router_smoke_green",
+    "player_input_smoke_green",
+    "qr_context_smoke_green"
+  ],
+  "d0_lease_honesty": {
+    "wo_lease_includes_cozy_camera": true,
+    "cozy_camera_sha256": "d4b9089297725eb18d614cc97e1b727150e46e498bd2df3d07158102a0079929",
+    "cozy_camera_hash_matches_d0": true,
+    "d71_lease_violation_not_rehabilitated": true,
+    "router_path_mismatch_note": "WO scripts/input/control_context_router.gd vs product game/autoload/control_context_router.gd",
+    "d0_product_writes_all_hash_match": true,
+    "d0_product_writes": [
+      {"path": "game/scripts/modules/block_assembly/block_assembly_controller.gd", "sha256": "36128f9eace2132afdd994a677e351f82766db7c99abd8fce280d76fa202bcd6", "match": true},
+      {"path": "game/scripts/modules/block_assembly/block_assembly_hud.gd", "sha256": "3feca9c64730533d197e7b88f7f9d832e91ad25fd18b4e618c9e7fdd24c554a5", "match": true},
+      {"path": "game/scripts/modules/block_assembly/block_preview_entity.gd", "sha256": "021699a7537ac8ee2a8e4b274801f10204489563b3c0e26534e1e8c1d30f2212", "match": true},
+      {"path": "game/scripts/main/main.gd", "sha256": "9f6a7c2b44b22cb511d9611362e174b85d92f346e8fb3a75b7975203b116d41d", "match": true},
+      {"path": "game/scripts/input/control_action_catalog.gd", "sha256": "f94fbf3df3e4616795c097bad152eb1f76098fe4062e9d8c269fdbddfaaa69cb", "match": true},
+      {"path": "game/autoload/control_context_router.gd", "sha256": "b2c742a6e789d45d2bde98220d5ae65af6d5b11b7b9824cde464a95a4f1c834f", "match": true},
+      {"path": "game/scripts/ui/context_action_hud.gd", "sha256": "8c0a82207281eae136f14242bc32ff7aa73e85f9d0802cf426f7dc0a131644e7", "match": true},
+      {"path": "game/scripts/camera/cozy_camera.gd", "sha256": "d4b9089297725eb18d614cc97e1b727150e46e498bd2df3d07158102a0079929", "match": true},
+      {"path": "game/tests/p2e001_block_assembly_player_input_smoke.gd", "sha256": "ab5042fd7aba09879b614c288dc6e6bc1107b13e94c04779e3d497678c5c0396", "match": true}
+    ]
+  },
+  "result": {
+    "verdict": "CONTROL_PASS_WITH_RESIDUALS_NO_ACCEPT",
+    "control_pass": true,
+    "control_blocking_fail": false,
+    "summary": "D1 VERIFY_ONLY control/UX audit after D0 under Directive 72. Axes 1-7 pass headless/code with non-blocking residuals R01-R06 and lease path note. QR + player_input + Control-1B router smokes all PASS exit 0 ERROR=0. product_writes=[]. accepted=false. Route D2_QA for headed real-input + teardown + responsive visual proof under evidence/p2e_001/003/**.",
+    "axes": {
+      "real_inputmap_player_path": "PASS_HEADLESS_CODE",
+      "esc_no_pause_dual_fire": "PASS",
+      "qr_context_isolation_yaw_freeze": "PASS",
+      "responsive_hud_code": "CODE_PASS_HEADED_D2",
+      "d0_lease_honesty_cozy_camera": "PASS_WITH_PATH_NOTE",
+      "control_1b_regression": "PASS",
+      "player_input_smoke": "PASS",
+      "residuals_for_d2_headed": "FLAGGED"
+    }
+  },
+  "smoke_test": {
+    "status": "PASS",
+    "all_exit_zero": true,
+    "error_lines_total": 0,
+    "script_error_total": 0,
+    "godot_pin": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+    "commands": [
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+        "error_lines": 0,
+        "script_error_lines": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_player_input_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_PLAYER_INPUT_SMOKE=PASS checks=4",
+        "error_lines": 0,
+        "script_error_lines": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+        "error_lines": 0,
+        "script_error_lines": 0
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_verify_only": true,
+    "product_writes_empty": true,
+    "no_product_patch": true,
+    "no_test_patch": true,
+    "exclusive_lease_only": true,
+    "evidence_001_002_not_rewritten": true,
+    "d0_product_not_rewritten": true,
+    "accepted_false": true,
+    "self_accept_false": true,
+    "no_grandchildren": true,
+    "no_network_install_publish": true,
+    "skills_full_eof_claimed": true,
+    "bootstrap_parser_limitation_recorded": true,
+    "headed_deferred_to_d2": true,
+    "notes": [
+      "Profile default authority PATCH_DRAFT reduced by Directive 72 to VERIFY_ONLY",
+      "Playable path proven headless via InputMap-wired controller entrypoints; real-key headed proof is D2 exclusive",
+      "cozy_camera D72 lease honest; D71 LEASE-R2 history preserved not rehabilitated",
+      "Router WO path vs autoload path mismatch is report-only nomenclature"
+    ]
+  },
+  "product_writes": [],
+  "files_written": [
+    "orchestration/logs/p2e-001-d1-control-003.log",
+    "orchestration/receipts/p2e_001/correction_002/D1_control_audit_003.json"
+  ],
+  "files_read": [
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-P2E-001-PLAYABILITY-CORRECTION-002.md",
+    "orchestration/reviews/CODEX_P2E-001_CORRECTION_REVIEW_002.json",
+    "orchestration/receipts/p2e_001/correction_002/D0_runtime_correction_003.json",
+    "orchestration/receipts/p2e_001/correction_001/C1_control_audit_002.json",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "game/scripts/input/control_action_catalog.gd",
+    "game/autoload/control_context_router.gd",
+    "game/scripts/ui/context_action_hud.gd",
+    "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+    "game/scripts/modules/block_assembly/block_assembly_hud.gd",
+    "game/scripts/main/main.gd",
+    "game/scripts/camera/cozy_camera.gd",
+    "game/project.godot",
+    "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+    "game/tests/p2e001_block_assembly_player_input_smoke.gd",
+    "game/tests/control_1b_context_router_smoke.gd"
+  ],
+  "audited_product_hashes": {
+    "game/scripts/input/control_action_catalog.gd": "f94fbf3df3e4616795c097bad152eb1f76098fe4062e9d8c269fdbddfaaa69cb",
+    "game/autoload/control_context_router.gd": "b2c742a6e789d45d2bde98220d5ae65af6d5b11b7b9824cde464a95a4f1c834f",
+    "game/scripts/ui/context_action_hud.gd": "8c0a82207281eae136f14242bc32ff7aa73e85f9d0802cf426f7dc0a131644e7",
+    "game/scripts/modules/block_assembly/block_assembly_hud.gd": "3feca9c64730533d197e7b88f7f9d832e91ad25fd18b4e618c9e7fdd24c554a5",
+    "game/scripts/main/main.gd": "9f6a7c2b44b22cb511d9611362e174b85d92f346e8fb3a75b7975203b116d41d",
+    "game/scripts/camera/cozy_camera.gd": "d4b9089297725eb18d614cc97e1b727150e46e498bd2df3d07158102a0079929",
+    "game/project.godot": "2533ff4814a6ad776f53c294f5b1a901f73e61aa0aa1494fe7e7fc4283d52e4b",
+    "game/tests/p2e001_block_assembly_qr_context_smoke.gd": "b626c2c4e67cdefd3676b3312fcbc5f10b9df37b2aead49e4227c24a6977c911",
+    "game/tests/p2e001_block_assembly_player_input_smoke.gd": "ab5042fd7aba09879b614c288dc6e6bc1107b13e94c04779e3d497678c5c0396",
+    "game/tests/control_1b_context_router_smoke.gd": "991b07ecc71e4ccded089ec835348464cb77af8f153a2a57ac814c54abd11885"
+  },
+  "evidence_refs": [
+    "orchestration/logs/p2e-001-d1-control-003.log",
+    "orchestration/receipts/p2e_001/correction_002/D1_control_audit_003.json",
+    "orchestration/receipts/p2e_001/correction_002/D0_runtime_correction_003.json"
+  ],
+  "d2_must_prove_headed": [
+    "Zero ERROR/USER ERROR/SCRIPT ERROR including texture RID / null RenderingServer teardown (F02-R2; third identical → NEED_HUMAN)",
+    "Real InputMap key sequence select/place/rotate/elevate/confirm/cancel; harness+log scan forbids select_module and confirm_and_commit_direct as acceptance path",
+    "Build R non-zero preview rotation at both 1280x720 and 868x517 with camera yaw unchanged",
+    "Fourteen distinct PNGs; no clip/overlap/Pause overlay/diagnostic-as-primary",
+    "Manifest includes exact input sequence and yaw/rotation before/after",
+    "Evidence tree orchestration/evidence/p2e_001/003/** only; never rewrite 001/002"
+  ],
+  "commands": [
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_player_input_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+      "exit_code": 0
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": "object_dna_card_system/mockup_card_system/0.1",
+  "session_id": "nori7_anim_vertical_slice_001",
+  "request_id": "DNA:NORI7:ANIM:SLICE:001",
+  "player_prompt": "Tạo robot nhỏ chăm sóc vườn, thân tròn, dễ thương — triển khai animation Object DNA trên Nori-7.",
+  "current_level": 5,
+  "levels": {
+    "level_1_object_family": {
+      "level": 1,
+      "status": "SELECTED",
+      "selected_card_id": "card_nori7_robot_biped_001",
+      "cards": [
+        {
+          "design_card_id": "card_nori7_robot_biped_001",
+          "card_level": 1,
+          "title": "Robot hai chân làm vườn (Nori-7)",
+          "thumbnail_uri": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_01_nori7.jpg",
+          "required_fields": {
+            "object_family": "robot_biped",
+            "skeleton_family": "robot_biped_small_v1",
+            "animation_set_summary": "core+build+gardener",
+            "animation_clip_count_claim": 15,
+            "build_path": "TEMPLATE",
+            "complexity": "LOW",
+            "expected_quality": "GAME_READY",
+            "performance_class": "S",
+            "platform_support": ["PC"],
+            "confidence": 0.92,
+            "missing_requirements": [],
+            "build_time_class": "MEDIUM"
+          },
+          "evidence_refs": [
+            "game/assets/ucbv_001/character/nori7/package_manifest.json",
+            "game/resources/ucbv_001/character/nori7_animation_adapter.json"
+          ],
+          "buttons": ["SELECT"]
+        }
+      ]
+    },
+    "level_2_skeleton": {
+      "level": 2,
+      "status": "SELECTED",
+      "selected_card_id": "skel_robot_biped_small",
+      "cards": [
+        {
+          "design_card_id": "skel_robot_biped_small",
+          "card_level": 2,
+          "title": "robot_biped_small_v1",
+          "required_fields": {
+            "object_family": "robot_biped",
+            "skeleton_family": "robot_biped_small_v1"
+          },
+          "level_2_skeleton": {
+            "skeleton_family_id": "robot_biped_small_v1",
+            "bone_count_claim": 14,
+            "animation_clip_count_claim": 15,
+            "fit_score": 1.0,
+            "features": [
+              "14 production bones",
+              "alias skel_small_biped_robot_v1",
+              "sockets hand/back/head/vfx"
+            ]
+          },
+          "evidence_refs": [
+            "game/assets/ucbv_001/character/nori7/skeleton/skel_small_biped_robot_v1.hierarchy.json"
+          ],
+          "buttons": ["SELECT"]
+        }
+      ]
+    },
+    "level_3_visual_style": {
+      "level": 3,
+      "status": "SELECTED",
+      "selected_card_id": "style_cozy_cyber",
+      "cards": [
+        {
+          "design_card_id": "style_cozy_cyber",
+          "card_level": 3,
+          "title": "Cozy Cyber-Pixel",
+          "required_fields": {},
+          "level_3_visual_style": {
+            "world_profile": "cozy_cyber_pixel",
+            "material_theme_id": "mat_cozy_cream_leaf_v1",
+            "palette_tokens": ["cream", "leaf", "cyan_eye_only"],
+            "shader_profile": "cozy_matte",
+            "lod_target": "LOD0-LOD2_mvp",
+            "vfx_compatibility": "manifestation_accent_only"
+          },
+          "buttons": ["SELECT"]
+        }
+      ]
+    },
+    "level_4_animation_package": {
+      "level": 4,
+      "status": "SELECTED",
+      "selected_card_id": "pkg_all_three",
+      "cards": [
+        {
+          "design_card_id": "pkg_all_three",
+          "card_level": 4,
+          "title": "Core + Build + Gardener",
+          "required_fields": {},
+          "level_4_animation_package": {
+            "package_id": "pkg_nori7_full_v1",
+            "clip_ids": [
+              "idle", "walk", "scan", "happy", "cancel",
+              "turn_left", "turn_right", "build_place", "build_place_hold", "confirm",
+              "water", "plant_seed", "harvest", "charge", "low_energy"
+            ],
+            "multi_select_allowed": true
+          },
+          "buttons": ["SELECT"]
+        }
+      ]
+    },
+    "level_5_build_confirmation": {
+      "level": 5,
+      "status": "SELECTED",
+      "selected_card_id": "confirm_nori7_anim_slice",
+      "cards": [
+        {
+          "design_card_id": "confirm_nori7_anim_slice",
+          "card_level": 5,
+          "title": "Build Confirmation — Nori-7 anim slice",
+          "required_fields": {},
+          "level_5_build_confirmation": {
+            "design_summary": "Nori-7 Gardener Robot — Object DNA animation vertical slice",
+            "skeleton_family_id": "robot_biped_small_v1",
+            "animation_sets": [
+              "pkg_robot_core_v1",
+              "pkg_ucbv_build_v1",
+              "pkg_gardener_v1"
+            ],
+            "parts": [
+              "char_nori7_base",
+              "attach_water_tank_small",
+              "attach_watering_nozzle_A",
+              "attach_mechanical_sprout_A"
+            ],
+            "material_theme_id": "mat_cozy_cream_leaf_v1",
+            "outputs_claimed": [
+              "GLB",
+              "ANIMATION_LIBRARY",
+              "CHARACTER_MANIFEST"
+            ],
+            "actions": ["START_BUILD"]
+          },
+          "buttons": ["START_BUILD"]
+        }
+      ]
+    }
+  },
+  "selected": {
+    "design_card_id": "card_nori7_robot_biped_001",
+    "object_family": "robot_biped",
+    "skeleton_family_id": "robot_biped_small_v1",
+    "world_profile": "cozy_cyber_pixel",
+    "material_theme_id": "mat_cozy_cream_leaf_v1",
+    "animation_package_ids": [
+      "pkg_robot_core_v1",
+      "pkg_ucbv_build_v1",
+      "pkg_gardener_v1"
+    ],
+    "build_path": "TEMPLATE"
+  },
+  "compile_target": {
+    "generation_request_schema": "dna_platform_vnext/generation_request/0.1",
+    "universal_entity_recipe_schema": "dna_platform_vnext/universal_entity_recipe/0.1",
+    "character_projection_schema": "object_dna_card_system/character_build_recipe_projection/0.1"
+  },
+  "authority": {
+    "proposal_only": true,
+    "may_commit_world": false,
+    "may_execute_generated_code": false,
+    "may_write_catalog": false,
+    "requires_human_confirmation": true,
+    "vnext_gate": "V5"
+  },
+  "build_job_state": "RUNTIME_TESTING",
+  "accepted": false,
+  "self_accept": false
+}

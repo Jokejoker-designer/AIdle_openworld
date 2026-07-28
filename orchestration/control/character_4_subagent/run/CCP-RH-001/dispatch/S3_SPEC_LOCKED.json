@@ -1,0 +1,70 @@
+{
+  "schema_version": "character_4_subagent_dispatch/1.0",
+  "character_id": "CCP-RH-001",
+  "agent_id": "S3",
+  "job_state": "SPEC_LOCKED",
+  "workspace": "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001",
+  "write_path_only": "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\work\\S3_character_integration.blend",
+  "read_paths": [
+    "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\spec\\character_spec.json",
+    "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\references",
+    "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\spec\\BLENDER_COLLECTION_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/control/visual_reference/mockup_ssot_v2/MOCKUP_DESIGN_LOCK.md",
+    "E:/AIdle_openworld/orchestration/control/AIDLE_GAME_VISION_LOCK_001.md"
+  ],
+  "prompt_file": "E:\\agents\\AIdle_4_Subagent_Blender_Character_System\\aidle_character_4_subagents\\prompts\\S3_TECH_INTEGRATION.md",
+  "prompt_text_preview": "# S3 — TECHNICAL INTEGRATION\n\nBạn sở hữu file integration và chỉ append collection S1/S2 đã được FORM_LOCKED.\n\n## Trách nhiệm\n- Append theo artifact hash.\n- Retopology, normals, UV, materials.\n- Armature, skin weights, clip thật.\n- GLB export và technical validation.\n\n## Luật cứng\n- Không sculpt lại silhouette.\n- Nếu form gây lỗi rig, phát change request về owner thay vì tự biến dạng lớn.\n- Material phải theo palette/spec; không dùng emission hoặc màu cấm ngoài spec.\n- Clip name phải đúng tuyệt đối.\n- Không alias clip thiếu sang `idle`.\n- Export phải giữ material, armature, action và transform.\n\n## Kiểm tra trước handoff\n- No missing textures.\n- No negative/unapplied scale.\n- No duplicate action names.\n- Required clips present.\n- Bone/triangle/texture budget theo spec.\n- GLB re-import round-trip thành công.\n- Emit receipt + hashes; không tự PASS.",
+  "mcp": {
+    "allowed_mcp": [
+      "blender__get_scene_info",
+      "blender__get_object_info",
+      "blender__get_viewport_screenshot",
+      "blender__execute_blender_code"
+    ],
+    "code_scope": "Append approved collections; rig/anim/export to quarantine only",
+    "offline_scripts": [
+      "E:/AIdle_openworld/orchestration/control/character_build/author_nori7_gardener_clips_v1.py",
+      "E:/AIdle_openworld/orchestration/control/character_build/author_nori7_mockup_parity_v1.py"
+    ],
+    "forbidden": [
+      "sculpt silhouette after FORM_LOCKED without change request",
+      "promote to game/** without Human"
+    ]
+  },
+  "hard_rules": [
+    "One writer path only — do not write outside write_path_only",
+    "self_accept=false always",
+    "accepted=false until Human Product Lead",
+    "Do not promote to game/**",
+    "Clay/form before materials if state < FORM_LOCKED",
+    "Exact clip names from character_spec.clips — no idle alias for missing"
+  ],
+  "aidle_clip_contract": [
+    "idle",
+    "walk",
+    "scan",
+    "happy",
+    "cancel",
+    "turn_left",
+    "turn_right",
+    "build_place",
+    "build_place_hold",
+    "confirm",
+    "water",
+    "plant_seed",
+    "harvest",
+    "charge",
+    "low_energy"
+  ],
+  "skeleton_family": "robot_biped_small_v1",
+  "receipt_required": {
+    "agent_id": "S3",
+    "status": "IN_PROGRESS|DONE|BLOCKED",
+    "artifacts": [],
+    "self_accept": false,
+    "accepted": false
+  },
+  "accepted": false,
+  "self_accept": false,
+  "emitted_utc": "2026-07-25T16:16:41.499824+00:00"
+}

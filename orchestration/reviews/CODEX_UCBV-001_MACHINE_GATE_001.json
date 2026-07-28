@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-UCBV-001-MACHINE-GATE-001",
+  "task_id": "UCBV-001",
+  "reviewed_at": "2026-07-23T00:26:00+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "directive_id_reviewed": 81,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "verdict": "NEED_HUMAN",
+  "accepted": false,
+  "machine_acceptance": false,
+  "human_gate_required": true,
+  "child_lineage": {
+    "U0": "019f8a9c-e24f-7571-b057-186550c97383",
+    "U1": "019f8aa1-a648-7ed2-84d9-46d982d79e7a",
+    "U2": "019f8aa8-4de9-7f02-97f7-b61f28cdb3b8",
+    "U3": "019f8ab1-24d7-7d90-8018-2f4051361c41",
+    "U4": "019f8ab9-38c8-7e60-8c41-d83a485b27a1",
+    "U5": "019f8ac2-43d9-7652-84ff-544b88023e0f",
+    "U6": "019f8acc-c691-7a03-bd69-132eaf51e408",
+    "U7": "019f8ad1-00cb-7b40-8712-7b1bac0533a9",
+    "U8": "019f8ad6-fb1d-7751-95b1-7f3b15df1804"
+  },
+  "passing_evidence": {
+    "maf_receipts_schema_valid": "9/9",
+    "declared_product_hashes": "77/77 exist and SHA-256 match",
+    "headed_pngs": "12/12 exist, dimensions and SHA-256 match manifest",
+    "worker_regressions": "17/17 reported PASS with zero error lines",
+    "codex_fresh_smokes": [
+      "AIDLE_UCBV001_INTEGRATION_SMOKE=PASS checks=7",
+      "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6",
+      "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+      "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16"
+    ],
+    "authority_boundary": "World Commit remains sole mutator; P2E-002 was not dispatched",
+    "scope": "one Nori-7 character and ten allowlisted modules only"
+  },
+  "blocking_findings": [
+    {
+      "id": "UCBV-CODEX-F01",
+      "severity": "P1",
+      "category": "acceptance_scope",
+      "title": "Production character mesh, GLB and animation gate is not met",
+      "evidence": [
+        "Zero .glb/.gltf/.fbx/.blend files exist under game/assets/ucbv_001",
+        "U5 declares glb_binary_authored=false and production_slice_v1",
+        "U5/U6/U8 declare procedural primitive mesh presentation and simplified pelvis-bob animation tracks",
+        "WO-UCBV-001 requires production mesh, skeleton, skin, rig, offline GLB intake and no remaining character mesh/rig/animation placeholder"
+      ],
+      "impact": "The current character is a functional prototype slice, not the detailed production character requested or the work-order acceptance target."
+    },
+    {
+      "id": "UCBV-CODEX-F02",
+      "severity": "P1",
+      "category": "writer_lease_provenance",
+      "title": "Same out-of-lease temporary-write signature repeated three times",
+      "evidence": [
+        "U3 wrote then deleted orchestration/logs/ucbv_001/_u3_smoke_tmp.json outside its exact orchestration lease",
+        "U4 wrote then deleted orchestration/logs/ucbv_001/_u4_smoke_tmp.json outside its exact orchestration lease",
+        "U5 wrote then deleted game/tests/_u5_debug_kit.gd outside game/tests/ucbv_001_*.gd lease",
+        "U3 and U5 claim lease_respected=true; U6 and U8 incorrectly claim the leases were disjoint/honest"
+      ],
+      "impact": "AGENTS.md requires three identical failure signatures to route to NEED_HUMAN."
+    },
+    {
+      "id": "UCBV-CODEX-F03",
+      "severity": "P1",
+      "category": "headed_visual_acceptance",
+      "title": "Headed evidence is diagnostic capture, not clean normal-play evidence",
+      "evidence": [
+        "Inspected frames carry a top diagnostic banner beginning UCBV-U7",
+        "The large Manual Build diagnostic panel remains visible",
+        "confirm_1280x720 reports committed=1 while the Starter Realm panel says Preview cancelled (no orphan)"
+      ],
+      "impact": "The evidence does not satisfy clean, internally consistent normal-play acceptance."
+    },
+    {
+      "id": "UCBV-CODEX-F04",
+      "severity": "P2",
+      "category": "durable_timestamps",
+      "title": "Worker completion timestamps are not durable completion timestamps",
+      "evidence": [
+        "U3-U8 completed_at_utc values precede receipt writes and parent-owned meta completion",
+        "U7 receipt start=17:15:00Z but durable meta start=17:13:00.879566300Z",
+        "U8 claims completion=17:20:45Z, receipt writes at 17:22:27Z and durable meta completes at 17:22:53.853530700Z"
+      ],
+      "impact": "Rehabilitation requires explicit external transcript binding, not Purple wording."
+    }
+  ],
+  "purple_disagreement": {
+    "purple_claim": "disjoint_leases_u0_u7=true and machine package sufficient for handoff",
+    "codex_finding": "False for U3-U5 lease history; production mesh/GLB and clean evidence gates also fail."
+  },
+  "required_human_decision": {
+    "recommended": "AUTHORIZE_STRICT_UCBV_CORRECTION",
+    "options": [
+      "AUTHORIZE_STRICT_UCBV_CORRECTION: real offline production mesh/GLB, full interaction animations, clean evidence, exact no-helper leases and external timing binding",
+      "WAIVE_TO_INTERIM_SLICE: accept production_slice_v1 only as interim; still correct provenance and clean evidence",
+      "KEEP_BLOCKED"
+    ]
+  },
+  "p2e_002_state": "BLOCKED",
+  "red_f01_network_shipping_hard_stop": true
+}

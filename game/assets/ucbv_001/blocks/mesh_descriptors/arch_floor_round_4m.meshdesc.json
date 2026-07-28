@@ -1,0 +1,87 @@
+{
+    "schema_version":  "ucbv_meshdesc_v1",
+    "format":  "godot_meshinstance_descriptor",
+    "module_id":  "arch_floor_round_4m",
+    "module_role":  "floor",
+    "asset_id":  "ucbv_001_arch_floor_round_4m_mesh_v1",
+    "engine_target":  "Godot 4.x",
+    "units":  "meters",
+    "coordinate_space":  "y_up_godot",
+    "style_lock_id":  "ucbv_001_style_lock_v1",
+    "world_profile_id":  "cozy_cyber_pixel",
+    "author_wave":  "U3_BLOCK_FAMILY_ART",
+    "primary_primitive":  "BoxMesh",
+    "overall_size_m":  {
+                           "y":  0.15,
+                           "z":  4,
+                           "x":  4
+                       },
+    "origin":  "center_bottom",
+    "bevel_face_fraction":  0.04,
+    "hard_90_outer_corners":  false,
+    "triangle_budget_soft":  48,
+    "material_slots":  [
+                           {
+                               "mat":  "MAT_CozyStoneWarm",
+                               "name":  "structure"
+                           },
+                           {
+                               "mat":  "MAT_CozyWood",
+                               "name":  "trim"
+                           }
+                       ],
+    "parts":  [
+                  {
+                      "part_id":  "deck",
+                      "primitive":  "BoxMesh",
+                      "material_slot":  "structure",
+                      "corner_radius":  0.35,
+                      "offset":  [
+                                     0,
+                                     0.075,
+                                     0
+                                 ],
+                      "size":  [
+                                   4,
+                                   0.15,
+                                   4
+                               ]
+                  },
+                  {
+                      "offset":  [
+                                     0,
+                                     0.16,
+                                     0
+                                 ],
+                      "size":  [
+                                   3.9,
+                                   0.02,
+                                   3.9
+                               ],
+                      "primitive":  "BoxMesh",
+                      "part_id":  "trim_ring",
+                      "material_slot":  "trim"
+                  }
+              ],
+    "lod":  {
+                "LOD1":  "merge secondary trim",
+                "LOD0":  "full parts list",
+                "LOD2":  "single primary mass primitive"
+            },
+    "manifestation":  {
+                          "stages":  [
+                                         "wireframe",
+                                         "hologram",
+                                         "materializing",
+                                         "complete"
+                                     ],
+                          "collision_active_from":  "complete"
+                      },
+    "u5_integration_hints":  {
+                                 "node_type":  "MeshInstance3D",
+                                 "csg_fallback":  "CSGBox3D / CSGSphere3D acceptable for offline placeholders",
+                                 "material_override_from":  "material_bindings.json",
+                                 "glb_path_when_available":  null
+                             },
+    "world_truth":  "not_mesh_authority"
+}

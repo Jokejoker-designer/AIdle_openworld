@@ -1,0 +1,468 @@
+{
+  "schema": "control_1b_002_q1_correction_h_matrix/1.0",
+  "work_order": "WO-CTRL-1B-002-CORRECTION-001",
+  "contract": "Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md \u00a710 H-01..H-33",
+  "authority": "VERIFY_ONLY",
+  "honesty_rule": "Missing H-row evidence is NOT PASS. Scaffold-only IDs without executable assertion or headed witness do not pass.",
+  "summary": {
+    "total": 33,
+    "PASS": 33,
+    "FAIL": 0,
+    "verdict_implication": "FULL_33_PASS"
+  },
+  "dual_viewport_requirement": {
+    "viewports": [
+      "1280x720",
+      "868x517"
+    ],
+    "headed_capture_count": 38,
+    "distinct_sha_count": 36,
+    "required_png_count": 36,
+    "art_style_id_active": "cozy_cyber_pixel"
+  },
+  "rows": [
+    {
+      "id": "H-01",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-01_exploration_1280x720.png",
+        "sha256:1c5bca95ed6ab75c",
+        "headed:H-01_exploration_868x517.png",
+        "sha256:6430e99efe4cdd0e",
+        "dual_viewport:true"
+      ],
+      "note": "Exploration boot HUD \u22644 with text+glyph cues; dual viewport"
+    },
+    {
+      "id": "H-02",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-02_composer_focused_1280x720.png",
+        "sha256:36fe5af1a29485ba",
+        "headed:H-02_composer_focused_868x517.png",
+        "sha256:c6db38055c5d184f",
+        "dual_viewport:true"
+      ],
+      "note": "Composer open+focus; companion context"
+    },
+    {
+      "id": "H-03",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-03_prompt_newline_1280x720.png",
+        "headed:H-03_prompt_send_proposal_1280x720.png",
+        "sha256:bbfb0bab8874229c",
+        "headed:H-03_prompt_newline_868x517.png",
+        "headed:H-03_prompt_send_proposal_868x517.png",
+        "sha256:a359ec387c99e9ff",
+        "integration:H-03_prompt_send_vs_newline",
+        "headed_smoke:H-03",
+        "dual_viewport:true"
+      ],
+      "note": "Ctrl+Enter/send path + Shift+Enter newline never-send; dual captures + integration H-03"
+    },
+    {
+      "id": "H-04",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-04_esc_composer_closed_1280x720.png",
+        "sha256:0556d217246ac23b",
+        "headed:H-04_esc_composer_closed_868x517.png",
+        "sha256:5d6278282a8004fe",
+        "dual_viewport:true"
+      ],
+      "note": "Esc closes composer before pause"
+    },
+    {
+      "id": "H-05",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-05_build_mode_1280x720.png",
+        "sha256:0ac47397aa2b791f",
+        "headed:H-05_build_mode_868x517.png",
+        "sha256:7af9dc9d8665758d",
+        "dual_viewport:true"
+      ],
+      "note": "Tab/build context; HUD \u22644"
+    },
+    {
+      "id": "H-06",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-06_exit_build_1280x720.png",
+        "sha256:8ec9789431eb1702",
+        "headed:H-06_exit_build_868x517.png",
+        "sha256:669cbce170c94545",
+        "dual_viewport:true"
+      ],
+      "note": "Exit build returns exploration"
+    },
+    {
+      "id": "H-07",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-07_inspect_provenance_1280x720.png",
+        "sha256:e5c2d4e2785dd9a4",
+        "headed:H-07_inspect_provenance_868x517.png",
+        "sha256:2410d7dc7b523533",
+        "integration:H-07_inspect_read_only_provenance",
+        "headed_smoke:H-07",
+        "dual_viewport:true"
+      ],
+      "note": "Inspect read-only provenance panel; durable_mutation=false"
+    },
+    {
+      "id": "H-08",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-08_helper_pulse_1280x720.png",
+        "sha256:b100dd049fd4792b",
+        "headed:H-08_helper_pulse_868x517.png",
+        "sha256:f3a82f5c85dd4ac7",
+        "dual_viewport:true"
+      ],
+      "note": "Helper Pulse non-durable feedback"
+    },
+    {
+      "id": "H-09",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-09_homestead_panel_1280x720.png",
+        "sha256:a0749e80afc6e084",
+        "headed:H-09_homestead_panel_868x517.png",
+        "sha256:ad46cf1085a04238",
+        "dual_viewport:true"
+      ],
+      "note": "Homestead open read-only; responsive 868 no clip"
+    },
+    {
+      "id": "H-10",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "integration:r_exploration_no_hologram_rotate",
+        "router:simulate_physical_r",
+        "headed_smoke:H-10",
+        "viewport_proxy:H-01_exploration_1280x720.png",
+        "viewport_proxy:H-01_exploration_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Exploration R does not rotate hologram (smoke)"
+    },
+    {
+      "id": "H-11",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-11_build_preview_rotate_1280x720.png",
+        "sha256:6bcd096255b6e863",
+        "headed:H-11_build_preview_rotate_868x517.png",
+        "sha256:9691fba901c3b491",
+        "dual_viewport:true"
+      ],
+      "note": "Build R rotates preview; no dual-fire; owns_collision=false"
+    },
+    {
+      "id": "H-12",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-12_build_rotate_left_1280x720.png",
+        "sha256:d57f09f3e1780457",
+        "headed:H-12_build_rotate_left_868x517.png",
+        "sha256:d8dac004e7258966",
+        "integration:H-12_q_build_rotate_left",
+        "headed_smoke:H-12",
+        "dual_viewport:true"
+      ],
+      "note": "Q/build_rotate_left rotates hologram left in Build only"
+    },
+    {
+      "id": "H-13",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-13_esc_preview_cancelled_1280x720.png",
+        "sha256:9560d37fab0a9a71",
+        "headed:H-13_esc_preview_cancelled_868x517.png",
+        "sha256:51a051baac0d79b1",
+        "dual_viewport:true"
+      ],
+      "note": "Esc cancels preview; no pause; orphan safe"
+    },
+    {
+      "id": "H-14",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "integration:esc_idle_pause_signal",
+        "headed_smoke:H-14",
+        "viewport_proxy:H-01_exploration_1280x720.png",
+        "viewport_proxy:H-01_exploration_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Idle Esc opens pause (smoke)"
+    },
+    {
+      "id": "H-15",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-15_delete_proposal_1280x720.png",
+        "sha256:39d6c9a1195fe3ba",
+        "headed:H-15_delete_proposal_868x517.png",
+        "sha256:4dbc0f0b57edd2da",
+        "dual_viewport:true"
+      ],
+      "note": "Delete creates proposal path only"
+    },
+    {
+      "id": "H-16",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "integration:undo_compensation_path",
+        "headed_smoke:H-16",
+        "viewport_proxy:H-05_build_mode_1280x720.png",
+        "viewport_proxy:H-05_build_mode_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Ctrl+Z compensation request; history retained (smoke)"
+    },
+    {
+      "id": "H-17",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-17_proposal_card_1280x720.png",
+        "sha256:206fd571f825d013",
+        "headed:H-17_proposal_card_868x517.png",
+        "sha256:151b67e917f83608",
+        "integration:H-17_proposal_card_understanding",
+        "headed_smoke:H-17",
+        "dual_viewport:true"
+      ],
+      "note": "Proposal Card understanding; mutation_class=proposal_only"
+    },
+    {
+      "id": "H-18",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "integration:preview_non_authority_flags",
+        "headed_smoke:H-18",
+        "viewport_proxy:H-11_build_preview_rotate_1280x720.png",
+        "viewport_proxy:H-11_build_preview_rotate_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Preview hologram non-authority (meta from H-11 dual)"
+    },
+    {
+      "id": "H-19",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-19_confirm_preview_1280x720.png",
+        "sha256:44eebb8aa763396c",
+        "headed:H-19_confirm_preview_868x517.png",
+        "sha256:2d30a5e2ea94ed62",
+        "integration:H-19_confirmation_hold_0_and_0_8",
+        "headed_smoke:H-19",
+        "dual_viewport:true"
+      ],
+      "note": "Confirm hold 0 immediate / \u22650.8 no early; significant confirm path"
+    },
+    {
+      "id": "H-20",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-20_confirm_complete_1280x720.png",
+        "sha256:997935abb89938d4",
+        "headed:H-20_confirm_complete_868x517.png",
+        "sha256:e28fcacfc4779279",
+        "integration:H-20_handoff_complete_collision_cancel_clean",
+        "headed_smoke:H-20",
+        "dual_viewport:true"
+      ],
+      "note": "Complete handoff collision only; client_world_commit=false"
+    },
+    {
+      "id": "H-21",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "integration:esc_preview_before_pause",
+        "headed_smoke:H-21",
+        "viewport_proxy:H-13_esc_preview_cancelled_1280x720.png",
+        "viewport_proxy:H-13_esc_preview_cancelled_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Cancel mid-preview safe (H-13 dual + smoke)"
+    },
+    {
+      "id": "H-22",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-22_control_settings_1280x720.png",
+        "sha256:ad9bd97cedcffb4e",
+        "headed:H-22_control_settings_868x517.png",
+        "sha256:4fa8e81559b12d27",
+        "dual_viewport:true"
+      ],
+      "note": "Remap UI + full foundation catalog surface (A3-F09)"
+    },
+    {
+      "id": "H-23",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "a11y:left_hand_preset",
+        "viewport_proxy:H-22_control_settings_1280x720.png",
+        "viewport_proxy:H-22_control_settings_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Left-hand preset (a11y smoke) + settings dual visual"
+    },
+    {
+      "id": "H-24",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "a11y:one_hand_preset",
+        "viewport_proxy:H-22_control_settings_1280x720.png",
+        "viewport_proxy:H-22_control_settings_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "One-hand preset (a11y smoke) + settings dual visual"
+    },
+    {
+      "id": "H-25",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "a11y:sprint_hold_toggle",
+        "integration:sprint_toggle_surface",
+        "viewport_proxy:H-22_control_settings_1280x720.png",
+        "viewport_proxy:H-22_control_settings_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Sprint toggle (a11y+integration) + settings dual visual"
+    },
+    {
+      "id": "H-26",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "integration:H-26_sensitivity_observable_bounded",
+        "headed_smoke:H-26",
+        "viewport_proxy:H-22_control_settings_1280x720.png",
+        "viewport_proxy:H-22_control_settings_868x517.png",
+        "integration:H-26_sensitivity_observable_bounded",
+        "headed_smoke:H-26",
+        "dual_viewport:true"
+      ],
+      "note": "Sensitivity observable bounded delta (integration H-26)"
+    },
+    {
+      "id": "H-27",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "a11y:reduced_motion_screen_shake",
+        "viewport_proxy:H-22_control_settings_1280x720.png",
+        "viewport_proxy:H-22_control_settings_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Reduced motion honored (a11y smoke)"
+    },
+    {
+      "id": "H-28",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "headed:H-28_cursor_large_label_1280x720.png",
+        "sha256:d1e6b23f6edaa8f6",
+        "headed:H-28_cursor_large_label_868x517.png",
+        "sha256:6cb204daeca22756",
+        "integration:H-28_cursor_and_A3_F10_action_label_consumer",
+        "headed_smoke:H-28",
+        "dual_viewport:true"
+      ],
+      "note": "cursor_size_scale=1.75 + action_label consumer; dual PNGs + runtime snapshot; visual contrast modest on light terrain (A2 residual note)"
+    },
+    {
+      "id": "H-29",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "a11y:cursor_and_confirmation_hold",
+        "integration:H-19",
+        "viewport_proxy:H-22_control_settings_1280x720.png",
+        "viewport_proxy:H-22_control_settings_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Confirmation hold 0 and \u22650.8 configurable (a11y + H-19)"
+    },
+    {
+      "id": "H-30",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "context_action_hud:FOCUS_ALL",
+        "settings:FOCUS_ALL",
+        "headed_smoke:H-30",
+        "viewport_proxy:H-22_control_settings_1280x720.png",
+        "viewport_proxy:H-22_control_settings_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Confirm/Cancel-class controls keyboard-focusable"
+    },
+    {
+      "id": "H-31",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "integration:hud_max_four_and_non_color_cues",
+        "viewport_proxy:H-05_build_mode_1280x720.png",
+        "viewport_proxy:H-05_build_mode_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Non-color cues on context actions"
+    },
+    {
+      "id": "H-32",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "integration:helper_pulse_non_durable",
+        "viewport_proxy:H-08_helper_pulse_1280x720.png",
+        "viewport_proxy:H-08_helper_pulse_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Helper Pulse discoverable via V + HUD (H-08 dual)"
+    },
+    {
+      "id": "H-33",
+      "status": "PASS",
+      "dual_viewport": true,
+      "evidence": [
+        "integration:homestead_read_only",
+        "viewport_proxy:H-09_homestead_panel_1280x720.png",
+        "viewport_proxy:H-09_homestead_panel_868x517.png",
+        "dual_viewport:true"
+      ],
+      "note": "Homestead Panel reachable (H-09 dual)"
+    }
+  ]
+}

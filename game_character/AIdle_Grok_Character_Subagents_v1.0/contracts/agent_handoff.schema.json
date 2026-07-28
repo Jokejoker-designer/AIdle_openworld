@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIdle Agent Handoff",
+  "type": "object",
+  "required": [
+    "step_id",
+    "agent_id",
+    "status",
+    "inputs",
+    "outputs",
+    "evidence",
+    "open_risks",
+    "next_owner"
+  ],
+  "properties": {
+    "step_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "READY",
+        "CLAIMED",
+        "IN_PROGRESS",
+        "REVIEW_REQUESTED",
+        "CHANGES_REQUESTED",
+        "VERIFIED",
+        "NEED_HUMAN"
+      ]
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_owner": {
+      "type": "string"
+    },
+    "failure_signature": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

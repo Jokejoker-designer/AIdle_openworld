@@ -1,0 +1,609 @@
+{
+  "agent_step_id": "G8-001-D2-persist-provenance-correction-016-2026-07-21",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "READ_ONLY_AUDIT",
+  "accepted": false,
+  "input_context_hash": "sha256:67fa6db64f45fd6a38dd4c0c6cd2732a1fba77daf95869bc6149a99671ff6dba",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f830a-e078-7291-868d-63ef06a928fc",
+  "transcript_ref": "019f830a-e078-7291-868d-63ef06a928fc",
+  "writer_transcript_ref": "019f830a-e078-7291-868d-63ef06a928fc",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "product_writes": [],
+  "trace_ref": "orchestration/logs/g8-d2-persist-016.log",
+  "handoff_ref": "D3_BLOCKED",
+  "start_time": "2026-07-21T04:59:15.978875800Z",
+  "receipt_writer_end_time_informational": "2026-07-21T05:04:30.0000000Z",
+  "completed_at_note": "durable completed_at must be bound by Codex from immutable child metadata + LastWriteTimeUtc + SHA-256; this child does not predict durable completed_at",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/persist.md",
+  "profile_binding_evidence": "FULL read: name=aidle-persist; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop; Authority PATCH_DRAFT profile default overridden by WO-016 to READ_ONLY_AUDIT; verify keyboard/focus/readability/reduced-motion/non-color state; visual work must not dirty durable evidence; G4 consistency from existing evidence without re-run (mutating).",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/persist.md",
+    "E:/agents/characters/12-purple-team-finding-triage.md",
+    "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json",
+    "E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/DESIGN.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+    "E:/AIdle_openworld/AIdle_Openworld_Blueprint_v1.1/00_README.md",
+    "E:/AIdle_openworld/orchestration/workflow.json",
+    "E:/AIdle_openworld/orchestration/tasks.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_persist_012.json",
+    "E:/AIdle_openworld/game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+    "E:/AIdle_openworld/game/scripts/modules/persist/g4_persist_smoke.gd",
+    "E:/AIdle_openworld/game/scripts/modules/g3_ui/starter_realm_panel.gd",
+    "E:/AIdle_openworld/game/scripts/ui/playable_action_bar.gd",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/responsive_868x517.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/companion_open_868x517.png",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-persist-g4-this-run.log",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-persist-child.log",
+    "E:/AIdle_openworld/orchestration/logs/g8-d1-executor-g4-this-run.log"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/g8/d2_provenance_correction_016/D2_persist_016.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-persist-016.log"
+  ],
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-D2-PROVENANCE-CORRECTION-016",
+    "directive_id": 37,
+    "wave": "D2_PROVENANCE_CORRECTION_016",
+    "profile": "persist",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/persist.md",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS",
+    "summary": "D2 persist READ_ONLY_AUDIT by real child 019f830a-e078-7291-868d-63ef06a928fc (Directive 37 / WO-016). Corrects 015 blockers for this profile: full always-skill EOF (project-room-collab 65/65, curiosity-engine 1123/1123) with SHA-256; G8-001_UI_SKILL_DISPATCH_MAP.md read; transcript-exact command ledger with tool_call_id + transcript:// refs including failed exit=1 PowerShell parser error; top-level accepted=false. Did NOT re-run G4. G4 consistency PASS checks=22 from existing logs + tracked fixture. SIX_TRACKED_EXPORTS_ZERO_DIFF vs 60fccdd all 6 MATCH. Headed a11y 1280x720 + 868x517 PASS from C003 PNGs + source. product_writes=[]. self_accept=false. handoff D3_BLOCKED. G8 not ACCEPTED. No durable completed_at predicted.",
+    "character_binding": {
+      "trustlayer_character_id": "purple-team-finding-triage",
+      "trustlayer_character_source": "E:/agents/characters/12-purple-team-finding-triage.md",
+      "ui_character_id": "ui-a11y-auditor",
+      "ui_character_source": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+      "ui_character_lines_read": 49,
+      "ui_character_coverage": "FULL_EOF",
+      "maf_role": "agent",
+      "authority_token": "READ_ONLY_AUDIT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "total_lines": 46,
+        "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+        "chunk_ranges": ["1-46"],
+        "coverage": "46_of_46",
+        "transcript_refs": [
+          "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/14"
+        ],
+        "tool_call_ids": ["call-9ec425dd-7598-4acd-91ad-1416b17c0f0b-26"],
+        "load_evidence": "FULL EOF read: Load COMPLIANCE.md + registry; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no inventing evidence / no exceed authority"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "total_lines": 53,
+        "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+        "chunk_ranges": ["1-53"],
+        "coverage": "53_of_53",
+        "transcript_refs": [
+          "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/15"
+        ],
+        "tool_call_ids": ["call-9ec425dd-7598-4acd-91ad-1416b17c0f0b-27"],
+        "load_evidence": "FULL EOF read: x16 registry; purple-team-finding-triage slot 12 VERIFY_ONLY/triage never patches; Red finds Blue patches Purple gates"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "total_lines": 36,
+        "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+        "chunk_ranges": ["1-36"],
+        "coverage": "36_of_36",
+        "transcript_refs": [
+          "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/16"
+        ],
+        "tool_call_ids": ["call-9ec425dd-7598-4acd-91ad-1416b17c0f0b-28"],
+        "load_evidence": "FULL EOF read: E: hub MASTER_PLAN/JOURNAL/handoffs; journal-entry after milestones; no live profile DB copy"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "total_lines": 65,
+        "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+        "chunk_ranges": ["1-65"],
+        "coverage": "65_of_65",
+        "transcript_refs": [
+          "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/17"
+        ],
+        "tool_call_ids": ["call-9ec425dd-7598-4acd-91ad-1416b17c0f0b-29"],
+        "load_evidence": "FULL EOF read 65/65: shared project room knowledge/errors/handoffs; multi-role Red/Blue/Purple authority respect; corrects D2-SKILL-001 prior 20_of_65"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "total_lines": 1123,
+        "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+        "chunk_ranges": ["1-200", "201-400", "401-600", "601-800", "801-1000", "1001-1123"],
+        "coverage": "1123_of_1123",
+        "transcript_refs": [
+          "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/18",
+          "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/19",
+          "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/20",
+          "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/21",
+          "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/22",
+          "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/23"
+        ],
+        "tool_call_ids": [
+          "call-a737a524-7330-47b3-a682-829b509bfa04-31",
+          "call-a737a524-7330-47b3-a682-829b509bfa04-32",
+          "call-a737a524-7330-47b3-a682-829b509bfa04-33",
+          "call-a737a524-7330-47b3-a682-829b509bfa04-34",
+          "call-a737a524-7330-47b3-a682-829b509bfa04-35",
+          "call-a737a524-7330-47b3-a682-829b509bfa04-36"
+        ],
+        "load_evidence": "FULL EOF chunked through line 1123 Prime Directive; evidence classification FACT/INFERENCE; do not invent evidence; command evidence protocol; stop conditions; corrects D2-SKILL-001 prior 25_of_1123. Reader returned full file body each chunk call; requested ranges non-overlapping 1..1123."
+      },
+      {
+        "skill_id": "ui-a11y-character-rules",
+        "source": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+        "mode": "character_rules",
+        "total_lines": 49,
+        "coverage": "49_of_49",
+        "transcript_refs": [
+          "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/3"
+        ],
+        "tool_call_ids": ["call-cd4a3163-697d-432c-9474-96865b7473f8-3"],
+        "load_evidence": "character_rules mode (not full OD craft execution): WCAG contrast, keyboard, focus, ARIA, reduced-motion; findings only; authority READ_ONLY_AUDIT; slot 12; all 49 lines"
+      }
+    ],
+    "character_card_evidence": {
+      "purple-team-finding-triage": "E:/agents/characters/12-purple-team-finding-triage.md — VERIFY_ONLY/triage; do not fix code; normalize findings; no invent evidence",
+      "ui-a11y-auditor": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md — READ_ONLY_AUDIT; contrast/keyboard/focus/ARIA/reduced-motion; findings only; 49/49 lines"
+    },
+    "input_context_hash": "sha256:67fa6db64f45fd6a38dd4c0c6cd2732a1fba77daf95869bc6149a99671ff6dba",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md",
+        "E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json",
+        "E:/AIdle_openworld/DESIGN.md",
+        "E:/AIdle_openworld/game/scripts/modules/persist/g4_persist_smoke.gd",
+        "E:/AIdle_openworld/game/scripts/modules/g3_ui/starter_realm_panel.gd",
+        "E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md"
+      ],
+      "byte_lengths": [6150, 5666, 2027, 40452, 6226, 1891],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "67fa6db64f45fd6a38dd4c0c6cd2732a1fba77daf95869bc6149a99671ff6dba",
+      "BYTE_LEN": 62412,
+      "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/5",
+      "tool_call_id": "call-be3786a1-a9de-4471-bf41-0f9ae9e10c59-39",
+      "note": "hash recorded in lease log only; no helper hash-result file written (WO-016 forbids helper/temp files)"
+    },
+    "product_writes": [],
+    "no_children_spawned": true,
+    "no_product_patch": true,
+    "trace_ref": "orchestration/logs/g8-d2-persist-016.log",
+    "handoff_ref": "D3_BLOCKED",
+    "handoff_note": "d3_spawn_allowed=false per WO-016 and grok_status; persist D2 provenance-correction gates recorded; parent collates only after all four D2_016 children finish then WAITING_CODEX; Codex must bind completed_at externally before any D3 release.",
+    "child_task_ref": "019f830a-e078-7291-868d-63ef06a928fc",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "start_time": "2026-07-21T04:59:15.978875800Z",
+    "receipt_writer_end_time_informational": "2026-07-21T05:04:30.0000000Z",
+    "gates": {
+      "G4_PERSIST_SMOKE": "PASS checks=22 (existing evidence consistency; G4 not re-run this child — mutating user://)",
+      "SIX_TRACKED_EXPORTS_ZERO_DIFF": "PASS vs 60fccdd792d6d8f682441bbfe9ff6e7d67a27226 (this-run non-mutating git hash-object)",
+      "user_isolation_historical": "PASS prior logs show user://g4_persist_smoke/ only; tracked_res_export_dual_write=false",
+      "durable_evidence_not_dirtied": "PASS six tracked fixtures byte-equal baseline",
+      "a11y_readability_1280x720": "PASS",
+      "a11y_readability_868x517": "PASS",
+      "focus_keyboard_discovery": "PASS_SOURCE_AND_CAPTURE",
+      "UI_SKILL_DISPATCH_MAP_READ": "PASS",
+      "ALWAYS_SKILLS_FULL_EOF": "PASS project-room-collab 65/65 curiosity-engine 1123/1123",
+      "D3_SPAWN": "BLOCKED"
+    },
+    "g4_evidence_consistency": {
+      "method": "read_only_inspect_existing_logs_and_tracked_fixture",
+      "g4_re_run_this_child": false,
+      "reason_not_rerun": "g4_persist_smoke.gd writes user://g4_persist_smoke/ — evidence-mutating; WO-016 forbids rerunning evidence-mutating commands",
+      "existing_log_sources": [
+        "orchestration/logs/g8-d2-persist-g4-this-run.log",
+        "orchestration/logs/g8-d2-persist-child.log",
+        "orchestration/logs/g8-d1-executor-g4-this-run.log"
+      ],
+      "log_markers_observed": [
+        "G4_PERSIST_SMOKE=PASS checks=22",
+        "wrote evidence user://g4_persist_smoke/g4_persist_smoke_evidence.json (isolated user:// only)"
+      ],
+      "tracked_fixture": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+      "tracked_fixture_marker": "G4_PERSIST_SMOKE",
+      "tracked_fixture_passed_checks": 22,
+      "tracked_fixture_failed_checks": 0,
+      "tracked_fixture_acceptance_key_count": 22,
+      "tracked_fixture_file_sha256": "80bc213bb228b249f88db5dbf2d9764891521787bafa3ac655d12113bdf288ee",
+      "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/3",
+      "tool_call_id": "call-be3786a1-a9de-4471-bf41-0f9ae9e10c59-37",
+      "verdict": "PASS checks=22"
+    },
+    "six_tracked_exports": {
+      "baseline_commit": "60fccdd792d6d8f682441bbfe9ff6e7d67a27226",
+      "method": "git hash-object working tree == git rev-parse baseline:path (non-mutating this-run)",
+      "verdict": "PASS",
+      "g4_not_rerun_so_post_g4_redundant": true,
+      "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/4",
+      "tool_call_id": "call-be3786a1-a9de-4471-bf41-0f9ae9e10c59-38",
+      "files": [
+        {
+          "path": "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+          "wt_hash": "4da2fcde3678c28deebefb1f9392817696eb5cd3",
+          "base_hash": "4da2fcde3678c28deebefb1f9392817696eb5cd3",
+          "match": true
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+          "wt_hash": "6509d045dda64865a5cd446f8a231cebd48a1afe",
+          "base_hash": "6509d045dda64865a5cd446f8a231cebd48a1afe",
+          "match": true
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+          "wt_hash": "241e1a8f747db2e6cae93f6924736780d96d9a8a",
+          "base_hash": "241e1a8f747db2e6cae93f6924736780d96d9a8a",
+          "match": true
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+          "wt_hash": "a5dc41be613f3d5693cbde70fa1dae0749515621",
+          "base_hash": "a5dc41be613f3d5693cbde70fa1dae0749515621",
+          "match": true
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+          "wt_hash": "5a595df14394bfff6d21d2f051023e942fd8dfe5",
+          "base_hash": "5a595df14394bfff6d21d2f051023e942fd8dfe5",
+          "match": true
+        },
+        {
+          "path": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+          "wt_hash": "febf4c781badafb3cd3ca7bf407f9d5ebef7e39a",
+          "base_hash": "febf4c781badafb3cd3ca7bf407f9d5ebef7e39a",
+          "match": true
+        }
+      ]
+    },
+    "a11y_audit": {
+      "mode": "character_rules ui-a11y-auditor READ_ONLY",
+      "viewports": [
+        {
+          "size": "1280x720",
+          "evidence": "orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png",
+          "manifest_dims": { "width": 1280, "height": 720 },
+          "manifest_sha256": "6bd5cf31bc8ccf1af6e87becec090bb0f797de7a54cc95d30a45111fa9f6c6d2",
+          "file_sha256_verified": "6bd5cf31bc8ccf1af6e87becec090bb0f797de7a54cc95d30a45111fa9f6c6d2",
+          "match_manifest": true,
+          "findings": [
+            "Top HUD pill: dark translucent bar + cream/white outlined text readable over scene",
+            "StatusPill top-right: near-black panel + cream text; quest/status/companion lines non-overlapping",
+            "Action bar: Demo Build primary cream vs Confirm/Cancel muted disabled — non-color + luminance state encoding",
+            "Keyboard hint WASD/E/Esc visible with outline mid-bottom",
+            "No major control-to-control overlap at idle 1280x720"
+          ],
+          "verdict": "PASS"
+        },
+        {
+          "size": "868x517",
+          "evidence": [
+            "orchestration/evidence/g8_ui_visual_correction_003/responsive_868x517.png",
+            "orchestration/evidence/g8_ui_visual_correction_003/companion_open_868x517.png"
+          ],
+          "manifest_dims": { "width": 868, "height": 517 },
+          "manifest_sha256": {
+            "responsive_868x517.png": "e01f36890244bc82cfcb5af0df56eb4e0b93838dbea9e6d972b1f12dde0ef985",
+            "companion_open_868x517.png": "a1f9318eece7f387a012e7f8e64bf33b0f7f853b7d7b8fd97fbeec2229b9ffb6"
+          },
+          "file_sha256_verified": {
+            "responsive_868x517.png": "e01f36890244bc82cfcb5af0df56eb4e0b93838dbea9e6d972b1f12dde0ef985",
+            "companion_open_868x517.png": "a1f9318eece7f387a012e7f8e64bf33b0f7f853b7d7b8fd97fbeec2229b9ffb6"
+          },
+          "match_manifest": true,
+          "findings": [
+            "Compact layout keeps StatusPill and two-row action bar legible",
+            "Companion open panel bottom-left does not clip action bar primary/disabled controls",
+            "playable_action_bar two-row compact path + MIN_BTN_H=32; starter_realm_panel MIN_PLAYER_FONT=12 + outline_size=2",
+            "HUD compact font_size 12 with outline_size=3"
+          ],
+          "verdict": "PASS"
+        }
+      ],
+      "focus_keyboard": {
+        "action_bar_focus_mode": "Control.FOCUS_ALL on all six buttons (playable_action_bar.gd)",
+        "companion_hotkey": "E (button label Companion (E) + StatusPill companion line)",
+        "keyboard_hints_capture": "WASD move · E Companion · Esc pause visible in captures",
+        "debug_behind_f3": "session/snapshot labels gated behind debug toggle (F3 path) in starter_realm_panel",
+        "bridge_consent_grab_focus": "bridge_consent_dialog.gd grab_focus on accept",
+        "non_color_state": "primary CREAM vs disabled MUTED luminance; font_disabled_color distinct",
+        "verdict": "PASS_SOURCE_AND_CAPTURE"
+      },
+      "residual_a11y": [
+        "No automated WCAG contrast meter in harness — visual+source audit only",
+        "Reduced-motion preference not instrumented in headed smoke",
+        "Screen-reader ARIA equivalents limited by Godot Control surface (findings-only note)",
+        "Keyboard hint text contrast lower than HUD labels but still legible with outline"
+      ]
+    },
+    "command_ledger": [
+      {
+        "kind_local_ordinal": 1,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-7c9ee5b9-e572-455e-bc58-a83fb1e3cdd1-17",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/1",
+        "exact_command": "Get-ChildItem \"E:\\shared\\skills\\library\" -ErrorAction SilentlyContinue | Select-Object Name, Mode; Write-Host \"---\"; Get-Item \"E:\\shared\\skills\\library\\maf-mandatory-standard\\SKILL.md\",\"E:\\shared\\skills\\library\\trustlayer-x16-crew\\SKILL.md\",\"E:\\shared\\skills\\library\\agentwork-knowledge-loop\\SKILL.md\",\"E:\\shared\\skills\\library\\project-room-collab\\SKILL.md\",\"E:\\shared\\skills\\library\\curiosity-engine\\SKILL.md\" -ErrorAction SilentlyContinue | ForEach-Object { \"$($_.FullName) lines=$((Get-Content $_.FullName | Measure-Object -Line).Lines) bytes=$($_.Length)\" }",
+        "exit_code": 0,
+        "result_summary": "skills library present; five always skill paths exist",
+        "mutating": false,
+        "files_written": []
+      },
+      {
+        "kind_local_ordinal": 2,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-9ec425dd-7598-4acd-91ad-1416b17c0f0b-25",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/2",
+        "exact_command": "$files = @(\n  \"E:\\shared\\skills\\library\\maf-mandatory-standard\\SKILL.md\",\n  \"E:\\shared\\skills\\library\\trustlayer-x16-crew\\SKILL.md\",\n  \"E:\\shared\\skills\\library\\agentwork-knowledge-loop\\SKILL.md\",\n  \"E:\\shared\\skills\\library\\project-room-collab\\SKILL.md\",\n  \"E:\\shared\\skills\\library\\curiosity-engine\\SKILL.md\"\n)\nforeach ($f in $files) {\n  $lines = [System.IO.File]::ReadAllLines($f)\n  $sha = (Get-FileHash -Algorithm SHA256 -Path $f).Hash.ToLower()\n  Write-Output (\"PATH={0}\" -f $f)\n  Write-Output (\"TOTAL_LINES={0} BYTES={1} SHA256={2}\" -f $lines.Count, (Get-Item $f).Length, $sha)\n  Write-Output \"---\"\n}\n# Also check grok mirror for curiosity-engine line count mentioned as 1123\n$alt = \"C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\curiosity-engine\\SKILL.md\"\nif (Test-Path $alt) {\n  $al = [System.IO.File]::ReadAllLines($alt)\n  $as = (Get-FileHash -Algorithm SHA256 -Path $alt).Hash.ToLower()\n  Write-Output (\"ALT_PATH={0} TOTAL_LINES={1} SHA256={2}\" -f $alt, $al.Count, $as)\n}\n$alt2 = \"C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\project-room-collab\\SKILL.md\"\nif (Test-Path $alt2) {\n  $al2 = [System.IO.File]::ReadAllLines($alt2)\n  $as2 = (Get-FileHash -Algorithm SHA256 -Path $alt2).Hash.ToLower()\n  Write-Output (\"ALT_PATH={0} TOTAL_LINES={1} SHA256={2}\" -f $alt2, $al2.Count, $as2)\n}",
+        "exit_code": 0,
+        "result_summary": "project-room-collab TOTAL_LINES=65 SHA256=9b43a151...; curiosity-engine TOTAL_LINES=1123 SHA256=f940ff9e...; mirrors byte-identical",
+        "mutating": false,
+        "files_written": []
+      },
+      {
+        "kind_local_ordinal": 3,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-be3786a1-a9de-4471-bf41-0f9ae9e10c59-37",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/3",
+        "exact_command": "Set-Location E:\\AIdle_openworld\n# G4 log markers (read-only Select-String)\nWrite-Output \"=== G4_LOG_MARKERS ===\"\n$logs = @(\n  \"orchestration\\logs\\g8-d2-persist-g4-this-run.log\",\n  \"orchestration\\logs\\g8-d2-persist-child.log\",\n  \"orchestration\\logs\\g8-d1-executor-g4-this-run.log\",\n  \"orchestration\\logs\\g4-r1-persist-smoke.log\",\n  \"orchestration\\logs\\g8-persist-smoke.log\"\n)\nforeach ($l in $logs) {\n  if (Test-Path $l) {\n    $hits = Select-String -Path $l -Pattern \"G4_PERSIST_SMOKE\" -SimpleMatch -ErrorAction SilentlyContinue\n    Write-Output (\"LOG={0} HITS={1}\" -f $l, $hits.Count)\n    $hits | ForEach-Object { Write-Output (\"  LINE={0} TEXT={1}\" -f $_.LineNumber, $_.Line.Trim()) }\n  } else {\n    Write-Output (\"LOG={0} MISSING\" -f $l)\n  }\n}\nWrite-Output \"=== TRACKED_G4_FIXTURE ===\"\n$fx = \"game\\scripts\\modules\\persist\\exports\\g4_persist_smoke_evidence.json\"\nif (Test-Path $fx) {\n  $j = Get-Content -Raw -Path $fx | ConvertFrom-Json\n  Write-Output (\"marker={0}\" -f $j.marker)\n  Write-Output (\"passed_checks={0}\" -f $j.passed_checks)\n  Write-Output (\"failed_checks={0}\" -f $j.failed_checks)\n  if ($j.PSObject.Properties.Name -contains 'acceptance_keys') { Write-Output (\"acceptance_key_count={0}\" -f $j.acceptance_keys.Count) }\n  if ($j.PSObject.Properties.Name -contains 'checks') { Write-Output (\"checks_count={0}\" -f @($j.checks).Count) }\n  Write-Output (\"sha256={0}\" -f (Get-FileHash -Algorithm SHA256 -Path $fx).Hash.ToLower())\n  # dump top-level keys\n  Write-Output (\"top_keys={0}\" -f (($j.PSObject.Properties.Name) -join ','))\n}",
+        "exit_code": 0,
+        "result_summary": "G4_PERSIST_SMOKE=PASS checks=22 in multiple logs; fixture passed_checks=22 failed_checks=0",
+        "mutating": false,
+        "g4_re_run": false,
+        "files_written": []
+      },
+      {
+        "kind_local_ordinal": 4,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-be3786a1-a9de-4471-bf41-0f9ae9e10c59-38",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/4",
+        "exact_command": "Set-Location E:\\AIdle_openworld\n$base = \"60fccdd792d6d8f682441bbfe9ff6e7d67a27226\"\n$paths = @(\n  \"game/scripts/modules/executor/exports/commit_request_handoff_stub.json\",\n  \"game/scripts/modules/executor/exports/g3_cancel_receipt.json\",\n  \"game/scripts/modules/executor/exports/g3_complete_receipt.json\",\n  \"game/scripts/modules/executor/exports/g3_undo_receipt.json\",\n  \"game/scripts/modules/executor/exports/world_prompt_from_build.json\",\n  \"game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json\"\n)\nWrite-Output \"=== SIX_TRACKED_EXPORTS_ZERO_DIFF ===\"\n$allMatch = $true\nforeach ($p in $paths) {\n  $wt = (git hash-object -- $p).Trim()\n  $bh = (git rev-parse \"${base}:${p}\" 2>&1)\n  if ($LASTEXITCODE -ne 0) { $bh = \"ERR:$bh\"; $match = $false } else { $bh = $bh.Trim(); $match = ($wt -eq $bh) }\n  if (-not $match) { $allMatch = $false }\n  Write-Output (\"path={0} wt={1} base={2} match={3}\" -f $p, $wt, $bh, $match)\n}\nWrite-Output (\"VERDICT={0}\" -f ($(if ($allMatch) { \"PASS\" } else { \"FAIL\" })))\nWrite-Output (\"exit_all_ok=0\")",
+        "exit_code": 0,
+        "result_summary": "SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS all 6 match",
+        "mutating": false,
+        "files_written": []
+      },
+      {
+        "kind_local_ordinal": 5,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-be3786a1-a9de-4471-bf41-0f9ae9e10c59-39",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/5",
+        "exact_command": "Set-Location E:\\AIdle_openworld\n# input_context_hash: raw concat of WO-016 + review 015 + DESIGN.md + g4_persist_smoke.gd + starter_realm_panel.gd + UI_SKILL_DISPATCH_MAP\n$inputs = @(\n  \"orchestration\\work_orders\\WO-G8-001-D2-PROVENANCE-CORRECTION-016.md\",\n  \"orchestration\\reviews\\CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json\",\n  \"DESIGN.md\",\n  \"game\\scripts\\modules\\persist\\g4_persist_smoke.gd\",\n  \"game\\scripts\\modules\\g3_ui\\starter_realm_panel.gd\",\n  \"orchestration\\work_orders\\G8-001_UI_SKILL_DISPATCH_MAP.md\"\n)\n$ms = New-Object System.IO.MemoryStream\nforeach ($p in $inputs) {\n  $bytes = [System.IO.File]::ReadAllBytes((Resolve-Path $p))\n  $ms.Write($bytes, 0, $bytes.Length)\n  Write-Output (\"INPUT={0} BYTES={1}\" -f $p, $bytes.Length)\n}\n$sha = [System.Security.Cryptography.SHA256]::Create()\n$hash = $sha.ComputeHash($ms.ToArray())\n$hex = -join ($hash | ForEach-Object { $_.ToString(\"x2\") })\nWrite-Output (\"BYTE_LEN={0}\" -f $ms.Length)\nWrite-Output (\"INPUT_CONTEXT_HASH=sha256:{0}\" -f $hex)\nWrite-Output (\"FULL_SHA256={0}\" -f $hex)",
+        "exit_code": 0,
+        "result_summary": "INPUT_CONTEXT_HASH=sha256:67fa6db64f45fd6a38dd4c0c6cd2732a1fba77daf95869bc6149a99671ff6dba BYTE_LEN=62412",
+        "mutating": false,
+        "files_written": []
+      },
+      {
+        "kind_local_ordinal": 6,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-753909bb-5b6a-4ba0-b0a2-2e0fe979577d-45",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/6",
+        "exact_command": "Set-Location E:\\AIdle_openworld\n$pngs = @(\n  \"orchestration\\evidence\\g8_ui_visual_correction_003\\overview_1280x720.png\",\n  \"orchestration\\evidence\\g8_ui_visual_correction_003\\responsive_868x517.png\",\n  \"orchestration\\evidence\\g8_ui_visual_correction_003\\companion_open_868x517.png\"\n)\n$expected = @{\n  \"overview_1280x720.png\"=\"6bd5cf31bc8ccf1af6e87becec090bb0f797de7a54cc95d30a45111fa9f6c6d2\"\n  \"responsive_868x517.png\"=\"e01f36890244bc82cfcb5af0df56eb4e0b93838dbea9e6d972b1f12dde0ef985\"\n  \"companion_open_868x517.png\"=\"a1f9318eece7f387a012e7f8e64bf33b0f7f853b7d7b8fd97fbeec2229b9ffb6\"\n}\nforeach ($p in $pngs) {\n  $h = (Get-FileHash -Algorithm SHA256 -Path $p).Hash.ToLower()\n  $name = Split-Path $p -Leaf\n  $exp = $expected[$name]\n  Write-Output (\"file={0} sha256={1} match_manifest={2}\" -f $name, $h, ($h -eq $exp))\n}\n# acceptance key count from g4 fixture\n$j = Get-Content -Raw \"game\\scripts\\modules\\persist\\exports\\g4_persist_smoke_evidence.json\" | ConvertFrom-Json\n$ak = @($j.acceptance.PSObject.Properties.Name)\nWrite-Output (\"acceptance_key_count={0}\" -f $ak.Count)\nWrite-Output (\"acceptance_keys={0}\" -f ($ak -join ','))\nWrite-Output (\"passed_checks={0} failed_checks={1} marker={2}\" -f $j.passed_checks, $j.failed_checks, $j.marker)",
+        "exit_code": 0,
+        "result_summary": "three PNGs match_manifest=True; acceptance_key_count=22; G4_PERSIST_SMOKE passed_checks=22",
+        "mutating": false,
+        "files_written": []
+      },
+      {
+        "kind_local_ordinal": 7,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-4207bcae-5d84-4ba0-bbc6-57336ea8e8f2-50",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/7",
+        "exact_command": "$base = \"C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f830a-e078-7291-868d-63ef06a928fc\"\nWrite-Output \"BASE_EXISTS=$(Test-Path $base)\"\nif (Test-Path $base) {\n  Get-ChildItem $base -Force | Select-Object Name, Mode\n  $term = Join-Path $base \"terminal\"\n  if (Test-Path $term) {\n    Write-Output \"=== TERMINAL ===\"\n    Get-ChildItem $term -Force | Sort-Object Name | ForEach-Object { Write-Output $_.Name }\n  }\n  # other tool dirs\n  Get-ChildItem $base -Directory -Force | ForEach-Object {\n    Write-Output (\"DIR={0} COUNT={1}\" -f $_.Name, (Get-ChildItem $_.FullName -Force | Measure-Object).Count)\n  }\n}\n# also try unencoded path variants\n$alts = @(\n  \"C:\\Users\\phant\\.grok\\sessions\\E:\\AIdle_openworld\\019f830a-e078-7291-868d-63ef06a928fc\",\n  \"C:\\Users\\phant\\.grok\\sessions\\019f830a-e078-7291-868d-63ef06a928fc\"\n)\nforeach ($a in $alts) { Write-Output (\"ALT={0} EXISTS={1}\" -f $a, (Test-Path $a)) }",
+        "exit_code": 0,
+        "result_summary": "child session transcript dir exists; terminal tool logs listed",
+        "mutating": false,
+        "files_written": []
+      },
+      {
+        "kind_local_ordinal": 8,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-8a8932ef-157d-43c7-9060-dd633dfdc087-51",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/8",
+        "exact_command": "$base = \"C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f830a-e078-7291-868d-63ef06a928fc\"\n# Parse events for tool calls with kinds and ordinals\n$events = Get-Content (Join-Path $base \"events.jsonl\") -ErrorAction SilentlyContinue\nWrite-Output \"EVENTS_LINES=$((@($events)).Count)\"\n# Look for tool call patterns in first/last portions\n$i = 0\nforeach ($line in $events) {\n  $i++\n  if ($line -match 'tool|bash|run_terminal|read_file|function' -or $line -match '\"type\"') {\n    # try extract short summary\n    if ($line.Length -gt 400) { $s = $line.Substring(0,400) } else { $s = $line }\n    # only print if seems like tool-related\n    if ($s -match 'tool_call|toolCall|run_terminal|read_file|function_call|bash') {\n      Write-Output (\"E{0}:{1}\" -f $i, $s)\n    }\n  }\n}\nWrite-Output \"=== TERMINAL LOG HEADS ===\"\nGet-ChildItem (Join-Path $base \"terminal\") | Sort-Object { [int]($_.BaseName -split '-')[-1] } | ForEach-Object {\n  Write-Output (\"--- {0} ---\" -f $_.Name)\n  $c = Get-Content $_.FullName -TotalCount 30\n  $c | ForEach-Object { Write-Output $_ }\n}",
+        "exit_code": 0,
+        "result_summary": "events.jsonl tool timeline extracted; terminal log heads listed",
+        "mutating": false,
+        "files_written": []
+      },
+      {
+        "kind_local_ordinal": 9,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-87427fa6-d7db-4194-b7f4-0ed3c5e6ff53-52",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/9",
+        "exact_command": "$base = \"C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f830a-e078-7291-868d-63ef06a928fc\"\n# Parse chat_history for tool invocations - extract tool names and ordinals\n$lines = Get-Content (Join-Path $base \"chat_history.jsonl\")\nWrite-Output \"CHAT_LINES=$($lines.Count)\"\n$ord = 0\n$termOrd = 0\n$readOrd = 0\n$grepOrd = 0\n$listOrd = 0\n$todoOrd = 0\n$other = @{}\n$ledger = @()\nforeach ($line in $lines) {\n  # try detect tool calls in various formats\n  if ($line -match '\"toolName\"\\s*:\\s*\"([^\"]+)\"' -or $line -match '\"name\"\\s*:\\s*\"(run_terminal_command|read_file|grep|list_dir|todo_write|search_replace|write)\"' -or $line -match '\"tool_name\"\\s*:\\s*\"([^\"]+)\"') {\n    $tn = $Matches[1]\n    $ord++\n    switch ($tn) {\n      'run_terminal_command' { $termOrd++; $kind='terminal'; $ko=$termOrd }\n      'read_file' { $readOrd++; $kind='read_file'; $ko=$readOrd }\n      'grep' { $grepOrd++; $kind='grep'; $ko=$grepOrd }\n      'list_dir' { $listOrd++; $kind='list_dir'; $ko=$listOrd }\n      'todo_write' { $todoOrd++; $kind='todo_write'; $ko=$todoOrd }\n      default { if (-not $other.ContainsKey($tn)) { $other[$tn]=0 }; $other[$tn]++; $kind=$tn; $ko=$other[$tn] }\n    }\n    # extract command or path snippet\n    $snippet = ''\n    if ($line -match '\"command\"\\s*:\\s*\"((?:\\\\.|[^\"\\\\]){0,200})') { $snippet = $Matches[1].Substring(0, [Math]::Min(120, $Matches[1].Length)) }\n    elseif ($line -match '\"target_file\"\\s*:\\s*\"([^\"]+)\"') { $snippet = $Matches[1] }\n    elseif ($line -match '\"path\"\\s*:\\s*\"([^\"]+)\"') { $snippet = $Matches[1] }\n    elseif ($line -match '\"target_directory\"\\s*:\\s*\"([^\"]+)\"') { $snippet = $Matches[1] }\n    elseif ($line -match '\"pattern\"\\s*:\\s*\"([^\"]+)\"') { $snippet = $Matches[1] }\n    $ledger += [pscustomobject]@{ global=$ord; kind=$kind; kind_ord=$ko; tool=$tn; snippet=$snippet }\n  }\n}\nWrite-Output \"TOTAL_DETECTED=$ord term=$termOrd read=$readOrd grep=$grepOrd list=$listOrd todo=$todoOrd\"\n$other.GetEnumerator() | ForEach-Object { Write-Output (\"OTHER {0}={1}\" -f $_.Key, $_.Value) }\nWrite-Output \"=== LEDGER ===\"\n$ledger | ForEach-Object { Write-Output (\"g={0} kind={1}/{2} tool={3} snip={4}\" -f $_.global, $_.kind, $_.kind_ord, $_.tool, $_.snippet) }\n# Also check updates.jsonl\nWrite-Output \"=== UPDATES tool refs sample ===\"\n$up = Get-Content (Join-Path $base \"updates.jsonl\") -TotalCount 5\n$up | ForEach-Object { if ($_.Length -gt 300) { $_.Substring(0,300) } else { $_ } }",
+        "exit_code": 0,
+        "result_summary": "chat_history partial tool detection; updates.jsonl preferred for full toolCallId ledger",
+        "mutating": false,
+        "files_written": []
+      },
+      {
+        "kind_local_ordinal": 10,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-3e1d180f-67dd-4b85-9c1a-d1869093ca91-53",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/10",
+        "exact_command": "$base = \"C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f830a-e078-7291-868d-63ef06a928fc\"\n$up = Get-Content (Join-Path $base \"updates.jsonl\")\n# Extract unique toolCallIds with first title and command/path\n$map = [ordered]@{}\nforeach ($line in $up) {\n  if ($line -notmatch 'tool_call') { continue }\n  if ($line -match '\"toolCallId\"\\s*:\\s*\"([^\"]+)\"') {\n    $id = $Matches[1]\n    $ord = 0\n    if ($id -match '-(\\d+)$') { $ord = [int]$Matches[1] }\n    if (-not $map.Contains($id)) {\n      $title = ''\n      $cmd = ''\n      $path = ''\n      if ($line -match '\"title\"\\s*:\\s*\"([^\"]+)\"') { $title = $Matches[1] }\n      if ($line -match '\"command\"\\s*:\\s*\"((?:\\\\.|[^\"\\\\])*)\"') { $cmd = $Matches[1] }\n      if ($line -match '\"target_file\"\\s*:\\s*\"([^\"]+)\"') { $path = $Matches[1] }\n      if ($line -match '\"target_directory\"\\s*:\\s*\"([^\"]+)\"') { $path = $Matches[1] }\n      if ($line -match '\"pattern\"\\s*:\\s*\"((?:\\\\.|[^\"\\\\])*)\"') { if (-not $path) { $path = \"pattern:\" + $Matches[1] } }\n      $map[$id] = [pscustomobject]@{ id=$id; ord=$ord; title=$title; cmd=$cmd; path=$path }\n    } else {\n      # fill missing\n      $o = $map[$id]\n      if (-not $o.title -and $line -match '\"title\"\\s*:\\s*\"([^\"]+)\"') { $o.title = $Matches[1] }\n      if (-not $o.cmd -and $line -match '\"command\"\\s*:\\s*\"((?:\\\\.|[^\"\\\\])*)\"') { $o.cmd = $Matches[1] }\n      if (-not $o.path -and $line -match '\"target_file\"\\s*:\\s*\"([^\"]+)\"') { $o.path = $Matches[1] }\n      if (-not $o.path -and $line -match '\"target_directory\"\\s*:\\s*\"([^\"]+)\"') { $o.path = $Matches[1] }\n      $map[$id] = $o\n    }\n  }\n}\nWrite-Output \"UNIQUE_TOOL_CALLS=$($map.Count)\"\n$map.Values | Sort-Object ord | ForEach-Object {\n  $snip = if ($_.cmd) { if ($_.cmd.Length -gt 100) { $_.cmd.Substring(0,100) } else { $_.cmd } } else { $_.path }\n  Write-Output (\"ord={0} title={1} id={2} snip={3}\" -f $_.ord, $_.title, $_.id, $snip)\n}\n# per-kind ordinals among material calls\n$byKind = @{}\nforeach ($v in ($map.Values | Sort-Object ord)) {\n  $k = $v.title\n  if (-not $byKind.ContainsKey($k)) { $byKind[$k] = 0 }\n  $byKind[$k]++\n  $v | Add-Member -NotePropertyName kind_ord -NotePropertyValue $byKind[$k] -Force\n}\nWrite-Output \"=== BY_KIND_COUNTS ===\"\n$byKind.GetEnumerator() | Sort-Object Name | ForEach-Object { Write-Output (\"{0}={1}\" -f $_.Key, $_.Value) }",
+        "exit_code": 0,
+        "result_summary": "UNIQUE_TOOL_CALLS>=54; by_kind counts for run_terminal_command/read_file/grep/list_dir/todo_write",
+        "mutating": false,
+        "files_written": []
+      },
+      {
+        "kind_local_ordinal": 11,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-82cc164b-7641-4bbc-b00e-fc079989e56e-54",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/11",
+        "exact_command": "$base = \"C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f830a-e078-7291-868d-63ef06a928fc\"\n$up = Get-Content (Join-Path $base \"updates.jsonl\")\n# Extract full command for each terminal tool call by ord\n$termOrds = @(17,25,37,38,39,45,50,51,52,53)\nforeach ($want in $termOrds) {\n  Write-Output \"===== ORD $want =====\"\n  $found = $false\n  foreach ($line in $up) {\n    if ($line -match \"toolCallId\\\":\\\"call-[^\\\"]+-$want\\\"\" -or $line -match \"toolCallId\\\":\\\"[^\\\"]+-$want\\\"\") {\n      if ($line -match '\"command\"\\s*:\\s*\"((?:\\\\.|[^\"\\\\])*)\"') {\n        $cmd = $Matches[1] -replace '\\\\n',\"`n\" -replace '\\\\t',\"`t\" -replace '\\\\\"','\"' -replace '\\\\\\\\','\\'\n        Write-Output \"CMD_LEN=$($cmd.Length)\"\n        Write-Output $cmd\n        $found = $true\n        break\n      }\n    }\n  }\n  if (-not $found) { Write-Output \"NO_COMMAND_FOUND\" }\n}\n# exit codes from terminal logs if present\nWrite-Output \"=== EXIT FROM LOG FILE NAMES ===\"\nGet-ChildItem (Join-Path $base \"terminal\") | ForEach-Object {\n  $tail = Get-Content $_.FullName -Tail 5\n  Write-Output (\"FILE={0}\" -f $_.Name)\n  $tail | ForEach-Object { Write-Output $_ }\n}",
+        "exit_code": 1,
+        "result_summary": "FAILED: PowerShell parser error — Unexpected token in -match regex / missing string terminator (CategoryInfo ParentContainsErrorRecordException; FullyQualifiedErrorId UnexpectedToken). Honest inclusion per D2-PROV-002.",
+        "failed": true,
+        "mutating": false,
+        "files_written": []
+      },
+      {
+        "kind_local_ordinal": 12,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-9aaf9377-7da8-4cad-b8f2-d1249f04e37b-55",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/12",
+        "exact_command": "$base = \"C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f830a-e078-7291-868d-63ef06a928fc\"\n$up = Get-Content (Join-Path $base \"updates.jsonl\")\n$termOrds = @(17,25,37,38,39,45,50,51,52,53)\nforeach ($want in $termOrds) {\n  Write-Output \"===== ORD $want =====\"\n  $suffix = \"-$want\"\n  $found = $false\n  foreach ($line in $up) {\n    if ($line -notlike \"*toolCallId*\") { continue }\n    if ($line -notlike \"*$suffix*\") { continue }\n    # find command field\n    $idx = $line.IndexOf('\"command\"')\n    if ($idx -lt 0) { continue }\n    $sub = $line.Substring($idx)\n    if ($sub -match '\"command\"\\s*:\\s*\"((?:\\\\.|[^\"\\\\])*)\"') {\n      $raw = $Matches[1]\n      $cmd = [System.Text.RegularExpressions.Regex]::Unescape($raw)\n      Write-Output \"CMD_LEN=$($cmd.Length)\"\n      Write-Output $cmd\n      $found = $true\n      break\n    }\n  }\n  if (-not $found) { Write-Output \"NO_COMMAND_FOUND\" }\n}\nWrite-Output \"=== TERMINAL LOG TAILS ===\"\nGet-ChildItem (Join-Path $base \"terminal\") | Sort-Object Name | ForEach-Object {\n  Write-Output (\"FILE={0} BYTES={1}\" -f $_.Name, $_.Length)\n}",
+        "exit_code": 0,
+        "result_summary": "safer extract recovered exact commands for terminal ords; note suffix-match ambiguity for some ords corrected in T13",
+        "mutating": false,
+        "files_written": []
+      },
+      {
+        "kind_local_ordinal": 13,
+        "tool_kind": "terminal",
+        "tool_call_id": "call-a496c6c9-5b81-4da8-ace4-9627a925595c-56",
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/13",
+        "exact_command": "$base = \"C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f830a-e078-7291-868d-63ef06a928fc\"\n$up = Get-Content (Join-Path $base \"updates.jsonl\")\n# exact toolCallIds for terminal material calls\n$ids = @(\n  \"call-753909bb-5b6a-4ba0-b0a2-2e0fe979577d-45\",\n  \"call-82cc164b-7641-4bbc-b00e-fc079989e56e-54\",\n  \"call-9aaf9377-7da8-4cad-b8f2-d1249f04e37b-55\",\n  \"call-3e1d180f-67dd-4b85-9c1a-d1869093ca91-53\"\n)\nforeach ($id in $ids) {\n  Write-Output \"===== $id =====\"\n  $found = $false\n  foreach ($line in $up) {\n    if ($line -notlike \"*$id*\") { continue }\n    $idx = $line.IndexOf('\"command\"')\n    if ($idx -lt 0) { continue }\n    $sub = $line.Substring($idx)\n    if ($sub -match '\"command\"\\s*:\\s*\"((?:\\\\.|[^\"\\\\])*)\"') {\n      $cmd = [System.Text.RegularExpressions.Regex]::Unescape($Matches[1])\n      Write-Output \"CMD_LEN=$($cmd.Length)\"\n      Write-Output $cmd\n      $found = $true\n      break\n    }\n  }\n  if (-not $found) { Write-Output \"NO_COMMAND\" }\n}\n# session start from summary\nWrite-Output \"=== SUMMARY ===\"\nGet-Content (Join-Path $base \"summary.json\") -ErrorAction SilentlyContinue | Select-Object -First 40\n# log 54 content\nWrite-Output \"=== LOG 54 ===\"\nGet-Content (Join-Path $base \"terminal\\call-82cc164b-7641-4bbc-b00e-fc079989e56e-54.log\") -ErrorAction SilentlyContinue\nWrite-Output \"=== LOG 55 ===\"\nGet-Content (Join-Path $base \"terminal\\call-9aaf9377-7da8-4cad-b8f2-d1249f04e37b-55.log\") -ErrorAction SilentlyContinue\n# list all terminal with exit if stored in events\nWrite-Output \"=== EVENTS terminal outcomes ===\"\nGet-Content (Join-Path $base \"events.jsonl\") | Where-Object { $_ -match 'run_terminal_command' -and $_ -match 'tool_completed|outcome|exit' } | ForEach-Object {\n  if ($_.Length -gt 250) { $_.Substring(0,250) } else { $_ }\n}",
+        "exit_code": 0,
+        "result_summary": "exact PNG-hash command recovered; failed T11 log content confirmed; summary created_at=2026-07-21T04:59:15.978875800Z; events show one terminal outcome=error",
+        "mutating": false,
+        "files_written": []
+      }
+    ],
+    "material_non_terminal_tool_refs": {
+      "note": "one-based kind-local ordinals for read_file/grep/list_dir from durable child transcript toolCallId sequence; full list in updates.jsonl",
+      "required_context_reads": [
+        {"path": "E:/AIdle_openworld/.grok/agents/persist.md", "tool_call_id": "call-cd4a3163-697d-432c-9474-96865b7473f8-1", "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/1"},
+        {"path": "E:/agents/characters/12-purple-team-finding-triage.md", "tool_call_id": "call-cd4a3163-697d-432c-9474-96865b7473f8-2", "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/2"},
+        {"path": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md", "tool_call_id": "call-cd4a3163-697d-432c-9474-96865b7473f8-3", "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/3"},
+        {"path": "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md", "tool_call_id": "call-78dd1590-efb3-4f36-ae78-2a4efbe87f1d-11", "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/7"},
+        {"path": "E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json", "tool_call_id": "call-78dd1590-efb3-4f36-ae78-2a4efbe87f1d-12", "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/8"},
+        {"path": "E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md", "tool_call_id": "call-78dd1590-efb3-4f36-ae78-2a4efbe87f1d-13", "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/9", "note": "corrects D2-CONTEXT-001"},
+        {"path": "E:/AIdle_openworld/DESIGN.md", "tool_call_id": "call-7c9ee5b9-e572-455e-bc58-a83fb1e3cdd1-24", "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/13"}
+      ],
+      "skill_full_eof_reads": [
+        {"skill": "maf-mandatory-standard", "tool_call_id": "call-9ec425dd-7598-4acd-91ad-1416b17c0f0b-26", "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/14"},
+        {"skill": "trustlayer-x16-crew", "tool_call_id": "call-9ec425dd-7598-4acd-91ad-1416b17c0f0b-27", "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/15"},
+        {"skill": "agentwork-knowledge-loop", "tool_call_id": "call-9ec425dd-7598-4acd-91ad-1416b17c0f0b-28", "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/16"},
+        {"skill": "project-room-collab", "tool_call_id": "call-9ec425dd-7598-4acd-91ad-1416b17c0f0b-29", "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/17", "coverage": "65_of_65"},
+        {"skill": "curiosity-engine", "tool_call_ids": ["call-a737a524-7330-47b3-a682-829b509bfa04-31", "call-a737a524-7330-47b3-a682-829b509bfa04-32", "call-a737a524-7330-47b3-a682-829b509bfa04-33", "call-a737a524-7330-47b3-a682-829b509bfa04-34", "call-a737a524-7330-47b3-a682-829b509bfa04-35", "call-a737a524-7330-47b3-a682-829b509bfa04-36"], "transcript_refs": ["transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/18", "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/19", "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/20", "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/21", "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/22", "transcript://019f830a-e078-7291-868d-63ef06a928fc/read_file/23"], "coverage": "1123_of_1123"}
+      ]
+    },
+    "provenance_corrections_vs_015": {
+      "D2-PROV-001": "command_ledger contains exact unabridged commands + tool_call_id + transcript:// refs for every terminal call before receipt write",
+      "D2-PROV-002": "failed terminal call-82cc164b-7641-4bbc-b00e-fc079989e56e-54 exit_code=1 PowerShell parser error retained in ledger (not omitted)",
+      "D2-SKILL-001": "project-room-collab 65/65 and curiosity-engine 1123/1123 with SHA-256 and chunk/transcript refs",
+      "D2-CONTEXT-001": "G8-001_UI_SKILL_DISPATCH_MAP.md FULL read (toolCallId ...-13)",
+      "D2-CONTRACT-001": "top-level accepted=false present"
+    },
+    "children": [],
+    "findings": [],
+    "residual_risks": [
+      "G4 not re-executed this child; PASS is consistency of existing evidence, not a fresh smoke attribution to this child_task_ref.",
+      "No automated WCAG AA meter; a11y verdict is character_rules visual+source audit.",
+      "G8-001 overall remains non-ACCEPTED; self_accept=false; D3 blocked until Codex external timing + four-child collation.",
+      "Concurrent D2 peers may still be RUNNING; this receipt does not claim wave-complete.",
+      "read_file kind-local ordinals are assigned from skill/context material sequence for receipt binding; Codex should recompute from updates.jsonl if ordinal scheme differs."
+    ]
+  },
+  "smoke_test": {
+    "passed": true,
+    "executable_smoke_run": false,
+    "honesty": "G4 smoke not re-run (mutating). Six-export verified this-run via non-mutating git. G4 PASS from existing evidence consistency. PNG hashes verified this-run vs evidence_manifest.",
+    "attributed_to_child_task_ref": "019f830a-e078-7291-868d-63ef06a928fc",
+    "commands": [
+      {
+        "id": "g4_persist_consistency",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22",
+        "this_child_executed_g4": false,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/3"
+      },
+      {
+        "id": "six_tracked",
+        "exit_code": 0,
+        "marker": "SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS",
+        "this_child_executed": true,
+        "mutating": false,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/4"
+      },
+      {
+        "id": "a11y_visual_source",
+        "exit_code": 0,
+        "marker": "a11y_1280_and_868=PASS",
+        "this_child_executed": true,
+        "mutating": false,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63ef06a928fc/terminal/6"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "READ_ONLY_AUDIT",
+    "no_product_patch": true,
+    "product_writes_empty": true,
+    "product_writes": [],
+    "no_self_accept": true,
+    "self_accept": false,
+    "accepted": false,
+    "no_predicted_durable_completed_at": true,
+    "character_skill_trace_present": true,
+    "always_skills_full_eof": true,
+    "ui_skill_dispatch_map_read": true,
+    "failed_exits_retained": true,
+    "exact_command_ledger_present": true,
+    "no_catalog_false_claim": true,
+    "control_foundation_not_implemented": true,
+    "no_grandchildren": true,
+    "parent_product_patch": false,
+    "durable_evidence_not_dirtied": true,
+    "real_child_task_ref": true,
+    "did_not_overwrite_prior_012_artifacts": true,
+    "write_lease_only": [
+      "orchestration/receipts/g8/d2_provenance_correction_016/D2_persist_016.json",
+      "orchestration/logs/g8-d2-persist-016.log"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-d2-persist-016.log",
+    "orchestration/logs/g8-d2-persist-g4-this-run.log",
+    "orchestration/logs/g8-d2-persist-child.log",
+    "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+    "orchestration/evidence/g8_ui_visual_correction_003/",
+    "orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md",
+    "orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json",
+    "orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md"
+  ],
+  "next_route": "D3_BLOCKED"
+}

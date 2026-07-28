@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_UCBV-001_C3F01R_GATE_010",
+  "task_id": "UCBV-001",
+  "directive_reviewed": 90,
+  "reviewed_at": "2026-07-23T07:57:12+07:00",
+  "reviewed_by": "codex",
+  "verdict": "C3F01R_ACCEPTED_AS_C4_INPUT_C4_QA_AUTHORIZED",
+  "accepted": false,
+  "self_accept": false,
+  "scope_acceptance": "C3F01_NAVIGATION_WARNING_CORRECTION_ONLY",
+  "lineage": {
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "child_task_ref": "019f8c72-c33f-7df0-af59-f0e95f666642",
+    "durable_started_at": "2026-07-23T00:49:19.170779300Z",
+    "durable_completed_at": "2026-07-23T00:55:36.016613200Z",
+    "receipt": "orchestration/receipts/ucbv_001/correction_005/C3F01_navigation_warning_correction_005.json",
+    "receipt_sha256": "C871962D76AC4890EC42A0B8C54F06EA8619A081541D7162BFDFAF05872E3580",
+    "log": "orchestration/logs/ucbv_001/correction_005/C3F01_navigation_warning_correction_005.log",
+    "log_sha256": "904248D1BEF81E1775BFEE51B7E49B76D11E4DE375A7D06D1EB533A604A210E3"
+  },
+  "independent_validation": {
+    "receipt_schema_errors": 0,
+    "profile": "aidle-worldgen-godot-runtime",
+    "trustlayer_character": "blue-team-p0-remediator",
+    "ui_character": "ui-app-dashboard",
+    "authority_token": "PATCH_DRAFT",
+    "declared_product_hash_matches": "2/2",
+    "declared_log_hash_matches": "1/1",
+    "out_of_lease_writes": [],
+    "active_children_at_review": 0,
+    "navigation_warning_smoke": "PASS checks=16 exit=0",
+    "normal_main_inputmap_e2e": "PASS checks=17 inputs=34 exit=0",
+    "ucbv_integration_smoke": "PASS checks=10 exit=0",
+    "submitted_navigation_warning_count": 0,
+    "engine_warning_filtering": false,
+    "navigation_source": "NavigationMeshSourceGeometryData3D procedural CPU faces plus nav-only StaticBody3D BoxShape3D",
+    "voxel_alignment": "cell_size=0.2 cell_height=0.2 agent_radius=0.4 agent_height=1.6 agent_max_climb=0.2"
+  },
+  "findings": [
+    {
+      "id": "C3-F01",
+      "severity": "HIGH",
+      "status": "CLOSED_FOR_C4",
+      "finding": "Independent normal Main InputMap E2E reproduces zero submitted navigation warning signatures while preserving the 48m navigation surface and design agent dimensions."
+    },
+    {
+      "id": "C3-F02",
+      "severity": "MEDIUM",
+      "status": "OPEN_NON_BLOCKING_HYGIENE",
+      "finding": "Adapter provenance hygiene remains outside this correction and must not be silently rewritten by C4."
+    },
+    {
+      "id": "C3-F03",
+      "severity": "LOW",
+      "status": "ACTIVE_C4_OWNERSHIP",
+      "finding": "Warm-cream contrast and clean dual-resolution normal-play proof now route to C4."
+    },
+    {
+      "id": "C3-F04",
+      "severity": "LOW",
+      "status": "NON_BLOCKING_SLICE_NOTE",
+      "finding": "Block kit presentation remains procedural meshdesc and must be represented honestly in QA evidence."
+    }
+  ],
+  "decision": {
+    "c3f01r_result": "ACCEPTED_AS_C4_INPUT_ONLY",
+    "c4_authorized": true,
+    "c5_authorized": false,
+    "overall_ucbv_accepted": false,
+    "human_gate_open": false,
+    "red_f01_hard_stop": true
+  },
+  "next_route": "C4_QA_AND_CLEAN_HEADED_EVIDENCE_VERIFY_ONLY"
+}

@@ -1,0 +1,564 @@
+{
+  "fixture_kind": "invalid_suite",
+  "schema_version": "1.0.0",
+  "contract_id": "control-1b-input-context",
+  "description": "Invalid cases for fail-closed Control 1B validation. Each payload must be executed individually against its intended root document, subschema pointer, or semantic rule by orchestration/contracts/control_1b/validate_control_1b_fixtures.py. Rejecting only this suite wrapper is NOT proof of invalid cases. This suite root is not itself a valid input-context document.",
+  "validator": "orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+  "case_count": 12,
+  "cases": [
+    {
+      "case_id": "INV-01-unknown_context_id",
+      "validation_target": "root",
+      "expected_reject": [
+        "unknown_context_id",
+        "schema_enum"
+      ],
+      "gate_ids": [
+        "C1B-CTX-02",
+        "C1B-ACT-02"
+      ],
+      "payload": {
+        "schema_version": "1.0.0",
+        "contract_id": "control-1b-input-context",
+        "contract_version": "1.0.0",
+        "contexts": [
+          {
+            "context_id": "free_edit",
+            "purpose": "Illegal sixth/unknown context",
+            "allowed_actions": [
+              "move_forward"
+            ],
+            "hud_actions": [
+              "move_forward"
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "action_id": "move_forward",
+            "category": "locomotion",
+            "remappable": true,
+            "safety_class": "benign"
+          }
+        ],
+        "default_bindings": [
+          {
+            "action_id": "move_forward",
+            "events": [
+              {
+                "device": "keyboard",
+                "code": "W"
+              }
+            ]
+          }
+        ],
+        "conflict_rules": [
+          {
+            "rule_id": "C1B-CF-01",
+            "statement": "x",
+            "severity": true
+          }
+        ],
+        "esc_priority": [
+          {
+            "order": 1,
+            "target": "pending_confirmation",
+            "action_id": "cancel_action"
+          },
+          {
+            "order": 2,
+            "target": "preview_hologram",
+            "action_id": "cancel_action"
+          },
+          {
+            "order": 3,
+            "target": "prompt_composer_or_dialogue",
+            "action_id": "cancel_action"
+          },
+          {
+            "order": 4,
+            "target": "inspect_panel",
+            "action_id": "cancel_action"
+          },
+          {
+            "order": 5,
+            "target": "pause_menu",
+            "action_id": "pause_menu"
+          }
+        ],
+        "context_hud": {
+          "max_actions": 4,
+          "non_color_cues_required": true,
+          "show_full_keymap_on_main_hud": false,
+          "keyboard_focus_required": true
+        },
+        "accessibility": {
+          "remap_all_actions": true,
+          "left_hand_preset": true,
+          "one_hand_preset": true,
+          "hold_toggle_options": true,
+          "mouse_sensitivity": {
+            "min": 0.1,
+            "max": 3.0,
+            "default": 1.0
+          },
+          "invert_zoom": true,
+          "reduced_motion": true,
+          "disable_screen_shake": true,
+          "cursor_size": {
+            "min_scale": 0.75,
+            "max_scale": 2.0,
+            "default_scale": 1.0
+          },
+          "action_label_near_cursor": true,
+          "no_mandatory_double_click": true,
+          "confirmation_hold": {
+            "configurable": true,
+            "default_seconds": 0.8,
+            "min_seconds": 0,
+            "max_seconds": 2.0
+          },
+          "pause_during_hologram": true
+        },
+        "safety": {
+          "direct_durable_delete_allowed": false,
+          "direct_durable_mutation_on_keydown_allowed": false,
+          "delete_is_proposal_only": true,
+          "undo_is_compensation_request": true,
+          "preview_owns_collision": false,
+          "preview_owns_ownership": false,
+          "collision_only_after_complete": true,
+          "pipeline": [
+            "prompt",
+            "structured_proposal",
+            "validate",
+            "preview",
+            "explicit_confirm",
+            "world_commit"
+          ],
+          "world_commit_only_mutates_canonical": true
+        },
+        "required_hotkeys": [
+          {
+            "gate_id": "C1B-HK-01",
+            "physical_default": "/",
+            "action_id": "prompt_quick_open",
+            "required_behavior": "open"
+          },
+          {
+            "gate_id": "C1B-HK-02",
+            "physical_default": "Ctrl+Enter",
+            "action_id": "prompt_send",
+            "required_behavior": "send"
+          },
+          {
+            "gate_id": "C1B-HK-03",
+            "physical_default": "Tab",
+            "action_id": "build_mode_toggle",
+            "required_behavior": "toggle"
+          },
+          {
+            "gate_id": "C1B-HK-04",
+            "physical_default": "V",
+            "action_id": "world_ability",
+            "required_behavior": "ability"
+          },
+          {
+            "gate_id": "C1B-HK-05",
+            "physical_default": "B",
+            "action_id": "world_panel",
+            "required_behavior": "panel"
+          },
+          {
+            "gate_id": "C1B-HK-06",
+            "physical_default": "Delete",
+            "action_id": "delete_proposal",
+            "required_behavior": "proposal"
+          },
+          {
+            "gate_id": "C1B-HK-07",
+            "physical_default": "Ctrl+Z",
+            "action_id": "request_undo",
+            "required_behavior": "undo"
+          },
+          {
+            "gate_id": "C1B-HK-08",
+            "physical_default": "Esc",
+            "action_id": "cancel_action",
+            "required_behavior": "cancel"
+          },
+          {
+            "gate_id": "C1B-HK-09",
+            "physical_default": "R",
+            "action_id": "build_rotate_right",
+            "required_behavior": "rotate"
+          }
+        ],
+        "cozy_slice": {
+          "world_id": "cozy_cyber_pixel",
+          "world_ability_action": "world_ability",
+          "world_panel_action": "world_panel",
+          "world_ability_label": "Helper Pulse",
+          "world_panel_label": "Homestead Panel"
+        }
+      }
+    },
+    {
+      "case_id": "INV-02-unknown_action_id",
+      "validation_target": "subschema",
+      "schema_pointer": "#/properties/actions/items",
+      "expected_reject": [
+        "unknown_action_id",
+        "schema_enum"
+      ],
+      "gate_ids": [
+        "C1B-ACT-02"
+      ],
+      "payload": {
+        "note": "Minimal illegal action_id injection",
+        "action_id": "hack_console_exec",
+        "category": "system",
+        "remappable": true,
+        "safety_class": "benign"
+      }
+    },
+    {
+      "case_id": "INV-03-hud_more_than_four",
+      "validation_target": "subschema",
+      "schema_pointer": "#/properties/contexts/items",
+      "expected_reject": [
+        "hud_max_actions",
+        "schema_maxItems"
+      ],
+      "gate_ids": [
+        "C1B-HUD-01"
+      ],
+      "payload": {
+        "context_id": "exploration",
+        "purpose": "HUD overflow",
+        "allowed_actions": [
+          "interact_primary",
+          "interact_secondary",
+          "world_ability",
+          "build_mode_toggle",
+          "companion_call"
+        ],
+        "hud_actions": [
+          "interact_primary",
+          "interact_secondary",
+          "world_ability",
+          "build_mode_toggle",
+          "companion_call"
+        ]
+      }
+    },
+    {
+      "case_id": "INV-04-direct_durable_delete_allowed",
+      "validation_target": "subschema",
+      "schema_pointer": "#/properties/safety",
+      "expected_reject": [
+        "safety_const_false",
+        "schema_const"
+      ],
+      "gate_ids": [
+        "C1B-SAFE-01",
+        "C1B-SAFE-02"
+      ],
+      "payload": {
+        "direct_durable_delete_allowed": true,
+        "direct_durable_mutation_on_keydown_allowed": false,
+        "delete_is_proposal_only": true,
+        "undo_is_compensation_request": true,
+        "preview_owns_collision": false,
+        "preview_owns_ownership": false,
+        "collision_only_after_complete": true,
+        "pipeline": [
+          "prompt",
+          "structured_proposal",
+          "validate",
+          "preview",
+          "explicit_confirm",
+          "world_commit"
+        ],
+        "world_commit_only_mutates_canonical": true
+      }
+    },
+    {
+      "case_id": "INV-05-preview_owns_collision",
+      "validation_target": "subschema",
+      "schema_pointer": "#/properties/safety",
+      "expected_reject": [
+        "preview_collision_forbidden",
+        "schema_const"
+      ],
+      "gate_ids": [
+        "C1B-SAFE-04",
+        "C1B-SAFE-05"
+      ],
+      "payload": {
+        "direct_durable_delete_allowed": false,
+        "direct_durable_mutation_on_keydown_allowed": false,
+        "delete_is_proposal_only": true,
+        "undo_is_compensation_request": true,
+        "preview_owns_collision": true,
+        "preview_owns_ownership": false,
+        "collision_only_after_complete": true,
+        "pipeline": [
+          "prompt",
+          "structured_proposal",
+          "validate",
+          "preview",
+          "explicit_confirm",
+          "world_commit"
+        ],
+        "world_commit_only_mutates_canonical": true
+      }
+    },
+    {
+      "case_id": "INV-06-preview_owns_ownership",
+      "validation_target": "subschema",
+      "schema_pointer": "#/properties/safety",
+      "expected_reject": [
+        "preview_ownership_forbidden",
+        "schema_const"
+      ],
+      "gate_ids": [
+        "C1B-SAFE-04"
+      ],
+      "payload": {
+        "direct_durable_delete_allowed": false,
+        "direct_durable_mutation_on_keydown_allowed": false,
+        "delete_is_proposal_only": true,
+        "undo_is_compensation_request": true,
+        "preview_owns_collision": false,
+        "preview_owns_ownership": true,
+        "collision_only_after_complete": true,
+        "pipeline": [
+          "prompt",
+          "structured_proposal",
+          "validate",
+          "preview",
+          "explicit_confirm",
+          "world_commit"
+        ],
+        "world_commit_only_mutates_canonical": true
+      }
+    },
+    {
+      "case_id": "INV-07-pipeline_skips_preview",
+      "validation_target": "subschema",
+      "schema_pointer": "#/properties/safety/properties/pipeline",
+      "payload_key": "pipeline",
+      "expected_reject": [
+        "pipeline_incomplete",
+        "missing_preview_stage"
+      ],
+      "gate_ids": [
+        "C1B-SAFE-07"
+      ],
+      "payload": {
+        "pipeline": [
+          "prompt",
+          "structured_proposal",
+          "validate",
+          "explicit_confirm",
+          "world_commit"
+        ]
+      }
+    },
+    {
+      "case_id": "INV-08-multi_context_r_binding",
+      "validation_target": "semantic",
+      "semantic_rule": "multi_context_r",
+      "expected_reject": [
+        "conflict_rule_C1B-CF-01",
+        "build_only_r_violation"
+      ],
+      "gate_ids": [
+        "C1B-CF-01",
+        "C1B-HK-09",
+        "C1B-HK-10",
+        "C1B-ACT-05"
+      ],
+      "semantic_only": true,
+      "payload": {
+        "description": "Same physical R dispatches rotate_camera_right and build_rotate_right without context isolation",
+        "default_bindings": [
+          {
+            "action_id": "rotate_camera_right",
+            "events": [
+              {
+                "device": "keyboard",
+                "code": "R"
+              }
+            ],
+            "active_contexts": [
+              "exploration",
+              "build"
+            ]
+          },
+          {
+            "action_id": "build_rotate_right",
+            "events": [
+              {
+                "device": "keyboard",
+                "code": "R"
+              }
+            ],
+            "active_contexts": [
+              "exploration",
+              "build"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "INV-09-esc_pause_before_cancel",
+      "validation_target": "semantic",
+      "semantic_rule": "esc_priority",
+      "expected_reject": [
+        "esc_priority_violation"
+      ],
+      "gate_ids": [
+        "C1B-ESC-01",
+        "C1B-HK-08"
+      ],
+      "semantic_only": true,
+      "payload": {
+        "esc_priority": [
+          {
+            "order": 1,
+            "target": "pause_menu",
+            "action_id": "pause_menu"
+          },
+          {
+            "order": 2,
+            "target": "preview_hologram",
+            "action_id": "cancel_action"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "INV-10-unknown_top_level_field",
+      "validation_target": "root",
+      "expected_reject": [
+        "additionalProperties",
+        "unknown_field"
+      ],
+      "gate_ids": [
+        "C1B-ACT-02"
+      ],
+      "payload": {
+        "schema_version": "1.0.0",
+        "contract_id": "control-1b-input-context",
+        "contract_version": "1.0.0",
+        "secret_api_key": "sk-should-never-appear",
+        "contexts": [],
+        "actions": [],
+        "default_bindings": [],
+        "conflict_rules": [],
+        "esc_priority": [],
+        "context_hud": {
+          "max_actions": 4,
+          "non_color_cues_required": true,
+          "show_full_keymap_on_main_hud": false,
+          "keyboard_focus_required": true
+        },
+        "accessibility": {
+          "remap_all_actions": true,
+          "left_hand_preset": true,
+          "one_hand_preset": true,
+          "hold_toggle_options": true,
+          "mouse_sensitivity": {
+            "min": 0.1,
+            "max": 3.0,
+            "default": 1.0
+          },
+          "invert_zoom": true,
+          "reduced_motion": true,
+          "disable_screen_shake": true,
+          "cursor_size": {
+            "min_scale": 0.75,
+            "max_scale": 2.0,
+            "default_scale": 1.0
+          },
+          "action_label_near_cursor": true,
+          "no_mandatory_double_click": true,
+          "confirmation_hold": {
+            "configurable": true,
+            "default_seconds": 0.8,
+            "min_seconds": 0,
+            "max_seconds": 2.0
+          },
+          "pause_during_hologram": true
+        },
+        "safety": {
+          "direct_durable_delete_allowed": false,
+          "direct_durable_mutation_on_keydown_allowed": false,
+          "delete_is_proposal_only": true,
+          "undo_is_compensation_request": true,
+          "preview_owns_collision": false,
+          "preview_owns_ownership": false,
+          "collision_only_after_complete": true,
+          "pipeline": [
+            "prompt",
+            "structured_proposal",
+            "validate",
+            "preview",
+            "explicit_confirm",
+            "world_commit"
+          ],
+          "world_commit_only_mutates_canonical": true
+        },
+        "required_hotkeys": [],
+        "cozy_slice": {
+          "world_id": "cozy_cyber_pixel",
+          "world_ability_action": "world_ability",
+          "world_panel_action": "world_panel",
+          "world_ability_label": "Helper Pulse",
+          "world_panel_label": "Homestead Panel"
+        }
+      }
+    },
+    {
+      "case_id": "INV-11-wrong_schema_version",
+      "validation_target": "subschema",
+      "schema_pointer": "#/properties/schema_version",
+      "payload_key": "schema_version",
+      "expected_reject": [
+        "schema_version_const"
+      ],
+      "gate_ids": [
+        "C1B-ACT-02"
+      ],
+      "payload": {
+        "schema_version": "9.9.9",
+        "contract_id": "control-1b-input-context",
+        "contract_version": "1.0.0"
+      }
+    },
+    {
+      "case_id": "INV-12-confirmation_hold_not_configurable",
+      "validation_target": "subschema",
+      "schema_pointer": "#/properties/accessibility/properties/confirmation_hold",
+      "payload_key": "confirmation_hold",
+      "expected_reject": [
+        "a11y_confirmation_hold",
+        "schema_const"
+      ],
+      "gate_ids": [
+        "C1B-A11Y-12"
+      ],
+      "payload": {
+        "confirmation_hold": {
+          "configurable": false,
+          "default_seconds": 0.8,
+          "min_seconds": 0,
+          "max_seconds": 2.0
+        }
+      }
+    }
+  ]
+}

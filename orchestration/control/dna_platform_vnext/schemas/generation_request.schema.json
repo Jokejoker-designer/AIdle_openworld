@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/dna-platform-vnext/schemas/generation_request.schema.json",
+  "title": "AIdle DNA Generation Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "session_id",
+    "actor",
+    "intent",
+    "target_context",
+    "constraints",
+    "budgets",
+    "output_mode",
+    "provenance",
+    "payload_fingerprint"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "dna_platform_vnext/generation_request/0.1"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9:_\\-]+$"
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "player_id",
+        "authority_context",
+        "preview_consent"
+      ],
+      "properties": {
+        "player_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "authority_context": {
+          "enum": [
+            "OFFLINE_PRIVATE",
+            "ONLINE_PRIVATE",
+            "PRIVATE_WITH_VISITORS",
+            "SHARED"
+          ]
+        },
+        "preview_consent": {
+          "const": true
+        }
+      }
+    },
+    "intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "entity_kind",
+        "gameplay_role",
+        "desired_capabilities",
+        "must_have",
+        "avoid"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 500
+        },
+        "entity_kind": {
+          "enum": [
+            "CHARACTER",
+            "CREATURE",
+            "PROP",
+            "VEHICLE",
+            "BUILDING",
+            "TERRAIN",
+            "PLANT",
+            "EFFECT",
+            "SYSTEM",
+            "REGION"
+          ]
+        },
+        "gameplay_role": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "desired_capabilities": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
+        },
+        "must_have": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "avoid": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      }
+    },
+    "target_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "world_profile",
+        "space_id",
+        "expected_world_revision",
+        "bounds"
+      ],
+      "properties": {
+        "world_profile": {
+          "enum": [
+            "cozy_cyber_pixel",
+            "tiny_diorama",
+            "solarpunk_haven",
+            "arcane_clockwork",
+            "spirit_valley",
+            "surrealism_canvas",
+            "oceanpunk_abyss"
+          ]
+        },
+        "space_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "expected_world_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "bounds": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "width",
+            "depth",
+            "height"
+          ],
+          "properties": {
+            "width": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 128
+            },
+            "depth": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 128
+            },
+            "height": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 64
+            }
+          }
+        }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proposal_only",
+        "catalog_only_runtime_refs",
+        "no_generated_code",
+        "allow_asset_requests",
+        "public_publish",
+        "network_mode"
+      ],
+      "properties": {
+        "proposal_only": {
+          "const": true
+        },
+        "catalog_only_runtime_refs": {
+          "const": true
+        },
+        "no_generated_code": {
+          "const": true
+        },
+        "allow_asset_requests": {
+          "type": "boolean"
+        },
+        "public_publish": {
+          "const": false
+        },
+        "network_mode": {
+          "enum": [
+            "OFFLINE_ONLY",
+            "TRUSTED_GATEWAY_ONLY"
+          ]
+        }
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_modules",
+        "max_materials",
+        "max_bones",
+        "max_animation_actions",
+        "performance_class"
+      ],
+      "properties": {
+        "max_modules": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 128
+        },
+        "max_materials": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 32
+        },
+        "max_bones": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 256
+        },
+        "max_animation_actions": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 128
+        },
+        "performance_class": {
+          "enum": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+          ]
+        }
+      }
+    },
+    "output_mode": {
+      "const": "UNIVERSAL_ENTITY_RECIPE"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_prompt_sha256",
+        "parent_request_ids"
+      ],
+      "properties": {
+        "source_prompt_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "parent_request_ids": {
+          "type": "array",
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      }
+    },
+    "payload_fingerprint": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}
+

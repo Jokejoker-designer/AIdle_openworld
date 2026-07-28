@@ -1,0 +1,23 @@
+{
+  "schema_version": "home_char_sha_fix/1.0",
+  "receipt_id": "HOME_CHAR_SHA_FIX_001",
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "timestamp_utc": "2026-07-24T06:04:26Z",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "problem": "HOME.CHAR CCP-RH-001 glb_sha256_mismatch \u2014 cast_roster stale hash vs nori7_rigged.glb after realism V2 rekey",
+  "fix": {
+    "file": "game/resources/ucbv_001/cast/cast_roster.json",
+    "old_sha256": "4b3a557af05e6143dee643ea525df2cc0b0932a95344454119344a0b7fe38f86",
+    "new_sha256": "07d8d901aed60a3643ead3e7ccb66d4f3ab92274d155c2bff4bb2dc0ebf0facc",
+    "glb": "res://assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "mesh_change": false,
+    "note": "Metadata-only: roster hash aligned to live product GLB (NORI7_ANIM_REALISM_V2)"
+  },
+  "verification": {
+    "headed": "AIDLE_TOWN_GRID_HEADED_QA=PASS real_glb=50 placeholders=0 cast_built=10 missing=[]",
+    "HOME.CHAR": "placed (close_home_char shows CCP-RH-001 robot mesh)",
+    "log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_v6.log"
+  }
+}

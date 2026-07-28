@@ -1,0 +1,57 @@
+{
+	"accepted": false,
+	"diff": {
+		"after": "var is_garden: bool = (b == btn_water or b == btn_plant or b == btn_harvest or b == btn_charge or b == btn_low_energy)",
+		"before": "var is_garden := b == btn_water or b == btn_plant or b == btn_harvest or b == btn_charge or b == btn_low_energy",
+		"lines_touched": 1,
+		"logic_change": false
+	},
+	"failures": [],
+	"fix": {
+		"error": "Parse Error: Cannot infer the type of \"is_garden\" variable because the value doesn't have a set type.",
+		"file": "game/scripts/ui/playable_action_bar.gd",
+		"line": 216,
+		"root_cause": "for b in all_btns: where all_btns: Array (untyped) → b is Variant; := cannot infer bool from Variant == Button or-chain"
+	},
+	"honesty_gap": {
+		"prior_claim": "nori7_anim_15clip_qa_receipt.json claimed UI gardener row PlayableActionBar Row3 Water/Plant/Harvest/Charge/Rest as done",
+		"reality": "That QA (nori7_anim_15clip_headed_qa_001.gd) exercises the Nori presenter directly and never loads playable_action_bar.gd. The parse error blocked the real action bar in live play, so end-to-end button→apply_trigger was not proven before the UI claim was reported complete. This fix + live click-through closes that gap for the 5 gardener buttons."
+	},
+	"ok": true,
+	"purple": "WAITING",
+	"purpose": "Fix GDScript parse error blocking PlayableActionBar (gardener UI) in real play",
+	"receipt_id": "playable_action_bar_parse_fix_001",
+	"schema_version": "playable_action_bar_parse_fix/1.0",
+	"self_accept": false,
+	"verification": {
+		"expected_console_line_pattern": "[Main] gardener_action action=... ok=true ... client_world_commit=false",
+		"gardener_buttons_clicked": [
+			{
+				"action": "water",
+				"button": "BtnWater"
+			},
+			{
+				"action": "plant_seed",
+				"button": "BtnPlant"
+			},
+			{
+				"action": "harvest",
+				"button": "BtnHarvest"
+			},
+			{
+				"action": "charge",
+				"button": "BtnCharge"
+			},
+			{
+				"action": "low_energy",
+				"button": "BtnLowEnergy"
+			}
+		],
+		"mode": "headed_real_main_tscn",
+		"note": "Outer shell log captures Main gardener_action prints; this receipt records click loop results.",
+		"parse_error_gone": true,
+		"scene": "res://scenes/main/main.tscn",
+		"script_loaded": true
+	},
+	"work_order": "WO-OBJECT-DNA-NORI7-ANIM-VERTICAL-SLICE-001"
+}

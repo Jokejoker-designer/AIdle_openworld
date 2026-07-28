@@ -1,0 +1,384 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-p3-r-camera-003-2026-07-22",
+  "step_id": "CTRL-1B-002-p3-r-camera-003",
+  "work_order_id": "WO-CTRL-1B-002-R-CAMERA-CORRECTION-002",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-R-CAMERA-CORRECTION-002.md",
+  "directive_id": 60,
+  "directive_supersedes_on_point": "Directive 59 machine VERIFIED superseded only for Exploration R camera yaw (Human Product Lead live-play regression) — P3 independent Purple VERIFY_ONLY after Q2 real-path evidence",
+  "review_id": "CODEX_CTRL-1B-002-HUMAN-R-ROTATE-REVIEW-002",
+  "prior_review": "orchestration/reviews/CODEX_CTRL-1B-002_HUMAN_R_ROTATE_REVIEW_002.json",
+  "prior_s0_receipt": "orchestration/receipts/control/CTRL_1B_002_s0_r_contract_003.json",
+  "prior_s0_child_task_ref": "019f8731-3c78-7ed1-a029-292167b919ba",
+  "prior_r1_receipt": "orchestration/receipts/control/CTRL_1B_002_r1_camera_runtime_003.json",
+  "prior_r1_child_task_ref": "019f8735-2780-7530-8584-1c8711e18a9a",
+  "prior_q2_receipt": "orchestration/receipts/control/CTRL_1B_002_q2_r_camera_003.json",
+  "prior_q2_child_task_ref": "019f873b-a575-76e0-a153-f6d57cfb3fe9",
+  "milestone": "Control 1B P3 Purple independent acceptance — Human R Exploration camera yaw (VERIFY_ONLY; never ACCEPTED)",
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "profile_name": "aidle-worldgen-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_sha256": "9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; required_skills always + evidence-memory-ledger + adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches; never ACCEPTED; verdicts VERIFIED|CHANGES_REQUESTED|NEED_HUMAN only.",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "independent acceptance verification of Human R behavior + real InputMap path + no dual-fire + contract/fixture consistency + lineage S0→R1→Q2→P3 + exclusive leases + regression sample; exclusive writes receipt+log only; NEVER product/contract/test/scene/evidence patch; never ACCEPTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:9faa88597d4cf5b8717b85ee24e94c2ae1841796bb99f9e7079512621a83800a",
+  "input_context_hash_16": "9faa88597d4cf5b8",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002-R-CAMERA-CORRECTION-002.md + aidle-worldgen-purple-acceptance.md + agent_step_contract.schema.json + CTRL_1B_002_q2_r_camera_003.json",
+  "status": "WAITING_CODEX",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "VERIFIED",
+  "purple_verdict": "VERIFIED",
+  "verdict_detail": "Independent Purple VERIFY_ONLY of WO-CTRL-1B-002-R-CAMERA-CORRECTION-002 (Directive 60). P3 re-ran: validate_control_1b_fixtures.py HARNESS_RESULT=PASS invalid_rejected=12/12 (INV-08 dual-fire still FAIL as required); control_1b_context_router_smoke PASS checks=16 exit 0 ERROR=0 including exploration_allows_rotate_camera_right + r_no_multi_context_dual_fire + exploration_r_camera_yaw_real_inputmap_router_path (delta≈0.7854 rad) + remap still works; control_1b_integration_smoke PASS checks=28 exit 0 ERROR=0 including H-10 real InputMap→router→cozy_camera path, r_build_rotates_preview_no_dual_fire, build_r_preview_only_camera_unchanged; G8 UX collision regression sample PASS checks=6 ERROR=0. Catalog spotcheck: exploration allowed_actions includes rotate_camera_right (control_action_catalog.gd lines 143/248). Fixture spotcheck: Exploration allowed_actions contains rotate_camera_right=True. Q2 evidence re-authenticated without rewrite: r_camera_yaw_witness.json sha256=513b35f00ac9d2d9… proves Exploration R camera_yaw 0→-0.785398 dual_fire=false hologram=false path InputMap.action_press→ControlContextRouter.is_action_just_pressed→CozyCamera._process; Build R camera 0→0 preview_dir=1 dual_fire=false; remap KEY_R→KEY_T still yaws. Human locked behavior closed: Exploration Q/R camera; Build Q/R preview; never dual-fire; remappable InputMap only. Lineage durable: S0 019f8731… → R1 019f8735… → Q2 019f873b… → P3 019f8740… under parent 019f7ffd…. Purple NEVER patches and does NOT ACCEPT product. next_owner=CODEX.",
+  "child_task_ref": "019f8740-e5a8-78b2-ade3-cf7c1baa3a55",
+  "transcript_ref": "019f8740-e5a8-78b2-ade3-cf7c1baa3a55",
+  "writer_transcript_ref": "019f8740-e5a8-78b2-ade3-cf7c1baa3a55",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8740-e5a8-78b2-ade3-cf7c1baa3a55/meta.json",
+  "durable_meta_sha256_at_start": "76825c29370dfcef9339b37f33f9d2b10d94f36ed0bc5a178299d64b68fc0f21",
+  "durable_session_dir": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f8740-e5a8-78b2-ade3-cf7c1baa3a55",
+  "chain_id_note": "Directive 60 durable spawn ids: S0 019f8731-3c78-7ed1-a029-292167b919ba; R1 019f8735-2780-7530-8584-1c8711e18a9a; Q2 019f873b-a575-76e0-a153-f6d57cfb3fe9; P3 019f8740-e5a8-78b2-ade3-cf7c1baa3a55. Parent 019f7ffd-3995-71c0-aca1-51078e24a852. Prior D58/D59 receipts preserved immutable.",
+  "next_owner": "CODEX",
+  "next_route": "CODEX",
+  "character_binding": {
+    "trustlayer": "purple-team-release-gate",
+    "trustlayer_wo_required": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "ui": "ui-visual-critic",
+    "ui_wo_required": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "role": "P3 VERIFY_ONLY independent Human R camera acceptance gate; never patch; never ACCEPTED"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded purple profile, WO-CTRL-1B-002-R-CAMERA-CORRECTION-002, CONTROL_1B_ACCEPTANCE_CONTRACT, S0/R1/Q2 receipts, Q2 evidence pack, character cards, and skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ROUTED_PROFILE",
+      "source": "required by purple profile; ledger applied via receipt + Q2 yaw witness re-auth + P3 re-run exits + allow-list/fixture spotcheck",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED_PROFILE",
+      "source": "required by purple profile; applied to dual-fire residual risk, raw keycode path prohibition, lease exclusivity, self-accept ban, Q2 evidence authenticity",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_p3_r_camera_003.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-p3-r-camera-003.log"
+  ],
+  "product_writes": [],
+  "contract_writes": [],
+  "fixture_writes": [],
+  "test_writes": [],
+  "scene_writes": [],
+  "evidence_writes": [],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_p3_r_camera_003.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-p3-r-camera-003.log"
+  ],
+  "no_product_patch": true,
+  "no_contract_patch": true,
+  "no_fixture_patch": true,
+  "no_test_patch": true,
+  "no_scene_patch": true,
+  "no_evidence_rewrite": true,
+  "no_s0_r1_q2_receipt_rewrite": true,
+  "no_cozy_camera_edit": true,
+  "no_project_godot_edit": true,
+  "child_meta": {
+    "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8740-e5a8-78b2-ade3-cf7c1baa3a55/meta.json",
+    "description": "P3 R camera Purple gate",
+    "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "started_at": "2026-07-22T00:36:45.099147900Z",
+    "effective_model_id": "grok-4.5",
+    "status": "running"
+  },
+  "verification_matrix": {
+    "human_locked_behavior": {
+      "exploration_Q": "rotate_camera_left",
+      "exploration_R": "rotate_camera_right",
+      "build_Q": "build_rotate_left",
+      "build_R": "build_rotate_right",
+      "exploration_R_never_hologram": true,
+      "build_R_never_camera": true,
+      "dual_fire": false,
+      "remappable_inputmap_only": true,
+      "proven": true
+    },
+    "real_inputmap_path": {
+      "path": "InputMap.action_press(rotate_camera_right) → ControlContextRouter.is_action_just_pressed → CozyCamera._process",
+      "cozy_camera_router_gated": true,
+      "cozy_camera_not_leased_or_edited": true,
+      "exploration_yaw_delta_approx_rad": 0.7854,
+      "proven_by": [
+        "P3 re-run router smoke exploration_r_camera_yaw_real_inputmap_router_path",
+        "P3 re-run integration H-10_exploration_r_camera_yaw_real_inputmap_path",
+        "Q2 r_camera_yaw_witness.json (sha256 513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f)"
+      ],
+      "proven": true
+    },
+    "no_dual_fire": {
+      "router_check": "r_no_multi_context_dual_fire PASS",
+      "integration_checks": [
+        "r_build_rotates_preview_no_dual_fire PASS",
+        "build_r_preview_only_camera_unchanged PASS",
+        "r_exploration_no_hologram_rotate PASS"
+      ],
+      "contract_inv_08": "still FAIL rejects multi-context R dual-fire (required)",
+      "witness_exploration_dual_fire": false,
+      "witness_build_dual_fire": false,
+      "proven": true
+    },
+    "contract_fixture_consistency": {
+      "validator": "HARNESS_RESULT=PASS",
+      "invalid_rejected": "12/12",
+      "valid_fixture_sha256": "211605f46db73a4308252d7f10867260b5f8a8dd9f8d5fefc970f3c65f2d719f",
+      "valid_fixture_hash_lock": "OK",
+      "exploration_fixture_has_rotate_camera_right": true,
+      "catalog_exploration_has_rotate_camera_right": true,
+      "catalog_sha256": "9629e79105baf0af78674f5619e3df9bf0406d61ab8d970a4c7e73f1a8cde032",
+      "acceptance_contract_h10_directive_60": true,
+      "proven": true
+    },
+    "lineage": {
+      "parent": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "s0": "019f8731-3c78-7ed1-a029-292167b919ba",
+      "r1": "019f8735-2780-7530-8584-1c8711e18a9a",
+      "q2": "019f873b-a575-76e0-a153-f6d57cfb3fe9",
+      "p3": "019f8740-e5a8-78b2-ade3-cf7c1baa3a55",
+      "sequential_four_children": true,
+      "no_grandchild": true,
+      "d58_d59_receipts_preserved": true,
+      "proven": true
+    },
+    "leases": {
+      "p3_exclusive_only_receipt_and_log": true,
+      "no_product_write": true,
+      "no_evidence_rewrite": true,
+      "prior_wave_receipts_immutable": true,
+      "proven": true
+    },
+    "regressions_sample": {
+      "g8_ux_input_collision_smoke": {
+        "exit": 0,
+        "error_lines": 0,
+        "marker": "AIDLE_G8_UX_SMOKE=PASS checks=6"
+      },
+      "q2_matrix_7_of_7_pass_authenticated": true,
+      "proven": true
+    }
+  },
+  "p3_rerun": {
+    "timestamp_utc": "2026-07-22T00:37:42Z",
+    "validator": {
+      "cmd": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "exit": 0,
+      "marker": "HARNESS_RESULT=PASS",
+      "valid": "PASS",
+      "invalid_rejected": "12/12",
+      "valid_fixture_sha256": "211605f46db73a4308252d7f10867260b5f8a8dd9f8d5fefc970f3c65f2d719f",
+      "inv08_dual_fire_still_rejected": true,
+      "error_line_count": 0
+    },
+    "godot": "tools/Godot_v4.3-stable_win64_console.exe",
+    "router_smoke": {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "checks": 16,
+      "error_line_count": 0,
+      "key_oks": [
+        "exploration_allows_rotate_camera_right",
+        "r_no_multi_context_dual_fire",
+        "exploration_r_camera_yaw_real_inputmap_router_path",
+        "build_r_preview_only_camera_unchanged",
+        "rotate_camera_right_remap_still_works"
+      ],
+      "yaw_excerpt": "real_path exploration R camera yaw delta=0.7854 rad (router-gated InputMap); remap rotate_camera_right→T camera yaw delta=1.5358 rad"
+    },
+    "integration_smoke": {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_integration_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=28",
+      "checks": 28,
+      "error_line_count": 0,
+      "key_oks": [
+        "r_exploration_no_hologram_rotate",
+        "H-10_exploration_r_camera_yaw_real_inputmap_path",
+        "r_build_rotates_preview_no_dual_fire",
+        "build_r_preview_only_camera_unchanged",
+        "rotate_camera_right_remap_still_works"
+      ],
+      "yaw_excerpt": "H-10 exploration R camera yaw delta=0.7854 rad (InputMap→router→cozy_camera)"
+    },
+    "g8_regression_sample": {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux_input_collision_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+      "error_line_count": 0
+    },
+    "catalog_spotcheck": {
+      "file": "game/scripts/input/control_action_catalog.gd",
+      "exploration_allowlist_contains_rotate_camera_right": true,
+      "default_binding_KEY_R": true,
+      "sha256": "9629e79105baf0af78674f5619e3df9bf0406d61ab8d970a4c7e73f1a8cde032"
+    },
+    "fixture_spotcheck": {
+      "file": "orchestration/contracts/control_1b/valid_context_fixture.json",
+      "exploration_allowed_actions_contains_rotate_camera_right": true
+    }
+  },
+  "q2_evidence_reauth": {
+    "dir": "orchestration/evidence/control_1b_002_r_camera_correction/",
+    "primary_witness": "r_camera_yaw_witness.json",
+    "witness_sha256": "513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f",
+    "manifest": "evidence_manifest.json",
+    "manifest_sha256": "809b4e70c33f6a49e338466c2a6edf9e71f4a3c22d37637b75ed083d5be5e7dd",
+    "q2_receipt_sha256": "6093d9011caaed6b266833bad75226a76744e649706ce7e2376a139162feef93",
+    "q2_verdict": "REAL_PATH_R_CAMERA_EVIDENCE_PASS",
+    "key_yaw_measurements": {
+      "exploration_physical_R": {
+        "camera_yaw_before": 0.0,
+        "camera_yaw_after": -0.78539816339745,
+        "camera_yaw_delta_abs": 0.785398163397448,
+        "dual_fire": false,
+        "hologram_rotated": false,
+        "fired": ["rotate_camera_right"],
+        "path": "InputMap.action_press(rotate_camera_right) → ControlContextRouter.is_action_just_pressed → CozyCamera._process"
+      },
+      "build_physical_R": {
+        "camera_yaw_before": 0.0,
+        "camera_yaw_after": 0.0,
+        "camera_yaw_delta_abs": 0.0,
+        "preview_rotate_dir": 1,
+        "dual_fire": false,
+        "fired": ["build_rotate_right"]
+      },
+      "remap_compatibility": {
+        "physical_rebinding": "KEY_R → KEY_T",
+        "camera_yaw_delta_abs": 1.53352132996005,
+        "router_just_pressed": true
+      }
+    },
+    "q2_smoke_summary_authenticated": {
+      "validator": "HARNESS_RESULT=PASS invalid_rejected=12/12",
+      "router": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16 ERROR=0",
+      "a11y": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS checks=11 ERROR=0",
+      "integration": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=28 ERROR=0",
+      "headed_dry_run": "AIDLE_CTRL_1B_HEADED_SMOKE=PASS checks=38 mode=dry_run ERROR=0",
+      "clean_boot": "exit=0 ERROR=0 SCRIPT_ERROR=0",
+      "yaw_witness": "AIDLE_CTRL_1B_R_CAMERA_YAW_WITNESS=PASS checks=3 ERROR=0",
+      "regressions": "7/7 PASS ERROR=0"
+    },
+    "rewritten": false
+  },
+  "prior_receipt_hashes": {
+    "s0": "c624606147765b9318d90673994732d0f5fb4f402e79d4a23993ed86b92df18c",
+    "r1": "df58c0f38e630288f9139ccacff04a9ef6fb070de89bc62e8d3f6dbdf39818e2",
+    "q2": "6093d9011caaed6b266833bad75226a76744e649706ce7e2376a139162feef93"
+  },
+  "result": {
+    "status": "WAITING_CODEX",
+    "verdict": "VERIFIED",
+    "purple_verdict": "VERIFIED",
+    "human_behavior_proven": true,
+    "real_inputmap_path_proven": true,
+    "no_dual_fire_proven": true,
+    "contract_fixture_consistent": true,
+    "lineage_ok": true,
+    "leases_ok": true,
+    "regressions_sample_pass": true,
+    "validator_pass": true,
+    "invalid_rejected": "12/12",
+    "router_smoke_pass": true,
+    "integration_smoke_pass": true,
+    "exploration_allowlist_has_rotate_camera_right": true,
+    "self_accept": false,
+    "accepted": false,
+    "next_owner": "CODEX",
+    "summary": "Directive 60 P3 Purple VERIFIED: Human Exploration R rotates camera yaw via real InputMap→router→camera path; Build R preview-only; no dual-fire; contract/fixture/catalog consistent; lineage and leases clean. Product not accepted — handoff CODEX."
+  },
+  "evidence_refs": [
+    "orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json",
+    "orchestration/evidence/control_1b_002_r_camera_correction/evidence_manifest.json",
+    "orchestration/evidence/control_1b_002_r_camera_correction/evidence_sha256.json",
+    "orchestration/evidence/control_1b_002_r_camera_correction/validator.log",
+    "orchestration/evidence/control_1b_002_r_camera_correction/router_smoke.log",
+    "orchestration/evidence/control_1b_002_r_camera_correction/integration_smoke.log",
+    "orchestration/evidence/control_1b_002_r_camera_correction/control_smoke_exits.json",
+    "orchestration/evidence/control_1b_002_r_camera_correction/regression_exits.json",
+    "orchestration/receipts/control/CTRL_1B_002_s0_r_contract_003.json",
+    "orchestration/receipts/control/CTRL_1B_002_r1_camera_runtime_003.json",
+    "orchestration/receipts/control/CTRL_1B_002_q2_r_camera_003.json",
+    "orchestration/logs/ctrl-1b-002-p3-r-camera-003.log",
+    "game/scripts/input/control_action_catalog.gd",
+    "game/scripts/camera/cozy_camera.gd",
+    "Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md"
+  ],
+  "self_audit": {
+    "authority_respected": true,
+    "verify_only": true,
+    "no_product_patch": true,
+    "no_contract_rewrite": true,
+    "no_fixture_rewrite": true,
+    "no_test_patch": true,
+    "no_scene_patch": true,
+    "no_evidence_rewrite": true,
+    "no_s0_r1_q2_receipt_rewrite": true,
+    "no_cozy_camera_edit": true,
+    "no_project_godot_edit": true,
+    "no_character_foundry": true,
+    "no_world2_network_world_commit": true,
+    "no_grandchild": true,
+    "exclusive_lease_only": true,
+    "self_accept": false,
+    "accepted": false,
+    "one_writer_per_file": true,
+    "real_durable_child_task_ref": true,
+    "preserves_prior_d58_d59_s0_r1_q2_receipts": true,
+    "human_behavior_and_real_path_and_no_dual_fire_required_for_verified": true,
+    "all_three_proven": true
+  }
+}

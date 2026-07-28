@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.0.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "agent_step_id": "WO-COMMERCIAL-SAVE-SOAK-001-QA-2026-07-23",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "skills_loaded": [
+    "maf-mandatory-standard",
+    "trustlayer-x16-crew",
+    "agentwork-knowledge-loop",
+    "curiosity-engine",
+    "evidence-memory-ledger"
+  ],
+  "authority_token": "VERIFY_ONLY",
+  "trustlayer_character": "purple-team-finding-triage",
+  "work_order": "orchestration/work_orders/WO-COMMERCIAL-SAVE-SOAK-001.md",
+  "directive_id": 99,
+  "task_id": "COMMERCIAL-HARDENING-VERIFY",
+  "checklist_gate": 8,
+  "checklist_gate_name": "Save integrity + idempotency + revision recovery",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "writer_transcript_ref": "019f8e0d-10d7-70a2-83c9-7de770ff62e9",
+  "profile": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "accepted": false,
+  "self_accept": false,
+  "status": "REVIEW_REQUESTED",
+  "product_writes": [],
+  "product_writes_this_wave": [],
+  "no_product_patch": true,
+  "no_children_spawned": true,
+  "no_network_ship": true,
+  "result": {
+    "verdict": "G4_PERSIST_SMOKE_PASS_GATE8_STILL_PARTIAL",
+    "summary": "Headless Godot 4.3 G4 persist smoke exited 0 with G4_PERSIST_SMOKE=PASS checks=22. Kernel coverage for save/reload hashes, duplicate-request idempotency, stale-revision conflict, HMAC seal/tamper fail-closed, compensation append-only, and cancel/preview not journaled is executable and green. Commercial checklist gate #8 remains PARTIAL: no N-iteration soak, no multi-session concurrent journal evidence, no revision-recovery UX playthrough, production key provider not evidenced (TEST_ONLY_G4 only). Do not claim ship. No product writes.",
+    "scope": {
+      "in_scope": [
+        "orchestration/receipts/commercial_save_soak_001/**",
+        "orchestration/logs/commercial_save_soak_001/**",
+        "orchestration/evidence/commercial_save_soak_001/**",
+        "read-only analysis of game/scripts/modules/persist/persist_module.gd and g4_persist_smoke.gd"
+      ],
+      "out_of_scope": [
+        "product patches to persist_module.gd / journal_store.gd",
+        "ship/publish/network/credentials",
+        "Shared District / server World Commit / economy authority"
+      ]
+    },
+    "smoke": {
+      "command": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --path E:/AIdle_openworld/game --headless -s res://scripts/modules/persist/g4_persist_smoke.gd",
+      "exit_code": 0,
+      "marker": "G4_PERSIST_SMOKE=PASS checks=22",
+      "log_raw": "orchestration/logs/commercial_save_soak_001/g4_persist_smoke.log",
+      "log_utf8": "orchestration/logs/commercial_save_soak_001/g4_persist_smoke.utf8.txt",
+      "log_encoding": "UTF-8 (raw was already UTF-8; no UTF-16LE decode required)",
+      "sha256_log_raw": "dd4c4521da03368197682f122d828476c6e361cde3ae49fbab0aad7a13a3cf8c",
+      "sha256_log_utf8": "dd4c4521da03368197682f122d828476c6e361cde3ae49fbab0aad7a13a3cf8c",
+      "checks_passed": 22,
+      "checks_failed": 0,
+      "godot_version_banner": "Godot Engine v4.3.stable.official.77dcf97d8"
+    },
+    "coverage_matrix": [
+      {
+        "capability": "save_reload",
+        "smoke_tests": [
+          "deterministic_save_reload_same_entity_hashes",
+          "g3_expected_world_revision_3_through_save_reload",
+          "sealed_journal_save_reload_verify_ok"
+        ],
+        "acceptance_ids": [
+          "AT-SAVE-RELOAD-HASH",
+          "AT-G3-REV-3-PRESERVED",
+          "AT-INTEGRITY-HAPPY"
+        ],
+        "code_surface": [
+          "persist_module.gd:save_journal/load_journal/entity_hash/entity_set_hash",
+          "journal_store.gd (delegated)"
+        ],
+        "status": "COVERED_PASS",
+        "evidence": "exit 0; OK lines in utf8 transcript; entity/set hashes equal across save/load; base rev 3 preserved, head rev 4 after apply"
+      },
+      {
+        "capability": "idempotency_duplicate_request",
+        "smoke_tests": [
+          "duplicate_request_id_no_duplicate_entity"
+        ],
+        "acceptance_ids": [
+          "AT-DUP-REQUEST"
+        ],
+        "code_surface": [
+          "journal_store.gd:apply_mutation request_id index -> status=idempotent_replay"
+        ],
+        "status": "COVERED_PASS",
+        "evidence": "second apply same request_id returns idempotent_replay; entity_count=1; entry_count=1; revision not bumped; set hash stable"
+      },
+      {
+        "capability": "stale_revision",
+        "smoke_tests": [
+          "stale_expected_world_revision_rejected"
+        ],
+        "acceptance_ids": [
+          "AT-STALE-REVISION"
+        ],
+        "code_surface": [
+          "journal_store.gd:apply_mutation expected_world_revision != head -> status=conflicted conflict.code=revision_mismatch"
+        ],
+        "status": "COVERED_PASS",
+        "evidence": "stale expected revs 0 and 2 rejected; head stays 3; no partial entity mutation; no journal entry appended"
+      },
+      {
+        "capability": "tamper_seal",
+        "smoke_tests": [
+          "sealed_journal_save_reload_verify_ok",
+          "wrong_key_fail_closed",
+          "modified_entry_detected",
+          "removed_entry_detected",
+          "reordered_entries_detected",
+          "broken_previous_seal_detected",
+          "invalid_or_missing_seal_fail_closed",
+          "missing_key_provider_fail_closed"
+        ],
+        "acceptance_ids": [
+          "AT-INTEGRITY-HAPPY",
+          "AT-INTEGRITY-WRONG-KEY",
+          "AT-INTEGRITY-TAMPER-ENTRY",
+          "AT-INTEGRITY-REMOVE-ENTRY",
+          "AT-INTEGRITY-REORDER",
+          "AT-INTEGRITY-BROKEN-PREV",
+          "AT-INTEGRITY-INVALID-SEAL",
+          "AT-KEY-PROVIDER-MISSING"
+        ],
+        "code_surface": [
+          "journal_seal.gd HMAC-SHA256",
+          "persist_module.gd:verify_integrity/set_key_provider",
+          "journal_store.gd load/verify fail-closed"
+        ],
+        "status": "COVERED_PASS",
+        "evidence": "all integrity suite OK; wrong key / tamper / remove / reorder / broken prev / invalid seal refuse load or verify; no entity materialization on fail"
+      },
+      {
+        "capability": "compensation",
+        "smoke_tests": [
+          "compensation_append_only_history_preserved"
+        ],
+        "acceptance_ids": [
+          "AT-COMPENSATION-APPEND"
+        ],
+        "code_surface": [
+          "persist_module.gd:apply_compensation",
+          "journal_store.gd append compensation entry; history_erased=false"
+        ],
+        "status": "COVERED_PASS",
+        "evidence": "compensation committed; prior entry byte-stable; entry_type=compensation; entity removed from active set; rev 4->5; reload preserves 2 entries"
+      },
+      {
+        "capability": "cancel_not_journaled",
+        "smoke_tests": [
+          "cancelled_preview_never_in_journal"
+        ],
+        "acceptance_ids": [
+          "AT-CANCEL-NOT-JOURNALED"
+        ],
+        "code_surface": [
+          "journal_store.gd:_gate_durable cancel/preview reject cancel_not_durable"
+        ],
+        "status": "COVERED_PASS",
+        "evidence": "cancel receipt_kind and pending/preview_only rejected; entry_count and entity_set_hash unchanged; rev stays 3"
+      }
+    ],
+    "coverage_matrix_summary": {
+      "required_capabilities": 6,
+      "covered_pass": 6,
+      "covered_fail": 0,
+      "not_covered": 0,
+      "kernel_status": "PASS"
+    },
+    "commercial_gate_8_gaps": [
+      {
+        "gap_id": "G8-GAP-SOAK-ITERATIONS",
+        "severity": "medium",
+        "description": "No N-cycle soak (repeated save/load/apply under time or volume stress). Single-pass suite of 22 checks only.",
+        "blocks_gate_pass": true,
+        "suggested_followup": "Add dedicated soak smoke (e.g. 100–1000 apply/save/load cycles) under game/tests or persist/*_smoke.gd; measure duration + hash stability"
+      },
+      {
+        "gap_id": "G8-GAP-REVISION-RECOVERY-UX",
+        "severity": "medium",
+        "description": "API returns status=conflicted + revision_mismatch, but no headed product UX evidence that player can recover (refresh expected rev, re-preview, re-confirm) after conflict.",
+        "blocks_gate_pass": true,
+        "suggested_followup": "TIER2 product UX + headed evidence of conflict surface and recovery path; Blue lease if code changes required"
+      },
+      {
+        "gap_id": "G8-GAP-MULTI-SESSION",
+        "severity": "medium",
+        "description": "No multi-session / multi-process concurrent journal open, crash-mid-write, or alternating writer evidence.",
+        "blocks_gate_pass": true,
+        "suggested_followup": "Two sequential process sessions reloading same journal path; optional crash-injection mid-save if journal atomicity claims are commercial-critical"
+      },
+      {
+        "gap_id": "G8-GAP-PRODUCTION-KEY-PROVIDER",
+        "severity": "low",
+        "description": "Smoke uses TEST_ONLY_G4 test key provider only. Production device-local key injection not evidenced in this WO.",
+        "blocks_gate_pass": false,
+        "note": "Known deferred from G4 R1 remaining risks; not a smoke FAIL"
+      },
+      {
+        "gap_id": "G8-GAP-HEADED-PLAYTHROUGH-SAVE",
+        "severity": "low",
+        "description": "No headed play loop save/reload proof integrated with explore→companion→build→commit path for gate #8.",
+        "blocks_gate_pass": false,
+        "note": "Core loop has separate machine/Human evidence; save integrity kernel is headless-only here"
+      }
+    ],
+    "checklist_gate_8_assessment": {
+      "prior_status": "PARTIAL",
+      "post_this_wo_status": "PARTIAL",
+      "reason": "Kernel integrity+idempotency+stale-revision suite is executable PASS (exit 0, 22/22). Commercial gate still lacks soak iterations, multi-session durability, and revision-recovery UX evidence. Do not upgrade to PASS without those or explicit Human waiver.",
+      "claim_ship": false
+    },
+    "source_read": [
+      "game/scripts/modules/persist/persist_module.gd",
+      "game/scripts/modules/persist/g4_persist_smoke.gd",
+      "game/scripts/modules/persist/journal_store.gd (stale/idempotent paths)",
+      "orchestration/control/COMMERCIAL_READY_SHIP_CHECKLIST_001.md",
+      "orchestration/work_orders/WO-COMMERCIAL-SAVE-SOAK-001.md",
+      "orchestration/control/codex_directive.json (directive_id=99)"
+    ],
+    "blocking_product_defects": [],
+    "optional_blue_followup": "None required for product defect. Optional future Blue WOs only if soak/recovery UX needs product changes after Red triage; this QA pass did not find a kernel FAIL."
+  },
+  "smoke_test": {
+    "executed": true,
+    "commands": [
+      {
+        "command": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --path E:/AIdle_openworld/game --headless -s res://scripts/modules/persist/g4_persist_smoke.gd",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22",
+        "log": "orchestration/logs/commercial_save_soak_001/g4_persist_smoke.log",
+        "log_utf8": "orchestration/logs/commercial_save_soak_001/g4_persist_smoke.utf8.txt",
+        "sha256": "dd4c4521da03368197682f122d828476c6e361cde3ae49fbab0aad7a13a3cf8c"
+      }
+    ],
+    "pass": true,
+    "failed_checks": []
+  },
+  "self_audit": {
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "worker_cannot_self_accept": true,
+    "product_writes": [],
+    "no_product_code_patch": true,
+    "no_children_spawned": true,
+    "no_grandchildren": true,
+    "parent_spawn_only": true,
+    "no_network_ship_publish": true,
+    "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded profile, WO, directive 99, checklist, agent_step_contract, persist sources manually",
+    "evidence_honesty": "Markers and exit code taken from this-run log; coverage matrix maps smoke OK labels to required capabilities; gaps listed without inventing headed/soak evidence",
+    "owned_write_surface_only": [
+      "orchestration/receipts/commercial_save_soak_001/**",
+      "orchestration/logs/commercial_save_soak_001/**",
+      "orchestration/evidence/commercial_save_soak_001/**"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-COMMERCIAL-SAVE-SOAK-001.md",
+    "orchestration/control/codex_directive.json",
+    "orchestration/control/COMMERCIAL_READY_SHIP_CHECKLIST_001.md",
+    "orchestration/control/AIDLE_GAME_VISION_LOCK_001.md",
+    "game/scripts/modules/persist/persist_module.gd",
+    "game/scripts/modules/persist/g4_persist_smoke.gd",
+    "game/scripts/modules/persist/journal_store.gd",
+    "orchestration/logs/commercial_save_soak_001/g4_persist_smoke.log",
+    "orchestration/logs/commercial_save_soak_001/g4_persist_smoke.utf8.txt",
+    "orchestration/logs/commercial_save_soak_001/g4_persist_smoke.exitcode.txt",
+    "orchestration/evidence/commercial_save_soak_001/g4_persist_smoke.log",
+    "orchestration/evidence/commercial_save_soak_001/g4_persist_smoke.utf8.txt",
+    "orchestration/receipts/g4/R1_persist.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md"
+  ],
+  "next_route": "CONDUCTOR_OR_PURPLE_GATE8_PARTIAL_HOLD_OPTIONAL_SOAK_UX_MULTI_SESSION_WAVE",
+  "remaining_risks": [
+    "Gate #8 still PARTIAL for commercial-ready quality bar",
+    "TEST_ONLY_G4 key is not production authority",
+    "Local seal is device-local reconciliation evidence only — not server World Commit"
+  ]
+}

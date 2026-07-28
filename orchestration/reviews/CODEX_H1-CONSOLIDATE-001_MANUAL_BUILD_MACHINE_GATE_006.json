@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-H1-CONSOLIDATE-001-MANUAL-BUILD-MACHINE-GATE-006",
+  "task_id": "H1-CONSOLIDATE-001",
+  "directive_reviewed": 79,
+  "reviewed_at": "2026-07-22T23:10:00+07:00",
+  "reviewed_by": "codex",
+  "verdict": "MACHINE_PASS_HITL_REQUIRED",
+  "accepted": false,
+  "human_pass_inferred": false,
+  "machine_gate": {
+    "pass": true,
+    "receipt_schema": "PASS_3_OF_3_DIRECT_STRUCTURAL_VALIDATION_AGAINST_AGENT_STEP_CONTRACT",
+    "durable_lineage": "PASS_C0_C1_C2_PARENT_OWNED_META_COMPLETED",
+    "accepted_false": "PASS_3_OF_3",
+    "self_accept_false": "PASS_3_OF_3",
+    "product_hashes": "PASS_8_OF_8",
+    "product_bytes": "PASS_8_OF_8",
+    "correction_004_receipt_lease": "PASS_EXACTLY_C0_C1_C2",
+    "correction_004_log_lease": "PASS_EXACTLY_C0_C1_C2",
+    "headed_pngs": "PASS_22_OF_22_DISTINCT_11_AT_1280x720_11_AT_868x517",
+    "headed_runtime_errors": "PASS_ZERO_ERROR_USER_ERROR_SCRIPT_ERROR_PARSE_COMPILE_RID_LEAK",
+    "strict_smokes": "PASS_17_OF_17_ZERO_ERROR_LINES",
+    "source_spot_checks": [
+      "cursor_valid explicitly typed bool",
+      "Manual Build shipped label with Small Build retained only as negative test assertions",
+      "intentional valid LMB required before can_confirm",
+      "place_at_cursor rejects outside Build context",
+      "force_custom_cursor optional and default OS pointer preserved",
+      "World Commit remains sole canonical mutation path"
+    ]
+  },
+  "durable_children": [
+    {"wave": "C0", "child_ref": "019f8a7b-ee32-7b31-960b-2f634530e6f9", "status": "completed", "started_at": "2026-07-22T15:40:05.557287500Z", "completed_at": "2026-07-22T15:46:54.186761Z"},
+    {"wave": "C1", "child_ref": "019f8a82-a121-74a0-bcdd-00624873887d", "status": "completed", "started_at": "2026-07-22T15:47:24.581891800Z", "completed_at": "2026-07-22T15:53:00.138296900Z"},
+    {"wave": "C2", "child_ref": "019f8a88-06a2-7cb2-96e8-987ea1af555c", "status": "completed", "started_at": "2026-07-22T15:53:18.248141300Z", "completed_at": "2026-07-22T15:57:54.884595Z"}
+  ],
+  "historical_rejected_evidence": [
+    "Directive 78 W2 receipt remains schema-invalid and immutable",
+    "Directive 78 W0 auxiliary orchestration artifacts remain out-of-lease and immutable",
+    "worker-authored completion fields remain non-canonical; parent-owned meta timestamps are authoritative"
+  ],
+  "human_gate": {
+    "required": true,
+    "state": "OPEN_WAITING_HUMAN",
+    "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-HUMAN-MANUAL-BUILD-RETEST-005.md",
+    "pass_required_to_close_h1": true
+  },
+  "queue": [
+    "UCBV-001 first immediately after explicit Human H1 PASS and new monotonic Codex directive",
+    "P2E-002 after UCBV-001"
+  ],
+  "red_f01_network_shipping_hard_stop": true
+}

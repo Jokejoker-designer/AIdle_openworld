@@ -1,0 +1,52 @@
+﻿[
+    {
+        "name":  "router_smoke",
+        "script":  "res://tests/control_1b_context_router_smoke.gd",
+        "exit":  0,
+        "error_lines":  0,
+        "script_error_lines":  0,
+        "pass_line":  "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16\r",
+        "yaw_excerpt":  "  OK  exploration_allows_rotate_camera_right\r\n  real_path exploration R camera yaw delta=0.7854 rad (router-gated InputMap)\r\n  OK  exploration_r_camera_yaw_real_inputmap_router_path\r\n  OK  build_r_preview_only_camera_unchanged\r\n  remap rotate_camera_rightΓåÆT camera yaw delta=1.5391 rad\r\n  OK  rotate_camera_right_remap_still_works\r",
+        "log":  "E:\\AIdle_openworld\\orchestration\\evidence\\control_1b_002_r_camera_correction\\router_smoke.log"
+    },
+    {
+        "name":  "a11y_smoke",
+        "script":  "res://tests/control_1b_accessibility_smoke.gd",
+        "exit":  0,
+        "error_lines":  0,
+        "script_error_lines":  0,
+        "pass_line":  "AIDLE_CTRL_1B_A11Y_SMOKE=PASS checks=11\r",
+        "yaw_excerpt":  "  OK  remap_known_action\r\n  OK  remap_unknown_rejected\r",
+        "log":  "E:\\AIdle_openworld\\orchestration\\evidence\\control_1b_002_r_camera_correction\\a11y_smoke.log"
+    },
+    {
+        "name":  "integration_smoke",
+        "script":  "res://tests/control_1b_integration_smoke.gd",
+        "exit":  0,
+        "error_lines":  0,
+        "script_error_lines":  0,
+        "pass_line":  "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=28\r",
+        "yaw_excerpt":  "  H-10 exploration R camera yaw delta=0.7854 rad (InputMapΓåÆrouterΓåÆcozy_camera)\r\n  OK  H-10_exploration_r_camera_yaw_real_inputmap_path\r\n  OK  r_build_rotates_preview_no_dual_fire\r\n  OK  build_r_preview_only_camera_unchanged\r\n  OK  rotate_camera_right_remap_still_works\r\n  OK  H-12_q_build_rotate_left\r\n  OK  A3-F09_full_remappable_catalog_ui\r",
+        "log":  "E:\\AIdle_openworld\\orchestration\\evidence\\control_1b_002_r_camera_correction\\integration_smoke.log"
+    },
+    {
+        "name":  "headed_dry_run",
+        "script":  "res://tests/control_1b_headed_smoke.gd",
+        "exit":  0,
+        "error_lines":  0,
+        "script_error_lines":  0,
+        "pass_line":  "AIDLE_CTRL_1B_HEADED_SMOKE=PASS checks=38 mode=dry_run states=27\r",
+        "yaw_excerpt":  "  OK  H-11_build_r_rotate\r\n  STATE build_preview_rotated ctx=build { \"yaw\": 0.2617994248867, \"owns_collision\": false, \"row\": \"H-11\" }\r\n  OK  H-12_q_build_rotate_left\r\n  STATE build_preview_rotated_left ctx=build { \"row\": \"H-12\", \"yaw\": 0 }\r\n  STATE control_settings ctx=build { \"row\": \"H-22\", \"remap_catalog_count\": 45 }\r\n  OK  H-10_exploration_r_camera_yaw_real_path\r\n  STATE exploration_r ctx=exploration { \"row\": \"H-10\", \"camera_yaw_delta\": 0.78539816339745, \"router_just_pressed\": true, \"dual_fire\": false, \"fired\": [\"rotate_camera_right\"] }\r\n  H-10 camera yaw delta=0.7854 rad (InputMapΓåÆrouterΓåÆcozy_camera)\r\n  OK  H-11_build_r_preview_only_camera_unchanged\r\n  STATE build_r_camera_gate ctx=build { \"row\": \"H-11\", \"camera_yaw_delta\": 0, \"preview_changed\": true }\r\n  ┬╖ build_r_camera_gate\r",
+        "log":  "E:\\AIdle_openworld\\orchestration\\evidence\\control_1b_002_r_camera_correction\\headed_dry_run.log"
+    },
+    {
+        "name":  "clean_boot",
+        "script":  "--quit-after 3",
+        "exit":  0,
+        "error_lines":  0,
+        "script_error_lines":  0,
+        "pass_line":  "clean_boot exit=0 err=0",
+        "yaw_excerpt":  "",
+        "log":  "E:\\AIdle_openworld\\orchestration\\evidence\\control_1b_002_r_camera_correction\\clean_boot.log"
+    }
+]

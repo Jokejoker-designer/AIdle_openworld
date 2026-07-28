@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "aidle://town_build_10phase/mockup_parity_100",
+  "title": "MOCKUP_PARITY_100 gate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "phase_id",
+    "mockup_ssot",
+    "character_id",
+    "building_module_id",
+    "prop_module_ids",
+    "checks",
+    "verdict",
+    "self_accept"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "mockup_parity_100/1.0"
+    },
+    "phase_id": {
+      "type": "string",
+      "pattern": "^TOWN_PHASE_[0-9]{2}$"
+    },
+    "mockup_ssot": {
+      "const": "MOCKUP_SSOT_V2"
+    },
+    "character_id": {
+      "type": "string"
+    },
+    "building_module_id": {
+      "type": "string"
+    },
+    "prop_module_ids": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "string"
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ids_match_mockup",
+        "clips_named_exact",
+        "idle_plays",
+        "building_loads",
+        "props_load_count",
+        "no_cyan_body",
+        "silhouette_readable_25d",
+        "town_no_overlap",
+        "district_role_intact",
+        "assets_hashed"
+      ],
+      "properties": {
+        "ids_match_mockup": {
+          "type": "boolean"
+        },
+        "clips_named_exact": {
+          "type": "boolean"
+        },
+        "idle_plays": {
+          "type": "boolean"
+        },
+        "building_loads": {
+          "type": "boolean"
+        },
+        "props_load_count": {
+          "type": "integer",
+          "minimum": 3
+        },
+        "no_cyan_body": {
+          "type": "boolean"
+        },
+        "silhouette_readable_25d": {
+          "type": "boolean"
+        },
+        "town_no_overlap": {
+          "type": "boolean"
+        },
+        "district_role_intact": {
+          "type": "boolean"
+        },
+        "assets_hashed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "verdict": {
+      "enum": [
+        "FAIL",
+        "PARITY_100_VERIFIED"
+      ]
+    },
+    "self_accept": {
+      "const": false
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

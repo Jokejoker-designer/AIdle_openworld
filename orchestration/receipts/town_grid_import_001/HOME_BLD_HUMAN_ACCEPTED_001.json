@@ -1,0 +1,51 @@
+{
+  "schema_version": "object_human_acceptance/1.0",
+  "receipt_id": "HOME_BLD_HUMAN_ACCEPTED_001",
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "authority": "PATCH_DRAFT",
+  "agent_filing": "grok",
+  "timestamp_utc": "2026-07-24T01:35:00Z",
+
+  "plot_id": "HOME.BLD",
+  "object_id": "cozy_house_small_A",
+  "module_id": "cozy_house_small_A",
+
+  "decision": "HUMAN_ACCEPTED_RESIDUAL",
+  "decision_precision": "Human Product Lead accepts the residual soft-clay fidelity gap as FINAL for this object. This is an accepted gap — NOT a claim of 100% MOCKUP_SSOT_V2 match.",
+  "ssot_100_pct_match": false,
+  "scorecard_count_as_100_pct": false,
+  "scorecard_note": "HOME.BLD remains non-100% in any wave scorecard math. Status moves from iterating/NEED_HUMAN to closed-by-Human; no further house passes.",
+
+  "decided_by": "Human Product Lead",
+  "relayed_by": "Claude conductor",
+  "relay_chain": "Human Product Lead → Claude conductor (supervisor directive) → Grok (PATCH_DRAFT filing)",
+  "is_self_accept": false,
+  "self_accept": false,
+  "accepted": true,
+  "acceptance_scope": "THIS_OBJECT_ONLY",
+
+  "signature_at_acceptance": "soft_clay_door_side_window_high_partial",
+  "strikes_at_acceptance": 3,
+  "prior_escalation": "NEED_HUMAN after 3 consecutive HIGH_PARTIAL house passes (n=29/32/33 family) under standing fidelity law",
+
+  "loop_status": "CLOSED_PERMANENTLY",
+  "do_not_resume_iteration": true,
+  "further_home_bld_passes": "FORBIDDEN",
+
+  "evidence": [
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/close_home_1280x720.png",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v25_house24.log"
+  ],
+
+  "wo_level_flags": {
+    "work_order": "WO-TOWN-GRID-IMPORT-001",
+    "accepted": false,
+    "self_accept": false,
+    "reason": "Object-only Human acceptance; other plots still open / HIGH_PARTIAL"
+  },
+
+  "related_receipts": [
+    "orchestration/receipts/town_grid_import_001/REDO_LOOP_ITERATIONS_001.json",
+    "orchestration/receipts/town_grid_import_001/PURPLE_WAITING_001.json"
+  ]
+}

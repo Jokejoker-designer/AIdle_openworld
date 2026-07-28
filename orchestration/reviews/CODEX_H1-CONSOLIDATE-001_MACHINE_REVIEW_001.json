@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_H1-CONSOLIDATE-001_MACHINE_REVIEW_001",
+  "task_id": "H1-CONSOLIDATE-001",
+  "directive_id": 74,
+  "reviewed_at": "2026-07-22T15:44:00+07:00",
+  "reviewed_by": "codex",
+  "state": "CHANGES_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "HEADLESS_GREEN_HEADED_AND_PROVENANCE_BLOCKED",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "validated": {
+    "receipt_schema": {"schema": "E:/standards/maf/schemas/agent_step_contract.schema.json", "structural_errors": 0, "receipts_checked": 5},
+    "durable_children": {"H0": "019f88d4-0d38-7162-8bbd-de4b3e86aaa9", "H1": "019f88d8-715a-76e3-9792-bfa7663e0bf8", "H2": "019f88e4-19d6-7c52-9b4f-699e62a9d2c6", "H3": "019f88e9-6abd-7300-958b-5f316e9fbc82", "H4": "019f88f6-fb14-7162-9db2-e030dc182e2d"},
+    "product_hashes": {"checked": 14, "mismatches": 0},
+    "headed_evidence": {"path": "orchestration/evidence/h1_consolidate_001/001", "png_count": 26, "hash_mismatches": 0, "missing": 0, "dimension_failures": 0, "duplicate_hashes": 0, "build_r_preview_rotated_both_viewports": true, "camera_yaw_unchanged_both_viewports": true, "godot_exit": 0, "zero_error": false, "error_line_count": 4},
+    "headless_regressions": "PASS"
+  },
+  "rejected_evidence": [{"path": "orchestration/receipts/h1_consolidate_001/H2_control_ux_001.json", "reason": "child_task_ref and transcript_ref are fabricated labels rather than durable child id 019f88e4-19d6-7c52-9b4f-699e62a9d2c6; receipt claims exclusive lease while H2 created auxiliary h2-*.log files outside its exact two-file lease"}],
+  "blockers": [
+    {"id": "H1-CODEX-F01", "severity": "P1", "finding": "Headed evidence contains four USER ERROR lines: Can't use get_node() with absolute paths from outside the active scene tree.", "gate": "zero Godot errors including teardown"},
+    {"id": "H1-CODEX-F02", "severity": "P1", "finding": "H2 receipt provenance does not bind the real durable child and its exclusive-lease self-audit is false.", "gate": "real transcript lineage and one writer per exact lease"},
+    {"id": "H1-CODEX-F03", "severity": "P2", "finding": "Normal first-session action bar still exposes Paid (fixture), visible in headed evidence.", "gate": "normal runtime without fixture or diagnostic-first chrome"}
+  ],
+  "preserve_immutable": ["orchestration/evidence/h1_consolidate_001/001/**", "orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json", "orchestration/receipts/h1_consolidate_001/H1_runtime_001.json", "orchestration/receipts/h1_consolidate_001/H2_control_ux_001.json", "orchestration/receipts/h1_consolidate_001/H3_qa_evidence_001.json", "orchestration/receipts/h1_consolidate_001/H4_purple_gate_001.json"],
+  "human_gate_open": false,
+  "next_directive": 75
+}

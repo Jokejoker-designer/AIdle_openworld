@@ -1,0 +1,86 @@
+{
+  "catalog_version": "1.0",
+  "rules": [
+    {
+      "rule_id": "energy_network_balance_v1",
+      "method": "DIRECTED_CAPACITY_GRAPH",
+      "inputs": [
+        "producers",
+        "storage",
+        "consumers",
+        "loss"
+      ],
+      "outputs": [
+        "served_load",
+        "unserved_load",
+        "storage_delta"
+      ]
+    },
+    {
+      "rule_id": "energy_overload_v1",
+      "method": "CAPACITY_THRESHOLD",
+      "inputs": [
+        "load",
+        "capacity",
+        "protection"
+      ],
+      "outputs": [
+        "overload",
+        "damage_delta",
+        "shutdown"
+      ]
+    },
+    {
+      "rule_id": "energy_solar_curve_v1",
+      "method": "TIME_WEATHER_CURVE",
+      "inputs": [
+        "time_of_day",
+        "weather",
+        "panel_area",
+        "efficiency"
+      ],
+      "outputs": [
+        "power_output"
+      ]
+    },
+    {
+      "rule_id": "energy_wind_curve_v1",
+      "method": "WIND_POWER_APPROXIMATION",
+      "inputs": [
+        "wind_strength",
+        "rotor_area",
+        "efficiency"
+      ],
+      "outputs": [
+        "power_output",
+        "rotation_speed"
+      ]
+    },
+    {
+      "rule_id": "energy_water_wheel_curve_v1",
+      "method": "FLOW_HEAD_APPROXIMATION",
+      "inputs": [
+        "flow_strength",
+        "head_height",
+        "efficiency"
+      ],
+      "outputs": [
+        "kinetic_output",
+        "power_output"
+      ]
+    },
+    {
+      "rule_id": "energy_arcane_channel_v1",
+      "method": "CHANNEL_CAPACITY",
+      "inputs": [
+        "charge",
+        "channel_capacity",
+        "receiver_load"
+      ],
+      "outputs": [
+        "delivered_energy",
+        "instability"
+      ]
+    }
+  ]
+}

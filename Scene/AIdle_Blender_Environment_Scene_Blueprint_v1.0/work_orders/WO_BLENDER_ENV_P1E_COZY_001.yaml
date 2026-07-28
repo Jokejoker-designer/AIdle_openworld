@@ -1,0 +1,27 @@
+work_order_id: WO-BLENDER-ENV-P1E-COZY-001
+scope: cozy_starter_realm_environment_kit
+objective: >
+  Build and validate the first reusable Cozy exterior modular kit and assemble
+  a quarantined Starter Realm package.
+state: BLOCKED
+dependencies:
+  - P0E REAL_BLENDER_PROBE VERIFIED
+  - G8 HUMAN PASS
+  - World 1 integration gate explicitly opened by Human Product Lead
+modules:
+  - cozy_house_small_A
+  - cozy_path_stone_A
+  - cozy_pond_small_A
+  - cozy_tree_landmark_A
+  - cozy_farm_plot_A
+  - shared_light_brush_station_A
+  - cozy_greenhouse_preview_anchor_A
+acceptance_tests:
+  - isometric readability
+  - build plot clearance
+  - path continuity
+  - module IDs unique
+  - GLB import into Godot harness
+  - navigation bake
+  - cancel/manifestation/save-reload tests
+self_accept: false

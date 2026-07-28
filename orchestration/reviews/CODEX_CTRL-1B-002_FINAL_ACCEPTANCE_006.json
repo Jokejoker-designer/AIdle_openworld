@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_CTRL-1B-002_FINAL_ACCEPTANCE_006",
+  "task_id": "CTRL-1B-002",
+  "directive_reviewed": 63,
+  "reviewed_at": "2026-07-22T08:50:00+07:00",
+  "reviewed_by": "codex",
+  "verdict": "ACCEPTED",
+  "accepted": true,
+  "scope": "Local Godot 4.3-stable Control Foundation and Cozy V/B slice, including context-isolated physical R behavior",
+  "independent_evidence": {
+    "contract_validator": {
+      "command": "python E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "exit_code": 0,
+      "valid_fixture": "PASS",
+      "invalid_rejected": "12/12",
+      "marker": "HARNESS_RESULT=PASS"
+    },
+    "router_smoke": {
+      "command": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_context_router_smoke.gd",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "error_lines": 0,
+      "exploration_r_camera_yaw_delta_abs": 0.7854,
+      "build_r_preview_only": true,
+      "remap_still_works": true,
+      "dual_fire_rejected": true
+    },
+    "integration_smoke": {
+      "command": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_integration_smoke.gd",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=28",
+      "error_lines": 0
+    },
+    "runtime_witness": {
+      "path": "orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json",
+      "sha256": "513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f",
+      "hash_match": true
+    },
+    "maf_receipts": {
+      "e0": "orchestration/receipts/control/CTRL_1B_002_e0_r1_receipt_correction_004.json",
+      "f0": "orchestration/receipts/control/CTRL_1B_002_f0_purple_skill_correction_006.json",
+      "schema": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+      "validation_errors": 0
+    },
+    "final_purple_lineage": {
+      "child_task_ref": "019f877c-d7c7-7b81-871c-15ac3ebd1d88",
+      "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "profile": "aidle-worldgen-purple-acceptance",
+      "authority": "VERIFY_ONLY",
+      "full_eof_skill_ranges_verified": true,
+      "direct_write_calls": 2,
+      "exclusive_files_only": true,
+      "product_writes": [],
+      "self_accept": false,
+      "accepted": false
+    }
+  },
+  "closed_findings": [
+    "Exploration physical R now reaches camera yaw while Build R remains preview-only",
+    "R remap is preserved and multi-context dual fire fails closed",
+    "R1 correction receipt includes required smoke_test",
+    "Purple correction uses exact writer lease and truthful full-EOF skill provenance"
+  ],
+  "residuals": [
+    "agentwork_runtime was unavailable in the pinned MAF environment; existing jsonschema Draft 2020-12 validation was used without installing a dependency",
+    "This acceptance grants no network, shipping, Character Foundry runtime, Scene 2 or World Commit expansion authority"
+  ],
+  "next_route": "CHARACTER_FOUNDRY_1C_SCHEMA_INTAKE"
+}

@@ -1,0 +1,295 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-b1-runtime-001-2026-07-22",
+  "step_id": "CTRL-1B-002-b1-runtime-001",
+  "work_order_id": "WO-CTRL-1B-002-CONTROL-FOUNDATION-IMPLEMENTATION",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-CONTROL-FOUNDATION-IMPLEMENTATION.md",
+  "directive_id": 58,
+  "directive_supersedes": 57,
+  "milestone": "Control 1B runtime foundation and Cozy V B slice",
+  "agent_id": "aidle-worldgen-godot-runtime",
+  "agent_type": "aidle-worldgen-godot-runtime",
+  "profile_name": "aidle-worldgen-godot-runtime",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-godot-runtime.md",
+  "profile_sha256": "220c643ab23e3d62de8252cfdfc75f8c8f99db383bfc69235ab4e25c5d5a22b9",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "exclusive lease only — B1 runtime integration player/camera/companion/demo/manifestation/HUD + Cozy V/B UI + control settings + integration/headed smokes + B1 receipt/log; no B0 kernel rewrite; no contract/fixture edit; no Character Foundry/World 2/network/World Commit",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:5b5e7a950d32c40ce2242d5fdc3e87efc7ab9d9c6f90ccdce624dd2ceed730a7",
+  "input_context_hash_16": "5b5e7a950d32c40c",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002 + CONTROL_1B_ACCEPTANCE_CONTRACT.md + aidle-worldgen-godot-runtime.md",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "B1_RUNTIME_INTEGRATION_COMPLETE_NO_ACCEPT",
+  "verdict_detail": "Integrated B0 ControlContextRouter/ControlAccessibilitySettings into main, player, camera, companion composer, manifestation preview, HUD and headed demo flow. Added Context Action HUD (≤4, text+glyph/pattern), Control Settings panel (remap/presets/hold-toggle/sensitivity/reduced motion/cursor/confirm hold), Cozy Helper Pulse (V non-durable), Homestead Panel (B read-only). Esc cancel priority end-to-end before GameManager pause; Build-only R rotates hologram; Delete=proposal UI; Ctrl+Z=compensation request; preview non-authority flags. Integration smoke PASS checks=15, headed dry-run PASS checks=19 states=17, B0 router/a11y regression PASS; all exit 0 with zero ERROR/SCRIPT ERROR lines. accepted=false; next_owner=Q2_QA.",
+  "child_task_ref": "e85e1802-24f4-41a1-9968-8371bd39317d",
+  "transcript_ref": "e85e1802-24f4-41a1-9968-8371bd39317d",
+  "writer_transcript_ref": "e85e1802-24f4-41a1-9968-8371bd39317d",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_b0_ref": "019f86c1-854c-76a3-a36b-004cc8e39216",
+  "prior_b0_receipt": "orchestration/receipts/control/CTRL_1B_002_b0_control_001.json",
+  "next_owner": "Q2_QA",
+  "next_route": "Q2_QA",
+  "character_binding": {
+    "trustlayer": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "ui": "ui-app-dashboard",
+    "ui_file": "E:/agents/ui-design/characters/08-ui-app-dashboard.md",
+    "ui_sha256": "20ab5ba77ed1fd3f410de284f70d27ca1b7379a5c0d00c0f3a83eef11d5f990d",
+    "role": "B1 Godot runtime integration + Cozy V/B UI (PATCH_DRAFT exclusive lease; no self-accept)"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, WO, directive 58, acceptance contract, B0 receipt, character cards, skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/game/scripts/main/main.gd",
+    "E:/AIdle_openworld/game/scripts/player/player_controller.gd",
+    "E:/AIdle_openworld/game/scripts/camera/cozy_camera.gd",
+    "E:/AIdle_openworld/game/scripts/modules/companion/companion_chat_panel.gd",
+    "E:/AIdle_openworld/game/scripts/modules/executor/headed_demo_flow.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+    "E:/AIdle_openworld/game/scripts/ui/hud.gd",
+    "E:/AIdle_openworld/game/scenes/ui/hud.tscn",
+    "E:/AIdle_openworld/game/scripts/ui/context_action_hud.gd",
+    "E:/AIdle_openworld/game/scripts/ui/control_settings_panel.gd",
+    "E:/AIdle_openworld/game/scripts/ui/cozy_homestead_panel.gd",
+    "E:/AIdle_openworld/game/scripts/ui/cozy_helper_pulse.gd",
+    "E:/AIdle_openworld/game/scenes/ui/context_action_hud.tscn",
+    "E:/AIdle_openworld/game/scenes/ui/control_settings_panel.tscn",
+    "E:/AIdle_openworld/game/scenes/ui/cozy_homestead_panel.tscn",
+    "E:/AIdle_openworld/game/tests/control_1b_integration_smoke.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_headed_smoke.gd",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_b1_runtime_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-b1-runtime-001.log"
+  ],
+  "product_writes": [
+    "E:/AIdle_openworld/game/scripts/main/main.gd",
+    "E:/AIdle_openworld/game/scripts/player/player_controller.gd",
+    "E:/AIdle_openworld/game/scripts/camera/cozy_camera.gd",
+    "E:/AIdle_openworld/game/scripts/modules/companion/companion_chat_panel.gd",
+    "E:/AIdle_openworld/game/scripts/modules/executor/headed_demo_flow.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+    "E:/AIdle_openworld/game/scripts/ui/hud.gd",
+    "E:/AIdle_openworld/game/scenes/ui/hud.tscn",
+    "E:/AIdle_openworld/game/scripts/ui/context_action_hud.gd",
+    "E:/AIdle_openworld/game/scripts/ui/control_settings_panel.gd",
+    "E:/AIdle_openworld/game/scripts/ui/cozy_homestead_panel.gd",
+    "E:/AIdle_openworld/game/scripts/ui/cozy_helper_pulse.gd",
+    "E:/AIdle_openworld/game/scenes/ui/context_action_hud.tscn",
+    "E:/AIdle_openworld/game/scenes/ui/control_settings_panel.tscn",
+    "E:/AIdle_openworld/game/scenes/ui/cozy_homestead_panel.tscn",
+    "E:/AIdle_openworld/game/tests/control_1b_integration_smoke.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_headed_smoke.gd"
+  ],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_b1_runtime_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-b1-runtime-001.log"
+  ],
+  "product_write_hashes": {
+    "game/scripts/main/main.gd": "4500fa78a52bbc3ba7f57abea914212a1bbef75ddee0cc8efc0e2bd635443fbd",
+    "game/scripts/player/player_controller.gd": "0a05b0c9872057aaf9ac833d985f5c6ea30b1efcb3af5163e0fbc1a8e7a92314",
+    "game/scripts/camera/cozy_camera.gd": "a28f812e99b840b7c321ae5c0455114c50165635bccf8d3253b40dbab4a336c2",
+    "game/scripts/modules/companion/companion_chat_panel.gd": "bf1f313a29bf89a4816db62c720d0a393f183abb143b2f0419d863dbb8b29cfd",
+    "game/scripts/modules/executor/headed_demo_flow.gd": "b6a30598530bd88ac52848f5b6d544b690540d2a5c438bd8b57bf0fcb5ed06b5",
+    "game/scripts/modules/manifestation/manifestation_instance.gd": "bdc50579c52286730380bc522b0fa7118c6dc239992c680229f7e42a96577867",
+    "game/scripts/ui/hud.gd": "4d10e7bd8add5ea464d148e44bdd66367ede8259b99cbc80f88359a93ffaf026",
+    "game/scenes/ui/hud.tscn": "c834861214e3eb5900e57f4833b928de40a6d18743081de9e585a738b1813256",
+    "game/scripts/ui/context_action_hud.gd": "b9c4aeeb73e9364329d040e3ddfd32f330512c34745ee9365520c0081da463cc",
+    "game/scripts/ui/control_settings_panel.gd": "ba49d34dc0d63b6067cd0ac359cc9ca3826ef3b3bf502ece24a19919183cc6bf",
+    "game/scripts/ui/cozy_homestead_panel.gd": "4a773db5a9d8543d8aa2e29b48f5191e06f16b49b6cf27b9865fcb132187285f",
+    "game/scripts/ui/cozy_helper_pulse.gd": "94f68bc3444405379bf15e39ce2b0523bdb4c97d45f1d7ca255fe06d4fc0de27",
+    "game/scenes/ui/context_action_hud.tscn": "b5e3875aafdfdb5ca5bdb0bca8f22e53f66114b1b462b37aabf49a8684a99937",
+    "game/scenes/ui/control_settings_panel.tscn": "8c3ec6c92a1fdc4d1b136699c74c02bbc38b256bfdb1079d5e0ced5ee975eeaa",
+    "game/scenes/ui/cozy_homestead_panel.tscn": "2c6c7b52b238709ebfa9f0452acec7f1db0c66e9e358ac7a811852e7bf13dd73",
+    "game/tests/control_1b_integration_smoke.gd": "7ec6bd85075e367e3ebeb6f3e1f44f0a62151e19743ed5dac41f35a4e8a4f499",
+    "game/tests/control_1b_headed_smoke.gd": "de1f3e08be4dc305226db0b58c9850c7a90ea2003cf1b6742c2566b15b6d21db"
+  },
+  "read_only_authority_inputs": [
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_b0_control_001.json",
+    "E:/AIdle_openworld/game/autoload/control_context_router.gd",
+    "E:/AIdle_openworld/game/autoload/control_accessibility_settings.gd",
+    "E:/AIdle_openworld/game/scripts/input/control_action_catalog.gd",
+    "E:/AIdle_openworld/game/scripts/input/control_binding_manager.gd"
+  ],
+  "contract_not_edited": true,
+  "b0_kernel_not_rewritten": true,
+  "result": {
+    "verdict": "B1_RUNTIME_INTEGRATION_COMPLETE_NO_ACCEPT",
+    "summary": "B1 wires B0 kernel into playable shell: context-gated input in main, locomotion suppress in companion, camera yaw gated so Build R is hologram-only, companion composer focus/send, preview rotate + non-authority flags, context HUD ≤4, a11y settings panel, Cozy Helper Pulse and Homestead Panel. Esc resolve_escape consumes input before GameManager pause when cancel targets active.",
+    "gates_covered_runtime": [
+      "C1B-HUD-01",
+      "C1B-HUD-02",
+      "C1B-HUD-03",
+      "C1B-HUD-04",
+      "C1B-HUD-05",
+      "C1B-HK-01",
+      "C1B-HK-02",
+      "C1B-HK-03",
+      "C1B-HK-04",
+      "C1B-HK-05",
+      "C1B-HK-06",
+      "C1B-HK-07",
+      "C1B-HK-08",
+      "C1B-HK-09",
+      "C1B-HK-10",
+      "C1B-ESC-01",
+      "C1B-ESC-02",
+      "C1B-ESC-03",
+      "C1B-A11Y-01",
+      "C1B-A11Y-02",
+      "C1B-A11Y-03",
+      "C1B-A11Y-04",
+      "C1B-A11Y-05",
+      "C1B-A11Y-06",
+      "C1B-A11Y-07",
+      "C1B-A11Y-08",
+      "C1B-A11Y-09",
+      "C1B-A11Y-12",
+      "C1B-A11Y-14",
+      "C1B-A11Y-15",
+      "C1B-SAFE-01",
+      "C1B-SAFE-02",
+      "C1B-SAFE-03",
+      "C1B-SAFE-04",
+      "C1B-SAFE-06"
+    ],
+    "cozy_slice": {
+      "helper_pulse": "V/world_ability non-durable visual feedback only; mints_inventory/ownership/currency=false",
+      "homestead_panel": "B/world_panel read-only; Esc closes via world_tool_panel cancel target before pause"
+    },
+    "out_of_scope_deferred_to_q2": [
+      "Headed image evidence pack at 1280x720 and 868x517",
+      "Full H-01..H-33 interactive witness + screenshots",
+      "G8/P1E full regression suite under VERIFY_ONLY"
+    ],
+    "profile_load_evidence": {
+      "path": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-godot-runtime.md",
+      "load": "FULL_EOF",
+      "sha256": "220c643ab23e3d62de8252cfdfc75f8c8f99db383bfc69235ab4e25c5d5a22b9",
+      "trustlayer": "blue-team-p0-remediator",
+      "ui": "ui-app-dashboard",
+      "authority_token": "PATCH_DRAFT"
+    }
+  },
+  "smoke_test": {
+    "all_clean": true,
+    "suites": {
+      "control_1b_integration": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_integration_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=15",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "clean": true
+      },
+      "control_1b_headed_dry_run": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_headed_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_CTRL_1B_HEADED_SMOKE=PASS checks=19 mode=dry_run states=17",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "clean": true,
+        "note": "Headless dry-run scaffolds H-01..H-33 states; Q2 re-runs headed capture at 1280x720 and 868x517"
+      },
+      "control_1b_context_router_regression": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=12",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "clean": true
+      },
+      "control_1b_accessibility_regression": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_accessibility_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS checks=11",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "clean": true
+      }
+    },
+    "full_capture_log": "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-b1-runtime-001.log"
+  },
+  "self_audit": {
+    "lease_respected": true,
+    "contract_fixtures_untouched": true,
+    "b0_kernel_files_not_edited": true,
+    "no_network_or_install": true,
+    "no_world_commit": true,
+    "no_client_authoritative_durable_state": true,
+    "self_accept": false,
+    "accepted": false,
+    "hard_stops_honored": [
+      "no World Commit",
+      "no persistence format change",
+      "no network",
+      "no Character Foundry",
+      "no contract edit",
+      "no direct durable delete/undo",
+      "preview non-authority"
+    ],
+    "notes": [
+      "GameManager pause_menu still exists; Main._input consumes Esc via resolve_escape and marks handled so cancel targets win before pause.",
+      "project.godot InputMap not rewritten (B0 owns it); B1 only consumes autoload APIs.",
+      "Q2 owns headed screenshot evidence and full H-01..H-33 interactive PASS."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/receipts/control/CTRL_1B_002_b1_runtime_001.json",
+    "orchestration/logs/ctrl-1b-002-b1-runtime-001.log",
+    "orchestration/receipts/control/CTRL_1B_002_b0_control_001.json",
+    "Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "orchestration/work_orders/WO-CTRL-1B-002-CONTROL-FOUNDATION-IMPLEMENTATION.md"
+  ],
+  "next_route": "Q2_QA"
+}

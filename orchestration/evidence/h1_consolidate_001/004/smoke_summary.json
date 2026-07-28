@@ -1,0 +1,150 @@
+{
+  "schema": "h1_consolidate_001_w2_smoke_summary/1.0",
+  "wave": "W2",
+  "directive_id": 78,
+  "primary_h1_human_ux_manual_build_smoke": true,
+  "overall_pass_strict": false,
+  "overall_pass_excluding_known_residuals": true,
+  "known_residuals": [
+    "W1-RES-01 Small Build tscn / H1 chrome+flow string assert",
+    "W2-RES-01 block_assembly_hud.gd:77 Variant inference warning-as-error breaks HUD mount + P2E_PLAY preload"
+  ],
+  "checks": [
+    {
+      "id": "H1_MANUAL_BUILD",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_H1_HUMAN_UX_MANUAL_BUILD_SMOKE=PASS checks=9",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/H1_MANUAL_BUILD.log"
+    },
+    {
+      "id": "LOOKUP",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_H1_RUNTIME_AUTOLOAD_LOOKUP_SMOKE=PASS checks=6 scan_hits=0 runtime_ok=2",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/LOOKUP.log"
+    },
+    {
+      "id": "ERROR_FREE",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/ERROR_FREE.log"
+    },
+    {
+      "id": "H1_FLOW",
+      "exit": 1,
+      "error_lines": 0,
+      "pass": false,
+      "detail": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=FAIL failed=1 passed=12",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/H1_FLOW.log"
+    },
+    {
+      "id": "H1_CHROME",
+      "exit": 1,
+      "error_lines": 0,
+      "pass": false,
+      "detail": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=FAIL failed=1 passed=5",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/H1_CHROME.log"
+    },
+    {
+      "id": "P2E_CORE",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_CORE.log"
+    },
+    {
+      "id": "P2E_AUTH",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_AUTH.log"
+    },
+    {
+      "id": "P2E_QR",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_QR.log"
+    },
+    {
+      "id": "P2E_PLAY",
+      "exit": 1,
+      "error_lines": 0,
+      "pass": false,
+      "detail": "FAIL compile residual: block_assembly_hud.gd:77 Variant inference warning-as-error; preload fails; HUD mount broken",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_PLAY.log"
+    },
+    {
+      "id": "P2E_CORR",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_P2E001_CORRECTION_SMOKE=PASS checks=4",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_CORR.log"
+    },
+    {
+      "id": "P2E_PIN",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_P2E001_PLAYER_INPUT_SMOKE=PASS checks=5",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_PIN.log"
+    },
+    {
+      "id": "CTRL_ROUTER",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/CTRL_ROUTER.log"
+    },
+    {
+      "id": "CTRL_A11Y",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS checks=11",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/CTRL_A11Y.log"
+    },
+    {
+      "id": "G3_E2E",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "G3_E2E_SMOKE=PASS checks=76",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/G3_E2E.log"
+    },
+    {
+      "id": "G4_PERSIST",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "G4_PERSIST_SMOKE=PASS checks=22",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/G4_PERSIST.log"
+    },
+    {
+      "id": "BLOCK_DNA",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "PASS gate: valid_n=14 invalid_m=42 verdict=C0_BLOCK_DNA_CORRECTION_COMPLETE_NO_ACCEPT",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/block_dna.log"
+    },
+    {
+      "id": "CONTROL_1B_FIXTURES",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "[INV-01-unknown_context_id] target=root declared=['unknown_context_id', 'schema_enum'] expected=FAIL actual=FAIL [OK] :: contexts: [{'context_id': 'free_edit', 'purpose': 'Illegal sixth/unknown context', 'allowed_actions': ['move_forward'], 'hud_actions': ['move_forward']}] is too short; contexts: [{'context_id': 'free_edit', 'purpose': 'Illegal sixth/unknown context', 'allowed_actions': ['move_forward'], 'hud_actions': ['move_forward']}] does not contain items matching the given schema; contexts: [{'context_id': 'free_edit', 'purpose': 'Illegal sixth/unknown context', 'allowed_actions': ['move_forward'], 'hud_actions': ['move_forward']}] does not contain items matching the given schema; contexts: [{'context_id': 'free_edit', 'purpose': 'Illegal sixth/unknown context', 'allowed_actions': ['move_forward'], 'hud_actions': ['move_forward']}] does not contain items matching the given schema; contexts: [{'context_id': 'free_edit', 'purpose': 'Illegal sixth/unknown context', 'allowed_actions': ['move_forward'], 'hud_actions': ['move_forward']}] does not contain items matching the given schema",
+      "log": "orchestration/evidence/h1_consolidate_001/004/smokes/control_1b_fixtures.log"
+    }
+  ]
+}

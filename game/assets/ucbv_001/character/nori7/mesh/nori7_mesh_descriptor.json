@@ -1,0 +1,333 @@
+{
+  "schema_version": "ucbv_meshdesc_v1",
+  "format": "godot_character_mesh_descriptor",
+  "asset_id": "ucbv_001_nori7_mesh_descriptor_v1",
+  "module_id": "char_nori7_base",
+  "character_id": "CCP-RH-001",
+  "recipe_id": "recipe_nori7_v1",
+  "skeleton_id": "skel_small_biped_robot_v1",
+  "animation_set_id": "anim_robot_gardener_v1",
+  "engine_target": "Godot 4.x",
+  "units": "meters",
+  "coordinate_space": "y_up_godot",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "world_profile_id": "cozy_cyber_pixel",
+  "author_wave": "NORI7_REDESIGN_V01",
+  "prior_author_wave": "C1_CHARACTER_PRODUCTION",
+  "authority_token": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "production_slice": "nori7_redesign_v01_multi_material_glb",
+  "honesty": {
+    "blender_offline": true,
+    "glb_binary_authored": true,
+    "mesh_mode": "skinned_production_glb_redesign_v01",
+    "glb_path": "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "glb_sha256": "c165108730c1a10c8417e8235a388add988019a80bfeac7a2a8f111b19a09c29",
+    "blend_sha256": "bc2e7fafa8e13f4340a7f00831f852b9b2fae47eeca85232b0153bee4eb7731f",
+    "bridge_job_id": "BLD-UCBV-NORI7-REDESIGN-V01",
+    "procedural_descriptor_status": "HISTORICAL_U4_PART_MAP_ONLY_NOT_NORMAL_PLAY_MESH_TRUTH",
+    "reason": "Directive 99 NORI7-V01 visual redesign: multi-material teardrop robot + 5 real gardener clips; not Human visual accept."
+  },
+  "overall_size_m": {
+    "height_body": 1.2,
+    "height_with_sprout": 1.44,
+    "width": 0.66,
+    "depth_body": 0.54,
+    "depth_with_tank": 0.78
+  },
+  "origin": "ground_center_between_feet",
+  "silhouette": {
+    "family": "ucbv_cozy_rounded_readable_v1",
+    "form": "rounded_teardrop_robot_helper",
+    "hard_90_outer_corners": false,
+    "must_match_u2": true,
+    "u2_refs": [
+      "orchestration/design/ucbv_001/character/nori7/U2_character_visual_silhouette.md",
+      "game_character/ucbv_001/nori7/visual_package/visual_spec.json"
+    ]
+  },
+  "parts": [
+    {
+      "part_id": "body_lower",
+      "primitive": "SphereMesh",
+      "material_slot": "body",
+      "mat_id": "MAT_CozyCeramic",
+      "bind_bone": "spine",
+      "size": [
+        0.55,
+        0.5,
+        0.5
+      ],
+      "offset": [
+        0.0,
+        0.05,
+        0.02
+      ],
+      "corner_radius": 0.5
+    },
+    {
+      "part_id": "body_upper_head",
+      "primitive": "SphereMesh",
+      "material_slot": "body",
+      "mat_id": "MAT_CozyCeramic",
+      "bind_bone": "chest",
+      "size": [
+        0.62,
+        0.62,
+        0.58
+      ],
+      "offset": [
+        0.0,
+        0.18,
+        0.04
+      ]
+    },
+    {
+      "part_id": "eye_L",
+      "primitive": "SphereMesh",
+      "material_slot": "glass_eyes",
+      "mat_id": "MAT_CozyGlass",
+      "bind_bone": "head",
+      "size": [
+        0.12,
+        0.13,
+        0.06
+      ],
+      "offset": [
+        -0.12,
+        0.05,
+        0.26
+      ],
+      "socket_hex": "#3d3226",
+      "iris_hex": "#a8dced"
+    },
+    {
+      "part_id": "eye_R",
+      "primitive": "SphereMesh",
+      "material_slot": "glass_eyes",
+      "mat_id": "MAT_CozyGlass",
+      "bind_bone": "head",
+      "size": [
+        0.12,
+        0.13,
+        0.06
+      ],
+      "offset": [
+        0.12,
+        0.05,
+        0.26
+      ]
+    },
+    {
+      "part_id": "arm_L",
+      "primitive": "CapsuleMesh",
+      "material_slot": "body",
+      "mat_id": "MAT_CozyCeramic",
+      "bind_bone": "arm_L",
+      "size": [
+        0.08,
+        0.2,
+        0.08
+      ],
+      "offset": [
+        0.0,
+        -0.08,
+        0.0
+      ]
+    },
+    {
+      "part_id": "arm_R",
+      "primitive": "CapsuleMesh",
+      "material_slot": "body",
+      "mat_id": "MAT_CozyCeramic",
+      "bind_bone": "arm_R",
+      "size": [
+        0.08,
+        0.2,
+        0.08
+      ],
+      "offset": [
+        0.0,
+        -0.08,
+        0.0
+      ]
+    },
+    {
+      "part_id": "hand_L",
+      "primitive": "SphereMesh",
+      "bind_bone": "hand_L",
+      "size": [
+        0.07,
+        0.07,
+        0.07
+      ]
+    },
+    {
+      "part_id": "hand_R",
+      "primitive": "SphereMesh",
+      "bind_bone": "hand_R",
+      "size": [
+        0.07,
+        0.07,
+        0.07
+      ]
+    },
+    {
+      "part_id": "joint_shoulder_L",
+      "primitive": "TorusApprox_or_thin_Capsule",
+      "material_slot": "leaf_joints",
+      "mat_id": "MAT_CozyLeaf",
+      "bind_bone": "arm_L",
+      "size": [
+        0.05,
+        0.04,
+        0.05
+      ]
+    },
+    {
+      "part_id": "joint_shoulder_R",
+      "primitive": "TorusApprox_or_thin_Capsule",
+      "material_slot": "leaf_joints",
+      "mat_id": "MAT_CozyLeaf",
+      "bind_bone": "arm_R",
+      "size": [
+        0.05,
+        0.04,
+        0.05
+      ]
+    },
+    {
+      "part_id": "leg_L",
+      "primitive": "CapsuleMesh",
+      "bind_bone": "leg_L",
+      "size": [
+        0.07,
+        0.14,
+        0.07
+      ]
+    },
+    {
+      "part_id": "leg_R",
+      "primitive": "CapsuleMesh",
+      "bind_bone": "leg_R",
+      "size": [
+        0.07,
+        0.14,
+        0.07
+      ]
+    },
+    {
+      "part_id": "foot_L",
+      "primitive": "SphereMesh",
+      "material_slot": "stone_foot_pads",
+      "mat_id": "MAT_CozyStoneWarm",
+      "bind_bone": "foot_L",
+      "size": [
+        0.1,
+        0.05,
+        0.12
+      ]
+    },
+    {
+      "part_id": "foot_R",
+      "primitive": "SphereMesh",
+      "material_slot": "stone_foot_pads",
+      "mat_id": "MAT_CozyStoneWarm",
+      "bind_bone": "foot_R",
+      "size": [
+        0.1,
+        0.05,
+        0.12
+      ]
+    },
+    {
+      "part_id": "tank",
+      "module_id": "attach_water_tank_small",
+      "primitive": "CapsuleMesh",
+      "socket_id": "character_back",
+      "size": [
+        0.28,
+        0.36,
+        0.28
+      ],
+      "materials": [
+        "MAT_CozyCeramic",
+        "MAT_CozyWood"
+      ]
+    },
+    {
+      "part_id": "nozzle",
+      "module_id": "attach_watering_nozzle_A",
+      "primitive": "CylinderMesh",
+      "socket_id": "character_hand",
+      "size": [
+        0.03,
+        0.28,
+        0.03
+      ],
+      "materials": [
+        "MAT_CozyMetal",
+        "MAT_CozyWood"
+      ]
+    },
+    {
+      "part_id": "sprout",
+      "module_id": "attach_mechanical_sprout_A",
+      "primitive": "CapsuleMesh_plus_leaf_spheres",
+      "socket_id": "character_head",
+      "size": [
+        0.05,
+        0.22,
+        0.05
+      ],
+      "materials": [
+        "MAT_CozyLeaf",
+        "MAT_CozyMetal"
+      ]
+    }
+  ],
+  "lod": {
+    "LOD0": "full_readable_sprout_tank_nozzle_eye",
+    "LOD1": "soften_small_joints_keep_silhouette_rear_features",
+    "LOD2_or_billboard": "teardrop_silhouette_plus_sprout_tip"
+  },
+  "collision": {
+    "shape": "CapsuleShape3D",
+    "height_m": 1.1,
+    "radius_m": 0.28,
+    "active_policy": "companion_local_only_until_u5_defines_nav",
+    "not_world_truth": true
+  },
+  "navigation_footprint": {
+    "radius_m": 0.28,
+    "type": "circle"
+  },
+  "manifestation": {
+    "stages": [
+      "wireframe",
+      "hologram",
+      "materializing",
+      "complete"
+    ],
+    "note": "Character base kit stays ceramic at complete; cyan reserved for block manifestation chrome, not Nori body",
+    "collision_active_from": "n/a_character_not_world_module"
+  },
+  "u5_integration_hints": {
+    "root_node": "CharacterBody3D or Node3D",
+    "skeleton_node": "Skeleton3D",
+    "mesh_nodes": "MeshInstance3D × parts via BoneAttachment3D",
+    "animation_player": "AnimationPlayer",
+    "animation_library_resource": "res://assets/ucbv_001/character/nori7/godot/anim_robot_gardener_v1.res (built by U5 from timing table)",
+    "material_override_from": "U1 tokens + material_slot_map",
+    "glb_path_when_available": "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "do_not_patch_main_gd_in_u4": true
+  },
+  "world_truth": "not_mesh_authority_until_conditioned_and_accepted",
+  "provenance": {
+    "asset_id": "ucbv_001_nori7_mesh_descriptor_v1",
+    "character_id": "CCP-RH-001",
+    "recipe_id": "recipe_nori7_v1",
+    "author_wave": "U4_CHARACTER_MESH_RIG"
+  }
+}

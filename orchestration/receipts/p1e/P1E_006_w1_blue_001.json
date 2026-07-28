@@ -1,0 +1,67 @@
+{
+  "step_id": "P1E-006-w1-blue-001",
+  "work_order_id": "WO-P1E-006-PER-STYLE-PALETTE-VARIANTS",
+  "agent_id": "aidle-worldgen-asset-art",
+  "authority": "PATCH_DRAFT",
+  "status": "REVIEW_REQUESTED",
+  "verdict": "W1_COMPLETE_STATE_VARIANTS_PROFILE_SELECTOR_NO_ACCEPT",
+  "inputs": [
+    "orchestration/work_orders/WO-P1E-006-PER-STYLE-PALETTE-VARIANTS.md",
+    "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.0/blender/PHYSICS_VISUAL_STATE_VARIANTS.md",
+    "game/autoload/art_style_manager.gd",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475"
+  ],
+  "outputs": [
+    "game/resources/world_profiles/state_visual_variants.json",
+    "game/scripts/modules/asset/world_profile_variant_selector.gd",
+    "game/scripts/modules/asset/starter_realm_builder.gd",
+    "game/scripts/modules/asset/glb_intake.gd",
+    "game/tests/p1e006_world_profile_variants_smoke.gd",
+    "world_DNA/.../PHYSICS_VISUAL_STATE_VARIANTS.md",
+    "orchestration/evidence/p1e_006/",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_001.json"
+  ],
+  "evidence_refs": [
+    "orchestration/logs/_p1e006_variants_smoke.txt",
+    "orchestration/evidence/p1e_006/hsl_per_profile_demo.json",
+    "orchestration/evidence/p1e_006/visual_claim_meta.json",
+    "game/resources/world_profiles/state_visual_variants.json"
+  ],
+  "writer_lease": [
+    "game/resources/world_profiles/**",
+    "game/scripts/modules/asset/world_profile_variant_selector.gd",
+    "game/scripts/modules/asset/starter_realm_builder.gd",
+    "game/scripts/modules/asset/glb_intake.gd",
+    "game/tests/p1e006_world_profile_variants_smoke.gd",
+    "orchestration/evidence/p1e_006/**",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_001.json"
+  ],
+  "self_accept": false,
+  "accepted": false,
+  "next_owner": "P1E_006_W2_RED",
+  "child_task_ref": null,
+  "transcript_ref": null,
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "implementation_note": "W1 product work executed by parent conductor session (not spawn_subagent). child_task_ref null is honest. W2–W4 will use real spawned child ids.",
+  "result": {
+    "mechanism": "STATE_VARIANTS_extended — world_profile selector; no parallel STYLE_VARIANTS system",
+    "modules_x_profiles": "11 modules x 2 profiles = 22 variant slots (cozy=identity register, surrealism=material table)",
+    "cozy_regression": "identity_register restores cached GLB materials; smoke switch-back matched albedo",
+    "surrealism": "93 materials rewritten; water (0.35,0.32,0.62) chromatic purple-water; not white/lavender wash",
+    "hsl_demo": "P1E006_HSL_DEMO=PASS — cozy bible PASS; surreal target PASS; washed_surreal deliberate FAIL; beige/white/grey FAIL",
+    "smokes": {
+      "AIDLE_P1E006_VARIANTS_SMOKE": "PASS checks=5",
+      "AIDLE_P1E003_SMOKE": "PASS checks=9",
+      "AIDLE_P1E004_ASM_SMOKE": "PASS checks=6",
+      "AIDLE_G8_UX002_SMOKE": "PASS checks=2",
+      "GAME_GLB_COUNT": 0
+    },
+    "taxonomy": {
+      "primary_axis": "world_profile",
+      "deferred_no_kit": ["tiny_diorama", "solarpunk_haven", "arcane_clockwork", "spirit_valley", "oceanpunk_abyss"],
+      "deferred_no_world_profile_art": ["cyberpunk_dense", "pastoral_fantasy"],
+      "nearest_map": "pastoral_fantasy+cyberpunk_dense -> cozy_cyber_pixel presentation"
+    },
+    "not_touched": ["world_meta.cfg", "default art style", "codex_directive.json", "res:// promotion"]
+  }
+}

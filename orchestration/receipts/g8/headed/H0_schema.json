@@ -1,0 +1,45 @@
+{
+  "agent_step_id": "G8-001-HEADED-H0-schema-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-HEADED-CORRECTION-001",
+    "directive_id": 21,
+    "wave": "H0_SCHEMA_VISUAL_MATRIX",
+    "profile": "schema",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY: headed findings translated to executable+visual acceptance matrix. No product patch.",
+    "product_writes": 0,
+    "children": [],
+    "matrix": "orchestration/reviews/G8-001_HEADED_ACCEPTANCE_MATRIX.md"
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "name": "matrix_authored",
+        "marker": "HEADED_ACCEPTANCE_MATRIX"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_product_patch": true,
+    "no_self_accept": true,
+    "residual_risks": []
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-headed-correction-001.log",
+    "orchestration/work_orders/WO-G8-001-HEADED-CORRECTION-001.md",
+    "orchestration/work_orders/G8-001_HEADED_DISPATCH_MAP.md",
+    "orchestration/reviews/G8-001_HEADED_ACCEPTANCE_MATRIX.md",
+    "orchestration/evidence/g8_headed_correction/",
+    "orchestration/evidence/g8_human_gate/README.md"
+  ],
+  "next_route": "H1_ASSET_REALM"
+}

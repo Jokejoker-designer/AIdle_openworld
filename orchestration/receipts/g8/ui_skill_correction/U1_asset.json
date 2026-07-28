@@ -1,0 +1,69 @@
+{
+  "agent_step_id": "U1_asset.json",
+  "agent_type": "aidle-asset",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "input_context_hash": "sha256:639dc67955c90beb",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-UI-SKILL-CORRECTION-001",
+    "directive_id": 22,
+    "wave": "U1_ASSET_STYLE",
+    "profile": "asset",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "In-place StarterRealmBuilder: ground variation, warm landmark palette under surrealism so purple is not a void field.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "ui_character_id": "ui-color-type-specialist",
+      "maf_role": "agent",
+      "authority_token": "PATCH_DRAFT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full"
+      },
+      {
+        "skill_id": "game-asset-core",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+        "mode": "full"
+      }
+    ],
+    "trace_ref": "orchestration/logs/g8-ui-skill-correction-001.log#U1_ASSET_STYLE",
+    "handoff_ref": "U2_CORE_GAME_UI",
+    "product_writes": [
+      "game/scripts/modules/asset/starter_realm_builder.gd"
+    ],
+    "children": [],
+    "findings": [],
+    "residual_risks": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "landmarks=9"
+      },
+      {
+        "marker": "AIDLE_HEADED_VISUAL_SMOKE=PASS"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "no_catalog_false_claim": true,
+    "character_skill_trace_present": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ui-skill-correction-001.log",
+    "orchestration/evidence/g8_headed_correction/",
+    "orchestration/reviews/G8-001_UI_BRIEF.md",
+    "DESIGN.md"
+  ],
+  "next_route": "U2_CORE_GAME_UI"
+}

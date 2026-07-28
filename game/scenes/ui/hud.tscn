@@ -7,6 +7,7 @@ layer = 10
 script = ExtResource("1_hud")
 
 [node name="Root" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,37 +15,45 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TopBar" type="HBoxContainer" parent="Root"]
+[node name="TopPill" type="PanelContainer" parent="Root"]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 16.0
-offset_top = 12.0
-offset_right = -16.0
-offset_bottom = 40.0
+offset_left = 12.0
+offset_top = 8.0
+offset_right = -12.0
+offset_bottom = 42.0
 grow_horizontal = 2
-theme_override_constants/separation = 24
 
-[node name="ArtStyleLabel" type="Label" parent="Root/TopBar"]
+[node name="TopBar" type="HBoxContainer" parent="Root/TopPill"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ArtStyleLabel" type="Label" parent="Root/TopPill/TopBar"]
 layout_mode = 2
 text = "Art: —"
 
-[node name="SpaceLabel" type="Label" parent="Root/TopBar"]
+[node name="SpaceLabel" type="Label" parent="Root/TopPill/TopBar"]
 layout_mode = 2
 text = "Space: —"
 
+[node name="EditionLabel" type="Label" parent="Root/TopPill/TopBar"]
+layout_mode = 2
+text = "Edition: —"
+
 [node name="HintLabel" type="Label" parent="Root"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -280.0
-offset_top = -36.0
-offset_right = 280.0
-offset_bottom = -12.0
+offset_left = -240.0
+offset_top = -118.0
+offset_right = 240.0
+offset_bottom = -98.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 0.75)
 theme_override_font_sizes/font_size = 13
-text = "Esc Pause · F3 Debug"
+text = "WASD move · E Companion · V Pulse · B Homestead · Esc cancel/pause"
 horizontal_alignment = 1

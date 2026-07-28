@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIdle Tier 3 Persisted Entity Record",
+  "type": "object",
+  "required": [
+    "entity_id",
+    "module_id",
+    "chunk_id",
+    "canonical_committed",
+    "transform",
+    "state",
+    "saved_wall_clock_unix",
+    "saved_monotonic_msec",
+    "committed_seed"
+  ],
+  "properties": {
+    "entity_id": {
+      "type": "string"
+    },
+    "module_id": {
+      "type": "string"
+    },
+    "chunk_id": {
+      "type": "string"
+    },
+    "canonical_committed": {
+      "type": "boolean"
+    },
+    "transform": {
+      "type": "object",
+      "required": [
+        "position",
+        "rotation_deg",
+        "scale"
+      ],
+      "properties": {
+        "position": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "number"
+          }
+        },
+        "rotation_deg": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "number"
+          }
+        },
+        "scale": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "state": {
+      "type": "object"
+    },
+    "saved_wall_clock_unix": {
+      "type": "number"
+    },
+    "saved_monotonic_msec": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "committed_seed": {
+      "type": "integer"
+    },
+    "nearby_source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

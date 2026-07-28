@@ -1,0 +1,278 @@
+{
+  "agent_step_id": "G8-001-D2-companion-remediation-004-2026-07-21",
+  "agent_type": "aidle-companion",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:fbee45e37da3057dee08a745cb89e5775bd3397e7cfab899e9d02ad60ad0bd4e",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8277-f857-7330-8007-93038ba27a48",
+  "transcript_ref": "019f8277-f857-7330-8007-93038ba27a48",
+  "writer_transcript_ref": "019f8277-f857-7330-8007-93038ba27a48",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "trace_ref": "orchestration/logs/g8-d2-companion-child.log",
+  "handoff_ref": "D3_NETWORK_PURPLE",
+  "start_time": "2026-07-21T02:19:15.9404656Z",
+  "end_time": "2026-07-21T02:20:17.9601724Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/companion.md",
+  "profile_binding_evidence": "FULL read: name=aidle-companion; trustlayer_character=blue-team-p0-remediator; ui_character=ui-component-craftsman; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop, game-ui-icons; profile Authority PATCH_DRAFT overridden by WO-004 VERIFY_ONLY for this correction; Companion may propose and preview, never commit; MVP text-only.",
+  "writer_lease": [],
+  "product_writes": [],
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/companion.md",
+    "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+    "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004.md",
+    "E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md",
+    "E:/AIdle_openworld/orchestration/reviews/G8-001_UI_VISUAL_ASSERTIONS_C003.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_UI_VISUAL_REVIEW_003.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D0_schema.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/ui_visual_correction_003/C3_companion.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/ui_skill_correction/U3_companion.json",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/companion_open_868x517.png",
+    "E:/AIdle_openworld/orchestration/logs/g8-ui-visual-correction-003-runner.log",
+    "E:/AIdle_openworld/game/scripts/core/headed_visual_smoke.gd",
+    "E:/AIdle_openworld/game/scripts/modules/companion/companion_chat_panel.gd",
+    "E:/AIdle_openworld/game/scripts/modules/companion/companion_module.gd",
+    "E:/AIdle_openworld/game/scripts/modules/companion/world_prompt_builder.gd",
+    "E:/AIdle_openworld/DESIGN.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_companion.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-companion-child.log",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-companion-hash-result.txt"
+  ],
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004",
+    "directive_id": 25,
+    "wave": "D2_COMPANION",
+    "profile": "companion",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/companion.md",
+    "self_accept": false,
+    "verdict": "PASS",
+    "adoption_status": "ADOPTED_WITHOUT_PATCH",
+    "summary": "D2 companion VERIFY_ONLY ADOPTED_WITHOUT_PATCH: preserved Directive 24 C3 companion draft re-verified by real child 019f8277-f857-7330-8007-93038ba27a48. Companion mount/open at 868x517; chat_input_visible; no_companion_action_bar_overlap; proposal≠commit (has_commit_tool=false, all list_tools commits/mutates_world=false, confirmation.state=pending); headed evidence companion_open_868x517.png sha256 a1f9318eece7… dimension 868x517 runtime_state=companion_visible. No product writes. G8 not ACCEPTED. handoff D3_NETWORK_PURPLE.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "trustlayer_character_source": "E:/agents/characters/09-blue-team-p0-remediator.md",
+      "ui_character_id": "ui-component-craftsman",
+      "ui_character_source": "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: Load COMPLIANCE.md + registry; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no inventing evidence / no exceed authority"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: registry E:\\agents\\characters\\registry.yaml; slot 09 blue-team-p0-remediator; WO-004 forces VERIFY_ONLY for companion this wave; Blue does not patch unless WO grants PATCH; Red finds; Purple never patches"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: Canonical hub E:\\; Always MASTER_PLAN + JOURNAL_LATEST; journal-entry after milestones; Do not skip handoff when switching agents"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read skills_manifest always: Sessions share project room; Respect authority tokens; no parent product patch emulation"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read skills_manifest always: Do not invent facts; Classify FACT/INFERENCE; Command evidence must record exit code; verify by primary sources"
+      },
+      {
+        "skill_id": "game-ui-icons",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read WO-required: Interaction states geometry-identical; panels/bars 9-slice safe; chat panel as readable system surface; no text-on-icons unless requested"
+      }
+    ],
+    "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "input_context_hash": "sha256:fbee45e37da3057dee08a745cb89e5775bd3397e7cfab899e9d02ad60ad0bd4e",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004.md",
+        "E:/AIdle_openworld/orchestration/receipts/g8/ui_visual_correction_003/C3_companion.json",
+        "E:/AIdle_openworld/game/scripts/modules/companion/companion_chat_panel.gd",
+        "E:/AIdle_openworld/game/scripts/modules/companion/companion_module.gd",
+        "E:/AIdle_openworld/DESIGN.md"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "fbee45e37da3057dee08a745cb89e5775bd3397e7cfab899e9d02ad60ad0bd4e",
+      "BYTE_LEN": 42028,
+      "result_file": "orchestration/logs/g8-d2-companion-hash-result.txt"
+    },
+    "product_writes": [],
+    "writer_lease": [],
+    "forbidden_writes_honored": [
+      "game/scripts/modules/companion/** (VERIFY_ONLY — no product patch)",
+      "game/scenes/ui/companion_chat_panel.tscn",
+      "scripts/run_g8_headed_visual_c003.py",
+      "game/scripts/core/headed_visual_smoke.gd",
+      "executor/manifestation/asset/persist product files"
+    ],
+    "lineage": {
+      "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "child_task_ref": "019f8277-f857-7330-8007-93038ba27a48",
+      "d1_core_child_task_ref": "019f8273-9fad-7ed2-9e8c-792f59e6f583",
+      "d1_executor_child_task_ref": "019f8273-9fae-7a93-ae0c-b06e05d2ff6b",
+      "preserved_dir24_c3_receipt": "orchestration/receipts/g8/ui_visual_correction_003/C3_companion.json"
+    },
+    "gates": {
+      "companion_mount_visible": "PASS",
+      "chat_input_visible": "PASS",
+      "no_companion_action_bar_overlap": "PASS",
+      "chat_panel_readable_868x517": "PASS",
+      "proposal_not_commit": "PASS",
+      "has_commit_tool_false": "PASS",
+      "headed_companion_capture": "PASS",
+      "companion_open_dimensions_868x517": "PASS",
+      "runtime_state_companion_visible": "PASS"
+    },
+    "verification_detail": {
+      "companion_mount": {
+        "status": "PASS",
+        "evidence": "headed_visual_smoke.gd toggles chat then _assert_geometry(main,true); runner OK companion_in_viewport + required_companion_open_868x517.png; module Ready log AGM-driven text-only proposal-only"
+      },
+      "chat_readability": {
+        "status": "PASS",
+        "evidence": "Visual inspect companion_open_868x517.png: title Companion · text-only, Mood/Privacy, Proposal status, role-colored turns, placeholder 'Text only — try: xây nhà', Inspect/Reset/Delete buttons readable at 868x517"
+      },
+      "non_overlap_hud": {
+        "status": "PASS",
+        "evidence": "ACTION_BAR_CLEARANCE=86.0 anchors bottom-left; runner marker OK no_companion_action_bar_overlap; Rect2 intersects action bar rect fails closed in harness"
+      },
+      "proposal_ne_commit": {
+        "status": "PASS",
+        "evidence": "companion_module.gd has_commit_tool() -> CompanionWorldPromptBuilder.has_commit_tool(); list_tools all commits=false mutates_world=false; build_proposal confirmation.state=pending preview_required=true; UI proposal_label 'pending confirm'; Ready banner 'proposal-only (no commit tool)'"
+      },
+      "headed_evidence": {
+        "status": "PASS",
+        "file": "orchestration/evidence/g8_ui_visual_correction_003/companion_open_868x517.png",
+        "width": 868,
+        "height": 517,
+        "sha256": "a1f9318eece7f387a012e7f8e64bf33b0f7f853b7d7b8fd97fbeec2229b9ffb6",
+        "runtime_state": "companion_visible",
+        "manifest_match": true,
+        "refreshed_by": "D1 core headed re-run 2026-07-21T02:16:24 (preserved draft, companion VERIFY adopts)"
+      }
+    },
+    "preserved_draft_refs": [
+      "game/scripts/modules/companion/companion_chat_panel.gd",
+      "game/scripts/modules/companion/companion_module.gd",
+      "game/scripts/modules/companion/world_prompt_builder.gd",
+      "orchestration/receipts/g8/ui_visual_correction_003/C3_companion.json",
+      "orchestration/evidence/g8_ui_visual_correction_003/companion_open_868x517.png",
+      "orchestration/logs/g8-ui-visual-correction-003-runner.log"
+    ],
+    "children": [],
+    "no_grandchildren": true,
+    "findings": [],
+    "residual_risks": [
+      "Compact 868 layout may show italic intro line ('Text-only Companion…') near Proposal status — harness still PASS on chat_input_visible and no action-bar overlap; pixel-level critic is D3 network/ui-visual-critic territory.",
+      "Dir24 C3_companion.json lacked real child_task_ref (parent-simulated); this D2 receipt supplies durable child_task_ref 019f8277-f857-7330-8007-93038ba27a48.",
+      "G8-001 remains non-ACCEPTED; parent collate after D3 + Codex required.",
+      "companion_chat_panel.gd may show as working-tree modified from preserved Dir24 draft — not patched by this VERIFY_ONLY child."
+    ]
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "name": "verify_companion_headed_capture_dims_hash",
+        "command": "python -c \"from PIL import Image; im=Image.open(r'orchestration/evidence/g8_ui_visual_correction_003/companion_open_868x517.png'); print(im.size)\" + Get-FileHash SHA256",
+        "exit_code": 0,
+        "markers": [
+          "(868, 517)",
+          "A1F9318EECE7F387A012E7F8E64BF33B0F7F853B7D7B8FD97FBEEC2229B9FFB6"
+        ]
+      },
+      {
+        "name": "re_read_runner_companion_markers",
+        "command": "Select-String g8-ui-visual-correction-003-runner.log companion markers",
+        "exit_code": 0,
+        "markers": [
+          "OK  chat_input_visible",
+          "OK  no_companion_action_bar_overlap",
+          "OK  unique_companion_open_868x517.png",
+          "OK  required_companion_open_868x517.png",
+          "proposal-only (no commit tool)"
+        ]
+      },
+      {
+        "name": "static_proposal_not_commit_audit",
+        "command": "grep/read companion_module.gd + world_prompt_builder.gd has_commit_tool/list_tools/confirmation",
+        "exit_code": 0,
+        "markers": [
+          "has_commit_tool returns false when all tools commits=false",
+          "confirmation.state=pending",
+          "preview_required=true"
+        ]
+      },
+      {
+        "name": "d1_parent_wave_canonical_runner_context",
+        "command": "observe D1 core CANONICAL_RUNNER=PASS (core-owned; companion does not re-execute headed harness)",
+        "exit_code": 0,
+        "markers": [
+          "CANONICAL_RUNNER=PASS",
+          "AIDLE_HEADED_VISUAL_SMOKE=PASS checks=46"
+        ],
+        "note": "VERIFY_ONLY companion adopts D1-refreshed evidence; does not re-run product harness"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "VERIFY_ONLY",
+    "no_self_accept": true,
+    "self_accept": false,
+    "character_skill_trace_present": true,
+    "no_catalog_false_claim": true,
+    "control_foundation_not_implemented": true,
+    "no_grandchildren": true,
+    "no_product_patch": true,
+    "no_support_star_tasks": true,
+    "parent_product_patch": false,
+    "writer_lease_empty_product": true,
+    "jsonschema_target": "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-d2-companion-child.log",
+    "orchestration/logs/g8-d2-companion-hash-result.txt",
+    "orchestration/logs/g8-ui-visual-correction-003-runner.log",
+    "orchestration/evidence/g8_ui_visual_correction_003/companion_open_868x517.png",
+    "orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "orchestration/receipts/g8/ui_visual_correction_003/C3_companion.json",
+    "orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+    "game/scripts/modules/companion/companion_chat_panel.gd",
+    "game/scripts/modules/companion/companion_module.gd",
+    "game/scripts/modules/companion/world_prompt_builder.gd"
+  ],
+  "next_route": "D3_NETWORK_PURPLE"
+}

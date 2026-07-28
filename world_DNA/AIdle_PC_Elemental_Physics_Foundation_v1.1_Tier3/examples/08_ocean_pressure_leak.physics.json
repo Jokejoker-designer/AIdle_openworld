@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "request_id": "pc_physics_ocean_leak_0001",
+  "world_profile": "oceanpunk_abyss",
+  "pc_profile_id": "pc_forward_plus_ultra_v1",
+  "expected_world_revision": 0,
+  "build_graph_ref": "graph_ocean_pressure_leak_v1",
+  "elemental_bindings": [
+    {
+      "entity_ref": "glass_tunnel",
+      "elements": [
+        "element_glass",
+        "element_pressure",
+        "element_water"
+      ],
+      "physical_profile_id": "phys_glass_pressure_v1"
+    },
+    {
+      "entity_ref": "ocean",
+      "elements": [
+        "element_water",
+        "element_pressure"
+      ],
+      "physical_profile_id": "phys_water_v1"
+    }
+  ],
+  "force_fields": [
+    {
+      "force_id": "force_pressure_load_v1",
+      "target_ref": "glass_tunnel",
+      "parameters": {
+        "pressure_class": 0.75,
+        "surface_area": 24
+      }
+    }
+  ],
+  "reaction_rules": [
+    "react_pressure_glass_crack_v1",
+    "react_pressure_glass_leak_v1"
+  ],
+  "system_networks": [
+    {
+      "network_id": "pressure_shell",
+      "solver_rule": "struct_pressure_shell_v1",
+      "nodes": [
+        "glass_tunnel"
+      ]
+    },
+    {
+      "network_id": "leak_flow",
+      "solver_rule": "fluid_leak_v1",
+      "nodes": [
+        "ocean",
+        "glass_tunnel",
+        "base_interior"
+      ]
+    }
+  ],
+  "simulation": {
+    "simulation_lod_profile": "sim_lod_pc_ultra_v1",
+    "deterministic_seed": 210726,
+    "preview_only": true,
+    "collision_enabled_after_commit": true
+  },
+  "validation": {
+    "schema": true,
+    "element_compatibility": true,
+    "reaction_allowlist": true,
+    "structural": true,
+    "fluid": true,
+    "thermal": true,
+    "energy": true,
+    "biological": true,
+    "performance": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  }
+}

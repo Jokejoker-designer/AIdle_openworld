@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AIdle Mockup — 10 Characters + 10 Props (Capability-grounded)</title>
+<style>
+  :root {
+    --cream: #fdf3e2;
+    --cream-shade: #efe0c8;
+    --leaf: #7fc98f;
+    --ink: #263238;
+    --sky: #a8dced;
+    --wood: #c98a5e;
+    --cyan: #62e6ff;
+    --card: #fffaf0;
+    --border: #e8d9c0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #e8f7ff 0%, transparent 50%),
+      radial-gradient(900px 500px at 100% 0%, #fff3d6 0%, transparent 45%),
+      linear-gradient(180deg, #f7f0e4, #efe6d4 40%, #e7f2ea);
+    line-height: 1.45;
+  }
+  header {
+    padding: 28px 24px 12px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  header h1 {
+    margin: 0 0 8px;
+    font-size: 1.55rem;
+    letter-spacing: -0.02em;
+  }
+  header p { margin: 0.35rem 0; max-width: 72ch; opacity: 0.92; }
+  .badge {
+    display: inline-block;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 0.78rem;
+    margin-right: 6px;
+    margin-top: 6px;
+  }
+  .badge.ok { background: #e4f7ea; border-color: #b7e2c4; }
+  .badge.warn { background: #fff4d6; border-color: #efd48a; }
+  section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px 32px;
+  }
+  h2 {
+    margin: 28px 0 12px;
+    font-size: 1.2rem;
+    border-left: 4px solid var(--leaf);
+    padding-left: 10px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(38, 50, 56, 0.06);
+    display: flex;
+    flex-direction: column;
+  }
+  .stage {
+    position: relative;
+    height: 200px;
+    background:
+      linear-gradient(180deg, #dfeff5 0%, #f5efe3 55%, #e4dcc8 100%);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+  .stage img, .stage video {
+    max-width: 88%;
+    max-height: 88%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 14px rgba(0,0,0,0.12));
+  }
+  .stage.anim-idle img {
+    animation: idleBob 2.8s ease-in-out infinite;
+  }
+  .stage.anim-walk img {
+    animation: walkBob 0.7s ease-in-out infinite;
+  }
+  .stage.anim-sig img {
+    animation: sigPulse 1.6s ease-in-out infinite;
+  }
+  .stage.manifest {
+    background:
+      radial-gradient(circle at 50% 60%, rgba(98,230,255,0.35), transparent 55%),
+      linear-gradient(180deg, #1a2a33 0%, #2c3e48 100%);
+  }
+  .stage.manifest img {
+    animation: manifestIn 3.2s ease-in-out infinite;
+  }
+  @keyframes idleBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  @keyframes walkBob {
+    0%, 100% { transform: translate(0,0) rotate(-1deg); }
+    50% { transform: translate(4px,-4px) rotate(1deg); }
+  }
+  @keyframes sigPulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 10px 14px rgba(0,0,0,0.12)); }
+    50% { transform: scale(1.05); filter: drop-shadow(0 0 16px rgba(98,230,255,0.55)); }
+  }
+  @keyframes manifestIn {
+    0% { opacity: 0.15; transform: scale(0.92); filter: brightness(2) saturate(0.2); }
+    35% { opacity: 0.55; filter: brightness(1.4) hue-rotate(20deg); }
+    70% { opacity: 0.9; filter: brightness(1.05); }
+    100% { opacity: 1; transform: scale(1); filter: none; }
+  }
+  .body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+  .body h3 { margin: 0; font-size: 1.02rem; }
+  .meta { font-size: 0.78rem; opacity: 0.8; font-family: ui-monospace, Consolas, monospace; }
+  .clips {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px;
+  }
+  .clip {
+    font-size: 0.68rem;
+    background: #eef7fb;
+    border: 1px solid #cfe3ec;
+    border-radius: 6px;
+    padding: 2px 6px;
+  }
+  .clip.real { background: #e6f8ec; border-color: #b6e2c3; }
+  .clip.defer { background: #fff7e0; border-color: #efd48a; }
+  .btns { display: flex; gap: 6px; margin-top: 8px; }
+  button {
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+  button.active { background: var(--leaf); color: #123; border-color: #5aa86d; }
+  footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px 24px 40px;
+    font-size: 0.85rem;
+    opacity: 0.85;
+  }
+  table.cap {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  table.cap th, table.cap td {
+    border-bottom: 1px solid var(--border);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.cap th { background: #f3ebe0; }
+  .pipeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin: 12px 0 20px;
+  }
+  .pipe-step {
+    background: var(--card);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+  .pipe-step strong { display: block; margin-bottom: 4px; color: #1b5e20; }
+</style>
+</head>
+<body>
+<header>
+  <h1>AIdle Mockup — 10 nhân vật + 10 vật thể</h1>
+  <p>
+    Mockup bám <strong>năng lực thật</strong> của game (Directive 99 / H1): Character Foundry schema,
+    pipeline GLB skinned + clip keys (đã chứng minh trên Nori-7), Block/P1E modular props,
+    vòng <em>proposal → preview → confirm → World Commit</em>, camera 2.5D three-quarter.
+  </p>
+  <p>
+    <span class="badge ok">Cozy Cyber-Pixel #fdf3e2</span>
+    <span class="badge ok">Foundry 28 cast · 7 world profiles</span>
+    <span class="badge ok">P1E library modules</span>
+    <span class="badge warn">Mockup ≠ production ACCEPTED mesh</span>
+    <span class="badge warn">MVP Companion text-only (AIda outside Foundry)</span>
+  </p>
+</header>
+
+<section>
+  <h2>Pipeline game có thể chạy (không bịa)</h2>
+  <div class="pipeline">
+    <div class="pipe-step"><strong>1. Foundry spec</strong>character_spec · class · rig family · denylist authority</div>
+    <div class="pipe-step"><strong>2. Offline Blender</strong>14-bone biped (robot) / humanoid / quadruped · multi-mat · real fcurves</div>
+    <div class="pipe-step"><strong>3. Quarantine → game/**</strong>sha256 · adapter · presenter glb_c1r</div>
+    <div class="pipe-step"><strong>4. Runtime clips</strong>idle/walk/scan/happy/cancel + gardener keys · AnimationPlayer</div>
+    <div class="pipe-step"><strong>5. Props P1E</strong>GLB library · density/collision · manifestation 4-stage</div>
+    <div class="pipe-step"><strong>6. Player build</strong>Speak → validate → hologram preview → Confirm → World Commit</div>
+  </div>
+</section>
+
+<section>
+  <h2>10 nhân vật (Foundry IDs thật · buildable path)</h2>
+  <div class="grid" id="chars"></div>
+</section>
+
+<section>
+  <h2>10 vật thể (P1E / Starter Realm modules thật)</h2>
+  <p style="margin-top:-6px;font-size:0.9rem;opacity:0.85">
+    Manifestation mock: wireframe → hologram → materializing → complete (art bible 4 stages).
+    Collision chỉ sau World Commit.
+  </p>
+  <div class="grid" id="props"></div>
+</section>
+
+<section>
+  <h2>Animation set tối thiểu (runtime-capable)</h2>
+  <table class="cap">
+    <thead>
+      <tr><th>Loại</th><th>Clips runtime đã chứng minh / contract</th><th>Ghi chú năng lực</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ROBOT_HELPER (Nori path)</td>
+        <td>idle · walk · scan · happy · cancel · turn_L/R · build_place · build_place_hold · confirm · water · plant_seed · harvest · charge · low_energy</td>
+        <td>Real keys in GLB; AnimationPlayer; no metadata-as-animation</td>
+      </tr>
+      <tr>
+        <td>NPC humanoid</td>
+        <td>idle · walk · talk_gesture · work_loop · wave · cancel</td>
+        <td>Cùng pipeline Blender→GLB; rig Humanoid-small / stocky</td>
+      </tr>
+      <tr>
+        <td>CREATURE_TAMEABLE</td>
+        <td>idle · walk/trot · sit · sniff_search · happy</td>
+        <td>Quadruped-small; rear feature bắt buộc</td>
+      </tr>
+      <tr>
+        <td>Props / modules</td>
+        <td>static + optional ambient bob/sway · construction stages 4</td>
+        <td>P1E GLB library; not free Text-to-3D</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>Video mock animation (sample)</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="stage"><video src="anim_char_kito_idle.mp4" autoplay muted loop playsinline controls></video></div>
+      <div class="body"><h3>Kito — idle sample</h3><div class="meta">Preview motion · not Godot AnimationPlayer proof</div></div>
+    </div>
+    <div class="card">
+      <div class="stage"><video src="anim_prop_house_ambient.mp4" autoplay muted loop playsinline controls></video></div>
+      <div class="body"><h3>House — ambient sample</h3><div class="meta">Preview motion · production uses static GLB + stage materials</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Nguồn sự thật:</strong> Character Foundry intake (28 chars) · P1E cozy library · Nori-7 production GLB pipeline · Vision Lock cozy 2.5D · World Commit sole mutator.</p>
+  <p><strong>Không claim:</strong> 20 GLB production đã ship · TTS · multiplayer H2+ · free Text-to-3D runtime. Đây là mockup design + capability map.</p>
+  <p>Files: <code>orchestration/control/visual_reference/mockup_cast_props_001/</code> · catalog JSON cạnh HTML.</p>
+</footer>
+
+<script>
+const CHARACTERS = [
+  {
+    id: "CCP-RH-001", name: "Nori-7", cls: "ROBOT_HELPER", world: "cozy_cyber_pixel",
+    img: "char_nori7_CCP-RH-001.jpg", role: "Robot làm vườn · pilot production",
+    rig: "skel_small_biped_robot_v1 (14 bones)",
+    clips: { real: ["idle","walk","scan","happy","cancel","water","plant_seed","harvest","charge","low_energy"], },
+    note: "Đã có GLB runtime glb_c1r + Human playtest redesign."
+  },
+  {
+    id: "CCP-NS-002", name: "Mây Mạch", cls: "NPC_SOCIAL", world: "cozy_cyber_pixel",
+    img: "char_maymach_CCP-NS-002.jpg", role: "Giao thư · mở quest xã hội",
+    rig: "Humanoid-small-01",
+    clips: { real: ["idle","walk"], plan: ["talk_gesture","wave","bag_open"] },
+    note: "Foundry concept + art ref; production = cùng pipeline Nori (Blender→quarantine→GLB)."
+  },
+  {
+    id: "CCP-NW-003", name: "Bác Bắp", cls: "NPC_WORKER", world: "cozy_cyber_pixel",
+    img: "char_bacbap_CCP-NW-003.jpg", role: "Thợ máy · nâng cấp robot",
+    rig: "Humanoid-stocky-01",
+    clips: { real: ["idle","walk"], plan: ["repair_loop","tool_swing","teach_point"] },
+    note: "Không tự mutate ownership; chỉ đề xuất build/repair."
+  },
+  {
+    id: "CCP-CT-004", name: "Bụi Mơ", cls: "CREATURE_TAMEABLE", world: "cozy_cyber_pixel",
+    img: "char_buimo_CCP-CT-004.jpg", role: "Thú cưng tìm vật liệu nhỏ",
+    rig: "Quadruped-small-01",
+    clips: { real: ["idle"], plan: ["walk","sit","sniff_search","happy"] },
+    note: "Rear feature (lá) bắt buộc; tameable loop không auto-spend."
+  },
+  {
+    id: "SPH-RH-011", name: "Kito Thụ Phấn", cls: "ROBOT_HELPER", world: "solarpunk_haven",
+    img: "char_kito_SPH-RH-011.jpg", role: "Robot thụ phấn · solar farm",
+    rig: "skel_small_biped_robot_v1 (reuse Nori skeleton family)",
+    clips: { real: ["idle","walk"], plan: ["pollinate","scan","charge","happy"] },
+    note: "Cùng class Nori → tái dùng bone set + clip contract."
+  },
+  {
+    id: "OA-RG-021", name: "Nereu-5", cls: "ROBOT_HELPER", world: "oceanpunk_abyss",
+    img: "char_nereu_OA-RG-021.jpg", role: "Robot hỗ trợ vùng nước",
+    rig: "skel_small_biped_robot_v1 + fin sockets",
+    clips: { real: ["idle","walk"], plan: ["swim_bob","scan","happy","low_energy"] },
+    note: "World profile đổi palette; rig helper tái dùng."
+  },
+  {
+    id: "AC-CO-015", name: "Cinder-04", cls: "CONSTRUCT", world: "arcane_clockwork",
+    img: "char_cinder_AC-CO-015.jpg", role: "Construct canh xưởng",
+    rig: "Humanoid-stocky / construct",
+    clips: { real: ["idle"], plan: ["walk","guard","ember_pulse","cancel"] },
+    note: "Surrealism budget thấp; aura = expression not diagnosis."
+  },
+  {
+    id: "TD-CT-028", name: "Patch Gấu Nút", cls: "CREATURE_TAMEABLE", world: "tiny_diorama",
+    img: "char_patch_TD-CT-028.jpg", role: "Pet diorama · companion-feel",
+    rig: "Quadruped-small-01",
+    clips: { real: ["idle"], plan: ["walk","sit","happy","sniff_search"] },
+    note: "Tiny Diorama scale; vẫn 2.5D readable."
+  },
+  {
+    id: "SV-NW-019", name: "Trúc Nhi", cls: "NPC_WORKER", world: "spirit_valley",
+    img: "char_truc_SV-NW-019.jpg", role: "Thợ trúc · chăm vườn linh",
+    rig: "Humanoid-small-01",
+    clips: { real: ["idle","walk"], plan: ["work_loop","bow","offer_item"] },
+    note: "Spirit Valley palette; authority denylist giữ nguyên."
+  },
+  {
+    id: "SPH-NG-009", name: "Luma Tán Lá", cls: "NPC_GUIDE", world: "solarpunk_haven",
+    img: "char_luma_SPH-NG-009.jpg", role: "Hướng dẫn first-run / onboarding",
+    rig: "Humanoid-small-01",
+    clips: { real: ["idle","walk"], plan: ["point_guide","talk_gesture","wave"] },
+    note: "Phù hợp gate onboarding commercial; text dialogue MVP."
+  }
+];
+
+const PROPS = [
+  { id: "cozy_house_small_A", name: "Nhà nhỏ Cozy", img: "prop_house_small.jpg", role: "Shelter · landmark", path: "P1E library GLB", stages: true },
+  { id: "cozy_greenhouse_preview_anchor_A", name: "Nhà kính", img: "prop_greenhouse.jpg", role: "Farm hub · Nori spawn near", path: "P1E library GLB", stages: true },
+  { id: "cozy_pond_small_A", name: "Ao nhỏ", img: "prop_pond.jpg", role: "Water feature · density", path: "P1E library GLB", stages: true },
+  { id: "cozy_fence_section_A", name: "Hàng rào", img: "prop_fence.jpg", role: "Boundary · collision", path: "P1E library GLB", stages: true },
+  { id: "cozy_garden_lamp_A", name: "Đèn vườn", img: "prop_garden_lamp.jpg", role: "Light prop · night mood", path: "P1E library GLB", stages: true },
+  { id: "cozy_tree_landmark_A", name: "Cây landmark", img: "prop_tree_landmark.jpg", role: "Vertical landmark", path: "P1E library GLB", stages: true },
+  { id: "cozy_farm_plot_A", name: "Ô đất trồng", img: "prop_farm_plot.jpg", role: "Farming loop · Nori water", path: "P1E library GLB", stages: true },
+  { id: "cozy_flower_cluster_A", name: "Cụm hoa", img: "prop_flower_cluster.jpg", role: "Density charm", path: "P1E library GLB", stages: true },
+  { id: "cozy_path_stone_A", name: "Đá lối đi", img: "prop_path_stone.jpg", role: "Path tile module", path: "P1E library GLB", stages: true },
+  { id: "cozy_rock_small_A", name: "Đá nhỏ", img: "prop_rock_small.jpg", role: "Scatter prop", path: "P1E library GLB", stages: true }
+];
+
+function clipHtml(c) {
+  const real = (c.clips.real || []).map(x => `<span class="clip real">${x}</span>`).join("");
+  const plan = (c.clips.plan || []).map(x => `<span class="clip defer">${x}</span>`).join("");
+  return real + plan;
+}
+
+function mountChars() {
+  const root = document.getElementById("chars");
+  CHARACTERS.forEach((c, i) => {
+    const el = document.createElement("article");
+    el.className = "card";
+    el.innerHTML = `
+      <div class="stage anim-idle" data-stage>
+        <img src="${c.img}" alt="${c.name}" />
+      </div>
+      <div class="body">
+        <h3>${c.name}</h3>
+        <div class="meta">${c.id} · ${c.cls}<br/>${c.world}</div>
+        <div>${c.role}</div>
+        <div class="meta">Rig: ${c.rig}</div>
+        <div class="clips">${clipHtml(c)}</div>
+        <div class="meta">${c.note}</div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="sig">signature</button>
+        </div>
+      </div>`;
+    el.querySelectorAll("button[data-anim]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const stage = el.querySelector("[data-stage]");
+        stage.classList.remove("anim-idle","anim-walk","anim-sig");
+        stage.classList.add("anim-" + btn.dataset.anim);
+        el.querySelectorAll("button[data-anim]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+    root.appendChild(el);
+  });
+}
+
+function mountProps() {
+  const root = document.getElementById("props");
+  PROPS.forEach(p => {
+    const el = document.createElement("article");
+    el.className = "card";
+    el.innerHTML = `
+      <div class="stage manifest" data-stage>
+        <img src="${p.img}" alt="${p.name}" />
+      </div>
+      <div class="body">
+        <h3>${p.name}</h3>
+        <div class="meta">${p.id}</div>
+        <div>${p.role}</div>
+        <div class="meta">Source: ${p.path}</div>
+        <div class="clips">
+          <span class="clip">wireframe</span>
+          <span class="clip">hologram</span>
+          <span class="clip">materializing</span>
+          <span class="clip real">complete</span>
+        </div>
+        <div class="btns">
+          <button type="button" data-m="on" class="active">manifest loop</button>
+          <button type="button" data-m="off">static</button>
+        </div>
+      </div>`;
+    el.querySelectorAll("button[data-m]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const stage = el.querySelector("[data-stage]");
+        const img = stage.querySelector("img");
+        if (btn.dataset.m === "on") {
+          stage.classList.add("manifest");
+          img.style.animation = "";
+        } else {
+          stage.classList.remove("manifest");
+          img.style.animation = "none";
+          img.style.opacity = "1";
+          img.style.filter = "none";
+        }
+        el.querySelectorAll("button[data-m]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+    root.appendChild(el);
+  });
+}
+
+mountChars();
+mountProps();
+</script>
+</body>
+</html>

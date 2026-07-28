@@ -1,0 +1,337 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/object-dna-card-system/contracts/mockup_card_system.schema.json",
+  "title": "AIdle 5-Level Mockup Card System (Object DNA §9–13 / vNext V5 content)",
+  "description": "First-draft schema for DNA Platform vNext gate V5 Player creation UX. Does not authorize World Commit, catalog write, or generated code execution. Cards propose; Human confirms; compiler remains UniversalEntityRecipe + generation_result 4-state.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "session_id",
+    "request_id",
+    "current_level",
+    "levels",
+    "authority",
+    "accepted",
+    "self_accept"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "object_dna_card_system/mockup_card_system/0.1"
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128,
+      "description": "Must correlate with dna_platform_vnext GenerationRequest.request_id when compiled."
+    },
+    "player_prompt": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "current_level": {
+      "enum": [1, 2, 3, 4, 5],
+      "description": "1 Family · 2 Skeleton · 3 Visual Style · 4 Animation Package · 5 Build Confirmation"
+    },
+    "levels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level_1_object_family",
+        "level_2_skeleton",
+        "level_3_visual_style",
+        "level_4_animation_package",
+        "level_5_build_confirmation"
+      ],
+      "properties": {
+        "level_1_object_family": {
+          "$ref": "#/$defs/level_state"
+        },
+        "level_2_skeleton": {
+          "$ref": "#/$defs/level_state"
+        },
+        "level_3_visual_style": {
+          "$ref": "#/$defs/level_state"
+        },
+        "level_4_animation_package": {
+          "$ref": "#/$defs/level_state"
+        },
+        "level_5_build_confirmation": {
+          "$ref": "#/$defs/level_state"
+        }
+      }
+    },
+    "selected": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "design_card_id": { "type": "string", "maxLength": 128 },
+        "object_family": { "type": "string", "maxLength": 64 },
+        "skeleton_family_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*_v[0-9]+$" },
+        "world_profile": {
+          "enum": [
+            "cozy_cyber_pixel",
+            "tiny_diorama",
+            "solarpunk_haven",
+            "arcane_clockwork",
+            "spirit_valley",
+            "surrealism_canvas",
+            "oceanpunk_abyss"
+          ]
+        },
+        "material_theme_id": { "type": "string", "maxLength": 128 },
+        "animation_package_ids": {
+          "type": "array",
+          "maxItems": 16,
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" }
+        },
+        "build_path": {
+          "enum": ["TEMPLATE", "GENERATIVE", "HYBRID"]
+        }
+      }
+    },
+    "compile_target": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "After level 5 confirm, emit GenerationRequest + UniversalEntityRecipe — not a direct commit.",
+      "properties": {
+        "generation_request_schema": {
+          "const": "dna_platform_vnext/generation_request/0.1"
+        },
+        "universal_entity_recipe_schema": {
+          "const": "dna_platform_vnext/universal_entity_recipe/0.1"
+        },
+        "character_projection_schema": {
+          "const": "object_dna_card_system/character_build_recipe_projection/0.1"
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proposal_only",
+        "may_commit_world",
+        "may_execute_generated_code",
+        "may_write_catalog",
+        "requires_human_confirmation"
+      ],
+      "properties": {
+        "proposal_only": { "const": true },
+        "may_commit_world": { "const": false },
+        "may_execute_generated_code": { "const": false },
+        "may_write_catalog": { "const": false },
+        "requires_human_confirmation": { "const": true },
+        "vnext_gate": {
+          "const": "V5",
+          "description": "ARCHITECTURE §7 V5 Player creation UX — not authorized for product execution by this schema alone."
+        }
+      }
+    },
+    "build_job_state": {
+      "enum": [
+        "DRAFT",
+        "MOCKUP_GENERATED",
+        "USER_SELECTED",
+        "RECIPE_CREATED",
+        "VALIDATION_PENDING",
+        "BLENDER_BUILDING",
+        "RIGGING",
+        "SKINNING",
+        "ANIMATION_BINDING",
+        "LOD_GENERATION",
+        "GODOT_IMPORTING",
+        "RUNTIME_TESTING",
+        "REVIEW_REQUIRED",
+        "APPROVED"
+      ],
+      "description": "SOURCE §14 narrative states. APPROVED requires Human/reviewer — AI must not self-transition REVIEW_REQUIRED→APPROVED."
+    },
+    "accepted": { "const": false },
+    "self_accept": { "const": false }
+  },
+  "$defs": {
+    "level_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "status", "cards"],
+      "properties": {
+        "level": { "enum": [1, 2, 3, 4, 5] },
+        "status": {
+          "enum": ["EMPTY", "PROPOSED", "SELECTED", "SKIPPED"]
+        },
+        "cards": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 12,
+          "items": { "$ref": "#/$defs/card" }
+        },
+        "selected_card_id": {
+          "type": ["string", "null"],
+          "maxLength": 128
+        }
+      }
+    },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "design_card_id",
+        "card_level",
+        "title",
+        "required_fields"
+      ],
+      "properties": {
+        "design_card_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "card_level": { "enum": [1, 2, 3, 4, 5] },
+        "title": { "type": "string", "maxLength": 128 },
+        "thumbnail_uri": {
+          "type": ["string", "null"],
+          "maxLength": 512,
+          "description": "Mockup art path or null if not yet authored."
+        },
+        "required_fields": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "SOURCE §9.3 mandatory fields (level 1). Other levels use subsets.",
+          "properties": {
+            "object_family": { "type": "string" },
+            "skeleton_family": { "type": "string" },
+            "animation_set_summary": { "type": "string" },
+            "animation_clip_count_claim": {
+              "type": ["integer", "null"],
+              "minimum": 0,
+              "description": "UI claim only — must be backed by evidence_ref when non-null."
+            },
+            "build_path": {
+              "enum": ["TEMPLATE", "GENERATIVE", "HYBRID"]
+            },
+            "complexity": {
+              "enum": ["LOW", "MEDIUM", "HIGH"]
+            },
+            "expected_quality": {
+              "enum": ["PROTOTYPE", "GAME_READY", "HERO"]
+            },
+            "performance_class": {
+              "enum": ["XS", "S", "M", "L", "XL"]
+            },
+            "platform_support": {
+              "type": "array",
+              "items": { "enum": ["PC", "MOBILE"] }
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "missing_requirements": {
+              "type": "array",
+              "items": { "type": "string", "maxLength": 256 }
+            },
+            "build_time_class": {
+              "enum": ["FAST", "MEDIUM", "SLOW"]
+            }
+          }
+        },
+        "level_2_skeleton": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "skeleton_family_id": { "type": "string" },
+            "bone_count_claim": { "type": ["integer", "null"] },
+            "animation_clip_count_claim": { "type": ["integer", "null"] },
+            "fit_score": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+            "features": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "level_3_visual_style": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "world_profile": { "type": "string" },
+            "material_theme_id": { "type": "string" },
+            "palette_tokens": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "shader_profile": { "type": "string" },
+            "lod_target": { "type": "string" },
+            "vfx_compatibility": { "type": "string" }
+          }
+        },
+        "level_4_animation_package": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "package_id": { "type": "string" },
+            "clip_ids": {
+              "type": "array",
+              "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" }
+            },
+            "multi_select_allowed": { "type": "boolean" }
+          }
+        },
+        "level_5_build_confirmation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "design_summary": { "type": "string" },
+            "skeleton_family_id": { "type": "string" },
+            "animation_sets": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "parts": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "material_theme_id": { "type": "string" },
+            "outputs_claimed": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "LOD0_LOD3",
+                  "GLB",
+                  "GODOT_SCENE",
+                  "ANIMATION_LIBRARY",
+                  "COLLISION",
+                  "CHARACTER_MANIFEST"
+                ]
+              }
+            },
+            "actions": {
+              "type": "array",
+              "items": {
+                "enum": ["BACK", "EDIT", "PREVIEW", "START_BUILD"]
+              }
+            }
+          }
+        },
+        "evidence_refs": {
+          "type": "array",
+          "maxItems": 16,
+          "items": { "type": "string", "maxLength": 512 },
+          "description": "Paths or receipt IDs backing any numeric clip/bone claims."
+        },
+        "buttons": {
+          "type": "array",
+          "items": {
+            "enum": ["PREVIEW", "EDIT", "SELECT", "BACK", "START_BUILD"]
+          }
+        }
+      }
+    }
+  }
+}

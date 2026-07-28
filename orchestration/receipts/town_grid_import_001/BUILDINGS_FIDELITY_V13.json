@@ -1,0 +1,195 @@
+{
+  "schema_version": "buildings_fidelity/1.0",
+  "receipt_id": "BUILDINGS_FIDELITY_V13",
+  "job": "BUILDINGS_FIDELITY_V13",
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "authority": "PATCH_DRAFT",
+  "human_authorization": "continuous_iteration_authorization",
+  "camera_match_tooling": "retained_from_v11",
+  "geometry_frozen": true,
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "matching_100_pct_count": 0,
+  "matching_100_pct": [],
+  "modules": [
+    {
+      "module_id": "cozy_market_stall_A",
+      "glb_sha256": "e513467db4ccf3550cf1b40cfb57569b3bbbcc7d0f3ea688a6fc45894bdc11c1",
+      "bytes": 273712,
+      "source": "BUILDINGS_FIDELITY_V13",
+      "visual": "mockup_match_v13_cozy_market_stall_A",
+      "mockup_ssot": "cozy_market_stall_A"
+    },
+    {
+      "module_id": "cozy_gazebo_A",
+      "glb_sha256": "0c0b5aa90b0014d6f2d5dc5b1d6a3d1e26f4d5d69244d9aaf9f6295f69306b7a",
+      "bytes": 490648,
+      "source": "BUILDINGS_FIDELITY_V13",
+      "visual": "mockup_match_v13_cozy_gazebo_A",
+      "mockup_ssot": "cozy_gazebo_A"
+    },
+    {
+      "module_id": "cozy_well_house_A",
+      "glb_sha256": "ce91de69b6356c2b620a4cac9df350b351150960392c03d8252377850346bf4c",
+      "bytes": 360432,
+      "source": "BUILDINGS_FIDELITY_V13",
+      "visual": "mockup_match_v13_cozy_well_house_A",
+      "mockup_ssot": "cozy_well_house_A"
+    },
+    {
+      "module_id": "cozy_windmill_A",
+      "glb_sha256": "5c593bb245e575d4efd54b244ddbfb8d5959ea9a482940914abff1bb5e5175cc",
+      "bytes": 196316,
+      "source": "BUILDINGS_FIDELITY_V13",
+      "visual": "mockup_match_v13_cozy_windmill_A",
+      "mockup_ssot": "cozy_windmill_A"
+    },
+    {
+      "module_id": "cozy_bridge_arch_A",
+      "glb_sha256": "1b862cfc43f9fa32195a37f124241b233dacf40b19a4c4bdb1703c6385913c49",
+      "bytes": 202260,
+      "source": "BUILDINGS_FIDELITY_V13",
+      "visual": "mockup_match_v13_cozy_bridge_arch_A",
+      "mockup_ssot": "cozy_bridge_arch_A"
+    },
+    {
+      "module_id": "cozy_watchtower_A",
+      "glb_sha256": "cb7eda26df515a059788bb1fa83642d18192cfb0a56a02da020f6a8e40be8154",
+      "bytes": 239384,
+      "source": "BUILDINGS_FIDELITY_V13",
+      "visual": "mockup_match_v13_cozy_watchtower_A",
+      "mockup_ssot": "cozy_watchtower_A"
+    }
+  ],
+  "mesh_strategy_change": {
+    "cozy_market_stall_A": "topology_curved_awning_stripe_tubes_vs_box_stripes",
+    "cozy_gazebo_A": "topology_denser_fishscale_rings_vs_mush",
+    "cozy_well_house_A": "topology_curved_slope_shingles_vs_flat_boards",
+    "cozy_windmill_A": "topology_extra_glow_windows_hub_detail",
+    "cozy_bridge_arch_A": "topology_dense_soft_cobble_pile_vs_sparse",
+    "cozy_watchtower_A": "topology_conical_continuous_thatch_vs_floating_discs"
+  },
+  "lever": "topology_residual_focus_on_v12_lighting_base",
+  "lighting_fix": {
+    "root_cause": "town_grid_loader._boost_mockup_materials name remap missed petal/thatch/cobble keys",
+    "fix": "extended boost map + Blender materials named for boost keys",
+    "loader_file": "game/scripts/modules/town/town_grid_loader.gd"
+  },
+  "topology_fix": {
+    "approach": "crisp edge lips, frames, plank seams, discrete shingles, gapped cobbles, window frames"
+  },
+  "objects": [
+    {
+      "plot_id": "MARKET.BLD",
+      "object_id": "cozy_market_stall_A",
+      "v13_strategy": "topology_curved_awning_stripe_tubes_vs_box_stripes",
+      "lever": "both_topology_residual_focus_v13",
+      "prior_V12_SIG": "market_v12_crisp_awning_stripes_lit_wood_fruit_partial",
+      "post_v13_signature": "market_v13_curved_awning_stripes_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "camera_match_used": true,
+      "note": "V13 curved tube awning stripes. Headed still HIGH_PARTIAL vs bld_05 soft continuous fabric read \u2014 not 100%."
+    },
+    {
+      "plot_id": "GARDEN.BLD",
+      "object_id": "cozy_gazebo_A",
+      "v13_strategy": "topology_denser_fishscale_rings_vs_mush",
+      "lever": "both_topology_residual_focus_v13",
+      "prior_V12_SIG": "gazebo_v12_petal_g_boost_edge_lips_partial",
+      "post_v13_signature": "gazebo_v13_denser_fishscale_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "camera_match_used": true,
+      "note": "V13 denser fishscale green dome under town light. Headed closer to bld_10 but scale depth/soft-clay finish still partial \u2014 not 100%."
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "object_id": "cozy_well_house_A",
+      "v13_strategy": "topology_curved_slope_shingles_vs_flat_boards",
+      "lever": "both_topology_residual_focus_v13",
+      "prior_V12_SIG": "well_v12_shingle_plates_brick_emboss_partial",
+      "post_v13_signature": "well_v13_curved_shingle_slopes_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "camera_match_used": true,
+      "note": "V13 curved shingle slopes. Headed wood roof better; brick/body proportions still partial vs bld_07 \u2014 not 100%."
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "object_id": "cozy_windmill_A",
+      "v13_strategy": "topology_extra_glow_windows_hub_detail",
+      "lever": "both_topology_residual_focus_v13",
+      "prior_V12_SIG": "windmill_v12_frame_sails_pink_cap_lit_partial",
+      "post_v13_signature": "windmill_v13_more_windows_sail_hub_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "camera_match_used": true,
+      "note": "V13 more glow windows. Headed pink cap+sails family OK; multi-window density still short of bld_06 \u2014 not 100%."
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "object_id": "cozy_bridge_arch_A",
+      "v13_strategy": "topology_dense_soft_cobble_pile_vs_sparse",
+      "lever": "both_topology_residual_focus_v13",
+      "prior_V12_SIG": "bridge_v12_cobble_gapped_void_lavender_partial",
+      "post_v13_signature": "bridge_v13_dense_cobble_pile_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "camera_match_used": true,
+      "note": "V13 dense soft cobble pile + clear void. Headed closer to bld_09 pack; soft-clay hue still lighter \u2014 not 100%."
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "object_id": "cozy_watchtower_A",
+      "v13_strategy": "topology_conical_continuous_thatch_vs_floating_discs",
+      "lever": "both_topology_residual_focus_v13",
+      "prior_V12_SIG": "watchtower_v12_cabin_frame_thatch_tiles_partial",
+      "post_v13_signature": "watchtower_v13_conical_thatch_roof_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "camera_match_used": true,
+      "note": "V13 conical continuous thatch (fix floating discs). Headed roof family matches bld_08; cabin window glow cutouts still weak \u2014 not 100%."
+    }
+  ],
+  "safety_valve": {
+    "need_human": [],
+    "same_sig_streak_max": 0,
+    "note": "All 6 new residual signatures vs V12; streaks 0. No NEED_HUMAN."
+  },
+  "home_bld": "UNTOUCHED_CLOSED_PERMANENTLY",
+  "timestamp_utc": "2026-07-24T07:27:47Z",
+  "camera_match_meta": {
+    "pitch_degrees": 42.0,
+    "fov_degrees": 42.0,
+    "default_distance": 10.0,
+    "default_yaw_degrees": 35.0,
+    "source_script": "game/scripts/camera/cozy_camera.gd",
+    "source_lock": "MOCKUP_DESIGN_LOCK.md section 2 (three-quarter / isometric)",
+    "addons": [
+      "fspy_blender",
+      "real_scale_references"
+    ],
+    "addons_ship_in_game": false,
+    "addons_in_glb": false
+  },
+  "headed_log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_v13.log",
+  "structural": {
+    "real_glb": 50,
+    "placeholders": 0,
+    "cast": 10
+  },
+  "headed_visual_verdict": "none_at_100_pct; honest_partial_after_lighting_and_topology_push",
+  "next": [
+    "Continue residual-specific remesh under camera-match if continuous auth holds",
+    "Stop any plot at same_sig_streak=3 with NEED_HUMAN",
+    "Do not claim matching_100_pct without headed capture matching mockup art"
+  ]
+}

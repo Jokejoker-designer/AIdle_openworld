@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.1",
+  "request_id": "env_cozy_starter_0001",
+  "idempotency_key": "env:cozy:starter:0001",
+  "registry_version": "1.1.0",
+  "expected_bridge_revision": 0,
+  "world_profile": "cozy_cyber_pixel",
+  "output_class": "STARTER_REALM",
+  "template_id": "starter_realm_empty_01",
+  "seed": 17072026,
+  "terrain": {
+    "operation": "create_flat_chunk",
+    "size_m": [
+      48,
+      48,
+      4
+    ],
+    "height_profile_id": "cozy_gentle_center_v1",
+    "material_id": "cozy_ground_warm"
+  },
+  "placements": [
+    {
+      "instance_id": "house_01",
+      "module_id": "cozy_house_small_A",
+      "position": [
+        -8,
+        5,
+        0
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        -20
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "content_phase": "SHELTER",
+      "manifestation_order": 20,
+      "style_fit": "NATIVE"
+    },
+    {
+      "instance_id": "pond_01",
+      "module_id": "cozy_pond_small_A",
+      "position": [
+        9,
+        7,
+        0
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "content_phase": "NATURE",
+      "manifestation_order": 30,
+      "style_fit": "NATIVE"
+    },
+    {
+      "instance_id": "tree_landmark_01",
+      "module_id": "cozy_tree_landmark_A",
+      "position": [
+        12,
+        -8,
+        0
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "content_phase": "LANDMARK",
+      "manifestation_order": 60,
+      "style_fit": "NATIVE"
+    },
+    {
+      "instance_id": "light_brush_01",
+      "module_id": "shared_light_brush_station_A",
+      "position": [
+        -2,
+        -10,
+        0
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "content_phase": "INTERACTIVE",
+      "manifestation_order": 40,
+      "style_fit": "ADAPTED"
+    }
+  ],
+  "build_plot": {
+    "center": [
+      4,
+      -2,
+      0
+    ],
+    "size_m": [
+      10,
+      10,
+      5
+    ]
+  },
+  "camera_preview": {
+    "camera_template_id": "aidle_isometric_preview_01",
+    "target": [
+      0,
+      0,
+      1.5
+    ],
+    "render_views": [
+      "isometric_main",
+      "build_plot",
+      "top"
+    ]
+  },
+  "resource_budget": {
+    "max_objects": 128,
+    "max_triangles": 250000,
+    "max_materials": 32,
+    "max_output_mb": 128,
+    "timeout_seconds": 180
+  },
+  "output_zone": "generated_quarantine",
+  "outputs": {
+    "save_blend": true,
+    "export_glb_modules": true,
+    "export_scene_manifest": true,
+    "render_preview": true,
+    "generate_validation_report": true
+  }
+}

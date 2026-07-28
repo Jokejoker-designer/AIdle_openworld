@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "POST-UCBV-SELFRUN-001-2026-07-23",
+  "step_id": "POST-UCBV-SELFRUN-001",
+  "work_order_id": "WO-POST-UCBV-SELFRUN-001-PLAYBOOK",
+  "work_order": "orchestration/work_orders/WO-POST-UCBV-SELFRUN-001-PLAYBOOK.md",
+  "playbook": "orchestration/control/POST_UCBV_SELF_RUN_PLAYBOOK_001.md",
+  "directive_id": 99,
+  "milestone": "Post-UCBV self-run playbook read+run on accepted foundation",
+  "agent_id": "aidle-parent-coordinator",
+  "authority_token": "VERIFY_ONLY",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_HUMAN_BATCH",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "SELFRUN_SMOKES_PASS_HEADLESS",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "writer_transcript_ref": "ba14eb35-9cf0-4391-9940-0dd687704087",
+  "product_writes": [],
+  "evidence_refs": [
+    "orchestration/logs/post_ucbv_selfrun_001/c5h1_companion.log",
+    "orchestration/logs/post_ucbv_selfrun_001/h1_flow.log",
+    "orchestration/logs/post_ucbv_selfrun_001/ucbv_integration.log",
+    "orchestration/control/POST_UCBV_SELF_RUN_PLAYBOOK_001.md"
+  ],
+  "smokes": {
+    "c5h1": {
+      "log": "E:\\AIdle_openworld\\orchestration\\logs\\post_ucbv_selfrun_001\\c5h1_companion.log",
+      "log_sha256": "48073c6665a2cb56aa108af5db598a51b1ab3b1cd177f8053b400f3dfa50db3c",
+      "exit_code": 0,
+      "pass_lines": [],
+      "has_FAIL_token": false
+    },
+    "h1_flow": {
+      "log": "E:\\AIdle_openworld\\orchestration\\logs\\post_ucbv_selfrun_001\\h1_flow.log",
+      "log_sha256": "5d590977ff4e3611814f6d3ccc126c5560e61f02071cd957f445483373f1f732",
+      "exit_code": 0,
+      "pass_lines": [],
+      "has_FAIL_token": false
+    },
+    "ucbv_int": {
+      "log": "E:\\AIdle_openworld\\orchestration\\logs\\post_ucbv_selfrun_001\\ucbv_integration.log",
+      "log_sha256": "8b44dc090b1e1e7426a9e4c3683a50d9730ffed1443be56f0065eac742ca9a16",
+      "exit_code": 0,
+      "pass_lines": [],
+      "has_FAIL_token": false
+    }
+  },
+  "loop_under_test": "explore -> companion KEY_C -> build preview -> confirm/cancel",
+  "residual_delta": {
+    "NORI7-V01": "redesign machine export landed same turn; Human visual still open",
+    "R-C5H1-01": "HUD label fixed same turn",
+    "R-C5H1-02": "still open",
+    "R-C5H1-03": "still open"
+  },
+  "next_owner": "HUMAN_BATCH",
+  "recorded_at": "2026-07-23T15:01:58+07:00"
+}

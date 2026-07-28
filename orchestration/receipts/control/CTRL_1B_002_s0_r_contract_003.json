@@ -1,0 +1,292 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-s0-r-contract-003-2026-07-22",
+  "step_id": "CTRL-1B-002-s0-r-contract-003",
+  "work_order_id": "WO-CTRL-1B-002-R-CAMERA-CORRECTION-002",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-R-CAMERA-CORRECTION-002.md",
+  "directive_id": 60,
+  "directive_supersedes_on_point": "Directive 59 machine VERIFIED superseded only for Exploration R camera yaw (Human Product Lead live-play regression)",
+  "review_id": "CODEX_CTRL-1B-002-HUMAN-R-ROTATE-REVIEW-002",
+  "prior_review": "orchestration/reviews/CODEX_CTRL-1B-002_HUMAN_R_ROTATE_REVIEW_002.json",
+  "prior_review_sha256": "ec7f5a663ec391a26ea6a9979383b29362aaf9f66c1f0b30ea6e252447a7dcea",
+  "milestone": "Control 1B S0 contract amendment — Human R Exploration camera yaw",
+  "agent_id": "aidle-schema",
+  "agent_type": "schema",
+  "profile_name": "aidle-schema",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+  "profile_sha256": "6e82036136eb462cf07d37304a1aec812cdf21b9ddff479bc8ffa8e3d8373777",
+  "profile_trustlayer_default": "devil-advocate",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "exclusive lease only — CONTROL_1B_ACCEPTANCE_CONTRACT.md, valid_context_fixture.json, validate_control_1b_fixtures.py, S0 receipt, S0 log; no game/**; no invalid fixture rewrite; no Godot product/test/scene; no self-accept",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:19cb8a2c72b25854c016b65789e7fb267143b0df43349b9fdabed7934486eadd",
+  "input_context_hash_16": "19cb8a2c72b25854",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002-R-CAMERA-CORRECTION-002.md + CODEX_CTRL-1B-002_HUMAN_R_ROTATE_REVIEW_002.json + schema.md + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "S0_R_CAMERA_CONTRACT_AMENDED_NO_ACCEPT",
+  "verdict_detail": "Amended Control 1B acceptance contract and valid fixture for Human-locked R behavior: Exploration R = rotate_camera_right (camera yaw); Build R = build_rotate_right (preview only); Exploration R never hologram; Build R never camera; remappable InputMap only; no dual-fire (INV-08 still FAIL). H-10 and C1B-HK-10 aligned with Human decision; Directive 60 supersedes prior machine VERIFIED on Exploration R camera yaw only. Validator HARNESS_RESULT=PASS: valid PASS + 12/12 invalid reject. No game/** patches. accepted=false; self_accept=false; next_owner=R1_CONTROL.",
+  "child_task_ref": "019f8731-3c78-7ed1-a029-292167b919ba",
+  "transcript_ref": "019f8731-3c78-7ed1-a029-292167b919ba",
+  "writer_transcript_ref": "019f8731-3c78-7ed1-a029-292167b919ba",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8731-3c78-7ed1-a029-292167b919ba/meta.json",
+  "durable_meta_sha256_at_start": "d082d31649541ba587ea88491bc7852fa35aea7cc49cbc4586464c985e7ce0f7",
+  "durable_session_dir": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f8731-3c78-7ed1-a029-292167b919ba",
+  "next_owner": "R1_CONTROL",
+  "next_route": "R1_CONTROL",
+  "character_binding": {
+    "trustlayer": "blue-team-test-writer",
+    "trustlayer_wo_required": "blue-team-test-writer",
+    "trustlayer_profile_default": "devil-advocate",
+    "trustlayer_note": "WO requires blue-team-test-writer for this wave; profile lists devil-advocate — WO binding recorded as authority for this step",
+    "trustlayer_file": "E:/agents/characters/11-blue-team-test-writer.md",
+    "trustlayer_sha256": "7230bd9af5542e79a472181905dc58fa43a41a1f9b994bca030d5e364a3cc033",
+    "trustlayer_lines_loaded": 17,
+    "ui": "ui-flow-architect",
+    "ui_wo_required": "ui-flow-architect",
+    "ui_note": "WO requires ui-flow-architect; no dedicated card file in E:/agents/ui-design/characters — flow/input-context acceptance criteria bound via od-design-brief + od-reference-design-contract and ui-ux-researcher flow card as nearest registry peer",
+    "ui_nearest_card": "ui-ux-researcher",
+    "ui_file": "E:/agents/ui-design/characters/03-ui-ux-researcher.md",
+    "ui_sha256": "0f5f18bc6772f567a1d8283323988cf125bb7ddb63c45985917287707e2cc5c1",
+    "ui_lines_loaded": 49,
+    "role": "S0 schema contract amendment for Human R camera (PATCH_DRAFT exclusive lease; no self-accept)"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile schema.md, WO-CTRL-1B-002-R-CAMERA-CORRECTION-002, Human R rotate review 002, control contract, fixtures, validator, character cards, and skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "lines": 46,
+      "eof_tail": "No production destructive tests, no exfil, no auto-merge, no unredacted public reports, no exceeding authority, no inventing evidence.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "lines": 53,
+      "eof_tail": "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "lines": 36,
+      "eof_tail": "Full protocol: `E:\\shared\\LOOP.md`",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "lines": 65,
+      "eof_tail": "Docs: `E:\\agents\\projects\\README.md`",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "lines": 1123,
+      "eof_tail": "Your goal is to produce a trustworthy, testable result; understand why it is trustworthy; preserve validated learning when authorized; and make the next relevant task better than the last one.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "od-design-brief",
+      "mode": "ROUTED",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/od-design-brief/SKILL.md",
+      "sha256": "ddcb70ae1ba4688ee948a3a0f8d3fb7888ad89a49d3e71c2e97661de7d81ae5b",
+      "lines": 252,
+      "eof_tail": "This transparency prevents silent assumptions from propagating into the final design.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "od-reference-design-contract",
+      "mode": "ROUTED",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/od-reference-design-contract/SKILL.md",
+      "sha256": "8b5e62a123a180e5f1b8e0b7f97605d257f85bf0a2b0ca7f8c7475b54e007775",
+      "lines": 130,
+      "eof_tail": "first, then hand off to the appropriate artifact skill in the next step.",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_s0_r_contract_003.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-s0-r-contract-003.log"
+  ],
+  "product_writes": [],
+  "governance_contract_writes": [
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py"
+  ],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_s0_r_contract_003.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-s0-r-contract-003.log"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_s0_r_contract_003.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-s0-r-contract-003.log"
+  ],
+  "files_written_hashes": {
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md": "c0589c1bf5c76cd4e68893312be4afda5eb8232f86dab40e586eb34f660ec541",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json": "211605f46db73a4308252d7f10867260b5f8a8dd9f8d5fefc970f3c65f2d719f",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py": "f4661b028dea1bbde1b560b380d8f640d68c6a4d1d146d888844845ccfae3718",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-s0-r-contract-003.log": "3c2478d6af7ae04f551363813483d752cd384873616d40ed81b9cd4d6615a3ad"
+  },
+  "receipt_sha256_note": "Receipt self-hash omitted (mutating). Log hash above is post-write stable.",
+  "human_locked_behavior": {
+    "exploration_Q": "rotate_camera_left",
+    "exploration_R": "rotate_camera_right",
+    "build_Q": "build_rotate_left",
+    "build_R": "build_rotate_right",
+    "dual_fire": false,
+    "remappable_inputmap_only": true,
+    "exploration_R_never_hologram": true,
+    "build_R_never_camera": true
+  },
+  "amendments": {
+    "contract": [
+      "Exploration R explicitly = rotate_camera_right (camera yaw)",
+      "Exploration R never hologram; Build R never camera",
+      "H-10 / C1B-HK-10 aligned with Human decision (was camera no-op narrative)",
+      "C1B-ACT-06 Human R camera gate added",
+      "Directive 60 supersedes prior machine VERIFIED on this point only",
+      "No-dual-fire / C1B-CF-01 / INV-08 retained"
+    ],
+    "valid_fixture": [
+      "exploration.allowed_actions includes rotate_camera_right",
+      "default_bindings rotate_camera_right physical R active_contexts=[exploration] (disjoint from build_rotate_right)",
+      "required_hotkeys C1B-HK-10 added"
+    ],
+    "validator": [
+      "VALID_FIXTURE_SHA256_LOCKED updated to new valid fixture hash"
+    ],
+    "invalid_fixture": "unchanged; INV-08 multi-context dual-fire still FAIL"
+  },
+  "fixture_validator_results": {
+    "harness": "orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "harness_sha256": "f4661b028dea1bbde1b560b380d8f640d68c6a4d1d146d888844845ccfae3718",
+    "exit_code": 0,
+    "harness_result": "PASS",
+    "valid_fixture_sha256": "211605f46db73a4308252d7f10867260b5f8a8dd9f8d5fefc970f3c65f2d719f",
+    "valid_fixture_sha256_previous": "d707bb32c43c005948599987fffa782d9206fb6ac2e04a623820d8b58427200a",
+    "valid_fixture_hash_lock_ok": true,
+    "valid": {
+      "case_id": "VALID-01",
+      "result": "PASS",
+      "detail": "schema+semantic OK"
+    },
+    "invalid_rejected_count": 12,
+    "invalid_expected_count": 12,
+    "inv08_multi_context_r_fail": true,
+    "inv09_esc_priority_fail": true,
+    "suite_root_not_used_as_proof": true
+  },
+  "no_godot_product_patch": true,
+  "no_game_patch": true,
+  "no_test_patch": true,
+  "no_scene_patch": true,
+  "no_character_foundry": true,
+  "no_network_install_push_deploy": true,
+  "no_grandchild": true,
+  "preserves_prior_d58_d59_receipts": true,
+  "result": {
+    "status": "REVIEW_REQUESTED",
+    "verdict": "S0_R_CAMERA_CONTRACT_AMENDED_NO_ACCEPT",
+    "valid_fixture_pass": true,
+    "invalid_rejected": "12/12",
+    "valid_fixture_sha256": "211605f46db73a4308252d7f10867260b5f8a8dd9f8d5fefc970f3c65f2d719f",
+    "product_implementation_in_this_wave": false,
+    "game_writes": false,
+    "self_accept": false,
+    "accepted": false,
+    "next_owner": "R1_CONTROL",
+    "summary": "Directive 60 S0 amended contract+valid fixture for Human Exploration R camera yaw; dual-fire still rejected; harness PASS; handoff R1 runtime."
+  },
+  "smoke_test": {
+    "executed": true,
+    "method": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "valid_fixture_pass": true,
+    "valid_fixture_errors": 0,
+    "invalid_cases_executed": 12,
+    "invalid_cases_rejected": 12,
+    "inv08_multi_context_r_fail": true,
+    "inv09_esc_priority_fail": true,
+    "suite_root_rejection_not_used_as_proof": true,
+    "valid_hash_lock_ok": true,
+    "godot_runtime_executed": false,
+    "reason_no_godot": "S0 PATCH_DRAFT contract/fixture only — R1 owns runtime Exploration rotate_camera_right allow-list",
+    "exit_code": 0,
+    "pass": true
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "patch_draft_exclusive_lease_only": true,
+    "no_godot_product_patch": true,
+    "no_game_directory_writes": true,
+    "no_character_foundry": true,
+    "exclusive_lease_only": true,
+    "files_written_count": 5,
+    "writer_lease_count": 5,
+    "product_writes_count": 0,
+    "governance_contract_writes_count": 3,
+    "evidence_writes_count": 2,
+    "undeclared_temps": false,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "child_task_ref_is_real_fresh_uuid": true,
+    "child_task_ref": "019f8731-3c78-7ed1-a029-292167b919ba",
+    "bootstrap_manual": true,
+    "no_network_install_push_deploy": true,
+    "no_resume_followup_child": true,
+    "inv08_still_fail": true,
+    "human_r_camera_contracted": true
+  },
+  "maf_validation": {
+    "schema_path": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "schema_sha256": "7956f32a7ffe9173c226e60857cfb9dc3d9d5de4810369fe2ae7f571abd4d2e7",
+    "method": "jsonschema Draft202012Validator",
+    "required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "authority_token_enum_ok": true,
+    "jsonschema_revalidated": true
+  },
+  "evidence_refs": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_s0_r_contract_003.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-s0-r-contract-003.log",
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-CTRL-1B-002-R-CAMERA-CORRECTION-002.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_CTRL-1B-002_HUMAN_R_ROTATE_REVIEW_002.json"
+  ]
+}

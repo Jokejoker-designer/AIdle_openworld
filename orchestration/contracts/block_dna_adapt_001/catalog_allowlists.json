@@ -1,0 +1,123 @@
+{
+  "schema_version": "block_dna_adapt_001_catalog_allowlists/1.0",
+  "note": "Allowlisted catalog IDs only. Never executable code. Seeds required and bounded for generators. Derived read-only from DNA Block Module Foundation catalogs; adapter may subset but never invent free-form code payloads.",
+  "world_profiles": [
+    "cozy_cyber_pixel",
+    "tiny_diorama",
+    "solarpunk_haven",
+    "arcane_clockwork",
+    "spirit_valley",
+    "surrealism_canvas",
+    "oceanpunk_abyss"
+  ],
+  "recipe_types": [
+    "MODULE_CLUSTER",
+    "CHARACTER",
+    "PROP",
+    "STRUCTURE",
+    "TERRAIN_PATCH"
+  ],
+  "semantic_material_slots": [
+    "body",
+    "secondary",
+    "accent",
+    "structure",
+    "trim",
+    "glass",
+    "ground",
+    "emission",
+    "roof",
+    "wood",
+    "stone",
+    "water",
+    "leaf",
+    "metal",
+    "soil",
+    "door"
+  ],
+  "module_ids": [
+    "block_cube_round",
+    "block_cylinder_round",
+    "block_sphere_segment",
+    "block_wedge",
+    "block_arch",
+    "block_dome",
+    "block_ring",
+    "block_beam",
+    "block_panel",
+    "block_pipe_straight",
+    "block_platform",
+    "block_ramp",
+    "terrain_flat_8m",
+    "terrain_flat_16m",
+    "terrain_slope_8m",
+    "arch_floor_round_4m",
+    "arch_wall_door_4m",
+    "arch_wall_window_4m",
+    "arch_roof_dome_4m",
+    "arch_door_round",
+    "arch_window_frame_simple",
+    "cluster_cozy_house_small_A",
+    "cluster_cozy_greenhouse_droplet_A",
+    "cluster_cozy_farm_A",
+    "prop_bench_simple",
+    "prop_lamp_post",
+    "prop_crate_small",
+    "char_nori7_base"
+  ],
+  "generator_ids": [
+    "gen_terrain_flat_chunk_v1",
+    "gen_terrain_gentle_hills_v1",
+    "gen_terrain_diorama_block_v1",
+    "gen_road_network_v1",
+    "gen_village_layout_v1",
+    "gen_farm_layout_v1",
+    "gen_garden_layout_v1",
+    "gen_path_spline_v1",
+    "gen_water_lake_basin_v1",
+    "gen_forest_cluster_v1"
+  ],
+  "behavior_ids": [
+    "behavior_interactable_v1",
+    "behavior_toggle_v1",
+    "behavior_door_v1",
+    "behavior_container_v1",
+    "behavior_farming_plot_v1",
+    "behavior_growable_v1",
+    "behavior_light_source_v1",
+    "behavior_seat_v1",
+    "behavior_dialogue_v1"
+  ],
+  "world_rule_ids": [
+    "rule_day_night_v1",
+    "rule_seasons_v1",
+    "rule_weather_v1",
+    "rule_crop_growth_v1",
+    "rule_ecology_balance_v1",
+    "rule_portal_link_v1"
+  ],
+  "seed_bounds": {
+    "min": 0,
+    "max": 2147483647
+  },
+  "grid": {
+    "snap_m": 0.5,
+    "elevation_snap_m": 0.25,
+    "rotation_snap_deg": 15,
+    "scale_delta_max": 0.25,
+    "bounds_max_m": {
+      "width": 128,
+      "depth": 128,
+      "height": 64
+    }
+  },
+  "cycle_policy": {
+    "self_loops": "FORBIDDEN",
+    "directed_cycles": "FORBIDDEN",
+    "mode": "fail_closed"
+  },
+  "occupancy_policy": {
+    "double_occupancy": "FORBIDDEN",
+    "mode": "fail_closed"
+  }
+}

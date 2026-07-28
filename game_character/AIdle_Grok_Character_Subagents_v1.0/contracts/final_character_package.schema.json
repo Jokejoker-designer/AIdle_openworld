@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIdle Final Character Package",
+  "type": "object",
+  "required": [
+    "character_id",
+    "display_name",
+    "world_profile",
+    "character_class",
+    "gameplay_role",
+    "species_form",
+    "silhouette_family",
+    "ability",
+    "limitation",
+    "rig_family",
+    "behavior_allowlist",
+    "behavior_denylist",
+    "production_prompt",
+    "provenance"
+  ],
+  "properties": {
+    "character_id": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "world_profile": {
+      "type": "string"
+    },
+    "character_class": {
+      "type": "string"
+    },
+    "gameplay_role": {
+      "type": "string"
+    },
+    "narrative_role": {
+      "type": "string"
+    },
+    "species_form": {
+      "type": "string"
+    },
+    "size_class": {
+      "type": "string"
+    },
+    "silhouette_family": {
+      "type": "string"
+    },
+    "rear_view_feature": {
+      "type": "string"
+    },
+    "ability": {
+      "type": "string"
+    },
+    "limitation": {
+      "type": "string"
+    },
+    "rig_family": {
+      "type": "string"
+    },
+    "animation_set": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "behavior_allowlist": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "behavior_denylist": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "production_prompt": {
+      "type": "string"
+    },
+    "negative_prompt": {
+      "type": "string"
+    },
+    "expansion_prompt": {
+      "type": "string"
+    },
+    "red_review_status": {
+      "type": "string"
+    },
+    "purple_verdict": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "creator_agents",
+        "version",
+        "reviewer"
+      ],
+      "properties": {
+        "creator_agents": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "version": {
+          "type": "string"
+        },
+        "reviewer": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

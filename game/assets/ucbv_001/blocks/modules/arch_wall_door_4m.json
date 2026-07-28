@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_arch_wall_door_4m_v1",
+  "module_id": "arch_wall_door_4m",
+  "module_role": "wall_door",
+  "display_name": "Wall Door 4M",
+  "world_profile_id": "cozy_cyber_pixel",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "author_wave": "U3_BLOCK_FAMILY_ART",
+  "allowlist_verified": true,
+  "dna_catalog_present": true,
+  "domain": "ARCHITECTURE",
+  "category": "STRUCTURE",
+  "geometry_family": "arch_wall_door_4m",
+  "bounds_m": {
+    "width": 4.0,
+    "depth": 0.25,
+    "height": 2.8,
+    "door_opening": {
+      "width": 1.4,
+      "height": 2.2,
+      "arch_top": true
+    },
+    "origin": "center_bottom",
+    "source": "4m wall span + door opening pair for arch_door_round"
+  },
+  "sockets_from_dna": {
+    "socket_inputs": ["wall_edge"],
+    "socket_outputs": ["wall_edge", "roof_edge", "door_opening", "window_opening", "path_endpoint", "prop_surface"],
+    "source": "module_catalog.json",
+    "pair_with_door_leaf": {
+      "module_id": "arch_door_round",
+      "from_socket": "door_opening",
+      "to_socket": "door_leaf",
+      "adapter_normalization_id": "norm_wall_edge_door_opening_v1"
+    }
+  },
+  "socket_types_contract_ref": "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json",
+  "material_slots_dna": ["structure", "trim", "glass"],
+  "material_slots_production": {
+    "structure": {"semantic_slot": "body", "mat_id": "MAT_CozyCeramic", "bible_hex": "#fdf3e2"},
+    "trim": {"semantic_slot": "wood", "mat_id": "MAT_CozyWood", "bible_hex": "#c98a5e"},
+    "opening_frame": {"semantic_slot": "door", "mat_id": "MAT_CozyDoor", "bible_hex": "#c98a5e"},
+    "glass": {"semantic_slot": "glass", "mat_id": "MAT_CozyGlass", "usage": "unused_on_door_wall_default"}
+  },
+  "silhouette": {
+    "family": "ucbv_cozy_rounded_readable_v1",
+    "form": "soft_wall_with_arched_door_cutout",
+    "bevel_face_fraction": 0.04,
+    "opening_rule": "clear negative door space; thick soft jamb"
+  },
+  "lod": {
+    "LOD0": "wall_trim_arched_opening",
+    "LOD1": "wall_opening_mass",
+    "LOD2_or_billboard": "wall_box_with_gap"
+  },
+  "performance_class_dna": "M",
+  "collision_policy_dna_hint": "STATIC_MESH",
+  "mesh_descriptor": "mesh_descriptors/arch_wall_door_4m.meshdesc.json",
+  "visual_states_ref": "visual_states.json",
+  "is_tenth_module": true,
+  "tenth_module_rationale": "U0 ten-module wording; wall_door completes opening pair with arch_door_round"
+}

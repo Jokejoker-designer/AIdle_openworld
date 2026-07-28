@@ -1,0 +1,69 @@
+{
+  "agent_step_id": "G8-001-V002-V5_ASSET_VISUAL_AUDIT-2026-07-21",
+  "agent_type": "aidle-asset",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:8733c8c3a8fdc7ed",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-UI-VISUAL-CORRECTION-002",
+    "directive_id": 23,
+    "wave": "V5_ASSET_VISUAL_AUDIT",
+    "profile": "asset",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY composition audit: 9 landmarks still present under Cozy capture; no product patch this wave.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "ui_character_id": "ui-color-type-specialist",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full"
+      },
+      {
+        "skill_id": "game-asset-core",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+        "mode": "full"
+      }
+    ],
+    "trace_ref": "orchestration/logs/g8-ui-visual-correction-002.log#V5_ASSET_VISUAL_AUDIT",
+    "handoff_ref": "V6_A11Y_CLEAN_STATE",
+    "product_writes": [],
+    "children": [],
+    "findings": [],
+    "residual_risks": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "starter_realm"
+      },
+      {
+        "marker": "landmark_House"
+      },
+      {
+        "marker": "DISTINCT_PNG_SHA=PASS"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "character_skill_trace_present": true,
+    "no_catalog_false_claim": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ui-visual-correction-002.log",
+    "orchestration/evidence/g8_ui_visual_correction_002/",
+    "orchestration/reviews/CODEX_G8-001_UI_VISUAL_REVIEW_002.json"
+  ],
+  "next_route": "V6_A11Y_CLEAN_STATE"
+}

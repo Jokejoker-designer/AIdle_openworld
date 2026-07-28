@@ -1,0 +1,222 @@
+{
+  "schema_version": "buildings_fidelity/1.0",
+  "receipt_id": "BUILDINGS_FIDELITY_V14",
+  "job": "BUILDINGS_FIDELITY_V14",
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "authority": "PATCH_DRAFT",
+  "human_authorization": "continuous_iteration_authorization",
+  "camera_match_tooling": "retained_from_v11",
+  "geometry_frozen": true,
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "matching_100_pct_count": 0,
+  "matching_100_pct": [],
+  "modules": [
+    {
+      "module_id": "cozy_market_stall_A",
+      "glb_sha256": "5e39207c2b2cb1e3ab14201ad3930c997be412766c10bb51b4551556cad557ea",
+      "bytes": 276532,
+      "source": "BUILDINGS_FIDELITY_V14",
+      "visual": "mockup_match_v14_cozy_market_stall_A",
+      "mockup_ssot": "cozy_market_stall_A"
+    },
+    {
+      "module_id": "cozy_gazebo_A",
+      "glb_sha256": "be07ad53fb3c15bf47d78c355a2821eae7bc61378dfcd46483974f1a73368b58",
+      "bytes": 501540,
+      "source": "BUILDINGS_FIDELITY_V14",
+      "visual": "mockup_match_v14_cozy_gazebo_A",
+      "mockup_ssot": "cozy_gazebo_A"
+    },
+    {
+      "module_id": "cozy_well_house_A",
+      "glb_sha256": "f6db99482a537ca2649185bf13ae8ae4aa6258a6dd3ec8eca873577fe34ee302",
+      "bytes": 360412,
+      "source": "BUILDINGS_FIDELITY_V14",
+      "visual": "mockup_match_v14_cozy_well_house_A",
+      "mockup_ssot": "cozy_well_house_A"
+    },
+    {
+      "module_id": "cozy_windmill_A",
+      "glb_sha256": "06e1aa2186c0858d61cbf77a5c830bdb76c6465a26830ff303e46b33c4c86649",
+      "bytes": 196312,
+      "source": "BUILDINGS_FIDELITY_V14",
+      "visual": "mockup_match_v14_cozy_windmill_A",
+      "mockup_ssot": "cozy_windmill_A"
+    },
+    {
+      "module_id": "cozy_bridge_arch_A",
+      "glb_sha256": "be194b56923470baf29b56929a70462b1f32d7458653e291e06a6a0ac27b9c34",
+      "bytes": 203872,
+      "source": "BUILDINGS_FIDELITY_V14",
+      "visual": "mockup_match_v14_cozy_bridge_arch_A",
+      "mockup_ssot": "cozy_bridge_arch_A"
+    },
+    {
+      "module_id": "cozy_watchtower_A",
+      "glb_sha256": "b903aedbb710fb9b129d302a269c866bfa400ea522e1abf34b761264eb3400ac",
+      "bytes": 247832,
+      "source": "BUILDINGS_FIDELITY_V14",
+      "visual": "mockup_match_v14_cozy_watchtower_A",
+      "mockup_ssot": "cozy_watchtower_A"
+    }
+  ],
+  "mesh_strategy_change": {
+    "cozy_market_stall_A": "soft_scallop_fabric_awning_vs_tube_stripes",
+    "cozy_gazebo_A": "scale_overlap_depth_plus_rail_ring_vs_flat_fishscale",
+    "cozy_well_house_A": "lower_brick_body_taller_aframe_ratio_vs_prior",
+    "cozy_windmill_A": "arch_window_ring_plus_longer_sails_vs_count_only",
+    "cozy_bridge_arch_A": "lavender_grey_boost_hue_plus_packed_cobbles",
+    "cozy_watchtower_A": "cabin_open_cutout_win_emit_vs_weak_frames"
+  },
+  "lever": "residual_v14_priority_lookout_garden_bridge",
+  "lighting_fix": {
+    "root_cause": "town_grid_loader._boost_mockup_materials name remap missed petal/thatch/cobble keys",
+    "fix": "extended boost map + Blender materials named for boost keys",
+    "loader_file": "game/scripts/modules/town/town_grid_loader.gd"
+  },
+  "topology_fix": {
+    "approach": "crisp edge lips, frames, plank seams, discrete shingles, gapped cobbles, window frames"
+  },
+  "objects": [
+    {
+      "plot_id": "MARKET.BLD",
+      "object_id": "cozy_market_stall_A",
+      "v14_strategy": "soft_scallop_fabric_awning_vs_tube_stripes",
+      "lever": "residual_v14_priority_lookout_garden_bridge",
+      "prior_V13_SIG": "market_v13_curved_awning_stripes_partial",
+      "post_v14_signature": "market_v14_soft_scallop_awning_fabric_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "camera_match_used": true,
+      "note": "V14 soft scallop fabric awning. Headed: pink/cream scallops + wood + fruit readable. Still not continuous soft fabric of bld_05; fruit pile density partial. HIGH_PARTIAL not 100%.",
+      "priority_rank": 4,
+      "closest_to_100": false
+    },
+    {
+      "plot_id": "GARDEN.BLD",
+      "object_id": "cozy_gazebo_A",
+      "v14_strategy": "scale_overlap_depth_plus_rail_ring_vs_flat_fishscale",
+      "lever": "residual_v14_priority_lookout_garden_bridge",
+      "prior_V13_SIG": "gazebo_v13_denser_fishscale_partial",
+      "post_v14_signature": "gazebo_v14_scale_overlap_depth_rail_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "camera_match_used": true,
+      "note": "V14 dome core + denser fishscale. Headed: green hue correct, scalloped edge readable. Scale depth still softer than bld_10 distinct overlapping scales. HIGH_PARTIAL \u2014 closest tier.",
+      "priority_rank": 1,
+      "closest_to_100": true
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "object_id": "cozy_well_house_A",
+      "v14_strategy": "lower_brick_body_taller_aframe_ratio_vs_prior",
+      "lever": "residual_v14_priority_lookout_garden_bridge",
+      "prior_V13_SIG": "well_v13_curved_shingle_slopes_partial",
+      "post_v14_signature": "well_v14_low_brick_ring_tall_aframe_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "camera_match_used": true,
+      "note": "V14 lower brick + taller A-frame. Headed: proportions improved; brick emboss + curved shingles still short of bld_07. HIGH_PARTIAL.",
+      "priority_rank": 5,
+      "closest_to_100": false
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "object_id": "cozy_windmill_A",
+      "v14_strategy": "arch_window_ring_plus_longer_sails_vs_count_only",
+      "lever": "residual_v14_priority_lookout_garden_bridge",
+      "prior_V13_SIG": "windmill_v13_more_windows_sail_hub_partial",
+      "post_v14_signature": "windmill_v14_arch_window_ring_sail_length_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "camera_match_used": true,
+      "note": "V14 longer sails. Headed: pink cap family OK; arch window glow density still short of bld_06. HIGH_PARTIAL.",
+      "priority_rank": 6,
+      "closest_to_100": false
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "object_id": "cozy_bridge_arch_A",
+      "v14_strategy": "lavender_grey_boost_hue_plus_packed_cobbles",
+      "lever": "residual_v14_priority_lookout_garden_bridge",
+      "prior_V13_SIG": "bridge_v13_dense_cobble_pile_partial",
+      "post_v14_signature": "bridge_v14_lavender_grey_hue_dense_pile_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "camera_match_used": true,
+      "note": "V14 lavender-grey boost hue (0.78/0.74/0.82) + dense pile. Headed: void clear, hue closer; still slightly pale vs bld_09. HIGH_PARTIAL \u2014 closest tier.",
+      "priority_rank": 2,
+      "closest_to_100": true
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "object_id": "cozy_watchtower_A",
+      "v14_strategy": "cabin_open_cutout_win_emit_vs_weak_frames",
+      "lever": "residual_v14_priority_lookout_garden_bridge",
+      "prior_V13_SIG": "watchtower_v13_conical_thatch_roof_partial",
+      "post_v14_signature": "watchtower_v14_cabin_cutout_glow_windows_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "camera_match_used": true,
+      "note": "V14 cabin_emit cutout windows + conical thatch. Headed: thatch family good; cabin open-glow cutouts still under-read from freecam angle vs bld_08. HIGH_PARTIAL \u2014 closest tier.",
+      "priority_rank": 3,
+      "closest_to_100": true
+    }
+  ],
+  "safety_valve": {
+    "need_human": [],
+    "same_sig_streak_max": 0,
+    "note": "All 6 fresh residual signatures vs V13; streaks 0."
+  },
+  "home_bld": "UNTOUCHED_CLOSED_PERMANENTLY",
+  "timestamp_utc": "2026-07-24T07:34:49Z",
+  "camera_match_meta": {
+    "pitch_degrees": 42.0,
+    "fov_degrees": 42.0,
+    "default_distance": 10.0,
+    "default_yaw_degrees": 35.0,
+    "source_script": "game/scripts/camera/cozy_camera.gd",
+    "source_lock": "MOCKUP_DESIGN_LOCK.md section 2 (three-quarter / isometric)",
+    "addons": [
+      "fspy_blender",
+      "real_scale_references"
+    ],
+    "addons_ship_in_game": false,
+    "addons_in_glb": false
+  },
+  "headed_log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_v14.log",
+  "structural": {
+    "real_glb": 50,
+    "placeholders": 0,
+    "cast": 10
+  },
+  "headed_visual_verdict": "none_at_100_pct",
+  "resume_snapshot": {
+    "pass": "V14",
+    "all_high_partial": true,
+    "matching_100": [],
+    "need_human": [],
+    "next_targets_priority": [
+      "GARDEN: more distinct scale overlap depth",
+      "BRIDGE: slightly darker lavender-grey + cobble edge gaps",
+      "LOOKOUT: stronger cabin open-window glow cutouts visible in headed freecam",
+      "MARKET: continuous soft awning fabric read",
+      "WELL: brick ring masonry closer to bld_07",
+      "WINDMILL: multi-arch window density"
+    ],
+    "camera_match": "pitch42 fov42 retained",
+    "loader_boost_v14": "cobble hue darker; cabin_emit key added"
+  },
+  "lighting_fix_v14": {
+    "cobble_hue": "Color(0.78, 0.74, 0.82) was Color(0.88, 0.84, 0.90)",
+    "cabin_emit": "new boost key emission_energy=3.5"
+  }
+}

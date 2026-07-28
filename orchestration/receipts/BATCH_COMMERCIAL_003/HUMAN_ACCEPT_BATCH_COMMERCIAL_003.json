@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "HUMAN_BATCH_ACCEPTANCE",
+  "batch_id": "BATCH-COMMERCIAL-003-2026-07-23",
+  "step_id": "HUMAN-ACCEPT-BATCH-COMMERCIAL-003",
+  "accepted_by": "human_product_lead",
+  "acceptance_channel": "chat (sole parent Grok), Codex-absent capsule",
+  "recorded_at": "2026-07-23T16:10:00+07:00",
+  "directive_id": 99,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "accepted": true,
+  "self_accept": false,
+  "verbatim": "Acccept tiếp tục theo thứ tự",
+  "decision": "ACCEPT_BATCH_COMMERCIAL_003_AND_CONTINUE_IN_ORDER",
+  "accepted_package": "orchestration/receipts/BATCH_COMMERCIAL_003.json",
+  "grants": [
+    "Machine package BATCH-COMMERCIAL-003 accepted (save QA kernel, Control 1B hide_aura, Foundry 1C status, P1E inventory, Red blocking=0)",
+    "Continue commercial-grade work IN ORDER per checklist: gate8 soak/UX next, then gate9 perf, then art polish WO, then onboarding",
+    "Authorize draft P1E art polish WO when that step is reached (still quarantine discipline)",
+    "No self-accept on subsequent waves; Human remains sole acceptor for future batches"
+  ],
+  "does_not_authorize": [
+    "shipping / publishing / charging / network (Red F01)",
+    "TIER3: P2E-002, character-backbone program, DNA vNext EXECUTION, H2-H6, TTS/voxel/neural/Text-to-3D"
+  ]
+}

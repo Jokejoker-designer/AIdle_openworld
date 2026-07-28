@@ -1,0 +1,63 @@
+{
+  "review_id": "CODEX-G8-001-UI-VISUAL-REVIEW-003",
+  "reviewer_role": "codex-final-machine-acceptor",
+  "directive_reviewed": 23,
+  "task_id": "G8-001",
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "preserve_existing_code": true,
+  "independent_machine_results": {
+    "headed_smoke_exit": 0,
+    "headed_marker": "PASS checks=46",
+    "validator": "PASS",
+    "maf_v002_receipts": "PASS count=8",
+    "manifest_hash_dimensions": "PASS captures=9",
+    "g3_e2e": "PASS checks=76",
+    "g4_persist": "PASS checks=22",
+    "manifestation": "PASS checks=8",
+    "companion": "PASS",
+    "bridge": "PASS checks=11",
+    "visual_acceptance": "FAIL"
+  },
+  "blocking_findings": [
+    {
+      "id": "CANCEL_VISUAL_NOT_PROVEN",
+      "severity": "P0",
+      "evidence": "The world crop x=550..900,y=100..250 is byte-identical between stage_complete_confirmed.png and after_cancel.png: changed pixels 0/52500. The screenshot therefore does not visibly prove that the cancelled preview entity was cleared; only the status text changes."
+    },
+    {
+      "id": "BRIDGE_EVIDENCE_INVALID_SNAPSHOT",
+      "severity": "P0",
+      "evidence": "Independent headed run emits WARNING snapshot_id must look like uuid, then records runtime_state=export_invoked. The frame does not show a valid consent/export result, so it is not truthful Bridge success evidence."
+    },
+    {
+      "id": "QUEST_STATUS_READABILITY",
+      "severity": "P1",
+      "evidence": "Starter Realm quest/status remains white outlined text directly on a bright world. At compact viewport starter_realm_panel.gd forces 10px, contrary to the work order's high-contrast surface and readable compact layout requirement."
+    },
+    {
+      "id": "ERROR_GATE_NOT_EXECUTABLE",
+      "severity": "P0",
+      "evidence": "headed_visual_smoke.gd declares _error_lines but never populates it. Its own _finish cannot fail on Godot ERROR output; the claimed fail-closed ERROR gate depends on an undocumented external scan."
+    },
+    {
+      "id": "SAVED_CHOICE_PROOF_MISSING",
+      "severity": "P1",
+      "evidence": "The run reports preserved_user_choice_detected=false and marks user_choice_probe OK. It does not seed/reload a real prior choice or prove its persisted bytes remain unchanged."
+    }
+  ],
+  "additional_observations": [
+    "evidence_manifest.json records passed_checks=36 because it is written before ten required-file checks, while the report claims 46; final verdict is not embedded in the manifest.",
+    "The baseline regressions are healthy and must be preserved; this is a narrow visual/evidence correction, not a rebuild."
+  ],
+  "evidence": [
+    "orchestration/evidence/g8_ui_visual_correction_002/*.png",
+    "orchestration/evidence/g8_ui_visual_correction_002/evidence_manifest.json",
+    "independent headed_visual_smoke run 2026-07-21",
+    "independent Pillow crop comparison complete versus cancel",
+    "game/scripts/core/headed_visual_smoke.gd",
+    "game/scripts/modules/g3_ui/starter_realm_panel.gd"
+  ],
+  "next_action": "Execute WO-G8-001-UI-VISUAL-CORRECTION-003 in the same Grok Desktop parent."
+}
+

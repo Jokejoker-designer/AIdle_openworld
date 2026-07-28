@@ -1,0 +1,372 @@
+{
+  "step_id": "P1E-004-corr-w3-qa-001",
+  "agent_step_id": "P1E-004-corr-w3-qa-001-2026-07-22",
+  "work_order_id": "WO-P1E-004-DNA-PILOT-AND-WATER-FIX",
+  "work_order": "orchestration/work_orders/WO-P1E-004-DNA-PILOT-AND-WATER-FIX.md",
+  "agent_id": "aidle-worldgen-qa-evidence",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "authority": "VERIFY_ONLY",
+  "authority_token": "VERIFY_ONLY",
+  "status": "REVIEW_REQUESTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "wave": "P1E_004_CORR_W3_QA",
+  "child_task_ref": "019f85cd-ed03-7053-8689-122ea7e4e160",
+  "transcript_ref": "019f85cd-ed03-7053-8689-122ea7e4e160",
+  "writer_transcript_ref": "019f85cd-ed03-7053-8689-122ea7e4e160",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f85c9-d4bf-76c3-a1e6-a424f2cf9f34",
+  "self_accept": false,
+  "accepted": false,
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_corr_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-004-corr-w3-qa-001.log",
+    "E:/AIdle_openworld/orchestration/logs/_p1e004_corr_w3_qa_asm_smoke.txt",
+    "E:/AIdle_openworld/orchestration/logs/_p1e004_corr_w3_qa_elemental_smoke.txt",
+    "E:/AIdle_openworld/orchestration/logs/_p1e004_corr_w3_qa_p1e003_smoke.txt"
+  ],
+  "next_owner": "P1E_004_CORR_W4_PURPLE",
+  "next_route": "P1E_004_CORR_W4_PURPLE",
+  "handoff_ref": "P1E_004_CORR_W4_PURPLE",
+  "trace_ref": "orchestration/logs/p1e-004-corr-w3-qa-001.log",
+  "package_job_id": "BLD-03CB1AADD475",
+  "package_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475",
+  "prior_package_job_id": "BLD-03CB1AADD475",
+  "product_writes": [],
+  "verdict": "PASS_WITH_NOTES",
+  "completion_signal": "REVIEW_REQUESTED",
+  "start_time": "2026-07-22T00:51:30Z",
+  "end_time": "2026-07-22T00:54:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "character_binding": {
+    "trustlayer": "purple-team-finding-triage",
+    "ui": "ui-a11y-auditor",
+    "role": "QA Evidence VERIFY_ONLY"
+  },
+  "skills_loaded": [
+    {"skill_id": "maf-mandatory-standard", "version": "1.0"},
+    {"skill_id": "trustlayer-x16-crew", "version": "1.0"},
+    {"skill_id": "agentwork-knowledge-loop", "version": "1.0"},
+    {"skill_id": "evidence-memory-ledger", "version": "1.0"}
+  ],
+  "inputs": [
+    "orchestration/work_orders/WO-P1E-004-DNA-PILOT-AND-WATER-FIX.md",
+    "orchestration/receipts/p1e/P1E_004_corr_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_004_corr_w2_red_001.json",
+    "orchestration/evidence/p1e_004/_material_integrity_hsl.py",
+    "orchestration/evidence/p1e_004/starter_realm_preview_p1e004_corr_hsl.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/modules/pond_01.glb",
+    "game/tests/p1e004_art_style_manager_smoke.gd",
+    "game/tests/p1e004_elemental_pilot_smoke.gd",
+    "game/tests/p1e003_density_exposure_smoke.gd"
+  ],
+  "outputs": [
+    "orchestration/receipts/p1e/P1E_004_corr_w3_qa_001.json",
+    "orchestration/logs/p1e-004-corr-w3-qa-001.log",
+    "orchestration/logs/_p1e004_corr_w3_qa_asm_smoke.txt",
+    "orchestration/logs/_p1e004_corr_w3_qa_elemental_smoke.txt",
+    "orchestration/logs/_p1e004_corr_w3_qa_p1e003_smoke.txt"
+  ],
+  "commands": [
+    "python E:/AIdle_openworld/orchestration/evidence/p1e_004/_material_integrity_hsl.py --four-value-demo",
+    "python E:/AIdle_openworld/orchestration/evidence/p1e_004/_material_integrity_hsl.py --png orchestration/evidence/p1e_004/starter_realm_preview_p1e004_corr_hsl.png --pond-glb E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/modules/pond_01.glb --pond-bbox 640,250,760,380",
+    "python E:/AIdle_openworld/orchestration/evidence/p1e_004/_material_integrity_hsl.py --png E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/starter_realm_preview.png --pond-glb .../pond_01.glb --pond-bbox 640,250,760,380",
+    "Pillow Rec.709 full-frame + 4-connected spatial shadow remeasure (independent)",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e004_art_style_manager_smoke.gd",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e004_elemental_pilot_smoke.gd",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e003_density_exposure_smoke.gd"
+  ],
+  "exit_codes": [0, 0, 0, 0, 0, 0, 0],
+  "evidence_refs": [
+    "orchestration/receipts/p1e/P1E_004_corr_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_004_corr_w2_red_001.json",
+    "orchestration/evidence/p1e_004/starter_realm_preview_p1e004_corr_hsl.png",
+    "orchestration/evidence/p1e_004/luma_metrics_corr.json",
+    "orchestration/evidence/p1e_004/four_value_hsl_demo.json",
+    "orchestration/evidence/p1e_004/material_integrity_hsl_corr.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/modules/pond_01.glb",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/validation.json",
+    "orchestration/logs/_p1e004_corr_w3_qa_asm_smoke.txt",
+    "orchestration/logs/_p1e004_corr_w3_qa_elemental_smoke.txt",
+    "orchestration/logs/_p1e004_corr_w3_qa_p1e003_smoke.txt",
+    "orchestration/logs/p1e-004-corr-w3-qa-001.log"
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_corr_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_corr_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_003_corr_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_004/_material_integrity_hsl.py",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_004/luma_metrics_corr.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_004/starter_realm_preview_p1e004_corr_hsl.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/modules/pond_01.glb",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/validation.json",
+    "E:/AIdle_openworld/game/tests/p1e003_density_exposure_smoke.gd"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_corr_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-004-corr-w3-qa-001.log",
+    "E:/AIdle_openworld/orchestration/logs/_p1e004_corr_w3_qa_asm_smoke.txt",
+    "E:/AIdle_openworld/orchestration/logs/_p1e004_corr_w3_qa_elemental_smoke.txt",
+    "E:/AIdle_openworld/orchestration/logs/_p1e004_corr_w3_qa_p1e003_smoke.txt"
+  ],
+  "open_risks": [
+    "R-DNA-05 interaction_tags encoding residual (pilot-acceptable; carried from Red)",
+    "R-LOW pond median sat 25.1% just above 22% floor; val=100 under sun+exposure (carried from Red)",
+    "R-NOTE Blue luma_metrics_corr.json blown_pct=1.419 uses RGB-all-channels>=250; independent Rec.709 L>=250 yields 1.837% — both <3% PASS; mean/shadow/spatial match Blue exactly"
+  ],
+  "failure_signature": null,
+  "four_value_numeric_table": [
+    {
+      "label": "beige_218_209_195",
+      "rgb": [218, 209, 195],
+      "hue_deg": 36.5217391304348,
+      "sat": 10.550458715596331,
+      "val": 85.49019607843137,
+      "rb_spread": -23,
+      "expected": "FAIL",
+      "actual": "FAIL"
+    },
+    {
+      "label": "white_255_255_255",
+      "rgb": [255, 255, 255],
+      "hue_deg": 0.0,
+      "sat": 0.0,
+      "val": 100.0,
+      "rb_spread": 0,
+      "expected": "FAIL",
+      "actual": "FAIL"
+    },
+    {
+      "label": "grey_185_195_189",
+      "rgb": [185, 195, 189],
+      "hue_deg": 144.0000000000001,
+      "sat": 5.128205128205124,
+      "val": 76.47058823529412,
+      "rb_spread": 4,
+      "expected": "FAIL",
+      "actual": "FAIL"
+    },
+    {
+      "label": "bible_143_212_232",
+      "rgb": [143, 212, 232],
+      "hue_deg": 193.48314606741573,
+      "sat": 38.36206896551724,
+      "val": 90.98039215686275,
+      "rb_spread": 89,
+      "expected": "PASS",
+      "actual": "PASS"
+    }
+  ],
+  "measured_pond_hsv": {
+    "median_rgb": [191, 252, 255],
+    "hue_deg": 182.8125,
+    "sat": 25.098039215686274,
+    "val": 100.0,
+    "rb_spread": 64,
+    "white_pct": 0.17307692307692307,
+    "glb_water_rgb": [5, 26, 46],
+    "glb_hsv": {
+      "hue_deg": 209.26829268292687,
+      "sat": 89.13043478260869,
+      "val": 18.03921568627451,
+      "rb_spread": 41
+    },
+    "gates": {
+      "sat_ge_22": true,
+      "hue_193_pm_28": true,
+      "rb_spread_ge_25": true
+    },
+    "material_integrity_hsl": "PASS"
+  },
+  "result": {
+    "task_id": "P1E-004-CORRECTION-W3-QA",
+    "work_order": "orchestration/work_orders/WO-P1E-004-DNA-PILOT-AND-WATER-FIX.md",
+    "wave": "P1E_004_CORR_W3_QA",
+    "profile": "aidle-worldgen-qa-evidence",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "status": "REVIEW_REQUESTED",
+    "verdict": "PASS_WITH_NOTES",
+    "summary": "VERIFY_ONLY CORRECTION Wave 3 QA for package BLD-03CB1AADD475 after CORR W1 Blue 019f85c3 / CORR W2 Red 019f85c9. Independent four-value HSL demo PASS (beige/white/grey FAIL, bible PASS). Independent pond HSL on evidence+quarantine previews: median RGB[191,252,255] hue=182.8125 sat=25.098 val=100 rb=64 PASS gates; glb MAT_CozyWater [5,26,46] PASS. Independent Rec.709 full-frame: mean=153.96897 blown_L>=250=1.837% shadow=5.903% all inside art bible §8; spatial largest cluster share=40.962% bbox[425,312,696,371] centroid[557.17,347.03] n=77 distributed=true. Smokes: ASM PASS checks=6; elemental PASS checks=5; p1e003 PASS checks=9 package BLD-03CB1AADD475 hash 47/47 GAME_GLB_COUNT=0. Blue/red/QA child_task_ref all real, pairwise distinct, none equal parent. self_accept=false accepted=false. product_writes=[]. Handoff P1E_004_CORR_W4_PURPLE.",
+    "package_job_id": "BLD-03CB1AADD475",
+    "package_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475",
+    "prior_wave": {
+      "child_task_ref": "019f85c9-d4bf-76c3-a1e6-a424f2cf9f34",
+      "receipt": "orchestration/receipts/p1e/P1E_004_corr_w2_red_001.json",
+      "wave": "P1E_004_CORR_W2_RED",
+      "verdict": "PASS_WITH_NOTES",
+      "service_diff_clean": true,
+      "blocking_reopen": 0
+    },
+    "blue_wave": {
+      "child_task_ref": "019f85c3-8de9-7972-8500-40142dfb7b42",
+      "receipt": "orchestration/receipts/p1e/P1E_004_corr_w1_blue_001.json",
+      "wave": "P1E_004_CORR_W1_BLUE",
+      "package": "BLD-03CB1AADD475",
+      "self_accept": false,
+      "accepted": false,
+      "material_integrity_hsl_claimed": "PASS",
+      "four_value_demo_claimed": true,
+      "pond_median_rgb_claimed": [191, 252, 255],
+      "pond_median_hsv_claimed": {
+        "hue_deg": 182.8125,
+        "sat": 25.098039215686274,
+        "val": 100.0,
+        "rb_spread": 64
+      },
+      "mean_luma_claimed": 153.96897056741486,
+      "blown_pct_claimed_channel_all_ge_250": 1.4193216959635417,
+      "shadow_pct_claimed": 5.903116861979167,
+      "largest_cluster_share_pct_claimed": 40.961571600896086
+    },
+    "provenance_gates": [
+      {
+        "id": "P1_blue_child_task_ref_real_distinct",
+        "verdict": "PASS",
+        "detail": "Blue child_task_ref=019f85c3-8de9-7972-8500-40142dfb7b42 != parent 019f7ffd-3995-71c0-aca1-51078e24a852"
+      },
+      {
+        "id": "P2_red_child_task_ref_real_distinct",
+        "verdict": "PASS",
+        "detail": "Red child_task_ref=019f85c9-d4bf-76c3-a1e6-a424f2cf9f34 != parent and != blue"
+      },
+      {
+        "id": "P3_qa_child_task_ref_real_distinct",
+        "verdict": "PASS",
+        "detail": "QA child_task_ref=019f85cd-ed03-7053-8689-122ea7e4e160 (session under downloads workspace) != parent, != blue, != red; prior_wave_child_task_ref correctly points to Red"
+      }
+    ],
+    "independent_remeasure": {
+      "four_value_hsl": {
+        "method": "python _material_integrity_hsl.py --four-value-demo",
+        "exit": 0,
+        "line": "FOUR_VALUE_DEMO=PASS",
+        "pass": true,
+        "table": [
+          {"label": "beige_218_209_195", "rgb": [218, 209, 195], "hue": 36.5217391304348, "sat": 10.550458715596331, "val": 85.49019607843137, "rb_spread": -23, "expected": "FAIL", "actual": "FAIL"},
+          {"label": "white_255_255_255", "rgb": [255, 255, 255], "hue": 0.0, "sat": 0.0, "val": 100.0, "rb_spread": 0, "expected": "FAIL", "actual": "FAIL"},
+          {"label": "grey_185_195_189", "rgb": [185, 195, 189], "hue": 144.0000000000001, "sat": 5.128205128205124, "val": 76.47058823529412, "rb_spread": 4, "expected": "FAIL", "actual": "FAIL"},
+          {"label": "bible_143_212_232", "rgb": [143, 212, 232], "hue": 193.48314606741573, "sat": 38.36206896551724, "val": 90.98039215686275, "rb_spread": 89, "expected": "PASS", "actual": "PASS"}
+        ]
+      },
+      "pond_hsl": {
+        "package": "BLD-03CB1AADD475",
+        "preview_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/starter_realm_preview.png",
+        "evidence_copy_path": "E:/AIdle_openworld/orchestration/evidence/p1e_004/starter_realm_preview_p1e004_corr_hsl.png",
+        "pond_glb": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/modules/pond_01.glb",
+        "pond_bbox": [640, 250, 760, 380],
+        "preview_sha256": "ab411651816e30b156387f100e663d0c70b6c2b1f66d6d283985b28abb1ea985",
+        "preview_bytes": 456475,
+        "evidence_byte_identical_to_quarantine": true,
+        "method": "hsl_hue_sat_not_rgb_distance top-half-sat cyan-band median",
+        "exit": 0,
+        "line": "MATERIAL_INTEGRITY_HSL=PASS",
+        "glb_water_rgb": [5, 26, 46],
+        "glb_eval_pass": true,
+        "pond_median_rgb": [191, 252, 255],
+        "pond_median_hsv": {
+          "hue_deg": 182.8125,
+          "sat": 25.098039215686274,
+          "val": 100.0,
+          "rb_spread": 64
+        },
+        "white_pct": 0.17307692307692307,
+        "gates": {
+          "sat_ge_22": true,
+          "hue_193_pm_28": true,
+          "rb_spread_ge_25": true
+        },
+        "material_integrity_hsl": "PASS",
+        "matches_blue_claim": true,
+        "matches_red_remeasure": true
+      },
+      "rec709_luma_spatial": {
+        "preview_path": "E:/AIdle_openworld/orchestration/evidence/p1e_004/starter_realm_preview_p1e004_corr_hsl.png",
+        "method": "Pillow RGB Rec.709 luma L=0.2126R+0.7152G+0.0722B full-frame 768x512; blown=L>=250; shadow=L<40; 4-connected shadow clusters",
+        "preview_sha256": "ab411651816e30b156387f100e663d0c70b6c2b1f66d6d283985b28abb1ea985",
+        "preview_bytes": 456475,
+        "mean_luma": 153.96897056741486,
+        "blown_pct": 1.8374125162760417,
+        "blown_definition": "Rec.709 L >= 250",
+        "blown_pct_channel_all_ge_250": 1.4193216959635417,
+        "blown_note": "Blue luma_metrics_corr.json used RGB-all-channels>=250 (=1.419%); QA primary metric is Rec.709 L>=250 (=1.837%). Both <3% PASS.",
+        "shadow_pct": 5.903116861979167,
+        "min_luma": 2.4304,
+        "max_luma": 254.99999999999997,
+        "targets_art_bible_s8": {
+          "mean_luma": [150, 185],
+          "blown_pct_max": 3.0,
+          "shadow_pct": [5.0, 15.0]
+        },
+        "pass": {
+          "mean": true,
+          "blown": true,
+          "shadow": true
+        },
+        "spatial_shadow": {
+          "total_shadow_pixels": 23212,
+          "largest_cluster_pixel_count": 9508,
+          "largest_cluster_share_pct": 40.961571600896086,
+          "n_clusters": 77,
+          "top5_cluster_sizes": [9508, 5152, 3502, 1506, 887],
+          "bbox_xyxy": [425, 312, 696, 371],
+          "centroid_xy": [557.1744846445099, 347.0309213294068],
+          "is_upper_right_quadrant_centroid": false,
+          "distributed": true,
+          "concentration_fail_threshold_pct": 55.0,
+          "assert_not_90pct_single_region": true
+        },
+        "matches_blue_mean_shadow_spatial": true,
+        "worker_preview_luma_validation_json": {
+          "mean_luma": 153.7421170609027,
+          "blown_pct": 1.83868408203125,
+          "blown_threshold": 245.0,
+          "shadow_pct": 5.88836669921875,
+          "spatial_largest_cluster_share_pct": 39.5698367452708,
+          "spatial_distributed": true,
+          "sample_count": 65536
+        }
+      }
+    },
+    "independent_smoke": {
+      "asm": {
+        "line": "AIDLE_P1E004_ASM_SMOKE=PASS checks=6",
+        "extra": "SCRIPT_ERROR_ART_STYLE=0",
+        "exit": 0,
+        "log": "orchestration/logs/_p1e004_corr_w3_qa_asm_smoke.txt"
+      },
+      "elemental_pilot": {
+        "line": "AIDLE_P1E004_ELEMENTAL_SMOKE=PASS checks=5",
+        "exit": 0,
+        "log": "orchestration/logs/_p1e004_corr_w3_qa_elemental_smoke.txt"
+      },
+      "p1e003": {
+        "line": "AIDLE_P1E003_SMOKE=PASS checks=9",
+        "extra": ["GODOT_RUNTIME_LOAD=OK", "GAME_GLB_COUNT=0"],
+        "package": "BLD-03CB1AADD475",
+        "hash_ok_count": 47,
+        "hash_total": 47,
+        "module_count": 43,
+        "fence_collision_bodies": 10,
+        "exit": 0,
+        "log": "orchestration/logs/_p1e004_corr_w3_qa_p1e003_smoke.txt",
+        "note": "benign headless mesh_get_surface_count dummy renderer noise after PASS (exit 0)"
+      }
+    },
+    "self_audit": {
+      "authority_respected": true,
+      "self_accept": false,
+      "accepted": false,
+      "no_grandchildren": true,
+      "product_writes_empty": true,
+      "verify_only_no_patches": true,
+      "status": "REVIEW_REQUESTED",
+      "not_accepted": true
+    }
+  }
+}

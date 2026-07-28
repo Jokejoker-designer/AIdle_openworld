@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "UCBV-001-c3f01-navigation-warning-correction-005-2026-07-23",
+  "step_id": "UCBV-001-c3f01-navigation-warning-correction-005",
+  "work_order_id": "WO-UCBV-001-C3F01-NAVIGATION-WARNING-CORRECTION-006",
+  "work_order": "orchestration/work_orders/WO-UCBV-001-C3F01-NAVIGATION-WARNING-CORRECTION-006.md",
+  "directive_id": 90,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "review_closed": "C3-F01",
+  "review_source": "orchestration/reviews/CODEX_UCBV-001_C3_RED_GATE_009.json",
+  "milestone": "UCBV-001 C3-F01 navigation warning correction",
+  "agent_id": "aidle-worldgen-godot-runtime",
+  "agent_type": "aidle-worldgen-godot-runtime",
+  "profile_name": "aidle-worldgen-godot-runtime",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "status": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C3F01_NAVIGATION_WARNING_CORRECTION_COMPLETE_ROUTE_CODEX_C4_STILL_BLOCKED",
+  "need_human": false,
+  "child_task_ref": "019f8c72-c33f-7df0-af59-f0e95f666642",
+  "transcript_ref": "019f8c72-c33f-7df0-af59-f0e95f666642",
+  "writer_transcript_ref": "019f8c72-c33f-7df0-af59-f0e95f666642",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "c3_findings_child_ref": "019f8c5f-a476-7633-a814-f6d1f112c412",
+  "c2r_input_child_ref": "019f8c3b-d7da-7d40-be05-75f1fc74873e",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8c72-c33f-7df0-af59-f0e95f666642/meta.json",
+  "next_owner": "CODEX",
+  "next_route": "WAITING_CODEX_THEN_C4_QA_IF_C3F01_ACCEPTED",
+  "c4_c5_spawned": false,
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "ui_character_id": "ui-app-dashboard",
+    "role": "C3F01R PATCH_DRAFT sole writer for navigation bake zero-warning correction; closes only C3-F01; no self-accept; no C4/C5 spawn"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Manual load of Agents.md, directive 90, WO-006, C3 red gate 009, glb_intake_runtime_builder.gd bake_navigation, ARCHITECTURE_LOCK.",
+  "skills_loaded": [
+    {"skill_id": "maf-mandatory-standard", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "trustlayer-x16-crew", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "agentwork-knowledge-loop", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "project-room-collab", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "curiosity-engine", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "architecture-lock", "mode": "ALWAYS", "source": "orchestration/ARCHITECTURE_LOCK.md", "loaded_full_eof": true}
+  ],
+  "result": {
+    "finding_closed": "C3-F01",
+    "finding_not_touched": ["C3-F02", "C3-F03", "C3-F04"],
+    "outcomes": {
+      "navigation_bake_source": {
+        "ok": true,
+        "removed": "MeshInstance3D + PlaneMesh NavSourcePlane",
+        "primary_source": "NavigationMeshSourceGeometryData3D.add_faces procedural CPU (48m plane at y=0.02)",
+        "secondary_source": "StaticBody3D NavSourceCollider + CollisionShape3D BoxShape3D (layer 1<<15 nav-only)",
+        "parser": "NavigationMesh.PARSED_GEOMETRY_STATIC_COLLIDERS",
+        "source_geometry_mode": "SOURCE_GEOMETRY_ROOT_NODE_CHILDREN",
+        "bake_api": "NavigationServer3D.bake_from_source_geometry_data (no bake_navigation_mesh RenderingServer parse)",
+        "rendering_server_mesh_parse": false
+      },
+      "voxel_alignment": {
+        "ok": true,
+        "cell_size": 0.2,
+        "cell_height": 0.2,
+        "agent_radius": 0.4,
+        "agent_height": 1.6,
+        "agent_max_climb": 0.2,
+        "agent_radius_voxels": 2,
+        "agent_height_voxels": 8,
+        "agent_max_climb_voxels": 1,
+        "design_dims_preserved": true,
+        "map_align": "NavigationServer3D.map_set_cell_size/height on World3D default map when region is in-tree (Godot requires map cell_* == mesh cell_*)",
+        "warnings_silenced_or_filtered": false
+      },
+      "preserved_contracts": {
+        "walkable_ground_m": 48,
+        "advisory_nav_metadata": true,
+        "headless_lifecycle": true,
+        "NavigationRegion_node": true,
+        "no_broad_rebake_expansion": true,
+        "world_commit_sole_mutator": true
+      },
+      "zero_warning_e2e": {
+        "ok": true,
+        "test": "res://tests/ucbv_001_inputmap_e2e_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_UCBV001_INPUTMAP_E2E_SMOKE=PASS checks=17 inputs=34",
+        "engine_warning_count_total": 0,
+        "engine_error_count_total": 0,
+        "c3f01_signature_counts": {
+          "Source geometry parsing for navigation mesh baking had to parse RenderingServer meshes at runtime": 0,
+          "Property agent_height is ceiled to cell_height voxel units and loses precision": 0,
+          "Property agent_radius is ceiled to cell_size voxel units and loses precision": 0
+        }
+      },
+      "c3_f02_untouched": {
+        "note": "Adapter provenance hygiene remains OPEN_NON_BLOCKING_HYGIENE; not edited in this lease."
+      }
+    }
+  },
+  "smoke_test": {
+    "ok": true,
+    "godot": "tools/Godot_v4.3-stable_win64_console.exe 4.3.stable.official.77dcf97d8",
+    "mode": "headless -s",
+    "log": "orchestration/logs/ucbv_001/correction_005/C3F01_navigation_warning_correction_005.log",
+    "log_sha256": "904248d1bef81e1775bfee51b7e49b76d11e4de375a7d06d1eb533a604a210e3",
+    "results": [
+      {
+        "test": "res://tests/ucbv_001_navigation_warning_smoke.gd",
+        "class": "UNIT_nav_source_voxel",
+        "marker": "AIDLE_UCBV001_NAVIGATION_WARNING_SMOKE=PASS",
+        "checks": 16,
+        "exit_code": 0
+      },
+      {
+        "test": "res://tests/ucbv_001_inputmap_e2e_smoke.gd",
+        "class": "InputMap_E2E",
+        "marker": "AIDLE_UCBV001_INPUTMAP_E2E_SMOKE=PASS",
+        "checks": 17,
+        "inputs": 34,
+        "exit_code": 0,
+        "c3f01_signatures": 0
+      },
+      {
+        "test": "res://tests/ucbv_001_integration_smoke.gd",
+        "class": "UNIT_controller",
+        "marker": "AIDLE_UCBV001_INTEGRATION_SMOKE=PASS",
+        "checks": 10,
+        "exit_code": 0
+      }
+    ]
+  },
+  "self_audit": {
+    "exclusive_lease": true,
+    "product_lease_only": true,
+    "orchestration_lease_only": true,
+    "out_of_lease_writes": [],
+    "helper_tmp_under_repo": false,
+    "motion_kit_edited": false,
+    "character_glb_edited": false,
+    "adapter_edited": false,
+    "catalog_input_delete_edited": false,
+    "c3_f02_provenance_edited": false,
+    "self_accept": false,
+    "accepted": false,
+    "c4_c5_spawned": false,
+    "grandchildren": false,
+    "p2e002_touched": false,
+    "network_install_godot_change": false,
+    "push_deploy_publish": false,
+    "red_f01_hard_stop_respected": true,
+    "world_commit_sole_mutator": true,
+    "correction_002_immutable": true,
+    "correction_003_immutable": true,
+    "correction_004_immutable": true,
+    "engine_warnings_filtered": false,
+    "engine_warnings_silenced": false
+  },
+  "product_writes": [
+    {
+      "path": "game/scripts/modules/asset/glb_intake_runtime_builder.gd",
+      "bytes": 24637,
+      "sha256": "d6ad0870afcd6a97b250284cf36467a6ca920e0ee6e944e4ff7809032c6c9a2f",
+      "role": "bake_navigation_collision_procedural_cpu_voxel_align"
+    },
+    {
+      "path": "game/tests/ucbv_001_navigation_warning_smoke.gd",
+      "bytes": 5478,
+      "sha256": "1520951546354ccc5f6503e1ba16defbcfd37a25fc4c897e3447b9d83b7bfb33",
+      "role": "focused_nav_source_voxel_smoke"
+    }
+  ],
+  "product_reads_not_written": [
+    "game/tests/ucbv_001_inputmap_e2e_smoke.gd",
+    "game/tests/ucbv_001_integration_smoke.gd",
+    "game/scripts/main/main.gd",
+    "game/scripts/modules/asset/starter_realm_builder.gd",
+    "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "game/resources/ucbv_001/character/nori7_animation_adapter.json",
+    "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+    "game/project.godot"
+  ],
+  "orchestration_writes": [
+    {
+      "path": "orchestration/receipts/ucbv_001/correction_005/C3F01_navigation_warning_correction_005.json",
+      "role": "receipt"
+    },
+    {
+      "path": "orchestration/logs/ucbv_001/correction_005/C3F01_navigation_warning_correction_005.log",
+      "bytes": 10796,
+      "sha256": "904248d1bef81e1775bfee51b7e49b76d11e4de375a7d06d1eb533a604a210e3",
+      "role": "log"
+    }
+  ],
+  "evidence_refs": [
+    "orchestration/logs/ucbv_001/correction_005/C3F01_navigation_warning_correction_005.log",
+    "orchestration/reviews/CODEX_UCBV-001_C3_RED_GATE_009.json",
+    "orchestration/receipts/ucbv_001/correction_002/C3_red_scope_002.json",
+    "orchestration/control/codex_directive.json"
+  ],
+  "forbidden_actions_respected": [
+    "no C3-F02 provenance edit",
+    "no C4/C5 spawn",
+    "no grandchildren",
+    "no motion_kit edit",
+    "no character/GLB/adapter/catalog/input/delete redesign",
+    "no network/install/Godot version change",
+    "no P2E-002",
+    "no self-accept",
+    "no rewrite of correction_002/003/004",
+    "no engine warning filter/silence"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_G8-001-D1-FINALIZER-PROVENANCE-REVIEW-010",
+  "reviewed_at": "2026-07-21T11:04:00+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "G8-001",
+  "wave": "D1_FINALIZER_PROVENANCE_CORRECTION_010",
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "g8_accepted": false,
+  "d2_spawn_allowed": false,
+  "d3_spawn_allowed": false,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "correction_child_ref": "019f82d1-ce77-7b63-9ccd-19595307939f",
+  "independent_checks": {
+    "active_top_level_parent_count": "PASS count=1",
+    "correction_child_is_real": "PASS",
+    "correction_child_parent_binding": "PASS",
+    "no_grandchildren": "PASS",
+    "maf_jsonschema": "PASS D1_finalizer.json and D1_finalizer_correction.json",
+    "prior_finalizer_command_ledger": "PASS transcript=11 receipt=11 exact_order_match=true exits=[0,0,0,0,0,0,1,0,0,0,0]",
+    "prior_finalizer_durable_time": "PASS end_time=2026-07-21T03:48:58.803743900Z",
+    "correction_command_ledger": "FAIL transcript=17 receipt=18 exact_order_match=false phantom=self:build_d1_finalizer_correction",
+    "correction_failed_commands": "FAIL receipt provenance must disclose the two actual exit_code=1 calls without adding a substitute command",
+    "writer_lease": "FAIL six temporary helper artifacts were written outside the three-file lease",
+    "files_written_provenance": "FAIL receipt lists only three leased files and omits six actual temporary writes",
+    "material_non_terminal_tools": "FAIL write and search_replace calls are not enumerated with transcript refs and purposes",
+    "product_writes": "PASS none observed"
+  },
+  "out_of_lease_files": [
+    "orchestration/logs/_tmp_extract_finalizer_cmds.py",
+    "orchestration/logs/_tmp_d1_finalizer_cmd_extract.json",
+    "orchestration/logs/_tmp_build_d1_finalizer_corrected.py",
+    "orchestration/logs/_tmp_extract_correction_cmds.py",
+    "orchestration/logs/_tmp_d1_correction_cmd_extract.json",
+    "orchestration/logs/_tmp_build_d1_finalizer_correction.py"
+  ],
+  "release_conditions": [
+    "Preserve D1_finalizer.json because its prior-finalizer transcript ledger now passes.",
+    "Create a new correction receipt that supersedes the invalid correction receipt without inventing commands.",
+    "Disclose all seventeen actual correction-child terminal calls and their exits plus material non-terminal writes.",
+    "Remove only the six enumerated child-created temporary artifacts under a bounded cleanup lease.",
+    "Codex binds the new correction child's durable completion metadata after it exits; the worker records its receipt-writer time and must not predict its own completion."
+  ],
+  "self_accept": false
+}

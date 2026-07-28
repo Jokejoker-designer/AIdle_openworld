@@ -1,0 +1,1123 @@
+{
+  "catalog_version": "1.0",
+  "reaction_rules": [
+    {
+      "reaction_id": "react_fire_wood_burn_v1",
+      "name": "Fire burns wood",
+      "inputs": [
+        "element_fire",
+        "element_wood"
+      ],
+      "conditions": {
+        "fire_intensity_min": 0.2,
+        "wetness_max": 0.75
+      },
+      "outputs": [
+        "element_heat",
+        "element_ash"
+      ],
+      "state_changes": {
+        "burning": true,
+        "integrity_delta": -0.05
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 90,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_water_extinguish_fire_v1",
+      "name": "Water extinguishes fire",
+      "inputs": [
+        "element_water",
+        "element_fire"
+      ],
+      "conditions": {
+        "water_amount_min": 0.1
+      },
+      "outputs": [
+        "element_steam"
+      ],
+      "state_changes": {
+        "fire_intensity_delta": -0.35,
+        "wetness_delta": 0.25
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 100,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_heat_water_steam_v1",
+      "name": "Heat turns water into steam",
+      "inputs": [
+        "element_heat",
+        "element_water"
+      ],
+      "conditions": {
+        "temperature_min": 0.75
+      },
+      "outputs": [
+        "element_steam",
+        "element_pressure"
+      ],
+      "state_changes": {
+        "water_delta": -0.1,
+        "steam_delta": 0.1
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_cold_water_ice_v1",
+      "name": "Cold freezes water",
+      "inputs": [
+        "element_cold",
+        "element_water"
+      ],
+      "conditions": {
+        "temperature_max": 0.25
+      },
+      "outputs": [
+        "element_ice"
+      ],
+      "state_changes": {
+        "water_delta": -0.1,
+        "ice_delta": 0.1
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_heat_ice_melt_v1",
+      "name": "Heat melts ice",
+      "inputs": [
+        "element_heat",
+        "element_ice"
+      ],
+      "conditions": {
+        "temperature_min": 0.55
+      },
+      "outputs": [
+        "element_water"
+      ],
+      "state_changes": {
+        "ice_delta": -0.1,
+        "water_delta": 0.1
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_water_soil_moisture_v1",
+      "name": "Water moistens soil",
+      "inputs": [
+        "element_water",
+        "element_soil"
+      ],
+      "conditions": {
+        "soil_capacity_available": true
+      },
+      "outputs": [],
+      "state_changes": {
+        "soil_moisture_delta": 0.2
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 70,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_water_soil_mud_v1",
+      "name": "Excess water creates mud",
+      "inputs": [
+        "element_water",
+        "element_soil"
+      ],
+      "conditions": {
+        "soil_moisture_min": 0.9
+      },
+      "outputs": [
+        "element_mud"
+      ],
+      "state_changes": {
+        "movement_factor": 0.65
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_light_water_plant_growth_v1",
+      "name": "Light and water grow plants",
+      "inputs": [
+        "element_light",
+        "element_water",
+        "element_plant"
+      ],
+      "conditions": {
+        "soil_fertility_min": 0.2
+      },
+      "outputs": [],
+      "state_changes": {
+        "growth_delta": 0.02,
+        "health_delta": 0.01
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 60,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_fire_plant_wither_v1",
+      "name": "Fire damages plants",
+      "inputs": [
+        "element_fire",
+        "element_plant"
+      ],
+      "conditions": {
+        "fire_intensity_min": 0.15
+      },
+      "outputs": [
+        "element_ash"
+      ],
+      "state_changes": {
+        "health_delta": -0.12,
+        "growth_delta": -0.08
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 95,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_electricity_water_zone_v1",
+      "name": "Electricity electrifies water",
+      "inputs": [
+        "element_electricity",
+        "element_water"
+      ],
+      "conditions": {
+        "conductivity_min": 0.15
+      },
+      "outputs": [],
+      "state_changes": {
+        "electrified": true,
+        "hazard_level": 0.5
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 95,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_wind_turbine_kinetic_v1",
+      "name": "Wind rotates turbine",
+      "inputs": [
+        "element_wind",
+        "element_metal"
+      ],
+      "conditions": {
+        "wind_strength_min": 0.15,
+        "receiver_tag": "turbine"
+      },
+      "outputs": [
+        "element_kinetic"
+      ],
+      "state_changes": {
+        "rotation_speed_from_input": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "solarpunk_haven",
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_kinetic_electricity_generator_v1",
+      "name": "Kinetic energy generates electricity",
+      "inputs": [
+        "element_kinetic",
+        "element_metal"
+      ],
+      "conditions": {
+        "generator_efficiency_min": 0.1
+      },
+      "outputs": [
+        "element_electricity"
+      ],
+      "state_changes": {
+        "energy_output_from_input": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_solar_electricity_v1",
+      "name": "Solar panels produce electricity",
+      "inputs": [
+        "element_solar",
+        "element_metal"
+      ],
+      "conditions": {
+        "light_intensity_min": 0.15,
+        "receiver_tag": "solar_panel"
+      },
+      "outputs": [
+        "element_electricity"
+      ],
+      "state_changes": {
+        "energy_output_from_input": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "solarpunk_haven"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_pressure_glass_crack_v1",
+      "name": "Pressure cracks glass",
+      "inputs": [
+        "element_pressure",
+        "element_glass"
+      ],
+      "conditions": {
+        "pressure_gt_resistance": true
+      },
+      "outputs": [],
+      "state_changes": {
+        "integrity_delta": -0.15,
+        "leak_risk_delta": 0.2
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 85,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_pressure_glass_leak_v1",
+      "name": "Broken pressure glass leaks",
+      "inputs": [
+        "element_pressure",
+        "element_water",
+        "element_glass"
+      ],
+      "conditions": {
+        "integrity_max": 0.35
+      },
+      "outputs": [],
+      "state_changes": {
+        "leaking": true,
+        "water_ingress_delta": 0.15
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 100,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "oceanpunk_abyss"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_metal_water_corrosion_v1",
+      "name": "Water corrodes metal",
+      "inputs": [
+        "element_water",
+        "element_metal"
+      ],
+      "conditions": {
+        "corrosion_resistance_max": 0.7,
+        "exposure_time_min": 30.0
+      },
+      "outputs": [],
+      "state_changes": {
+        "corrosion_delta": 0.01,
+        "integrity_delta": -0.002
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 5.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_heat_metal_expand_v1",
+      "name": "Heated metal expands",
+      "inputs": [
+        "element_heat",
+        "element_metal"
+      ],
+      "conditions": {
+        "temperature_min": 0.75
+      },
+      "outputs": [],
+      "state_changes": {
+        "expansion_norm": 0.02,
+        "stress_delta": 0.01
+      },
+      "gameplay_effect": false,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_cold_metal_contract_v1",
+      "name": "Cold metal contracts",
+      "inputs": [
+        "element_cold",
+        "element_metal"
+      ],
+      "conditions": {
+        "temperature_max": 0.2
+      },
+      "outputs": [],
+      "state_changes": {
+        "expansion_norm": -0.01,
+        "stress_delta": 0.005
+      },
+      "gameplay_effect": false,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_arcane_crystal_charge_v1",
+      "name": "Arcane charges crystal",
+      "inputs": [
+        "element_arcane",
+        "element_crystal"
+      ],
+      "conditions": {
+        "storage_available": true
+      },
+      "outputs": [],
+      "state_changes": {
+        "charge_delta": 0.15
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "arcane_clockwork"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_crystal_machine_activate_v1",
+      "name": "Crystal activates mechanism",
+      "inputs": [
+        "element_crystal",
+        "element_metal"
+      ],
+      "conditions": {
+        "charge_min": 0.5,
+        "receiver_tag": "clockwork_machine"
+      },
+      "outputs": [
+        "element_kinetic"
+      ],
+      "state_changes": {
+        "active": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "arcane_clockwork"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_spirit_restore_nature_v1",
+      "name": "Spirit restores nature",
+      "inputs": [
+        "element_spirit",
+        "element_plant"
+      ],
+      "conditions": {
+        "spirit_level_min": 0.25
+      },
+      "outputs": [],
+      "state_changes": {
+        "restoration_delta": 0.04,
+        "health_delta": 0.04
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "spirit_valley"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_pollution_coral_damage_v1",
+      "name": "Pollution damages coral",
+      "inputs": [
+        "element_oil",
+        "element_coral"
+      ],
+      "conditions": {
+        "pollution_min": 0.15
+      },
+      "outputs": [],
+      "state_changes": {
+        "health_delta": -0.04,
+        "biolume_delta": -0.03
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "oceanpunk_abyss"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_clean_water_coral_growth_v1",
+      "name": "Clean water grows coral",
+      "inputs": [
+        "element_water",
+        "element_coral"
+      ],
+      "conditions": {
+        "water_cleanliness_min": 0.7
+      },
+      "outputs": [
+        "element_bioluminescence"
+      ],
+      "state_changes": {
+        "growth_delta": 0.02,
+        "health_delta": 0.02
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "oceanpunk_abyss"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_sound_crystal_resonance_v1",
+      "name": "Sound resonates crystal",
+      "inputs": [
+        "element_sound",
+        "element_crystal"
+      ],
+      "conditions": {
+        "frequency_match": true
+      },
+      "outputs": [
+        "element_arcane"
+      ],
+      "state_changes": {
+        "resonance_delta": 0.1
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "arcane_clockwork",
+        "surrealism_canvas"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_gravity_water_flow_v1",
+      "name": "Gravity directs water",
+      "inputs": [
+        "element_gravity",
+        "element_water"
+      ],
+      "conditions": {
+        "surreal_rule_absent": true
+      },
+      "outputs": [],
+      "state_changes": {
+        "flow_direction_from_gravity": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 30,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_light_water_surreal_flow_v1",
+      "name": "Water flows toward light",
+      "inputs": [
+        "element_light",
+        "element_water"
+      ],
+      "conditions": {
+        "world_rule": "rule_water_flows_to_light_v1"
+      },
+      "outputs": [],
+      "state_changes": {
+        "flow_direction_to_light": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 99,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "surrealism_canvas"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_cloud_cold_rain_v1",
+      "name": "Cold cloud rains",
+      "inputs": [
+        "element_cloud",
+        "element_cold"
+      ],
+      "conditions": {
+        "humidity_min": 0.7
+      },
+      "outputs": [
+        "element_water"
+      ],
+      "state_changes": {
+        "rain_rate": 0.2
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_fire_ice_steam_burst_v1",
+      "name": "Fire and ice create steam burst",
+      "inputs": [
+        "element_fire",
+        "element_ice"
+      ],
+      "conditions": {
+        "contact": true
+      },
+      "outputs": [
+        "element_steam",
+        "element_pressure"
+      ],
+      "state_changes": {
+        "impulse": 0.25
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 95,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_mud_cold_freeze_v1",
+      "name": "Mud freezes",
+      "inputs": [
+        "element_mud",
+        "element_cold"
+      ],
+      "conditions": {
+        "temperature_max": 0.2
+      },
+      "outputs": [
+        "element_ice",
+        "element_soil"
+      ],
+      "state_changes": {
+        "movement_factor": 0.92
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_heat_mud_dry_v1",
+      "name": "Heat dries mud",
+      "inputs": [
+        "element_mud",
+        "element_heat"
+      ],
+      "conditions": {
+        "temperature_min": 0.65
+      },
+      "outputs": [
+        "element_soil"
+      ],
+      "state_changes": {
+        "soil_moisture_delta": -0.08
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_wind_fire_spread_v1",
+      "name": "Wind spreads fire",
+      "inputs": [
+        "element_wind",
+        "element_fire"
+      ],
+      "conditions": {
+        "wind_strength_min": 0.2
+      },
+      "outputs": [],
+      "state_changes": {
+        "spread_direction_from_wind": true,
+        "spread_rate_multiplier": 1.4
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 92,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_rain_fire_reduce_v1",
+      "name": "Rain reduces fire",
+      "inputs": [
+        "element_water",
+        "element_fire"
+      ],
+      "conditions": {
+        "source_tag": "rain"
+      },
+      "outputs": [
+        "element_steam"
+      ],
+      "state_changes": {
+        "fire_intensity_delta": -0.08,
+        "wetness_delta": 0.08
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_pressure_steam_motor_v1",
+      "name": "Steam drives motor",
+      "inputs": [
+        "element_steam",
+        "element_pressure",
+        "element_metal"
+      ],
+      "conditions": {
+        "receiver_tag": "steam_motor",
+        "pressure_min": 0.3
+      },
+      "outputs": [
+        "element_kinetic"
+      ],
+      "state_changes": {
+        "rotation_speed_from_pressure": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_electricity_light_v1",
+      "name": "Electricity powers light",
+      "inputs": [
+        "element_electricity",
+        "element_light"
+      ],
+      "conditions": {
+        "receiver_tag": "light_fixture",
+        "energy_min": 0.05
+      },
+      "outputs": [],
+      "state_changes": {
+        "light_enabled": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_energy_overload_heat_v1",
+      "name": "Energy overload heats",
+      "inputs": [
+        "element_electricity",
+        "element_metal"
+      ],
+      "conditions": {
+        "load_gt_capacity": true
+      },
+      "outputs": [
+        "element_heat"
+      ],
+      "state_changes": {
+        "damage_delta": 0.04,
+        "overloaded": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 95,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_plant_seasonal_state_v1",
+      "name": "Season changes plant",
+      "inputs": [
+        "element_plant"
+      ],
+      "conditions": {
+        "season_rule_present": true
+      },
+      "outputs": [],
+      "state_changes": {
+        "visual_state_from_season": true,
+        "growth_multiplier_from_season": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_biolume_proximity_pulse_v1",
+      "name": "Biolume pulses near actor",
+      "inputs": [
+        "element_bioluminescence"
+      ],
+      "conditions": {
+        "actor_distance_max": 6.0
+      },
+      "outputs": [
+        "element_light"
+      ],
+      "state_changes": {
+        "emission_pulse": true
+      },
+      "gameplay_effect": false,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "oceanpunk_abyss"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_void_gravity_anomaly_v1",
+      "name": "Void bends gravity",
+      "inputs": [
+        "element_void",
+        "element_gravity"
+      ],
+      "conditions": {
+        "anomaly_budget_available": true
+      },
+      "outputs": [],
+      "state_changes": {
+        "gravity_direction_override": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "surrealism_canvas"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_arcane_elevator_v1",
+      "name": "Arcane lifts platform",
+      "inputs": [
+        "element_arcane",
+        "element_metal"
+      ],
+      "conditions": {
+        "receiver_tag": "arcane_elevator",
+        "charge_min": 0.25
+      },
+      "outputs": [
+        "element_kinetic"
+      ],
+      "state_changes": {
+        "platform_active": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "arcane_clockwork"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_spirit_lantern_path_v1",
+      "name": "Spirit lantern reveals path",
+      "inputs": [
+        "element_spirit",
+        "element_light"
+      ],
+      "conditions": {
+        "receiver_tag": "spirit_lantern"
+      },
+      "outputs": [],
+      "state_changes": {
+        "hidden_path_visible": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "spirit_valley"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_water_wheel_kinetic_v1",
+      "name": "Water rotates wheel",
+      "inputs": [
+        "element_water",
+        "element_wood"
+      ],
+      "conditions": {
+        "receiver_tag": "water_wheel",
+        "flow_strength_min": 0.15
+      },
+      "outputs": [
+        "element_kinetic"
+      ],
+      "state_changes": {
+        "rotation_speed_from_flow": true
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_kinetic_pump_water_v1",
+      "name": "Kinetic pumps water",
+      "inputs": [
+        "element_kinetic",
+        "element_water"
+      ],
+      "conditions": {
+        "receiver_tag": "pump",
+        "kinetic_min": 0.1
+      },
+      "outputs": [],
+      "state_changes": {
+        "flow_strength_delta": 0.2
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "reaction_id": "react_water_crop_irrigation_v1",
+      "name": "Irrigation grows crops",
+      "inputs": [
+        "element_water",
+        "element_plant",
+        "element_soil"
+      ],
+      "conditions": {
+        "source_tag": "irrigation",
+        "flow_strength_min": 0.05
+      },
+      "outputs": [],
+      "state_changes": {
+        "soil_moisture_delta": 0.1,
+        "growth_delta": 0.01
+      },
+      "gameplay_effect": true,
+      "visual_effect": true,
+      "priority": 50,
+      "cooldown_s": 0.0,
+      "world_profiles": [
+        "shared"
+      ],
+      "runtime_owner": "GODOT_4_3",
+      "ai_authority": "CONFIGURE_ONLY"
+    }
+  ]
+}

@@ -1,0 +1,665 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "UCBV-001-c5-purple-release-010-2026-07-23",
+  "step_id": "UCBV-001-c5-purple-release-010",
+  "work_order_id": "WO-UCBV-001-C5-PURPLE-RELEASE-011",
+  "work_order": "orchestration/work_orders/WO-UCBV-001-C5-PURPLE-RELEASE-011.md",
+  "work_order_sha256": "18bef46845c1595170ed710cc9528ca5618997bb8f8adec2e58afc14afb55c59",
+  "work_order_text_binding_note": "WO-011 body still says 'Directive 96 only' and UI 'ui-visual-qa'. Directive 98 rebinds by supersession without editing the WO file. Installed profile binding used: TrustLayer purple-team-release-gate + UI ui-visual-critic (profile header).",
+  "directive_id": 98,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "eccec63ad6d5cbf744410a108e18b91531aa70b0dec28ba44a6523d91e3186e3",
+  "directive_state": "IN_PROGRESS",
+  "directive_verdict": "C5H1_HUMAN_ACCEPTED_RESUME_C5_PURPLE_RECOMMENDATION",
+  "supersedes_directive_id": 97,
+  "base_work_order_c5h1": "orchestration/work_orders/WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001.md",
+  "prior_c4s_acceptance": "orchestration/reviews/CODEX_UCBV-001_C4S_ACCEPTANCE_015.json",
+  "prior_c4s_acceptance_sha256": "43e0a6a269ba80cd1630fd35a456ab3b6828edb23ba13401f25152ce237bf32e",
+  "prior_c4s_receipt": "orchestration/receipts/ucbv_001/correction_009/C4S_qa_evidence_009.json",
+  "prior_c4s_receipt_sha256": "350d1a164ec3ddc61e583955dc7243ed7603913b76fcb72d50a29e3c61dfa953",
+  "prior_c4s_log_sha256": "ca6ef53b18699f8e7bcb1a2a500fd841b2099bf35361fd53a32a8ceb093a4a55",
+  "prior_c4s_child_ref": "019f8d90-59c9-7061-9aa4-a261d4006c94",
+  "c5h1_human_accept": "orchestration/receipts/ucbv_001/c5h1_001/HUMAN_ACCEPT_c5h1_001.json",
+  "c5h1_human_accept_sha256": "86abe030f7c90f8c51a536a4d97bbd6f00471b9df7bcbbf22211496759f4f2c7",
+  "c5h1_purple_gate": "orchestration/receipts/ucbv_001/c5h1_001/PURPLE_companion_deadlock_gate_001.json",
+  "c5h1_purple_gate_sha256": "88d57ce61d2bcc1df0b8c0c3fa2417d8d7fb3d051c8bad5e305cf376ca4de918",
+  "milestone": "UCBV-001 C5 Purple release recommendation — machine package after C4S + C5H1 Human scope accept",
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "profile_name": "aidle-worldgen-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_sha256": "9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger,adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; purple never patches; never ACCEPTED; verdicts VERIFIED|CHANGES_REQUESTED|NEED_HUMAN machine only — ACCEPTED reserved for Codex/Human",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "exact lease only: orchestration/receipts/ucbv_001/correction_010/C5_purple_release_010.json + orchestration/logs/ucbv_001/correction_010/C5_purple_release_010.log; product_writes=[]; never patch; never ACCEPTED; no grandchildren; no Nori redesign; no P2E-002; no character-backbone; no DNA Platform vNext; no rewrite of c5h1_001 or prior corrections/evidence",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:a5c963f4679069151a60d5a418bba1912f34b1fe71b75fa6dd2fe012cee1eeda",
+  "input_context_hash_16": "a5c963f467906915",
+  "input_context_hash_method": "sha256 of concatenated file bytes: C4S_qa_evidence_009.json + CODEX_UCBV-001_C4S_ACCEPTANCE_015.json + HUMAN_ACCEPT_c5h1_001.json + WO-UCBV-001-C5-PURPLE-RELEASE-011.md + codex_directive.json + aidle-worldgen-purple-acceptance.md + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "purple_never_accepted": true,
+  "verdict": "C5_PURPLE_MACHINE_VERIFIED_RECOMMEND_CODEX_WITH_RESIDUALS_NEVER_ACCEPTED",
+  "purple_verdict": "VERIFIED",
+  "purple_machine_verdict": "VERIFIED",
+  "purple_recommendation": "RECOMMEND_CODEX_MACHINE_ACCEPT_UCBV001_FOUNDATION_WITH_RESIDUALS",
+  "purple_profile_verdict_map": {
+    "verified": true,
+    "changes_requested": false,
+    "need_human": false,
+    "review_requested_handoff": true,
+    "rationale": "Machine C5 release package is green after independent revalidation of C4S (schema, durable lineage, 38/38 PNG hashes, H1/InputMap/nav strict zero-error, dual-res headed, Nori GLB 14-bone glb_c1r proof) plus C5H1 companion-deadlock Human accept (scope limited to that WO). purple_verdict=VERIFIED is machine-only for the UCBV-001 foundation release recommendation handoff. Residual NORI7-V01 visual quality and incomplete optional gardener expressiveness remain for Human Product Lead — green smoke and motion-kit metadata are NOT Human visual acceptance. status=REVIEW_REQUESTED completion_signal=WAITING_CODEX accepted=false purple_never_accepted=true."
+  },
+  "verdict_detail": "VERIFY_ONLY Purple C5 release recommendation (Directive 98 / WO-011). (1) C4S receipt schema-valid agent_step_contract; evidence_refs array[string] count=53; product_writes=[]; child_task_ref=transcript_ref=writer_transcript_ref=019f8d90-59c9-7061-9aa4-a261d4006c94 matches Codex C4S acceptance 015 lineage; receipt_sha256 and log_sha256 recompute match Codex claims. (2) Independent full recompute: 38/38 PNG hashes match; H1_FLOW PASS checks=13 exit=0; INPUTMAP_E2E PASS checks=17 inputs=34 exit=0; NAV_WARNING PASS checks=16 exit=0; ERROR_FREE PASS; broader regression 21/21 zero_error_all; headed dual-res AIDLE_UCBV001_C4S_HEADED=PASS checks=45 captures=38 inputs=126. (3) Nori proven runtime fact only: character_id=CCP-RH-001 bones=14 mode=glb_c1r procedural=false; GLB on disk sha256=e16d6af8e121879bc3080f2b64d281ee00975ef195db60b622917c28ca594b7f; keyed required actions present (idle/walk/scan/happy/cancel + build extension); motion-kit is read-only staging not runtime animation. (4) C5H1 Human Product Lead accepted companion-deadlock correction WO only — does NOT accept full UCBV C5 product release nor Nori visual quality. (5) Unresolved human-quality residual NORI7-V01: independent visual inspect of idle/scan/happy dual-res evidence confirms very white/low-detail treatment; redesign remains queued after C5 closes. (6) Optional gardener clips water/plant_seed/harvest/charge/low_energy honestly DEFERRED not idle-aliased. Purple recommends Codex machine accept of foundation package WITH residuals; never ACCEPTED; next_owner=CODEX.",
+  "need_human": false,
+  "need_human_note": "need_human=false means Purple does not halt the machine route as NEED_HUMAN. Final product ACCEPTED still requires Codex machine accept then Human Product Lead (visual quality residual NORI7-V01 is Human-owned, not a Purple self-accept gate).",
+  "child_task_ref": "019f8dd5-db45-7ba2-86c8-87e49226284b",
+  "transcript_ref": "019f8dd5-db45-7ba2-86c8-87e49226284b",
+  "writer_transcript_ref": "019f8dd5-db45-7ba2-86c8-87e49226284b",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8dd5-db45-7ba2-86c8-87e49226284b/meta.json",
+  "durable_meta_sha256_at_start": "401f96dadf94d92134500a1c081689f4f15c5c9ed3567a5c4d8944baca06179a",
+  "durable_started_at": "2026-07-23T07:17:10.601531700Z",
+  "c5_spawned": false,
+  "grandchildren_spawned": false,
+  "overall_ucbv_product_accepted": false,
+  "human_visual_nori_accepted": false,
+  "c5h1_scope_only_human_accepted": true,
+  "next_owner": "CODEX",
+  "next_route": "WAITING_CODEX — independent Codex machine review of C5 purple recommendation; Human Product Lead remains final visual/product acceptor for residuals; Purple never ACCEPTED; no P2E-002; no Nori redesign until after C5 closes; no character-backbone; no DNA Platform vNext",
+  "human_gate_open": false,
+  "red_f01_network_shipping_hard_stop": true,
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_eof",
+    "role": "C5 VERIFY_ONLY purple release recommendation over C4S+C5H1 package; never patch; never self-accept; WAITING_CODEX residual package for Codex then Human"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded Agents.md, ARCHITECTURE_LOCK, directive 98, WO-011, CODEX C4S acceptance 015, C4S receipt/log/evidence 009, C5H1 HUMAN_ACCEPT + PURPLE gate, C1R lineage, UCBV_ANIMATION_BLOCK_INTEGRATION_MAP_001, nori7_animation_adapter (read-only), profile aidle-worldgen-purple-acceptance full EOF, TrustLayer purple-team-release-gate, UI ui-visual-critic, ALWAYS five skills + evidence-memory-ledger + adversarial-review full EOF, agent_step_contract schema manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Hard stops"
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "agent_step_contract.schema.json"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "E:\\shared\\LOOP.md"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "README"
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Prime Directive"
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "PROFILE_REQUIRED",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "bytes": 8484,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "NO_DURABLE_RECORD"
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "PROFILE_REQUIRED",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "bytes": 1766,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-UCBV-001-C5-PURPLE-RELEASE-011.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_UCBV-001_C4S_ACCEPTANCE_015.json",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/correction_009/C4S_qa_evidence_009.json",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/correction_009/C4S_qa_evidence_009.log",
+    "E:/AIdle_openworld/orchestration/evidence/ucbv_001/009/smoke_summary.json",
+    "E:/AIdle_openworld/orchestration/evidence/ucbv_001/009/headed_runner_summary.json",
+    "E:/AIdle_openworld/orchestration/evidence/ucbv_001/009/visual_claim_meta.json",
+    "E:/AIdle_openworld/orchestration/evidence/ucbv_001/009/png_sha256.json",
+    "E:/AIdle_openworld/orchestration/evidence/ucbv_001/009/godot_headed.log",
+    "E:/AIdle_openworld/orchestration/evidence/ucbv_001/009/idle_1280x720.png",
+    "E:/AIdle_openworld/orchestration/evidence/ucbv_001/009/idle_868x517.png",
+    "E:/AIdle_openworld/orchestration/evidence/ucbv_001/009/scan_action_1280x720.png",
+    "E:/AIdle_openworld/orchestration/evidence/ucbv_001/009/happy_action_1280x720.png",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/c5h1_001/HUMAN_ACCEPT_c5h1_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/c5h1_001/PURPLE_companion_deadlock_gate_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/correction_003/C1R_character_mesh_weight_correction_003.json",
+    "E:/AIdle_openworld/orchestration/control/UCBV_ANIMATION_BLOCK_INTEGRATION_MAP_001.md",
+    "E:/AIdle_openworld/game/resources/ucbv_001/character/nori7_animation_adapter.json",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md"
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/correction_010/C5_purple_release_010.json",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/correction_010/C5_purple_release_010.log"
+  ],
+  "product_writes": [],
+  "product_writes_sha256": {},
+  "orchestration_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/correction_010/C5_purple_release_010.json",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/correction_010/C5_purple_release_010.log"
+  ],
+  "out_of_lease_writes": [],
+  "queued_not_authorized": [
+    "Nori-7 visual redesign until after this C5 release closes",
+    "P2E-002 until Codex and Human accept UCBV-001",
+    "character-backbone production until a post-UCBV phase directive",
+    "DNA Platform vNext / GROK_EXECUTION_BRIEF_001 until a dedicated vNext directive"
+  ],
+  "result": {
+    "outcomes": {
+      "c4s_schema_and_lineage": {
+        "verdict": "PASS",
+        "blocking": false,
+        "receipt_schema_errors": 0,
+        "required_fields_present": [
+          "agent_step_id",
+          "agent_type",
+          "authority_token",
+          "result",
+          "smoke_test",
+          "self_audit",
+          "next_route"
+        ],
+        "evidence_refs_type": "array[string]",
+        "evidence_refs_count": 53,
+        "durable_lineage_matches_codex_015": true,
+        "child_task_ref": "019f8d90-59c9-7061-9aa4-a261d4006c94",
+        "receipt_sha256_recomputed": "350d1a164ec3ddc61e583955dc7243ed7603913b76fcb72d50a29e3c61dfa953",
+        "receipt_sha256_matches_codex": true,
+        "log_sha256_recomputed": "ca6ef53b18699f8e7bcb1a2a500fd841b2099bf35361fd53a32a8ceb093a4a55",
+        "log_sha256_matches_codex": true,
+        "product_writes": [],
+        "c5_spawned_by_c4s": false,
+        "accepted_false": true,
+        "self_accept_false": true
+      },
+      "c4s_evidence_hashes": {
+        "verdict": "PASS",
+        "blocking": false,
+        "png_count_on_disk": 38,
+        "png_hashes_matched": "38/38",
+        "sample_spot_checks": [
+          "idle_1280x720",
+          "idle_868x517",
+          "catalog_28_1280x720",
+          "scan_action_1280x720",
+          "happy_action_1280x720",
+          "delete_select_868x517"
+        ],
+        "duplicate_sha_pairs": [],
+        "missing_pngs": []
+      },
+      "headed_dual_res_runtime": {
+        "verdict": "PASS",
+        "blocking": false,
+        "marker": "AIDLE_UCBV001_C4S_HEADED=PASS checks=45 fails=0 captures=38 inputs=126",
+        "viewports": ["1280x720", "868x517"],
+        "png_count": 38,
+        "diagnostic_banner": false,
+        "zero_error": true,
+        "nav_warn_count": 0,
+        "art_style_id": "cozy_cyber_pixel",
+        "capture_source": "godot_headed",
+        "input_path": "InputMap/event-first (no direct controller fallback as acceptance)"
+      },
+      "required_smokes_strict_zero_error": {
+        "verdict": "PASS",
+        "blocking": false,
+        "h1_consolidation_flow": {
+          "ok": true,
+          "marker": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13",
+          "exit": 0,
+          "strict_error_signatures": 0
+        },
+        "ucbv_001_inputmap_e2e": {
+          "ok": true,
+          "marker": "AIDLE_UCBV001_INPUTMAP_E2E_SMOKE=PASS checks=17 inputs=34",
+          "exit": 0,
+          "strict_error_signatures": 0
+        },
+        "ucbv_001_navigation_warning": {
+          "ok": true,
+          "marker": "AIDLE_UCBV001_NAVIGATION_WARNING_SMOKE=PASS checks=16",
+          "exit": 0,
+          "strict_error_signatures": 0,
+          "c3f01_signatures": 0
+        },
+        "error_free": {
+          "ok": true,
+          "marker": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6",
+          "exit": 0
+        },
+        "broader_regression": {
+          "ok": true,
+          "pass_count": 21,
+          "fail_count": 0,
+          "total": 21,
+          "zero_error_all": true,
+          "zero_nav_warn_all": true
+        }
+      },
+      "nori7_proven_runtime_fact": {
+        "verdict": "PASS_PROVEN_FACT_ONLY",
+        "blocking": false,
+        "character_id": "CCP-RH-001",
+        "display_name": "Nori-7",
+        "bones": 14,
+        "mode": "glb_c1r",
+        "production_slice": "c1r_glb_skinned",
+        "procedural_fallback": false,
+        "glb_path": "res://assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+        "glb_filesystem_sha256": "e16d6af8e121879bc3080f2b64d281ee00975ef195db60b622917c28ca594b7f",
+        "glb_bytes": 629164,
+        "headed_log_markers": [
+          "[Main] Nori-7 presenter built=true bones=14 character_id=CCP-RH-001 slice=c1r_glb_skinned mode=glb_c1r procedural=false",
+          "[UCBV_C4S_HEADED] nori_runtime_proof character_id=CCP-RH-001 bones=14 mode=glb_c1r"
+        ],
+        "required_keyed_actions_present": [
+          "idle",
+          "walk",
+          "scan",
+          "happy",
+          "cancel",
+          "turn_left",
+          "turn_right",
+          "build_place",
+          "build_place_hold",
+          "confirm"
+        ],
+        "scan_happy_distinct_adapter_hashes": true,
+        "scan_clip_hash": "8bd86cffabe41eb0c97ad175b8c52375745e6d70b12dd991b6af33d97e226960",
+        "happy_clip_hash": "9bd242cb1ae7d25fee8a4d17b67998f24f5d671539dd67a116e499566f7c37de",
+        "not_svg_staging_concept_art": true,
+        "note": "Proven runtime identity only — does NOT equal Human visual quality acceptance"
+      },
+      "animation_integration_map_honesty": {
+        "verdict": "PASS_WITH_RESIDUALS",
+        "blocking": false,
+        "source": "orchestration/control/UCBV_ANIMATION_BLOCK_INTEGRATION_MAP_001.md + game/resources/ucbv_001/character/nori7_animation_adapter.json",
+        "tier3_catalog_is_taxonomy_not_payload": true,
+        "motion_kit_status": "READ_ONLY_STAGING_INPUT",
+        "claim_motion_kit_equals_runtime_animation": false,
+        "runtime_animation_source": "nori7_rigged.glb keyed clips via glb_c1r presenter",
+        "deferred_optional_gardener_clips": [
+          "water",
+          "plant_seed",
+          "harvest",
+          "charge",
+          "low_energy"
+        ],
+        "deferred_policy": "not_aliased_to_idle",
+        "foundry_full_expressive_set_complete": false
+      },
+      "c5h1_companion_deadlock_human_accept": {
+        "verdict": "PASS_SCOPE_LIMITED",
+        "blocking": false,
+        "human_accepted": true,
+        "accepted_by": "human_product_lead",
+        "accepted_scope": "C5H1 companion-deadlock correction WO only",
+        "does_not_accept_full_ucbv_c5_product_release": true,
+        "does_not_accept_nori_visual_quality": true,
+        "purple_c5h1_machine_verdict": "VERIFIED",
+        "qa_criteria_all_pass": [
+          "c1_open_close_locomotion",
+          "c2_confirm_world_commit",
+          "c3_esc_non_deadlock",
+          "c4_zero_error_build_esc_no_pause",
+          "c5_art_style_world_profile"
+        ],
+        "non_blocking_residuals_carried": [
+          "R-C5H1-01",
+          "R-C5H1-02",
+          "R-C5H1-03"
+        ]
+      },
+      "visual_spot_check_ui_critic": {
+        "verdict": "PASS_WITH_HUMAN_QUALITY_RESIDUAL",
+        "blocking": false,
+        "inspected": [
+          "orchestration/evidence/ucbv_001/009/idle_1280x720.png",
+          "orchestration/evidence/ucbv_001/009/idle_868x517.png",
+          "orchestration/evidence/ucbv_001/009/scan_action_1280x720.png",
+          "orchestration/evidence/ucbv_001/009/happy_action_1280x720.png"
+        ],
+        "observations": [
+          "Dual-res chrome readable; no diagnostic banner; Manual Build / Confirm / Cancel present",
+          "Nori-7 appears as solid white/low-detail low-poly robot; cream material intent under-expressed on body",
+          "scan vs happy still frames show limited pose differentiation — expressiveness not Human-accepted",
+          "Green smoke and dual-res capture authenticity do NOT equal aesthetic product acceptance"
+        ],
+        "human_finding_2_redesign_queued": true
+      },
+      "scope_discipline": {
+        "verdict": "PASS",
+        "blocking": false,
+        "did_not_expand_to_nori_redesign": true,
+        "did_not_dispatch_p2e002": true,
+        "did_not_dispatch_character_backbone": true,
+        "did_not_dispatch_dna_platform_vnext": true,
+        "did_not_rewrite_prior_corrections_or_c5h1": true,
+        "did_not_mutate_product_tests_or_evidence": true,
+        "did_not_spawn_grandchildren": true
+      }
+    },
+    "adjudication": {
+      "a1_c4s_schema_lineage": {
+        "verdict": "PASS",
+        "blocking": false,
+        "evidence": "agent_step_contract required fields present; evidence_refs is array[string] not object; lineage UUID triple matches Codex C4S acceptance 015; receipt+log sha256 independent recompute match Codex claims."
+      },
+      "a2_evidence_hash_recompute": {
+        "verdict": "PASS",
+        "blocking": false,
+        "evidence": "Full 38/38 PNG sha256 recompute from disk matched C4S receipt and png_sha256.json; headed_runner_summary and visual_claim_meta consistent."
+      },
+      "a3_smokes_and_zero_error": {
+        "verdict": "PASS",
+        "blocking": false,
+        "evidence": "H1_FLOW/INPUTMAP/NAV/ERROR_FREE markers PASS with strict_err_lines=0; smoke_summary 21/21; godot_headed.log UTF-16 decode ERROR count=0 SCRIPT ERROR count=0."
+      },
+      "a4_nori_glb_proven_fact_vs_quality": {
+        "verdict": "PASS_WITH_RESIDUALS",
+        "blocking": false,
+        "evidence": "Runtime GLB identity proven (14 bones glb_c1r). Independent visual inspect confirms Codex residual NORI7-V01 (very white/low-detail). Motion-kit ALL CHECKS GREEN is staging only; deferred optional gardener clips not claimed complete. Green smoke ≠ Human visual acceptance."
+      },
+      "a5_c5h1_human_scope": {
+        "verdict": "PASS",
+        "blocking": false,
+        "evidence": "HUMAN_ACCEPT_c5h1_001.json accepted=true with explicit accepted_scope limited to C5H1 WO; not_authorized includes Nori redesign, P2E-002, character-backbone, DNA vNext. Purple does not expand that scope."
+      },
+      "a6_waiting_codex_never_accepted": {
+        "verdict": "PASS",
+        "blocking": false,
+        "evidence": "status=REVIEW_REQUESTED completion_signal=WAITING_CODEX next_owner=CODEX accepted=false self_accept=false purple_never_accepted=true"
+      }
+    },
+    "adversarial_review": {
+      "review_id": "ADV-UCBV-001-C5-PURPLE-010",
+      "reviewer_role": "purple-team-release-gate / aidle-worldgen-purple-acceptance",
+      "intent_anchor": {
+        "user_goal": "Independent Purple VERIFY_ONLY C5 release recommendation after C4S + C5H1 Human scope accept",
+        "current_priority": "Machine package adjudication with honest residuals; WAITING_CODEX",
+        "allowed_scope": [
+          "exact lease correction_010 receipt+log",
+          "read-only validation of C4S/C5H1/C1R/integration map"
+        ],
+        "forbidden_scope": [
+          "product/test/evidence mutation",
+          "self-accept / ACCEPTED",
+          "Nori redesign / P2E-002 / character-backbone / DNA vNext",
+          "claim green smoke as Human visual acceptance"
+        ]
+      },
+      "claim_under_review": "UCBV-001 machine foundation package is ready for Codex machine accept as C5 release recommendation with residual human-quality items registered",
+      "what_i_accept": [
+        "C4S schema/lineage/hashes/smokes/headed dual-res are independently revalidated green",
+        "Nori GLB 14-bone glb_c1r runtime identity is proven fact",
+        "C5H1 companion deadlock fix is Human-accepted within its narrow WO scope",
+        "Motion-kit and Tier3 gardener catalog honesty (taxonomy vs payload) is correctly documented"
+      ],
+      "what_i_challenge": [
+        "Any framing that green smoke or dual-res capture equals Human visual acceptance of Nori aesthetic quality",
+        "Any framing that deferred optional gardener clips or motion-kit green validator equals full Foundry expressive motion set complete",
+        "Any claim that C5H1 Human accept covers full UCBV product release"
+      ],
+      "strongest_counter_argument": "If residual NORI7-V01 is treated as a ship-art P0, machine VERIFIED would be wrong and CHANGES_REQUESTED would be required before C5 recommendation.",
+      "counter_argument_disposition": "Rejected for machine gate: Codex C4S residual disposition and Human sequencing explicitly chose 'fix first, redesign after C5 closes'; residual remains non-blocking for machine foundation recommendation and is registered for Human final visual accept.",
+      "missing_evidence": [
+        "Human Product Lead explicit visual accept of Nori quality after redesign queue (not in this lease)",
+        "Full optional gardener clip keyed set if product later requires Foundry signature completeness"
+      ],
+      "scope_drift_risk": "LOW — lease and queued_not_authorized enforced; no grandchildren; no product writes",
+      "final_verdict": "ACCEPT_CLAIM_WITH_RESIDUALS — machine VERIFIED recommendation; never ACCEPTED; Human residual register open",
+      "self_audit": {
+        "preserved_user_intent": true,
+        "did_not_invent_objection": true,
+        "evidence_based": true,
+        "no_scope_hijack": true
+      }
+    }
+  },
+  "residual_register": [
+    {
+      "id": "NORI7-V01",
+      "severity": "MEDIUM",
+      "blocking": false,
+      "blocks_machine_c5_recommendation": false,
+      "blocks_human_visual_accept": true,
+      "title": "Nori-7 very white / low-detail visual treatment (Human Finding 2)",
+      "source": "CODEX_UCBV-001_C4S_ACCEPTANCE_015 residual + independent Purple visual inspect of idle/scan/happy dual-res evidence 009",
+      "detail": "Runtime GLB identity is proven (14 bones, glb_c1r). Headed stills show a largely white low-poly robot with weak cream/material detail and limited surface readability. This is a human-quality concern, not a machine smoke failure. Redesign remains queued until after C5 closes per Human sequencing and directive 98.",
+      "owner": "human_product_lead_after_c5_close",
+      "disposition": "REGISTERED_NON_BLOCKING_FOR_MACHINE_GATE"
+    },
+    {
+      "id": "NORI7-ANIM-EXPRESS",
+      "severity": "LOW",
+      "blocking": false,
+      "blocks_machine_c5_recommendation": false,
+      "blocks_human_visual_accept": true,
+      "title": "Full expressive gardener motion set incomplete vs Foundry signature",
+      "source": "UCBV_ANIMATION_BLOCK_INTEGRATION_MAP_001 + nori7_animation_adapter deferred_optional_gardener_clips + visual spot-check scan/happy stills",
+      "detail": "Required keyed actions (idle/walk/scan/happy/cancel + build extension) are present with distinct adapter hashes. Optional polished clips water/plant_seed/harvest/charge and low_energy are honestly DEFERRED (not idle-aliased). Still-frame scan vs happy differentiation is limited; full Foundry-level expressiveness is not product-accepted. Motion-kit staging green does not prove runtime expressive completeness.",
+      "owner": "future_animation_polish_post_c5",
+      "disposition": "REGISTERED_NON_BLOCKING_FOR_MACHINE_GATE"
+    },
+    {
+      "id": "R-C5H1-01",
+      "severity": "LOW",
+      "blocking": false,
+      "title": "HUD label says E; InputMap companion_call is KEY_C",
+      "source": "C5H1 Human accept residuals_acknowledged_non_blocking + prior C5H1 Purple residual register",
+      "detail": "Starter Realm / chrome still surfaces 'Companion: press E' while companion_call binds KEY_C. Pre-existing UX label drift outside C5H1 main.gd fix scope.",
+      "owner": "future_ux_label_fix",
+      "disposition": "CARRIED_FROM_C5H1_NON_BLOCKING"
+    },
+    {
+      "id": "R-C5H1-02",
+      "severity": "LOW",
+      "blocking": false,
+      "title": "Mid-build companion_call not on build context allow-list",
+      "source": "C5H1 residual register",
+      "detail": "control_action_catalog build context includes prompt_quick_open but not companion_call. Non-blocking catalog policy residual.",
+      "owner": "future_control_catalog_policy",
+      "disposition": "CARRIED_FROM_C5H1_NON_BLOCKING"
+    },
+    {
+      "id": "R-C5H1-03",
+      "severity": "LOW",
+      "blocking": false,
+      "title": "Closing Companion mid-build returns to exploration not prior build context",
+      "source": "C5H1 residual register",
+      "detail": "UX restoration residual; deadlock is fixed. Non-blocking for machine C5 recommendation.",
+      "owner": "future_context_restore_ux",
+      "disposition": "CARRIED_FROM_C5H1_NON_BLOCKING"
+    },
+    {
+      "id": "UCBV-OVERALL-HUMAN",
+      "severity": "INFO",
+      "blocking": false,
+      "title": "Overall UCBV-001 product not Human-accepted as full release",
+      "source": "Directive 98 human_decision + HUMAN_ACCEPT_c5h1_001 accepted_scope + this Purple never_accepted",
+      "detail": "C5H1 Human accept is scope-limited. Full UCBV product release still requires Codex machine accept of this C5 recommendation then Human Product Lead final acceptance. Purple never self-accepts.",
+      "owner": "CODEX_THEN_HUMAN",
+      "disposition": "ROUTE_WAITING_CODEX"
+    }
+  ],
+  "smoke_test": {
+    "ok": true,
+    "mode": "VERIFY_ONLY_independent_revalidation_of_prior_C4S_and_C5H1_evidence — no product re-run mutation",
+    "godot": "tools/Godot_v4.3-stable_win64_console.exe 4.3.stable.official (prior C4S evidence)",
+    "log": "orchestration/logs/ucbv_001/correction_010/C5_purple_release_010.log",
+    "results": [
+      {
+        "test": "c4s_receipt_schema_lineage",
+        "class": "Purple_independent",
+        "marker": "C4S_SCHEMA_LINEAGE=PASS errors=0 evidence_refs=array[string] lineage_match=true",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "test": "c4s_png_hash_recompute_full",
+        "class": "Purple_independent",
+        "marker": "C4S_PNG_HASHES=PASS matched=38/38",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "test": "c4s_h1_inputmap_nav_error_free_markers",
+        "class": "Purple_independent_log_scan",
+        "marker": "H1_FLOW=PASS INPUTMAP=PASS NAV=PASS ERROR_FREE=PASS strict_err=0 broader=21/21",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "test": "c4s_headed_nori_runtime_marker",
+        "class": "Purple_independent_log_scan",
+        "marker": "C4S_HEADED=PASS nori bones=14 mode=glb_c1r ERROR=0",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "test": "c5h1_human_accept_scope",
+        "class": "Purple_independent",
+        "marker": "C5H1_HUMAN_ACCEPT=SCOPE_LIMITED accepted=true full_ucbv=false nori_visual=false",
+        "exit_code": 0,
+        "ok": true
+      },
+      {
+        "test": "visual_spot_check_dual_res",
+        "class": "Purple_ui_visual_critic",
+        "marker": "VISUAL_SPOT=PASS_WITH_NORI7_V01_RESIDUAL dual_res_ok=true",
+        "exit_code": 0,
+        "ok": true
+      }
+    ],
+    "broader_pass_count": 6,
+    "broader_fail_count": 0,
+    "broader_total": 6
+  },
+  "self_audit": {
+    "exclusive_lease": true,
+    "product_writes_empty": true,
+    "product_writes": [],
+    "wrote_only_leased_paths": true,
+    "did_not_rewrite_prior_corrections_or_c5h1_or_evidence": true,
+    "did_not_spawn_grandchildren": true,
+    "did_not_self_accept": true,
+    "accepted_false": true,
+    "purple_never_accepted_true": true,
+    "lineage_uuid_matches_durable_meta": true,
+    "child_task_ref_equals_transcript_ref_equals_writer_transcript_ref": true,
+    "durable_uuid": "019f8dd5-db45-7ba2-86c8-87e49226284b",
+    "parent_only": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "evidence_refs_is_array_of_strings": true,
+    "schema_required_fields_present": true,
+    "did_not_claim_green_smoke_as_human_visual_accept": true,
+    "did_not_claim_motion_kit_as_runtime_animation": true,
+    "did_not_expand_to_nori_redesign_p2e002_backbone_vnext": true,
+    "distinguished_proven_glb_fact_from_quality_residual": true,
+    "c5h1_scope_respected": true,
+    "status_review_requested": true,
+    "completion_signal_waiting_codex": true,
+    "next_owner_codex": true,
+    "authority_verify_only": true
+  },
+  "evidence_refs": [
+    "orchestration/receipts/ucbv_001/correction_010/C5_purple_release_010.json",
+    "orchestration/logs/ucbv_001/correction_010/C5_purple_release_010.log",
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-UCBV-001-C5-PURPLE-RELEASE-011.md",
+    "orchestration/reviews/CODEX_UCBV-001_C4S_ACCEPTANCE_015.json",
+    "orchestration/receipts/ucbv_001/correction_009/C4S_qa_evidence_009.json",
+    "orchestration/logs/ucbv_001/correction_009/C4S_qa_evidence_009.log",
+    "orchestration/evidence/ucbv_001/009/smoke_summary.json",
+    "orchestration/evidence/ucbv_001/009/headed_runner_summary.json",
+    "orchestration/evidence/ucbv_001/009/visual_claim_meta.json",
+    "orchestration/evidence/ucbv_001/009/png_sha256.json",
+    "orchestration/evidence/ucbv_001/009/godot_headed.log",
+    "orchestration/evidence/ucbv_001/009/smokes/H1_FLOW.log",
+    "orchestration/evidence/ucbv_001/009/smokes/UCBV_INPUTMAP_E2E.log",
+    "orchestration/evidence/ucbv_001/009/smokes/UCBV_NAV_WARNING.log",
+    "orchestration/evidence/ucbv_001/009/smokes/ERROR_FREE.log",
+    "orchestration/evidence/ucbv_001/009/idle_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/idle_868x517.png",
+    "orchestration/evidence/ucbv_001/009/scan_action_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/happy_action_1280x720.png",
+    "orchestration/receipts/ucbv_001/c5h1_001/HUMAN_ACCEPT_c5h1_001.json",
+    "orchestration/receipts/ucbv_001/c5h1_001/PURPLE_companion_deadlock_gate_001.json",
+    "orchestration/receipts/ucbv_001/correction_003/C1R_character_mesh_weight_correction_003.json",
+    "orchestration/control/UCBV_ANIMATION_BLOCK_INTEGRATION_MAP_001.md",
+    "game/resources/ucbv_001/character/nori7_animation_adapter.json",
+    "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb"
+  ],
+  "evidence_index": {
+    "receipt": "orchestration/receipts/ucbv_001/correction_010/C5_purple_release_010.json",
+    "log": "orchestration/logs/ucbv_001/correction_010/C5_purple_release_010.log",
+    "c4s_receipt": "orchestration/receipts/ucbv_001/correction_009/C4S_qa_evidence_009.json",
+    "c4s_evidence_dir": "orchestration/evidence/ucbv_001/009",
+    "c5h1_human_accept": "orchestration/receipts/ucbv_001/c5h1_001/HUMAN_ACCEPT_c5h1_001.json",
+    "note": "Named map is additive only; contract field evidence_refs remains array[string]"
+  }
+}

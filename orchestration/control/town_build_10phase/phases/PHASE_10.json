@@ -1,0 +1,117 @@
+{
+  "phase": 10,
+  "phase_id": "TOWN_PHASE_10",
+  "district_id": "canopy_lookout",
+  "district_role_vi": "Tháp + tán cây",
+  "status": "BLOCKED_UNTIL_PREV_PARITY_100",
+  "mockup_ssot": "MOCKUP_SSOT_V2",
+  "parity_gate": "MOCKUP_PARITY_100",
+  "character": {
+    "character_id": "SPH-NG-009",
+    "slug": "luma",
+    "name": "Luma Tán Lá",
+    "class": "NPC_GUIDE",
+    "form": "humanoid",
+    "clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "motion": "bob",
+    "signature": "leaf_sway",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_10_luma.jpg",
+    "mockup_video": null,
+    "prod_hint": "runtime_glb",
+    "spawn": {
+      "x": 12.0,
+      "y": 0,
+      "z": 5.6,
+      "rotation_deg": -20
+    }
+  },
+  "building": {
+    "module_id": "cozy_watchtower_A",
+    "name": "Tháp canh",
+    "cat": "landmark",
+    "anim": "flag_sway",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/buildings/bld_08_watchtower.jpg",
+    "spawn": {
+      "x": 13.5,
+      "y": 0,
+      "z": 4.5,
+      "rotation_deg": -20
+    }
+  },
+  "props": [
+    {
+      "module_id": "cozy_tree_landmark_A",
+      "name": "Cây tròn mốc",
+      "cat": "nature",
+      "anim": "sway",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_tree_landmark.jpg",
+      "spawn": {
+        "x": 13.5,
+        "y": 0,
+        "z": 2.6,
+        "rotation_deg": -32
+      }
+    },
+    {
+      "module_id": "cozy_tree_pine_A",
+      "name": "Cây thông",
+      "cat": "nature",
+      "anim": "sway",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_tree_pine.jpg",
+      "spawn": {
+        "x": 15.0,
+        "y": 0,
+        "z": 4.8,
+        "rotation_deg": -20
+      }
+    },
+    {
+      "module_id": "cozy_tree_cluster_A",
+      "name": "Cụm cây",
+      "cat": "nature",
+      "anim": "sway",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_tree_cluster.jpg",
+      "spawn": {
+        "x": 15.2,
+        "y": 0,
+        "z": 2.8,
+        "rotation_deg": -8
+      }
+    }
+  ],
+  "acceptance": {
+    "rule": "Do NOT mark complete until MOCKUP_PARITY_100 passes for this phase",
+    "mockup_delta_max": 0.0,
+    "require_idle_play": true,
+    "require_clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "require_building_load": true,
+    "require_props_load": 3,
+    "require_town_no_overlap": true,
+    "require_district_role_readable": true,
+    "self_accept": false,
+    "human_accept_required": true
+  },
+  "subagent_pipeline": [
+    "town-orchestrator",
+    "mockup-parity-guardian",
+    "character-animation-designer",
+    "building-module-designer",
+    "prop-set-designer",
+    "town-layout-planner",
+    "godot-runtime-integrator",
+    "red-mockup-delta-reviewer",
+    "purple-parity-gate"
+  ]
+}

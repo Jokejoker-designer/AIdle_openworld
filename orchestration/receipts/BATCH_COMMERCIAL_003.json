@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "GATE_READY_BATCH",
+  "batch_id": "BATCH-COMMERCIAL-003-2026-07-23",
+  "directive_id": 99,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "accepted": false,
+  "self_accept": false,
+  "sole_acceptor": "human_product_lead",
+  "maf_children": [
+    {
+      "id": "019f8e0d-10d7-70a2-83c9-7de770ff62e9",
+      "role": "QA save soak",
+      "profile": "aidle-worldgen-qa-evidence"
+    },
+    {
+      "id": "019f8e0d-10d8-7fb1-9925-94b7fc1d3235",
+      "role": "Control 1B polish",
+      "profile": "aidle-worldgen-control-input"
+    },
+    {
+      "id": "019f8e0d-10d8-7fb1-9925-94c3d63b4a2b",
+      "role": "Foundry 1C",
+      "profile": "aidle-worldgen-character-foundry"
+    },
+    {
+      "id": "019f8e0d-10d8-7fb1-9925-94df126e049d",
+      "role": "P1E art",
+      "profile": "aidle-worldgen-asset-art"
+    },
+    {
+      "id": "019f8e12-b69a-7bc3-b78f-88d769ebe335",
+      "role": "Red commercial",
+      "profile": "aidle-worldgen-red-scope"
+    }
+  ],
+  "waves": [
+    {
+      "id": "SAVE-SOAK-QA",
+      "receipt": "orchestration/receipts/commercial_save_soak_001/QA_save_soak_001.json",
+      "machine": "G4_PERSIST 22/22 PASS; gate8 PARTIAL"
+    },
+    {
+      "id": "CTRL-1B-POLISH",
+      "receipt": "orchestration/receipts/commercial_ctrl_1b_001/CTRL_1B_polish_001.json",
+      "machine": "hide_aura settings + smokes green"
+    },
+    {
+      "id": "HIDE-AURA-CONSUMER",
+      "receipt": "orchestration/receipts/commercial_ctrl_1b_001/HIDE_AURA_CONSUMER_001.json",
+      "machine": "companion honors hide_aura"
+    },
+    {
+      "id": "FOUNDRY-1C",
+      "receipt": "orchestration/receipts/commercial_foundry_1c_001/FOUNDRY_1C_status_001.json",
+      "machine": "intake gates PASS; backbone TIER3"
+    },
+    {
+      "id": "P1E-ART",
+      "receipt": "orchestration/receipts/commercial_p1e_001/P1E_art_status_001.json",
+      "machine": "3/3 smokes; outline ASSET_REQUEST filed"
+    },
+    {
+      "id": "RED",
+      "receipt": "orchestration/receipts/commercial_red_001/RED_commercial_findings_001.json",
+      "machine": "blocking_count=0; residuals documented"
+    }
+  ],
+  "wave_plan": "orchestration/control/COMMERCIAL_COMPLETION_WAVE_PLAN_001.md",
+  "checklist": "orchestration/control/COMMERCIAL_READY_SHIP_CHECKLIST_001.md",
+  "red_f01_ship": false,
+  "asks_human": [
+    "Batch-accept machine package BATCH-COMMERCIAL-003 (not ship)",
+    "Optional: authorize DRAFT_WO_P1E_ART_POLISH_002 (toon/outline)",
+    "Optional: save soak multi-session product wave if gate8 must be full PASS"
+  ],
+  "recorded_at": "2026-07-23T15:27:37+07:00"
+}

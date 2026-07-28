@@ -1,0 +1,55 @@
+{
+  "governance_restore": {
+    "restored_at": "2026-07-22T02:15:00+07:00",
+    "accepted_by_human_product_lead": true,
+    "accepted_note": "HPL verified seven governance keys + four scoped Godot overrides; Bridge env0-d50-verified^{} = 1322b95dce0d26a7e9b39673a2e93f6e338c2314 matches.",
+    "reason": "Wave-level full rewrite at ~00:30 dropped human acceptance and gate keys. Restored by merge.",
+    "reasoning_that_matters_more_than_the_fix": "The danger was never the missing keys themselves; it was that a full-rewrite writer would silently erase them again on the next wave the moment nobody was checking. Therefore status_file_policy=MERGE_APPEND_PRESERVE with wave_merge_test proof is the correct shape of fix.",
+    "status_file_policy": "MERGE_APPEND_PRESERVE",
+    "wave_merge_test": true,
+    "writer_tool": "orchestration/control/merge_grok_status.py",
+    "durable_reasoning_ref": "orchestration/receipts/p1e/P1E_GOVERNANCE_RESTORE_REASONING_001.md",
+    "restored_by": "aidle-continuity-conductor",
+    "bridge_tag_verified": {
+      "tag": "env0-d50-verified^{}",
+      "sha": "1322b95dce0d26a7e9b39673a2e93f6e338c2314"
+    }
+  },
+  "governance": {
+    "status_file_policy": "MERGE_APPEND_PRESERVE - never rebuild from wave template only",
+    "governance_restore_reasoning_ref": "orchestration/receipts/p1e/P1E_GOVERNANCE_RESTORE_REASONING_001.md",
+    "original_p1e004_waves": "PARENT_INLINE_NO_CHILD_REFS",
+    "limitation_ref": "orchestration/receipts/p1e/P1E_004_PARENT_INLINE_LIMITATION.md",
+    "correction_waves_use_real_spawn_subagent_ids": true
+  },
+  "message_to_codex": {
+    "at": "2026-07-22T02:40:00+07:00",
+    "from": "aidle-continuity-conductor",
+    "summary": "WO-P1E-006 W1-W4 complete machine path. purple_verdict=VERIFIED is machine only. accepted=false self_accept=false. Human Product Lead owns acceptance. Headed live evidence residual R-NOTE-01 (live_parity=false). Do not start art waves 2-4 / P2E-P6E / World Commit. Use merge_grok_status.py only.",
+    "receipts": [
+      "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+      "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+      "orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+      "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+      "orchestration/receipts/p1e/P1E_GOVERNANCE_RESTORE_REASONING_001.md"
+    ],
+    "child_task_refs": {
+      "parent": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "w1_blue": null,
+      "w1_note": "honest parent-inline PARENT_INLINE_NO_CHILD_REFS pattern",
+      "w2_red": "019f8625-8258-7683-9773-4b42dfa3aac2",
+      "w3_qa": "019f8629-521f-7501-ace3-1b5f29121a05",
+      "w4_purple": "019f862c-15ac-7b52-940f-9907be1d685b"
+    },
+    "verdicts": {
+      "w1": "W1_COMPLETE_STATE_VARIANTS_PROFILE_SELECTOR_NO_ACCEPT",
+      "w2": "PASS_WITH_NOTES",
+      "w3": "PASS_WITH_NOTES",
+      "w4_purple": "VERIFIED"
+    },
+    "active_wave": "P1E_006_COMPLETE",
+    "next_owner": "HUMAN_PRODUCT_LEAD"
+  },
+  "accepted": false,
+  "self_accept": false
+}

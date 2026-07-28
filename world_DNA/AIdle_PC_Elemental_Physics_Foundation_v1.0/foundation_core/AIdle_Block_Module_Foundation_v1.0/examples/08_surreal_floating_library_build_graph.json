@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "request_id": "surreal_0001",
+  "build_graph_id": "graph_surreal_library_v1",
+  "world_profile": "surrealism_canvas",
+  "expected_world_revision": 0,
+  "bounds": {
+    "center": [
+      0,
+      0,
+      0
+    ],
+    "size_m": [
+      128,
+      128,
+      64
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "library",
+      "module_id": "cluster_surreal_floating_library_A",
+      "position": [
+        0,
+        0,
+        20
+      ]
+    },
+    {
+      "node_id": "portal",
+      "module_id": "prop_portal_frame",
+      "position": [
+        10,
+        -4,
+        20
+      ]
+    },
+    {
+      "node_id": "tree",
+      "module_id": "nature_tree_inverted",
+      "position": [
+        -12,
+        8,
+        16
+      ]
+    }
+  ],
+  "edges": [],
+  "generators": [
+    {
+      "generator_id": "gen_cloud_archipelago_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    },
+    {
+      "generator_id": "gen_surreal_anomaly_region_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    },
+    {
+      "generator_id": "gen_portal_network_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    }
+  ],
+  "world_rules": [
+    {
+      "rule_id": "rule_water_flows_to_light_v1",
+      "config": {}
+    },
+    {
+      "rule_id": "rule_portal_link_v1",
+      "config": {}
+    }
+  ],
+  "manifestation": {
+    "stages": [
+      "WIREFRAME",
+      "HOLOGRAM",
+      "MATERIALIZING",
+      "COMMITTING",
+      "COMPLETE"
+    ],
+    "requires_confirmation": true
+  },
+  "validation": {
+    "collision": true,
+    "navigation": true,
+    "style": true,
+    "performance": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  }
+}

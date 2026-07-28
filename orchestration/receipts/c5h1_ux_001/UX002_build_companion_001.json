@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "C5H1-UX-002-2026-07-23",
+  "step_id": "C5H1-UX-002-BUILD-COMPANION-CONTEXT",
+  "work_order_id": "WO-C5H1-UX-002-BUILD-COMPANION-CONTEXT",
+  "work_order": "orchestration/work_orders/WO-C5H1-UX-002-BUILD-COMPANION-CONTEXT.md",
+  "directive_id": 99,
+  "authority_token": "PATCH_DRAFT",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_HUMAN_BATCH",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "MACHINE_COMPLETE_R_C5H1_02_03",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "writer_transcript_ref": "a0253200-d959-4664-948f-98774ae9c278",
+  "product_writes": [
+    "game/scripts/input/control_action_catalog.gd",
+    "game/scripts/main/main.gd"
+  ],
+  "changes": {
+    "R-C5H1-02": "companion_call added to build context allow-list",
+    "R-C5H1-03": "_companion_return_context restores build when closing Companion mid-build/preview"
+  },
+  "smokes": {
+    "c5h1_exit": 0,
+    "ctrl_1b_ctx_exit": 0
+  },
+  "next_owner": "HUMAN_BATCH",
+  "recorded_at": "2026-07-23T15:13:20+07:00"
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_UCBV-001_C4F01R_LINEAGE_GATE_012",
+  "task_id": "UCBV-001",
+  "directive_reviewed": 92,
+  "reviewed_at": "2026-07-23T12:28:01+07:00",
+  "reviewed_by": "codex",
+  "verdict": "CHANGES_REQUESTED_RECEIPT_LINEAGE_MISMATCH_BLOCKS_ACCEPTANCE",
+  "accepted": false,
+  "self_accept": false,
+  "scope_acceptance": "C4F01R_TECHNICAL_SMOKES_PASS_BUT_LINEAGE_NOT_ACCEPTED",
+  "canonical_child": {
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "child_task_ref": "019f8d67-9260-7103-a41a-e5a067e22dd4",
+    "durable_meta": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8d67-9260-7103-a41a-e5a067e22dd4/meta.json",
+    "durable_started_at": "2026-07-23T05:16:42.979951400Z",
+    "durable_completed_at": "2026-07-23T05:21:17.740218500Z"
+  },
+  "rejected_receipt": {
+    "path": "orchestration/receipts/ucbv_001/correction_006/C4F01_h1_flow_zero_error_006.json",
+    "declared_child_task_ref": "76544dba-05bc-4960-bce8-45f316f4fae3",
+    "declared_transcript_ref": "76544dba-05bc-4960-bce8-45f316f4fae3",
+    "reason": "Neither declared reference equals the parent-owned durable child UUID. A schema-valid receipt with false lineage is not admissible machine evidence."
+  },
+  "independent_technical_validation": {
+    "receipt_schema_errors": 0,
+    "leased_test_sha256": "d5ceb518650e78254a16606c8f69e5ca661068fb2a95f99889c172f762550d96",
+    "leased_test_bytes": 16422,
+    "h1_flow": "PASS checks=13 exit=0 strict_error_signatures=0",
+    "inputmap_e2e": "PASS checks=17 inputs=34 exit=0 strict_error_signatures=0",
+    "navigation_warning": "PASS checks=16 exit=0 strict_error_signatures=0"
+  },
+  "finding": {
+    "id": "C4F01R-F01",
+    "severity": "HIGH",
+    "status": "OPEN_BLOCKS_C4_RERUN",
+    "required_route": "One fresh receipt-lineage correction child only. It must not alter product/test files or the immutable correction_006 receipt/log."
+  },
+  "decision": {
+    "c4f01r_accepted": false,
+    "c4_authorized": false,
+    "c5_authorized": false,
+    "overall_ucbv_accepted": false,
+    "red_f01_hard_stop": true
+  }
+}

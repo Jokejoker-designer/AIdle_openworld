@@ -1,0 +1,87 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/playable_action_bar.gd" id="1_bar"]
+
+[node name="PlayableActionBar" type="CanvasLayer"]
+layer = 14
+script = ExtResource("1_bar")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Margin" type="MarginContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="Rows" type="VBoxContainer" parent="Root/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Row1" type="HBoxContainer" parent="Root/Margin/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="EditionLabel" type="Label" parent="Root/Margin/Rows/Row1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Edition"
+
+[node name="BtnCompanion" type="Button" parent="Root/Margin/Rows/Row1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "Companion (E)"
+
+[node name="BtnExport" type="Button" parent="Root/Margin/Rows/Row1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "Share file"
+
+[node name="BtnImport" type="Button" parent="Root/Margin/Rows/Row1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "Open file"
+
+[node name="Row2" type="HBoxContainer" parent="Root/Margin/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="BtnDemoBuild" type="Button" parent="Root/Margin/Rows/Row2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "Manual Build"
+
+[node name="BtnConfirm" type="Button" parent="Root/Margin/Rows/Row2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+disabled = true
+text = "✓ Confirm"
+
+[node name="BtnCancel" type="Button" parent="Root/Margin/Rows/Row2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+disabled = true
+text = "✕ Cancel"

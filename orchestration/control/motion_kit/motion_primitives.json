@@ -1,0 +1,1929 @@
+{
+  "catalog_version": "1.0",
+  "generated_from": {
+    "animation_library": "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.1_Tier3/foundation_core/AIdle_Block_Module_Foundation_v1.0/catalogs/animation_library.json",
+    "skeleton_families": "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.1_Tier3/foundation_core/AIdle_Block_Module_Foundation_v1.0/catalogs/skeleton_families.json"
+  },
+  "purpose": "Map every catalog animation clip to a reusable motion primitive or a must-author unique clip, so AI/Grok can drive real Godot animation from a small authored base instead of hand-keyframing all clips.",
+  "authority_note": "REFERENCE CONTRACT — not integrated into game/**. Requires an authorization gate (BLOCK-DNA-ADAPT sibling) before Grok wires it into runtime. Parameter defaults (speed values, blend ranges) are animator-tunable, not verified motion.",
+  "summary": {
+    "total_clips_bound": 172,
+    "clips_by_kind": {
+      "LOCOMOTION_CYCLE": 46,
+      "DIRECTION_MIRROR": 10,
+      "SIGNATURE_UNIQUE": 35,
+      "REACH_MANIPULATE": 28,
+      "PROCEDURAL_AIM": 5,
+      "IDLE_VARIANT": 11,
+      "BINARY_TOGGLE": 25,
+      "VFX_PARAMETER": 2,
+      "GROWTH_SHAPE": 10
+    },
+    "total_authored_items_across_all_skeletons": 96,
+    "reduction": "172 catalog clips -> 96 real authored items"
+  },
+  "primitive_kinds": [
+    {
+      "kind": "DIRECTION_MIRROR",
+      "implementation": "BLEND_1D",
+      "runtime_parameter": "turn_direction",
+      "parameter_range": [
+        -1,
+        1
+      ],
+      "requires_authored_base": [
+        "turn_pose"
+      ],
+      "authoring_cost": "one base per skeleton",
+      "note": "Same motion mirrored by sign. -1 and +1 sample the two catalog turn clips."
+    },
+    {
+      "kind": "LOCOMOTION_CYCLE",
+      "implementation": "BLEND_1D",
+      "runtime_parameter": "locomotion_speed",
+      "parameter_range": [
+        0,
+        1
+      ],
+      "requires_authored_base": [
+        "idle_pose",
+        "walk_pose"
+      ],
+      "authoring_cost": "two-three poses per skeleton",
+      "note": "idle=0, walk~0.5, run=1.0. Non-biped sustained motion (swim/glide/hover/...) uses the same 1D blend on its own locomotion parameter."
+    },
+    {
+      "kind": "PROCEDURAL_AIM",
+      "implementation": "PROCEDURAL_LOOKAT",
+      "runtime_parameter": "aim_target_vector",
+      "parameter_range": null,
+      "requires_authored_base": [],
+      "authoring_cost": "none",
+      "note": "Runtime bone rotation toward a target vector, layered additively. No clip baked."
+    },
+    {
+      "kind": "BINARY_TOGGLE",
+      "implementation": "PLAYBACK_DIRECTION",
+      "runtime_parameter": "toggle_state",
+      "parameter_range": [
+        -1,
+        1
+      ],
+      "requires_authored_base": [
+        "toggle_pose"
+      ],
+      "authoring_cost": "one clip per pair",
+      "note": "One authored clip played forward for open/activate, reversed for close/shutdown."
+    },
+    {
+      "kind": "REACH_MANIPULATE",
+      "implementation": "IK_REACH",
+      "runtime_parameter": "reach_target_position",
+      "parameter_range": null,
+      "requires_authored_base": [
+        "reach_pose"
+      ],
+      "authoring_cost": "one base per tool-use family",
+      "note": "Base swing/reach clip plus IK on the hand/tool-socket bone aimed at the real object."
+    },
+    {
+      "kind": "GROWTH_SHAPE",
+      "implementation": "BLENDSHAPE_SCALAR",
+      "runtime_parameter": "growth_amount",
+      "parameter_range": [
+        0,
+        1
+      ],
+      "requires_authored_base": [
+        "growth_blendshapes"
+      ],
+      "authoring_cost": "one shape set per plant/deform module",
+      "note": "Blend-shape or shader scalar, not skeletal. seed->sprout->bud->bloom->fruit->wither along 0..1."
+    },
+    {
+      "kind": "IDLE_VARIANT",
+      "implementation": "ADDITIVE_ACCENT",
+      "runtime_parameter": "accent_id",
+      "parameter_range": null,
+      "requires_authored_base": [
+        "idle_pose"
+      ],
+      "authoring_cost": "reuses idle base + small accent layer",
+      "note": "Base idle plus a small additive accent (posture lean, antenna droop) for happy/low_energy/sleep."
+    },
+    {
+      "kind": "SIGNATURE_UNIQUE",
+      "implementation": "UNIQUE_CLIP",
+      "runtime_parameter": null,
+      "parameter_range": null,
+      "requires_authored_base": [
+        "<clip itself>"
+      ],
+      "authoring_cost": "full hand-authored keyframes",
+      "note": "Genuinely one-off personality beats. Real keyframes, one clip each. No shortcut."
+    },
+    {
+      "kind": "VFX_PARAMETER",
+      "implementation": "EMISSION_SCALAR",
+      "runtime_parameter": "emission_strength",
+      "parameter_range": [
+        0,
+        1
+      ],
+      "requires_authored_base": [],
+      "authoring_cost": "none (material param)",
+      "note": "An emission/material value over time, not a bone pose."
+    }
+  ],
+  "authored_base_requirements": [
+    {
+      "skeleton_id": "skel_bird_origami_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "toggle_pose:fold",
+        "toggle_pose:land",
+        "toggle_pose:takeoff",
+        "toggle_pose:unfold",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "become_arrow",
+        "hide_shadow",
+        "perch"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 6,
+        "unique_clips": 3,
+        "total_authored_items": 9
+      }
+    },
+    {
+      "skeleton_id": "skel_blob_v1",
+      "reusable_base_poses": [
+        "growth_blendshapes",
+        "idle_pose",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "hop",
+        "roll",
+        "wave"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 3,
+        "unique_clips": 3,
+        "total_authored_items": 6
+      }
+    },
+    {
+      "skeleton_id": "skel_building_mechanism_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "toggle_pose:core",
+        "toggle_pose:door",
+        "toggle_pose:platform",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "mechanism_loop"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 5,
+        "unique_clips": 1,
+        "total_authored_items": 6
+      }
+    },
+    {
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "reach_pose",
+        "turn_pose",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "burst",
+        "circle",
+        "dive",
+        "rise"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 4,
+        "unique_clips": 4,
+        "total_authored_items": 8
+      }
+    },
+    {
+      "skeleton_id": "skel_flying_spirit_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "toggle_pose:appear",
+        "toggle_pose:disappear",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "bow",
+        "orbit"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 4,
+        "unique_clips": 2,
+        "total_authored_items": 6
+      }
+    },
+    {
+      "skeleton_id": "skel_large_quadruped_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "reach_pose",
+        "toggle_pose:kneel",
+        "toggle_pose:stand",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [],
+      "authoring_summary": {
+        "reusable_base_poses": 5,
+        "unique_clips": 0,
+        "total_authored_items": 5
+      }
+    },
+    {
+      "skeleton_id": "skel_modular_golem_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "reach_pose",
+        "toggle_pose:core",
+        "toggle_pose:power_down",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "cancel"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 5,
+        "unique_clips": 1,
+        "total_authored_items": 6
+      }
+    },
+    {
+      "skeleton_id": "skel_plant_growth_v1",
+      "reusable_base_poses": [
+        "growth_blendshapes",
+        "idle_pose",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [],
+      "authoring_summary": {
+        "reusable_base_poses": 3,
+        "unique_clips": 0,
+        "total_authored_items": 3
+      }
+    },
+    {
+      "skeleton_id": "skel_serpentine_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "toggle_pose:coil",
+        "toggle_pose:uncoil",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "portal_enter",
+        "rise"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 4,
+        "unique_clips": 2,
+        "total_authored_items": 6
+      }
+    },
+    {
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "reach_pose",
+        "turn_pose",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "cancel",
+        "charge",
+        "interact",
+        "wave"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 4,
+        "unique_clips": 4,
+        "total_authored_items": 8
+      }
+    },
+    {
+      "skeleton_id": "skel_small_quadruped_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "reach_pose",
+        "toggle_pose:sit",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "return_home",
+        "search"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 4,
+        "unique_clips": 2,
+        "total_authored_items": 6
+      }
+    },
+    {
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "reach_pose",
+        "toggle_pose:sit",
+        "toggle_pose:stand",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "celebrate",
+        "talk_A",
+        "talk_B",
+        "wave"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 5,
+        "unique_clips": 4,
+        "total_authored_items": 9
+      }
+    },
+    {
+      "skeleton_id": "skel_tentacle_creature_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "reach_pose",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "emerge",
+        "hide",
+        "wave"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 3,
+        "unique_clips": 3,
+        "total_authored_items": 6
+      }
+    },
+    {
+      "skeleton_id": "skel_vehicle_small_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "toggle_pose:door",
+        "turn_pose",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "accelerate",
+        "brake"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 4,
+        "unique_clips": 2,
+        "total_authored_items": 6
+      }
+    },
+    {
+      "skeleton_id": "skel_wheeled_robot_v1",
+      "reusable_base_poses": [
+        "idle_pose",
+        "reach_pose",
+        "toggle_pose:shutdown",
+        "turn_pose",
+        "walk_pose"
+      ],
+      "unique_clips_to_author": [
+        "charge"
+      ],
+      "authoring_summary": {
+        "reusable_base_poses": 5,
+        "unique_clips": 1,
+        "total_authored_items": 6
+      }
+    }
+  ],
+  "clip_bindings": [
+    {
+      "animation_set_id": "anim_small_biped_core_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_small_biped_core_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "walk",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_small_biped_core_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "turn_left",
+      "kind": "DIRECTION_MIRROR",
+      "params": {
+        "turn_direction": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_small_biped_core_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "turn_right",
+      "kind": "DIRECTION_MIRROR",
+      "params": {
+        "turn_direction": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_small_biped_core_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "wave",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_small_biped_core_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "interact",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_small_biped_core_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "carry",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_small_biped_core_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "cancel",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_robot_gardener_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_robot_gardener_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "walk",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_robot_gardener_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "scan",
+      "kind": "PROCEDURAL_AIM",
+      "params": {
+        "aim_target_vector": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_robot_gardener_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "water",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_robot_gardener_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "plant_seed",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_robot_gardener_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "harvest",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_robot_gardener_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "charge",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_robot_gardener_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "happy",
+      "kind": "IDLE_VARIANT",
+      "params": {
+        "accent_id": "happy"
+      }
+    },
+    {
+      "animation_set_id": "anim_robot_gardener_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "low_energy",
+      "kind": "IDLE_VARIANT",
+      "params": {
+        "accent_id": "low_energy"
+      }
+    },
+    {
+      "animation_set_id": "anim_robot_gardener_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "clip_id": "cancel",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_humanoid_social_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_social_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "walk",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_social_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "run",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 1.0
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_social_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "wave",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_humanoid_social_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "talk_A",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_humanoid_social_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "talk_B",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_humanoid_social_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "sit",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_social_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "stand",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_social_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "give_item",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_social_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "receive_item",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_social_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "celebrate",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_humanoid_farming_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_farming_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "walk",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_farming_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "hoe",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_farming_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "plant_seed",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_farming_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "water",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_farming_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "harvest",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_farming_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "carry",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_farming_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "repair",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_humanoid_farming_v1",
+      "skeleton_id": "skel_stylized_humanoid_v1",
+      "clip_id": "sleep_loop",
+      "kind": "IDLE_VARIANT",
+      "params": {
+        "accent_id": "sleep_loop"
+      }
+    },
+    {
+      "animation_set_id": "anim_golem_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_golem_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "walk",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_golem_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "lift",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_golem_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "carry",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_golem_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "place_module",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_golem_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "core_activate",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_golem_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "power_down",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_builder_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_builder_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "walk",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_builder_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "dig",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_builder_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "hammer",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_builder_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "lift",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_builder_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "carry",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_builder_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "place_module",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_builder_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "repair",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_builder_heavy_v1",
+      "skeleton_id": "skel_modular_golem_v1",
+      "clip_id": "cancel",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_pet_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_pet_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "walk",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_pet_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "run",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 1.0
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_pet_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "sniff",
+      "kind": "IDLE_VARIANT",
+      "params": {
+        "accent_id": "sniff"
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_pet_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "sit",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_pet_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "sleep_loop",
+      "kind": "IDLE_VARIANT",
+      "params": {
+        "accent_id": "sleep_loop"
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_pet_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "happy",
+      "kind": "IDLE_VARIANT",
+      "params": {
+        "accent_id": "happy"
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_pet_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "pet_reaction",
+      "kind": "IDLE_VARIANT",
+      "params": {
+        "accent_id": "pet_reaction"
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_pet_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "curl",
+      "kind": "IDLE_VARIANT",
+      "params": {
+        "accent_id": "curl"
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_work_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_work_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "walk",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_work_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "run",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 1.0
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_work_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "dig",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_work_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "search",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_work_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "carry_small",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_work_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "point",
+      "kind": "PROCEDURAL_AIM",
+      "params": {
+        "aim_target_vector": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_small_quadruped_work_v1",
+      "skeleton_id": "skel_small_quadruped_v1",
+      "clip_id": "return_home",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_large_quadruped_v1",
+      "skeleton_id": "skel_large_quadruped_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_large_quadruped_v1",
+      "skeleton_id": "skel_large_quadruped_v1",
+      "clip_id": "walk",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_large_quadruped_v1",
+      "skeleton_id": "skel_large_quadruped_v1",
+      "clip_id": "run",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 1.0
+      }
+    },
+    {
+      "animation_set_id": "anim_large_quadruped_v1",
+      "skeleton_id": "skel_large_quadruped_v1",
+      "clip_id": "kneel",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_large_quadruped_v1",
+      "skeleton_id": "skel_large_quadruped_v1",
+      "clip_id": "stand",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_large_quadruped_v1",
+      "skeleton_id": "skel_large_quadruped_v1",
+      "clip_id": "carry_platform",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_large_quadruped_v1",
+      "skeleton_id": "skel_large_quadruped_v1",
+      "clip_id": "sleep_loop",
+      "kind": "IDLE_VARIANT",
+      "params": {
+        "accent_id": "sleep_loop"
+      }
+    },
+    {
+      "animation_set_id": "anim_bird_origami_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "folded_idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_bird_origami_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "unfold",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_bird_origami_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "glide",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.7
+      }
+    },
+    {
+      "animation_set_id": "anim_bird_origami_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "flap",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.6
+      }
+    },
+    {
+      "animation_set_id": "anim_bird_origami_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "land",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_bird_origami_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "point_direction",
+      "kind": "PROCEDURAL_AIM",
+      "params": {
+        "aim_target_vector": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_bird_origami_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "become_arrow",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_bird_origami_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "hide_shadow",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_paper_flutter_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_paper_flutter_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "glide",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.7
+      }
+    },
+    {
+      "animation_set_id": "anim_paper_flutter_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "flutter",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_paper_flutter_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "fold",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_paper_flutter_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "unfold",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_paper_flutter_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "perch",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_paper_flutter_v1",
+      "skeleton_id": "skel_bird_origami_v1",
+      "clip_id": "takeoff",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_spirit_float_v1",
+      "skeleton_id": "skel_flying_spirit_v1",
+      "clip_id": "hover",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.4
+      }
+    },
+    {
+      "animation_set_id": "anim_spirit_float_v1",
+      "skeleton_id": "skel_flying_spirit_v1",
+      "clip_id": "glide",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.7
+      }
+    },
+    {
+      "animation_set_id": "anim_spirit_float_v1",
+      "skeleton_id": "skel_flying_spirit_v1",
+      "clip_id": "orbit",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_spirit_float_v1",
+      "skeleton_id": "skel_flying_spirit_v1",
+      "clip_id": "bow",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_spirit_float_v1",
+      "skeleton_id": "skel_flying_spirit_v1",
+      "clip_id": "aura_expand",
+      "kind": "VFX_PARAMETER",
+      "params": {
+        "emission_strength": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_spirit_float_v1",
+      "skeleton_id": "skel_flying_spirit_v1",
+      "clip_id": "disappear",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_spirit_float_v1",
+      "skeleton_id": "skel_flying_spirit_v1",
+      "clip_id": "appear",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_spirit_float_v1",
+      "skeleton_id": "skel_flying_spirit_v1",
+      "clip_id": "sleep_loop",
+      "kind": "IDLE_VARIANT",
+      "params": {
+        "accent_id": "sleep_loop"
+      }
+    },
+    {
+      "animation_set_id": "anim_fish_swim_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "swim",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.6
+      }
+    },
+    {
+      "animation_set_id": "anim_fish_swim_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "turn_left",
+      "kind": "DIRECTION_MIRROR",
+      "params": {
+        "turn_direction": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_fish_swim_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "turn_right",
+      "kind": "DIRECTION_MIRROR",
+      "params": {
+        "turn_direction": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_fish_swim_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "dive",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_fish_swim_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "rise",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_fish_swim_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_fish_swim_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "burst",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_fish_swim_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "circle",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_ray_glide_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "glide",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.7
+      }
+    },
+    {
+      "animation_set_id": "anim_ray_glide_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "bank_left",
+      "kind": "DIRECTION_MIRROR",
+      "params": {
+        "turn_direction": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_ray_glide_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "bank_right",
+      "kind": "DIRECTION_MIRROR",
+      "params": {
+        "turn_direction": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_ray_glide_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "dive",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_ray_glide_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "rise",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_ray_glide_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "pulse_light",
+      "kind": "VFX_PARAMETER",
+      "params": {
+        "emission_strength": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_ray_glide_v1",
+      "skeleton_id": "skel_fish_swimmer_v1",
+      "clip_id": "carry_player",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_serpentine_v1",
+      "skeleton_id": "skel_serpentine_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_serpentine_v1",
+      "skeleton_id": "skel_serpentine_v1",
+      "clip_id": "slither",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_serpentine_v1",
+      "skeleton_id": "skel_serpentine_v1",
+      "clip_id": "coil",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_serpentine_v1",
+      "skeleton_id": "skel_serpentine_v1",
+      "clip_id": "uncoil",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_serpentine_v1",
+      "skeleton_id": "skel_serpentine_v1",
+      "clip_id": "rise",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_serpentine_v1",
+      "skeleton_id": "skel_serpentine_v1",
+      "clip_id": "inspect",
+      "kind": "PROCEDURAL_AIM",
+      "params": {
+        "aim_target_vector": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_serpentine_v1",
+      "skeleton_id": "skel_serpentine_v1",
+      "clip_id": "swim",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.6
+      }
+    },
+    {
+      "animation_set_id": "anim_serpentine_v1",
+      "skeleton_id": "skel_serpentine_v1",
+      "clip_id": "portal_enter",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_blob_v1",
+      "skeleton_id": "skel_blob_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_blob_v1",
+      "skeleton_id": "skel_blob_v1",
+      "clip_id": "squash",
+      "kind": "GROWTH_SHAPE",
+      "params": {
+        "growth_amount": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_blob_v1",
+      "skeleton_id": "skel_blob_v1",
+      "clip_id": "stretch",
+      "kind": "GROWTH_SHAPE",
+      "params": {
+        "growth_amount": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_blob_v1",
+      "skeleton_id": "skel_blob_v1",
+      "clip_id": "hop",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_blob_v1",
+      "skeleton_id": "skel_blob_v1",
+      "clip_id": "roll",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_blob_v1",
+      "skeleton_id": "skel_blob_v1",
+      "clip_id": "wave",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_blob_v1",
+      "skeleton_id": "skel_blob_v1",
+      "clip_id": "sleep_loop",
+      "kind": "IDLE_VARIANT",
+      "params": {
+        "accent_id": "sleep_loop"
+      }
+    },
+    {
+      "animation_set_id": "anim_blob_v1",
+      "skeleton_id": "skel_blob_v1",
+      "clip_id": "morph_small",
+      "kind": "GROWTH_SHAPE",
+      "params": {
+        "growth_amount": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_wheeled_robot_v1",
+      "skeleton_id": "skel_wheeled_robot_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_wheeled_robot_v1",
+      "skeleton_id": "skel_wheeled_robot_v1",
+      "clip_id": "wheel_roll",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_wheeled_robot_v1",
+      "skeleton_id": "skel_wheeled_robot_v1",
+      "clip_id": "turn_left",
+      "kind": "DIRECTION_MIRROR",
+      "params": {
+        "turn_direction": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_wheeled_robot_v1",
+      "skeleton_id": "skel_wheeled_robot_v1",
+      "clip_id": "turn_right",
+      "kind": "DIRECTION_MIRROR",
+      "params": {
+        "turn_direction": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_wheeled_robot_v1",
+      "skeleton_id": "skel_wheeled_robot_v1",
+      "clip_id": "scan",
+      "kind": "PROCEDURAL_AIM",
+      "params": {
+        "aim_target_vector": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_wheeled_robot_v1",
+      "skeleton_id": "skel_wheeled_robot_v1",
+      "clip_id": "tool_use",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_wheeled_robot_v1",
+      "skeleton_id": "skel_wheeled_robot_v1",
+      "clip_id": "charge",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_wheeled_robot_v1",
+      "skeleton_id": "skel_wheeled_robot_v1",
+      "clip_id": "shutdown",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_tentacle_creature_v1",
+      "skeleton_id": "skel_tentacle_creature_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_tentacle_creature_v1",
+      "skeleton_id": "skel_tentacle_creature_v1",
+      "clip_id": "crawl",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_tentacle_creature_v1",
+      "skeleton_id": "skel_tentacle_creature_v1",
+      "clip_id": "swim",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.6
+      }
+    },
+    {
+      "animation_set_id": "anim_tentacle_creature_v1",
+      "skeleton_id": "skel_tentacle_creature_v1",
+      "clip_id": "wave",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_tentacle_creature_v1",
+      "skeleton_id": "skel_tentacle_creature_v1",
+      "clip_id": "grab_soft",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_tentacle_creature_v1",
+      "skeleton_id": "skel_tentacle_creature_v1",
+      "clip_id": "release",
+      "kind": "REACH_MANIPULATE",
+      "params": {
+        "reach_target_position": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_tentacle_creature_v1",
+      "skeleton_id": "skel_tentacle_creature_v1",
+      "clip_id": "hide",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_tentacle_creature_v1",
+      "skeleton_id": "skel_tentacle_creature_v1",
+      "clip_id": "emerge",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_building_mechanism_v1",
+      "skeleton_id": "skel_building_mechanism_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_building_mechanism_v1",
+      "skeleton_id": "skel_building_mechanism_v1",
+      "clip_id": "door_open",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_building_mechanism_v1",
+      "skeleton_id": "skel_building_mechanism_v1",
+      "clip_id": "door_close",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_building_mechanism_v1",
+      "skeleton_id": "skel_building_mechanism_v1",
+      "clip_id": "mechanism_loop",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_building_mechanism_v1",
+      "skeleton_id": "skel_building_mechanism_v1",
+      "clip_id": "platform_raise",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_building_mechanism_v1",
+      "skeleton_id": "skel_building_mechanism_v1",
+      "clip_id": "platform_lower",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_building_mechanism_v1",
+      "skeleton_id": "skel_building_mechanism_v1",
+      "clip_id": "core_activate",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_building_mechanism_v1",
+      "skeleton_id": "skel_building_mechanism_v1",
+      "clip_id": "core_shutdown",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_plant_growth_v1",
+      "skeleton_id": "skel_plant_growth_v1",
+      "clip_id": "seed_idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_plant_growth_v1",
+      "skeleton_id": "skel_plant_growth_v1",
+      "clip_id": "sprout",
+      "kind": "GROWTH_SHAPE",
+      "params": {
+        "growth_amount": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_plant_growth_v1",
+      "skeleton_id": "skel_plant_growth_v1",
+      "clip_id": "growth_loop",
+      "kind": "GROWTH_SHAPE",
+      "params": {
+        "growth_amount": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_plant_growth_v1",
+      "skeleton_id": "skel_plant_growth_v1",
+      "clip_id": "bud",
+      "kind": "GROWTH_SHAPE",
+      "params": {
+        "growth_amount": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_plant_growth_v1",
+      "skeleton_id": "skel_plant_growth_v1",
+      "clip_id": "bloom",
+      "kind": "GROWTH_SHAPE",
+      "params": {
+        "growth_amount": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_plant_growth_v1",
+      "skeleton_id": "skel_plant_growth_v1",
+      "clip_id": "fruit",
+      "kind": "GROWTH_SHAPE",
+      "params": {
+        "growth_amount": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_plant_growth_v1",
+      "skeleton_id": "skel_plant_growth_v1",
+      "clip_id": "wither",
+      "kind": "GROWTH_SHAPE",
+      "params": {
+        "growth_amount": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_plant_growth_v1",
+      "skeleton_id": "skel_plant_growth_v1",
+      "clip_id": "restore",
+      "kind": "GROWTH_SHAPE",
+      "params": {
+        "growth_amount": "runtime"
+      }
+    },
+    {
+      "animation_set_id": "anim_vehicle_small_v1",
+      "skeleton_id": "skel_vehicle_small_v1",
+      "clip_id": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.0
+      }
+    },
+    {
+      "animation_set_id": "anim_vehicle_small_v1",
+      "skeleton_id": "skel_vehicle_small_v1",
+      "clip_id": "wheel_roll",
+      "kind": "LOCOMOTION_CYCLE",
+      "params": {
+        "locomotion_speed": 0.5
+      }
+    },
+    {
+      "animation_set_id": "anim_vehicle_small_v1",
+      "skeleton_id": "skel_vehicle_small_v1",
+      "clip_id": "door_open",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_vehicle_small_v1",
+      "skeleton_id": "skel_vehicle_small_v1",
+      "clip_id": "door_close",
+      "kind": "BINARY_TOGGLE",
+      "params": {
+        "toggle_state": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_vehicle_small_v1",
+      "skeleton_id": "skel_vehicle_small_v1",
+      "clip_id": "turn_left",
+      "kind": "DIRECTION_MIRROR",
+      "params": {
+        "turn_direction": -1
+      }
+    },
+    {
+      "animation_set_id": "anim_vehicle_small_v1",
+      "skeleton_id": "skel_vehicle_small_v1",
+      "clip_id": "turn_right",
+      "kind": "DIRECTION_MIRROR",
+      "params": {
+        "turn_direction": 1
+      }
+    },
+    {
+      "animation_set_id": "anim_vehicle_small_v1",
+      "skeleton_id": "skel_vehicle_small_v1",
+      "clip_id": "accelerate",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    },
+    {
+      "animation_set_id": "anim_vehicle_small_v1",
+      "skeleton_id": "skel_vehicle_small_v1",
+      "clip_id": "brake",
+      "kind": "SIGNATURE_UNIQUE",
+      "params": {},
+      "must_author": true
+    }
+  ]
+}

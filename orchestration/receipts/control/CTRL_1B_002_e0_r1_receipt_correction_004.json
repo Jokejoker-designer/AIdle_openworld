@@ -1,0 +1,246 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-e0-r1-receipt-correction-004-2026-07-22",
+  "step_id": "CTRL-1B-002-e0-r1-receipt-correction-004",
+  "work_order_id": "WO-CTRL-1B-002-R-CAMERA-EVIDENCE-CORRECTION-003",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-R-CAMERA-EVIDENCE-CORRECTION-003.md",
+  "work_order_sha256": "98ff749fe43b5a6e33436921969c1292239206627829ecdf086205c1fd6dfe1f",
+  "directive_id": 61,
+  "directive_scope": "evidence-only receipt correction; no product/test/contract/fixture/prior receipt edits",
+  "review_id": "CODEX_CTRL-1B-002-R-CAMERA-MACHINE-REVIEW-003",
+  "prior_review": "orchestration/reviews/CODEX_CTRL-1B-002_R_CAMERA_MACHINE_REVIEW_003.json",
+  "prior_review_sha256": "8f7cad609b2097456f1dae6399eb46fe31a2f690637fa315fb300ea6515b257b",
+  "milestone": "Control 1B E0 R1 verification receipt correction — MAF top-level smoke_test + fresh VERIFY_ONLY re-run",
+  "agent_id": "aidle-worldgen-control-input",
+  "agent_type": "aidle-worldgen-control-input",
+  "profile_name": "aidle-worldgen-control-input",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+  "profile_sha256": "c6b718fb24ea7e1b9ca2453b25cff077c023a582b652307572fbe5184450fe6e",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "evidence receipt/log only under exclusive lease; no product/test/contract/fixture edits; no rewrite of historical R1/P3 receipts; no Character Foundry/World2/network/World Commit; no self-accept",
+  "authority_reduced_from": "PATCH_DRAFT",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:35bfc0c1c9a347b743565538fd0169be94fe317fe2eb4241f85b94832c90d4e4",
+  "input_context_hash_16": "35bfc0c1c9a347b7",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002-R-CAMERA-EVIDENCE-CORRECTION-003.md + CODEX_CTRL-1B-002_R_CAMERA_MACHINE_REVIEW_003.json + aidle-worldgen-control-input.md + agent_step_contract.schema.json + CTRL_1B_002_r1_camera_runtime_003.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "E0_R1_VERIFY_RECEIPT_SCHEMA_VALID_NO_ACCEPT",
+  "verdict_detail": "Directive 61 E0 VERIFY_ONLY re-ran fixture validator (HARNESS_RESULT=PASS, invalid 12/12), control_1b_context_router_smoke (PASS checks=16 exit 0 ERROR=0), control_1b_integration_smoke (PASS checks=28 exit 0 ERROR=0), and confirmed r_camera_yaw_witness.json sha256 matches review 513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f. New append-only receipt includes required top-level smoke_test. Original R1 receipt CTRL_1B_002_r1_camera_runtime_003.json preserved immutable and remains invalid solely for missing top-level smoke_test (had smoke_results only). product_writes=[]. accepted=false; self_accept=false; next_route=E1_PURPLE.",
+  "child_task_ref": "019f8746-e7b9-7bb1-8fe2-dabf46421a22",
+  "transcript_ref": "019f8746-e7b9-7bb1-8fe2-dabf46421a22",
+  "writer_transcript_ref": "019f8746-e7b9-7bb1-8fe2-dabf46421a22",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8746-e7b9-7bb1-8fe2-dabf46421a22/meta.json",
+  "durable_meta_sha256_at_start": "fc29ca5e558b8c2ccb8938002caa6c1b7ca5d13029539912eb9d99dcae891310",
+  "durable_session_dir": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f8746-e7b9-7bb1-8fe2-dabf46421a22",
+  "next_owner": "E1_PURPLE",
+  "next_route": "E1_PURPLE",
+  "character_binding": {
+    "trustlayer": "blue-team-p0-remediator",
+    "trustlayer_wo_required": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "ui": "ui-a11y-auditor",
+    "ui_wo_required": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "role": "E0 VERIFY_ONLY R1 receipt schema correction with top-level smoke_test (no self-accept)"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile aidle-worldgen-control-input.md, WO-CTRL-1B-002-R-CAMERA-EVIDENCE-CORRECTION-003, CODEX R camera machine review 003, original R1 receipt, agent_step_contract.schema.json, character cards, and skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_e0_r1_receipt_correction_004.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-e0-r1-receipt-correction-004.log"
+  ],
+  "product_writes": [],
+  "test_writes": [],
+  "contract_writes": [],
+  "fixture_writes": [],
+  "no_product_patch": true,
+  "no_test_patch": true,
+  "no_contract_patch": true,
+  "no_fixture_patch": true,
+  "no_prior_receipt_rewrite": true,
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_e0_r1_receipt_correction_004.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-e0-r1-receipt-correction-004.log"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_e0_r1_receipt_correction_004.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-e0-r1-receipt-correction-004.log"
+  ],
+  "original_r1_receipt": {
+    "path": "orchestration/receipts/control/CTRL_1B_002_r1_camera_runtime_003.json",
+    "sha256": "df58c0f38e630288f9139ccacff04a9ef6fb070de89bc62e8d3f6dbdf39818e2",
+    "child_task_ref": "019f8735-2780-7530-8584-1c8711e18a9a",
+    "immutable_historical": true,
+    "invalid_reason": "missing required top-level smoke_test",
+    "had_nested_smoke_results_only": true,
+    "rewritten": false
+  },
+  "commands": [
+    "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_context_router_smoke.gd",
+    "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_integration_smoke.gd",
+    "Get-FileHash -Algorithm SHA256 orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json"
+  ],
+  "exit_codes": [0, 0, 0, 0],
+  "evidence_refs": [
+    "orchestration/logs/ctrl-1b-002-e0-r1-receipt-correction-004.log",
+    "orchestration/receipts/control/CTRL_1B_002_r1_camera_runtime_003.json",
+    "orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json",
+    "orchestration/reviews/CODEX_CTRL-1B-002_R_CAMERA_MACHINE_REVIEW_003.json",
+    "orchestration/work_orders/WO-CTRL-1B-002-R-CAMERA-EVIDENCE-CORRECTION-003.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "smoke_test": {
+    "pass": true,
+    "error_line_count": 0,
+    "commands": [
+      "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_context_router_smoke.gd",
+      "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_integration_smoke.gd",
+      "Get-FileHash -Algorithm SHA256 orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json"
+    ],
+    "exit_codes": [0, 0, 0, 0],
+    "markers": [
+      "HARNESS_RESULT=PASS",
+      "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=28",
+      "WITNESS_SHA256_MATCH=True"
+    ],
+    "validator": {
+      "cmd": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "exit": 0,
+      "marker": "HARNESS_RESULT=PASS",
+      "valid": "PASS",
+      "invalid_rejected": "12/12",
+      "valid_fixture_sha256": "211605f46db73a4308252d7f10867260b5f8a8dd9f8d5fefc970f3c65f2d719f",
+      "error_line_count": 0
+    },
+    "godot": "tools/Godot_v4.3-stable_win64_console.exe",
+    "router": {
+      "script": "res://tests/control_1b_context_router_smoke.gd",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "checks": 16,
+      "error_line_count": 0,
+      "pass": true,
+      "real_path_assertions": [
+        "exploration_allows_rotate_camera_right",
+        "exploration_r_camera_yaw_real_inputmap_router_path delta≈0.7854",
+        "build_r_preview_only_camera_unchanged",
+        "rotate_camera_right_remap_still_works"
+      ]
+    },
+    "integration": {
+      "script": "res://tests/control_1b_integration_smoke.gd",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=28",
+      "checks": 28,
+      "error_line_count": 0,
+      "pass": true,
+      "real_path_assertions": [
+        "H-10_exploration_r_camera_yaw_real_inputmap_path",
+        "build_r_preview_only_camera_unchanged",
+        "rotate_camera_right_remap_still_works",
+        "r_exploration_no_hologram_rotate"
+      ]
+    },
+    "witness": {
+      "path": "orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json",
+      "expected_sha256": "513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f",
+      "actual_sha256": "513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f",
+      "match": true,
+      "exit_code": 0
+    },
+    "all_pass": true,
+    "zero_error_lines": true
+  },
+  "result": {
+    "status": "REVIEW_REQUESTED",
+    "verdict": "E0_R1_VERIFY_RECEIPT_SCHEMA_VALID_NO_ACCEPT",
+    "smoke_test_present": true,
+    "validator_pass": true,
+    "invalid_rejected": "12/12",
+    "router_smoke_pass": true,
+    "integration_smoke_pass": true,
+    "witness_sha256_match": true,
+    "zero_error_lines": true,
+    "product_writes_empty": true,
+    "original_r1_preserved_invalid_for_missing_smoke_test": true,
+    "self_accept": false,
+    "accepted": false,
+    "next_owner": "E1_PURPLE",
+    "summary": "Directive 61 E0 produced schema-valid VERIFY_ONLY receipt with top-level smoke_test after fresh re-run of validator + router + integration smokes and witness hash match; historical R1 left immutable; handoff E1_PURPLE."
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "verify_only_no_product_edits": true,
+    "verify_only_no_test_edits": true,
+    "verify_only_no_contract_edits": true,
+    "verify_only_no_fixture_edits": true,
+    "no_prior_r1_receipt_rewrite": true,
+    "no_p3_receipt_rewrite": true,
+    "exclusive_lease_only": true,
+    "writer_lease_two_paths_only": true,
+    "one_writer_per_file": true,
+    "no_grandchild": true,
+    "self_accept": false,
+    "accepted": false,
+    "smoke_test_top_level_present": true,
+    "maf_required_fields_present": true,
+    "child_task_ref_real_durable": true,
+    "product_writes_empty": true
+  }
+}

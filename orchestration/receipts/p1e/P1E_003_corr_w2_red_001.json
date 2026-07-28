@@ -1,0 +1,388 @@
+{
+  "agent_step_id": "P1E-003-corr-w2-red-001-2026-07-21",
+  "agent_type": "aidle-worldgen-red-scope",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "READ_ONLY_AUDIT",
+  "input_context_hash": "sha256:21e9364ca493ffe202665070bd8001b7233fc81c55d7a05b6b34fd806566ba37",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8565-a190-7381-aa19-c86bc0f9d16e",
+  "transcript_ref": "019f8565-a190-7381-aa19-c86bc0f9d16e",
+  "writer_transcript_ref": "019f8565-a190-7381-aa19-c86bc0f9d16e",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f8555-5714-7c71-9b6c-15442dd68b60",
+  "prior_package_job_id": "BLD-10A9DEB39E8E",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/p1e-003-corr-w2-red-001.log",
+  "handoff_ref": "P1E_003_CORR_W3_QA",
+  "start_time": "2026-07-21T15:58:00Z",
+  "end_time": "2026-07-21T16:02:00Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-red-scope; trustlayer_character=red-team-source-auditor; ui_character=ui-visual-critic; authority_token=READ_ONLY_AUDIT; required_skills include adversarial-review + architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; findings only never patch; one_writer_per_file=true; exclusive writes receipt+log only. CORRECTION Wave 2 Red — package BLD-10A9DEB39E8E after CORR W1 Blue 019f8555.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "adversarial-review",
+      "architecture-lock"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; not retried. Loaded Agents.md + aidle-worldgen-red-scope + WO-P1E-003 + COZY_ART_BIBLE_001 §8 + P1E_003_corr_w1_blue_001 + evidence/p1e_w1 + package BLD-10A9DEB39E8E + environment_job_service git diff + Godot smokes + agent_step_contract schema manually. No bootstrap loop.",
+  "character_binding": {
+    "trustlayer": "red-team-source-auditor",
+    "ui": "ui-visual-critic"
+  },
+  "skills_loaded": [
+    {"skill_id": "maf-mandatory-standard", "version": "1.0"},
+    {"skill_id": "trustlayer-x16-crew", "version": "1.0"},
+    {"skill_id": "agentwork-knowledge-loop", "version": "1.0"},
+    {"skill_id": "project-room-collab", "version": "1.0"},
+    {"skill_id": "curiosity-engine", "version": "1.0"},
+    {"skill_id": "adversarial-review", "version": "1.0"},
+    {"skill_id": "architecture-lock", "version": "1.0"}
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-003-WAVE1-EXPOSURE-PROPS-DENSITY.md",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/world_profiles/COZY_ART_BIBLE_001.md",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_003_corr_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-003-corr-w1-blue-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_003_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_w1/luma_metrics.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_w1/starter_realm_preview_p1e003_corr_w1.png",
+    "E:/AIdle_openworld/game/autoload/art_style_manager.gd",
+    "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/blender_scripts/environment_worker_entry.py",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-10A9DEB39E8E/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-10A9DEB39E8E/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-10A9DEB39E8E/scene_manifest.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_003_corr_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-003-corr-w2-red-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "P1E-003-CORRECTION",
+    "work_order": "orchestration/work_orders/WO-P1E-003-WAVE1-EXPOSURE-PROPS-DENSITY.md",
+    "wave": "P1E_003_CORR_W2_RED",
+    "profile": "aidle-worldgen-red-scope",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "authority_token": "READ_ONLY_AUDIT",
+    "self_accept": false,
+    "accepted": false,
+    "status": "REVIEW_REQUESTED",
+    "verdict": "FINDINGS_REPORTED",
+    "summary": "READ_ONLY_AUDIT of P1E-003 CORR W1 Blue 019f8555 (package BLD-10A9DEB39E8E). All 7 hard gates PASS (ArtStyle residual recorded medium, non-blocking). Independent Rec.709 re-measure: mean_luma=154.166 blown=2.724% shadow=5.895% inside art bible §8. Spatial shadow largest_cluster_share_pct=41.002% <<90% (prior false-pass 90.13%); centroid mid-frame not UR void; shadow_occluder=false; near_black_8_14=0.91%. Pond sample RGB[165,207,215] closer to #8fd4e8 (dist=28.25) than beige (dist=56.68). Fence continuous L: west×5 + north×5 at 2.2m spacing. service_diff_clean=true (mock lighting_rig/kit_wave/output_class only; lease/F04/F05/idempotency untouched). GAME_GLB_COUNT=0; smokes PASS. product_writes=[]. Handoff P1E_003_CORR_W3_QA. accepted=false.",
+    "package_job_id": "BLD-10A9DEB39E8E",
+    "service_diff_clean": true,
+    "prior_wave": {
+      "child_task_ref": "019f8555-5714-7c71-9b6c-15442dd68b60",
+      "receipt": "orchestration/receipts/p1e/P1E_003_corr_w1_blue_001.json",
+      "package": "BLD-10A9DEB39E8E",
+      "mean_luma_claimed": 154.166,
+      "blown_pct_claimed": 2.724,
+      "shadow_pct_claimed": 5.895,
+      "largest_cluster_share_pct_claimed": 41.002,
+      "instance_count_claimed": 43,
+      "shadow_occluder_claimed": false
+    },
+    "independent_remeasure": {
+      "preview_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-10A9DEB39E8E/starter_realm_preview.png",
+      "evidence_copy_path": "E:/AIdle_openworld/orchestration/evidence/p1e_w1/starter_realm_preview_p1e003_corr_w1.png",
+      "method": "Pillow RGB Rec.709 luma L=0.2126R+0.7152G+0.0722B full-frame 768x512; 4-connected shadow clusters L<40",
+      "preview_sha256": "a352579c91a7fd2e30758d378817308639e7fd18b560966ba2e677902aff7e33",
+      "evidence_byte_identical_to_quarantine": true,
+      "mean_luma": 154.16623,
+      "blown_pct": 2.723694,
+      "shadow_pct": 5.895487,
+      "near_black_8_14_pct": 0.90917,
+      "targets_art_bible_s8": {
+        "mean_luma": [150, 185],
+        "blown_pct_max": 3.0,
+        "shadow_pct": [5.0, 15.0]
+      },
+      "pass": {
+        "mean": true,
+        "blown": true,
+        "shadow": true
+      },
+      "spatial_shadow": {
+        "total_shadow_pixels": 23182,
+        "largest_cluster_pixel_count": 9505,
+        "largest_cluster_share_pct": 41.002,
+        "n_clusters": 77,
+        "top5_cluster_sizes": [9505, 5150, 3502, 1506, 875],
+        "bbox_xyxy": [425, 312, 696, 371],
+        "centroid_xy": [557.16, 347.04],
+        "is_upper_right_quadrant_centroid": false,
+        "distributed": true,
+        "concentration_fail_threshold_pct": 55.0,
+        "prior_v2_false_pass_share_pct": 90.13,
+        "shadow_void_gone": true
+      },
+      "worker_preview_luma_validation_json": {
+        "mean_luma": 153.941,
+        "blown_pct": 2.640,
+        "shadow_pct": 5.882,
+        "spatial_largest_cluster_share_pct": 39.611,
+        "spatial_distributed": true,
+        "shadow_occluder": false
+      },
+      "matches_corr_w1_receipt": true
+    },
+    "material_audit": {
+      "water": {
+        "sample_xy": [713, 307],
+        "sampled_rgb": [165, 207, 215],
+        "bible_hex": "#8fd4e8",
+        "bible_rgb": [143, 212, 232],
+        "rgb_distance_bible": 28.25,
+        "beige_reference_rgb": [218, 209, 195],
+        "rgb_distance_beige": 56.68,
+        "closer_to": "bible",
+        "pond_not_beige": true
+      },
+      "note": "Specular white highlight on pond surface expected; water body samples lean cyan vs prior beige false-pass."
+    },
+    "fence_audit": {
+      "instance_count": 10,
+      "composition": "continuous_L_garden_boundary",
+      "west_wall": {
+        "count": 5,
+        "x": -16.5,
+        "y_span": [-4.4, 4.4],
+        "spacing_m": 2.2
+      },
+      "north_wall": {
+        "count": 5,
+        "y": 6.6,
+        "x_span": [-15.4, -6.6],
+        "spacing_m": 2.2
+      },
+      "prior_r_med_01_multi_cluster": "FIXED",
+      "fence_collision_bodies_smoke": 10,
+      "continuous": true
+    },
+    "independent_smoke": {
+      "p1e003_smoke": {
+        "marker": "AIDLE_P1E003_SMOKE=PASS checks=9",
+        "exit": 0,
+        "package_job_id": "BLD-10A9DEB39E8E",
+        "package_density": 43,
+        "fence_collision_bodies": 10,
+        "anim_stagger_unique": 11,
+        "build_plot_clear": true,
+        "hash_ok": "47/47",
+        "godot_runtime_load": "OK",
+        "game_glb_count": 0
+      },
+      "p1e002_smoke": {
+        "marker": "AIDLE_P1E002_SMOKE=PASS checks=4",
+        "exit": 0
+      },
+      "g8_ux002_smoke": {
+        "marker": "AIDLE_G8_UX002_SMOKE=PASS checks=2",
+        "exit": 0
+      },
+      "bridge_pytest": {
+        "tests": "tests/test_environment_api.py tests/test_environment_runner.py",
+        "result": "22 passed",
+        "exit": 0
+      },
+      "quarantine_hash": {"ok": 47, "fail": 0, "miss": 0},
+      "game_glb_count": 0
+    },
+    "service_diff_review": {
+      "path": "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py",
+      "method": "git diff HEAD + sensitive-symbol scan of diff text",
+      "stat": "1 file changed, 7 insertions(+), 1 deletion(-)",
+      "hunks": [
+        "mock _run_mock scene_manifest: top-level output_class + blender_version for Godot intake",
+        "mock provenance: lighting_rig=p1e_cozy_sun_area_v3 + kit_wave=P1E-003-CORR-W1"
+      ],
+      "did_not_touch": {
+        "lease_bridge_create_lock": true,
+        "lease_is_bridge_busy": true,
+        "idempotency_canonical_request_fingerprint": true,
+        "f04_expected_bridge_revision": true,
+        "f05_verify_build_spec_integrity": true
+      },
+      "sensitive_hits_in_diff": [],
+      "service_diff_clean": true
+    },
+    "art_style_allowlist_block": {
+      "still_blocked": true,
+      "path": "game/autoload/art_style_manager.gd",
+      "line": 126,
+      "error": "SCRIPT ERROR: Invalid access to property or key 'cozy_cyber_pixel' on a base object of type 'Dictionary' at get_active_style",
+      "root_cause": "get_active_style uses _styles.get(_active_style_id, _styles[DEFAULT_ART_STYLE]); GDScript evaluates default eagerly before builtins register",
+      "outside_allowlist": true,
+      "blue_action": "STOP and report only — not patched",
+      "residual_id": "R-MED-06",
+      "severity": "medium",
+      "blocking": false,
+      "smokes_still_pass": true
+    },
+    "audit_gates": [
+      {
+        "id": "H1_shadow_void_gone_spatial",
+        "verdict": "PASS",
+        "detail": "Independent full-frame spatial clustering: largest dark cluster share=41.002% of shadow pixels (L<40), far below prior 90.13% false-pass and under 55% concentration fail threshold. Centroid (557.16, 347.04) is mid-frame, NOT upper-right void artifact. near_black_8_14=0.91% (prior ~9.27%). validation.json shadow_occluder=false; worker lighting_rig p1e_cozy_sun_area_v3 form-only. 77 clusters; top-5 distributed form shadows."
+      },
+      {
+        "id": "H2_pond_not_beige",
+        "verdict": "PASS",
+        "detail": "Water sample at (713,307) RGB[165,207,215] distance-to-bible#8fd4e8=28.25 vs distance-to-beige[218,209,195]=56.68 — closer to art bible cyan, not beige. Headed preview shows light cyan pond (with expected specular white). Prior beige false-pass remediated."
+      },
+      {
+        "id": "H3_fence_continuous_garden_boundary",
+        "verdict": "PASS",
+        "detail": "scene_manifest 10× cozy_fence_section_A forms continuous L: west wall 5 sections at x=-16.5 y=-4.4..4.4 step 2.2m; north wall 5 sections at y=6.6 x=-15.4..-6.6 step 2.2m. Prior R-MED-01 multi-cluster composition FIXED. Smoke fence_collision_bodies=10; G8 UX002 rails PASS."
+      },
+      {
+        "id": "H4_metrics_art_bible_s8",
+        "verdict": "PASS",
+        "detail": "Independent Rec.709 re-measure of quarantine preview: mean_luma=154.166 (150–185), blown=2.724% (<3%), shadow=5.895% (5–15%). Matches CORR W1 receipt + evidence/p1e_w1/luma_metrics.json. Worker validation preview_luma also in band (mean 153.941, blown 2.640, shadow 5.882). NOTE: blown near ceiling (2.72 vs 3.0) — non-blocking."
+      },
+      {
+        "id": "H5_service_diff_clean",
+        "verdict": "PASS",
+        "detail": "git diff HEAD on environment_job_service.py is mock-manifest only (+7/−1): output_class/blender_version top-level + lighting_rig=p1e_cozy_sun_area_v3 + kit_wave=P1E-003-CORR-W1. Diff text has zero hits for bridge_create_lock / is_bridge_busy / canonical_request_fingerprint / expected_bridge_revision / verify_build_spec_integrity. service_diff_clean=true."
+      },
+      {
+        "id": "H6_game_glb_zero",
+        "verdict": "PASS",
+        "detail": "Recursive scan game/** *.glb = 0. Smoke GAME_GLB_COUNT=0. Package remains absolute quarantine BLD-10A9DEB39E8E; hash reverify 47/47 FAIL=0. No res:// promotion."
+      },
+      {
+        "id": "H7_art_style_manager_allowlist_block_residual",
+        "verdict": "PASS_WITH_NOTES",
+        "detail": "ArtStyleManager still blocked outside CORR allowlist (game/autoload/art_style_manager.gd:126). SCRIPT ERROR cozy_cyber_pixel reproduces on every smoke; Blue correctly did not patch. Residual elevated to medium (R-MED-06) per hard-audit instruction. Smokes still exit 0 / PASS. Not a product defect of BLD-10A9DEB39E8E package."
+      }
+    ],
+    "finding_counts": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 2,
+      "info": 2,
+      "blocking_reopen": 0,
+      "gates_pass": 6,
+      "gates_pass_with_notes": 1,
+      "gates_fail": 0,
+      "total_actionable": 3
+    },
+    "findings": [
+      {
+        "id": "R-MED-06",
+        "severity": "medium",
+        "title": "ArtStyleManager get_active_style still throws on cozy_cyber_pixel (outside allowlist)",
+        "detail": "SCRIPT ERROR at art_style_manager.gd:126 on every headless smoke: Invalid access to property or key 'cozy_cyber_pixel' on Dictionary. Root cause: eager default arg _styles[DEFAULT_ART_STYLE] before builtins register. CORR W1 Blue correctly STOP/report-only (outside product allowlist). Smokes still PASS. Track for separate allowlisted Autoload fix; do not scope-creep into P1E-003 CORR package patches.",
+        "blocking": false,
+        "handoff": "P1E_003_CORR_W3_QA"
+      },
+      {
+        "id": "R-LOW-01",
+        "severity": "low",
+        "title": "Water sample distance to bible #8fd4e8 is 28.25 (acceptable, not pixel-matched)",
+        "detail": "Pond is clearly not beige (dist_beige=56.68 > dist_bible=28.25) and visual cyan holds. Residual: GLB/Eevee shading + specular still shifts sample away from exact hex. Non-blocking for H2.",
+        "blocking": false,
+        "handoff": "P1E_003_CORR_W3_QA"
+      },
+      {
+        "id": "R-LOW-02",
+        "severity": "low",
+        "title": "Blown-pixel % near §8 ceiling (2.724% vs <3%)",
+        "detail": "Full-frame blown still PASS but only ~0.28pp margin. Specular pond highlight and warm sun contribute. Watch under headed QA; not a reopen trigger.",
+        "blocking": false,
+        "handoff": "P1E_003_CORR_W3_QA"
+      },
+      {
+        "id": "R-INFO-03",
+        "severity": "info",
+        "title": "Prior R-MED-01 fence multi-cluster closed by continuous L boundary",
+        "detail": "CORR W1 replaced four disconnected fence clusters with west×5 + north×5 continuous L at 2.2m. Independent transform audit confirms. No re-open of R-MED-01.",
+        "blocking": false,
+        "handoff": "P1E_003_CORR_W3_QA"
+      },
+      {
+        "id": "R-INFO-04",
+        "severity": "info",
+        "title": "Headed charm/readability still human QA judgment",
+        "detail": "Red re-measured objective §8 metrics, spatial void gate, pond color, fence continuity, service surgicality, GAME_GLB=0. Charm remains W3 QA / human judgment — metrics PASS ≠ product delight.",
+        "blocking": false,
+        "handoff": "P1E_003_CORR_W3_QA"
+      }
+    ]
+  },
+  "smoke_test": {
+    "commands": [
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e003_density_exposure_smoke.gd",
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_smoke.gd",
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+      "cd E:/AIdle_Blender_Bridge_P0 && python -m pytest tests/test_environment_api.py tests/test_environment_runner.py -q",
+      "Pillow Rec.709 full-frame + 4-connected spatial shadow re-measure starter_realm_preview.png",
+      "git diff HEAD -- app/services/environment_job_service.py + sensitive-symbol scan"
+    ],
+    "markers": {
+      "AIDLE_P1E003_SMOKE": "PASS checks=9",
+      "AIDLE_P1E002_SMOKE": "PASS checks=4",
+      "AIDLE_G8_UX002_SMOKE": "PASS checks=2",
+      "GODOT_RUNTIME_LOAD": "OK",
+      "GAME_GLB_COUNT": "0",
+      "bridge_pytest": "22 passed",
+      "quarantine_hash": "ok=47 fail=0",
+      "service_diff_clean": true,
+      "exposure_remeasure": "mean=154.166 blown=2.724 shadow=5.895 PASS",
+      "spatial_shadow_share_pct": 41.002,
+      "pond_not_beige": true,
+      "fence_continuous_L": true
+    },
+    "exit_codes_all_zero": true,
+    "capture_logs": [
+      "orchestration/logs/_p1e003_corr_w2_red_p1e003_smoke.txt",
+      "orchestration/logs/_p1e003_corr_w2_red_p1e002_smoke.txt",
+      "orchestration/logs/_p1e003_corr_w2_red_g8ux002_smoke.txt",
+      "orchestration/logs/_p1e003_corr_w2_red_pytest.txt"
+    ]
+  },
+  "self_audit": {
+    "authority_read_only": true,
+    "findings_only_no_patch": true,
+    "product_writes_empty": true,
+    "self_accept": false,
+    "accepted": false,
+    "exclusive_writes_receipt_log_only": true,
+    "service_diff_clean_stated": true,
+    "durable_child_task_ref": "019f8565-a190-7381-aa19-c86bc0f9d16e",
+    "prior_wave_crosscheck": "019f8555-5714-7c71-9b6c-15442dd68b60",
+    "parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "no_grandchildren": true,
+    "hard_gates_all_pass_or_notes": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/p1e-003-corr-w2-red-001.log",
+    "orchestration/receipts/p1e/P1E_003_corr_w1_blue_001.json",
+    "orchestration/logs/p1e-003-corr-w1-blue-001.log",
+    "orchestration/evidence/p1e_w1/luma_metrics.json",
+    "orchestration/evidence/p1e_w1/starter_realm_preview_p1e003_corr_w1.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-10A9DEB39E8E/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-10A9DEB39E8E/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-10A9DEB39E8E/scene_manifest.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-10A9DEB39E8E/artifact_hashes.json"
+  ],
+  "next_route": "P1E_003_CORR_W3_QA",
+  "completion_signal": "REVIEW_REQUESTED"
+}

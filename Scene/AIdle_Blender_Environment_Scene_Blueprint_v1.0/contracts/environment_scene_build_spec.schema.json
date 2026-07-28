@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/schemas/environment_scene_build_spec-1.1.json",
+  "title": "AIdle Environment Scene Build Specification",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "request_id",
+    "idempotency_key",
+    "registry_version",
+    "expected_bridge_revision",
+    "world_profile",
+    "output_class",
+    "template_id",
+    "seed",
+    "terrain",
+    "placements",
+    "build_plot",
+    "camera_preview",
+    "resource_budget",
+    "output_zone",
+    "outputs"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "request_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{7,95}$"},
+    "idempotency_key": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{15,127}$"},
+    "registry_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "expected_bridge_revision": {"type": "integer", "minimum": 0},
+    "world_profile": {
+      "enum": ["cozy_cyber_pixel", "tiny_diorama", "solarpunk_haven", "arcane_clockwork", "spirit_valley", "surrealism_canvas", "oceanpunk_abyss"]
+    },
+    "output_class": {
+      "enum": ["ENV_MODULE", "ENV_CLUSTER", "STARTER_REALM", "WORLD_SEED_DIORAMA", "LANDMARK", "TERRAIN_CHUNK", "BIOME_KIT", "LIGHTING_RIG", "PREVIEW_SCENE"]
+    },
+    "template_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{2,63}$"},
+    "seed": {"type": "integer", "minimum": 0, "maximum": 2147483647},
+    "terrain": {
+      "type": "object",
+      "required": ["operation", "size_m"],
+      "properties": {
+        "operation": {"enum": ["create_flat_chunk", "create_diorama_block", "apply_height_profile", "cut_lake_basin", "cut_river_path", "create_island_shell", "create_ocean_floor_tiers"]},
+        "size_m": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number", "minimum": 1, "maximum": 512}},
+        "height_profile_id": {"type": ["string", "null"], "pattern": "^[a-z0-9][a-z0-9_-]{2,63}$"},
+        "material_id": {"type": ["string", "null"], "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{2,95}$"}
+      },
+      "additionalProperties": false
+    },
+    "placements": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 512,
+      "items": {
+        "type": "object",
+        "required": ["instance_id", "module_id", "position", "rotation_deg", "scale", "content_phase", "manifestation_order", "style_fit"],
+        "properties": {
+          "instance_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{2,95}$"},
+          "module_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{2,95}$"},
+          "position": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number", "minimum": -512, "maximum": 512}},
+          "rotation_deg": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number", "minimum": -360, "maximum": 360}},
+          "scale": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number", "minimum": 0.25, "maximum": 4.0}},
+          "content_phase": {"enum": ["TERRAIN", "PATH", "SHELTER", "NATURE", "INTERACTIVE", "LIGHTING", "LANDMARK"]},
+          "manifestation_order": {"type": "integer", "minimum": 0, "maximum": 4096},
+          "style_fit": {"enum": ["NATIVE", "ADAPTED", "ANOMALY"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "build_plot": {
+      "type": "object",
+      "required": ["center", "size_m"],
+      "properties": {
+        "center": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number", "minimum": -512, "maximum": 512}},
+        "size_m": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number", "minimum": 1, "maximum": 128}}
+      },
+      "additionalProperties": false
+    },
+    "camera_preview": {
+      "type": "object",
+      "required": ["camera_template_id", "target", "render_views"],
+      "properties": {
+        "camera_template_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{2,95}$"},
+        "target": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number", "minimum": -512, "maximum": 512}},
+        "render_views": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["isometric_main", "front", "back", "top", "build_plot"]}}
+      },
+      "additionalProperties": false
+    },
+    "resource_budget": {
+      "type": "object",
+      "required": ["max_objects", "max_triangles", "max_materials", "max_output_mb", "timeout_seconds"],
+      "properties": {
+        "max_objects": {"type": "integer", "minimum": 1, "maximum": 512},
+        "max_triangles": {"type": "integer", "minimum": 12, "maximum": 2000000},
+        "max_materials": {"type": "integer", "minimum": 1, "maximum": 128},
+        "max_output_mb": {"type": "integer", "minimum": 1, "maximum": 512},
+        "timeout_seconds": {"type": "integer", "minimum": 10, "maximum": 180}
+      },
+      "additionalProperties": false
+    },
+    "output_zone": {"const": "generated_quarantine"},
+    "outputs": {
+      "type": "object",
+      "required": ["save_blend", "export_glb_modules", "export_scene_manifest", "render_preview", "generate_validation_report"],
+      "properties": {
+        "save_blend": {"type": "boolean"},
+        "export_glb_modules": {"type": "boolean"},
+        "export_scene_manifest": {"const": true},
+        "render_preview": {"type": "boolean"},
+        "generate_validation_report": {"const": true}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

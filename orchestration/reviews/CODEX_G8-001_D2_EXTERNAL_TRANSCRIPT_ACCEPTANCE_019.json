@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-G8-001-D2-EXTERNAL-TRANSCRIPT-ACCEPTANCE-019",
+  "reviewed_at": "2026-07-21T12:50:00+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "G8-001",
+  "directive_reviewed": 39,
+  "prior_review": "orchestration/reviews/CODEX_G8-001_D2_EXACT_PROVENANCE_REVIEW_018.json",
+  "human_decision": {
+    "decision": "CODEX_EXTERNAL_TRANSCRIPT_BINDING",
+    "source": "Human Product Lead instructed the stopped Grok workflow to continue after Directive 39 presented external transcript binding as the recommended route.",
+    "effect": "Accept D2 as a machine wave only; do not rewrite worker receipts and do not accept G8-001."
+  },
+  "wave_verdict": "ACCEPTED_FOR_D2_WAVE_ONLY",
+  "accepted": true,
+  "g8_accepted": false,
+  "d3_spawn_allowed": true,
+  "canonical_evidence_policy": {
+    "worker_receipt_role": "informational_plus_schema_and_scope_evidence",
+    "canonical_completion_source": "immutable Grok child meta.json, chat_history.jsonl, filesystem LastWriteTimeUtc and SHA-256",
+    "receipt_rewrite_required": false,
+    "reason": "The same self-referential receipt-completeness failure repeated three times. External binding closes the finite evidence set without another worker retry or invented evidence."
+  },
+  "independent_checks": {
+    "same_unique_desktop_parent": "PASS",
+    "four_real_profile_children": "PASS",
+    "no_grandchildren": "PASS",
+    "maf_jsonschema": "PASS_4_OF_4",
+    "exclusive_receipt_trace_scope": "PASS_4_OF_4",
+    "product_test_harness_writes": "NONE",
+    "product_writes_empty": "PASS_4_OF_4",
+    "self_accept_false": "PASS_4_OF_4",
+    "recorded_arguments_json_byte_equality": "PASS_4_OF_4",
+    "companion_semantic_curiosity_to_eof": "PASS",
+    "companion_and_manifestation_correction_coverage": "PASS",
+    "asset_and_persist_external_transcript_binding": "PASS"
+  },
+  "external_transcript_bindings": {
+    "asset": {
+      "original_child_ref": "019f830a-e078-7291-868d-63dadf2dccd2",
+      "original_tool_calls": 65,
+      "original_chat_history_bytes": 1063371,
+      "original_chat_history_sha256": "73a82234e678545cce7b1579d53fe45d0d3fdaf38ddb088ef4ec75e91091a09e",
+      "correction_child_ref": "019f8322-0e29-7832-947c-35c50405b5c6",
+      "correction_tool_calls_total": 96,
+      "new_correction_calls": 31,
+      "correction_completed_at_machine": "2026-07-21T05:27:48.944070900Z",
+      "correction_chat_history_bytes": 1392290,
+      "correction_chat_history_sha256": "44b314058dfb91c467a2b4e38e18b48dd53c43a69228f17562ad754e341ccea5",
+      "receipt": "orchestration/receipts/g8/d2_exact_provenance_correction_017/D2_asset_017.json",
+      "receipt_sha256": "a7ca713655ec54a4f60df2cfeb3f3fe92ad99ad5fdb22c0ae59f9442d131ff91",
+      "trace": "orchestration/logs/g8-d2-asset-017.log",
+      "trace_sha256": "36ea0382ea1ad27bbaace8e59401f9c19296876d283ce7bf10d474deacd80afd"
+    },
+    "persist": {
+      "original_child_ref": "019f830a-e078-7291-868d-63ef06a928fc",
+      "original_tool_calls": 62,
+      "original_chat_history_bytes": 1155124,
+      "original_chat_history_sha256": "f7951b0eb1148fef836bd135e7b6570063932c4070a2e1d221c1adbd189d3b88",
+      "correction_child_ref": "019f8322-0e29-7832-947c-35d7d61eec46",
+      "correction_tool_calls_total": 86,
+      "new_correction_calls": 24,
+      "correction_completed_at_machine": "2026-07-21T05:28:43.022086100Z",
+      "correction_chat_history_bytes": 1476033,
+      "correction_chat_history_sha256": "b00458ca2daa7604036efefc638218225f0aa3839125e4cca2a7b3acbe9a8cd9",
+      "receipt": "orchestration/receipts/g8/d2_exact_provenance_correction_017/D2_persist_017.json",
+      "receipt_sha256": "96b8861e154ed9f28ea198a8862d152907bb8c584a27b3579b72d57c78a3eb18",
+      "trace": "orchestration/logs/g8-d2-persist-017.log",
+      "trace_sha256": "ad55b80ea92b0b972a4ff83c4f234bdd580a80e4793df6a091a9d15cb22ecad5"
+    }
+  },
+  "profile_verdicts": {
+    "companion": "PASS_FOR_D2_WAVE",
+    "manifestation": "PASS_FOR_D2_WAVE",
+    "asset": "PASS_BY_CODEX_EXTERNAL_TRANSCRIPT_BINDING",
+    "persist": "PASS_BY_CODEX_EXTERNAL_TRANSCRIPT_BINDING"
+  },
+  "limitations": [
+    "This acceptance does not certify G8-001 or alpha presentation quality.",
+    "The Asset and Persist 017 receipts remain incomplete descriptions of their correction turns and are not rewritten.",
+    "A fresh D3 Purple child must independently gate the existing executable and visual evidence."
+  ],
+  "next_route": "FRESH_D3_PURPLE_GATE",
+  "self_accept": false
+}

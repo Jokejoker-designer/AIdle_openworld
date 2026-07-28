@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_nori7_procedural_slice_v1",
+  "production_slice": "production_slice_v1",
+  "author_wave": "U4_CHARACTER_MESH_RIG",
+  "authority_token": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "character_id": "CCP-RH-001",
+  "recipe_id": "recipe_nori7_v1",
+  "display_name": "Nori-7",
+  "engine_target": "Godot 4.x",
+  "status": "NAMED_PRODUCTION_SPEC_FOR_U5_INSTANTIATION",
+  "honesty": "Not a binary .glb/.tres authored offline. U5 builds scene tree from this spec + hierarchy/timing JSON under the same asset tree. Replaces only when offline GLB passes export contract.",
+  "scene_tree": {
+	"root": {
+	  "type": "Node3D",
+	  "name": "Nori7",
+	  "meta": {
+		"character_id": "CCP-RH-001",
+		"recipe_id": "recipe_nori7_v1",
+		"skeleton_id": "skel_small_biped_robot_v1",
+		"animation_set_id": "anim_robot_gardener_v1",
+		"production_slice": "production_slice_v1",
+		"style_lock_id": "ucbv_001_style_lock_v1"
+	  }
+	},
+	"children": [
+	  {
+		"type": "Skeleton3D",
+		"name": "Skeleton3D",
+		"bones_from": "skeleton/skel_small_biped_robot_v1.hierarchy.json"
+	  },
+	  {
+		"type": "AnimationPlayer",
+		"name": "AnimationPlayer",
+		"libraries": [
+		  {
+			"library_name": "anim_robot_gardener_v1",
+			"clips_from": "animations/anim_robot_gardener_v1.timing_table.json",
+			"state_machine_from": "animations/animation_state_machine.json"
+		  }
+		]
+	  },
+	  {
+		"type": "Node3D",
+		"name": "Sockets",
+		"sockets_from": "sockets/attachment_sockets.json"
+	  },
+	  {
+		"type": "Node3D",
+		"name": "Meshes",
+		"parts_from": "mesh/nori7_mesh_descriptor.json",
+		"bind_policy": "skin/skin_weight_policy.json"
+	  }
+	]
+  },
+  "animation_library_build_notes": {
+	"resource_type": "AnimationLibrary",
+	"suggested_resource_path_u5": "res://assets/ucbv_001/character/nori7/godot/anim_robot_gardener_v1.tres",
+	"clip_list": [
+	  {"name": "idle", "length": 3.0, "loop": true},
+	  {"name": "walk", "length": 0.8, "loop": true},
+	  {"name": "turn_left", "length": 0.45, "loop": false},
+	  {"name": "turn_right", "length": 0.45, "loop": false},
+	  {"name": "build_place", "length": 0.65, "loop": false},
+	  {"name": "build_place_hold", "length": 1.2, "loop": true},
+	  {"name": "confirm", "length": 0.75, "loop": false},
+	  {"name": "cancel", "length": 0.5, "loop": false}
+	],
+	"track_types": [
+	  "position_3d on Skeleton3D bones",
+	  "rotation_3d on Skeleton3D bones",
+	  "optional scale_3d on eye meshes for blink",
+	  "method tracks for non-authority markers only"
+	],
+	"root_motion": false
+  },
+  "skeleton3d_build_notes": {
+	"resource_type": "Skeleton3D",
+	"rest_poses_from": "hierarchy rest_position_m / rest_rotation_euler_deg",
+	"bone_count": 14,
+	"use_bone_attachments_for_modular_parts": true
+  },
+  "u5_integration_path": [
+	"1. Read package_manifest.json under game/assets/ucbv_001/character/nori7/",
+	"2. Instantiate Nori7 scene tree from this procedural slice OR import GLB if present and validated",
+	"3. Bind MAT_* from U1 tokens + material_slot_map",
+	"4. Wire AnimationPlayer transitions to Block Assembly preview/confirm/cancel signals — do not commit from anim events",
+	"5. Place next to U3 kit for belonging test; dual-res evidence 1280x720 and 868x517",
+	"6. No DNA rewrite; no block asset mutation; runtime sole writer for main.gd/scenes only in U5 lease"
+  ],
+  "acceptance_tests_for_u5": [
+	"bone_count == 14 and names match hierarchy",
+	"DNA placeholder [root,body,head] not used as sole bones",
+	"clips idle/walk/turn_*/build_place/confirm/cancel present with table durations",
+	"cancel clip exists and is reachable",
+	"socket modules tank/nozzle/sprout attach",
+	"silhouette readable ≥10% screen height interactive",
+	"no ERROR on load; zero game authority in anim events",
+	"provenance character_id CCP-RH-001"
+  ],
+  "provenance": {
+	"asset_id": "ucbv_001_nori7_procedural_slice_v1",
+	"character_id": "CCP-RH-001",
+	"recipe_id": "recipe_nori7_v1",
+	"author_wave": "U4_CHARACTER_MESH_RIG"
+  }
+}

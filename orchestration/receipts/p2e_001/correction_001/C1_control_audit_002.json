@@ -1,0 +1,327 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P2E-001-c1-control-audit-002-2026-07-22",
+  "step_id": "P2E-001-c1-control-audit-002",
+  "agent_type": "aidle-worldgen-control-input",
+  "agent_id": "aidle-worldgen-control-input",
+  "profile_name": "aidle-worldgen-control-input",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+  "profile_sha256": "c6b718fb24ea7e1b9ca2453b25cff077c023a582b652307572fbe5184450fe6e",
+  "authority_token": "VERIFY_ONLY",
+  "authority_reduced": true,
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:p2e001-c1-d71-control-audit",
+  "directive_id": 71,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "ddee83d1c5318dd1804829d23d226a8efebd858fa311592343b4ee01cb98c70e",
+  "work_order": "orchestration/work_orders/WO-P2E-001-PLAYABILITY-CORRECTION-001.md",
+  "work_order_sha256": "5151b4b6671ed508ae16ffed4521dbe6a39179bb08afa744a702939bd52dbeaa",
+  "review": "orchestration/reviews/CODEX_P2E-001_MACHINE_REVIEW_001.json",
+  "review_sha256": "f29918c616e58f37758131976d1ae9a6592313c41e4dba2368e52d49e23a1c78",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C1_COMPLETE_ROUTE_C2",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "CONTROL_PASS_WITH_RESIDUALS_NO_ACCEPT",
+  "child_task_ref": "019f888c-2ae3-7aa1-9385-f6220f58dbde",
+  "prior_c0_ref": "019f8883-4c2b-7341-9093-074ac8449a5c",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "transcript_ref": "019f888c-2ae3-7aa1-9385-f6220f58dbde",
+  "started_at": "2026-07-22T06:38:35Z",
+  "completed_at_utc": "2026-07-22T06:41:20Z",
+  "next_route": "C2_QA",
+  "next_owner": "C2_QA",
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "ui_character_id": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "role": "C1 VERIFY_ONLY control/UX audit after C0; never patch product"
+  },
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "eof_marker": "Hard stops"
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "eof_marker": "agent_step_contract.schema.json"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "eof_marker": "E:\\shared\\LOOP.md"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "eof_marker": "E:\\agents\\projects\\README.md"
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "line_count": 1123,
+      "eof_marker": "Prime Directive"
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    }
+  ],
+  "finding_ids_control": {
+    "P2E-CODEX-F03": {
+      "closed_for_keyboard_inputmap_path": true,
+      "residuals_open": ["C1-R01", "C1-R02"],
+      "how": "Remappable build_module_prev/next + build_place in catalog; main wires InputMap→cycle_module/place_highlighted; playable_select smoke PASS without select_module API injection"
+    },
+    "P2E-CODEX-F04": {
+      "closed_headless": true,
+      "headed_deferred_c2": true,
+      "how": "Catalog/router isolation + CozyCamera build freeze + main freeze_yaw; QR and router smokes PASS dual-fire impossible"
+    },
+    "P2E-CODEX-F05": {
+      "closed_code_smoke": true,
+      "headed_deferred_c2": true,
+      "how": "BlockAssemblyHud plain-language fields + responsive top-left card; confirm/cancel enabled from authority can_confirm/can_cancel"
+    },
+    "P2E-CODEX-F06": {
+      "closed": true,
+      "how": "Idempotency bind only after successful commit; correction + authority smokes PASS"
+    },
+    "P2E-CODEX-F01": {
+      "closed": true,
+      "note": "C0 superseding receipt; not re-opened by C1"
+    },
+    "P2E-CODEX-F02": {
+      "closed": false,
+      "owner": "C2_QA",
+      "note": "Headed zero-ERROR gate is C2; C1 headless ERROR=0 only"
+    }
+  },
+  "findings_open": [
+    {
+      "id": "C1-R01",
+      "severity": "P3",
+      "axis": "module_picker_persistence",
+      "finding": "build_module_prev/next are not present in game/project.godot InputMap; they are registered only by CatalogScript.ensure_input_map_actions() at ControlContextRouter ready.",
+      "impact": "Remappable after bootstrap; not project-persisted. Play path works if router loads.",
+      "blocking_control_pass": false
+    },
+    {
+      "id": "C1-R02",
+      "severity": "P3",
+      "axis": "context_hud_slot_side_effects",
+      "finding": "ContextActionHud slot press for build_module_next/prev and build_place only calls router.try_dispatch and does not invoke BlockAssembly cycle_module/place_highlighted_module.",
+      "impact": "Keyboard/mouse InputMap path in main.gd is complete; HUD buttons incomplete for picker/place.",
+      "blocking_control_pass": false
+    },
+    {
+      "id": "C1-R03",
+      "severity": "P3",
+      "axis": "build_cancel_wiring",
+      "finding": "build_cancel (default RMB) is catalog-allowed in build but main.gd has no handler; BA cancel is Esc cancel_action / action-bar path only.",
+      "impact": "Esc ownership for preview cancel works; RMB alias dead for BA.",
+      "blocking_control_pass": false
+    },
+    {
+      "id": "C1-LEASE-01",
+      "severity": "P2",
+      "axis": "lease_honesty",
+      "finding": "C0 wrote game/scripts/camera/cozy_camera.gd outside WO-P2E-001 minimal integration list (self-disclosed in C0 self_audit for F04 residual yaw lerp).",
+      "impact": "Report-only; C1 does not patch. Purple/C2 aware.",
+      "blocking_control_pass": false
+    }
+  ],
+  "findings_closed_control": [
+    "keyboard_remappable_module_picker_path",
+    "build_qr_preview_only_camera_hard_block",
+    "exploration_qr_camera_preserved_catalog_router",
+    "dual_fire_impossible_headless",
+    "elevation_wired",
+    "esc_cancel_preview_keeps_committed",
+    "plain_language_ba_hud_fields",
+    "idempotency_bind_after_commit_only",
+    "control_1b_router_smoke_green"
+  ],
+  "result": {
+    "verdict": "CONTROL_PASS_WITH_RESIDUALS_NO_ACCEPT",
+    "control_pass": true,
+    "control_blocking_fail": false,
+    "summary": "C1 VERIFY_ONLY control/UX audit after C0. Axes 1-7 pass headless with non-blocking residuals R01-R03 and lease honesty on cozy_camera. F03 keyboard path closed; F04/F05 headed remain C2; F06 closed. product_writes=[]. accepted=false. Route C2_QA.",
+    "axes": {
+      "module_picker_real_input": "PASS_WITH_RESIDUAL",
+      "qr_context_isolation": "PASS",
+      "elevation_esc_cancel": "PASS_WITH_RESIDUAL",
+      "plain_language_hud": "PASS",
+      "responsive_layout_code": "CODE_PASS_HEADED_C2",
+      "idempotency_f06": "PASS",
+      "control_1b_regression": "PASS",
+      "lease_honesty": "REPORT_RESIDUAL_COZY_CAMERA"
+    }
+  },
+  "smoke_test": {
+    "status": "PASS",
+    "all_exit_zero": true,
+    "error_lines_total": 0,
+    "commands": [
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+        "error_lines": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+        "error_lines": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_playable_select_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_PLAYABLE_SELECT_SMOKE=PASS checks=5",
+        "error_lines": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+        "error_lines": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_correction_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_CORRECTION_SMOKE=PASS checks=4",
+        "error_lines": 0
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_verify_only": true,
+    "product_writes_empty": true,
+    "no_product_patch": true,
+    "no_test_patch": true,
+    "exclusive_lease_only": true,
+    "d70_evidence_not_rewritten": true,
+    "c0_product_not_rewritten": true,
+    "accepted_false": true,
+    "self_accept_false": true,
+    "no_grandchildren": true,
+    "no_network_install_publish": true,
+    "skills_full_eof_claimed": true,
+    "headed_deferred_to_c2": true,
+    "notes": [
+      "Profile default authority PATCH_DRAFT reduced by Directive 71 to VERIFY_ONLY",
+      "Playable select smoke exercises controller cycle/place APIs labeled input_*, not raw InputEvent injection — real-key headed proof is C2",
+      "Lease honesty residual cozy_camera.gd is report-only"
+    ]
+  },
+  "product_writes": [],
+  "files_written": [
+    "orchestration/logs/p2e-001-c1-control-002.log",
+    "orchestration/receipts/p2e_001/correction_001/C1_control_audit_002.json"
+  ],
+  "files_read": [
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-P2E-001-PLAYABILITY-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_P2E-001_MACHINE_REVIEW_001.json",
+    "orchestration/receipts/p2e_001/correction_001/C0_runtime_correction_002.json",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "game/scripts/input/control_action_catalog.gd",
+    "game/autoload/control_context_router.gd",
+    "game/scripts/ui/context_action_hud.gd",
+    "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+    "game/scripts/modules/block_assembly/block_assembly_hud.gd",
+    "game/scripts/main/main.gd",
+    "game/scripts/camera/cozy_camera.gd",
+    "game/project.godot",
+    "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+    "game/tests/p2e001_block_assembly_playable_select_smoke.gd",
+    "game/tests/p2e001_block_assembly_authority_smoke.gd",
+    "game/tests/p2e001_block_assembly_correction_smoke.gd",
+    "game/tests/control_1b_context_router_smoke.gd"
+  ],
+  "evidence_refs": [
+    "orchestration/logs/p2e-001-c1-control-002.log",
+    "orchestration/receipts/p2e_001/correction_001/C1_control_audit_002.json",
+    "orchestration/receipts/p2e_001/correction_001/C0_runtime_correction_002.json"
+  ],
+  "commands": [
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_playable_select_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_correction_smoke.gd",
+      "exit_code": 0
+    }
+  ],
+  "audited_product_hashes": {
+    "game/scripts/input/control_action_catalog.gd": "3d259d86d317e7214b33d7fe782c29569f149485827d1d16bfdd6020dd3f4fea",
+    "game/autoload/control_context_router.gd": "0f49c2945ff55bed4126347d3bcb0197bcc8a07d6d09e7a9f5c1a0140229250f",
+    "game/scripts/ui/context_action_hud.gd": "f5402f03eab3ba614df8c3f97d4a061278ca32fa41c42be1f3f6d29ef904c057",
+    "game/scripts/modules/block_assembly/block_assembly_controller.gd": "f5de6332366834e7e76846118b5acb46972ec4229df905bff3f5aaee09cb5b26",
+    "game/scripts/modules/block_assembly/block_assembly_hud.gd": "4420f6879de09dca06710049cc42a64d8fb0e59f1aee073137d519107af7c6d0",
+    "game/scripts/main/main.gd": "a444446d5ed45eef713336bcb79cccc5e6c0bc23b1d266506e183e8a1cc51838",
+    "game/scripts/camera/cozy_camera.gd": "17d17b29ebe714fab891d9ce464f13f9c418e7ee90b751c6877e1e3512508320"
+  }
+}

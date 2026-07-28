@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P1E-006-clean-r0-asset-003-2026-07-22",
+  "step_id": "P1E-006-clean-r0-asset-003",
+  "work_order_id": "WO-P1E-006-CLEAN-REGRESSION-CORRECTION-002",
+  "work_order": "orchestration/work_orders/WO-P1E-006-CLEAN-REGRESSION-CORRECTION-002.md",
+  "directive_id": 53,
+  "directive_supersedes": 52,
+  "review_source": "orchestration/reviews/CODEX_P1E-006_REVIEW_002.json",
+  "findings_addressed": ["P1E006-CODEX-F06", "P1E006-CODEX-F07"],
+  "agent_id": "aidle-worldgen-asset-art",
+  "agent_type": "aidle-worldgen-asset-art",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "F06_F07_RENDERER_CLEAN_FIX_READY_FOR_R1",
+  "child_task_ref": "019f8651-8cdb-7642-98b3-4712a3568cc1",
+  "transcript_ref": "019f8651-8cdb-7642-98b3-4712a3568cc1",
+  "writer_transcript_ref": "019f8651-8cdb-7642-98b3-4712a3568cc1",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "next_owner": "R1_PERSIST",
+  "next_route": "R1_PERSIST",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+  "character_binding": {
+    "trustlayer": "blue-team-p0-remediator",
+    "ui": "ui-color-type-specialist",
+    "role": "R0 asset clean-renderer correction for Parameter m is null under headless dummy"
+  },
+  "writer_lease": [
+    "E:/AIdle_openworld/game/scripts/modules/asset/world_profile_variant_selector.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake.gd",
+    "E:/AIdle_openworld/game/tests/p1e006_world_profile_variants_smoke.gd",
+    "E:/AIdle_openworld/game/tests/p1e002_glb_intake_tests.gd",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_clean_r0_asset_003.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-clean-r0-asset-003.log"
+  ],
+  "product_writes": [
+    "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/world_profile_variant_selector.gd",
+    "E:/AIdle_openworld/game/tests/p1e006_world_profile_variants_smoke.gd",
+    "E:/AIdle_openworld/game/tests/p1e002_glb_intake_tests.gd"
+  ],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_clean_r0_asset_003.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-clean-r0-asset-003.log"
+  ],
+  "original_evidence_preserved": true,
+  "error_filtering_used": false,
+  "result": {
+    "verdict": "F06_F07_RENDERER_CLEAN_FIX_READY_FOR_R1",
+    "summary": "Fixed underlying headless dummy renderer ERROR Parameter m is null (mesh_get_surface_count) by caching GLB surface materials at intake, clearing GLTF meshes under headless before free, and routing material reads/writes through meta + material_override instead of live Mesh.get_surface_count / get_active_material on invalid RS handles.",
+    "root_cause": {
+      "class": "dummy_renderer_mesh_free",
+      "detail": "Under Godot 4.3 --headless dummy renderer, freeing any MeshInstance3D that still holds a mesh RID (GLTF ArrayMesh, BoxMesh, PlaneMesh, NavSourcePlane) emits ERROR Parameter m is null at servers/rendering/dummy/storage/mesh_storage.h:120 (mesh_get_surface_count). GDScript mi.mesh may be non-null while the RS mesh handle is null/unusable on free. Live get_active_material after mesh=null also spams Index p_surface out of bounds because set_mesh(null) resizes surface_override_materials to 0.",
+      "safe_path": "Cache surface materials and local AABB on MeshInstance3D meta at GLB intake; under headless set mi.mesh=null after cache (only free-safe path); prefer intake_surface_materials meta and material_override; dispose helpers clear residual presentation meshes (e.g. NavSourcePlane) before free."
+    },
+    "f06_status": "CLOSED_PENDING_PURPLE",
+    "f07_status": "CLOSED_PENDING_PURPLE",
+    "f06_note": "P1E-006 variants smoke now exit=0 PASS checks=5 error_line_count=0",
+    "f07_note": "P1E-002 intake/save-reload suite now exit=0 PASS checks=14 error_line_count=0",
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+        "bytes": 1741,
+        "total_lines": 46,
+        "load_evidence": "FULL EOF hash+line count for R0 clean correction child"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+        "bytes": 1938,
+        "total_lines": 53,
+        "load_evidence": "FULL EOF hash+line count for R0 clean correction child"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+        "bytes": 982,
+        "total_lines": 36,
+        "load_evidence": "FULL EOF hash+line count for R0 clean correction child"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+        "bytes": 1681,
+        "total_lines": 65,
+        "load_evidence": "FULL EOF hash+line count for R0 clean correction child"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+        "bytes": 34306,
+        "total_lines": 1123,
+        "load_evidence": "FULL EOF hash+line count for R0 clean correction child"
+      },
+      {
+        "skill_id": "od-reference-design-contract",
+        "source": "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+        "sha256": "8b5e62a123a180e5f1b8e0b7f97605d257f85bf0a2b0ca7f8c7475b54e007775",
+        "bytes": 5367,
+        "total_lines": 130,
+        "load_evidence": "FULL EOF routed skill hash+line count for R0 clean correction child"
+      }
+    ],
+    "profile_load_evidence": {
+      "path": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+      "load": "FULL_EOF",
+      "trustlayer": "blue-team-p0-remediator",
+      "ui": "ui-color-type-specialist",
+      "authority_token": "PATCH_DRAFT"
+    }
+  },
+  "smoke_test": {
+    "both_suites_clean": true,
+    "suites": {
+      "p1e006_world_profile_variants": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "clean": true
+      },
+      "p1e002_glb_intake": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_tests.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_P1E002_TESTS=PASS checks=14",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "clean": true
+      }
+    },
+    "full_capture_log": "E:/AIdle_openworld/orchestration/logs/p1e-006-clean-r0-asset-003.log"
+  },
+  "self_audit": {
+    "no_error_filtering": true,
+    "no_stderr_suppression": true,
+    "no_harness_ignore_error": true,
+    "original_evidence_preserved": true,
+    "only_allowlist_written": true,
+    "allowlist_respected": true,
+    "no_self_accept": true,
+    "accepted_false": true,
+    "semantic_fix_not_log_waiver": true,
+    "notes": [
+      "Did not filter ERROR lines in tests or harness.",
+      "Did not edit grok_status, codex_directive, original receipts, or headed screenshots.",
+      "Did not edit world_root.gd / builder outside allowlist; residual NavSourcePlane handled by test dispose clear under allowlist.",
+      "Headed visual path unchanged: mesh release only when DisplayServer/OS headless."
+    ]
+  },
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-006-CLEAN-REGRESSION-CORRECTION-002.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_P1E-006_REVIEW_002.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/world_profile_variant_selector.gd",
+    "E:/AIdle_openworld/game/tests/p1e006_world_profile_variants_smoke.gd",
+    "E:/AIdle_openworld/game/tests/p1e002_glb_intake_tests.gd",
+    "E:/AIdle_openworld/game/scripts/core/constants.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake_runtime_builder.gd"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/world_profile_variant_selector.gd",
+    "E:/AIdle_openworld/game/tests/p1e006_world_profile_variants_smoke.gd",
+    "E:/AIdle_openworld/game/tests/p1e002_glb_intake_tests.gd",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_clean_r0_asset_003.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-clean-r0-asset-003.log"
+  ],
+  "commands": [
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5"
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_tests.gd",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "AIDLE_P1E002_TESTS=PASS checks=14"
+    }
+  ],
+  "error_line_counts": {
+    "p1e006_variants": 0,
+    "p1e002_intake_save_reload": 0
+  },
+  "evidence_refs": [
+    "orchestration/logs/p1e-006-clean-r0-asset-003.log",
+    "orchestration/receipts/p1e/P1E_006_clean_r0_asset_003.json",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_002.json",
+    "orchestration/work_orders/WO-P1E-006-CLEAN-REGRESSION-CORRECTION-002.md"
+  ],
+  "next_route": "R1_PERSIST"
+}

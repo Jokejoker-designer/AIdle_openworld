@@ -1,0 +1,170 @@
+{
+  "schema_version": "buildings_fidelity/1.0",
+  "receipt_id": "BUILDINGS_FIDELITY_V8",
+  "job": "BUILDINGS_FIDELITY_V8",
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "authority": "PATCH_DRAFT",
+  "human_authorization": "continuous_iteration_authorization",
+  "architecture_ref": "orchestration/control/AIDLE_TOWN_ARCHITECTURE_DESIGN_001.md",
+  "story_bible_ref": "orchestration/control/AIDLE_STORY_BIBLE_001.md",
+  "geometry_frozen": true,
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "matching_100_pct_count": 0,
+  "matching_100_pct": [],
+  "modules": [
+    {
+      "module_id": "cozy_market_stall_A",
+      "glb_sha256": "5fd75865d685767a443f0ff132aa89e6c46cb7b5dcab1928b8db8dd2e65ba7e7",
+      "bytes": 217800,
+      "source": "BUILDINGS_FIDELITY_V8",
+      "visual": "mockup_topology_v8_cozy_market_stall_A",
+      "mockup_ssot": "cozy_market_stall_A"
+    },
+    {
+      "module_id": "cozy_gazebo_A",
+      "glb_sha256": "1b62b6804e1453c9c413b310829bbc43010c51a8749b8e8fd8d07545a2de8ea0",
+      "bytes": 562160,
+      "source": "BUILDINGS_FIDELITY_V8",
+      "visual": "mockup_topology_v8_cozy_gazebo_A",
+      "mockup_ssot": "cozy_gazebo_A"
+    },
+    {
+      "module_id": "cozy_well_house_A",
+      "glb_sha256": "c33f47fa2c702131a288b9b7309588db731301af3122d60b1e3f53d559176ca7",
+      "bytes": 398016,
+      "source": "BUILDINGS_FIDELITY_V8",
+      "visual": "mockup_topology_v8_cozy_well_house_A",
+      "mockup_ssot": "cozy_well_house_A"
+    },
+    {
+      "module_id": "cozy_windmill_A",
+      "glb_sha256": "a5d1ef335a83d53570061a2784e3f1d089643088c6b75b62eacd169a1071f958",
+      "bytes": 142680,
+      "source": "BUILDINGS_FIDELITY_V8",
+      "visual": "mockup_topology_v8_cozy_windmill_A",
+      "mockup_ssot": "cozy_windmill_A"
+    },
+    {
+      "module_id": "cozy_bridge_arch_A",
+      "glb_sha256": "580128be1dbbdee6b4e679b427fa5572cd8f81580173aea89191765e82ff5e3d",
+      "bytes": 158076,
+      "source": "BUILDINGS_FIDELITY_V8",
+      "visual": "mockup_topology_v8_cozy_bridge_arch_A",
+      "mockup_ssot": "cozy_bridge_arch_A"
+    },
+    {
+      "module_id": "cozy_watchtower_A",
+      "glb_sha256": "76a3dff21a407f69a29d4b2ef27ee37036158e8b00447b691c2c5b06df3c1a12",
+      "bytes": 279784,
+      "source": "BUILDINGS_FIDELITY_V8",
+      "visual": "mockup_topology_v8_cozy_watchtower_A",
+      "mockup_ssot": "cozy_watchtower_A"
+    }
+  ],
+  "mesh_strategy_change": {
+    "cozy_market_stall_A": "solid_counter_continuous_awning_vs_plank_strips",
+    "cozy_gazebo_A": "solid_dome_tight_scale_petals_vs_loose_plates",
+    "cozy_well_house_A": "discrete_brick_rings_thick_shingles_vs_solid_cylinder",
+    "cozy_windmill_A": "soft_bulbous_body_solid_sails_vs_cones_lattice",
+    "cozy_bridge_arch_A": "soft_cobble_pile_arch_vs_box_voussoirs",
+    "cozy_watchtower_A": "large_thatch_scales_soft_tower_vs_cone_layers"
+  },
+  "mockup_ssot_refs": {
+    "market": "bld_05_market.jpg",
+    "gazebo": "bld_10_gazebo.jpg",
+    "well": "bld_07_well.jpg",
+    "windmill": "bld_06_windmill.jpg",
+    "bridge": "bld_09_bridge.jpg",
+    "watchtower": "bld_08_watchtower.jpg"
+  },
+  "home_bld": "UNTOUCHED_CLOSED_PERMANENTLY",
+  "note": "Genuinely different mesh families from V6/V7 hard geometry; fidelity after headed QA.",
+  "timestamp_utc": "2026-07-24T06:49:42Z",
+  "headed_log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_v8.log",
+  "structural": {
+    "real_glb": 50,
+    "placeholders": 0,
+    "cast": 10
+  },
+  "objects": [
+    {
+      "plot_id": "MARKET.BLD",
+      "object_id": "cozy_market_stall_A",
+      "v8_strategy": "solid_counter_continuous_awning_vs_plank_strips",
+      "prior_v7_sig": "market_trader_scale_flavor_fruit_still_not_ssot_crate",
+      "post_v8_signature": "market_solid_counter_awning_ok_fruit_under_awning_still_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "note": "Topology closer to bld_05: solid wood counter + thick pink/cream stripes. Fruit crates present but freecam under-reads produce under awning; not 100% mockup crate piles."
+    },
+    {
+      "plot_id": "GARDEN.BLD",
+      "object_id": "cozy_gazebo_A",
+      "v8_strategy": "solid_dome_tight_scale_petals_vs_loose_plates",
+      "prior_v7_sig": "garden_rest_petal_canopy_identity_aligned_still_not_ssot_100",
+      "post_v8_signature": "gazebo_solid_dome_scale_petals_closer_still_not_ssot_100",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "note": "Solid green dome + overlapping scale petals matches bld_10 structure better. Soft-clay material/lighting still short of mockup fidelity."
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "object_id": "cozy_well_house_A",
+      "v8_strategy": "discrete_brick_rings_thick_shingles_hanging_bucket",
+      "prior_v7_sig": "well_water_depth_cool_stone_still_high_partial",
+      "post_v8_signature": "well_brick_rings_aframe_shingles_bucket_closer_still_high_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "note": "Brick-ring masonry + A-frame wood shingles + hanging bucket closer to bld_07. Proportions/soft-clay finish still partial."
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "object_id": "cozy_windmill_A",
+      "v8_strategy": "soft_bulbous_body_solid_sails_vs_cones_lattice",
+      "prior_v7_sig": "windmill_lattice_bands_mechanism_still_simplified_vs_ssot",
+      "post_v8_signature": "windmill_soft_body_solid_sails_closer_still_simplified_vs_ssot",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "note": "Soft sphere tiers + solid wood blades match bld_06 family better than lattice. Multi-window glow density and sail proportion still short of mockup."
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "object_id": "cozy_bridge_arch_A",
+      "v8_strategy": "soft_cobble_pile_arch_vs_box_voussoirs",
+      "prior_v7_sig": "bridge_threshold_arch_void_still_not_ssot_100",
+      "post_v8_signature": "bridge_soft_cobble_pile_arch_closer_still_not_ssot_100",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "note": "Returned to soft rounded cobble pile (bld_09 SSOT). Arch read improved vs hard boxes. Soft-clay material match still partial."
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "object_id": "cozy_watchtower_A",
+      "v8_strategy": "large_thatch_scales_soft_tower_vs_cone_layers",
+      "prior_v7_sig": "lookout_vantage_thatch_still_partial_vs_ssot",
+      "post_v8_signature": "watchtower_soft_body_large_thatch_scales_closer_still_partial",
+      "same_sig_streak": 0,
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "note": "Soft cream tower + large overlapping thatch scales closer to bld_08. Cabin window glow and scale density still partial."
+    }
+  ],
+  "safety_valve": {
+    "need_human": [],
+    "same_sig_streak_max": 0,
+    "note": "All 6 got NEW topology signatures in V8 (streak reset). No building at 3 identical residuals."
+  },
+  "topology_improvement": "All six use mockup-family mesh strategies distinct from V6/V7 hard geometry; still HIGH_PARTIAL not 100%.",
+  "props": "No prop fidelity pass this wave \u2014 town already real_glb=50; props remain soft-clay first-author quality unless Human prioritizes prop mockup loop.",
+  "next": [
+    "V9 only if continuous auth continues \u2014 target residual fruit under-awning (MARKET), sail proportion (WINDMILL), scale density (GAZEBO/LOOKOUT)",
+    "Do not re-run same topology with density-only tweaks without new approach"
+  ]
+}

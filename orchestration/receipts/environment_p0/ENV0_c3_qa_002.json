@@ -1,0 +1,472 @@
+{
+  "agent_step_id": "ENV0-002-c3-qa-002-2026-07-21",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:d47e7f54458f2dfb56977f5565387344c1a15f93d028b587b4ea5f8d2f060b19",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f83e0-8abf-7be0-b4f3-b6357c9d75cb",
+  "transcript_ref": "019f83e0-8abf-7be0-b4f3-b6357c9d75cb",
+  "writer_transcript_ref": "019f83e0-8abf-7be0-b4f3-b6357c9d75cb",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/environment-p0-c3-qa-002.log",
+  "handoff_ref": "ENV0_C4_PURPLE",
+  "start_time": "2026-07-21T08:52:38Z",
+  "end_time": "2026-07-21T08:56:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-qa-evidence; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; authority_token=VERIFY_ONLY; required_skills always×5 + evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches product.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "evidence-memory-ledger"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE concepts via skills + profile/cards + WO-ENV0-002 + C1/C2 receipts + product evidence paths manually. No bootstrap loop.",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-002-LEASE-IDEMPOTENCY-CORRECTION.md",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c1_blue_002.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c2_red_002.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_qa_001.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/main.py",
+    "E:/AIdle_Blender_Bridge_P0/app/config.py",
+    "E:/AIdle_Blender_Bridge_P0/app/environment_models.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_environment_api.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_bridge_lease.py",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-9A890BC62558/environment_job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-9A890BC62558/blender_command.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-9A890BC62558/blender_exit_code.txt",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-9A890BC62558/worker_stdout.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-9A890BC62558/worker_stderr.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-9A890BC62558/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-9A890BC62558/scene_manifest.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-9A890BC62558/artifact_hashes.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-9A890BC62558/starter_realm_preview.png",
+    "E:/agents/characters/12-purple-team-finding-triage.md",
+    "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/evidence-memory-ledger/SKILL.md"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c3_qa_002.json",
+    "E:/AIdle_openworld/orchestration/logs/environment-p0-c3-qa-002.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "ENV0-002",
+    "directive_id": 49,
+    "work_order": "orchestration/work_orders/WO-ENV0-002-LEASE-IDEMPOTENCY-CORRECTION.md",
+    "wave": "ENV0_C3_QA",
+    "profile": "aidle-worldgen-qa-evidence",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS_FOR_PURPLE",
+    "summary": "VERIFY_ONLY C3 QA evidence complete. compileall clean; character regression 11 passed; environment+lease 24 passed; full suite 35 passed. Server-mediated real Blender probe via HTTP API end-to-end: TestClient POST /v1/environment/jobs → 202 (job BLD-9A890BC62558), poll GET → QUARANTINED_COMPLETE exit 0 with blend/GLB modules/preview/manifest/validation/hashes; hash re-verify PASS; preview nonblank (signal 0.388). TestClient waits for BackgroundTasks before returning (elapsed~15.5s) — harness artifact per C1 RCA, not product deadlock; HTTP e2e possible with adequate timeout. C2 residual ENV0-C2-R01 (jobs.py BridgeBusyError→409) noted open, not patched. product_writes=[]. Handoff ENV0_C4_PURPLE. accepted=false.",
+    "character_binding": {
+      "trustlayer_character_id": "purple-team-finding-triage",
+      "trustlayer_card": "E:/agents/characters/12-purple-team-finding-triage.md",
+      "ui_character_id": "ui-a11y-auditor",
+      "ui_card": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; VERIFY_ONLY; no inventing evidence; no product patch"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: slot 12 purple-team-finding-triage VERIFY_ONLY; Red finds never fixes; Blue patches only approved WO; Purple never patches; one writer per file"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: hub E:/; handoff ENV0_C4_PURPLE after C3 QA evidence; do not skip purple chain"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: exclusive receipt/log lease only; product_writes empty; parent 019f7ffd only; no grandchildren"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: FACT from pytest 35 passed + HTTP 202/GET terminal receipt BLD-9A890BC62558; not invent PASS"
+      },
+      {
+        "skill_id": "evidence-memory-ledger",
+        "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL profile-routed: preserved test counts, HTTP probe path, job_id, hashes, validation, preview, C2 residual R01 in exclusive C3 receipt/log"
+      }
+    ],
+    "prior_wave_refs": {
+      "c1": {
+        "receipt": "orchestration/receipts/environment_p0/ENV0_c1_blue_002.json",
+        "child_task_ref": "019f83d6-994d-75c2-947f-6a8f4574c927",
+        "authority_token": "PATCH_DRAFT"
+      },
+      "c2": {
+        "receipt": "orchestration/receipts/environment_p0/ENV0_c2_red_002.json",
+        "child_task_ref": "019f83db-f186-7e12-af36-f2fb8bfd142c",
+        "authority_token": "READ_ONLY_AUDIT"
+      }
+    },
+    "test_counts": {
+      "character_regression": {
+        "command": "python -m pytest tests/test_api.py tests/test_runner.py tests/test_security.py -q --tb=short",
+        "passed": 11,
+        "failed": 0,
+        "exit_code": 0,
+        "requirement_min": 11,
+        "breakdown": "test_api 7 + test_runner 2 + test_security 2",
+        "status": "PASS"
+      },
+      "environment_and_lease": {
+        "command": "python -m pytest tests/test_environment_api.py tests/test_environment_runner.py tests/test_bridge_lease.py -q --tb=short",
+        "passed": 24,
+        "failed": 0,
+        "exit_code": 0,
+        "breakdown": "test_environment_api 15 + test_environment_runner 2 + test_bridge_lease 7",
+        "status": "PASS"
+      },
+      "full_suite": {
+        "command": "python -m pytest tests/ -q --tb=line",
+        "passed": 35,
+        "failed": 0,
+        "exit_code": 0,
+        "breakdown": "11 character + 17 environment + 7 lease",
+        "status": "PASS"
+      },
+      "compileall": {
+        "command": "python -m compileall -q app tests blender_scripts",
+        "exit_code": 0,
+        "status": "PASS"
+      }
+    },
+    "acceptance_map": [
+      {
+        "criterion": 1,
+        "title": "11 character regression green",
+        "status": "PASS",
+        "evidence": "pytest character trio → 11 passed exit 0"
+      },
+      {
+        "criterion": 2,
+        "title": "Environment suite + lease tests",
+        "status": "PASS",
+        "evidence": "24 passed (15 env_api + 2 env_runner + 7 lease); full suite 35"
+      },
+      {
+        "criterion": 3,
+        "title": "Character create refused while env active",
+        "status": "PASS",
+        "evidence": "test_bridge_lease.py env QUEUED/RUNNING refuses character create"
+      },
+      {
+        "criterion": 4,
+        "title": "Env create refused while character active",
+        "status": "PASS",
+        "evidence": "test_bridge_lease.py character QUEUED/RUNNING refuses env create"
+      },
+      {
+        "criterion": 5,
+        "title": "Stable replay rotated request_id",
+        "status": "PASS",
+        "evidence": "test_idempotency_stable_replay + suite green after C1 fingerprint fix"
+      },
+      {
+        "criterion": 6,
+        "title": "Changed payload still conflicts",
+        "status": "PASS",
+        "evidence": "idempotency conflict tests green; C2 S2 confirmed"
+      },
+      {
+        "criterion": 7,
+        "title": "No two Blender concurrent",
+        "status": "PASS",
+        "evidence": "create-time mutual refusal + public worker_lease max_active_jobs=1; lease tests never dual execute"
+      },
+      {
+        "criterion": 8,
+        "title": "Real probe HTTP e2e QUARANTINED_COMPLETE",
+        "status": "PASS",
+        "evidence": "TestClient POST 202 job BLD-9A890BC62558; GET QUARANTINED_COMPLETE exit 0; full artifact set; hashes re-verified"
+      },
+      {
+        "criterion": 9,
+        "title": "WO-ENV0-001 criteria non-regression",
+        "status": "PASS",
+        "evidence": "full env suite remains green after C1 lease/idempotency patch"
+      },
+      {
+        "criterion": 10,
+        "title": "No Godot/Scene/catalog/World Commit",
+        "status": "PASS",
+        "evidence": "this child product_writes=[]; storage job/quarantine evidence only"
+      }
+    ],
+    "http_probe_path": {
+      "path_class": "HTTP_TestClient_e2e",
+      "not_service_bypass": true,
+      "not_cli_only": true,
+      "endpoint_create": "POST /v1/environment/jobs",
+      "endpoint_poll": "GET /v1/environment/jobs/{job_id}",
+      "post_status": 202,
+      "post_elapsed_s": 15.491,
+      "post_body_state": "QUEUED",
+      "poll_final_state": "QUARANTINED_COMPLETE",
+      "harness_behavior": "TestClient drains BackgroundTasks before returning POST; elapsed tracks Blender wall time; response body retains create() QUEUED snapshot",
+      "c1_rca_confirmed": true,
+      "product_deadlock": false,
+      "deadlock_verdict": "NOT_A_DEADLOCK — HTTP e2e succeeds; BackgroundTasks harness wait is not worker_gate deadlock; create never acquires worker_lease"
+    },
+    "real_probe": {
+      "ownership": "C3_QA_PRIMARY",
+      "mediation": "http_testclient",
+      "mediation_detail": "FastAPI TestClient POST /v1/environment/jobs under AIDLE_RUNNER_MODE=real returns HTTP 202; subsequent GET /v1/environment/jobs/{job_id} returns QUARANTINED_COMPLETE. Not EnvironmentJobService.create+execute bypass; not direct Blender CLI acceptance path.",
+      "job_id": "BLD-9A890BC62558",
+      "request_id": "env_qa_c3_http_starter_probe_001",
+      "idempotency_key": "env:qa:c3:http:starter:probe:001",
+      "request_fingerprint": "4B222DB696DD5380842702591C87CC7BCFA9F180269E9CB1EB2D51897CA92F01",
+      "state": "QUARANTINED_COMPLETE",
+      "exit_code": 0,
+      "runner_mode": "real",
+      "blender_executable": "E:/blender.exe",
+      "blender_version_observed": "Blender 5.2.0 LTS",
+      "worker_entry": "E:/AIdle_Blender_Bridge_P0/blender_scripts/environment_worker_entry.py",
+      "security_flags": ["--background", "--factory-startup", "--disable-autoexec", "--python-exit-code", "20"],
+      "created_at": "2026-07-21T08:54:26.175831Z",
+      "updated_at": "2026-07-21T08:54:41.614778Z",
+      "post_elapsed_s": 15.491,
+      "preview_visual_signal": 0.38823533058166504,
+      "preview_nonblank": true,
+      "preview_size_px": [768, 512],
+      "preview_mode": "RGBA",
+      "preview_L_extrema": [21, 94],
+      "preview_L_mean": 56.0821,
+      "preview_bytes": 367090,
+      "object_count": 8,
+      "triangle_count": 788,
+      "validation_passed": true,
+      "manifest_module_count": 4,
+      "artifact_hash_reverify": "PASS",
+      "worker_stdout_len": 2541,
+      "worker_stderr_len": 0,
+      "receipt_path": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-9A890BC62558/environment_job_receipt.json",
+      "validation_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-9A890BC62558/validation.json",
+      "manifest_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-9A890BC62558/scene_manifest.json",
+      "hashes_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-9A890BC62558/artifact_hashes.json",
+      "stdout_path": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-9A890BC62558/worker_stdout.log",
+      "stderr_path": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-9A890BC62558/worker_stderr.log",
+      "blender_command_path": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-9A890BC62558/blender_command.json",
+      "blender_exit_code_path": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-9A890BC62558/blender_exit_code.txt",
+      "artifacts": [
+        "generated_quarantine/BLD-9A890BC62558/artifact_hashes.json",
+        "generated_quarantine/BLD-9A890BC62558/modules/house_01.glb",
+        "generated_quarantine/BLD-9A890BC62558/modules/light_brush_01.glb",
+        "generated_quarantine/BLD-9A890BC62558/modules/pond_01.glb",
+        "generated_quarantine/BLD-9A890BC62558/modules/tree_landmark_01.glb",
+        "generated_quarantine/BLD-9A890BC62558/scene_manifest.json",
+        "generated_quarantine/BLD-9A890BC62558/starter_realm_preview.png",
+        "generated_quarantine/BLD-9A890BC62558/starter_realm_probe.blend",
+        "generated_quarantine/BLD-9A890BC62558/validation.json"
+      ],
+      "artifact_hashes": [
+        {"path": "modules/house_01.glb", "bytes": 8880, "sha256": "ead46abeb109bce0b7dd3f5a4dd814993e174aec0dad514754dbe119180d9fe6"},
+        {"path": "modules/light_brush_01.glb", "bytes": 16560, "sha256": "99dd641fad966f3012dbed6fc3e801567a3964ab38ca1728fcf059e987062bc6"},
+        {"path": "modules/pond_01.glb", "bytes": 4700, "sha256": "a60bc569a8a191c2d44ab187c978cca84a7a2d36d4249aad671dc1571b814b2d"},
+        {"path": "modules/tree_landmark_01.glb", "bytes": 22552, "sha256": "e5f8f8c93c9d9946d78590f011c96c7142c3b16979fcf3c55d6ec25d7ac17506"},
+        {"path": "scene_manifest.json", "bytes": 4015, "sha256": "879bde3134ad450269c3cc6f5d74d12176ec7b58bb385ad5edd8623663184a3e"},
+        {"path": "starter_realm_preview.png", "bytes": 367090, "sha256": "88229935d4c2f247226f6adf3b822a808937335cd3ce70554a1f10360be9c8e8"},
+        {"path": "starter_realm_probe.blend", "bytes": 114654, "sha256": "1326ba46e3cce5901e867374beeb13cc7102ef80d0422668385c1857328901a5"},
+        {"path": "validation.json", "bytes": 817, "sha256": "73518bf69bb2492284beb7827415b471dadee62124d014c551de7e0a9c533ff6"}
+      ],
+      "lineage_prior_probes": [
+        {
+          "job_id": "BLD-E89FC8A3F472",
+          "wave": "E3_QA",
+          "mediation": "service_create_execute",
+          "note": "Prior E3 primary was service-level; C3 primary is HTTP e2e"
+        },
+        {
+          "job_id": "BLD-46173CA8830E",
+          "wave": "E1_BLUE",
+          "mediation": "server_mediated",
+          "note": "Blue original real probe lineage"
+        }
+      ]
+    },
+    "c2_residuals_noted": [
+      {
+        "finding_id": "ENV0-C2-R01",
+        "severity": "medium",
+        "title": "Character API jobs.py does not map BridgeBusyError to HTTP 409",
+        "status": "OPEN_RESIDUAL",
+        "blocks_ac": false,
+        "location": "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+        "detail": "Reconfirmed C3: BridgeBusyError not imported/mapped in jobs.py; character HTTP busy would 500. environment_jobs.py maps EnvironmentBusyError → 409 reason=worker_lease_busy. Service-level refusal proven by lease tests. VERIFY_ONLY did not patch.",
+        "action_this_child": "catalog only — VERIFY_ONLY does not patch product"
+      },
+      {
+        "finding_id": "ENV0-C2-R02",
+        "severity": "low",
+        "title": "is_bridge_busy fail-open on unreadable receipt files",
+        "status": "OPEN_RESIDUAL",
+        "action_this_child": "catalog only"
+      },
+      {
+        "finding_id": "ENV0-C2-R03",
+        "severity": "low",
+        "title": "is_worker_busy TOCTOU pattern",
+        "status": "OPEN_INFO",
+        "action_this_child": "catalog only"
+      },
+      {
+        "finding_id": "ENV0-C2-R04",
+        "severity": "low",
+        "title": "Character HTTP busy path untested (would expect 500 given R01)",
+        "status": "OPEN_EVIDENCE_GAP",
+        "action_this_child": "catalog only; R01 still blocks clean 409 HTTP matrix"
+      }
+    ],
+    "c2_residual_source": "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c2_red_002.json",
+    "input_context_hash": "sha256:d47e7f54458f2dfb56977f5565387344c1a15f93d028b587b4ea5f8d2f060b19",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-002-LEASE-IDEMPOTENCY-CORRECTION.md",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c1_blue_002.json",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c2_red_002.json"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "d47e7f54458f2dfb56977f5565387344c1a15f93d028b587b4ea5f8d2f060b19",
+      "BYTE_LEN": 42818
+    },
+    "child_task_ref": "019f83e0-8abf-7be0-b4f3-b6357c9d75cb",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "trace_ref": "orchestration/logs/environment-p0-c3-qa-002.log",
+    "handoff_ref": "ENV0_C4_PURPLE",
+    "handoff_note": "C3 QA evidence complete. Handoff ENV0_C4_PURPLE aidle-worldgen-purple-acceptance VERIFY_ONLY: re-verify AC4 and AC5 specifically, plus criteria 1–3 and 6–10 non-regression; confirm HTTP real probe BLD-9A890BC62558; note residual ENV0-C2-R01. QA did not patch product. Purple returns VERIFIED | CHANGES_REQUESTED | NEED_HUMAN only. No grandchildren. G8 HITL_REQUIRED; P1E blocked.",
+    "g8_hitl_note": "G8 stays HITL_REQUIRED. ENV0-002 C3 QA evidence does not imply G8 acceptance. No Godot/Scene/Control/Foundry/P1E edits.",
+    "product_writes": [],
+    "out_of_scope_this_child": [
+      "Product patches (Blue only after triage)",
+      "jobs.py BridgeBusyError→409 mapping (R01 residual)",
+      "Purple acceptance decision (C4)",
+      "P1E production content",
+      "Godot/Scene runtime",
+      "Grandchildren",
+      "Remediation of ENV0-RED-F01/F04–F10",
+      "codex_directive.json"
+    ],
+    "children": [],
+    "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE concepts via skills + profile/cards + WO/C1/C2 + evidence sources manually."
+  },
+  "smoke_test": {
+    "passed": true,
+    "attributed_to_transcript_ref": "019f83e0-8abf-7be0-b4f3-b6357c9d75cb",
+    "commands": [
+      {
+        "command": "python -m compileall -q app tests blender_scripts",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "compileall clean for app, tests, blender_scripts",
+        "mutating": false
+      },
+      {
+        "command": "python -m pytest tests/test_api.py tests/test_runner.py tests/test_security.py -q --tb=short",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "11 character regression tests passed",
+        "mutating": false
+      },
+      {
+        "command": "python -m pytest tests/test_environment_api.py tests/test_environment_runner.py tests/test_bridge_lease.py -q --tb=short",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "24 passed (17 environment + 7 lease)",
+        "mutating": false
+      },
+      {
+        "command": "python -m pytest tests/ -q --tb=line",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "35 passed full suite",
+        "mutating": false
+      },
+      {
+        "command": "TestClient POST /v1/environment/jobs (AIDLE_RUNNER_MODE=real) then GET poll until terminal",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "HTTP 202 job BLD-9A890BC62558; poll QUARANTINED_COMPLETE exit 0; post_elapsed_s=15.491; hashes re-verified; preview nonblank",
+        "mutating": true,
+        "mutation_scope": "bridge storage jobs/quarantine only; not product source"
+      }
+    ],
+    "note": "VERIFY_ONLY smoke is evidence confirmation only; not acceptance. No product source mutation."
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "VERIFY_ONLY",
+    "no_self_accept": true,
+    "accepted": false,
+    "self_accept": false,
+    "product_writes_empty": true,
+    "never_patched_product": true,
+    "no_nested_grandchildren": true,
+    "character_skill_trace_present": true,
+    "no_invented_gate_pass": true,
+    "codex_directive_untouched": true,
+    "no_install_no_credentials_no_public_network_no_push_deploy": true,
+    "child_task_ref_is_durable_grok_desktop_id": true,
+    "child_task_ref_value": "019f83e0-8abf-7be0-b4f3-b6357c9d75cb",
+    "child_task_ref_source": "C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f83e0-8abf-7be0-b4f3-b6357c9d75cb\\summary.json session_kind=subagent title=ENV0 C3 Worldgen QA Evidence Verify Only",
+    "http_probe_path_was_http_not_service_bypass": true,
+    "exclusive_orchestration_writes_only": [
+      "orchestration/receipts/environment_p0/ENV0_c3_qa_002.json",
+      "orchestration/logs/environment-p0-c3-qa-002.log"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/environment-p0-c3-qa-002.log",
+    "orchestration/work_orders/WO-ENV0-002-LEASE-IDEMPOTENCY-CORRECTION.md",
+    "orchestration/receipts/environment_p0/ENV0_c1_blue_002.json",
+    "orchestration/receipts/environment_p0/ENV0_c2_red_002.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-9A890BC62558/environment_job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-9A890BC62558/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-9A890BC62558/scene_manifest.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-9A890BC62558/artifact_hashes.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-9A890BC62558/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/evidence/c3_http_probe_summary.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "ENV0_C4_PURPLE"
+}

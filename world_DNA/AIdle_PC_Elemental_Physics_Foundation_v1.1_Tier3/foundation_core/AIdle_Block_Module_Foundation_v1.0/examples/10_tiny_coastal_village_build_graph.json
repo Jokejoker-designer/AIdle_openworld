@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "request_id": "tiny_0001",
+  "build_graph_id": "graph_tiny_coastal_village_v1",
+  "world_profile": "tiny_diorama",
+  "expected_world_revision": 0,
+  "bounds": {
+    "center": [
+      0,
+      0,
+      0
+    ],
+    "size_m": [
+      128,
+      128,
+      64
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "village",
+      "module_id": "cluster_tiny_coastal_village_A",
+      "position": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "node_id": "station",
+      "module_id": "prop_toy_train_station",
+      "position": [
+        10,
+        -8,
+        0
+      ]
+    }
+  ],
+  "edges": [],
+  "generators": [
+    {
+      "generator_id": "gen_terrain_diorama_block_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    },
+    {
+      "generator_id": "gen_village_layout_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    },
+    {
+      "generator_id": "gen_toy_rail_loop_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    }
+  ],
+  "world_rules": [
+    {
+      "rule_id": "rule_diorama_edge_v1",
+      "config": {}
+    }
+  ],
+  "manifestation": {
+    "stages": [
+      "WIREFRAME",
+      "HOLOGRAM",
+      "MATERIALIZING",
+      "COMMITTING",
+      "COMPLETE"
+    ],
+    "requires_confirmation": true
+  },
+  "validation": {
+    "collision": true,
+    "navigation": true,
+    "style": true,
+    "performance": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  }
+}

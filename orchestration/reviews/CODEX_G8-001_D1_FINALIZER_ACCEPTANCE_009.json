@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_G8-001-D1-FINALIZER-ACCEPTANCE-009",
+  "reviewed_at": "2026-07-21T10:51:00+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "G8-001",
+  "wave": "D1",
+  "verdict": "PASS_D1_RELEASE_D2",
+  "g8_accepted": false,
+  "d2_spawn_allowed": true,
+  "d3_spawn_allowed": false,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "finalizer_child_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+  "accepted_execution_children": {
+    "executor": "019f828a-5064-7c12-ac2c-69c5d8155d3a",
+    "core": "019f828d-83a0-7691-ada9-d767d90ba841"
+  },
+  "quarantined_refs": [
+    "019f8289-5794-72d2-88fc-26f1e04faff8",
+    "019f828b-57c0-72c2-99ee-fcf2d7d9866a"
+  ],
+  "independent_checks": {
+    "active_top_level_parent_count": "PASS count=1",
+    "three_receipts_jsonschema": "PASS",
+    "durable_timestamp_binding": "PASS",
+    "execution_lineage_preserved": "PASS",
+    "finalizer_character_and_skills": "PASS",
+    "product_writes_empty": "PASS",
+    "self_accept_false": "PASS",
+    "no_grandchildren": "PASS",
+    "core_file_provenance": "PASS",
+    "pseudo_command_removed": "PASS",
+    "legacy_trace_defect_disclosed": "PASS",
+    "finalizer_trace_utf8": "PASS",
+    "finalizer_product_commands_absent": "PASS",
+    "g3_e2e_independent": "PASS checks=76 exit=0",
+    "g4_persist_independent": "PASS checks=22 exit=0",
+    "headed_manifest": "PASS captures=10 distinct_hashes=10 errors=0 failures=0",
+    "cancel_proof": "PASS entity_absent=true"
+  },
+  "release_conditions": [
+    "D2 uses four new real child sessions under the accepted parent.",
+    "Premature D2 sessions and receipts remain quarantined and cannot be reused.",
+    "D2 children are verification-only/read-only and cannot patch product, tests or headed evidence.",
+    "G8-001 remains CHANGES_REQUESTED until D2, D3 and human acceptance pass."
+  ],
+  "accepted": true,
+  "self_accept": false
+}

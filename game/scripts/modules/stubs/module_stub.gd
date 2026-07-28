@@ -20,6 +20,10 @@ func _ready() -> void:
 	if module_id == AIdleConstants.MODULE_EXECUTOR:
 		_replace_with_executor_module()
 		return
+	# Manifestation module uses legacy MODULE_VOXEL slot (not voxel digging).
+	if module_id == AIdleConstants.MODULE_VOXEL:
+		_replace_with_manifestation_module()
+		return
 	# Only register if no real module present yet.
 	if not ModuleRegistry.has_module(module_id):
 		ModuleRegistry.register_module(module_id, self)
@@ -93,4 +97,31 @@ func _replace_with_executor_module() -> void:
 	if not ModuleRegistry.has_module(module_id):
 		ModuleRegistry.register_module(module_id, executor)
 	print("[ModuleStub] executor slot upgraded to ExecutorModule (G2-006).")
+	queue_free()
+
+
+func _replace_with_manifestation_module() -> void:
+	if ModuleRegistry.has_module(module_id):
+		var existing: Node = ModuleRegistry.get_module(module_id)
+		if existing != null and not (existing is ModuleStub) and existing != self:
+			queue_free()
+			return
+	var script: Script = load("res://scripts/modules/manifestation/manifestation_module.gd") as Script
+	if script == null:
+		push_error("[ModuleStub] Failed to load ManifestationModule script.")
+		if not ModuleRegistry.has_module(module_id):
+			ModuleRegistry.register_module(module_id, self)
+		return
+	var man: Node = script.new() as Node
+	man.name = "ManifestationModule"
+	var parent_node := get_parent()
+	if parent_node:
+		parent_node.add_child(man)
+	else:
+		add_child(man)
+	if ModuleRegistry.has_module(module_id) and ModuleRegistry.get_module(module_id) == self:
+		ModuleRegistry.unregister_module(module_id)
+	if not ModuleRegistry.has_module(module_id):
+		ModuleRegistry.register_module(module_id, man)
+	print("[ModuleStub] voxel slot upgraded to ManifestationModule (progressive construction).")
 	queue_free()

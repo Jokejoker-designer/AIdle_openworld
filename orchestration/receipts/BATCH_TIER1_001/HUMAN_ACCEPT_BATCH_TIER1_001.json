@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "HUMAN_BATCH_ACCEPTANCE",
+  "batch_id": "BATCH-TIER1-001-2026-07-23",
+  "step_id": "HUMAN-ACCEPT-BATCH-TIER1-001",
+  "accepted_by": "human_product_lead",
+  "accepted_by_name": "Hanh",
+  "acceptance_channel": "chat (sole parent Grok session), Codex-absent capsule",
+  "recorded_at": "2026-07-23T15:30:00+07:00",
+  "directive_id": 99,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "accepted": true,
+  "self_accept": false,
+  "verbatim": "Đã chơi thử thấy ok đấy bám sát theo kế hoạch và hoàn thiện trò chơi ở mức commercial grade đi",
+  "decision": "ACCEPT_BATCH_TIER1_001_PLAYTEST_OK_AND_CONTINUE_COMMERCIAL_GRADE",
+  "accepted_items": [
+    {
+      "id": "C5H1-UX-001",
+      "scope": "HUD press C label (R-C5H1-01)",
+      "status": "ACCEPTED"
+    },
+    {
+      "id": "NORI7-REDESIGN-001",
+      "scope": "Nori-7 visual redesign V01 playtest OK — residual NORI7-V01 + gardener real keys machine package Human-playtested",
+      "glb_sha256": "c165108730c1a10c8417e8235a388add988019a80bfeac7a2a8f111b19a09c29",
+      "status": "ACCEPTED_PLAYTEST_OK",
+      "note": "Human visual/playtest acceptance of redesign look for H1 commercial path; not a full-product ship release"
+    },
+    {
+      "id": "POST-UCBV-SELFRUN-001",
+      "scope": "Self-run play loop still green",
+      "status": "ACCEPTED"
+    }
+  ],
+  "grants": [
+    "BATCH-TIER1-001 waves accepted under Codex-absent capsule",
+    "Continue TIER1 commercial-hardening VERIFICATION without per-step check-in",
+    "Execute queued TIER2 drafts already on disk (Control 1B completion polish, Character Foundry 1C intake completion, remaining P1E art) as commercial-grade plan items — still one writer/file, MAF receipts, accepted=false on machine waves",
+    "R-C5H1-02/03 TIER1 UX residuals may ship under named Godot override"
+  ],
+  "does_not_authorize": [
+    "shipping / publishing / charging / network (Red F01)",
+    "TIER3: P2E-002, character-backbone program, DNA Platform vNext EXECUTION, H2-H6, TTS/voxel/neural/Text-to-3D",
+    "claiming full commercial-ready product ACCEPTED before ship-readiness checklist + explicit Human ship gate"
+  ],
+  "basis_batch": "orchestration/receipts/BATCH_TIER1_001.json"
+}

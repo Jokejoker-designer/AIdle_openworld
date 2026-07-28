@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_UCBV-001_C4R_SCHEMA_GATE_014",
+  "task_id": "UCBV-001",
+  "directive_reviewed": 94,
+  "reviewed_at": "2026-07-23T13:01:00+07:00",
+  "reviewed_by": "codex",
+  "verdict": "CHANGES_REQUESTED_C4R_RECEIPT_SCHEMA_INVALID",
+  "accepted": false,
+  "self_accept": false,
+  "lineage": {
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "child_task_ref": "019f8d83-3012-7d13-8e97-4c50c6114982",
+    "durable_started_at": "2026-07-23T05:46:52.821466100Z",
+    "durable_completed_at": "2026-07-23T05:53:06.015713900Z",
+    "receipt": "orchestration/receipts/ucbv_001/correction_008/C4R_qa_evidence_008.json"
+  },
+  "blocking_schema_error": {
+    "json_pointer": "/evidence_refs",
+    "required_type": "array[string]",
+    "actual_type": "object",
+    "observed_validator": "jsonschema.ValidationError",
+    "impact": "The MAF agent_step_contract receipt is invalid and cannot support C4 machine acceptance, irrespective of passing worker wording or evidence contents."
+  },
+  "non_acceptance_observations": {
+    "declared_runtime": "C4R reports CCP-RH-001, bones=14, mode=glb_c1r and 38 headed PNGs",
+    "declared_smokes": "H1 13/13, InputMap 17/34, navigation 16/16, strict errors zero",
+    "decision": "These are unaccepted claims until a fresh schema-valid C4 evidence receipt is independently checked."
+  },
+  "decision": {
+    "c4_accepted": false,
+    "c5_authorized": false,
+    "fresh_c4_schema_rerun_authorized": true,
+    "overall_ucbv_accepted": false,
+    "red_f01_hard_stop": true
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "buildings_fidelity/1.0",
+  "receipt_id": "BUILDINGS_FIDELITY_V2",
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "authority": "PATCH_DRAFT",
+  "agent": "grok",
+  "timestamp_utc": "2026-07-24T03:42:40Z",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "job": "BUILDINGS_FIDELITY_V2",
+  "scope": "Iterate visuals only for 8 wave1 buildings — no remodel HOME/GREENHOUSE; no position changes",
+  "author_script": "orchestration/control/character_build/author_buildings_fidelity_v2.py",
+  "loader_tweak": "town_grid_loader.gd material boost: roof_g, awn_pink/cream, hay, fruit, yarn, blade, band",
+  "headed_log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_buildings_fidelity_v2.log",
+  "structural": {
+    "real_glb": 29,
+    "buildings": "10/10",
+    "props_placeholder": 21
+  },
+  "objects": [
+    {
+      "plot_id": "WORKSHOP.BLD",
+      "object_id": "cozy_workshop_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 2,
+      "signature": "workshop_soft_body_ok_roof_reads_plank_not_terracotta_scale",
+      "progress": "soft clay body, window, yarn, bench; roof fishscale still flattens to shelf-planks in freecam"
+    },
+    {
+      "plot_id": "MARKET.BLD",
+      "object_id": "cozy_market_stall_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 2,
+      "signature": "market_pink_awning_ok_fruit_partial",
+      "progress": "pink/cream awning readable; fruit crates still low-detail vs SSOT"
+    },
+    {
+      "plot_id": "GARDEN.BLD",
+      "object_id": "cozy_gazebo_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 2,
+      "signature": "gazebo_green_dome_ok_fishscale_density",
+      "progress": "round green roof + posts solid; fishscale density still approximate"
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "object_id": "cozy_well_house_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 2,
+      "signature": "well_form_ok_shingle_detail",
+      "progress": "stone ring + A-frame present; shingles still stepped slabs"
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "object_id": "cozy_windmill_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 2,
+      "signature": "windmill_tier_blades_thicker_still_simplified",
+      "progress": "thicker blades + tiers; still short of SSOT multi-window clay softness"
+    },
+    {
+      "plot_id": "BARN.BLD",
+      "object_id": "cozy_barn_small_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 2,
+      "signature": "barn_planks_ok_roof_plank_not_shingle_hay_partial",
+      "progress": "planks + doors better; roof still plank shelves; hay/loft partial"
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "object_id": "cozy_bridge_arch_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 2,
+      "signature": "bridge_arch_clearer_still_cobble_pile",
+      "progress": "clearer hollow arch; still soft-cobble pile vs SSOT tight masonry"
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "object_id": "cozy_watchtower_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 2,
+      "signature": "watchtower_form_ok_roof_petal_detail",
+      "progress": "tower+ladder+petal roof; not 100% SSOT thatch density"
+    }
+  ],
+  "matching_100_pct_count": 0,
+  "home_bld": "CLOSED_PERMANENTLY — not touched",
+  "positions": "UNCHANGED cadastre SSOT",
+  "next": [
+    "BUILDINGS_FIDELITY_V3: true sloped/sphere shingles for workshop+barn roofs (not stepped shelf planks)",
+    "Then continue other buildings to 100% or strike-3 NEED_HUMAN",
+    "Then 21 props; then town-wide neatness vs TOWN_FAIRY_STREET_PLAN_V1"
+  ]
+}

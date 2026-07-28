@@ -1,0 +1,384 @@
+{
+  "agent_step_id": "B0-001-rig-001-2026-07-21",
+  "agent_type": "aidle-character-rig-animation",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:0152bdbb052c34b085486c8b1edb06201e21f2c1eee1456955188a628febdd31",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8373-dc18-7010-bc49-97f61e6402b5",
+  "transcript_ref": "019f8373-dc18-7010-bc49-97f61e6402b5",
+  "writer_transcript_ref": "019f8373-dc18-7010-bc49-97f61e6402b5",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/blender-p0-rig-001.log",
+  "handoff_ref": "B0_QA_001",
+  "start_time": "2026-07-21T06:54:30.0000000Z",
+  "end_time": "2026-07-21T06:59:14.3128240Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-character-rig-animation.md",
+  "profile_binding_evidence": "FULL re-read: name=aidle-character-rig-animation; trustlayer_character=blue-team-p0-remediator; ui_character=ui-component-craftsman; profile default authority_token=PATCH_DRAFT overridden THIS WO to VERIFY_ONLY; required_skills include architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "architecture-lock"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE path, registry path, skills, WO, ARCHITECTURE_LOCK and profile manually. No bootstrap loop.",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-character-rig-animation.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-B0-001-BLENDER-BRIDGE-P0-GATE.md",
+    "E:/AIdle_openworld/orchestration/tasks.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "E:/shared/skills/library/architecture-lock/SKILL.md",
+    "E:/AIdle_Blender_Bridge_P0/docs/P0_ACCEPTANCE_CHECKLIST.md",
+    "E:/AIdle_Blender_Bridge_P0/docs/SECURITY.md",
+    "E:/AIdle_Blender_Bridge_P0/docs/GROK_ADAPTER_MAP.md",
+    "E:/AIdle_Blender_Bridge_P0/config/validation_limits.yaml",
+    "E:/AIdle_Blender_Bridge_P0/config/operation_allowlist.yaml",
+    "E:/AIdle_Blender_Bridge_P0/blender_scripts/worker_entry.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/blender_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/app/config.py",
+    "E:/AIdle_Blender_Bridge_P0/examples/p0_probe_request.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-0B63ED79CCFD/job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-0B63ED79CCFD/worker_stderr.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-6D1FFC4ECA6F/build_spec.internal.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-6D1FFC4ECA6F/blender_command.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-6D1FFC4ECA6F/worker_stderr.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-6D1FFC4ECA6F/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/artifact_hashes.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/p0_probe_preview.png"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_rig_001.json",
+    "E:/AIdle_openworld/orchestration/logs/blender-p0-rig-001.log"
+  ],
+  "product_writes": [],
+  "probe_artifact_writes_note": "Fresh real-mode Blender worker wrote quarantine artifacts under E:/AIdle_Blender_Bridge_P0/storage (not product patch). Post-run artifact_hashes.json and blender_exit_code.txt written to match BlenderRunner post-processing. Failed probe BLD-0B63ED79CCFD not rewritten.",
+  "result": {
+    "task_id": "B0-001",
+    "work_order": "WO-B0-001-BLENDER-BRIDGE-P0-GATE",
+    "directive_id": 46,
+    "wave": "B0_RIG",
+    "child_index": 2,
+    "profile": "aidle-character-rig-animation",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-character-rig-animation.md",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY rig/technical gate: E:/blender.exe reports Blender 5.2.0 LTS; fresh real-mode probe BLD-D2C21066E6F2 using approved worker_entry.py and storage job/quarantine paths completed with exit 0, non-empty .blend/.glb/PNG/validation.json/artifact_hashes.json, job_id and character_id match, object_count=6 and triangle_count=1488 within validation_limits (max_objects=32, max_triangles=50000), preview_visual_signal=0.8745 >= 0.15 with non-blank visual inspection, worker stderr empty (no error/traceback). publish_to_godot globally denied; no Godot p0_probe copy found. Failed compatibility probe BLD-0B63ED79CCFD preserved (exit 20, BLENDER_EEVEE_NEXT TypeError historical). No product patch, no install, no Godot publish. P0 probe is not a production rig (rig_family null) — pipeline readiness only.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "trustlayer_character_source": "E:/agents/characters/09-blue-team-p0-remediator.md",
+      "ui_character_id": "ui-component-craftsman",
+      "ui_character_source": "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY",
+      "authority_override_note": "Profile default PATCH_DRAFT reduced to VERIFY_ONLY for this WO; no product remediation performed."
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: load COMPLIANCE + registry; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stop no inventing evidence"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: registry E:/agents/characters/registry.yaml; slot 09 blue-team-p0-remediator; Red finds never fixes; Blue fixes only approved WOs; Purple never patches; this WO VERIFY_ONLY so no Blue product patch"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: hub E:/; MASTER_PLAN/JOURNAL; journal-entry after milestones; do not skip handoff"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: project rooms E:/agents/projects/; sync knowledge/errors/handoffs; respect authority tokens"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: evidence classification FACT/INFERENCE; do not invent evidence; verify with commands; stop when evidence threshold met"
+      },
+      {
+        "skill_id": "architecture-lock",
+        "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read + project ARCHITECTURE_LOCK.md: Godot presentation client; generated meshes untrusted until conditioned; World Commit authority; no arbitrary AI code in runtime"
+      }
+    ],
+    "technical_gates": [
+      {
+        "gate_id": "RIG-G1-BLENDER-VERSION",
+        "description": "E:/blender.exe --version reports Blender 5.2.0 LTS",
+        "status": "PASS",
+        "evidence": {
+          "command": "E:\\blender.exe --version",
+          "exit_code": 0,
+          "stdout_first_line": "Blender 5.2.0 LTS",
+          "build_hash": "fbe6228777e7",
+          "build_branch": "blender-v5.2-release"
+        }
+      },
+      {
+        "gate_id": "RIG-G2-FRESH-REAL-PROBE",
+        "description": "Fresh real-mode probe with E:/blender.exe + approved worker + server-layout paths ends exit 0 with complete quarantine artifacts",
+        "status": "PASS",
+        "evidence": {
+          "job_id": "BLD-D2C21066E6F2",
+          "character_id": "AIDLE-P0-PROBE",
+          "template_id": "p0_probe_empty_scene",
+          "operation_profile": "p0_probe",
+          "runner_mode": "real",
+          "execution_note": "Bridge HTTP server not running (no .venv/.env). Probe invoked with identical BlenderRunner command contract and AIDLE_ALLOWED_* path roots under storage/jobs and storage/generated_quarantine.",
+          "command": [
+            "E:\\blender.exe",
+            "--background",
+            "--factory-startup",
+            "--disable-autoexec",
+            "--python-exit-code",
+            "20",
+            "--python",
+            "E:\\AIdle_Blender_Bridge_P0\\blender_scripts\\worker_entry.py",
+            "--",
+            "E:\\AIdle_Blender_Bridge_P0\\storage\\jobs\\BLD-D2C21066E6F2\\build_spec.internal.json",
+            "E:\\AIdle_Blender_Bridge_P0\\storage\\jobs\\BLD-D2C21066E6F2"
+          ],
+          "exit_code": 0,
+          "worker_event": "P0_WORKER_COMPLETE",
+          "validation_passed": true,
+          "quarantine_dir": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2",
+          "artifacts": {
+            "p0_probe.blend": {"bytes": 115584, "sha256": "ee402978b0f086035ecc209d4d5d5982543a45163ed5ce88aa5a06dcec5fad80"},
+            "p0_probe.glb": {"bytes": 110916, "sha256": "296e43314d0566a0907f5f3c3fde6e63f25b4034ab8c7d94f1a5f14a1a4aa108", "glb_magic": "glTF", "glb_version": 2, "glb_length": 110916},
+            "p0_probe_preview.png": {"bytes": 196100, "sha256": "0378d5be7f277602a6abbe998233e0e4efdbe9374a2ac5342863d7f7af5f249b"},
+            "validation.json": {"bytes": 589, "sha256": "21580e28d426fc8f8eed45d0601b05fffec9003898eea7f452eee30598be1000"},
+            "artifact_hashes.json": {"bytes": 1087, "job_id": "BLD-D2C21066E6F2", "character_id": "AIDLE-P0-PROBE"}
+          }
+        }
+      },
+      {
+        "gate_id": "RIG-G3-IDENTITY-MATCH",
+        "description": "validation.json and artifact_hashes.json job_id/character_id match probe IDs",
+        "status": "PASS",
+        "evidence": {
+          "validation_job_id": "BLD-D2C21066E6F2",
+          "validation_character_id": "AIDLE-P0-PROBE",
+          "hashes_job_id": "BLD-D2C21066E6F2",
+          "hashes_character_id": "AIDLE-P0-PROBE",
+          "template_id": "p0_probe_empty_scene"
+        }
+      },
+      {
+        "gate_id": "RIG-G4-TRIANGLE-OBJECT-LIMITS",
+        "description": "Probe geometry within config/validation_limits.yaml p0_probe budgets; limits are fail-closed in BlenderRunner._verify_real_outputs",
+        "status": "PASS",
+        "evidence": {
+          "object_count": 6,
+          "max_objects": 32,
+          "triangle_count": 1488,
+          "max_triangles": 50000,
+          "max_materials": 8,
+          "max_textures": 0,
+          "max_output_bytes": 104857600,
+          "allow_external_files": false,
+          "allow_embedded_scripts": false,
+          "mesh_parts": [
+            "P0_Body",
+            "P0_Leg_L",
+            "P0_Leg_R",
+            "P0_Display",
+            "P0_SproutStem",
+            "P0_SproutLeaf"
+          ],
+          "rig_family": null,
+          "production_rig_note": "P0 probe intentionally has no armature/skeleton; verifies export pipeline only, not Character Foundry / Nori-7 rig acceptance."
+        }
+      },
+      {
+        "gate_id": "RIG-G5-PREVIEW-VISUAL-SIGNAL",
+        "description": "Preview not flat/blank; validation preview_visual_signal >= 0.15",
+        "status": "PASS",
+        "evidence": {
+          "preview_visual_signal": 0.874509871006012,
+          "threshold": 0.15,
+          "check": "PASS",
+          "visual_inspection": "Ortho three-quarter low-poly cream body robot with green legs/sprout and cyan face display on dark background; non-uniform geometry and materials; not a solid flat or blank frame.",
+          "preview_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/p0_probe_preview.png"
+        }
+      },
+      {
+        "gate_id": "RIG-G6-WORKER-STDERR-CLEAN",
+        "description": "Worker stderr has no error or traceback; warnings reported honestly",
+        "status": "PASS",
+        "evidence": {
+          "fresh_probe_stderr_path": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-D2C21066E6F2/worker_stderr_fg.log",
+          "fresh_probe_stderr_empty": true,
+          "fresh_probe_warnings": [],
+          "historical_failed_probe": {
+            "job_id": "BLD-0B63ED79CCFD",
+            "exit_code": 20,
+            "error": "TypeError: enum BLENDER_EEVEE_NEXT not found in (BLENDER_EEVEE, BLENDER_WORKBENCH, CYCLES)",
+            "also_noted": "DeprecationWarning Material.use_nodes expected removed in Blender 6.0 on pre-fix worker path",
+            "current_worker_mitigation": "worker_entry.py selects BLENDER_EEVEE then BLENDER_EEVEE_NEXT; use_nodes gated for bpy.app.version < (5,2,0)"
+          }
+        }
+      },
+      {
+        "gate_id": "RIG-G7-GODOT-INTAKE-BOUNDARY",
+        "description": "Future Godot intake remains quarantine-only; no publish_to_godot; meshes untrusted until authority path",
+        "status": "PASS",
+        "evidence": {
+          "operation_allowlist_globally_denied_includes": "publish_to_godot",
+          "output_zone": "generated_quarantine",
+          "godot_tree_p0_probe_search": "no matches under E:/AIdle_openworld/game",
+          "architecture_lock": "Asset workers asynchronous/sandboxed/untrusted until QA; no direct LLM/generated mesh as world truth; Godot is presentation client",
+          "intake_boundary_statement": "GLB/Blend quarantine artifacts are untrusted export evidence only. Godot import, catalog approval, collision/nav footprint binding, animation state machine, and World Commit remain future gates outside this VERIFY_ONLY child."
+        }
+      },
+      {
+        "gate_id": "RIG-G8-FAILED-PROBE-PRESERVED",
+        "description": "Failed compatibility probe BLD-0B63ED79CCFD remains preserved; no cleanup/rewrite",
+        "status": "PASS",
+        "evidence": {
+          "job_receipt_exists": true,
+          "job_receipt_state": "FAILED",
+          "exit_code": 20,
+          "quarantine_hashes_exists": true,
+          "paths": [
+            "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-0B63ED79CCFD/",
+            "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-0B63ED79CCFD/"
+          ]
+        }
+      },
+      {
+        "gate_id": "RIG-G9-NO-PRODUCT-PATCH",
+        "description": "VERIFY_ONLY: no product patch, install, or Godot publish",
+        "status": "PASS",
+        "evidence": {
+          "product_writes": [],
+          "exclusive_openworld_writes": [
+            "orchestration/receipts/blender_p0/B0_rig_001.json",
+            "orchestration/logs/blender-p0-rig-001.log"
+          ]
+        }
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "RIG-F1",
+        "severity": "info",
+        "classification": "FACT",
+        "title": "Blender 5.2 Eevee engine enum is BLENDER_EEVEE",
+        "detail": "Historical failed probe BLD-0B63ED79CCFD crashed on BLENDER_EEVEE_NEXT. Current approved worker_entry.py allowlists BLENDER_EEVEE then BLENDER_EEVEE_NEXT. Fresh probe BLD-D2C21066E6F2 succeeded under 5.2.0 LTS."
+      },
+      {
+        "finding_id": "RIG-F2",
+        "severity": "info",
+        "classification": "FACT",
+        "title": "P0 probe is not a production character rig",
+        "detail": "template_capabilities.rig_family is null; scene is six primitive meshes with materials only. Future rig/animation acceptance (skeleton, sockets, anim set, LOD, Godot import notes) is out of scope for this machine gate and must not be claimed complete from P0 probe evidence."
+      },
+      {
+        "finding_id": "RIG-F3",
+        "severity": "info",
+        "classification": "FACT",
+        "title": "Bridge HTTP not required for command-contract probe",
+        "detail": "This child could not use scripts/run_real_probe.ps1 because bridge server and .venv were unavailable. Real probe still used only E:/blender.exe, repo worker_entry.py, and server-layout path roots — matching BlenderRunner.build_command semantics."
+      }
+    ],
+    "commands_run": [
+      {
+        "command": "E:\\blender.exe --version",
+        "exit_code": 0
+      },
+      {
+        "command": "E:\\blender.exe --background --factory-startup --disable-autoexec --python-exit-code 20 --python E:\\AIdle_Blender_Bridge_P0\\blender_scripts\\worker_entry.py -- <job_build_spec> <job_dir>",
+        "job_id": "BLD-D2C21066E6F2",
+        "exit_code": 0
+      }
+    ],
+    "prior_successful_probes_observed": [
+      {
+        "job_id": "BLD-6D1FFC4ECA6F",
+        "state": "QUARANTINED_COMPLETE",
+        "exit_code": 0,
+        "preview_visual_signal": 0.874509871006012,
+        "triangle_count": 1488
+      },
+      {
+        "job_id": "BLD-8E38380A6FC1",
+        "state": "QUARANTINED_COMPLETE",
+        "exit_code": 0,
+        "preview_visual_signal": 0.8823530077934265,
+        "triangle_count": 1488
+      }
+    ],
+    "limitations": [
+      "pytest 11-pass matrix and compileall are owned by QA child, not re-executed here.",
+      "Schema/fail-closed negative cases are owned by schema child.",
+      "Purple acceptance is owned by purple child after 1-3.",
+      "No API-server-mediated job_id issuance this run (server down); path layout and worker contract still match production runner.",
+      "No production skeleton/animation/LOD export was exercised."
+    ],
+    "next_route": "B0_QA_001",
+    "handoff_to": "aidle-worldgen-qa-evidence"
+  },
+  "smoke_test": {
+    "name": "blender_p0_real_probe_rig_technical",
+    "command": "E:\\blender.exe --background --factory-startup --disable-autoexec --python-exit-code 20 --python E:\\AIdle_Blender_Bridge_P0\\blender_scripts\\worker_entry.py -- <build_spec> <job_dir>",
+    "job_id": "BLD-D2C21066E6F2",
+    "exit_code": 0,
+    "passed": true,
+    "notes": "Real headless probe; artifacts under generated_quarantine/BLD-D2C21066E6F2; visual signal 0.8745"
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "failed_probe_preserved": true,
+    "evidence_invented": false,
+    "exclusive_receipt_paths_only_for_openworld_writes": true
+  },
+  "evidence_refs": [
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/artifact_hashes.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/p0_probe.blend",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/p0_probe.glb",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/p0_probe_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-D2C21066E6F2/worker_stdout_fg.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-D2C21066E6F2/worker_stderr_fg.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-0B63ED79CCFD/job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-0B63ED79CCFD/worker_stderr.log",
+    "orchestration/logs/blender-p0-rig-001.log"
+  ],
+  "next_route": "B0_QA_001"
+}

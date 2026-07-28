@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "NORI7-REDESIGN-001-2026-07-23",
+  "step_id": "NORI7-REDESIGN-001-VISUAL-KICKOFF",
+  "work_order_id": "WO-NORI7-REDESIGN-001-VISUAL-KICKOFF",
+  "work_order": "orchestration/work_orders/WO-NORI7-REDESIGN-001-VISUAL-KICKOFF.md",
+  "directive_id": 99,
+  "milestone": "Nori-7 visual redesign V01 + 5 real gardener clips (machine export)",
+  "agent_id": "aidle-parent-coordinator",
+  "authority_token": "PATCH_DRAFT",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_HUMAN_BATCH_VISUAL",
+  "accepted": false,
+  "self_accept": false,
+  "human_visual_accept": false,
+  "verdict": "MACHINE_REDESIGN_EXPORTED_NOT_HUMAN_VISUAL_ACCEPT",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "writer_transcript_ref": "c39d2e16-e6e2-4704-b896-16179cc5bc3a",
+  "job_id": "BLD-UCBV-NORI7-REDESIGN-V01",
+  "product_writes": [
+    "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "game/assets/ucbv_001/character/nori7/export/nori7_rigged.blend",
+    "game/assets/ucbv_001/character/nori7/export/nori7_glb_validation.json",
+    "game/assets/ucbv_001/character/nori7/export/nori7_bridge_job_manifest.json",
+    "game/assets/ucbv_001/character/nori7/mesh/nori7_mesh_descriptor.json",
+    "game/assets/ucbv_001/character/nori7/package_manifest.json",
+    "game/assets/ucbv_001/character/nori7/provenance.json",
+    "game/resources/ucbv_001/character/nori7_animation_adapter.json",
+    "game/scripts/modules/ucbv_001/ucbv_paths.gd",
+    "game_character/ucbv_001/nori7/visual_package/visual_spec.json"
+  ],
+  "evidence_refs": [
+    "orchestration/logs/nori7_redesign_001/blender_author_002.log",
+    "game/assets/ucbv_001/character/nori7/export/nori7_glb_validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/NORI7_REDESIGN_V01/",
+    "orchestration/logs/post_ucbv_selfrun_001/ucbv_integration.log"
+  ],
+  "glb": {
+    "sha256": "c165108730c1a10c8417e8235a388add988019a80bfeac7a2a8f111b19a09c29",
+    "bytes": 1602440,
+    "triangle_count": 13160,
+    "bone_count": 14,
+    "animations": 15,
+    "materials": [
+      "MAT_CozyBlush",
+      "MAT_CozyCeramic",
+      "MAT_CozyCeramic_Shade",
+      "MAT_CozyFaceSocket",
+      "MAT_CozyGlass",
+      "MAT_CozyLeaf",
+      "MAT_CozyMetal",
+      "MAT_CozyStoneWarm",
+      "MAT_CozyWood"
+    ],
+    "gardener_clips_real": [
+      "water",
+      "plant_seed",
+      "harvest",
+      "charge",
+      "low_energy"
+    ]
+  },
+  "honesty": {
+    "green_smoke_is_not_human_visual_accept": true,
+    "metadata_is_not_animation": true,
+    "prior_c1r_sha256_superseded": "e16d6af8e121879bc3080f2b64d281ee00975ef195db60b622917c28ca594b7f"
+  },
+  "residuals": {
+    "NORI7-V01": "machine redesign landed; Human visual still OPEN",
+    "NORI7-ANIM-EXPRESS": "5 gardener clips now real keys in GLB; Human expressiveness still OPEN"
+  },
+  "smoke": {
+    "ucbv_001_integration_smoke_exit": 0,
+    "note": "presenter required 10 clips still PASS; gardener 5 extra in GLB"
+  },
+  "next_owner": "HUMAN_BATCH",
+  "recorded_at": "2026-07-23T15:01:58+07:00"
+}

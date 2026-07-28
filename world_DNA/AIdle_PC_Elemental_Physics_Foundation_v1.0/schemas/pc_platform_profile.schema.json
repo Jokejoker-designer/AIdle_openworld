@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "profile_id",
+    "display_name",
+    "godot_version",
+    "renderer",
+    "target",
+    "target_fps",
+    "physics_ticks_per_second",
+    "active_chunk_radius",
+    "visual_chunk_radius",
+    "max_dynamic_bodies",
+    "max_active_reactions",
+    "max_particles",
+    "max_lights_visible",
+    "texture_tier",
+    "shadow_tier",
+    "simulation_lod",
+    "notes"
+  ],
+  "properties": {
+    "profile_id": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "godot_version": {
+      "const": "4.3"
+    },
+    "renderer": {
+      "enum": [
+        "gl_compatibility",
+        "mobile",
+        "forward_plus",
+        "headless"
+      ]
+    },
+    "target": {
+      "type": "string"
+    },
+    "target_fps": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "physics_ticks_per_second": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "active_chunk_radius": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "visual_chunk_radius": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_dynamic_bodies": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_active_reactions": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_particles": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_lights_visible": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "texture_tier": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "shadow_tier": {
+      "type": "string"
+    },
+    "simulation_lod": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "request_id": "pc_physics_water_wheel_0001",
+  "world_profile": "cozy_cyber_pixel",
+  "pc_profile_id": "pc_forward_plus_high_v1",
+  "expected_world_revision": 0,
+  "build_graph_ref": "graph_cozy_water_wheel_farm_v1",
+  "elemental_bindings": [
+    {
+      "entity_ref": "river",
+      "elements": [
+        "element_water"
+      ],
+      "physical_profile_id": "phys_water_v1"
+    },
+    {
+      "entity_ref": "water_wheel",
+      "elements": [
+        "element_wood",
+        "element_kinetic"
+      ],
+      "physical_profile_id": "phys_wood_treated_v1"
+    },
+    {
+      "entity_ref": "generator",
+      "elements": [
+        "element_metal",
+        "element_electricity"
+      ],
+      "physical_profile_id": "phys_metal_light_v1"
+    },
+    {
+      "entity_ref": "farm_plots",
+      "elements": [
+        "element_soil",
+        "element_plant",
+        "element_water"
+      ],
+      "physical_profile_id": "phys_soil_loam_v1"
+    }
+  ],
+  "force_fields": [
+    {
+      "force_id": "force_water_flow_v1",
+      "target_ref": "river",
+      "parameters": {
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "flow_strength": 0.6
+      }
+    },
+    {
+      "force_id": "force_rotation_motor_v1",
+      "target_ref": "water_wheel",
+      "parameters": {
+        "axis": [
+          0,
+          0,
+          1
+        ],
+        "target_speed": 1.2,
+        "max_torque": 0.8
+      }
+    }
+  ],
+  "reaction_rules": [
+    "react_water_wheel_kinetic_v1",
+    "react_kinetic_electricity_generator_v1",
+    "react_kinetic_pump_water_v1",
+    "react_water_crop_irrigation_v1"
+  ],
+  "system_networks": [
+    {
+      "network_id": "water_network",
+      "solver_rule": "fluid_network_flow_v1",
+      "nodes": [
+        "river",
+        "pump",
+        "farm_plots"
+      ]
+    },
+    {
+      "network_id": "energy_network",
+      "solver_rule": "energy_network_balance_v1",
+      "nodes": [
+        "generator",
+        "battery",
+        "greenhouse"
+      ]
+    }
+  ],
+  "simulation": {
+    "simulation_lod_profile": "sim_lod_pc_high_v1",
+    "deterministic_seed": 210726,
+    "preview_only": true,
+    "collision_enabled_after_commit": true
+  },
+  "validation": {
+    "schema": true,
+    "element_compatibility": true,
+    "reaction_allowlist": true,
+    "structural": true,
+    "fluid": true,
+    "thermal": true,
+    "energy": true,
+    "biological": true,
+    "performance": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  }
+}

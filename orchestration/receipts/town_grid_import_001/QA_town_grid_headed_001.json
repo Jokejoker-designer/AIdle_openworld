@@ -1,0 +1,375 @@
+{
+  "schema_version": "town_grid_headed_qa/1.0",
+  "directive_id": 99,
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "agent": "grok",
+  "role": "qa-headed",
+  "authority": "VERIFY_ONLY",
+  "accepted": false,
+  "self_accept": false,
+  "status": "QA_COMPLETE_REDO_LOOP_IN_PROGRESS",
+  "timestamp_local": "2026-07-23",
+  "mockup_ssot": "MOCKUP_SSOT_V2",
+  "vision_lock_rule": "MOCKUP_SSOT_V2 entries must visually match 100% (silhouette/palette/key details) before wave can close — see AIDLE_GAME_VISION_LOCK_001.md",
+  "verdict": {
+    "structural_cadastre": "PASS",
+    "headed_screenshot": "PASS",
+    "honest_placeholders": "PASS",
+    "art_style_recorded": "PASS",
+    "mockup_fidelity_100pct_all_real_glbs": "FAIL",
+    "wave_close_under_fidelity_law": "BLOCKED",
+    "summary": "Headed QA ran successfully: 50 plots, labels+footprints visible, 21 real GLB + 29 honest placeholders, art-style cozy_cyber_pixel, 5 PNG captures, raw Godot log attached. Under the new 100% mockup fidelity law, 0 of 21 real-GLB plots achieve 100% match to MOCKUP_SSOT_V2 concept art — gaps are flagged below; do not close the wave over them."
+  },
+  "execution": {
+    "script": "game/tests/town_grid_headed_qa_001.gd",
+    "godot": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+    "command": "Godot_v4.3-stable_win64_console.exe --path E:/AIdle_openworld/game -s res://tests/town_grid_headed_qa_001.gd",
+    "headed": true,
+    "display_server": "Windows",
+    "marker": "AIDLE_TOWN_GRID_HEADED_QA=PASS",
+    "checks_passed": 11,
+    "captures": 5,
+    "raw_godot_log_path": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v9_house16.log",
+    "raw_godot_log_path_initial_qa": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_001.log",
+    "redo_iterations_path": "E:/AIdle_openworld/orchestration/receipts/town_grid_import_001/REDO_LOOP_ITERATIONS_001.json",
+    "machine_report_path": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/headed_qa_machine_report.json",
+    "cadastre_live": "ENABLE_TOWN_GRID_CADASTRE=true in main.gd; TownCadastre mounted at origin"
+  },
+  "structural_evidence": {
+    "plots_total": 50,
+    "real_glb": 21,
+    "placeholders": 29,
+    "cast_built": 10,
+    "idle_play": 10,
+    "max_abs_xz": 11.5,
+    "coords_within_pm12": true,
+    "plot_nodes": 50,
+    "labels_present": 50,
+    "zero_new_godot_errors": true,
+    "log_notes": "Log contains normal boot banners (EventBus, ArtStyleManager, modules). Cadastre lines: [TownGrid] plots=50 real_glb=21 placeholders=29 cast=10 idle=10 max_abs=11.50 ok=true; AIDLE_TOWN_GRID_IMPORT=PASS; AIDLE_TOWN_GRID_HEADED_QA=PASS. No ERROR/SCRIPT ERROR/ASSERT in log body."
+  },
+  "art_style": {
+    "art_style_id": "cozy_cyber_pixel",
+    "world_profile_from_plan": "cozy_cyber_pixel",
+    "world_profile_from_art_manager_at_qa_time": "unknown",
+    "ui_chrome_observed": "Art: Cozy Cyber-Pixel / Dreamy Low-Poly"
+  },
+  "headed_screenshots": [
+    {
+      "id": "overview_50",
+      "path": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/town_cadastre_overview_50_1600x900.png",
+      "resolution": "1600x900",
+      "shows": "Full cadastre overview; plot footprints + Label3D text visible across districts; real GLBs and gray concept placeholders; art chrome"
+    },
+    {
+      "id": "iso_view",
+      "path": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/town_cadastre_iso_view_1600x900.png",
+      "resolution": "1600x900",
+      "shows": "Three-quarter view; HOME.BLD house + HOME.CHAR/P1/P2/P3; placeholders labeled concept-style elsewhere"
+    },
+    {
+      "id": "close_home",
+      "path": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/close_home_1280x720.png",
+      "resolution": "1280x720",
+      "shows": "HOME cluster close-up for house/cast/path/lamp/mailbox fidelity read"
+    },
+    {
+      "id": "close_greenhouse",
+      "path": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/close_greenhouse_1280x720.png",
+      "resolution": "1280x720",
+      "shows": "GREENHOUSE district cluster"
+    },
+    {
+      "id": "close_lookout",
+      "path": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/close_lookout_1280x720.png",
+      "resolution": "1280x720",
+      "shows": "LOOKOUT district cluster"
+    }
+  ],
+  "honest_placeholders": {
+    "count": 29,
+    "rule": "unauthored plots use labeled concept placeholders; no fake GLB",
+    "observed_in_headed": true,
+    "example_missing_object_ids": [
+      "cozy_workshop_A",
+      "cozy_market_stall_A",
+      "cozy_gazebo_A",
+      "cozy_well_house_A",
+      "cozy_windmill_A",
+      "cozy_barn_small_A",
+      "cozy_bridge_arch_A",
+      "cozy_watchtower_A"
+    ],
+    "note": "Missing list from live loader report matches not_in_catalog / honest placeholder path in town_grid_loader.gd"
+  },
+  "mockup_fidelity_audit_real_glb_plots": {
+    "law": "100% silhouette/palette/key-details vs MOCKUP_SSOT_V2 concept art required to close wave for that asset",
+    "method": "Headed screenshots (overview + close_home/greenhouse/lookout) compared to MOCKUP_SSOT_V2 img paths under orchestration/control/visual_reference/mockup_ssot_v2/; prior production notes (house v9, cast batch, P1E primitive modules) applied honestly",
+    "counts": {
+      "real_glb_plots": 21,
+      "match_100_pct": 0,
+      "partial_family_or_placeholder_quality": 21,
+      "not_evaluated": 0
+    },
+    "plots": [
+      {
+        "plot_id": "HOME.BLD",
+        "object_id": "cozy_house_small_A",
+        "role": "building",
+        "glb": "res://assets/p1e_cozy/modules/cozy_house_small_A.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/buildings/bld_01_house.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": [
+          "In-game house reads as white boxy mass with simplified roof; mockup is peach/yellow fish-scale clay cottage with warm windows, lilac pad, mailbox, pots",
+          "Palette washed / incomplete vs #fdf3e2 cream + roof peach/yellow of SSOT",
+          "Key details (scalloped tiles, glowing interior window scene) not visible at 100% in headed close_home"
+        ],
+        "evidence_frames": ["close_home", "iso_view", "overview_50"]
+      },
+      {
+        "plot_id": "HOME.CHAR",
+        "object_id": "CCP-RH-001",
+        "role": "character_spawn",
+        "glb": "res://assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_01_nori7.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": [
+          "Headed view shows compact pale figure near house; not full chibi robot silhouette/palette of SSOT concept card",
+          "Cast batch production path — not verified as 100% SSOT parity under fidelity law"
+        ],
+        "evidence_frames": ["close_home", "iso_view"]
+      },
+      {
+        "plot_id": "HOME.P1",
+        "object_id": "cozy_path_stone_A",
+        "role": "prop",
+        "glb": "res://assets/p1e_cozy/modules/cozy_path_stone_A.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_path_stone.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Simple flat pad geometry; SSOT concept art is more detailed stone path set"]
+      },
+      {
+        "plot_id": "HOME.P2",
+        "object_id": "cozy_garden_lamp_A",
+        "role": "prop",
+        "glb": "res://assets/p1e_cozy/modules/cozy_garden_lamp_A.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_garden_lamp.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Thin post + sphere; not full SSOT lamp silhouette/warm pulse art"]
+      },
+      {
+        "plot_id": "HOME.P3",
+        "object_id": "cozy_mailbox_A",
+        "role": "prop",
+        "glb": "res://assets/p1e_cozy/modules/cozy_mailbox_A.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_mailbox.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": [
+          "Catalog claims visual mockup_ssot_v2_prop_mailbox but headed frame does not prove 100% palette/silhouette vs prop_mailbox.jpg",
+          "Do not self-accept as 100% without dedicated side-by-side still"
+        ]
+      },
+      {
+        "plot_id": "WORKSHOP.CHAR",
+        "object_id": "CCP-NW-003",
+        "role": "character_spawn",
+        "glb": "res://assets/ucbv_001/cast/bac_bap/export/bac_bap_rigged.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_03_bacbap.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Cast batch GLB present; not 100% vs SSOT concept card under headed overview (small figure, palette not card-identical)"]
+      },
+      {
+        "plot_id": "MARKET.CHAR",
+        "object_id": "CCP-NS-002",
+        "role": "character_spawn",
+        "glb": "res://assets/ucbv_001/cast/may_mach/export/may_mach_rigged.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_02_maymach.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Same cast-batch caveat as other characters"]
+      },
+      {
+        "plot_id": "GARDEN.CHAR",
+        "object_id": "CCP-CT-004",
+        "role": "character_spawn",
+        "glb": "res://assets/ucbv_001/cast/bui_mo/export/bui_mo_rigged.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_04_buimo.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Same cast-batch caveat"]
+      },
+      {
+        "plot_id": "GARDEN.P1",
+        "object_id": "cozy_flower_cluster_A",
+        "role": "prop",
+        "glb": "res://assets/p1e_cozy/modules/cozy_flower_cluster_A.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_flower_cluster.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["P1E primitive cluster; not SSOT floral palette density"]
+      },
+      {
+        "plot_id": "GREENHOUSE.BLD",
+        "object_id": "cozy_greenhouse_A",
+        "role": "building",
+        "glb": "res://assets/p1e_cozy/modules/cozy_greenhouse_preview_anchor_A.glb",
+        "alias_note": "MODULE_ALIASES maps cozy_greenhouse_A → cozy_greenhouse_preview_anchor_A",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/buildings/bld_02_greenhouse.jpg",
+        "match_100_pct": false,
+        "score": "FAIL_ANCHOR_ONLY",
+        "gaps": [
+          "Production asset is preview_anchor, not full greenhouse building matching bld_02_greenhouse.jpg",
+          "Headed close_greenhouse does not show glasshouse silhouette of SSOT"
+        ]
+      },
+      {
+        "plot_id": "GREENHOUSE.CHAR",
+        "object_id": "SPH-RH-011",
+        "role": "character_spawn",
+        "glb": "res://assets/ucbv_001/cast/kito/export/kito_rigged.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_05_kito.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Cast batch — not 100% SSOT"]
+      },
+      {
+        "plot_id": "GREENHOUSE.P1",
+        "object_id": "cozy_farm_plot_A",
+        "role": "prop",
+        "glb": "res://assets/p1e_cozy/modules/cozy_farm_plot_A.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_farm_plot.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Simple plot mesh vs SSOT farm bed art"]
+      },
+      {
+        "plot_id": "WELL.CHAR",
+        "object_id": "OA-RG-021",
+        "role": "character_spawn",
+        "glb": "res://assets/ucbv_001/cast/nereu/export/nereu_rigged.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_06_nereu.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Cast batch — not 100% SSOT"]
+      },
+      {
+        "plot_id": "WELL.P1",
+        "object_id": "cozy_pond_small_A",
+        "role": "prop",
+        "glb": "res://assets/p1e_cozy/modules/cozy_pond_small_A.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_pond.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Disk/plane pond; not SSOT pond + edge flora"]
+      },
+      {
+        "plot_id": "WINDMILL.CHAR",
+        "object_id": "AC-CO-015",
+        "role": "character_spawn",
+        "glb": "res://assets/ucbv_001/cast/cinder/export/cinder_rigged.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_07_cinder.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Cast batch — not 100% SSOT"]
+      },
+      {
+        "plot_id": "WINDMILL.P1",
+        "object_id": "cozy_fence_section_A",
+        "role": "prop",
+        "glb": "res://assets/p1e_cozy/modules/cozy_fence_section_A.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_fence.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Brown rail section visible; not full SSOT fence art pass"]
+      },
+      {
+        "plot_id": "BARN.CHAR",
+        "object_id": "TD-CT-028",
+        "role": "character_spawn",
+        "glb": "res://assets/ucbv_001/cast/patch/export/patch_rigged.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_08_patch.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Cast batch — not 100% SSOT"]
+      },
+      {
+        "plot_id": "BARN.P2",
+        "object_id": "cozy_rock_small_A",
+        "role": "prop",
+        "glb": "res://assets/p1e_cozy/modules/cozy_rock_small_A.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_rock_small.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Primitive rock vs SSOT rock card"]
+      },
+      {
+        "plot_id": "BRIDGE.CHAR",
+        "object_id": "SV-NW-019",
+        "role": "character_spawn",
+        "glb": "res://assets/ucbv_001/cast/truc_nhi/export/truc_nhi_rigged.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_09_truc.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Cast batch — not 100% SSOT"]
+      },
+      {
+        "plot_id": "LOOKOUT.CHAR",
+        "object_id": "SPH-NG-009",
+        "role": "character_spawn",
+        "glb": "res://assets/ucbv_001/cast/luma/export/luma_rigged.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_10_luma.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Cast batch — not 100% SSOT"]
+      },
+      {
+        "plot_id": "LOOKOUT.P1",
+        "object_id": "cozy_tree_landmark_A",
+        "role": "prop",
+        "glb": "res://assets/p1e_cozy/modules/cozy_tree_landmark_A.glb",
+        "mockup_ssot_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_tree_landmark.jpg",
+        "match_100_pct": false,
+        "score": "PARTIAL",
+        "gaps": ["Simple canopy tree; not full SSOT landmark tree card"]
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "TG-QA-F01",
+      "severity": "blocking_for_wave_close_under_fidelity_law",
+      "title": "0/21 real GLB plots meet 100% MOCKUP_SSOT_V2 visual match",
+      "detail": "Standing rule requires 100% silhouette/palette/key details. Headed evidence + prior production paths show all 21 as PARTIAL or anchor-only. Wave cannot close on fidelity alone."
+    },
+    {
+      "id": "TG-QA-F02",
+      "severity": "info",
+      "title": "Structural cadastre import QA is complete",
+      "detail": "50 plots, ±12 coords, honest 29 placeholders, labels, headed screenshots, raw log path — import plumbing is verified."
+    },
+    {
+      "id": "TG-QA-F03",
+      "severity": "medium",
+      "title": "Greenhouse plot uses preview_anchor GLB",
+      "detail": "GREENHOUSE.BLD loads cozy_greenhouse_preview_anchor_A via alias — must not be claimed as SSOT greenhouse building."
+    }
+  ],
+  "purple_handoff": {
+    "recommended_state": "WAITING",
+    "reason": "QA evidence now exists (screenshots + log). Purple may re-verify headed files. Human batch accept still required. Fidelity law blocks claiming wave DONE until mockup matches are remediated or Human explicitly accepts residual risk.",
+    "do_not_self_accept": true
+  },
+  "evidence_index": {
+    "raw_godot_log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_001.log",
+    "machine_report": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/headed_qa_machine_report.json",
+    "screenshots_dir": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/",
+    "qa_script": "game/tests/town_grid_headed_qa_001.gd",
+    "claude_verify_input": "orchestration/receipts/town_grid_import_001/CLAUDE_VERIFY_001.json"
+  }
+}

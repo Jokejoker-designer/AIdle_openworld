@@ -1,0 +1,141 @@
+{
+  "catalog_version": "1.0",
+  "force_blocks": [
+    {
+      "force_id": "force_gravity_global_v1",
+      "type": "GRAVITY",
+      "parameters": {
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "strength": 1.0
+      },
+      "solver": "GODOT_PHYSICS",
+      "deterministic_contract": "DIRECTION_AND_STRENGTH"
+    },
+    {
+      "force_id": "force_gravity_region_v1",
+      "type": "GRAVITY",
+      "parameters": {
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "strength": 1.0,
+        "bounds_required": true
+      },
+      "solver": "AREA3D_FIELD",
+      "deterministic_contract": "REGION_RULE"
+    },
+    {
+      "force_id": "force_wind_directional_v1",
+      "type": "WIND",
+      "parameters": {
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "strength": 0.5,
+        "gust": 0.2
+      },
+      "solver": "RULE_PLUS_VISUAL",
+      "deterministic_contract": "SEEDED_GUST_CURVE"
+    },
+    {
+      "force_id": "force_buoyancy_simple_v1",
+      "type": "BUOYANCY",
+      "parameters": {
+        "fluid_density": 0.5,
+        "drag": 0.4
+      },
+      "solver": "SAMPLE_POINTS",
+      "deterministic_contract": "FIXED_SAMPLE_POINTS"
+    },
+    {
+      "force_id": "force_water_flow_v1",
+      "type": "FLOW",
+      "parameters": {
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "flow_strength": 0.5
+      },
+      "solver": "VECTOR_FIELD",
+      "deterministic_contract": "CHUNK_FLOW_VECTOR"
+    },
+    {
+      "force_id": "force_rotation_motor_v1",
+      "type": "MOTOR",
+      "parameters": {
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "target_speed": 1.0,
+        "max_torque": 1.0
+      },
+      "solver": "JOINT_OR_RULE",
+      "deterministic_contract": "TARGET_SPEED"
+    },
+    {
+      "force_id": "force_spring_v1",
+      "type": "SPRING",
+      "parameters": {
+        "stiffness": 0.5,
+        "damping": 0.2,
+        "rest_length": 1.0
+      },
+      "solver": "DAMPED_SPRING",
+      "deterministic_contract": "FIXED_TICK"
+    },
+    {
+      "force_id": "force_pressure_load_v1",
+      "type": "PRESSURE",
+      "parameters": {
+        "pressure_class": 0.5,
+        "surface_area": 1.0
+      },
+      "solver": "STRUCTURAL_RULE",
+      "deterministic_contract": "AGGREGATED_LOAD"
+    },
+    {
+      "force_id": "force_explosion_gameplay_v1",
+      "type": "IMPULSE",
+      "parameters": {
+        "radius_m": 5.0,
+        "impulse": 0.5,
+        "damage": 0.5
+      },
+      "solver": "RADIAL_QUERY",
+      "deterministic_contract": "SORTED_BODY_IDS"
+    },
+    {
+      "force_id": "force_magnetic_attraction_v1",
+      "type": "MAGNETIC",
+      "parameters": {
+        "strength": 0.5,
+        "range_m": 4.0
+      },
+      "solver": "RULE_BASED",
+      "deterministic_contract": "PAIR_SORTING"
+    },
+    {
+      "force_id": "force_arcane_lift_v1",
+      "type": "ARCANE_LIFT",
+      "parameters": {
+        "height_m": 8.0,
+        "speed": 1.0,
+        "energy_cost": 1.0
+      },
+      "solver": "SCRIPTED_PATH",
+      "deterministic_contract": "PATH_TIME"
+    }
+  ]
+}

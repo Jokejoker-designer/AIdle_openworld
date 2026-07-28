@@ -1,0 +1,65 @@
+{
+  "schema_version": "dna_platform_vnext/generation_request/0.1",
+  "request_id": "DNA:NORI7:20260723:001",
+  "session_id": "staging_design_session_001",
+  "actor": {
+    "player_id": "human_product_lead",
+    "authority_context": "OFFLINE_PRIVATE",
+    "preview_consent": true
+  },
+  "intent": {
+    "summary": "Assemble Nori-7 as a cozy gardener companion with real modular parts and an honest motion plan.",
+    "entity_kind": "CHARACTER",
+    "gameplay_role": "gardener companion",
+    "desired_capabilities": [
+      "follow_player",
+      "scan",
+      "water",
+      "plant_seed",
+      "harvest",
+      "express_emotion"
+    ],
+    "must_have": [
+      "Nori-7 identity CCP-RH-001",
+      "real 14-bone rig before runtime-ready",
+      "non-white readable cozy palette",
+      "real keyed signature actions"
+    ],
+    "avoid": [
+      "metadata presented as animation",
+      "direct world mutation",
+      "unregistered modules"
+    ]
+  },
+  "target_context": {
+    "world_profile": "cozy_cyber_pixel",
+    "space_id": "starter_realm_private",
+    "expected_world_revision": 0,
+    "bounds": {
+      "width": 4,
+      "depth": 4,
+      "height": 4
+    }
+  },
+  "constraints": {
+    "proposal_only": true,
+    "catalog_only_runtime_refs": true,
+    "no_generated_code": true,
+    "allow_asset_requests": true,
+    "public_publish": false,
+    "network_mode": "OFFLINE_ONLY"
+  },
+  "budgets": {
+    "max_modules": 8,
+    "max_materials": 8,
+    "max_bones": 14,
+    "max_animation_actions": 10,
+    "performance_class": "M"
+  },
+  "output_mode": "UNIVERSAL_ENTITY_RECIPE",
+  "provenance": {
+    "source_prompt_sha256": "7ea1c1b7aa9c9c6f1c8e9c13f030be86db1b9e6ef1f0cb23a5affda5116821dc",
+    "parent_request_ids": []
+  },
+  "payload_fingerprint": "c8523019eff1d87f781300988d9ab2a66c09e7776aec336b769df59bc722daf3"
+}

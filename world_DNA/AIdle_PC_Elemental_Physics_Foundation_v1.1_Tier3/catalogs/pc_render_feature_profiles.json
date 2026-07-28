@@ -1,0 +1,75 @@
+{
+  "catalog_version": "1.0",
+  "profiles": [
+    {
+      "render_profile_id": "render_pc_compatibility_v1",
+      "renderer": "gl_compatibility",
+      "features": {
+        "taa": false,
+        "ssao": false,
+        "ssil": false,
+        "volumetric_fog": false,
+        "lightmap_gi": true,
+        "particles": "REDUCED",
+        "decals": "LIMITED"
+      },
+      "fallback": {
+        "water": "simple_shader",
+        "gi": "baked_lightmap"
+      }
+    },
+    {
+      "render_profile_id": "render_pc_mobile_balanced_v1",
+      "renderer": "mobile",
+      "features": {
+        "taa": false,
+        "ssao": "LOW",
+        "ssil": false,
+        "volumetric_fog": false,
+        "lightmap_gi": true,
+        "particles": "BALANCED",
+        "decals": "BALANCED"
+      },
+      "fallback": {
+        "water": "medium_shader",
+        "gi": "baked_plus_probes"
+      }
+    },
+    {
+      "render_profile_id": "render_pc_forward_plus_high_v1",
+      "renderer": "forward_plus",
+      "features": {
+        "taa": true,
+        "ssao": "HIGH",
+        "ssil": "MEDIUM",
+        "volumetric_fog": "MEDIUM",
+        "lightmap_gi": true,
+        "particles": "HIGH",
+        "decals": "HIGH",
+        "variable_rate_shading": "OPTIONAL"
+      },
+      "fallback": {
+        "water": "advanced_shader",
+        "gi": "project_selected"
+      }
+    },
+    {
+      "render_profile_id": "render_pc_forward_plus_ultra_v1",
+      "renderer": "forward_plus",
+      "features": {
+        "taa": true,
+        "ssao": "ULTRA",
+        "ssil": "HIGH",
+        "volumetric_fog": "HIGH",
+        "lightmap_gi": true,
+        "particles": "ULTRA",
+        "decals": "ULTRA",
+        "variable_rate_shading": "OPTIONAL"
+      },
+      "fallback": {
+        "water": "advanced_shader",
+        "gi": "high_quality_profile"
+      }
+    }
+  ]
+}

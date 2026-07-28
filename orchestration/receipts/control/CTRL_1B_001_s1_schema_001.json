@@ -1,0 +1,286 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-001-s1-schema-001-2026-07-22",
+  "step_id": "CTRL-1B-001-s1-schema-001",
+  "work_order_id": "WO-CTRL-1B-001-CONTEXT-A11Y-CONTRACT",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-001-CONTEXT-A11Y-CONTRACT.md",
+  "directive_id": 56,
+  "directive_supersedes": 55,
+  "milestone": "Control 1B context and accessibility contract",
+  "agent_id": "aidle-schema",
+  "agent_type": "schema",
+  "profile_name": "aidle-schema",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+  "profile_sha256": "6e82036136eb462cf07d37304a1aec812cdf21b9ddff479bc8ffa8e3d8373777",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "contract files only — no Godot product/test/scene patch",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:55e8ca627c0842a6aa9200c3cbd2b45d4680367ee99d3e2a2b795d528ca19fe0",
+  "input_context_hash_16": "55e8ca627c0842a6",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-001 + CONTROL_IMPLEMENTATION_MAP + CTRL_1B_001_a0_a11y_001.json + schema.md + agent_step_contract.schema.json + codex_directive.json",
+  "status": "WAITING_CODEX",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "S1_CONTROL_1B_CONTRACT_DRAFTED_NO_ACCEPT",
+  "verdict_detail": "Drafted versioned fail-closed Control 1B acceptance contract + JSON Schema + 1 valid fixture + 12 invalid suite cases from Blueprint §2/§15–§20, CONTROL_IMPLEMENTATION_MAP 1B gates, and A0 gap matrix (22 key gaps). No Godot product/test/scene patch. CTRL-1B-002 not started. accepted=false.",
+  "child_task_ref": "019f869f-21c3-7513-9d70-c91361eae08a",
+  "transcript_ref": "019f869f-21c3-7513-9d70-c91361eae08a",
+  "writer_transcript_ref": "019f869f-21c3-7513-9d70-c91361eae08a",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f869a-55bb-7210-b2e7-4396cb276a41",
+  "next_owner": "CODEX",
+  "next_route": "CODEX_REVIEW_CONTROL_1B_CONTRACT",
+  "character_binding": {
+    "trustlayer": "devil-advocate",
+    "trustlayer_file": "E:/agents/characters/14-devil-advocate.md",
+    "trustlayer_sha256": "21b9193731c92a623e5b5837f364d61f24cea1a7cb2189c20cb84e77f89ba125",
+    "trustlayer_lines_loaded": 52,
+    "ui": "ui-brief-writer",
+    "ui_file": "E:/agents/ui-design/characters/02-ui-brief-writer.md",
+    "ui_sha256": "52ad2986accd81c93fb2630ed07a2f1732edb637df875d1e1884e27769262b5c",
+    "ui_lines_loaded": 49,
+    "role": "S1 falsifiable Control 1B contract draft (PATCH_DRAFT contracts only; devil-advocate non-claims; ui-brief acceptance criteria)"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, WO, directive, schema, character cards, skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "lines": 46,
+      "eof_tail": "No production destructive tests, no exfil, no auto-merge, no unredacted public reports, no exceeding authority, no inventing evidence.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "lines": 53,
+      "eof_tail": "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "lines": 36,
+      "eof_tail": "Full protocol: `E:\\shared\\LOOP.md`",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "lines": 65,
+      "eof_tail": "Docs: `E:\\agents\\projects\\README.md`",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "lines": 1123,
+      "eof_tail": "Your goal is to produce a trustworthy, testable result; understand why it is trustworthy; preserve validated learning when authorized; and make the next relevant task better than the last one.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "od-design-brief",
+      "mode": "ROUTED",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/od-design-brief/SKILL.md",
+      "sha256": "ddcb70ae1ba4688ee948a3a0f8d3fb7888ad89a49d3e71c2e97661de7d81ae5b",
+      "lines": 252,
+      "eof_tail": "This transparency prevents silent assumptions from propagating into the final design.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "od-reference-design-contract",
+      "mode": "ROUTED",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/od-reference-design-contract/SKILL.md",
+      "sha256": "8b5e62a123a180e5f1b8e0b7f97605d257f85bf0a2b0ca7f8c7475b54e007775",
+      "lines": 130,
+      "eof_tail": "first, then hand off to the appropriate artifact skill in the next step.",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/input_context.schema.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_s1_schema_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-s1-schema-001.log"
+  ],
+  "product_writes": [
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/input_context.schema.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json"
+  ],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_s1_schema_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-s1-schema-001.log"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/input_context.schema.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_s1_schema_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-s1-schema-001.log"
+  ],
+  "files_written_hashes": {
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md": "51300e91a4268ebece96c9e602388c174da978c83182d6b012eed9f86e110ec2",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/input_context.schema.json": "c85d68b5f94c83c3e17e2d328af8d6f1ba637a759a12f2e39c35c42c30a245f6",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json": "d707bb32c43c005948599987fffa782d9206fb6ac2e04a623820d8b58427200a",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json": "c9d277fd0b2d13560fd60c1657b01d189450c7c39bd43dc91f6ec99c0e021aff"
+  },
+  "no_godot_product_patch": true,
+  "no_game_patch": true,
+  "no_test_patch": true,
+  "no_scene_patch": true,
+  "no_character_foundry": true,
+  "no_ctrl_1b_002": true,
+  "no_network_install_push_deploy": true,
+  "contract_artifacts": {
+    "contract_version": "1.0.0",
+    "contract_id": "control-1b-input-context",
+    "acceptance_contract_md": "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "schema_path": "E:/AIdle_openworld/orchestration/contracts/control_1b/input_context.schema.json",
+    "valid_fixture_path": "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json",
+    "invalid_fixture_path": "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json",
+    "valid_fixture_count": 1,
+    "invalid_fixture_case_count": 12,
+    "contexts_defined": [
+      "exploration",
+      "companion",
+      "build",
+      "inspect",
+      "world_tool"
+    ],
+    "action_catalog_count": 46,
+    "required_hotkey_gates": [
+      "C1B-HK-01",
+      "C1B-HK-02",
+      "C1B-HK-03",
+      "C1B-HK-04",
+      "C1B-HK-05",
+      "C1B-HK-06",
+      "C1B-HK-07",
+      "C1B-HK-08",
+      "C1B-HK-09"
+    ],
+    "headed_checklist_items": 33,
+    "a0_findings_mapped": true
+  },
+  "result": {
+    "status": "WAITING_CODEX",
+    "verdict": "S1_CONTROL_1B_CONTRACT_DRAFTED_NO_ACCEPT",
+    "contract_version": "1.0.0",
+    "valid_fixture_count": 1,
+    "invalid_fixture_case_count": 12,
+    "product_implementation_started": false,
+    "ctrl_1b_002_started": false,
+    "self_accept": false,
+    "accepted": false,
+    "summary": "Control 1B acceptance contract defines five Input Contexts, closed action catalog, conflict rules, Esc priority, HUD max 4, a11y suite, safety pipeline, fixtures, and headed checklist for later Blue. Schema validation: valid fixture 0 errors; invalid suite root rejected."
+  },
+  "smoke_test": {
+    "executed": true,
+    "method": "python jsonschema Draft202012Validator against input_context.schema.json",
+    "valid_fixture_errors": 0,
+    "valid_fixture_pass": true,
+    "invalid_suite_as_document_errors": 12,
+    "invalid_suite_rejected_as_catalog_doc": true,
+    "inv01_unknown_context_rejected": true,
+    "inv10_unknown_field_rejected": true,
+    "godot_runtime_executed": false,
+    "reason_no_godot": "PATCH_DRAFT contracts only — no product smoke authorized in WO-CTRL-1B-001 S1",
+    "exit_code": 0,
+    "pass": true
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "patch_draft_contracts_only": true,
+    "no_godot_product_patch": true,
+    "no_game_directory_writes": true,
+    "no_character_foundry": true,
+    "no_ctrl_1b_002_implementation": true,
+    "exclusive_lease_only": true,
+    "files_written_count": 6,
+    "writer_lease_count": 6,
+    "product_writes_count": 4,
+    "evidence_writes_count": 2,
+    "undeclared_temps": false,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "child_task_ref_is_real_uuid": true,
+    "prior_wave_linked": true,
+    "bootstrap_manual": true,
+    "no_network_install_push_deploy": true,
+    "no_second_wave_beyond_s1": true
+  },
+  "evidence_refs": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_s1_schema_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-s1-schema-001.log",
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/input_context.schema.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_a0_a11y_001.json",
+    "E:/AIdle_openworld/Control/CONTROL_IMPLEMENTATION_MAP.md",
+    "E:/AIdle_openworld/Control/AIdle Keyboard & Mouse Control Blueprint.docx",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f869f-21c3-7513-9d70-c91361eae08a/meta.json"
+  ],
+  "child_meta": {
+    "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f869f-21c3-7513-9d70-c91361eae08a/meta.json",
+    "meta_sha256": "4fc6cb6859325e60cf4d2a053c27c1b0eeedd3c39b9f2d7f018f58d13f3e90fd",
+    "description": "S1 Control 1B contract",
+    "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "child_session_id": "019f869f-21c3-7513-9d70-c91361eae08a"
+  },
+  "sources_used": [
+    {
+      "path": "E:/AIdle_openworld/Control/AIdle Keyboard & Mouse Control Blueprint.docx",
+      "sha256": "7985470D14B0CACE25AA4EC46981FB8D5096B27369D6122B57591404AB73B8FF",
+      "method": "docx zip extract word/document.xml text via Python"
+    },
+    {
+      "path": "E:/AIdle_openworld/Control/CONTROL_IMPLEMENTATION_MAP.md",
+      "sha256": "554b4bff81825ec1c1e751e7b131cd7106140969c61af8483794a25e1d1c4ee9"
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_a0_a11y_001.json",
+      "child_task_ref": "019f869a-55bb-7210-b2e7-4396cb276a41",
+      "verdict": "A0_CONTROL_A11Y_AUDIT_COMPLETE_NO_ACCEPT"
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+      "directive_id": 56
+    }
+  ],
+  "contract_validation": {
+    "schema_path": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "schema_sha256": "7956f32a7ffe9173c226e60857cfb9dc3d9d5de4810369fe2ae7f571abd4d2e7",
+    "required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "authority_token_enum_ok": true,
+    "method": "manual required-field + type + authority_token enum check"
+  }
+}

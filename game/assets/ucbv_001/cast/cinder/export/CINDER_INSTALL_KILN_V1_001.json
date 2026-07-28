@@ -1,0 +1,30 @@
+{
+  "receipt_id": "CINDER_INSTALL_KILN_V1_001",
+  "job": "CINDER_EMBER_KILN_UPGRADE_V1_INSTALL",
+  "date": "2026-07-25",
+  "character_id": "AC-CO-015",
+  "slug": "cinder",
+  "source_package": "E:\\AIdle_openworld\\game\\assets\\ucbv_001\\cast\\cinder\\export\\Cinder_Ember_Kiln_Upgrade_v1",
+  "installed_path": "E:\\AIdle_openworld\\game\\assets\\ucbv_001\\cast\\cinder\\export\\cinder_rigged.glb",
+  "glb_sha256": "dc40f0ac66cdbede00b0615a9b696c3c3f9253508bc781cd62d14c0ee319f6de",
+  "bytes": 665496,
+  "backup_path": "cinder_rigged.glb.bak_pre_v1_kiln",
+  "anim_count": 24,
+  "animations": [
+    "build_place", "build_place_hold", "cancel", "confirm", "happy", "idle",
+    "scan", "turn_left", "turn_right", "walk", "run", "greet", "hammer_loop",
+    "pick_up", "carry_crate", "charge_ember", "shutdown", "talk_A", "talk_B",
+    "stoke_fire", "put_down", "overheat", "cooldown", "wake_up"
+  ],
+  "auto_roam": true,
+  "roam_profile": "kiln_worker",
+  "town_plot": "WINDMILL.CHAR",
+  "also_fixed": {
+    "bui_mo_walk": "garden_cat locomotion hard-prefers clip=walk; play_clip restarts + forces LOOP_LINEAR"
+  },
+  "headless_smoke": {
+    "town_grid": "PASS cast=10",
+    "bui_mo": "walk→south_loop clip=walk ok=true",
+    "cinder": "walk→crate_yard clip=carry_crate ok=true profile=kiln_worker plant=-0.55"
+  }
+}

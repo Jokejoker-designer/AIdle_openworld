@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_P2E-001_MACHINE_REVIEW_001",
+  "reviewed_at": "2026-07-22T13:25:00+07:00",
+  "reviewed_by": "codex",
+  "task_id": "P2E-001",
+  "directive_id": 70,
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "scope": "first playable offline Block Assembly preview slice only",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "child_lineage": {
+    "A0": "019f8854-9d26-7663-93c3-11e68a2cb537",
+    "A1": "019f8858-18aa-7970-a9d5-216a28c17ffa",
+    "A2": "019f8867-27b7-7e50-a78a-c7c606a0c363",
+    "A3": "019f886b-3873-7e90-ae93-1ff0ecb7a605",
+    "A4": "019f8871-2f68-7d93-86ec-83b507666b19",
+    "A5": "019f887b-36cb-7d02-9dde-f9b6d4209352"
+  },
+  "machine_passes": {
+    "block_dna_validator": "14/14 valid and 42/42 invalid",
+    "p2e_core_smoke": "PASS checks=14",
+    "p2e_authority_smoke": "PASS checks=8",
+    "p2e_qr_context_smoke": "PASS checks=8",
+    "control_router_smoke": "PASS checks=16",
+    "evidence_dimensions": "12/12 images at the required 1280x720 and 868x517 sizes",
+    "evidence_hashes": "12/12 SHA-256 values distinct",
+    "worker_acceptance_state": "all accepted=false and self_accept=false"
+  },
+  "blocking_findings": [
+    {
+      "id": "P2E-CODEX-F01",
+      "severity": "P1",
+      "finding": "A1_runtime_implementation_001.json fails agent_step_contract.schema.json because smoke_test and self_audit are missing.",
+      "evidence": "Draft202012Validator: 2 errors",
+      "required": "A corrected superseding A1 receipt must validate with zero errors and preserve the original invalid receipt unchanged."
+    },
+    {
+      "id": "P2E-CODEX-F02",
+      "severity": "P1",
+      "finding": "The headed gate violates the work order's zero-ERROR rule.",
+      "evidence": "godot_headed.log and runner.log contain RendererRD RID leak and RenderingServer::get_singleton() null ERROR lines at exit.",
+      "required": "A fresh headed run must contain zero ERROR, USER ERROR, SCRIPT ERROR and parse errors, including teardown."
+    },
+    {
+      "id": "P2E-CODEX-F03",
+      "severity": "P1",
+      "finding": "The evidence is not a playable UI proof because module selection was injected through main.get_block_assembly().select_module.",
+      "evidence": "A4 receipt and log explicitly disclose API injection; no player-facing module picker exists.",
+      "required": "Expose an allowlisted module selection flow through normal player input and capture it without direct API injection."
+    },
+    {
+      "id": "P2E-CODEX-F04",
+      "severity": "P1",
+      "finding": "Build-context R does not yet prove camera isolation in the real headed flow.",
+      "evidence": "build_preview_R_1280x720.png reports camera_yaw_unchanged=false; A4 records F-A4-01.",
+      "required": "Real-input headed evidence must show Exploration R rotates the camera and Build R rotates only the preview with camera yaw exactly unchanged and no dual fire."
+    },
+    {
+      "id": "P2E-CODEX-F05",
+      "severity": "P2",
+      "finding": "The Block Assembly HUD is not acceptance-ready.",
+      "evidence": "Visual inspection shows diagnostic text overlays and crowded bottom controls; no plain-language selected module, snap state, validity reason and usable confirm/cancel presentation.",
+      "required": "Provide a responsive, discoverable text UI with no clipping or overlap at both required resolutions."
+    },
+    {
+      "id": "P2E-CODEX-F06",
+      "severity": "P2",
+      "finding": "The idempotency key can freeze after an intermediate invalid submission.",
+      "evidence": "A3 F-A3-02 and A5 residual summary.",
+      "required": "An invalid attempt must not poison the corrected valid payload; successful replay remains idempotent and changed payload after accepted submit rejects."
+    }
+  ],
+  "non_acceptance_notes": [
+    "Purple wording is not machine acceptance.",
+    "The twelve screenshots are distinct and dimension-correct but do not close playability or clean-log gates.",
+    "Red F01 remains a hard stop before any networked work or shipping.",
+    "No P2E successor, DNA v1.2 or Tier 3 work is authorized."
+  ],
+  "next_work_order": "orchestration/work_orders/WO-P2E-001-PLAYABILITY-CORRECTION-001.md"
+}

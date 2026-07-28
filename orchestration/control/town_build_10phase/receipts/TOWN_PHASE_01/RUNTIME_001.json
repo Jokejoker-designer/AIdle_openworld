@@ -1,0 +1,31 @@
+{
+  "schema_version": "town_phase_receipt/1.0",
+  "phase_id": "TOWN_PHASE_01",
+  "district_id": "home_plot",
+  "timestamp": "2026-07-23",
+  "agent": "grok",
+  "verdict": "RUNTIME_OK_PARITY_PENDING",
+  "parity_ok": false,
+  "runtime_usable": true,
+  "evidence": {
+    "smoke": "AIDLE_TOWN_LAYOUT_SMOKE=RUNTIME_OK_PARITY_PENDING",
+    "chars_built": 1,
+    "modules_built": 3,
+    "idle_play": 1,
+    "missing": [
+      {
+        "id": "cozy_mailbox_A",
+        "kind": "prop",
+        "phase": 1
+      }
+    ]
+  },
+  "loaded": {
+    "character": "CCP-RH-001",
+    "building": "cozy_house_small_A",
+    "props": ["cozy_path_stone_A", "cozy_garden_lamp_A"]
+  },
+  "self_accept": false,
+  "accepted": false,
+  "next": "Author cozy_mailbox_A GLB → catalog → re-smoke → MOCKUP_PARITY_100"
+}

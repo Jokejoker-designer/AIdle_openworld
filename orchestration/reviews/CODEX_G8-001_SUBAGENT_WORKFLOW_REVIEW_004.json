@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-G8-001-SUBAGENT-WORKFLOW-REVIEW-004",
+  "task_id": "G8-001",
+  "reviewed_directive_id": 24,
+  "reviewed_at": "2026-07-21T08:27:00+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "verdict": "CHANGES_REQUESTED",
+  "classification": "WORKFLOW_AND_EVIDENCE_PROVENANCE_FAILURE",
+  "accepted": false,
+  "product_patch_disposition": "PRESERVE_AS_UNACCEPTED_DRAFT",
+  "evidence": [
+    "The Grok Desktop parent directly edited product and headed-harness files during Directive 24.",
+    "No active Grok child task was visible while the parent was patching.",
+    "All eight C003 receipts were written within a 4.0965 millisecond span with no durable child task or transcript reference.",
+    "The receipts share one truncated context hash and one monolithic runner log; the claimed C0 through C7 log anchors have no matching markers.",
+    "Character and skill names inside a receipt do not prove that an installed subagent actually executed the step."
+  ],
+  "decision": [
+    "Keep the Directive 24 code and evidence intact so real workers can adopt, verify and minimally correct it.",
+    "Do not use the C003 receipts as acceptance evidence until replaced by receipts produced by real Grok Desktop child tasks.",
+    "The parent is coordinator-only for the remediation and may not patch product or test files.",
+    "Every replacement receipt must bind an installed profile, TrustLayer character, UI character, exact skills and a durable child task/transcript reference."
+  ],
+  "next_work_order": "orchestration/work_orders/WO-G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004.md"
+}

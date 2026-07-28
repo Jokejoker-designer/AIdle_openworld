@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "module_id",
+    "display_name",
+    "domain",
+    "category",
+    "world_profiles",
+    "geometry_family",
+    "socket_inputs",
+    "socket_outputs",
+    "material_slots",
+    "behavior_blocks",
+    "performance_class",
+    "authoring_mode",
+    "lod_policy",
+    "collision_policy",
+    "status"
+  ],
+  "properties": {
+    "module_id": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "world_profiles": {
+      "type": "array"
+    },
+    "geometry_family": {
+      "type": "string"
+    },
+    "socket_inputs": {
+      "type": "array"
+    },
+    "socket_outputs": {
+      "type": "array"
+    },
+    "material_slots": {
+      "type": "array"
+    },
+    "skeleton_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "animation_set_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "behavior_blocks": {
+      "type": "array"
+    },
+    "vfx_blocks": {
+      "type": "array"
+    },
+    "audio_blocks": {
+      "type": "array"
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "performance_class": {
+      "enum": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    },
+    "authoring_mode": {
+      "type": "string"
+    },
+    "lod_policy": {
+      "type": "string"
+    },
+    "collision_policy": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

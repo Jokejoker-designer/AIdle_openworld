@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-c0-runtime-correction-002-2026-07-22",
+  "step_id": "CTRL-1B-002-c0-runtime-correction-002",
+  "work_order_id": "WO-CTRL-1B-002-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-CORRECTION-001.md",
+  "directive_id": 59,
+  "directive_supersedes": 58,
+  "milestone": "Control 1B C0 runtime correction — close H-03/07/12/17/19/20/26/28 + A3-F09/F10",
+  "agent_id": "aidle-worldgen-godot-runtime",
+  "agent_type": "aidle-worldgen-godot-runtime",
+  "profile_name": "aidle-worldgen-godot-runtime",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-godot-runtime.md",
+  "profile_sha256": "220c643ab23e3d62de8252cfdfc75f8c8f99db383bfc69235ab4e25c5d5a22b9",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "exclusive lease only — C0 runtime correction product/test writer for listed game scripts/tests + new control_1b_* UI; exclusive evidence receipt/log; no contract/fixture edit; no D58 receipt rewrite; no Character Foundry/World2/persistence/network/World Commit authority",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:866d88556a3e25d028703dff368ebaae265ade468f7a3ca4f9eb63f16c15a48d",
+  "input_context_hash_16": "866d88556a3e25d0",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002-CORRECTION-001.md + CONTROL_1B_ACCEPTANCE_CONTRACT.md + aidle-worldgen-godot-runtime.md",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C0_RUNTIME_CORRECTION_COMPLETE_NO_ACCEPT",
+  "verdict_detail": "Closed product blockers H-03, H-07, H-12, H-17, H-19, H-20, H-26, H-28 and A3-F09, A3-F10 under PATCH_DRAFT exclusive lease. Added control_1b_inspect_panel (read-only provenance), control_1b_proposal_card (Companion understanding → proposal-only card), control_1b_cursor_label (cursor_size_scale + action_label_near_cursor runtime consumer). Wired prompt_send/prompt_newline, full foundation remap catalog, generalized confirmation-hold (not demo-only), confirm handoff-only path without client World Commit, Q/build_rotate_left smoke, observable camera sensitivity, responsive 868x517 bottom-layer lift. Integration smoke PASS checks=25 exit 0 ERROR_LINE_COUNT=0; headed dry-run PASS checks=37 exit 0 ERROR_LINE_COUNT=0. accepted=false; self_accept=false; next_owner=Q1_QA.",
+  "child_task_ref": "019f86ee-11d9-7363-ae7b-db36d1d69801",
+  "transcript_ref": "019f86ee-11d9-7363-ae7b-db36d1d69801",
+  "writer_transcript_ref": "019f86ee-11d9-7363-ae7b-db36d1d69801",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_session_dir": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f86ee-11d9-7363-ae7b-db36d1d69801",
+  "historical_mismatches": [
+    {
+      "wave": "B1",
+      "receipt_child_task_ref": "e85e1802-24f4-41a1-9968-8371bd39317d",
+      "durable_child_task_ref": "019f86ca-008a-7bd2-ba32-3c5ec9858e51",
+      "immutable": true,
+      "note": "Do not rewrite D58 receipts; recorded as historical lineage evidence only."
+    },
+    {
+      "wave": "Q2",
+      "receipt_child_task_ref": "2b857b73-3622-49ef-8747-4974b05b6ce6",
+      "durable_child_task_ref": "019f86d6-91f6-7091-9456-0c3da2173af7",
+      "immutable": true,
+      "note": "Do not rewrite D58 receipts; recorded as historical lineage evidence only."
+    }
+  ],
+  "prior_review": "orchestration/reviews/CODEX_CTRL-1B-002_MACHINE_REVIEW_001.json",
+  "prior_review_sha256": "62a5c8a72f00b324ebaa980192f1b45b21fa42d7a1ebc77a7ee201c139013bd5",
+  "next_owner": "Q1_QA",
+  "next_route": "Q1_QA",
+  "character_binding": {
+    "trustlayer": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "ui": "ui-app-dashboard",
+    "ui_file": "E:/agents/ui-design/characters/08-ui-app-dashboard.md",
+    "ui_sha256": "20ab5ba77ed1fd3f410de284f70d27ca1b7379a5c0d00c0f3a83eef11d5f990d",
+    "role": "C0 Godot runtime correction (PATCH_DRAFT exclusive lease; no self-accept)"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded profile, WO-CTRL-1B-002-CORRECTION-001, CODEX machine review, CONTROL_1B_ACCEPTANCE_CONTRACT, character cards, and skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/game/scripts/main/main.gd",
+    "E:/AIdle_openworld/game/scripts/player/player_controller.gd",
+    "E:/AIdle_openworld/game/scripts/camera/cozy_camera.gd",
+    "E:/AIdle_openworld/game/scripts/modules/companion/companion_chat_panel.gd",
+    "E:/AIdle_openworld/game/scripts/modules/executor/headed_demo_flow.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+    "E:/AIdle_openworld/game/scripts/ui/control_settings_panel.gd",
+    "E:/AIdle_openworld/game/scripts/ui/context_action_hud.gd",
+    "E:/AIdle_openworld/game/scripts/ui/hud.gd",
+    "E:/AIdle_openworld/game/scenes/ui/hud.tscn",
+    "E:/AIdle_openworld/game/scenes/ui/control_settings_panel.tscn",
+    "E:/AIdle_openworld/game/tests/control_1b_integration_smoke.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_headed_smoke.gd",
+    "E:/AIdle_openworld/game/scripts/ui/control_1b_inspect_panel.gd",
+    "E:/AIdle_openworld/game/scripts/ui/control_1b_proposal_card.gd",
+    "E:/AIdle_openworld/game/scripts/ui/control_1b_cursor_label.gd",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_c0_runtime_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-c0-runtime-correction-002.log"
+  ],
+  "product_writes": [
+    "E:/AIdle_openworld/game/scripts/main/main.gd",
+    "E:/AIdle_openworld/game/scripts/camera/cozy_camera.gd",
+    "E:/AIdle_openworld/game/scripts/modules/companion/companion_chat_panel.gd",
+    "E:/AIdle_openworld/game/scripts/modules/executor/headed_demo_flow.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+    "E:/AIdle_openworld/game/scripts/ui/control_settings_panel.gd",
+    "E:/AIdle_openworld/game/scripts/ui/context_action_hud.gd",
+    "E:/AIdle_openworld/game/scripts/ui/hud.gd",
+    "E:/AIdle_openworld/game/scripts/ui/control_1b_inspect_panel.gd",
+    "E:/AIdle_openworld/game/scripts/ui/control_1b_proposal_card.gd",
+    "E:/AIdle_openworld/game/scripts/ui/control_1b_cursor_label.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_integration_smoke.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_headed_smoke.gd"
+  ],
+  "product_write_sha256": {
+    "game/scripts/main/main.gd": "46ca75f52570c1bd0752f9c9caa8f1d78a6f3d97fd6da39629861bc71f3e0799",
+    "game/scripts/camera/cozy_camera.gd": "d11d4a251a704d1f6ad3dc616b4fba3f06069e59f27bc45d5e1928dbf6f839f6",
+    "game/scripts/modules/companion/companion_chat_panel.gd": "6a6f79c28e777d2e1a52a606b0cd77c54baa0e1c67ed6f0e142dabdcf408aeec",
+    "game/scripts/modules/executor/headed_demo_flow.gd": "c9d8217ef6a4a9290805905dc5978ccba3abaac5cd53b7288629b7c4e10160f8",
+    "game/scripts/modules/manifestation/manifestation_instance.gd": "914d452be8f62566cbff6702b4aeeb7041fce059004da98f086f4c87fb0e1c0f",
+    "game/scripts/ui/control_settings_panel.gd": "fc2e1cd57983b56386197f768aff86cbcb876294f5790cf43567a876ecb31a49",
+    "game/scripts/ui/context_action_hud.gd": "410bcd8885a850c70992e0aa2777fe58de82d5a9e683c3582057ce2f90cdda8e",
+    "game/scripts/ui/hud.gd": "c7b74821f7a7f3815bb9ef2ae521edbdbb62b8ab2139556175f3166d2aaf714e",
+    "game/scripts/ui/control_1b_inspect_panel.gd": "911eb2b0d9241c5a3d1422f2f45a201937fc9aa85b1ece573fbf24a407dd2601",
+    "game/scripts/ui/control_1b_proposal_card.gd": "caf57b5fd06c694a14eeb74073729a74694a8634ace555099f798a4b5c5d36b5",
+    "game/scripts/ui/control_1b_cursor_label.gd": "a6e1ab95fee0bb38da8059f2e507bbf45a5b1b55824134115286049c5eba540b",
+    "game/tests/control_1b_integration_smoke.gd": "5f98c15038a68ed4189b9f844320b47fdb099e45c9f732604098e2234852db82",
+    "game/tests/control_1b_headed_smoke.gd": "00e7ddb7d61aee099cc7c03d977a070f4a7aad9f66036d8030f220892cbf7036"
+  },
+  "contract_writes": [],
+  "fixture_writes": [],
+  "no_contract_patch": true,
+  "no_fixture_patch": true,
+  "no_d58_receipt_rewrite": true,
+  "no_world_commit_authority": true,
+  "findings_closed": [
+    {
+      "id": "H-03",
+      "status": "CLOSED_PRODUCT",
+      "summary": "Ctrl+Enter prompt_send sends; Shift+Enter prompt_newline inserts newline and never sends; plain Enter no longer sole send path.",
+      "evidence": ["companion_chat_panel.gd:send_current_input/insert_newline", "main.gd prompt_newline branch", "integration H-03_prompt_send_vs_newline", "headed H-03"]
+    },
+    {
+      "id": "H-07",
+      "status": "CLOSED_PRODUCT",
+      "summary": "Inspect opens read-only provenance surface; durable_mutation=false.",
+      "evidence": ["control_1b_inspect_panel.gd", "main.gd:_open_inspect_panel", "integration H-07", "headed H-07"]
+    },
+    {
+      "id": "H-12",
+      "status": "CLOSED_PRODUCT",
+      "summary": "Q/build_rotate_left rotates hologram left in Build only; exploration rejects.",
+      "evidence": ["main.gd build_rotate_left dispatch", "integration H-12_q_build_rotate_left", "headed H-12"]
+    },
+    {
+      "id": "H-17",
+      "status": "CLOSED_PRODUCT",
+      "summary": "Companion understanding surfaces structured Proposal Card (proposal_only; never direct mutation).",
+      "evidence": ["control_1b_proposal_card.gd", "companion_chat_panel.gd:_on_proposal_ready", "integration H-17", "headed H-17"]
+    },
+    {
+      "id": "H-19",
+      "status": "CLOSED_PRODUCT",
+      "summary": "confirmation-hold 0 immediate; hold>=0.8 cannot confirm early; significant-confirm path not demo-only.",
+      "evidence": ["main.gd:_begin_confirm_hold/_has_significant_confirm_target", "integration H-19", "headed H-19"]
+    },
+    {
+      "id": "H-20",
+      "status": "CLOSED_PRODUCT",
+      "summary": "Confirm emits validated commit handoff only; cancel leaves no durable collision; collision only at complete; client_world_commit=false.",
+      "evidence": ["headed_demo_flow.gd:confirm_pending", "manifestation_instance.gd:finalize_complete", "integration H-20", "headed H-20"]
+    },
+    {
+      "id": "H-26",
+      "status": "CLOSED_PRODUCT",
+      "summary": "Mouse sensitivity has observable bounded effect on camera zoom step.",
+      "evidence": ["cozy_camera.gd:get_zoom_step/apply_zoom_in_step", "integration H-26", "headed H-26"]
+    },
+    {
+      "id": "H-28",
+      "status": "CLOSED_PRODUCT",
+      "summary": "cursor_size_scale applied via runtime cursor proxy/custom cursor; large scale readable.",
+      "evidence": ["control_1b_cursor_label.gd", "integration H-28", "headed H-28"]
+    },
+    {
+      "id": "A3-F09",
+      "status": "CLOSED_PRODUCT",
+      "summary": "Settings UI exposes complete remappable Control 1B foundation catalog (45 actions).",
+      "evidence": ["control_settings_panel.gd:_remappable_catalog_actions", "integration A3-F09", "headed A3-F09"]
+    },
+    {
+      "id": "A3-F10",
+      "status": "CLOSED_PRODUCT",
+      "summary": "action_label_near_cursor has real runtime consumer (control_1b_cursor_label).",
+      "evidence": ["control_1b_cursor_label.gd", "integration H-28/A3-F10", "headed H-28"]
+    }
+  ],
+  "responsive_fix": {
+    "target": "868x517 bottom action/help layers",
+    "changes": [
+      "context_action_hud compact lift above action bar",
+      "hud.gd hint_label lifted on compact",
+      "companion_chat_panel increased bottom clearance on compact"
+    ]
+  },
+  "smoke_test": {
+    "integration": {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_integration_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS",
+      "checks": 25,
+      "error_line_count": 0
+    },
+    "headed_dry_run": {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_headed_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_CTRL_1B_HEADED_SMOKE=PASS",
+      "mode": "dry_run",
+      "checks": 37,
+      "states": 26,
+      "error_line_count": 0
+    }
+  },
+  "commands": [
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_integration_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=25"
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_headed_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_CTRL_1B_HEADED_SMOKE=PASS checks=37 mode=dry_run states=26"
+    }
+  ],
+  "evidence_refs": [
+    "orchestration/receipts/control/CTRL_1B_002_c0_runtime_correction_002.json",
+    "orchestration/logs/ctrl-1b-002-c0-runtime-correction-002.log",
+    "orchestration/reviews/CODEX_CTRL-1B-002_MACHINE_REVIEW_001.json",
+    "orchestration/work_orders/WO-CTRL-1B-002-CORRECTION-001.md"
+  ],
+  "log_path": "orchestration/logs/ctrl-1b-002-c0-runtime-correction-002.log",
+  "log_sha256": "b9eb615bb3183b5d5070cc937cf42d0e883d4fd2112db2cd4599ab4920ff81fd",
+  "result": {
+    "verdict": "C0_RUNTIME_CORRECTION_COMPLETE_NO_ACCEPT",
+    "findings_closed_count": 10,
+    "smokes_pass": 2,
+    "smokes_fail": 0,
+    "accepted": false,
+    "self_accept": false,
+    "next_owner": "Q1_QA"
+  }
+}

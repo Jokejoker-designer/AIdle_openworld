@@ -1,0 +1,100 @@
+{
+  "evidence_id": "G8-UX-001-W3-AC1-AC4-transform-deltas",
+  "work_order": "WO-G8-UX-001-INPUT-FOCUS-AND-COLLISION",
+  "wave": "G8_UX_W3_QA",
+  "child_task_ref": "019f8422-4207-7fa3-9b42-299c6c4f47c3",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "authority_token": "VERIFY_ONLY",
+  "profile": "aidle-worldgen-qa-evidence",
+  "godot": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+  "godot_version": "4.3.stable.official.77dcf97d8",
+  "mode": "headless_scripted_physics_with_timestamps",
+  "headed_equivalence_note": "WO requires headed screenshot OR recorded transform delta for AC1 and AC4. Full headed camera capture not available in this subagent shell without interactive playtest; W3 strengthens W1/W2 bar with timestamped dual re-runs, raw stdout captures, and durable evidence JSON. Human Product Lead may still demand interactive headed playtest for final ACCEPT.",
+  "runs": [
+    {
+      "run_id": "w3-qa-primary",
+      "command": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://tests/g8_ux_input_collision_smoke.gd",
+      "started_at_utc": "2026-07-21T10:04:50.8788234Z",
+      "ended_at_utc": "2026-07-21T10:04:53.3319107Z",
+      "exit_code": 0,
+      "marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+      "ac1_transform_delta": {
+        "criterion": "AC1_movement_after_action_bar_click",
+        "method": "BtnDemoBuild.emit_signal(pressed) then Input.action_press(move_forward) x20 physics frames",
+        "before": {"x": 0.0, "y": 0.0466666668653488, "z": 0.0},
+        "after": {"x": 0.0, "y": 0.000768569181673229, "z": -0.93888890743256},
+        "delta_xz": 0.938888907432556,
+        "threshold_min_delta_xz": 0.05,
+        "pass": true
+      },
+      "ac4_collision": {
+        "criterion": "AC4_player_collides_complete_manifestation",
+        "method": "finalize_complete manifestation layer=4; player mask=5; velocity.z=-12 x45 physics frames toward box",
+        "before": {"x": 0.0, "y": 0.05, "z": -0.6},
+        "after": {"x": 0.0, "y": 0.0000471936073154211, "z": -1.64984464645386},
+        "manifestation_layer": 4,
+        "player_mask": 5,
+        "penetrated": false,
+        "pass": true
+      },
+      "supporting": {
+        "action_bar_buttons_focus_none": 6,
+        "arrow_owner": "move_* (WASD+arrows); ui_left/right/up/down events empty",
+        "ac5_preview_stages_non_solid": "PASS"
+      }
+    },
+    {
+      "run_id": "w3-qa-confirm",
+      "command": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://tests/g8_ux_input_collision_smoke.gd",
+      "started_at_utc": "2026-07-21T10:05:20.3170229Z",
+      "ended_at_utc": "2026-07-21T10:05:21.9157785Z",
+      "exit_code": 0,
+      "marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+      "raw_capture": "orchestration/evidence/g8_ux/w3_smoke_raw_capture.txt",
+      "ac1_transform_delta": {
+        "criterion": "AC1_movement_after_action_bar_click",
+        "before": {"x": 0.0, "y": 0.0466666668653488, "z": 0.0},
+        "after": {"x": 0.0, "y": 0.000768569181673229, "z": -0.93888890743256},
+        "delta_xz": 0.938888907432556,
+        "threshold_min_delta_xz": 0.05,
+        "pass": true
+      },
+      "ac4_collision": {
+        "criterion": "AC4_player_collides_complete_manifestation",
+        "before": {"x": 0.0, "y": 0.05, "z": -0.6},
+        "after": {"x": 0.0, "y": 0.0000471936073154211, "z": -1.64984464645386},
+        "manifestation_layer": 4,
+        "player_mask": 5,
+        "penetrated": false,
+        "pass": true
+      },
+      "supporting": {
+        "action_bar_buttons_focus_none": 6,
+        "arrow_owner": "move_* (WASD+arrows); ui_left/right/up/down events empty",
+        "ac5_preview_stages_non_solid": "PASS"
+      }
+    }
+  ],
+  "manifestation_smoke": {
+    "command": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
+    "started_at_utc": "2026-07-21T10:05:21.9167781Z",
+    "ended_at_utc": "2026-07-21T10:05:22.2824818Z",
+    "exit_code": 0,
+    "marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
+    "raw_capture": "orchestration/evidence/g8_ux/w3_manifestation_smoke_raw_capture.txt"
+  },
+  "source_confirmations": {
+    "FOCUS_NONE": "game/scripts/ui/playable_action_bar.gd sets focus_mode=Control.FOCUS_NONE; smoke action_bar_buttons_focus_none=6",
+    "jump": "player_controller.gd uses is_action_just_pressed(\"jump\"); project.godot jump=Space; no ui_accept jump path",
+    "player_collision_mask": 5,
+    "manifestation_complete_layer": 4,
+    "preview_stages_non_solid": ["wireframe", "hologram", "materializing"]
+  },
+  "verdict_numbers": {
+    "AC1_delta_xz": 0.938888907432556,
+    "AC4_after_z": -1.64984464645386,
+    "AC4_penetrated": false,
+    "AC4_manifestation_layer": 4,
+    "AC4_player_mask": 5
+  }
+}

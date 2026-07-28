@@ -1,0 +1,90 @@
+{
+  "job": "NORI7_MOCKUP_UPGRADE_V4_CUTE_WATER",
+  "status": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "source": {
+	"filename": "nori7_rigged(3).glb",
+	"sha256": "6a609608627c6a2574bf2458684137dd41064e9c8c7b1343a60c4c59867b6cce",
+	"bytes": 1544428
+  },
+  "output": {
+	"filename": "nori7_rigged.glb",
+	"sha256": "63f06d5c6ce936629b12ff1612d005413863ee0c7996d1dd9ba76f2ca72d6eeb",
+	"bytes": 1669552
+  },
+  "preserved": {
+	"joint_count": 15,
+	"joint_names": [
+	  "neutral_bone",
+	  "root",
+	  "pelvis",
+	  "leg_L",
+	  "foot_L",
+	  "leg_R",
+	  "foot_R",
+	  "spine",
+	  "chest",
+	  "arm_L",
+	  "hand_L",
+	  "arm_R",
+	  "hand_R",
+	  "head",
+	  "sprout_ctrl"
+	],
+	"animation_count": 15,
+	"animation_names": [
+	  "build_place",
+	  "build_place_hold",
+	  "cancel",
+	  "charge",
+	  "confirm",
+	  "happy",
+	  "harvest",
+	  "idle",
+	  "low_energy",
+	  "plant_seed",
+	  "scan",
+	  "turn_left",
+	  "turn_right",
+	  "walk",
+	  "water"
+	]
+  },
+  "visual_rebuild": {
+	"old_render_mesh_disabled": true,
+	"new_model_strategy": "rigid modular meshes parented to existing animated bones",
+	"features": [
+	  "opaque cream egg body",
+	  "large lime leaves with raised vein pieces",
+	  "larger teal emissive eyes",
+	  "back water tank with transparent glass and antenna",
+	  "articulated cream arms with green joints and hands",
+	  "green watering nozzle and clear curved hose",
+	  "short legs with green ankle joints and chunky cream boots",
+	  "dark mechanical panel seam and body latches"
+	]
+  },
+  "water_animation": {
+	"clip": "water",
+	"animated_droplet_nodes": 6,
+	"tracks_added": 12,
+	"behavior": "Each droplet scales in, falls from the nozzle through a gravity-like path, then scales out before clip end.",
+	"default_visibility": "scale 0 outside water clip"
+  },
+  "validation": {
+	"glb_header_valid": true,
+	"json_chunk_valid": true,
+	"binary_chunk_valid": true,
+	"source_animation_names_preserved_exactly": true,
+	"source_joint_names_preserved_exactly": true,
+	"godot_import_source_path_normalized": true,
+	"headed_godot_test_run": false,
+	"blender_viewport_test_run": false
+  },
+  "limitations": [
+	"Direct GLB patch was validated structurally, but Blender and Godot executables were unavailable for headed visual validation.",
+	"The model uses rigid modular pieces parented to the existing skeleton; Human review should check clipping in all 15 clips.",
+	"Godot may choose to replace embedded animated droplets with GPUParticles3D later, but the GLB already contains visible animated droplet nodes for the water clip."
+  ]
+}

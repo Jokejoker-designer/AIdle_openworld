@@ -1,0 +1,260 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "H1-CONSOLIDATE-001-r0-runtime-003-2026-07-22T093230Z",
+  "step_id": "H1-CONSOLIDATE-001-r0-runtime-003",
+  "work_order_id": "WO-H1-CONSOLIDATE-001-RUNTIME-ROOT-CORRECTION-002",
+  "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-RUNTIME-ROOT-CORRECTION-002.md",
+  "work_order_sha256": "b429221cbd9f0845560795efb9a71580a51dc5364170afdcdf80623385045e3e",
+  "directive_id": 76,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "6f86b72f1fc247d8988b83a40c1500e03da3b199c68a5af3cbf4c37fb97dd84e",
+  "directive_state": "CHANGES_REQUESTED",
+  "directive_verdict": "H1_ROOT_LOOKUP_FAILURE_OCCURRENCE_2_FINAL_AUTO_RETRY",
+  "supersedes_directive_id": 75,
+  "permitted_task_ids": ["H1-CONSOLIDATE-001"],
+  "review": "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_CORRECTION_REVIEW_002.json",
+  "review_sha256": "f1b81219f2f5f24b5dc31bf011a133292e189f228690e94b07eb01f642ade44f",
+  "milestone": "H1 final automatic runtime-root correction — R0 absolute get_node + HUD fixture",
+  "agent_id": "aidle-worldgen-godot-runtime",
+  "agent_type": "aidle-worldgen-godot-runtime",
+  "profile_name": "aidle-worldgen-godot-runtime",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-godot-runtime.md",
+  "profile_sha256": "220c643ab23e3d62de8252cfdfc75f8c8f99db383bfc69235ab4e25c5d5a22b9",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-godot-runtime; trustlayer_character=blue-team-p0-remediator; ui_character=ui-app-dashboard; authority_token=PATCH_DRAFT; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set runtime_root_sole_writer under WO-RUNTIME-ROOT-CORRECTION-002 exact lease.",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "R0 sole product/test writer under exact lease only; orchestration log+receipt only outside game; no DNA/Scene/Character/network/shipping/headed-evidence; never ACCEPTED; no grandchildren",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:d7cadd3f04c45f2635a0d67f35f63f846ddd015dfceb9c51d4efea83a8cadc6b",
+  "input_context_hash_16": "d7cadd3f04c45f26",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-H1-CONSOLIDATE-001-RUNTIME-ROOT-CORRECTION-002.md + codex_directive.json + aidle-worldgen-godot-runtime.md + CODEX_H1-CONSOLIDATE-001_CORRECTION_REVIEW_002.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "R0_COMPLETE_ROUTE_R1_QA",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "R0_RUNTIME_ROOT_F01_F03_HUD_PATCHED_NO_ACCEPT",
+  "child_task_ref": "019f8926-02ae-7d81-b722-db1bdfe55f8b",
+  "transcript_ref": "019f8926-02ae-7d81-b722-db1bdfe55f8b",
+  "writer_transcript_ref": "019f8926-02ae-7d81-b722-db1bdfe55f8b",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_c0": "019f8903-a70a-7242-b8e4-05e359cebe12",
+  "prior_c1": "019f890e-28df-71f2-b298-457c58071804",
+  "prior_c2": "019f8912-87cd-7410-a733-35b0b254b9ac",
+  "prior_c3": "019f8919-8a74-78f1-8618-bc8b32dddaac",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8926-02ae-7d81-b722-db1bdfe55f8b/meta.json",
+  "started_at": "2026-07-22T09:26:37.489379600Z",
+  "completed_at_utc": "2026-07-22T09:32:30Z",
+  "next_owner": "R1_QA",
+  "next_route": "R1_QA",
+  "human_gate_open": false,
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-app-dashboard",
+    "ui_file": "E:/agents/ui-design/characters/08-ui-app-dashboard.md",
+    "ui_sha256": "20ab5ba77ed1fd3f410de284f70d27ca1b7379a5c0d00c0f3a83eef11d5f990d",
+    "ui_read": "full_eof",
+    "role": "R0 PATCH_DRAFT sole product/test writer — F01 absolute get_node whole-runtime lease + F03-HUD fixture chrome; no self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO-RUNTIME-ROOT-CORRECTION-002, Directive 76, ARCHITECTURE_LOCK, CORRECTION_REVIEW_002, skills full EOF manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "read_mode": "full_file_size_hash_verify",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "bytes": 828,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "also_read_project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027"
+    }
+  ],
+  "writer_lease": [
+    "game/scripts/camera/cozy_camera.gd",
+    "game/scripts/player/player_controller.gd",
+    "game/scripts/ui/hud.gd",
+    "game/scripts/ui/control_1b_cursor_label.gd",
+    "game/scripts/ui/control_1b_inspect_panel.gd",
+    "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+    "game/scripts/modules/manifestation/manifestation_instance.gd",
+    "game/scripts/modules/executor/headed_demo_flow.gd",
+    "game/tests/h1_runtime_autoload_lookup_smoke.gd",
+    "orchestration/logs/h1-consolidate-r0-runtime-003.log",
+    "orchestration/receipts/h1_consolidate_001/correction_002/R0_runtime_003.json"
+  ],
+  "product_writes": [
+    {
+      "path": "game/scripts/camera/cozy_camera.gd",
+      "sha256": "615f17768097adb41f7001c1409c188357892c1fd5ff652b79963401eaab2d0e",
+      "bytes": 7586,
+      "change": "H1-CODEX-F01: _autoload_node/_control_router/_control_a11y; removed 5 absolute /root lookups"
+    },
+    {
+      "path": "game/scripts/player/player_controller.gd",
+      "sha256": "39c4b039aa847dfc9f01cca23e00f29d41333e32f926adc7d9f4137b1ba2d767",
+      "bytes": 6004,
+      "change": "H1-CODEX-F01: _autoload_node/_control_router/_control_a11y; suppress+sprint paths relative"
+    },
+    {
+      "path": "game/scripts/ui/hud.gd",
+      "sha256": "963be86779fbdec43c76130fe95bf128b301a1354404c88ff4c1a85d6d720bb0",
+      "bytes": 5494,
+      "change": "H1-CODEX-F01 relative router; H1-CODEX-F03-HUD api_paid→API Gateway (no fixture)"
+    },
+    {
+      "path": "game/scripts/ui/control_1b_cursor_label.gd",
+      "sha256": "ffc90108e78747c2e65c847778d35764390134710a4311d9a4cca99535384e49",
+      "bytes": 6358,
+      "change": "H1-CODEX-F01: _autoload_node/_control_router for action label resolve"
+    },
+    {
+      "path": "game/scripts/ui/control_1b_inspect_panel.gd",
+      "sha256": "5eeaac026e4b952176db7a076b911be8b41af666058b1407b5d15e2df53c653b",
+      "bytes": 6137,
+      "change": "H1-CODEX-F01: open/close use _control_router relative"
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+      "sha256": "07b5d32c62fea8ba13283f1f958524682161553549b677a306a3ee991863f2bd",
+      "bytes": 34822,
+      "change": "H1-CODEX-F01: removed absolute /root fallback in _set_router_preview_flag"
+    },
+    {
+      "path": "game/scripts/modules/manifestation/manifestation_instance.gd",
+      "sha256": "ef89f3f0f2782d334a8949f64757b632eecb5b6118b37dda93a4bc292c1c4afe",
+      "bytes": 16718,
+      "change": "H1-CODEX-F01: a11y+SettingsManager via _autoload_node relative"
+    },
+    {
+      "path": "game/scripts/modules/executor/headed_demo_flow.gd",
+      "sha256": "775ba4de4ba82ba3dc045d4da30f847c09514c488ccf173d5d4e3918dc3cbbae",
+      "bytes": 13809,
+      "change": "H1-CODEX-F01: _set_router_preview_target uses _autoload_node"
+    },
+    {
+      "path": "game/tests/h1_runtime_autoload_lookup_smoke.gd",
+      "sha256": "e9a888b168cf0f6ec360e641b790d14a8c1c926c63f305f707789d882cdad283",
+      "bytes": 12750,
+      "change": "NEW whole-runtime static gate + player/router/a11y attached/detached runtime gate"
+    }
+  ],
+  "result": {
+    "summary": "Replaced all executable absolute /root get_node lookups in R0 leased runtime scripts with guarded SceneTree-root relative _autoload_node; removed HUD fixture wording; added whole-runtime static+runtime smoke; all H1/P2E/Control/G3/G4/Block-DNA regressions green. No self-accept.",
+    "findings_closed_locally": ["H1-CODEX-F01_leased_runtime_absolute_root", "H1-CODEX-F03-HUD"],
+    "findings_open_for_r1": ["H1-CODEX-F01 headed zero-error proof on evidence 003"],
+    "static_gate": {
+      "scripts_scanned": 95,
+      "absolute_hits": 0,
+      "leased_hits": 0,
+      "outside_lease_hits": 0,
+      "verdict": "PASS_WHOLE_RUNTIME_CLEAN"
+    },
+    "authority_semantics_unchanged": true,
+    "world_commit_semantics_unchanged": true
+  },
+  "smoke_test": {
+    "runner": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s ...",
+    "log_ref": "orchestration/logs/h1-consolidate-r0-runtime-003.log",
+    "raw_smoke_capture": "orchestration/logs/h1-consolidate-r0-runtime-003-smokes.tmp.log",
+    "overall": "PASS",
+    "cases": [
+      {"id": "h1_runtime_autoload_lookup", "exit": 0, "result": "AIDLE_H1_RUNTIME_AUTOLOAD_LOOKUP_SMOKE=PASS checks=6 scan_hits=0 runtime_ok=2"},
+      {"id": "h1_error_free", "exit": 0, "result": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6"},
+      {"id": "h1_flow", "exit": 0, "result": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13"},
+      {"id": "h1_chrome", "exit": 0, "result": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS checks=6"},
+      {"id": "p2e_core", "exit": 0, "result": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14"},
+      {"id": "p2e_authority", "exit": 0, "result": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8"},
+      {"id": "p2e_qr", "exit": 0, "result": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8"},
+      {"id": "p2e_player_input", "exit": 0, "result": "AIDLE_P2E001_PLAYER_INPUT_SMOKE=PASS checks=5"},
+      {"id": "p2e_playable_select", "exit": 0, "result": "AIDLE_P2E001_PLAYABLE_SELECT_SMOKE=PASS checks=5"},
+      {"id": "p2e_correction", "exit": 0, "result": "AIDLE_P2E001_CORRECTION_SMOKE=PASS checks=4"},
+      {"id": "ctrl_router", "exit": 0, "result": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16"},
+      {"id": "ctrl_a11y", "exit": 0, "result": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS checks=11"},
+      {"id": "g3_e2e", "exit": 0, "result": "G3_E2E_SMOKE=PASS checks=76"},
+      {"id": "g4_persist", "exit": 0, "result": "G4_PERSIST_SMOKE=PASS checks=22"},
+      {"id": "block_dna", "exit": 0, "result": "valid 14/14 invalid 42/42 PASS gate"}
+    ]
+  },
+  "self_audit": {
+    "exact_lease_only": true,
+    "immutable_preserved": ["orchestration/evidence/h1_consolidate_001/001/**", "orchestration/evidence/h1_consolidate_001/002/**", "orchestration/receipts/h1_consolidate_001/correction_001/**"],
+    "no_headed_evidence_written": true,
+    "no_grandchildren": true,
+    "accepted_false": true,
+    "self_accept_false": true,
+    "child_task_ref_equals_transcript_ref": true,
+    "durable_uuid_real": true,
+    "absolute_root_remaining_in_leased_scripts": 0,
+    "absolute_root_remaining_in_game_scripts": 0,
+    "fixture_wording_in_hud": false,
+    "authority_semantics_changed": false
+  },
+  "evidence_refs": [
+    "orchestration/logs/h1-consolidate-r0-runtime-003.log",
+    "orchestration/logs/h1-consolidate-r0-runtime-003-smokes.tmp.log",
+    "orchestration/receipts/h1_consolidate_001/correction_002/R0_runtime_003.json"
+  ],
+  "forbidden_actions_observed": [],
+  "occurrence_policy": {
+    "f01_occurrence": 2,
+    "final_auto_retry": true,
+    "third_identical_failure_action": "HITL_REQUIRED"
+  }
+}

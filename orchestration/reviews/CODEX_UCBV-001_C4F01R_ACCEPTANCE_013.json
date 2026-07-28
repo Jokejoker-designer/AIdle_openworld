@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_UCBV-001_C4F01R_ACCEPTANCE_013",
+  "task_id": "UCBV-001",
+  "directive_reviewed": 93,
+  "reviewed_at": "2026-07-23T12:36:00+07:00",
+  "reviewed_by": "codex",
+  "verdict": "C4F01R_ACCEPTED_AS_FRESH_C4_RERUN_INPUT_ONLY",
+  "accepted": false,
+  "self_accept": false,
+  "lineage": {
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "child_task_ref": "019f8d7c-4a6d-73f3-ab70-e1a357e01873",
+    "durable_started_at": "2026-07-23T05:39:20Z",
+    "durable_completed_at": "2026-07-23T05:41:40Z",
+    "receipt": "orchestration/receipts/ucbv_001/correction_007/C4F01R_lineage_correction_007.json",
+    "receipt_lineage_matches_durable_meta": true,
+    "log_sha256": "FA3F95668FD785ACF71F8A3B4FFE3E9EBCFFDDA4F0360DDB08626BEBF2F975C9"
+  },
+  "independent_validation": {
+    "receipt_schema_errors": 0,
+    "product_writes": [],
+    "h1_flow": "PASS checks=13 exit=0 strict_error_signatures=0",
+    "inputmap_e2e": "PASS checks=17 inputs=34 exit=0 strict_error_signatures=0",
+    "navigation_warning": "PASS checks=16 exit=0 strict_error_signatures=0",
+    "h1_test_sha256": "D5CEB518650E78254A16606C8F69E5CA661068FB2A95F99889C172F762550D96",
+    "h1_test_bytes": 16422
+  },
+  "decision": {
+    "c4f01r_correction_accepted_as_input": true,
+    "fresh_c4_rerun_authorized": true,
+    "c5_authorized": false,
+    "overall_ucbv_accepted": false,
+    "red_f01_hard_stop": true
+  },
+  "next_route": "FRESH_C4_VERIFY_ONLY_RERUN"
+}

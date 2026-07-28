@@ -1,0 +1,692 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P2E-001-a4-qa-evidence-001-2026-07-22",
+  "step_id": "P2E-001-a4-qa-evidence-001",
+  "work_order_id": "WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE",
+  "work_order": "orchestration/work_orders/WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md",
+  "work_order_sha256": "39bf0b224201ec9d38a34aba0209348bfa993540c065d72b8fc186280b0d37e4",
+  "directive_id": 70,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "0fe87242235de1c47483b500507247f037ff370e573a06c33c3ac1ae81f5f0ac",
+  "milestone": "P2E-001 Block Assembly preview slice \u2014 A4 QA/playability evidence",
+  "agent_id": "aidle-worldgen-qa-evidence",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "profile_name": "aidle-worldgen-qa-evidence",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_sha256": "bd9f7f941be811b1d81b35cc58fe06fba8bbd3768c04a49f41af626cc09f890a",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-qa-evidence; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "QA evidence only; exclusive A4 log+receipt+evidence/p2e_001/001/**; product_writes=[]; never patch product/tests/contracts; never ACCEPTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "A4_COMPLETE_ROUTE_A5_PURPLE",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "A4_GATES_PASS_HEADED_CAPTURED_PLAYABILITY_RESIDUALS_NO_ACCEPT",
+  "child_task_ref": "019f8871-2f68-7d93-86ec-83b507666b19",
+  "transcript_ref": "019f8871-2f68-7d93-86ec-83b507666b19",
+  "writer_transcript_ref": "019f8871-2f68-7d93-86ec-83b507666b19",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_a0_ref": "019f8854-9d26-7663-93c3-11e68a2cb537",
+  "prior_a1_ref": "019f8858-18aa-7970-a9d5-216a28c17ffa",
+  "prior_a2_ref": "019f8867-27b7-7e50-a78a-c7c606a0c363",
+  "prior_a3_ref": "019f886b-3873-7e90-ae93-1ff0ecb7a605",
+  "prior_a0_receipt": "orchestration/receipts/p2e_001/A0_ssot_preflight_001.json",
+  "prior_a1_receipt": "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json",
+  "prior_a2_receipt": "orchestration/receipts/p2e_001/A2_control_ux_audit_001.json",
+  "prior_a3_receipt": "orchestration/receipts/p2e_001/A3_red_audit_001.json",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8871-2f68-7d93-86ec-83b507666b19/meta.json",
+  "started_at": "2026-07-22T06:09:06.924883300Z",
+  "completed_at_utc": "2026-07-22T06:19:28Z",
+  "next_owner": "A5_PURPLE",
+  "next_route": "A5_PURPLE",
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-finding-triage",
+    "trustlayer_file": "E:/agents/characters/12-purple-team-finding-triage.md",
+    "trustlayer_sha256": "5ee9279e67793b135675725f0d6060b3bb749df6a169bbb43cb071372ea394a8",
+    "trustlayer_read": "full_header_and_role",
+    "ui_character_id": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "ui_read": "full_header_role_rules",
+    "role": "A4 VERIFY_ONLY QA/playability evidence \u2014 run gates, capture distinct headed states, report residuals; never patch; never self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 \u2014 not retried. Loaded COMPLIANCE header, profile, TrustLayer/UI cards, WO, Directive 70, A0\u2013A3 receipts, skills full EOF manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "chunked_then_full_eof",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Prime Directive final paragraph line 1123"
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "bytes": 8484,
+      "line_count": 292,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/p2e-001-a4-qa-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/p2e_001/A4_qa_evidence_001.json",
+    "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/**"
+  ],
+  "product_writes": [],
+  "files_written": [
+    "orchestration/logs/p2e-001-a4-qa-001.log",
+    "orchestration/receipts/p2e_001/A4_qa_evidence_001.json",
+    "orchestration/evidence/p2e_001/001/capture_p2e001_states.gd",
+    "orchestration/evidence/p2e_001/001/run_capture.py",
+    "orchestration/evidence/p2e_001/001/evidence_manifest.json",
+    "orchestration/evidence/p2e_001/001/visual_claim_meta.json",
+    "orchestration/evidence/p2e_001/001/png_sha256.json",
+    "orchestration/evidence/p2e_001/001/evidence_tree_sha256.json",
+    "orchestration/evidence/p2e_001/001/godot_headed.log",
+    "orchestration/evidence/p2e_001/001/runner.log",
+    "orchestration/evidence/p2e_001/001/_write_a4_receipt.py",
+    "orchestration/evidence/p2e_001/001/exploration_camera_R_1280x720.png",
+    "orchestration/evidence/p2e_001/001/exploration_camera_R_868x517.png",
+    "orchestration/evidence/p2e_001/001/build_preview_R_1280x720.png",
+    "orchestration/evidence/p2e_001/001/build_preview_R_868x517.png",
+    "orchestration/evidence/p2e_001/001/valid_snapped_preview_1280x720.png",
+    "orchestration/evidence/p2e_001/001/valid_snapped_preview_868x517.png",
+    "orchestration/evidence/p2e_001/001/rejected_invalid_placement_1280x720.png",
+    "orchestration/evidence/p2e_001/001/rejected_invalid_placement_868x517.png",
+    "orchestration/evidence/p2e_001/001/confirmed_complete_1280x720.png",
+    "orchestration/evidence/p2e_001/001/confirmed_complete_868x517.png",
+    "orchestration/evidence/p2e_001/001/cancelled_preview_1280x720.png",
+    "orchestration/evidence/p2e_001/001/cancelled_preview_868x517.png"
+  ],
+  "commands": [
+    {
+      "cmd": "PYTHONDONTWRITEBYTECODE=1 E:/standards/maf/.venv/Scripts/python.exe -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "summary": "valid 14/14; invalid 42/42 rejected; PASS gate"
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_core_smoke.gd",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "marker": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14",
+      "error_lines": 0,
+      "script_errors": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "marker": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+      "error_lines": 0,
+      "script_errors": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+      "error_lines": 0,
+      "script_errors": 0,
+      "qr_assertions": [
+        "catalog_exploration_camera_qr",
+        "catalog_build_preview_qr_not_camera",
+        "no_dual_fire_context_isolation",
+        "build_r_preview_only_camera_yaw_unchanged",
+        "exploration_r_camera_only_preview_unchanged"
+      ]
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "error_lines": 0,
+      "kind": "best_effort_regression"
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_headed_smoke.gd",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_HEADED_SMOKE=PASS checks=38 mode=dry_run",
+      "error_lines": 0,
+      "kind": "best_effort_regression_headed_dry_run"
+    },
+    {
+      "cmd": "E:/standards/maf/.venv/Scripts/python.exe -B orchestration/evidence/p2e_001/001/run_capture.py",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 1,
+      "summary": "12/12 required PNGs distinct sha; godot_exit=0 AIDLE_P2E001_A4_HEADED=PASS; runner exit 1 solely due to 4 teardown RendererRD RID leak / RenderingServer null lines at process exit",
+      "marker_in_log": "AIDLE_P2E001_A4_HEADED=PASS captures=12",
+      "png_count": 12,
+      "runtime_error_lines": 0,
+      "teardown_error_lines": 4
+    }
+  ],
+  "gates": {
+    "block_dna_validator": {
+      "result": "PASS",
+      "valid": "14/14",
+      "invalid": "42/42",
+      "exit_code": 0
+    },
+    "p2e001_core_smoke": {
+      "result": "PASS",
+      "checks": 14,
+      "exit_code": 0,
+      "error_lines": 0
+    },
+    "p2e001_authority_smoke": {
+      "result": "PASS",
+      "checks": 8,
+      "exit_code": 0,
+      "error_lines": 0
+    },
+    "p2e001_qr_context_smoke": {
+      "result": "PASS",
+      "checks": 8,
+      "exit_code": 0,
+      "error_lines": 0,
+      "dual_fire": "PASS",
+      "exploration_camera_qr": "PASS",
+      "build_preview_qr": "PASS"
+    },
+    "control_1b_router_regression": {
+      "result": "PASS",
+      "checks": 16,
+      "exit_code": 0
+    },
+    "control_1b_headed_dry_run": {
+      "result": "PASS",
+      "checks": 38,
+      "mode": "dry_run"
+    },
+    "headed_six_states": {
+      "result": "PASS_WITH_TEARDOWN_NOISE_AND_PLAYABILITY_RESIDUALS",
+      "pngs": 12,
+      "viewports": [
+        "1280x720",
+        "868x517"
+      ],
+      "distinct_sha256": true,
+      "select_module_path": "api_injection_via_main.get_block_assembly",
+      "runtime_script_errors": 0,
+      "teardown_renderer_noise": 4
+    }
+  },
+  "qr_evidence": {
+    "headless_smoke": "PASS no dual fire; build R preview-only camera yaw unchanged; exploration R camera-only",
+    "headed_build_preview_R_camera_yaw_unchanged": false,
+    "headed_build_yaw_residual": [
+      {
+        "file": "build_preview_R_1280x720.png",
+        "yaw_before": -1.27144135364861,
+        "yaw_after": -1.50501766459524
+      },
+      {
+        "file": "build_preview_R_868x517.png",
+        "yaw_before": -2.84295526717944,
+        "yaw_after": -2.98047685418197
+      }
+    ],
+    "headed_note": "Headed build_preview_R saw continuing camera yaw after exploration R inject; headless p2e001 QR smoke remains authoritative PASS for isolation kernel. Residual F-A4-01."
+  },
+  "evidence_manifest": [
+    {
+      "label": "exploration_camera_R",
+      "file": "exploration_camera_R_1280x720.png",
+      "path": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/exploration_camera_R_1280x720.png",
+      "sha256": "ac174c696165b731807949b0c798470f7d171b290f00339403f42b8ac9b3fe22",
+      "width": 1280,
+      "height": 720,
+      "bytes": 122880
+    },
+    {
+      "label": "exploration_camera_R",
+      "file": "exploration_camera_R_868x517.png",
+      "path": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/exploration_camera_R_868x517.png",
+      "sha256": "df45c5856a2584894311196a230d6c215813795972de9753f98f07a90e745f29",
+      "width": 868,
+      "height": 517,
+      "bytes": 79823
+    },
+    {
+      "label": "build_preview_R",
+      "file": "build_preview_R_1280x720.png",
+      "path": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/build_preview_R_1280x720.png",
+      "sha256": "1ae3b6314938aa935bfdbca7977891184644f0b2d074c60c2c04926371630086",
+      "width": 1280,
+      "height": 720,
+      "bytes": 110240
+    },
+    {
+      "label": "build_preview_R",
+      "file": "build_preview_R_868x517.png",
+      "path": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/build_preview_R_868x517.png",
+      "sha256": "57139b2584fcb0cabad8dffac22749668de075bc3beb9a42cb829a2715086cd6",
+      "width": 868,
+      "height": 517,
+      "bytes": 81922
+    },
+    {
+      "label": "valid_snapped_preview",
+      "file": "valid_snapped_preview_1280x720.png",
+      "path": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/valid_snapped_preview_1280x720.png",
+      "sha256": "bbfdcd620e5a8daed55b7f366afc649331513564bf39f00f0c6b80c3a4e0d10e",
+      "width": 1280,
+      "height": 720,
+      "bytes": 113213
+    },
+    {
+      "label": "valid_snapped_preview",
+      "file": "valid_snapped_preview_868x517.png",
+      "path": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/valid_snapped_preview_868x517.png",
+      "sha256": "b9c5ec8485774b4d9b8b2e6d1f7abcf9b8f4cba27c935837ed8897b7ea976b1a",
+      "width": 868,
+      "height": 517,
+      "bytes": 82494
+    },
+    {
+      "label": "rejected_invalid_placement",
+      "file": "rejected_invalid_placement_1280x720.png",
+      "path": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/rejected_invalid_placement_1280x720.png",
+      "sha256": "b760e8d88a704d5414560745dd81e9fed114710491914a941108b6db9c5af91a",
+      "width": 1280,
+      "height": 720,
+      "bytes": 114793
+    },
+    {
+      "label": "rejected_invalid_placement",
+      "file": "rejected_invalid_placement_868x517.png",
+      "path": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/rejected_invalid_placement_868x517.png",
+      "sha256": "d6afbaf478eba03ca285afb6ad8393c0080e09f1f88aef5d21548342bd540ccb",
+      "width": 868,
+      "height": 517,
+      "bytes": 85201
+    },
+    {
+      "label": "confirmed_complete",
+      "file": "confirmed_complete_1280x720.png",
+      "path": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/confirmed_complete_1280x720.png",
+      "sha256": "2172eb0efe5af6612487d4e74f043f3d6e8622054d34bb7c04cc06e7ece255bb",
+      "width": 1280,
+      "height": 720,
+      "bytes": 111098
+    },
+    {
+      "label": "confirmed_complete",
+      "file": "confirmed_complete_868x517.png",
+      "path": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/confirmed_complete_868x517.png",
+      "sha256": "032b92cf9efe5a6809cf29c8cdf92fc2c16d4c2374a5b16e44f8eb6f11a08ed3",
+      "width": 868,
+      "height": 517,
+      "bytes": 81814
+    },
+    {
+      "label": "cancelled_preview",
+      "file": "cancelled_preview_1280x720.png",
+      "path": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/cancelled_preview_1280x720.png",
+      "sha256": "b650e0001fb439e1bce55103f9a41c968a288023159d3a546367e4e9a4066173",
+      "width": 1280,
+      "height": 720,
+      "bytes": 106519
+    },
+    {
+      "label": "cancelled_preview",
+      "file": "cancelled_preview_868x517.png",
+      "path": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001/cancelled_preview_868x517.png",
+      "sha256": "1cbd8217178d9e7694cc2f383b8baeddf385ff8e843fc3248e1940bbca586c10",
+      "width": 868,
+      "height": 517,
+      "bytes": 77543
+    }
+  ],
+  "evidence_root": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001",
+  "evidence_index_files": [
+    "orchestration/evidence/p2e_001/001/evidence_manifest.json",
+    "orchestration/evidence/p2e_001/001/visual_claim_meta.json",
+    "orchestration/evidence/p2e_001/001/png_sha256.json",
+    "orchestration/evidence/p2e_001/001/evidence_tree_sha256.json"
+  ],
+  "runtime_state_notes_1280x720": {
+    "exploration_camera_R": {
+      "ba_active": false,
+      "capture_source": "godot_headed",
+      "context": "exploration",
+      "file": "exploration_camera_R_1280x720.png",
+      "height": 720,
+      "note": "Exploration R rotates camera; no BA preview",
+      "select_module_source": "api_injection_via_main.get_block_assembly",
+      "sha256": "ac174c696165b731807949b0c798470f7d171b290f00339403f42b8ac9b3fe22",
+      "state": "exploration_camera_R",
+      "width": 1280,
+      "yaw_after": -1.16735382342659,
+      "yaw_before": 0,
+      "yaw_delta_abs": 1.16735382342659
+    },
+    "build_preview_R": {
+      "camera_yaw_after": -1.50501766459524,
+      "camera_yaw_before": -1.27144135364861,
+      "camera_yaw_unchanged": false,
+      "capture_source": "godot_headed",
+      "context": "build",
+      "file": "build_preview_R_1280x720.png",
+      "height": 720,
+      "residual_F_A3_01": "select_module via get_block_assembly API not playable HUD",
+      "rot_after": 30,
+      "rot_before": 0,
+      "select_api_injected": true,
+      "select_module_source": "api_injection_via_main.get_block_assembly",
+      "sha256": "1ae3b6314938aa935bfdbca7977891184644f0b2d074c60c2c04926371630086",
+      "stage": "wireframe",
+      "state": "build_preview_R",
+      "width": 1280
+    },
+    "valid_snapped_preview": {
+      "capture_source": "godot_headed",
+      "collision_pre_commit": false,
+      "context": "build",
+      "file": "valid_snapped_preview_1280x720.png",
+      "height": 720,
+      "placement": {
+        "elevation": 0.5,
+        "rotation_deg": 45,
+        "x": 1,
+        "y": 2.5
+      },
+      "select_api_injected": true,
+      "select_module_source": "api_injection_via_main.get_block_assembly",
+      "sha256": "bbfdcd620e5a8daed55b7f366afc649331513564bf39f00f0c6b80c3a4e0d10e",
+      "stage": "hologram",
+      "state": "valid_snapped_preview",
+      "validity": {
+        "ok": true,
+        "reason": "valid snapped placement"
+      },
+      "width": 1280
+    },
+    "rejected_invalid_placement": {
+      "ba_active": false,
+      "budget_reject": {
+        "code": "budget_fail",
+        "ok": false,
+        "reason": "x outside bounds_max width"
+      },
+      "capture_source": "godot_headed",
+      "context": "build",
+      "file": "rejected_invalid_placement_1280x720.png",
+      "height": 720,
+      "last_reject": {
+        "code": "unknown_module",
+        "ok": false,
+        "reason": "module_id not in accepted allowlist: module_not_in_catalog_xyz"
+      },
+      "note": "No product plain-language reject surface (F-A2-02); banner is evidence harness chrome only",
+      "select_api_injected": true,
+      "select_module_source": "api_injection_via_main.get_block_assembly",
+      "sha256": "b760e8d88a704d5414560745dd81e9fed114710491914a941108b6db9c5af91a",
+      "state": "rejected_invalid_placement",
+      "unknown_reject": {
+        "asset_request": {
+          "arbitrary_code": false,
+          "executable_code": null,
+          "filesystem_write": false,
+          "kind": "asset_request",
+          "module_id": "module_not_in_catalog_xyz",
+          "network": false,
+          "reason": "unknown_or_missing_module",
+          "schema_version": "block_dna_adapt_001_asset_request/1.0"
+        },
+        "code": "unknown_module",
+        "ok": false,
+        "reason": "module_id not in accepted allowlist: module_not_in_catalog_xyz"
+      },
+      "width": 1280
+    },
+    "confirmed_complete": {
+      "active_after": false,
+      "capture_source": "godot_headed",
+      "committed_count": 1,
+      "context": "build",
+      "file": "confirmed_complete_1280x720.png",
+      "height": 720,
+      "issuer": "world_commit_service",
+      "receipt_ok": true,
+      "receipt_status": "committed",
+      "select_api_injected": true,
+      "select_module_source": "api_injection_via_main.get_block_assembly",
+      "sha256": "2172eb0efe5af6612487d4e74f043f3d6e8622054d34bb7c04cc06e7ece255bb",
+      "state": "confirmed_complete",
+      "width": 1280
+    },
+    "cancelled_preview": {
+      "ba_active": false,
+      "cancel_result": {
+        "cancelled": true,
+        "collision": false,
+        "committed_count": 1,
+        "committed_untouched": true,
+        "navigation": false,
+        "ok": true,
+        "receipt": null,
+        "request_id": "605315b1-8f49-4259-88ac-edeaa946db4b"
+      },
+      "capture_source": "godot_headed",
+      "committed_after": 1,
+      "committed_before": 1,
+      "committed_untouched": true,
+      "context": "build",
+      "file": "cancelled_preview_1280x720.png",
+      "height": 720,
+      "select_api_injected": true,
+      "select_module_source": "api_injection_via_main.get_block_assembly",
+      "sha256": "b650e0001fb439e1bce55103f9a41c968a288023159d3a546367e4e9a4066173",
+      "state": "cancelled_preview",
+      "width": 1280
+    }
+  },
+  "open_residuals": [
+    {
+      "id": "F-A2-01/F-A3-01",
+      "severity": "P2",
+      "status": "OPEN",
+      "title": "No playable select_module entry from main/UI",
+      "detail": "A4 headed BA demos required API injection via main.get_block_assembly().select_module; not closed by A4."
+    },
+    {
+      "id": "F-A2-02",
+      "severity": "P2",
+      "status": "OPEN",
+      "title": "Missing plain-language BA status surface",
+      "detail": "Harness banner is evidence chrome only; product HUD still lacks module/snap/validity plain language."
+    },
+    {
+      "id": "F-A2-03..F-A2-05",
+      "severity": "P3",
+      "status": "OPEN",
+      "title": "Build HUD/elevation/Esc cancel_target gaps",
+      "detail": "Reconfirmed open from A2/A3; not patched by A4."
+    },
+    {
+      "id": "F-A3-02",
+      "severity": "P2",
+      "status": "OPEN",
+      "title": "Idempotency key freeze after submit",
+      "detail": "A3 residual; not re-patched."
+    },
+    {
+      "id": "F-A3-03",
+      "severity": "P3",
+      "status": "RESIDUAL",
+      "title": "Synthetic client_forged helper honesty",
+      "detail": "Offline kernel still authority-issued receipts only."
+    },
+    {
+      "id": "F-A3-04",
+      "severity": "P3",
+      "status": "RESIDUAL",
+      "title": "Public enable_post_commit_physics without receipt binding",
+      "detail": "Red F01 residual hard stop for networked work or shipping only."
+    },
+    {
+      "id": "F-A3-05",
+      "severity": "P3",
+      "status": "RESIDUAL",
+      "title": "confirm_and_commit issuer re-check defense-in-depth",
+      "detail": "Network/shipping residual."
+    },
+    {
+      "id": "F-A3-06",
+      "severity": "P4",
+      "status": "OPEN",
+      "title": "cancel_preview committed_untouched flag hardcoded true",
+      "detail": "Count stability still verified in smoke and headed cancel path."
+    },
+    {
+      "id": "F-A4-01",
+      "severity": "P3",
+      "status": "OPEN",
+      "title": "Headed build_preview_R camera yaw continued moving",
+      "detail": "visual_claim_meta camera_yaw_unchanged=false on build_preview_R; likely lerp/input residual. Headless QR isolation remains PASS.",
+      "classification": "FACT"
+    },
+    {
+      "id": "F-A4-02",
+      "severity": "P4",
+      "status": "RESIDUAL",
+      "title": "Godot 4.3 headed exit RendererRD RID leak + RenderingServer null",
+      "detail": "4 ERROR lines only at process exit after AIDLE_P2E001_A4_HEADED=PASS; not SCRIPT/Parse/missing resource during capture.",
+      "classification": "FACT"
+    }
+  ],
+  "result": {
+    "verdict": "A4_GATES_PASS_HEADED_CAPTURED_PLAYABILITY_RESIDUALS_NO_ACCEPT",
+    "summary": "A4 VERIFY_ONLY: Block-DNA 14/14+42/42; P2E core/authority/qr smokes all PASS error_lines=0; Control1B router+headed dry-run PASS. Headed six WO states captured at 1280x720 and 868x517 (12 distinct PNGs). BA select used API injection (F-A3-01 residual). Authority confirm issuer=world_commit_service; cancel left committed untouched. Playability residuals remain OPEN; F01 network/shipping residual remains. product_writes=[]; accepted=false; self_accept=false; next_owner=A5_PURPLE.",
+    "automated_gates": "PASS",
+    "headed_evidence": "PASS_WITH_TEARDOWN_NOISE",
+    "playable_headed_without_api_injection": "FAIL_OPEN_FINDINGS",
+    "f01_network_shipping": "RESIDUAL_HARD_STOP"
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "block_dna_validator + p2e001 core/authority/qr + control1b router/headed-dry + headed six-state capture",
+    "pass": true,
+    "exit_code": 0,
+    "headed_runner_exit_code": 1,
+    "headed_runner_pass_with_classified_teardown_noise": true
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "authority_token_is_verify_only": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "one_writer_per_file": true,
+    "exclusive_lease_only": true,
+    "did_not_patch_product": true,
+    "did_not_patch_tests_or_contracts": true,
+    "did_not_fabricate_screenshots": true,
+    "skills_transcript_backed": true,
+    "characters_bound": true,
+    "did_not_import_dna_runtime": true,
+    "no_network_install_push_deploy": true,
+    "maf_required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "residual_risks": [
+      "Honest headed playable WO claim still blocked by F-A3-01 without API injection.",
+      "F-A3-04/F-A3-05 remain hard stops for network/shipping.",
+      "Headed build yaw residual F-A4-01 should not override headless QR PASS without blue re-check."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md",
+    "orchestration/control/codex_directive.json",
+    "orchestration/receipts/p2e_001/A0_ssot_preflight_001.json",
+    "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json",
+    "orchestration/receipts/p2e_001/A2_control_ux_audit_001.json",
+    "orchestration/receipts/p2e_001/A3_red_audit_001.json",
+    "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+    "game/tests/p2e001_block_assembly_core_smoke.gd",
+    "game/tests/p2e001_block_assembly_authority_smoke.gd",
+    "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+    "orchestration/evidence/p2e_001/001/",
+    "orchestration/logs/p2e-001-a4-qa-001.log",
+    "orchestration/receipts/p2e_001/A4_qa_evidence_001.json"
+  ],
+  "trace": {
+    "handoff_from": "A3_RED",
+    "handoff_to": "A5_PURPLE",
+    "wave": "A4",
+    "task_id": "P2E-001",
+    "log": "orchestration/logs/p2e-001-a4-qa-001.log",
+    "receipt": "orchestration/receipts/p2e_001/A4_qa_evidence_001.json",
+    "evidence_root": "orchestration/evidence/p2e_001/001/"
+  },
+  "parent_product_patch": false
+}

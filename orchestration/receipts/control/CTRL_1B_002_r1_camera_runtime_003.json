@@ -1,0 +1,250 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-r1-camera-runtime-003-2026-07-22",
+  "step_id": "CTRL-1B-002-r1-camera-runtime-003",
+  "work_order_id": "WO-CTRL-1B-002-R-CAMERA-CORRECTION-002",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-R-CAMERA-CORRECTION-002.md",
+  "directive_id": 60,
+  "directive_supersedes_on_point": "Directive 59 machine VERIFIED superseded only for Exploration R camera yaw (Human Product Lead live-play regression)",
+  "review_id": "CODEX_CTRL-1B-002-HUMAN-R-ROTATE-REVIEW-002",
+  "prior_review": "orchestration/reviews/CODEX_CTRL-1B-002_HUMAN_R_ROTATE_REVIEW_002.json",
+  "prior_review_sha256": "ec7f5a663ec391a26ea6a9979383b29362aaf9f66c1f0b30ea6e252447a7dcea",
+  "prior_s0_receipt": "orchestration/receipts/control/CTRL_1B_002_s0_r_contract_003.json",
+  "prior_s0_child_task_ref": "019f8731-3c78-7ed1-a029-292167b919ba",
+  "milestone": "Control 1B R1 runtime — Exploration R camera yaw via closed catalog allow-list",
+  "agent_id": "aidle-worldgen-control-input",
+  "agent_type": "aidle-worldgen-control-input",
+  "profile_name": "aidle-worldgen-control-input",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+  "profile_sha256": "c6b718fb24ea7e1b9ca2453b25cff077c023a582b652307572fbe5184450fe6e",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "exclusive lease only — control_action_catalog.gd, control_1b_context_router_smoke.gd, control_1b_integration_smoke.gd, control_1b_headed_smoke.gd, R1 receipt, R1 log; no cozy_camera.gd; no project.godot unless missing R; no contract/fixture rewrite; no Character Foundry/World2/network/World Commit; no self-accept",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:371617d1f61c7e804f7c9ddd365b66967051be54452c0a13ee5672a7fcfb32ed",
+  "input_context_hash_16": "371617d1f61c7e80",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002-R-CAMERA-CORRECTION-002.md + CODEX_CTRL-1B-002_HUMAN_R_ROTATE_REVIEW_002.json + aidle-worldgen-control-input.md + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "R1_EXPLORATION_R_CAMERA_FIXED_NO_ACCEPT",
+  "verdict_detail": "Root cause fixed: exploration allow-list in control_action_catalog.gd now includes rotate_camera_right (was omit while rotate_camera_left present), so ControlContextRouter.is_action_just_pressed('rotate_camera_right') succeeds in exploration and cozy_camera observes R. Build remains build_rotate_right only with camera fail-closed; no dual-fire. Tests prove real InputMap→router→CozyCamera._process yaw path (not only try_dispatch), Build R preview-only with camera unchanged, and remapped logical rotate_camera_right still yaws. Router smoke PASS checks=16 exit 0 ERROR=0; integration PASS checks=28 exit 0 ERROR=0; headed dry-run PASS checks=38 exit 0 ERROR=0. cozy_camera.gd and project.godot not edited. accepted=false; self_accept=false; next_owner=Q2_QA.",
+  "child_task_ref": "019f8735-2780-7530-8584-1c8711e18a9a",
+  "transcript_ref": "019f8735-2780-7530-8584-1c8711e18a9a",
+  "writer_transcript_ref": "019f8735-2780-7530-8584-1c8711e18a9a",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8735-2780-7530-8584-1c8711e18a9a/meta.json",
+  "durable_meta_sha256_at_start": "8fbae3d7ceb850d728c63991d3665bc585aa83dd71aa057496d6c168e6c4e19f",
+  "durable_session_dir": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f8735-2780-7530-8584-1c8711e18a9a",
+  "next_owner": "Q2_QA",
+  "next_route": "Q2_QA",
+  "character_binding": {
+    "trustlayer": "blue-team-p0-remediator",
+    "trustlayer_wo_required": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_lines_loaded": 17,
+    "ui": "ui-a11y-auditor",
+    "ui_wo_required": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "ui_lines_loaded": 49,
+    "role": "R1 Control runtime fix Exploration rotate_camera_right allow-list + real-path smokes (PATCH_DRAFT exclusive lease; no self-accept)"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile aidle-worldgen-control-input.md, WO-CTRL-1B-002-R-CAMERA-CORRECTION-002, Human R rotate review 002, S0 receipt, control_action_catalog, smokes, character cards, and skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "lines": 46,
+      "eof_tail": "No production destructive tests, no exfil, no auto-merge, no unredacted public reports, no exceeding authority, no inventing evidence.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "lines": 53,
+      "eof_tail": "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "lines": 36,
+      "eof_tail": "Full protocol: `E:\\shared\\LOOP.md`",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "lines": 65,
+      "eof_tail": "Docs: `E:\\agents\\projects\\README.md`",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "lines": 1123,
+      "eof_tail": "Your goal is to produce a trustworthy, testable result; understand why it is trustworthy; preserve validated learning when authorized; and make the next relevant task better than the last one.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "lines": 26,
+      "eof_tail": "If evidence is insufficient, say `uncertain` and ask for source/docs. Never infer a framework from old filenames alone.",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/game/scripts/input/control_action_catalog.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_context_router_smoke.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_integration_smoke.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_headed_smoke.gd",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_r1_camera_runtime_003.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-r1-camera-runtime-003.log"
+  ],
+  "product_writes": [
+    "E:/AIdle_openworld/game/scripts/input/control_action_catalog.gd"
+  ],
+  "test_writes": [
+    "E:/AIdle_openworld/game/tests/control_1b_context_router_smoke.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_integration_smoke.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_headed_smoke.gd"
+  ],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_r1_camera_runtime_003.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-r1-camera-runtime-003.log"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/game/scripts/input/control_action_catalog.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_context_router_smoke.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_integration_smoke.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_headed_smoke.gd",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_r1_camera_runtime_003.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-r1-camera-runtime-003.log"
+  ],
+  "files_written_hashes": {
+    "E:/AIdle_openworld/game/scripts/input/control_action_catalog.gd": "9629e79105baf0af78674f5619e3df9bf0406d61ab8d970a4c7e73f1a8cde032",
+    "E:/AIdle_openworld/game/tests/control_1b_context_router_smoke.gd": "991b07ecc71e4ccded089ec835348464cb77af8f153a2a57ac814c54abd11885",
+    "E:/AIdle_openworld/game/tests/control_1b_integration_smoke.gd": "343d6162197a3c84cac54e6fcdc97bd95eb1b8e82225776cd0c8755d7a9109e3",
+    "E:/AIdle_openworld/game/tests/control_1b_headed_smoke.gd": "6ad242dc647d35ce75dab257d8ced884c74abda0fcdf76f5a8f91c88129fc0f7",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-r1-camera-runtime-003.log": "37be4237160a8243329da2ca0e7f452ed84c503dc22d21fe22cad703d584edc6"
+  },
+  "receipt_sha256_note": "Receipt self-hash omitted (mutating). Log hash above is post-write stable.",
+  "root_cause": {
+    "file": "game/scripts/input/control_action_catalog.gd",
+    "finding": "exploration allow-list contained rotate_camera_left but omitted rotate_camera_right",
+    "runtime_effect": "ControlContextRouter.is_action_just_pressed('rotate_camera_right') failed closed; cozy_camera never observed R in exploration",
+    "fix": "added rotate_camera_right to exploration get_context_allowed_actions closed list"
+  },
+  "human_locked_behavior": {
+    "exploration_Q": "rotate_camera_left",
+    "exploration_R": "rotate_camera_right",
+    "build_Q": "build_rotate_left",
+    "build_R": "build_rotate_right",
+    "dual_fire": false,
+    "remappable_inputmap_only": true,
+    "exploration_R_never_hologram": true,
+    "build_R_never_camera": true
+  },
+  "not_edited": {
+    "cozy_camera_gd": true,
+    "project_godot": true,
+    "contract": true,
+    "valid_fixture": true,
+    "validator": true,
+    "reason_project_godot": "physical R already bound to rotate_camera_right (KEY_R); tests prove binding present",
+    "reason_cozy_camera": "already router-gated; not leased for this wave"
+  },
+  "smoke_results": {
+    "godot": "tools/Godot_v4.3-stable_win64_console.exe",
+    "router": {
+      "script": "res://tests/control_1b_context_router_smoke.gd",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "error_line_count": 0,
+      "pass": true,
+      "real_path_assertions": [
+        "exploration_allows_rotate_camera_right",
+        "exploration_r fires rotate_camera_right not build_rotate_right",
+        "InputMap action_press → router.is_action_just_pressed → CozyCamera._process yaw delta≈0.7854 rad",
+        "build_r_preview_only_camera_unchanged",
+        "rotate_camera_right_remap_still_works"
+      ]
+    },
+    "integration": {
+      "script": "res://tests/control_1b_integration_smoke.gd",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=28",
+      "error_line_count": 0,
+      "pass": true,
+      "real_path_assertions": [
+        "H-10_exploration_r_camera_yaw_real_inputmap_path",
+        "build_r_preview_only_camera_unchanged",
+        "rotate_camera_right_remap_still_works",
+        "r_exploration_no_hologram_rotate requires fired rotate_camera_right"
+      ]
+    },
+    "headed": {
+      "script": "res://tests/control_1b_headed_smoke.gd",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_HEADED_SMOKE=PASS checks=38 mode=dry_run states=27",
+      "error_line_count": 0,
+      "pass": true,
+      "mode": "dry_run",
+      "real_path_assertions": [
+        "H-10_exploration_r_camera_yaw_real_path camera_yaw_delta=0.78539816339745 router_just_pressed=true dual_fire=false fired=[rotate_camera_right]",
+        "H-11_build_r_preview_only_camera_unchanged camera_yaw_delta=0 preview_changed=true"
+      ]
+    },
+    "all_pass": true,
+    "zero_error_lines": true
+  },
+  "result": {
+    "status": "REVIEW_REQUESTED",
+    "verdict": "R1_EXPLORATION_R_CAMERA_FIXED_NO_ACCEPT",
+    "router_smoke_pass": true,
+    "integration_smoke_pass": true,
+    "headed_smoke_pass": true,
+    "exploration_r_camera_yaw_real_path": true,
+    "build_r_camera_unchanged": true,
+    "remap_works": true,
+    "no_dual_fire": true,
+    "self_accept": false,
+    "accepted": false,
+    "next_owner": "Q2_QA",
+    "summary": "Directive 60 R1 restored Exploration R camera yaw by allowing rotate_camera_right in closed catalog; real InputMap→router→camera path proven; handoff Q2_QA."
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "patch_draft_exclusive_lease_only": true,
+    "no_cozy_camera_edit": true,
+    "no_project_godot_edit": true,
+    "no_contract_rewrite": true,
+    "no_character_foundry": true,
+    "no_world2_network_world_commit": true,
+    "no_grandchild": true,
+    "exclusive_lease_only": true,
+    "self_accept": false,
+    "accepted": false,
+    "one_writer_per_file": true,
+    "preserves_prior_d58_d59_s0_receipts": true
+  }
+}

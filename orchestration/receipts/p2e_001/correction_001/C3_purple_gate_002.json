@@ -1,0 +1,631 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P2E-001-c3-purple-gate-002-20260722T065306Z",
+  "step_id": "P2E-001-c3-purple-gate-002",
+  "work_order_id": "WO-P2E-001-PLAYABILITY-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-P2E-001-PLAYABILITY-CORRECTION-001.md",
+  "work_order_sha256": "5151b4b6671ed508ae16ffed4521dbe6a39179bb08afa744a702939bd52dbeaa",
+  "review": "orchestration/reviews/CODEX_P2E-001_MACHINE_REVIEW_001.json",
+  "review_sha256": "f29918c616e58f37758131976d1ae9a6592313c41e4dba2368e52d49e23a1c78",
+  "directive_id": 71,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "ddee83d1c5318dd1804829d23d226a8efebd858fa311592343b4ee01cb98c70e",
+  "directive_state": "CHANGES_REQUESTED",
+  "directive_verdict": "CORRECTION_REQUIRED",
+  "directive_completion_signal": "WAITING_CODEX",
+  "directive_accepted": false,
+  "accepted_task_ids_from_directive": ["CTRL-1B-001", "CTRL-1B-002", "P1E-006", "CHAR-1C-001", "BLOCK-DNA-ADAPT-001"],
+  "permitted_task_ids": ["P2E-001"],
+  "milestone": "P2E-001 Directive 71 playability correction — C3 Purple independent gate (VERIFY_ONLY, never ACCEPTED)",
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "profile_name": "aidle-worldgen-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_sha256": "9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger,adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patch; never ACCEPTED",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "Purple independent acceptance gate only; exclusive log+receipt; product_writes=[]; never patch product/tests/contracts/evidence of other children; never ACCEPTED; no grandchildren; no DNA v1.2/Tier3/network/shipping",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:p2e001-c3-d71-purple-gate",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "purple_never_accepted": true,
+  "verdict": "PURPLE_CHANGES_REQUESTED_WAITING_CODEX",
+  "child_task_ref": "019f8897-cb4f-75b3-b77c-7a87c589e342",
+  "transcript_ref": "019f8897-cb4f-75b3-b77c-7a87c589e342",
+  "writer_transcript_ref": "019f8897-cb4f-75b3-b77c-7a87c589e342",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_c0_ref": "019f8883-4c2b-7341-9093-074ac8449a5c",
+  "prior_c1_ref": "019f888c-2ae3-7aa1-9385-f6220f58dbde",
+  "prior_c2_ref": "019f8890-2a0f-7c21-8b3c-82b53cff00cd",
+  "a1_lineage_ref": "019f8858-18aa-7970-a9d5-216a28c17ffa",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8897-cb4f-75b3-b77c-7a87c589e342/meta.json",
+  "started_at": "2026-07-22T06:51:17.201628600Z",
+  "completed_at_utc": "2026-07-22T06:53:30Z",
+  "next_owner": "CODEX",
+  "next_route": "CODEX",
+  "parent_product_patch": false,
+  "successor_wave_started": false,
+  "p2e_002_started": false,
+  "dna_v1_2_started": false,
+  "tier3_started": false,
+  "lineage": {
+    "mode": "strictly_sequential_four_children_directive_71",
+    "max_children": 4,
+    "parent_coordinator_only": true,
+    "one_product_writer": "C0",
+    "children": [
+      {
+        "wave": "C0",
+        "ref": "019f8883-4c2b-7341-9093-074ac8449a5c",
+        "profile": "aidle-worldgen-godot-runtime",
+        "authority_token": "PATCH_DRAFT",
+        "resume_from": "019f8858-18aa-7970-a9d5-216a28c17ffa",
+        "receipt": "orchestration/receipts/p2e_001/correction_001/C0_runtime_correction_002.json",
+        "receipt_sha256": "7908af333b250e783c89443115955c556d42ae814ef0b722e5844909bebc8dac",
+        "log": "orchestration/logs/p2e-001-c0-runtime-002.log",
+        "verdict": "C0_P2E_PLAYABILITY_CORRECTION_COMPLETE_NO_ACCEPT",
+        "sole_product_writer": true
+      },
+      {
+        "wave": "C1",
+        "ref": "019f888c-2ae3-7aa1-9385-f6220f58dbde",
+        "profile": "aidle-worldgen-control-input",
+        "authority_token": "VERIFY_ONLY",
+        "authority_reduced": true,
+        "receipt": "orchestration/receipts/p2e_001/correction_001/C1_control_audit_002.json",
+        "receipt_sha256": "3346c92319eafebe482521ac45d7abc844e98869f2bcf3e915e6eec7820cec93",
+        "log": "orchestration/logs/p2e-001-c1-control-002.log",
+        "verdict": "CONTROL_PASS_WITH_RESIDUALS_NO_ACCEPT",
+        "product_writes": []
+      },
+      {
+        "wave": "C2",
+        "ref": "019f8890-2a0f-7c21-8b3c-82b53cff00cd",
+        "profile": "aidle-worldgen-qa-evidence",
+        "authority_token": "VERIFY_ONLY",
+        "receipt": "orchestration/receipts/p2e_001/correction_001/C2_qa_evidence_002.json",
+        "receipt_sha256": "072e151a0c3a67f54ba63b71ed76d34490de49f48f29b92fa72299eea84760c3",
+        "log": "orchestration/logs/p2e-001-c2-qa-002.log",
+        "evidence_root": "orchestration/evidence/p2e_001/002/",
+        "verdict": "C2_QA_HEADED_CAPTURE_PASS_F02_TEARDOWN_OPEN_NO_ACCEPT",
+        "product_writes": []
+      },
+      {
+        "wave": "C3",
+        "ref": "019f8897-cb4f-75b3-b77c-7a87c589e342",
+        "profile": "aidle-worldgen-purple-acceptance",
+        "authority_token": "VERIFY_ONLY",
+        "receipt": "orchestration/receipts/p2e_001/correction_001/C3_purple_gate_002.json",
+        "log": "orchestration/logs/p2e-001-c3-purple-002.log",
+        "verdict": "PURPLE_CHANGES_REQUESTED_WAITING_CODEX",
+        "product_writes": []
+      }
+    ],
+    "four_child_refs": [
+      "019f8883-4c2b-7341-9093-074ac8449a5c",
+      "019f888c-2ae3-7aa1-9385-f6220f58dbde",
+      "019f8890-2a0f-7c21-8b3c-82b53cff00cd",
+      "019f8897-cb4f-75b3-b77c-7a87c589e342"
+    ],
+    "exclusive_leases_respected": true,
+    "no_grandchildren": true,
+    "d70_receipts_and_evidence_immutable": true
+  },
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_header_role_rules",
+    "role": "C3 VERIFY_ONLY Purple independent acceptance gate — synthesize C0–C2 for Codex; never patch; never ACCEPTED"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, Directive 71, WO, machine review, C0–C2 receipts, skills (ALWAYS + adversarial-review + evidence-memory-ledger full EOF; curiosity-engine through Prime Directive L1123) manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Hard stops / inventing evidence"
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "agent_step_contract.schema.json"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "E:\\shared\\LOOP.md"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "E:\\agents\\projects\\README.md"
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "line_count": 1123,
+      "read_mode": "full_no_limit",
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "line_count": 50,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "request Human Lead approval"
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "line_count": 292,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Evidence memory: NO_DURABLE_RECORD"
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/p2e-001-c3-purple-002.log",
+    "E:/AIdle_openworld/orchestration/receipts/p2e_001/correction_001/C3_purple_gate_002.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "orchestration/logs/p2e-001-c3-purple-002.log",
+    "orchestration/receipts/p2e_001/correction_001/C3_purple_gate_002.json"
+  ],
+  "finding_ids_adjudication": {
+    "P2E-CODEX-F01": {
+      "status": "CLOSED",
+      "blocking": false,
+      "purple_view": "C0 superseding receipt C0_runtime_correction_002.json validates agent_step_contract with non-empty smoke_test and self_audit (Draft202012 errors=0). Historical A1_runtime_implementation_001.json preserved immutable (sha256 22e0601e3208be39613e029cb9a985fa439d8141762c02bc91ec2d38c6df0229).",
+      "evidence": [
+        "orchestration/receipts/p2e_001/correction_001/C0_runtime_correction_002.json",
+        "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json"
+      ]
+    },
+    "P2E-CODEX-F02": {
+      "status": "OPEN_BLOCKING",
+      "blocking": true,
+      "severity": "P1",
+      "purple_view": "WO + machine review require zero ERROR/USER ERROR/SCRIPT ERROR including teardown (RID leak, null RenderingServer). C2 headed capture runtime clean but teardown still fails. Independent C3 spot-check of godot_headed.log confirms residual ERROR lines. C0 claimed F02 closed on headless teardown_dispose_clean only — insufficient against headed zero-ERROR rule. Cannot mark closed.",
+      "error_samples_on_disk": [
+        "ERROR: 1 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.",
+        "USER ERROR: Parameter \"RenderingServer::get_singleton()\" is null."
+      ],
+      "manifest": {
+        "path": "orchestration/evidence/p2e_001/002/evidence_manifest.json",
+        "sha256": "8643f678b470681020a0131be0d6fcb4b264cb4cfe8b303167eb67ad7c7a52e9",
+        "error_line_count": 3,
+        "f02_zero_error_including_teardown": false,
+        "runner_verdict": "PASS_CAPTURE_FAIL_F02_TEARDOWN"
+      },
+      "godot_headed_log_error_prefix_count": 2,
+      "c0_claimed_closed": true,
+      "c1_deferred": true,
+      "c2_honest_open": true,
+      "purple_independent": "OPEN_BLOCKING"
+    },
+    "P2E-CODEX-F03": {
+      "status": "CLOSED_WITH_RESIDUALS",
+      "blocking": false,
+      "purple_view": "Playable module selection via remappable KEY_PERIOD build_module_next InputMap path. C2 harness does not call select_module() to create state (string mentions only as negative assertions). module_selection_* PNGs show BA HUD module/highlighted fields. Residuals: KEY_P harness for place (product LMB), C1-R01 InputMap not project-persisted, C1-R02 HUD slots incomplete for cycle/place.",
+      "evidence": [
+        "orchestration/evidence/p2e_001/002/module_selection_1280x720.png",
+        "orchestration/evidence/p2e_001/002/capture_p2e001_c2_real_input.gd",
+        "orchestration/evidence/p2e_001/002/evidence_manifest.json"
+      ],
+      "select_module_api_injection": false
+    },
+    "P2E-CODEX-F04": {
+      "status": "CLOSED_HEADED",
+      "blocking": false,
+      "purple_view": "Build R headed evidence camera_yaw_unchanged=true exactly on both 1280x720 and 868x517; rot 0→30 on 1280 with yaw fixed. visual_claim_meta yaw_true count=4, yaw_false=0. Headless QR + correction smokes reconfirmed PASS. Residual: 868 build_preview rot_before==rot_after (yaw still unchanged).",
+      "yaw_proof": [
+        {
+          "file": "build_preview_R_1280x720.png",
+          "camera_yaw_before": -0.64703184141649,
+          "camera_yaw_after": -0.64703184141649,
+          "camera_yaw_unchanged": true,
+          "rot_before": 0,
+          "rot_after": 30
+        },
+        {
+          "file": "build_preview_R_868x517.png",
+          "camera_yaw_before": -0.64703184141649,
+          "camera_yaw_after": -0.64703184141649,
+          "camera_yaw_unchanged": true,
+          "rot_before": 0,
+          "rot_after": 0
+        }
+      ]
+    },
+    "P2E-CODEX-F05": {
+      "status": "CLOSED_WITH_NOTES",
+      "blocking": false,
+      "purple_view": "Plain-language BlockAssemblyHud fields visible on headed captures (Module/Highlighted/Snap/Rotation/Elevation/Status/Confirm/Cancel) at both resolutions. Visual spot-check module_selection_1280x720 and build_preview_R_1280x720 show top-left card without diagnostic wall. Residual: harness chrome banner + bottom CTX bar still dense; C1-R02/R03 HUD button completeness.",
+      "visual_spotcheck": [
+        "orchestration/evidence/p2e_001/002/module_selection_1280x720.png",
+        "orchestration/evidence/p2e_001/002/build_preview_R_1280x720.png"
+      ]
+    },
+    "P2E-CODEX-F06": {
+      "status": "CLOSED_HEADLESS",
+      "blocking": false,
+      "purple_view": "Idempotency bind-after-commit closed in product per C0/C1; independent C3 re-run authority + correction smokes PASS (invalid_then_corrected_submit_not_poisoned; changed_payload_same_key_after_commit_reject). Headed not re-proving full matrix.",
+      "smokes": [
+        "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+        "AIDLE_P2E001_CORRECTION_SMOKE=PASS checks=4"
+      ]
+    }
+  },
+  "gate_adjudication": {
+    "sequential_lineage_c0_c3": "PASS",
+    "one_product_writer_c0_only": "PASS",
+    "exclusive_leases": "PASS",
+    "c0_receipt_schema_valid": "PASS",
+    "a1_historical_preserved": "PASS",
+    "d70_evidence_immutable_not_rewritten_by_c3": "PASS",
+    "block_dna_contract_only": "PASS",
+    "no_dna_runtime_import": "PASS",
+    "no_world_dna_edits": "PASS",
+    "headless_automated_gates_independent_rerun": "PASS",
+    "headed_real_input_capture_states": "PASS_14_PNG",
+    "headed_zero_error_including_teardown_f02": "FAIL",
+    "f03_playable_module_select": "PASS_WITH_RESIDUALS",
+    "f04_build_r_camera_yaw_unchanged": "PASS",
+    "f05_plain_language_hud": "PASS_WITH_NOTES",
+    "f06_idempotency": "PASS_HEADLESS",
+    "f01_network_shipping_hard_stop": "RESIDUAL_UNCHANGED",
+    "purple_accepted": false,
+    "honest_package_ready_for_acceptance": "FAIL_F02_BLOCKING"
+  },
+  "adversarial_review_summary": {
+    "claim_under_review": "Directive 71 C0–C2 closed P2E-CODEX-F01..F06 and package is acceptance-ready",
+    "what_i_accept": [
+      "Headless DNA 14/14 42/42 and all P2E + router smokes green on independent C3 re-run",
+      "F01 schema supersession closed",
+      "F03 real-input module cycle without select_module API injection",
+      "F04 headed camera_yaw_unchanged=true both viewports",
+      "F05 plain-language BA HUD fields present in captures",
+      "F06 headless idempotency smokes PASS",
+      "C2 honest disclosure of F02 teardown FAIL and place-key residuals"
+    ],
+    "what_i_challenge": [
+      "C0 finding_ids_closed.P2E-CODEX-F02.closed=true overclaims against WO headed zero-ERROR-including-teardown rule",
+      "Any path to Purple VERIFIED/PASS without F02 teardown closure would filter ERROR evidence (forbidden)",
+      "Harness residuals (KEY_P place, elevate bulk, confirm_and_commit fallback) remain honesty notes — not F02 blockers but not pure product play path"
+    ],
+    "strongest_counter_argument": "Teardown RID/null RenderingServer may be engine-class noise after AIDLE_P2E001_C2_HEADED=PASS capture; headless teardown_dispose_clean already PASS.",
+    "why_counter_fails": "Machine review F02 and WO item 6 explicitly require zero ERROR including teardown and list RID leak / null RenderingServer by name. C2 residual matches that class. Prefer honesty over false closed.",
+    "final_verdict": "CHANGES_REQUESTED — F02 remains the sole machine-review P1 blocking purple gate"
+  },
+  "residual_register": [
+    {
+      "id": "P2E-CODEX-F02",
+      "severity": "P1",
+      "status": "OPEN_BLOCKING",
+      "title": "Headed teardown RID Texture leak + null RenderingServer ERROR lines",
+      "owner": "product (future C0/correction under Codex)",
+      "required": "Fresh headed run with error_line_count==0 including exit teardown; no ERROR/USER ERROR/SCRIPT ERROR/parse/missing resource/RID leak/null RS"
+    },
+    {
+      "id": "C2-R-PLACE-KEY",
+      "severity": "P3",
+      "status": "OPEN_NONBLOCKING",
+      "title": "build_place product is LMB; Main._input key-only — harness KEY_P for place path"
+    },
+    {
+      "id": "C2-R-ELEV-BULK",
+      "severity": "P3",
+      "status": "OPEN_NONBLOCKING",
+      "title": "PageUp x40 may fall back to elevate(300) for invalid budget proof"
+    },
+    {
+      "id": "C2-R-CONFIRM-HOLD",
+      "severity": "P3",
+      "status": "OPEN_NONBLOCKING",
+      "title": "Enter hold may not commit; confirm_and_commit residual used"
+    },
+    {
+      "id": "C2-R-CANCEL-ESC",
+      "severity": "P3",
+      "status": "OPEN_NONBLOCKING",
+      "title": "Esc may not clear preview; cancel_preview residual"
+    },
+    {
+      "id": "C2-R-868-PREVIEW-ROT",
+      "severity": "P4",
+      "status": "OPEN_NONBLOCKING",
+      "title": "build_preview_R_868x517 rot_before==rot_after (camera_yaw_unchanged still true)"
+    },
+    {
+      "id": "C1-R01",
+      "severity": "P3",
+      "status": "OPEN_NONBLOCKING",
+      "title": "build_module_prev/next not project.godot-persisted; runtime catalog ensure only"
+    },
+    {
+      "id": "C1-R02",
+      "severity": "P3",
+      "status": "OPEN_NONBLOCKING",
+      "title": "ContextActionHud slots do not fully invoke cycle/place"
+    },
+    {
+      "id": "C1-R03",
+      "severity": "P3",
+      "status": "OPEN_NONBLOCKING",
+      "title": "build_cancel RMB unwired; Esc path used"
+    },
+    {
+      "id": "C1-LEASE-01",
+      "severity": "P2",
+      "status": "REPORT_ONLY",
+      "title": "C0 wrote cozy_camera.gd outside original WO minimal integration list (self-disclosed)"
+    },
+    {
+      "id": "RED-F01-NETWORK-SHIPPING",
+      "severity": "P3",
+      "status": "HARD_STOP_RESIDUAL",
+      "title": "Red F01 remains hard stop before networked work or shipping (unchanged)"
+    }
+  ],
+  "synthesis_from_priors": {
+    "C0": "PATCH_DRAFT sole product writer resumed A1 lineage. Implemented playable picker, BA HUD, Build camera freeze, commit-only idempotency, preview dispose. Headless all green. Overclaimed F02 closed without headed zero-ERROR proof. cozy_camera outside original minimal list (lease honesty residual).",
+    "C1": "VERIFY_ONLY control audit: F03 keyboard path PASS with R01/R02; F04/F05 headed deferred; F06 closed; F02 open for C2. Residuals C1-R01..R03 + C1-LEASE-01 non-blocking for control pass.",
+    "C2": "VERIFY_ONLY headed real-input: 14 PNGs, camera_yaw_unchanged both viewports, no select_module injection. Headless green. F02 teardown ERROR remains open honestly. Runner PASS_CAPTURE_FAIL_F02_TEARDOWN."
+  },
+  "evidence_index": {
+    "root": "E:/AIdle_openworld/orchestration/evidence/p2e_001/002",
+    "manifest": "orchestration/evidence/p2e_001/002/evidence_manifest.json",
+    "manifest_sha256_c3_spotcheck": "8643f678b470681020a0131be0d6fcb4b264cb4cfe8b303167eb67ad7c7a52e9",
+    "visual_claim_meta": "orchestration/evidence/p2e_001/002/visual_claim_meta.json",
+    "png_sha256_index": "orchestration/evidence/p2e_001/002/png_sha256.json",
+    "evidence_tree_sha256": "orchestration/evidence/p2e_001/002/evidence_tree_sha256.json",
+    "godot_headed_log": "orchestration/evidence/p2e_001/002/godot_headed.log",
+    "runner_log": "orchestration/evidence/p2e_001/002/runner.log",
+    "c3_did_not_rewrite_evidence": true,
+    "d70_evidence_root_immutable": "orchestration/evidence/p2e_001/001/**",
+    "png_count": 14,
+    "viewports": ["1280x720", "868x517"],
+    "required_states": [
+      "module_selection",
+      "exploration_camera_R",
+      "build_preview_R",
+      "valid_snapped_preview",
+      "rejected_invalid_placement",
+      "confirmed_complete",
+      "cancelled_preview"
+    ],
+    "sample_png_hashes_verified_on_disk": {
+      "build_preview_R_1280x720.png": "a208efedef146c9680503c8e8661c6794f551b8658cd6fe4ce3457c976002aae"
+    },
+    "select_module_path": "none_playable_input_path_KEY_PERIOD_build_module_next"
+  },
+  "result": {
+    "verdict": "PURPLE_CHANGES_REQUESTED_WAITING_CODEX",
+    "summary": "C3 Purple VERIFY_ONLY re-adjudicates Directive 71 C0–C2. Independent headless DNA+P2E+router all PASS ERROR=0. F01 closed (schema-valid C0). F03/F04/F05/F06 closed with residuals/notes as C2. F02 remains OPEN_BLOCKING: headed teardown RID leak + null RenderingServer ERROR lines still present on disk (godot_headed.log + evidence_manifest error_line_count=3). Purple does not ACCEPTED. Package returns REVIEW_REQUESTED / WAITING_CODEX / accepted=false / next_owner=CODEX.",
+    "blocking_findings": ["P2E-CODEX-F02"],
+    "closed_findings": ["P2E-CODEX-F01", "P2E-CODEX-F03", "P2E-CODEX-F04", "P2E-CODEX-F05", "P2E-CODEX-F06"],
+    "four_child_refs": [
+      "019f8883-4c2b-7341-9093-074ac8449a5c",
+      "019f888c-2ae3-7aa1-9385-f6220f58dbde",
+      "019f8890-2a0f-7c21-8b3c-82b53cff00cd",
+      "019f8897-cb4f-75b3-b77c-7a87c589e342"
+    ],
+    "accepted": false,
+    "self_accept": false,
+    "purple_never_accepted": true
+  },
+  "smoke_test": {
+    "status": "PASS_HEADLESS_FAIL_HEADED_F02_EVIDENCE",
+    "all_exit_zero": false,
+    "headless_all_exit_zero": true,
+    "error_lines_headless_total": 0,
+    "headed_error_lines_spotcheck": 2,
+    "headed_rerun": false,
+    "headed_evidence_source": "C2 orchestration/evidence/p2e_001/002 (immutable spot-check only)",
+    "commands": [
+      {
+        "cmd": "PYTHONDONTWRITEBYTECODE=1 E:/standards/maf/.venv/Scripts/python.exe -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+        "exit_code": 0,
+        "result": "PASS",
+        "detail": "valid 14/14 invalid 42/42",
+        "kind": "c3_independent_rerun"
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_core_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14",
+        "error_lines": 0,
+        "kind": "c3_independent_rerun"
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+        "error_lines": 0,
+        "kind": "c3_independent_rerun"
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+        "error_lines": 0,
+        "kind": "c3_independent_rerun"
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_playable_select_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_PLAYABLE_SELECT_SMOKE=PASS checks=5",
+        "error_lines": 0,
+        "kind": "c3_independent_rerun"
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_correction_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_CORRECTION_SMOKE=PASS checks=4",
+        "error_lines": 0,
+        "kind": "c3_independent_rerun"
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+        "error_lines": 0,
+        "kind": "c3_independent_rerun"
+      },
+      {
+        "cmd": "python Draft202012Validator agent_step_contract on C0_runtime_correction_002.json",
+        "exit_code": 0,
+        "result": "PASS",
+        "detail": "schema_errors=0; smoke_test+self_audit present",
+        "kind": "c3_independent_schema_check"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_verify_only": true,
+    "product_writes_empty": true,
+    "no_product_patch": true,
+    "no_test_patch": true,
+    "no_evidence_rewrite_p2e_002": true,
+    "no_d70_evidence_rewrite": true,
+    "exclusive_lease_only": true,
+    "accepted_false": true,
+    "self_accept_false": true,
+    "purple_never_accepted": true,
+    "no_grandchildren": true,
+    "no_network_install_publish": true,
+    "skills_full_eof_claimed": true,
+    "f02_not_waived": true,
+    "did_not_invent_evidence": true,
+    "preserved_user_intent": true,
+    "no_scope_hijack": true,
+    "notes": [
+      "Verdict PURPLE_CHANGES_REQUESTED_WAITING_CODEX solely because F02 headed zero-ERROR-including-teardown remains open",
+      "Would have used PURPLE_PASS_WITH_RESIDUALS_WAITING_CODEX only if F02 independently closed — it is not",
+      "Evidence memory: NO_DURABLE_RECORD (gate findings live in exclusive receipt only; no project ledger write under VERIFY_ONLY lease)"
+    ]
+  },
+  "files_written": [
+    "orchestration/logs/p2e-001-c3-purple-002.log",
+    "orchestration/receipts/p2e_001/correction_001/C3_purple_gate_002.json"
+  ],
+  "files_read": [
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-P2E-001-PLAYABILITY-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_P2E-001_MACHINE_REVIEW_001.json",
+    "orchestration/receipts/p2e_001/correction_001/C0_runtime_correction_002.json",
+    "orchestration/receipts/p2e_001/correction_001/C1_control_audit_002.json",
+    "orchestration/receipts/p2e_001/correction_001/C2_qa_evidence_002.json",
+    "orchestration/receipts/p2e_001/A5_purple_gate_001.json",
+    "orchestration/evidence/p2e_001/002/evidence_manifest.json",
+    "orchestration/evidence/p2e_001/002/godot_headed.log",
+    "orchestration/evidence/p2e_001/002/runner.log",
+    "orchestration/evidence/p2e_001/002/visual_claim_meta.json",
+    "orchestration/evidence/p2e_001/002/capture_p2e001_c2_real_input.gd",
+    "orchestration/evidence/p2e_001/002/module_selection_1280x720.png",
+    "orchestration/evidence/p2e_001/002/build_preview_R_1280x720.png",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/agents/characters/13-purple-team-release-gate.md",
+    "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "E:/shared/skills/library/adversarial-review/SKILL.md",
+    "E:/shared/skills/library/evidence-memory-ledger/SKILL.md"
+  ],
+  "evidence_refs": [
+    "orchestration/logs/p2e-001-c3-purple-002.log",
+    "orchestration/receipts/p2e_001/correction_001/C3_purple_gate_002.json",
+    "orchestration/receipts/p2e_001/correction_001/C0_runtime_correction_002.json",
+    "orchestration/receipts/p2e_001/correction_001/C1_control_audit_002.json",
+    "orchestration/receipts/p2e_001/correction_001/C2_qa_evidence_002.json",
+    "orchestration/evidence/p2e_001/002/evidence_manifest.json",
+    "orchestration/evidence/p2e_001/002/"
+  ],
+  "commands": [
+    {
+      "cmd": "PYTHONDONTWRITEBYTECODE=1 E:/standards/maf/.venv/Scripts/python.exe -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_core_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_playable_select_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_correction_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+      "exit_code": 0
+    }
+  ]
+}

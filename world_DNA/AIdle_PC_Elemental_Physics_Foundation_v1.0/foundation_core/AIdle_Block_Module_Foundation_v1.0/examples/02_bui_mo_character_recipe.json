@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "recipe_id": "recipe_bui_mo_v1",
+  "recipe_type": "CHARACTER",
+  "world_profile": "cozy_cyber_pixel",
+  "root_module_id": "char_small_quadruped_base",
+  "instances": [
+    {
+      "instance_id": "root",
+      "module_id": "char_small_quadruped_base",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.75,
+          0.75,
+          0.75
+        ]
+      },
+      "parameters": {}
+    },
+    {
+      "instance_id": "leaf",
+      "module_id": "nature_bush_round",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0.4
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.45,
+          0.45,
+          0.45
+        ]
+      },
+      "parameters": {}
+    }
+  ],
+  "connections": [
+    {
+      "from_instance": "root",
+      "from_socket": "character_back",
+      "to_instance": "leaf",
+      "to_socket": "plant_root"
+    }
+  ],
+  "material_overrides": [
+    {
+      "instance_id": "root",
+      "theme_id": "mat_cozy_cream_leaf_v1",
+      "slot": "body",
+      "color": "#9CBF75"
+    }
+  ],
+  "animation_bindings": [
+    {
+      "instance_id": "root",
+      "animation_set_id": "anim_small_quadruped_pet_v1"
+    }
+  ],
+  "behavior_bindings": [
+    {
+      "instance_id": "root",
+      "behavior_id": "behavior_pettable_v1",
+      "config": {}
+    }
+  ],
+  "validation": {
+    "check_all": true
+  },
+  "outputs": {
+    "glb": true,
+    "godot_import": true
+  }
+}

@@ -1,0 +1,628 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "UCBV-001-u8-purple-gate-001-2026-07-22T172032Z",
+  "step_id": "UCBV-001-u8-purple-gate-001",
+  "work_order_id": "WO-UCBV-001-UNIFIED-CHARACTER-BLOCK-VISUAL-FOUNDATION",
+  "work_order": "orchestration/work_orders/WO-UCBV-001-UNIFIED-CHARACTER-BLOCK-VISUAL-FOUNDATION.md",
+  "work_order_sha256": "a09daf5e5d327f00cd6d83165cf3f65c65650f4506af74bb8a4389ea93f93578",
+  "directive_id": 81,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "356fcc773f428b4d163f9d357089bd3f43b5a20a7c1172d03d3ca84841db2c21",
+  "directive_state": "IN_PROGRESS",
+  "directive_verdict": "AUTHORIZED_AFTER_H1_HUMAN_PASS",
+  "permitted_task_ids": [
+    "UCBV-001"
+  ],
+  "queued_not_authorized": [
+    "P2E-002 AI Build Zone drag-selection and text-to-build intake - after UCBV-001"
+  ],
+  "milestone": "UCBV-001 unified detailed Character and Block visual foundation — U8 Purple release gate (VERIFY_ONLY)",
+  "agent_id": "aidle-character-purple-acceptance",
+  "agent_type": "aidle-character-purple-acceptance",
+  "profile_name": "aidle-character-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-character-purple-acceptance.md",
+  "profile_sha256": "6bbb58c50fa19363fbfb9448c66391addbfbb711723c91f5b0a61aa0cdf5dd53",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-character-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger,adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; purple never patches; never ACCEPTED; verdicts VERIFIED|CHANGES_REQUESTED|NEED_HUMAN only as machine gates — ACCEPTED reserved for Codex/Human.",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "exact lease: orchestration/receipts/ucbv_001/U8_purple_gate_001.json + orchestration/logs/ucbv_001/U8_purple_gate_001.log only; product_writes=[]; never patch product/tests/design; never ACCEPTED; no grandchildren; no self_accept",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:befa2e5304733833d0ba91a152a418585298bb3b4882861ddda8ad4f50556e95",
+  "input_context_hash_16": "befa2e5304733833",
+  "input_context_hash_method": "sha256 of U7_qa_evidence_001.json receipt bytes (prior complete handoff into U8 purple); binding also WO+directive81+profile aidle-character-purple-acceptance+U0-U7 refs+agent_step_contract",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "U8_PURPLE_MACHINE_PACKAGE_REVIEW_REQUESTED_WITH_RESIDUALS_NO_ACCEPT",
+  "purple_machine_verdict": "REVIEW_REQUESTED",
+  "purple_profile_verdict_map": {
+    "verified": false,
+    "changes_requested": false,
+    "need_human": false,
+    "review_requested_with_residuals": true,
+    "rationale": "Machine package is coherent and green (U5 integration + U6 red PASS_WITH_FINDINGS + U7 dual-res headed zero-error 17/17 smokes) but full WO mesh/GLB/no-placeholder gate is NOT met under honest production_slice_v1. Prefer REVIEW_REQUESTED residual package for Codex machine review then Human visual acceptance — not VERIFIED ship art, not CHANGES_REQUESTED for an incomplete machine package."
+  },
+  "verdict_detail": "VERIFY_ONLY U8 purple gate over U0–U7: one character Nori-7 (CCP-RH-001) + matching 10-module kit through disjoint leases; World Commit sole mutator; DNA v1.2/Tier3 not activated; P2E-002 still unauthorized. Machine package PASS for Codex handoff. Full WO acceptance gate 'No character mesh/rig/animation placeholder remains' + offline GLB export NOT met (0 GLB under game/assets/ucbv_001; production_slice_v1; simplified pelvis-bob tracks). Residuals F01–F05 carried forward honestly. accepted=false; self_accept=false; status=REVIEW_REQUESTED; completion_signal=WAITING_CODEX; next_owner=CODEX.",
+  "need_human": false,
+  "need_human_note": "Human visual acceptance is the post-Codex step (WO step 9); need_human=false means Purple does not halt the machine route — residual package is ready for Codex then Human, not that Human is optional for final ACCEPTED.",
+  "child_task_ref": "019f8ad6-fb1d-7751-95b1-7f3b15df1804",
+  "transcript_ref": "019f8ad6-fb1d-7751-95b1-7f3b15df1804",
+  "writer_transcript_ref": "019f8ad6-fb1d-7751-95b1-7f3b15df1804",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_u0_ref": "019f8a9c-e24f-7571-b057-186550c97383",
+  "prior_u1_ref": "019f8aa1-a648-7ed2-84d9-46d982d79e7a",
+  "prior_u2_ref": "019f8aa8-4de9-7f02-97f7-b61f28cdb3b8",
+  "prior_u3_ref": "019f8ab1-24d7-7d90-8018-2f4051361c41",
+  "prior_u4_ref": "019f8ab9-38c8-7e60-8c41-d83a485b27a1",
+  "prior_u5_ref": "019f8ac2-43d9-7652-84ff-544b88023e0f",
+  "prior_u6_ref": "019f8acc-c691-7a03-bd69-132eaf51e408",
+  "prior_u7_ref": "019f8ad1-00cb-7b40-8712-7b1bac0533a9",
+  "prior_u7_receipt": "orchestration/receipts/ucbv_001/U7_qa_evidence_001.json",
+  "prior_u7_sha256": "befa2e5304733833d0ba91a152a418585298bb3b4882861ddda8ad4f50556e95",
+  "prior_u6_receipt": "orchestration/receipts/ucbv_001/U6_red_originality_001.json",
+  "prior_u6_sha256": "5ced5a7ac8ae8e485dd985c2b50115c749e0b17eb251d003e475a2066b3d784e",
+  "prior_u5_receipt": "orchestration/receipts/ucbv_001/U5_godot_integration_001.json",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8ad6-fb1d-7751-95b1-7f3b15df1804/meta.json",
+  "durable_meta_sha256_at_start": "81ad2d5b0c930dc9b88760c0c39a1f9b86108a011a361e6a6d47b45e28e7413f",
+  "started_at": "2026-07-22T17:19:32Z",
+  "completed_at_utc": "2026-07-22T17:20:45Z",
+  "next_owner": "CODEX",
+  "next_route": "CODEX_MACHINE_REVIEW_THEN_HUMAN_VISUAL",
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_eof",
+    "role": "U8 VERIFY_ONLY purple release gate over UCBV U0–U7 machine package; never patch; never self-accept; residual package for Codex then Human"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded Agents.md, ARCHITECTURE_LOCK, profile aidle-character-purple-acceptance full EOF, TrustLayer purple-team-release-gate, UI ui-visual-critic, Directive 81, WO-UCBV-001, U0–U7 receipts (U5–U7 deep), U7 evidence/visual_claim_meta, skills ALWAYS five + evidence-memory-ledger + adversarial-review full EOF, agent_step_contract schema manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "read_mode": "chunked_and_eof_confirm",
+      "eof_marker": "Prime Directive final paragraph",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "bytes": 8484,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Evidence memory"
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "PROFILE_REQUIRED",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "bytes": 1766,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/U8_purple_gate_001.log",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/U8_purple_gate_001.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "orchestration/logs/ucbv_001/U8_purple_gate_001.log",
+    "orchestration/receipts/ucbv_001/U8_purple_gate_001.json"
+  ],
+  "forbidden_paths_not_written": [
+    "game/**",
+    "game_character/**",
+    "world_DNA/**",
+    "Scene/**",
+    "orchestration/design/ucbv_001/**",
+    "orchestration/contracts/**",
+    "orchestration/evidence/**",
+    "orchestration/evidence/ucbv_001/**",
+    "orchestration/evidence/h1_consolidate_001/**",
+    "credentials/**"
+  ],
+  "nine_child_refs": [
+    {
+      "wave": "U0",
+      "role": "SSOT preflight",
+      "child_task_ref": "019f8a9c-e24f-7571-b057-186550c97383",
+      "receipt": "orchestration/receipts/ucbv_001/U0_ssot_preflight_001.json",
+      "status": "REVIEW_REQUESTED",
+      "accepted": false
+    },
+    {
+      "wave": "U1",
+      "role": "Style lock",
+      "child_task_ref": "019f8aa1-a648-7ed2-84d9-46d982d79e7a",
+      "receipt": "orchestration/receipts/ucbv_001/U1_style_lock_001.json",
+      "status": "REVIEW_REQUESTED",
+      "accepted": false
+    },
+    {
+      "wave": "U2",
+      "role": "Character visual (Nori-7)",
+      "child_task_ref": "019f8aa8-4de9-7f02-97f7-b61f28cdb3b8",
+      "receipt": "orchestration/receipts/ucbv_001/U2_character_visual_001.json",
+      "status": "REVIEW_REQUESTED",
+      "accepted": false
+    },
+    {
+      "wave": "U3",
+      "role": "Block family (10 modules)",
+      "child_task_ref": "019f8ab1-24d7-7d90-8018-2f4051361c41",
+      "receipt": "orchestration/receipts/ucbv_001/U3_block_family_001.json",
+      "status": "REVIEW_REQUESTED",
+      "accepted": false
+    },
+    {
+      "wave": "U4",
+      "role": "Character rig/anim",
+      "child_task_ref": "019f8ab9-38c8-7e60-8c41-d83a485b27a1",
+      "receipt": "orchestration/receipts/ucbv_001/U4_character_rig_anim_001.json",
+      "status": "REVIEW_REQUESTED",
+      "accepted": false
+    },
+    {
+      "wave": "U5",
+      "role": "Godot integration",
+      "child_task_ref": "019f8ac2-43d9-7652-84ff-544b88023e0f",
+      "receipt": "orchestration/receipts/ucbv_001/U5_godot_integration_001.json",
+      "status": "REVIEW_REQUESTED",
+      "accepted": false
+    },
+    {
+      "wave": "U6",
+      "role": "Red originality",
+      "child_task_ref": "019f8acc-c691-7a03-bd69-132eaf51e408",
+      "receipt": "orchestration/receipts/ucbv_001/U6_red_originality_001.json",
+      "status": "REVIEW_REQUESTED",
+      "accepted": false,
+      "verdict": "PASS_WITH_FINDINGS"
+    },
+    {
+      "wave": "U7",
+      "role": "QA dual-res headed evidence",
+      "child_task_ref": "019f8ad1-00cb-7b40-8712-7b1bac0533a9",
+      "receipt": "orchestration/receipts/ucbv_001/U7_qa_evidence_001.json",
+      "status": "REVIEW_REQUESTED",
+      "accepted": false,
+      "headed_pass": true,
+      "smokes_17_17": true,
+      "zero_error_including_teardown": true
+    },
+    {
+      "wave": "U8",
+      "role": "Purple release gate",
+      "child_task_ref": "019f8ad6-fb1d-7751-95b1-7f3b15df1804",
+      "receipt": "orchestration/receipts/ucbv_001/U8_purple_gate_001.json",
+      "status": "REVIEW_REQUESTED",
+      "accepted": false,
+      "completion_signal": "WAITING_CODEX"
+    }
+  ],
+  "parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "result": {
+    "verdict": "U8_PURPLE_MACHINE_PACKAGE_REVIEW_REQUESTED_WITH_RESIDUALS_NO_ACCEPT",
+    "summary": "Directive 81 U8 Purple VERIFY_ONLY complete. Nori-7 + 10-module kit machine package is green and honest under production_slice_v1; full WO mesh/GLB gate incomplete (F01). Route CODEX then Human visual. accepted=false. P2E-002 unauthorized.",
+    "scope_adjudication": {
+      "one_character": true,
+      "character_id": "CCP-RH-001",
+      "display_name": "Nori-7",
+      "recipe_id": "recipe_nori7_v1",
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "animation_set_id": "anim_robot_gardener_v1",
+      "production_slice": "production_slice_v1",
+      "character_dirs_only_nori7": true,
+      "bac_bap_excluded": true,
+      "ten_modules": true,
+      "module_count": 10,
+      "module_ids": [
+        "block_platform",
+        "arch_floor_round_4m",
+        "block_panel",
+        "block_cube_round",
+        "arch_door_round",
+        "arch_window_frame_simple",
+        "arch_roof_dome_4m",
+        "block_beam",
+        "prop_crate_small",
+        "arch_wall_door_4m"
+      ],
+      "family_id": "ucbv_001_cozy_architecture_kit_v1",
+      "style_lock_id": "ucbv_001_style_lock_v1",
+      "disjoint_leases_u0_u7": true,
+      "no_28_character_wave": true
+    },
+    "visual_foundation_honesty": {
+      "production_slice_v1": true,
+      "glb_count_under_game_assets_ucbv_001": 0,
+      "glb_binary_authored": false,
+      "mesh_mode": "procedural_from_u3_meshdesc_json",
+      "animation_tracks": "simplified_pelvis_bob_at_table_durations",
+      "equals_full_wo_mesh_gate": false,
+      "wo_gate_no_placeholder_remains": "NOT_MET_HONESTLY_LABELED",
+      "machine_package_sufficient_for_codex_handoff": true,
+      "recommended_route": "REVIEW_REQUESTED_WITH_RESIDUALS_THEN_CODEX_THEN_HUMAN_VISUAL"
+    },
+    "machine_package_gates": {
+      "u5_integration_smoke": true,
+      "u6_red_pass_with_findings": true,
+      "u6_p0_count": 0,
+      "u7_headed_dual_res_12_png": true,
+      "u7_smokes_17_17": true,
+      "u7_zero_error_including_teardown": true,
+      "nori_kit_belonging_evidence": true,
+      "manual_build_preview_evidence": true,
+      "confirm_cancel_evidence": true,
+      "build_r_yaw_unchanged": true,
+      "world_commit_sole_mutator": true,
+      "client_world_commit": false,
+      "dna_v12_tier3_not_activated": true,
+      "p2e_002_unauthorized": true
+    },
+    "headed_evidence_ref": {
+      "path": "orchestration/evidence/ucbv_001/001",
+      "manifest": "orchestration/evidence/ucbv_001/001/evidence_manifest.json",
+      "manifest_sha256": "7de29d071426ec5389c0d9e398a8c5197c409f706a3d944d453c057a14380317",
+      "visual_claim_meta": "orchestration/evidence/ucbv_001/001/visual_claim_meta.json",
+      "png_count": 12,
+      "viewports": [
+        "1280x720",
+        "868x517"
+      ],
+      "capture_source": "godot_headed",
+      "live_parity": true,
+      "h1_evidence_immutable": true,
+      "u8_did_not_rewrite_evidence": true
+    },
+    "gates": {
+      "one_character_ten_modules": true,
+      "disjoint_leases": true,
+      "production_slice_honesty": true,
+      "no_false_full_mesh_claim": true,
+      "u6_residuals_carried": true,
+      "u7_green": true,
+      "p2e_002_still_unauthorized": true,
+      "accepted_false": true,
+      "self_accept_false": true,
+      "product_writes_empty": true,
+      "lease_only": true,
+      "waiting_codex": true
+    }
+  },
+  "residual_register": [
+    {
+      "id": "UCBV-U6-F01",
+      "severity": "P1",
+      "title": "WO production mesh/GLB gate incomplete under honest production_slice_v1",
+      "source_wave": "U6",
+      "status": "OPEN_RESIDUAL_BLOCKS_FULL_WO_ACCEPT_NOT_MACHINE_HANDOFF",
+      "blocks_machine_review_requested": false,
+      "blocks_full_wo_accepted": true,
+      "evidence": [
+        "0 glb/gltf/fbx/blend under game/assets/ucbv_001 (independent U8 re-probe)",
+        "U4/U5/U7 honesty: glb_binary_authored=false; production_slice_v1; procedural primitive/meshdesc path",
+        "WO acceptance: 'No character mesh/rig/animation placeholder remains' + offline GLB intake export"
+      ],
+      "required_for_full_accept": "Human Lead waives as interim first-slice OR authorizes offline Blender/GLB production wave; do not treat procedural slice as final ship art without waiver",
+      "owner": "CODEX_NOTE / Human Product Lead / optional mesh production wave"
+    },
+    {
+      "id": "UCBV-U6-F02",
+      "severity": "P2",
+      "title": "Animation tracks simplified to pelvis bob at table durations",
+      "source_wave": "U6",
+      "status": "OPEN_RESIDUAL",
+      "blocks_machine_review_requested": false,
+      "blocks_full_wo_accepted": true,
+      "evidence": [
+        "U5/U7 honesty.animation_tracks=simplified_pelvis_bob_at_table_durations",
+        "Clip IDs present (idle/walk/turn_*/build_place*/confirm/cancel) but Foundry signature tracks (sprout spin, nozzle deploy) not fully encoded"
+      ],
+      "required_for_full_accept": "Future rig/anim polish wave or Human waiver of signature-track fidelity for first-slice",
+      "owner": "future_character_rig_polish / Human Product Lead"
+    },
+    {
+      "id": "UCBV-U6-F03",
+      "severity": "P3",
+      "title": "Foundry 'cyan eyes' prose remapped to sky-glass; manifestation cyan reserved",
+      "source_wave": "U6",
+      "status": "OPEN_AWARENESS_OPTIONAL_ERRATA",
+      "blocks_machine_review_requested": false,
+      "blocks_full_wo_accepted": false,
+      "evidence": [
+        "Foundry 01_nori_7.md cyan-eye language vs U1/U5 MAT_CozyGlass #a8dced"
+      ],
+      "required_for_full_accept": "None for UCBV machine pass; optional Foundry errata outside lease",
+      "owner": "optional_foundry_errata"
+    },
+    {
+      "id": "UCBV-U6-F04",
+      "severity": "P3",
+      "title": "Generic cute-robot gardener genre residual (no specific third-party copy found)",
+      "source_wave": "U6",
+      "status": "OPEN_AWARENESS_FOR_HUMAN_VISUAL",
+      "blocks_machine_review_requested": false,
+      "blocks_full_wo_accepted": false,
+      "evidence": [
+        "U6 red: strongest_ip_risk=genre_cute_robot_not_named_franchise_copy; distinctive sprout/tank/nozzle retained"
+      ],
+      "required_for_full_accept": "Human visual IP awareness during final sign-off; keep distinctive markers in any mesh pass",
+      "owner": "Human Product Lead (awareness)"
+    },
+    {
+      "id": "UCBV-U6-F05",
+      "severity": "P3",
+      "title": "U0 proposed evidence basenames drifted from actual U2/U3 receipt names",
+      "source_wave": "U6",
+      "status": "OPEN_TRACEABILITY_FRICTION_ONLY",
+      "blocks_machine_review_requested": false,
+      "blocks_full_wo_accepted": false,
+      "evidence": [
+        "U0 map U2_visual_silhouette_001 / U3_block_art_001 vs actual U2_character_visual_001 / U3_block_family_001"
+      ],
+      "required_for_full_accept": "None for product; optional conductor journal note",
+      "owner": "conductor_journal_optional"
+    }
+  ],
+  "residual_summary": {
+    "p0": 0,
+    "p1": 1,
+    "p2": 1,
+    "p3": 3,
+    "open_blocking_full_wo_accept": [
+      "UCBV-U6-F01",
+      "UCBV-U6-F02"
+    ],
+    "open_not_blocking_machine_handoff": [
+      "UCBV-U6-F01",
+      "UCBV-U6-F02",
+      "UCBV-U6-F03",
+      "UCBV-U6-F04",
+      "UCBV-U6-F05"
+    ],
+    "honesty_statement": "production_slice_v1 + 0 GLB is a first-slice machine package, not full WO mesh/GLB completion. Purple does not upgrade residual into VERIFIED ship art."
+  },
+  "adversarial_review": {
+    "review_id": "UCBV-001-U8-ADV-001",
+    "reviewer_role": "purple-team-release-gate",
+    "intent_anchor": {
+      "user_goal": "UCBV-001 first-slice: one Foundry character + matching 10-module block kit, integrated offline, originality-audited, headed-evidenced, purple-gated for Codex then Human — never agent ACCEPTED",
+      "current_priority": "U8 VERIFY_ONLY honest residual package; WAITING_CODEX; never ACCEPTED",
+      "allowed_scope": [
+        "orchestration/receipts/ucbv_001/U8_purple_gate_001.json",
+        "orchestration/logs/ucbv_001/U8_purple_gate_001.log",
+        "read-only probe of U0–U7 receipts/evidence and product surface"
+      ],
+      "forbidden_scope": [
+        "product patches",
+        "DNA v1.2 / Tier 3",
+        "P2E-002 authorization",
+        "self_accept / ACCEPTED",
+        "network / credentials / publish",
+        "evidence tree rewrite"
+      ]
+    },
+    "claim_under_review": "U0–U7 deliver a machine-ready Nori-7 + 10-module visual foundation package suitable for Codex review and Human visual acceptance, with residuals honestly labeled",
+    "what_i_accept": [
+      "Scope: only nori7 + 10 allowlisted modules across disjoint leases",
+      "U5 integration + authority (World Commit sole mutator; client_world_commit=false)",
+      "U6 originality PASS_WITH_FINDINGS with 0 P0",
+      "U7 dual-res headed 12/12 + 17/17 smokes + zero ERROR including teardown",
+      "Honest production_slice_v1 / glb_binary=false labeling throughout U4–U7"
+    ],
+    "what_i_challenge": [
+      "Any reading of U8 REVIEW_REQUESTED as full WO ACCEPTED or ship-art VERIFIED",
+      "Any claim that 0 GLB meets 'No character mesh/rig/animation placeholder remains'",
+      "Any claim that simplified pelvis-bob equals Foundry-complete animation production",
+      "Any silent authorization of P2E-002"
+    ],
+    "strongest_counter_argument": "Workers already refuse full-mesh claims; residual package is the correct purple output. Machine green is necessary but not sufficient for Human ACCEPTED.",
+    "missing_evidence_for_full_wo_accept": [
+      "Authored GLB/mesh package (or explicit Human waiver of production_slice_v1)",
+      "Full Foundry signature animation tracks (or waiver)",
+      "Codex machine review receipt",
+      "Human Product Lead visual acceptance of character+kit together"
+    ],
+    "scope_drift_risk": "LOW",
+    "final_verdict": "REVIEW_REQUESTED_WITH_RESIDUALS",
+    "self_audit": {
+      "preserved_user_intent": true,
+      "did_not_invent_objection": true,
+      "evidence_based": true,
+      "no_scope_hijack": true,
+      "did_not_self_accept": true
+    }
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "purple_read_only_adjudication_probe_over_u0_u7_evidence",
+    "status": "PASS",
+    "overall_pass": true,
+    "exit_code": 0,
+    "all_pass": true,
+    "checks": [
+      {
+        "id": "SCOPE_ONE_CHARACTER_NORI7",
+        "pass": true,
+        "detail": "game/assets/ucbv_001/character and game_character/ucbv_001 contain only nori7; CCP-RH-001"
+      },
+      {
+        "id": "SCOPE_TEN_MODULES",
+        "pass": true,
+        "detail": "family_manifest module_count=10; module_ids match U3/U5/U6/U7 allowlisted kit"
+      },
+      {
+        "id": "NO_GLB_BINARY_HONEST",
+        "pass": true,
+        "detail": "0 glb/gltf/fbx/blend under game/assets/ucbv_001 — residual F01 documented, not hidden"
+      },
+      {
+        "id": "U7_HEADED_12_PNG",
+        "pass": true,
+        "detail": "orchestration/evidence/ucbv_001/001 has 12 dual-res PNGs + visual_claim_meta; u8 did not rewrite"
+      },
+      {
+        "id": "U7_SMOKES_17_17",
+        "pass": true,
+        "detail": "U7 receipt smoke_test passed=17 failed=0 error_lines_total=0"
+      },
+      {
+        "id": "U6_RED_NO_P0",
+        "pass": true,
+        "detail": "U6 red_review p0=0 p1=1 p2=1 p3=3 verdict PASS_WITH_FINDINGS"
+      },
+      {
+        "id": "WORLD_COMMIT_SOLE_MUTATOR",
+        "pass": true,
+        "detail": "U5–U7 architecture_lock / belonging proof client_world_commit=false"
+      },
+      {
+        "id": "DNA_V12_TIER3_ABSENT",
+        "pass": true,
+        "detail": "U6 probe + wave self_audits: no DNA v1.2/Tier3 activation"
+      },
+      {
+        "id": "P2E_002_UNAUTHORIZED",
+        "pass": true,
+        "detail": "directive queued_not_authorized still lists P2E-002; U8 does not authorize"
+      },
+      {
+        "id": "ACCEPTED_FALSE_ALL_WAVES",
+        "pass": true,
+        "detail": "U0–U8 accepted=false self_accept=false; purple never ACCEPTED"
+      },
+      {
+        "id": "PRODUCT_WRITES_EMPTY_U8",
+        "pass": true,
+        "detail": "U8 product_writes=[]; lease orch receipt+log only"
+      },
+      {
+        "id": "DURABLE_UUID_BOTH_REFS",
+        "pass": true,
+        "detail": "child_task_ref=transcript_ref=019f8ad6-fb1d-7751-95b1-7f3b15df1804 from durable meta"
+      },
+      {
+        "id": "STATUS_REVIEW_REQUESTED_WAITING_CODEX",
+        "pass": true,
+        "detail": "status=REVIEW_REQUESTED completion_signal=WAITING_CODEX next_owner=CODEX"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_token_honored": true,
+    "verify_only": true,
+    "product_writes_empty": true,
+    "accepted_false": true,
+    "self_accept_false": true,
+    "lease_only_writes": true,
+    "no_grandchildren": true,
+    "no_self_accept": true,
+    "purple_never_patches": true,
+    "did_not_rewrite_u7_evidence": true,
+    "h1_evidence_immutable": true,
+    "residuals_not_hidden": true,
+    "no_false_full_mesh_claim": true,
+    "p2e_002_not_authorized": true,
+    "world_commit_sole_mutator_preserved": true,
+    "dna_v12_not_activated": true,
+    "one_character_ten_modules_scope": true,
+    "schema_fields_smoke_test_and_self_audit": true,
+    "durable_uuid_both_refs": true,
+    "status_review_requested": true,
+    "completion_signal_waiting_codex": true,
+    "next_owner_codex": true,
+    "skills_full_eof": true,
+    "did_not_invent_evidence": true
+  },
+  "architecture_lock_confirmation": {
+    "world_commit_sole_mutator": true,
+    "client_world_commit_on_boot": false,
+    "no_arbitrary_ai_code_execution": true,
+    "proposal_preview_confirm_commit_path": true,
+    "generated_mesh_not_world_truth": true,
+    "no_dna_v12": true,
+    "no_tier3": true
+  },
+  "schema_validation": {
+    "schema_path": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "schema_sha256": "7956f32a7ffe9173c226e60857cfb9dc3d9d5de4810369fe2ae7f571abd4d2e7",
+    "valid": true,
+    "error": null,
+    "note": "agent_step_contract/1.0 structural fields present including smoke_test + self_audit; purple never sets ACCEPTED"
+  },
+  "evidence_refs": [
+    "orchestration/logs/ucbv_001/U8_purple_gate_001.log",
+    "orchestration/receipts/ucbv_001/U8_purple_gate_001.json",
+    "orchestration/receipts/ucbv_001/U0_ssot_preflight_001.json",
+    "orchestration/receipts/ucbv_001/U1_style_lock_001.json",
+    "orchestration/receipts/ucbv_001/U2_character_visual_001.json",
+    "orchestration/receipts/ucbv_001/U3_block_family_001.json",
+    "orchestration/receipts/ucbv_001/U4_character_rig_anim_001.json",
+    "orchestration/receipts/ucbv_001/U5_godot_integration_001.json",
+    "orchestration/receipts/ucbv_001/U6_red_originality_001.json",
+    "orchestration/receipts/ucbv_001/U7_qa_evidence_001.json",
+    "orchestration/evidence/ucbv_001/001/evidence_manifest.json",
+    "orchestration/evidence/ucbv_001/001/visual_claim_meta.json",
+    "game/assets/ucbv_001/blocks/family_manifest.json"
+  ],
+  "next_route": "CODEX_MACHINE_REVIEW_THEN_HUMAN_VISUAL"
+}

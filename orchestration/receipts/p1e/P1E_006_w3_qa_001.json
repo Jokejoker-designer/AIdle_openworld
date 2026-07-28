@@ -1,0 +1,310 @@
+{
+  "step_id": "P1E-006-w3-qa-001",
+  "agent_step_id": "P1E-006-w3-qa-001-2026-07-22",
+  "work_order_id": "WO-P1E-006-PER-STYLE-PALETTE-VARIANTS",
+  "work_order": "orchestration/work_orders/WO-P1E-006-PER-STYLE-PALETTE-VARIANTS.md",
+  "agent_id": "aidle-worldgen-qa-evidence",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "authority": "VERIFY_ONLY",
+  "authority_token": "VERIFY_ONLY",
+  "status": "REVIEW_REQUESTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "wave": "P1E_006_W3_QA",
+  "child_task_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+  "transcript_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+  "writer_transcript_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f8625-8258-7683-9773-4b42dfa3aac2",
+  "prior_wave": {
+    "wave": "P1E_006_W2_RED",
+    "receipt": "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "child_task_ref": "019f8625-8258-7683-9773-4b42dfa3aac2",
+    "verdict": "PASS_WITH_NOTES",
+    "self_accept": false,
+    "accepted": false
+  },
+  "w1_blue": {
+    "receipt": "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "child_task_ref": null,
+    "child_task_ref_note": "honest parent-inline; W1 executed by parent conductor, not spawn_subagent",
+    "verdict": "W1_COMPLETE_STATE_VARIANTS_PROFILE_SELECTOR_NO_ACCEPT"
+  },
+  "self_accept": false,
+  "accepted": false,
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-w3-qa-001.log",
+    "E:/AIdle_openworld/orchestration/logs/_p1e006_w3_qa_*.txt",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006/visual_claim_meta.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json"
+  ],
+  "next_owner": "P1E_006_W4_PURPLE",
+  "next_route": "P1E_006_W4_PURPLE",
+  "handoff_ref": "P1E_006_W4_PURPLE",
+  "trace_ref": "orchestration/logs/p1e-006-w3-qa-001.log",
+  "product_writes": [],
+  "verdict": "PASS_WITH_NOTES",
+  "completion_signal": "REVIEW_REQUESTED",
+  "start_time": "2026-07-22T02:31:22+07:00",
+  "end_time": "2026-07-22T02:33:00+07:00",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "character_binding": {
+    "trustlayer": "purple-team-finding-triage",
+    "ui": "ui-a11y-auditor",
+    "role": "QA Evidence VERIFY_ONLY"
+  },
+  "skills_loaded": [
+    {"skill_id": "maf-mandatory-standard", "version": "1.0"},
+    {"skill_id": "trustlayer-x16-crew", "version": "1.0"},
+    {"skill_id": "agentwork-knowledge-loop", "version": "1.0"},
+    {"skill_id": "evidence-memory-ledger", "version": "1.0"}
+  ],
+  "inputs": [
+    "orchestration/work_orders/WO-P1E-006-PER-STYLE-PALETTE-VARIANTS.md",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "orchestration/evidence/p1e_006/visual_claim_meta.json",
+    "orchestration/evidence/p1e_006/hsl_per_profile_demo.json",
+    "orchestration/evidence/p1e_006/_hsl_per_profile_demo.py",
+    "game/tests/p1e006_world_profile_variants_smoke.gd",
+    "game/tests/p1e003_density_exposure_smoke.gd",
+    "game/tests/p1e004_art_style_manager_smoke.gd",
+    "game/tests/g8_ux002_fence_rail_collision_smoke.gd",
+    "orchestration/control/merge_grok_status.py",
+    "orchestration/control/grok_status.json",
+    "orchestration/standards/HEADED_VISUAL_EVIDENCE_QA.md"
+  ],
+  "outputs": [
+    "orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+    "orchestration/logs/p1e-006-w3-qa-001.log",
+    "orchestration/logs/_p1e006_w3_qa_hsl_demo.txt",
+    "orchestration/logs/_p1e006_w3_qa_variants_smoke.txt",
+    "orchestration/logs/_p1e006_w3_qa_p1e003_smoke.txt",
+    "orchestration/logs/_p1e006_w3_qa_p1e004_asm_smoke.txt",
+    "orchestration/logs/_p1e006_w3_qa_g8_ux002_smoke.txt",
+    "orchestration/logs/_p1e006_w3_qa_governance.txt",
+    "orchestration/evidence/p1e_006/visual_claim_meta.json",
+    "orchestration/control/_p1e006_w3_qa_patch.json",
+    "orchestration/control/grok_status.json"
+  ],
+  "commands": [
+    "python orchestration/evidence/p1e_006/_hsl_per_profile_demo.py",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e003_density_exposure_smoke.gd",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e004_art_style_manager_smoke.gd",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+    "python orchestration/control/merge_grok_status.py --check-governance",
+    "python orchestration/control/merge_grok_status.py --patch-file orchestration/control/_p1e006_w3_qa_patch.json"
+  ],
+  "exit_codes": [0, 0, 0, 0, 0, 0, 0],
+  "evidence_refs": [
+    "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "orchestration/evidence/p1e_006/hsl_per_profile_demo.json",
+    "orchestration/evidence/p1e_006/visual_claim_meta.json",
+    "orchestration/logs/_p1e006_w3_qa_hsl_demo.txt",
+    "orchestration/logs/_p1e006_w3_qa_variants_smoke.txt",
+    "orchestration/logs/_p1e006_w3_qa_p1e003_smoke.txt",
+    "orchestration/logs/_p1e006_w3_qa_p1e004_asm_smoke.txt",
+    "orchestration/logs/_p1e006_w3_qa_g8_ux002_smoke.txt",
+    "orchestration/logs/_p1e006_w3_qa_governance.txt",
+    "orchestration/logs/p1e-006-w3-qa-001.log"
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-006-PER-STYLE-PALETTE-VARIANTS.md",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_corr_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006/visual_claim_meta.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006/hsl_per_profile_demo.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006/_hsl_per_profile_demo.py",
+    "E:/AIdle_openworld/orchestration/control/merge_grok_status.py",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/control/_p1e006_w2_red_patch.json",
+    "E:/AIdle_openworld/orchestration/standards/HEADED_VISUAL_EVIDENCE_QA.md",
+    "E:/AIdle_openworld/game/tests/p1e006_world_profile_variants_smoke.gd"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-w3-qa-001.log",
+    "E:/AIdle_openworld/orchestration/logs/_p1e006_w3_qa_hsl_demo.txt",
+    "E:/AIdle_openworld/orchestration/logs/_p1e006_w3_qa_variants_smoke.txt",
+    "E:/AIdle_openworld/orchestration/logs/_p1e006_w3_qa_p1e003_smoke.txt",
+    "E:/AIdle_openworld/orchestration/logs/_p1e006_w3_qa_p1e004_asm_smoke.txt",
+    "E:/AIdle_openworld/orchestration/logs/_p1e006_w3_qa_g8_ux002_smoke.txt",
+    "E:/AIdle_openworld/orchestration/logs/_p1e006_w3_qa_governance.txt",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006/visual_claim_meta.json",
+    "E:/AIdle_openworld/orchestration/control/_p1e006_w3_qa_patch.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json"
+  ],
+  "open_risks": [
+    "R-NOTE-01 headed live visual evidence deferred (headless/synthetic only; live_parity=false) — residual for W4 Purple / human headed capture",
+    "R-NOTE-02 DNA extension applied to v1.0 package only; v1.1_Tier3 PHYSICS_VISUAL_STATE_VARIANTS.md not dual-updated (carried from Red)",
+    "R-NOTE-03 variant form is shared material_table not 11 discrete per-module mesh STATE_VARIANT folders (carried from Red)",
+    "R-LOW-01 some surreal albedos high-value (e.g. MAT_CozyWood) — headed readability residual (carried from Red)"
+  ],
+  "failure_signature": null,
+  "result": {
+    "task_id": "P1E-006-W3-QA",
+    "work_order": "orchestration/work_orders/WO-P1E-006-PER-STYLE-PALETTE-VARIANTS.md",
+    "wave": "P1E_006_W3_QA",
+    "profile": "aidle-worldgen-qa-evidence",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "status": "REVIEW_REQUESTED",
+    "verdict": "PASS_WITH_NOTES",
+    "summary": "VERIFY_ONLY independent re-run of P1E-006 W3. All smokes PASS; HSL demo PASS (washed_surreal deliberate FAIL); check-governance PASS; env0_001.status=ACCEPTED preserved; accepted=false self_accept=false. Both profiles documented with art_style_id_active in visual_claim_meta (cozy_cyber_pixel + surrealism_canvas). Headed live evidence residual R-NOTE-01. product_writes=[]. Handoff P1E_006_W4_PURPLE.",
+    "blocking_findings": 0,
+    "qa_gates": [
+      {
+        "id": "Q1_p1e006_variants_smoke",
+        "verdict": "PASS",
+        "detail": "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5 (catalog_and_art_style_map, cozy_identity_no_white, surrealism_recolor_chromatic, switch_back_to_cozy_no_reload, landmarks_present_after_variant). surreal_rewritten=93; water cozy (0.1517,0.3492,0.4614) identity match; surreal primary (0.35,0.32,0.62)."
+      },
+      {
+        "id": "Q2_hsl_per_profile_demo",
+        "verdict": "PASS",
+        "detail": "P1E006_HSL_DEMO=PASS exit 0. cozy_bible PASS; surreal_target PASS; washed_surreal_deliberate FAIL (sat_too_low+lavender_wash); beige/white/grey FAIL under cozy gates."
+      },
+      {
+        "id": "Q3_regression_smokes",
+        "verdict": "PASS",
+        "detail": "AIDLE_P1E003_SMOKE=PASS checks=9; AIDLE_P1E004_ASM_SMOKE=PASS checks=6; AIDLE_G8_UX002_SMOKE=PASS checks=2. game_glb_count=0 on p1e003 evidence."
+      },
+      {
+        "id": "Q4_governance_env0_preserved",
+        "verdict": "PASS",
+        "detail": "merge_grok_status.py --check-governance exit 0 GOVERNANCE_KEYS_PRESENT. env0_001.status=ACCEPTED; g8_001_status=PASSED_BY_HUMAN_PRODUCT_LEAD; accepted=false self_accept=false."
+      },
+      {
+        "id": "Q5_art_style_id_active_both_profiles",
+        "verdict": "PASS",
+        "detail": "visual_claim_meta.json documents both profiles: cozy_cyber_pixel (art_style_id_active=cozy_cyber_pixel) and surrealism_canvas (art_style_id_active=surrealism_canvas). HEADED_VISUAL_EVIDENCE_QA required fields present. live_parity=false honest (headless/synthetic)."
+      },
+      {
+        "id": "Q6_red_findings_reconfirmed",
+        "verdict": "PASS_WITH_NOTES",
+        "detail": "Red A1–A10 reconfirmed via independent smokes. R-NOTE-01 headed live still open (not blocking mechanism). R-NOTE-02/03/R-LOW-01 carried. No new blocking findings. product_writes empty under VERIFY_ONLY."
+      }
+    ],
+    "independent_remeasure": {
+      "hsl_per_profile_demo": {
+        "method": "python orchestration/evidence/p1e_006/_hsl_per_profile_demo.py",
+        "exit": 0,
+        "pass": true,
+        "P1E006_HSL_DEMO": "PASS",
+        "log": "orchestration/logs/_p1e006_w3_qa_hsl_demo.txt",
+        "table": [
+          {"label": "cozy_bible", "expected_pass": true, "actual_pass": true},
+          {"label": "surreal_target", "expected_pass": true, "actual_pass": true},
+          {"label": "washed_surreal_deliberate", "expected_pass": false, "actual_pass": false},
+          {"label": "beige", "expected_pass": false, "actual_pass": false},
+          {"label": "white", "expected_pass": false, "actual_pass": false},
+          {"label": "grey", "expected_pass": false, "actual_pass": false}
+        ]
+      },
+      "variants_smoke": {
+        "method": "Godot 4.3 headless p1e006_world_profile_variants_smoke.gd",
+        "exit": 0,
+        "AIDLE_P1E006_VARIANTS_SMOKE": "PASS",
+        "checks": 5,
+        "ok": [
+          "catalog_and_art_style_map",
+          "cozy_identity_no_white",
+          "surrealism_recolor_chromatic",
+          "switch_back_to_cozy_no_reload",
+          "landmarks_present_after_variant"
+        ],
+        "surreal_rewritten": 93,
+        "surreal_water_primary": [0.35, 0.32, 0.62, 1.0],
+        "cozy_water_identity": [0.1517, 0.3492, 0.4614, 1.0],
+        "log": "orchestration/logs/_p1e006_w3_qa_variants_smoke.txt"
+      },
+      "p1e003_smoke": {
+        "method": "Godot 4.3 headless p1e003_density_exposure_smoke.gd",
+        "exit": 0,
+        "AIDLE_P1E003_SMOKE": "PASS",
+        "checks": 9,
+        "log": "orchestration/logs/_p1e006_w3_qa_p1e003_smoke.txt"
+      },
+      "p1e004_asm_smoke": {
+        "method": "Godot 4.3 headless p1e004_art_style_manager_smoke.gd",
+        "exit": 0,
+        "AIDLE_P1E004_ASM_SMOKE": "PASS",
+        "checks": 6,
+        "log": "orchestration/logs/_p1e006_w3_qa_p1e004_asm_smoke.txt"
+      },
+      "g8_ux002_smoke": {
+        "method": "Godot 4.3 headless g8_ux002_fence_rail_collision_smoke.gd",
+        "exit": 0,
+        "AIDLE_G8_UX002_SMOKE": "PASS",
+        "checks": 2,
+        "log": "orchestration/logs/_p1e006_w3_qa_g8_ux002_smoke.txt"
+      },
+      "check_governance": {
+        "method": "python orchestration/control/merge_grok_status.py --check-governance",
+        "exit": 0,
+        "GOVERNANCE_KEYS_PRESENT": true,
+        "env0_001_status": "ACCEPTED",
+        "log": "orchestration/logs/_p1e006_w3_qa_governance.txt"
+      }
+    },
+    "visual_claim_meta_profiles": [
+      {
+        "world_profile_id": "cozy_cyber_pixel",
+        "art_style_id_active": "cozy_cyber_pixel",
+        "capture_source": "godot_headless_viewport",
+        "live_parity": false,
+        "package_job_id": "BLD-03CB1AADD475"
+      },
+      {
+        "world_profile_id": "surrealism_canvas",
+        "art_style_id_active": "surrealism_canvas",
+        "capture_source": "godot_headless_viewport",
+        "live_parity": false,
+        "package_job_id": "BLD-03CB1AADD475"
+      }
+    ],
+    "smoke_lines": [
+      "P1E006_HSL_DEMO=PASS",
+      "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5",
+      "AIDLE_P1E003_SMOKE=PASS checks=9",
+      "AIDLE_P1E004_ASM_SMOKE=PASS checks=6",
+      "AIDLE_G8_UX002_SMOKE=PASS checks=2",
+      "GOVERNANCE_KEYS_PRESENT",
+      "env0_001.status=ACCEPTED"
+    ],
+    "product_writes": [],
+    "blocking_findings": 0
+  },
+  "smoke_test": {
+    "p1e006_variants_smoke": "PASS",
+    "checks": 5,
+    "hsl_per_profile_demo": "PASS",
+    "p1e003_smoke": "PASS",
+    "p1e003_checks": 9,
+    "p1e004_asm_smoke": "PASS",
+    "p1e004_asm_checks": 6,
+    "g8_ux002_smoke": "PASS",
+    "g8_ux002_checks": 2,
+    "check_governance": "PASS",
+    "env0_001": "ACCEPTED",
+    "exit_codes": [0, 0, 0, 0, 0, 0]
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "self_accept": false,
+    "accepted": false,
+    "product_writes_empty": true,
+    "no_grandchildren": true,
+    "receipt_log_evidence_control_only": true,
+    "child_task_ref_source": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f8629-521f-7501-ace3-1b5f29121a05/summary.json session_kind=subagent title=P1E-006 W3 QA Verify Smoke Receipts",
+    "child_task_ref_is_durable_grok_desktop_id": true,
+    "not_parent_id": true,
+    "verdict_non_null": true,
+    "verdict": "PASS_WITH_NOTES"
+  }
+}

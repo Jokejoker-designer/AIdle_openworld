@@ -1,0 +1,128 @@
+{
+  "phase": 1,
+  "phase_id": "TOWN_PHASE_01",
+  "district_id": "home_plot",
+  "district_role_vi": "Nơi ở + lối vào",
+  "status": "PARITY_100_VERIFIED",
+  "mockup_ssot": "MOCKUP_SSOT_V2",
+  "parity_gate": "MOCKUP_PARITY_100",
+  "character": {
+    "character_id": "CCP-RH-001",
+    "slug": "nori7",
+    "name": "Nori-7",
+    "class": "ROBOT_HELPER",
+    "form": "robot",
+    "clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel",
+      "turn_left",
+      "turn_right",
+      "build_place",
+      "build_place_hold",
+      "confirm"
+    ],
+    "motion": "bob_small",
+    "signature": "sprout_sway + water_drip",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_01_nori7.jpg",
+    "mockup_video": "orchestration/control/visual_reference/mockup_ssot_v2/anim/anim_nori7_idle.mp4",
+    "prod_hint": "runtime_glb",
+    "spawn": {
+      "x": 1.6,
+      "y": 0,
+      "z": 1.4,
+      "rotation_deg": -35
+    }
+  },
+  "building": {
+    "module_id": "cozy_house_small_A",
+    "name": "Nhà nhỏ Cozy",
+    "cat": "residence",
+    "anim": "door_pulse",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/buildings/bld_01_house.jpg",
+    "spawn": {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "rotation_deg": -35
+    }
+  },
+  "props": [
+    {
+      "module_id": "cozy_path_stone_A",
+      "name": "Lối đá",
+      "cat": "infra",
+      "anim": "idle_static",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_path_stone.jpg",
+      "spawn": {
+        "x": -1.4,
+        "y": 0,
+        "z": 1.6,
+        "rotation_deg": -47
+      }
+    },
+    {
+      "module_id": "cozy_garden_lamp_A",
+      "name": "Đèn vườn",
+      "cat": "infra",
+      "anim": "pulse",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_garden_lamp.jpg",
+      "spawn": {
+        "x": 1.2,
+        "y": 0,
+        "z": -1.1,
+        "rotation_deg": -35
+      }
+    },
+    {
+      "module_id": "cozy_mailbox_A",
+      "name": "Hộp thư",
+      "cat": "infra",
+      "anim": "idle_static",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_mailbox.jpg",
+      "spawn": {
+        "x": 0.9,
+        "y": 0,
+        "z": 1.8,
+        "rotation_deg": -23
+      }
+    }
+  ],
+  "acceptance": {
+    "rule": "Do NOT mark complete until MOCKUP_PARITY_100 passes for this phase",
+    "mockup_delta_max": 0.0,
+    "require_idle_play": true,
+    "require_clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel",
+      "turn_left",
+      "turn_right",
+      "build_place",
+      "build_place_hold",
+      "confirm"
+    ],
+    "require_building_load": true,
+    "require_props_load": 3,
+    "require_town_no_overlap": true,
+    "require_district_role_readable": true,
+    "self_accept": false,
+    "human_accept_required": true
+  },
+  "subagent_pipeline": [
+    "town-orchestrator",
+    "mockup-parity-guardian",
+    "character-animation-designer",
+    "building-module-designer",
+    "prop-set-designer",
+    "town-layout-planner",
+    "godot-runtime-integrator",
+    "red-mockup-delta-reviewer",
+    "purple-parity-gate"
+  ],
+  "parity_receipt": "receipts/TOWN_PHASE_01/PARITY_100_VERIFIED.json"
+}

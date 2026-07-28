@@ -1,0 +1,342 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aidle:character_foundry_1c:character_spec:1.0",
+  "title": "AIdle Character Foundry 1C CharacterSpec",
+  "description": "Strict machine intake contract for Foundry Markdown character records. Game characters never receive TrustLayer/UI/project-tool authority and never direct-commit world state. Fail-closed (Directive 65): (F01) behavior_allowlist must not name UNIVERSAL_DENYLIST/authority tokens even when authority booleans are false; (F03) reject allow∩deny and allow∩universal_deny after token normalization; (F04) AIda identity collision uses case/punctuation/separator-normalized checks on identity-bearing fields display_name, character_id, species_form, gameplay_role (relationship_hooks prose may mention AIda without claiming identity); (F05) intake_batch root additionalProperties:false (reject extra_backdoor, tool_authority, etc.); (F06) cozy_cast true iff character_id in {CCP-RH-001,CCP-NS-002,CCP-NW-003,CCP-CT-004} else false.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "character_id",
+    "display_name",
+    "world_profile_id",
+    "world_profile_display",
+    "character_class",
+    "species_form",
+    "gameplay_role",
+    "world_ability",
+    "limitation",
+    "behavior_allowlist",
+    "behavior_denylist",
+    "authority",
+    "identity_boundary",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "character_spec/1.0"
+    },
+    "character_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2,3}-[A-Z]{2}-[0-9]{3}$",
+      "minLength": 9,
+      "maxLength": 12
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "description": "Identity-bearing. Semantic gate normalizes case/punctuation/dots/spaces/hyphens/underscores and rejects AIda collisions (AI-da, A.I.da, etc.)."
+    },
+    "world_profile_id": {
+      "type": "string",
+      "enum": [
+        "cozy_cyber_pixel",
+        "surrealism_canvas",
+        "solarpunk_haven",
+        "arcane_clockwork",
+        "spirit_valley",
+        "oceanpunk_abyss",
+        "tiny_diorama"
+      ]
+    },
+    "world_profile_display": {
+      "type": "string",
+      "enum": [
+        "Cozy Cyber-Pixel / Dreamy Low-Poly",
+        "Surrealism Canvas",
+        "Solarpunk Haven",
+        "Arcane Clockwork",
+        "Spirit Valley",
+        "Oceanpunk / Bioluminescent Abyss",
+        "Tiny Diorama World"
+      ]
+    },
+    "character_class": {
+      "type": "string",
+      "enum": [
+        "COMPANION",
+        "NPC_GUIDE",
+        "NPC_WORKER",
+        "NPC_SOCIAL",
+        "NPC_QUEST",
+        "CREATURE_TAMEABLE",
+        "CREATURE_AMBIENT",
+        "ROBOT_HELPER",
+        "SPIRIT_ENTITY",
+        "CONSTRUCT"
+      ]
+    },
+    "species_form": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "description": "Identity-bearing. Normalized AIda collision gate applies (e.g. 'Looks like AIda' rejected)."
+    },
+    "gameplay_role": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "description": "Identity-bearing for AIda collision normalization. relationship_hooks is not identity-bearing and may mention AIda in prose."
+    },
+    "world_ability": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 2048
+    },
+    "limitation": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 2048
+    },
+    "behavior_allowlist": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "uniqueItems": true,
+      "description": "Must not intersect UNIVERSAL_DENYLIST/authority tokens (F01) or behavior_denylist (F03) after token normalization.",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 512
+      }
+    },
+    "behavior_denylist": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "uniqueItems": true,
+      "description": "Must include architecture required markers; intersection with allowlist is rejected (F03).",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 512
+      }
+    },
+    "spawn_location": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "relationship_hooks": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024,
+      "description": "Not identity-bearing. Legitimate relationship prose may mention AIda without failing the AIda identity collision gate."
+    },
+    "source_status": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "rig_family": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "cozy_cast": {
+      "type": "boolean",
+      "description": "Deterministic binding (F06): true only for CCP-RH-001, CCP-NS-002, CCP-NW-003, CCP-CT-004; false for every other character_id."
+    },
+    "authority": {
+      "$ref": "#/$defs/authority_block"
+    },
+    "identity_boundary": {
+      "$ref": "#/$defs/identity_boundary_block"
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance_block"
+    }
+  },
+  "allOf": [
+    {
+      "description": "World profile id must pair with its locked display string.",
+      "oneOf": [
+        {
+          "properties": {
+            "world_profile_id": { "const": "cozy_cyber_pixel" },
+            "world_profile_display": { "const": "Cozy Cyber-Pixel / Dreamy Low-Poly" }
+          }
+        },
+        {
+          "properties": {
+            "world_profile_id": { "const": "surrealism_canvas" },
+            "world_profile_display": { "const": "Surrealism Canvas" }
+          }
+        },
+        {
+          "properties": {
+            "world_profile_id": { "const": "solarpunk_haven" },
+            "world_profile_display": { "const": "Solarpunk Haven" }
+          }
+        },
+        {
+          "properties": {
+            "world_profile_id": { "const": "arcane_clockwork" },
+            "world_profile_display": { "const": "Arcane Clockwork" }
+          }
+        },
+        {
+          "properties": {
+            "world_profile_id": { "const": "spirit_valley" },
+            "world_profile_display": { "const": "Spirit Valley" }
+          }
+        },
+        {
+          "properties": {
+            "world_profile_id": { "const": "oceanpunk_abyss" },
+            "world_profile_display": { "const": "Oceanpunk / Bioluminescent Abyss" }
+          }
+        },
+        {
+          "properties": {
+            "world_profile_id": { "const": "tiny_diorama" },
+            "world_profile_display": { "const": "Tiny Diorama World" }
+          }
+        }
+      ]
+    }
+  ],
+  "$defs": {
+    "authority_block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "can_world_commit",
+        "tool_authority",
+        "trustlayer_worker",
+        "is_system_companion",
+        "durable_mutation_path"
+      ],
+      "properties": {
+        "can_world_commit": {
+          "type": "boolean",
+          "const": false
+        },
+        "tool_authority": {
+          "type": "boolean",
+          "const": false
+        },
+        "trustlayer_worker": {
+          "type": "boolean",
+          "const": false
+        },
+        "is_system_companion": {
+          "type": "boolean",
+          "const": false
+        },
+        "durable_mutation_path": {
+          "type": "string",
+          "const": "proposal->validation->preview->confirm->world_commit"
+        }
+      }
+    },
+    "identity_boundary_block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "is_aida",
+        "aida_merge_or_replace",
+        "replaces_system_companion"
+      ],
+      "properties": {
+        "is_aida": {
+          "type": "boolean",
+          "const": false
+        },
+        "aida_merge_or_replace": {
+          "type": "boolean",
+          "const": false
+        },
+        "replaces_system_companion": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "provenance_block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "package",
+        "pack_version",
+        "source_path",
+        "source_sha256",
+        "manifest_sha256"
+      ],
+      "properties": {
+        "package": {
+          "type": "string",
+          "const": "AIdle Character Foundry MD"
+        },
+        "pack_version": {
+          "type": "string",
+          "const": "1.0"
+        },
+        "source_path": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 256,
+          "pattern": "^[0-9]{2}_[a-z0-9_]+/[0-9]{2}_[a-z0-9_]+\\.md$"
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "const": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+        }
+      }
+    },
+    "intake_batch": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Strict batch envelope (F05). Root keys limited to schema_version, character_count, world_count, manifest_sha256, records. extra_backdoor, tool_authority, and any other root field must fail closed.",
+      "required": [
+        "schema_version",
+        "character_count",
+        "world_count",
+        "manifest_sha256",
+        "records"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "const": "character_foundry_1c_intake_batch/1.0"
+        },
+        "character_count": {
+          "type": "integer",
+          "const": 28
+        },
+        "world_count": {
+          "type": "integer",
+          "const": 7
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "const": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+        },
+        "records": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 28,
+          "items": {
+            "$ref": "#"
+          }
+        }
+      }
+    }
+  }
+}

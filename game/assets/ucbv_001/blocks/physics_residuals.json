@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "package_id": "ucbv_001_cozy_architecture_kit_v1",
+  "wave": "U3_BLOCK_FAMILY_ART",
+  "policy": "DO_NOT_INVENT_TIER3_BINDINGS",
+  "tier3_package": "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.1_Tier3",
+  "status": "UNBOUND_RESIDUAL",
+  "note": "U3 authors art + mesh descriptors only. Physics bindings remain residual until an authorized physics/runtime wave maps them. Collision policy labels are copied from DNA module_catalog authoring hints, not Tier3 simulation contracts.",
+  "per_module": [
+    {
+      "module_id": "block_platform",
+      "role": "foundation",
+      "dna_collision_policy_hint": "CONVEX",
+      "tier3_binding": null,
+      "residual": "No Tier3 mass/friction/support graph bound. U5 may attach StaticBody3D only after world commit complete stage."
+    },
+    {
+      "module_id": "arch_floor_round_4m",
+      "role": "floor",
+      "dna_collision_policy_hint": "STATIC_MESH",
+      "tier3_binding": null,
+      "residual": "Floor walk surface physics unbound; nav tags deferred to runtime integration."
+    },
+    {
+      "module_id": "block_panel",
+      "role": "wall",
+      "dna_collision_policy_hint": "CONVEX",
+      "tier3_binding": null,
+      "residual": "Solid wall collider unbound."
+    },
+    {
+      "module_id": "block_cube_round",
+      "role": "corner",
+      "dna_collision_policy_hint": "CONVEX",
+      "tier3_binding": null,
+      "residual": "Corner mass collider unbound."
+    },
+    {
+      "module_id": "arch_door_round",
+      "role": "door",
+      "dna_collision_policy_hint": "STATIC_MESH",
+      "dna_behavior_hints": ["behavior_interactable_v1", "behavior_door_v1"],
+      "tier3_binding": null,
+      "residual": "Door open/close physics and hinge dynamics unbound; behavior ids are DNA catalog hints only."
+    },
+    {
+      "module_id": "arch_window_frame_simple",
+      "role": "window",
+      "dna_collision_policy_hint": null,
+      "tier3_binding": null,
+      "residual": "Frame not in DNA full catalog (adapter allowlist only); collision authoring residual for U5."
+    },
+    {
+      "module_id": "arch_roof_dome_4m",
+      "role": "roof",
+      "dna_collision_policy_hint": "STATIC_MESH",
+      "tier3_binding": null,
+      "residual": "Roof weather/load simulation unbound."
+    },
+    {
+      "module_id": "block_beam",
+      "role": "fence",
+      "dna_collision_policy_hint": "CONVEX",
+      "tier3_binding": null,
+      "residual": "Fence section collider unbound; rail_endpoint grammar not invented."
+    },
+    {
+      "module_id": "prop_crate_small",
+      "role": "prop",
+      "dna_collision_policy_hint": null,
+      "tier3_binding": null,
+      "residual": "Adapter allowlist prop; carry/container physics unbound."
+    },
+    {
+      "module_id": "arch_wall_door_4m",
+      "role": "wall_door",
+      "dna_collision_policy_hint": "STATIC_MESH",
+      "tier3_binding": null,
+      "residual": "Opening collider (solid wall with door cutout) unbound."
+    }
+  ],
+  "socket_residuals": [
+    {
+      "topic": "primitive_snap_only",
+      "modules": ["block_platform", "block_panel", "block_cube_round", "block_beam"],
+      "detail": "DNA catalog lists only snap_grid for these primitives. Architecture assembly sockets (building_foundation, wall_edge, etc.) remain residual for role mapping — do not invent new socket types. Prefer pairing with allowlisted arch_* modules that already declare architecture sockets."
+    },
+    {
+      "topic": "preferred_ids_not_allowlisted",
+      "detail": "arch_foundation_square, arch_wall_solid_4m, cozy_fence_section_A preferred by U1 are outside adapter allowlist; art roles remapped without inventing ids."
+    }
+  ]
+}

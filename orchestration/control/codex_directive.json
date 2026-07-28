@@ -1,41 +1,277 @@
 {
   "schema_version": "1.0.0",
-  "directive_id": 20,
-  "issued_at": "2026-07-21T03:31:00+07:00",
-  "issued_by": "codex",
-  "state": "HITL_REQUIRED",
-  "milestone": "G8 non-mutating verification correction",
-  "architecture_decisions": [
-    "Blueprint v1.1 remains the source of truth",
-    "MVP remains fixed-angle 2.5D and Companion text-only",
-    "VERIFY_ONLY gates must not mutate tracked product or prior evidence",
-    "Runtime-generated smoke evidence belongs in isolated user:// locations",
-    "Codex remains final machine acceptor and Human Product Lead final alpha acceptor"
+  "directive_id": 99,
+  "issued_at": "2026-07-23T14:52:00+07:00",
+  "issued_by": "aidle-continuity-conductor_acting_for_codex_absent",
+  "state": "AUTONOMOUS_EXECUTION",
+  "milestone": "Autonomous commercial-ready phase — H1 Cozy 2.5D Private Reality to ship quality (grounded on accepted UCBV foundation)",
+  "verdict": "UCBV_FOUNDATION_HUMAN_ACCEPTED_OPEN_AUTONOMOUS_PHASE",
+  "accepted": false,
+  "self_accept": false,
+  "authority_token": "PATCH_DRAFT",
+  "permitted_task_ids": [
+    "UCBV-001",
+    "NORI7-REDESIGN",
+    "C5H1-UX-RESIDUALS",
+    "POST-UCBV-SELF-RUN",
+    "COMMERCIAL-HARDENING-VERIFY"
   ],
-  "permitted_task_ids": ["G8-001"],
-  "required_workflow": {
-    "parent_session": "existing Grok Desktop conductor only",
-    "work_order": "orchestration/work_orders/WO-G8-001-CORRECTION-001.md",
-    "subagent_profiles": ["executor", "persist", "core", "schema"],
-    "wave_order": ["C0_EXECUTOR_PATCH", "C1_PERSIST_PATCH", "C2_CORE_PURPLE_VERIFY", "C3_SCHEMA_RECEIPT_VERIFY"],
-    "one_writer_per_file": true,
-    "step_contract_per_subagent": true,
-    "parent_may_self_accept": false
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "supersedes_directive_id": 98,
+  "supersession_note": "Directive 98's C5 Purple release recommendation completed (machine VERIFIED) and the Human Product Lead has now ACCEPTED the UCBV-001 character+block visual FOUNDATION with residuals under the Codex-absent capsule — see orchestration/receipts/ucbv_001/correction_010/HUMAN_ACCEPT_c5_foundation_001.json. That closes Directive 98's C5 milestone. Directive 99 opens the standing autonomous phase, now correctly grounded on an ACCEPTED foundation (Grok was right that the foundation gate had to close first).",
+  "c5_foundation_acceptance": "orchestration/receipts/ucbv_001/correction_010/HUMAN_ACCEPT_c5_foundation_001.json",
+  "governance_constitution": "orchestration/control/AIDLE_GAME_VISION_LOCK_001.md",
+  "phase_briefing": "orchestration/control/AIDLE_COMMERCIAL_READY_MASTER_BRIEFING_001.md",
+  "prime_objective": "Bring AIdle H1 (Cozy 2.5D Private Reality + Free Desktop Bridge edition) to commercial-ready QUALITY via the standing MAF loop. Commercial-ready is a quality bar, NOT permission to ship. Shipping/publishing/charging/network remain Red F01 hard stops.",
+  "human_decision": {
+    "owner": "human_product_lead",
+    "decision": "ACCEPT_C5_FOUNDATION_WITH_RESIDUALS_THEN_OPEN_AUTONOMOUS_PHASE",
+    "verbatim_intent": "Duyệt phần này; duyệt nốt cho grok 98 rồi tổng hợp thành prompt kickoff đưa cho Grok để tự vận hành",
+    "cadence_choice": "Run the pre-defined plan continuously without per-step check-ins; report ONLY events outside the pre-defined plan; checkpoint important info at ~75% context; after compaction MUST re-read all governance then continue",
+    "acceptance_choice": "Human accepts in BATCHES; no agent self-accepts",
+    "waiver": false,
+    "recorded_at": "2026-07-23T14:52:00+07:00"
   },
+  "autonomous_operating_rules": {
+    "run_in_plan_without_checkins": true,
+    "scope_tiers": {
+      "tier1_execute_now_autonomous": [
+        "Nori-7 visual redesign (resolves residual NORI7-V01): visual_spec + design docs -> quarantined Blender GLB -> narrow Godot override (name exact game/** files in the WO+receipt) -> headed proof",
+        "Author the 5 deferred Nori-7 gardener clips (water/plant_seed/harvest/charge/low_energy) with REAL keys, or formally defer to a Tier-3 wave — never metadata (resolves NORI7-ANIM-EXPRESS)",
+        "C5H1 minor UX residuals: HUD 'press E' -> KEY_C label fix (R-C5H1-01), and R-C5H1-02/03 — each under a narrow Godot override naming exact game/** files",
+        "Post-UCBV self-run playbook: read/run/report the accepted foundation's play loop (explore->companion->build preview->commit/cancel) with zero-error headed evidence; no product patch beyond a Human-flagged blocker",
+        "Commercial-hardening VERIFICATION on the accepted foundation (perf budgets, accessibility, stability/soak, save integrity+idempotency+revision recovery, Free Desktop Bridge edition end-to-end) — measure and report; fixes that need product patches escalate to tier2"
+      ],
+      "tier2_draft_then_batch_signoff": [
+        "Control 1B (input/control/accessibility)",
+        "Character Foundry 1C",
+        "Remaining P1E art waves (density/props/exposure, toon+outline, further palette variants)",
+        "Commercial-hardening PRODUCT PATCHES surfaced by tier1 verification",
+        "Each: Grok drafts a directive + WO (accepted=false) and QUEUES it for the Human's batch sign-off; execute only after batch approval"
+      ],
+      "tier3_locked_needs_dedicated_directive": [
+        "P2E-002",
+        "character-backbone production program",
+        "DNA Platform vNext EXECUTION (staging/review only today)",
+        "H2 friends/NPC/Shared District, H3 marketplace money, H4 Doppelganger/real-city, H5 spacecraft/exoplanets, H6 Open Continuum",
+        "TTS/voice, neural world-model portals, unrestricted Text-to-3D, voxel terrain"
+      ]
+    },
+    "delegated_narrow_godot_override": {
+      "granted_for": "tier1_execute_now_autonomous only",
+      "conditions": "each wave NAMES the exact game/** file(s) in its WO and records them in the receipt; one writer per file; no manual-build Confirm-gate change; no catalog/behavior/GLB-promotion beyond the named quarantine->override step; no file outside the named set",
+      "not_granted_for": "tier2 (needs batch sign-off) or tier3 (locked)"
+    },
+    "escalate_only_when": [
+      "a task falls outside tier1 (tier2 -> draft+queue; tier3 -> escalate)",
+      "a Red F01 hard stop is reached",
+      "a decision the plan does not cover arises",
+      "a vision-lock conflict arises",
+      "three identical failure signatures (NEED_HUMAN)"
+    ],
+    "context_discipline": {
+      "checkpoint_at_context_pct": 75,
+      "checkpoint_targets": [
+        "CONDUCTOR_JOURNAL.md entry",
+        "state notes",
+        "MAF receipts"
+      ],
+      "never_rely_on_hidden_chat_memory": true,
+      "after_compaction_must_reread_full": [
+        "orchestration/control/AIDLE_COMMERCIAL_READY_MASTER_BRIEFING_001.md",
+        "orchestration/control/AIDLE_GAME_VISION_LOCK_001.md",
+        "AGENTS.md",
+        "orchestration/ARCHITECTURE_LOCK.md",
+        "orchestration/control/codex_directive.json",
+        "orchestration/control/CONDUCTOR_JOURNAL.md (latest entries)"
+      ],
+      "reread_before_resuming_work": true
+    },
+    "acceptance": {
+      "mode": "BATCH",
+      "self_accept": false,
+      "sole_acceptor_while_codex_absent": "human_product_lead",
+      "codex_may_reassert_machine_acceptance_on_return": true,
+      "do_not_relitigate_human_acceptances": true,
+      "present_gate_ready_batches": true,
+      "batch_contains": "Purple-VERIFIED wave receipts + independent-verify notes + any tier2 directive drafts awaiting sign-off"
+    },
+    "self_improvement_bounded": "Learn from own receipts/journal via knowledge-loop + curiosity-engine; refine orchestration only. NOT model training, NOT free runtime code generation, NOT self-authority expansion."
+  },
+  "dispatch_mode": "AUTONOMOUS_MAF_WAVES_UNDER_TWO_NAMED_PARENTS",
+  "parent_sessions": {
+    "build": {
+      "session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "scope": "game/** implementation, MAF waves, runtime",
+      "status": "PRIMARY_MAIN_SESSION",
+      "designated_main_at": "2026-07-23T23:17:00+07:00",
+      "designated_by": "human_product_lead_via_claude"
+    },
+    "design": {
+      "session_ref": "019f8e3c-e53b-74e0-a878-df6b8398338e",
+      "scope": "design authoring only (MOCKUP_SSOT_V2 + successors, concept art specs, blueprint/cadastre plans); does not patch game/** directly",
+      "authorized_at": "2026-07-23T00:00:00+07:00",
+      "authorized_by": "human_product_lead",
+      "same_rules_as_build": true,
+      "status": "STEPPED_BACK_AFTER_HANDOFF",
+      "stepped_back_at": "2026-07-23T23:19:00+07:00",
+      "handoff_file": "orchestration/control/GROK_SESSION_HANDOFF_DESIGN_PARENT_001.md",
+      "disclosed_dual_role_history": "This session self-disclosed it also performed real game/** build patches before being formally scoped design-only (MOCKUP_SSOT_V2, town 10-phase system, Phase-01 mailbox, Nori-7 visual rebuild). Preserved for lineage, not re-litigated. Resumes design-only scope if reactivated; needs a new Human directive to re-authorize build work.",
+      "retroactive_scope_exceptions": [
+        {
+          "work_order": "WO-OBJECT-DNA-NORI7-ANIM-VERTICAL-SLICE-001",
+          "what_happened": "Design session patched real game/** files (game/scripts/main/main.gd, game/scripts/ui/playable_action_bar.gd, game/scripts/modules/ucbv_001/nori7_presenter.gd, game/tests/nori7_anim_15clip_headed_qa_001.gd) and re-keyed the real Nori-7 GLB (game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb) directly, without a fresh Human directive re-authorizing build work -- second instance of the same drift noted in disclosed_dual_role_history.",
+          "verification": "Claude conductor independently verified the deliverable itself is real and honest: receipt/evidence/sha256/code all match the on-screen claim, accepted=false and self_accept=false throughout, client_world_commit=false on every clip. The underlying task (5 real-keyed gardener clips) was already on the standing tier1_execute_now_autonomous list (resolves NORI7-ANIM-EXPRESS) -- the content was due, only the executing session was wrong.",
+          "decision": "HUMAN_ACCEPTED_EXCEPTION_ONE_TIME",
+          "decided_by": "human_product_lead",
+          "relayed_by": "claude_conductor",
+          "self_accept": false,
+          "decided_at": "2026-07-24T11:55:00+07:00",
+          "effect": "This slice's game/** patches and GLB changes stand, retroactively authorized. Does NOT reopen general build authority for the design session -- it reverts to design-only scope immediately after this exception. Any further game/**-touching work by 019f8e3c requires a fresh Human directive, same as before.",
+          "product_accept_status": "Still false/pending -- this exception covers process authorization only, not product/visual quality acceptance."
+        }
+      ]
+    },
+    "note": "Exactly these two parents, explicitly Human-authorized. No third parent, no Grok CLI parent, no grandchildren from either, without a new dedicated Human directive. 2026-07-23 23:19: Human asked Claude to pick one main session and have the other hand off -- build (019f7ffd) designated PRIMARY_MAIN_SESSION because it held the live, in-progress, disk-verified WO-TOWN-GRID-IMPORT-001 redo-loop; design (019f8e3c) wrote GROK_SESSION_HANDOFF_DESIGN_PARENT_001.md and stepped back rather than dual-write."
+  },
+  "mockup_fidelity_rule": {
+    "active": true,
+    "law": "Any building/prop/character sourced from MOCKUP_SSOT_V2 (or successor) must visually match that mockup 100% (silhouette/palette/key details) via headed screenshot evidence before its wave can close. Approximate match = CHANGES_REQUESTED, never a quiet close.",
+    "redo_loop": "A mismatch is fixed and re-checked in a loop (iterate to match), not disclosed-and-stopped. Only 3 identical failure signatures on the SAME object route to NEED_HUMAN.",
+    "gate_reviewer": "claude_continuity_conductor",
+    "defined_in": "orchestration/control/AIDLE_GAME_VISION_LOCK_001.md#12",
+    "principle": "AI design-build parity guarantee (Human-mandated 2026-07-24): the ability to produce a mockup and the ability to build the identical product in-game are one design capability, not two separate ones with separate standards. This is what actually guarantees AI design quality. The 100% fidelity law below is this principle made checkable, not an arbitrary gate. Applies to any AI agent, this project or any future one."
+  },
+  "standard_prompt_template": {
+    "active": true,
+    "path": "orchestration/control/STANDARD_GROK_WORK_ORDER_PROMPT_TEMPLATE_001.md",
+    "rule": "Every future dispatch prompt to either Grok parent (build or design) is authored from this template. Deviation is itself a reportable finding. Claude keeps it current as new lessons are learned.",
+    "adopted_at": "2026-07-23T22:55:00+07:00"
+  },
+  "open_gaps": [
+    {
+      "wave": "WO-TOWN-GRID-IMPORT-001",
+      "status": "CHANGES_REQUESTED_FIDELITY_INCOMPLETE",
+      "detail": "QA headed evidence now filed and independently re-verified (raw log zero-error, screenshots real, machine report matches receipt): see orchestration/receipts/town_grid_import_001/QA_town_grid_headed_001.json. Wave remains blocked under the mockup_fidelity_rule -- 0 of 21 real-GLB plots at 100% match to MOCKUP_SSOT_V2. Grok is actively iterating (redo loop, see REDO_LOOP_ITERATIONS_001.json); Purple stays WAITING; not ready for Human batch until fidelity closes or Human explicitly accepts residual risk. UPDATE 2026-07-24 08:05: HOME.BLD specifically has been closed via Human-accepted-residual decision (see object_level_human_decisions) -- it no longer counts as an open iteration target, though it still does not count as a 100% match in the fidelity scorecard. Wave remains blocked overall pending the other 20 real-GLB plots.",
+      "sent_back_at": "2026-07-23T22:40:00+07:00",
+      "updated_at": "2026-07-24T08:05:00+07:00",
+      "updated_by": "Claude conductor",
+      "latest_verification": "orchestration/receipts/town_grid_import_001/CLAUDE_MONITOR_20260723T232610.json"
+    }
+  ],
   "forbidden_actions": [
-    "modify Blueprint or architecture contracts",
-    "reset, checkout, delete or silently discard the six generated diffs",
-    "add dependencies or live provider/network behavior",
-    "create or resume another top-level Grok session",
-    "mark G8-001 ACCEPTED"
+    "self-accept or claim Human/Codex acceptance not actually given",
+    "cross any Red F01 hard stop on own initiative (ship, publish, deploy, push, marketplace money, network/live-provider/credentials, dependency install, Godot version change)",
+    "open any tier3 item without a dedicated Human/Codex directive",
+    "execute a tier2 item before its drafted directive is batch-approved",
+    "promote any generated artifact to approved catalog/game/** without the named quarantine->override step in an authorized tier1 WO",
+    "patch game/** outside the exact file set named in an authorized wave's WO+receipt",
+    "fake a payload, alias missing content, or present metadata/staging as runtime animation",
+    "any Grok parent session beyond the two named in parent_sessions, any Grok CLI parent, or grandchildren from either parent",
+    "closing a mockup-sourced wave without a passed 100%-fidelity headed comparison (mockup_fidelity_rule)",
+    "rewrite prior receipts/logs/evidence or prior Human acceptances",
+    "more than one writer per file"
   ],
-  "completion_state": "REVIEW_REQUESTED",
-  "required_evidence": [
-    "three schema-valid correction agent_step_contract receipts",
-    "G3 76-check and G4 22-check rerun logs",
-    "validator and clean Godot boot",
-    "post-run zero diff for the six tracked exports against 60fccdd",
-    "corrected alpha report and remaining risks"
-  ],
-  "supersedes_directive_id": 19
+  "red_f01_network_shipping_hard_stop": true,
+  "human_gate_open": false,
+  "codex_absent_capsule": {
+    "active": true,
+    "human_sole_acceptor": true,
+    "codex_reentry_note": "Codex usage exhausted; Human Product Lead is sole acceptor until re-entry (~2026-07-28). On return Codex may machine-accept queued batches and re-assert; do not re-litigate Human acceptances already given (C5H1 fix + C5 foundation)."
+  },
+  "completion_signal": "AUTONOMOUS_PHASE_OPEN_RUN_TIER1_DRAFT_TIER2_BATCH_ACCEPT",
+  "object_level_human_decisions": [
+    {
+      "plot_id": "HOME.BLD",
+      "object_id": "cozy_house_small_A",
+      "wave": "WO-TOWN-GRID-IMPORT-001",
+      "decision": "HUMAN_ACCEPTED_RESIDUAL",
+      "decision_note": "Human Product Lead reviewed the 3-strike NEED_HUMAN escalation (signature soft_clay_door_side_window_high_partial, strikes=3, see REDO_LOOP_ITERATIONS_001.json n=33 and need_human_objects) and explicitly accepted the current soft-clay finish as FINAL, in lieu of authorizing a different remesh strategy. This is NOT a 100% MOCKUP_SSOT_V2 match -- it is an accepted gap on this one object only.",
+      "decided_by": "human_product_lead",
+      "relayed_by": "claude_conductor",
+      "self_accept": false,
+      "decided_at": "2026-07-24T08:05:00+07:00",
+      "effect": "HOME.BLD redo-loop iteration is closed permanently (not paused). All other plots in WO-TOWN-GRID-IMPORT-001 remain open and unaffected; wave-level accepted/self_accept remain false.",
+      "instructed_to_grok_at": "2026-07-24T08:05:00+07:00 (queued in session 019f7ffd, pending its current turn)"
+    },
+    {
+      "plot_ids": ["MARKET.BLD", "GARDEN.BLD", "WELL.BLD", "WINDMILL.BLD", "BRIDGE.BLD", "LOOKOUT.BLD"],
+      "object_ids": ["cozy_market_stall_A", "cozy_gazebo_A", "cozy_well_house_A", "cozy_windmill_A", "cozy_bridge_arch_A", "cozy_watchtower_A"],
+      "wave": "WO-TOWN-GRID-IMPORT-001",
+      "decision": "HUMAN_AUTHORIZED_ONE_MORE_REMESH",
+      "decision_note": "Human Product Lead reviewed the 3-strike NEED_HUMAN escalation for all 6 candidates (see BUILDINGS_FIDELITY_V3.json need_human_candidates and REDO_LOOP_ITERATIONS_001.json n=10 need_human_objects) and did NOT accept the residuals as final. Instead authorized exactly one further targeted remesh pass (V4) aimed specifically at each building's own residual signature: market_awning_ok_fruit_still_underdetailed, gazebo_green_dome_ok_fishscale_density, well_sphere_shingles_ok_form_still_high_partial, windmill_tier_blades_still_simplified, bridge_cobble_arch_still_soft_pile, watchtower_form_ok_roof_detail_partial. This is NOT a residual acceptance -- fidelity law (redo-until-100%-or-3-strikes) still governs; V4 is this wave's designated 4th attempt against these signatures specifically, not a reset of the strike counter to zero. If V4 does not close a given building to 100%, that building returns to Human for a fresh decision (accept residual vs a different strategy) rather than looping further on its own.",
+      "decided_by": "human_product_lead",
+      "relayed_by": "claude_conductor",
+      "self_accept": false,
+      "decided_at": "2026-07-24T11:20:00+07:00",
+      "effect": "These 6 plots remain open for exactly one more targeted iteration (V4). HOME.BLD's prior closure is unaffected. Wave-level accepted/self_accept remain false; Purple stays WAITING.",
+      "instructed_to_grok_at": "2026-07-24T11:20:00+07:00 (dispatched to session 019f7ffd)",
+      "superseded_by": "continuous_iteration_authorization_2026-07-24T12:30 (see below) -- V4's 'return to Human after this one pass' clause is lifted; continued iteration now authorized without per-pass check-in"
+    },
+    {
+      "id": "CONFLICT_WD_GAZEBO_VS_HOME_BLD",
+      "wave": "WO-TOWN-GRID-IMPORT-001",
+      "source_flag": "TOWN_ALIGNMENT_V1.json design_flags_for_human",
+      "decision": "HUMAN_RULED_MOVE_DECK",
+      "decision_note": "Human Product Lead reviewed the flagged conflict (fairy-street wood platform WD-GAZEBO centered at plaza origin (0,0), overlapping HOME.BLD/cozy_house_small_A at grid G7, while the actual gazebo building GARDEN.BLD/cozy_gazebo_A sits elsewhere at (2,10)/H12) and ruled: move the WD-GAZEBO deck to sit near the real GARDEN.BLD building at H12, not under HOME.BLD.",
+      "decided_by": "human_product_lead",
+      "relayed_by": "claude_conductor",
+      "self_accept": false,
+      "decided_at": "2026-07-24T12:07:00+07:00",
+      "effect": "Build session (019f7ffd) to reposition WD-GAZEBO wood-platform overlay to H12/GARDEN.BLD; no other plot positions or building meshes affected. Wave-level accepted/self_accept remain false; Purple stays WAITING.",
+      "instructed_to_grok_at": "2026-07-24T12:07:00+07:00 (relayed via GROK_WD_GAZEBO_MOVE_PROMPT_001.md)",
+      "executed_by": "grok",
+      "executed_at": "2026-07-24T12:19:00+07:00",
+      "execution_receipt": "orchestration/receipts/town_grid_import_001/TOWN_ALIGNMENT_V1_PATCH.json",
+      "status_after_execution": "RESOLVED"
+    },
+    {
+      "id": "continuous_iteration_authorization",
+      "wave": "WO-TOWN-GRID-IMPORT-001 + WO-OBJECT-DNA-NORI7-ANIM-VERTICAL-SLICE-001",
+      "decision": "HUMAN_AUTHORIZED_CONTINUOUS_WORK_UNTIL_DONE",
+      "decision_note": "Human Product Lead: verified the gardener animation works live but judged it 'chưa đủ thực tế' (not realistic enough yet) and asked that walking also get real animation (not just a stub cycle); separately noted the town/map work is still unfinished (6 buildings + 21 props). Instruction: 'kêu Grok tiếp tục công việc đến khi xong thì thôi' (tell Grok to keep working until it's actually done). This lifts the per-pass check-in requirement from the prior HUMAN_AUTHORIZED_ONE_MORE_REMESH decision for the 6 buildings, AND confirms the animation-realism pass (including the walk cycle) as covered by the already-standing tier1_execute_now_autonomous 'Nori-7 visual redesign' item in autonomous_operating_rules -- not a new capability grant, just confirming it applies here.",
+      "decided_by": "human_product_lead",
+      "relayed_by": "claude_conductor",
+      "self_accept": false,
+      "decided_at": "2026-07-24T12:30:00+07:00",
+      "scope": {
+        "buildings_6_v4_plus": "Continue iterating MARKET/GARDEN/WELL/WINDMILL/BRIDGE/LOOKOUT.BLD toward 100% match, additional passes permitted beyond V4, no per-pass Human sign-off required.",
+        "props_21": "Continue authoring the 21 missing prop GLBs to completion.",
+        "nori7_animation_realism": "Improve overall animation naturalism (all 15 clips), explicitly including a real walk-cycle animation (currently reads as too simple/stub-like per Human), under the existing tier1 Nori-7 visual redesign authority. No mesh rebuild required unless genuinely needed; re-key/refine motion is in scope.",
+        "still_forbidden": "HOME.BLD (CLOSED_PERMANENTLY) stays untouched; no self-accept; no claiming 100%/matching without real headed-QA evidence."
+      },
+      "safety_valve": "This authorizes CONTINUED autonomous iteration, not unlimited silent looping: if any single building or the animation pass hits the SAME residual signature 3 consecutive times even after this extended authorization (i.e., genuinely stuck, not just still-in-progress), file it as NEED_HUMAN same as before and move to other open items rather than looping indefinitely on one stuck object. Honest per-object/per-clip status still required in every receipt.",
+      "effect": "Removes the 'return to Human after V4' stop clause for the 6 buildings; explicitly green-lights the standing Nori-7 animation-redesign tier1 authority to also cover walk-cycle realism; 21 props proceed as already queued. Wave-level accepted/self_accept remain false regardless of iteration count; Purple stays WAITING throughout.",
+      "instructed_to_grok_at": "2026-07-24T12:30:00+07:00 (dispatched to session 019f7ffd)"
+    },
+    {
+      "id": "architecture_and_story_bible_authored",
+      "wave": "WO-TOWN-GRID-IMPORT-001 (identity layer, non-geometric)",
+      "decision": "HUMAN_REQUESTED_ARCHITECTURE_AND_STORY_BIBLE",
+      "decision_note": "Human Product Lead: 'Bạn hãy thiết kế map kiến trúc trò chơi thật hoàn chỉnh cũng như xây dựng cho tôi 1 bộ câu chuyện cho AIdle openworld. Phát triển dựa trên map đang sử dụng hiện tại chứ đừng thay đổi nó và yêu cầu Grok bám thật sát theo kiến trúc được thiết kế đó.' Claude (conductor) authored two documents grounded entirely in already-existing project data (town_grid_plan_v1.json's 50-plot/10-district cadastre, cast_roster.json character forms, and the Vision Lock's Horizon ladder): AIDLE_TOWN_ARCHITECTURE_DESIGN_001.md (per-district identity/purpose layered on the frozen existing layout) and AIDLE_STORY_BIBLE_001.md (narrative bible built around Nori-7 as Companion, 4 native_cozy residents, and 6 visitor characters from distinct world_profiles already flagged in the data). Both documents explicitly add zero new positions/rotations/footprints/districts/characters and explicitly forbid pulling any future Horizon (H2-H6) forward.",
+      "decided_by": "human_product_lead",
+      "relayed_by": "claude_conductor",
+      "self_accept": false,
+      "decided_at": "2026-07-24T13:10:00+07:00",
+      "effect": "Adds two binding identity/narrative reference documents for all future work touching town/character presentation; does not authorize any new geometry, system, or character. GROK_ARCHITECTURE_STORY_ADHERENCE_PROMPT_001.md dispatched to build parent (019f7ffd) requiring strict adherence going forward, layered onto the already-authorized continuous_iteration_authorization streams (no new task scope, no new permission).",
+      "instructed_to_grok_at": "2026-07-24T13:10:00+07:00 (via GROK_ARCHITECTURE_STORY_ADHERENCE_PROMPT_001.md)"
+    },
+    {
+      "id": "blender_camera_match_tooling_authorized",
+      "wave": "WO-TOWN-GRID-IMPORT-001 (6 buildings redo-loop)",
+      "decision": "HUMAN_AUTHORIZED_DEPENDENCY_INSTALL",
+      "red_f01_category": "dependency_install",
+      "decision_note": "Human Product Lead reviewed a proposal (sourced from a Human-supplied tool list, independently verified real/legitimate by Claude: fSpy-Blender github.com/stuffmatic/fSpy-Blender GPL-3.0 1.4k stars, real_scale_references github.com/Pullusb/real_scale_references free) to install two free/open-source Blender addons as artist-side modeling aids, not shipped in-game. Root cause identified: game/scripts/camera/cozy_camera.gd already hard-locks the exact MVP camera (pitch_degrees=42.0, fov=42.0, three-quarter isometric per MOCKUP_DESIGN_LOCK.md) but the 6-building redo-loop (V3-V7) has been comparing renders to mockup SSOT images by eye rather than a precisely camera-matched Blender background reference at those exact values -- a plausible explanation for repeated HIGH_PARTIAL residuals across multiple passes. Human authorized: install fSpy-Blender + real_scale_references, set the Blender viewport camera to the exact locked pitch/FOV, use it as a precise silhouette-overlay aid for the remaining stuck buildings.",
+      "decided_by": "human_product_lead",
+      "relayed_by": "claude_conductor",
+      "self_accept": false,
+      "decided_at": "2026-07-24T14:05:00+07:00",
+      "scope": {
+        "authorized": ["Install fSpy-Blender (github.com/stuffmatic/fSpy-Blender, GPL-3.0) into Grok's local Blender toolchain", "Install real_scale_references (github.com/Pullusb/real_scale_references) into Grok's local Blender toolchain", "Use both purely as Blender-side modeling/authoring aids for the town-grid-import building fidelity redo-loop"],
+        "not_authorized": ["Any other dependency install beyond these two named addons", "Shipping/bundling either addon or its code into game/** or any exported GLB", "Any Godot version change", "Any change to cozy_camera.gd's locked runtime values -- read-only reference for this tooling"]
+      },
+      "effect": "Lifts the Red F01 dependency-install hard stop for exactly these two named, verified, free/open-source Blender addons, for this one purpose. All other Red F01 categories (network, shipping, deploy, Godot version change, live-provider credentials) remain hard stops.",
+      "instructed_to_grok_at": "2026-07-24T14:05:00+07:00 (via GROK_BLENDER_CAMERA_MATCH_TOOLING_PROMPT_001.md)"
+    }
+  ]
 }

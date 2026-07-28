@@ -1,0 +1,117 @@
+{
+  "phase": 7,
+  "phase_id": "TOWN_PHASE_07",
+  "district_id": "craft_landmark",
+  "district_role_vi": "Cối xay + rìa",
+  "status": "BLOCKED_UNTIL_PREV_PARITY_100",
+  "mockup_ssot": "MOCKUP_SSOT_V2",
+  "parity_gate": "MOCKUP_PARITY_100",
+  "character": {
+    "character_id": "AC-CO-015",
+    "slug": "cinder",
+    "name": "Cinder-04",
+    "class": "CONSTRUCT",
+    "form": "construct",
+    "clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "motion": "bob",
+    "signature": "gear_spin",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_07_cinder.jpg",
+    "mockup_video": null,
+    "prod_hint": "runtime_glb",
+    "spawn": {
+      "x": -7.2,
+      "y": 0,
+      "z": -7.8,
+      "rotation_deg": 135
+    }
+  },
+  "building": {
+    "module_id": "cozy_windmill_A",
+    "name": "Cối xay gió",
+    "cat": "landmark",
+    "anim": "spin",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/buildings/bld_06_windmill.jpg",
+    "spawn": {
+      "x": -9,
+      "y": 0,
+      "z": -9,
+      "rotation_deg": 135
+    }
+  },
+  "props": [
+    {
+      "module_id": "cozy_fence_section_A",
+      "name": "Hàng rào",
+      "cat": "infra",
+      "anim": "idle_static",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_fence.jpg",
+      "spawn": {
+        "x": -10.6,
+        "y": 0,
+        "z": -7.2,
+        "rotation_deg": 123
+      }
+    },
+    {
+      "module_id": "cozy_grass_tuft_A",
+      "name": "Cỏ cụm",
+      "cat": "nature",
+      "anim": "sway_small",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_grass_tuft.jpg",
+      "spawn": {
+        "x": -7.6,
+        "y": 0,
+        "z": -10.6,
+        "rotation_deg": 135
+      }
+    },
+    {
+      "module_id": "cozy_rock_cluster_A",
+      "name": "Cụm đá",
+      "cat": "nature",
+      "anim": "idle_static",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_rock_cluster.jpg",
+      "spawn": {
+        "x": -10.8,
+        "y": 0,
+        "z": -10.0,
+        "rotation_deg": 147
+      }
+    }
+  ],
+  "acceptance": {
+    "rule": "Do NOT mark complete until MOCKUP_PARITY_100 passes for this phase",
+    "mockup_delta_max": 0.0,
+    "require_idle_play": true,
+    "require_clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "require_building_load": true,
+    "require_props_load": 3,
+    "require_town_no_overlap": true,
+    "require_district_role_readable": true,
+    "self_accept": false,
+    "human_accept_required": true
+  },
+  "subagent_pipeline": [
+    "town-orchestrator",
+    "mockup-parity-guardian",
+    "character-animation-designer",
+    "building-module-designer",
+    "prop-set-designer",
+    "town-layout-planner",
+    "godot-runtime-integrator",
+    "red-mockup-delta-reviewer",
+    "purple-parity-gate"
+  ]
+}

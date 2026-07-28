@@ -1,0 +1,70 @@
+{
+  "agent_step_id": "G8-001-C003-C3_COMPANION_VERIFY-2026-07-21",
+  "agent_type": "aidle-companion",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:9f1b36e97d89b944",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-UI-VISUAL-CORRECTION-003",
+    "directive_id": 24,
+    "wave": "C3_COMPANION_VERIFY",
+    "profile": "companion",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY: 868 companion open capture, chat_input_visible, no action-bar overlap from runner log.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "ui_character_id": "ui-component-craftsman",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full"
+      },
+      {
+        "skill_id": "game-ui-icons",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+        "mode": "full"
+      }
+    ],
+    "trace_ref": "orchestration/logs/g8-ui-visual-correction-003-runner.log#C3_COMPANION_VERIFY",
+    "handoff_ref": "C4_MANIFESTATION_VERIFY",
+    "product_writes": [],
+    "children": [],
+    "findings": [],
+    "residual_risks": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "chat_input_visible"
+      },
+      {
+        "marker": "no_companion_action_bar_overlap"
+      },
+      {
+        "marker": "companion_open_868x517.png"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "character_skill_trace_present": true,
+    "no_catalog_false_claim": true,
+    "control_foundation_not_implemented": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ui-visual-correction-003-runner.log",
+    "orchestration/evidence/g8_ui_visual_correction_003/",
+    "orchestration/reviews/CODEX_G8-001_UI_VISUAL_REVIEW_003.json"
+  ],
+  "next_route": "C4_MANIFESTATION_VERIFY"
+}

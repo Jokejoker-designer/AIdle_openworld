@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_H1-CONSOLIDATE-001_CORRECTION_REVIEW_002",
+  "task_id": "H1-CONSOLIDATE-001",
+  "directive_id": 75,
+  "reviewed_at": "2026-07-22T16:25:00+07:00",
+  "reviewed_by": "codex",
+  "state": "CHANGES_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "CORRECTION_PROVENANCE_PASS_RUNTIME_ERROR_REPEATED",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_children": {
+    "C0": "019f8903-a70a-7242-b8e4-05e359cebe12",
+    "C1": "019f890e-28df-71f2-b298-457c58071804",
+    "C2": "019f8912-87cd-7410-a733-35b0b254b9ac",
+    "C3": "019f8919-8a74-78f1-8618-bc8b32dddaac"
+  },
+  "validated": {
+    "receipt_schema_errors": 0,
+    "receipts_checked": 4,
+    "durable_ref_mismatches": 0,
+    "c1_exact_lease": "PASS",
+    "c0_product_hash_mismatches": 0,
+    "evidence_002": {"png_count": 26, "hash_mismatches": 0, "missing": 0, "dimension_failures": 0, "duplicate_hashes": 0, "build_r_ok": true, "headed_pass": false, "error_line_count": 4},
+    "headless_regressions": "PASS"
+  },
+  "closed": [
+    {"id": "H1-CODEX-F02", "result": "C1 uses real durable UUID for both refs and writes only its exact log/receipt lease"},
+    {"id": "H1-CODEX-F03-ACTION-BAR", "result": "action bar fixture wording removed"}
+  ],
+  "open_blockers": [
+    {"id": "H1-CODEX-F01", "severity": "P1", "occurrence": 2, "finding": "Evidence 002 repeats four absolute-path get_node USER ERROR lines, two per viewport during Companion submit. Multiple active runtime scripts still contain absolute /root lookups; the prior focused patch did not remove the failure class."},
+    {"id": "H1-CODEX-F03-HUD", "severity": "P2", "finding": "hud.gd still exposes Paid API (fixture) in normal chrome."}
+  ],
+  "third_identical_failure_policy": "If fresh evidence 003 repeats H1-CODEX-F01, stop and route HITL_REQUIRED without a fourth automatic correction.",
+  "preserve_immutable": ["orchestration/evidence/h1_consolidate_001/001/**", "orchestration/evidence/h1_consolidate_001/002/**", "orchestration/receipts/h1_consolidate_001/correction_001/**"],
+  "human_gate_open": false,
+  "next_directive": 76
+}

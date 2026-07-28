@@ -1,0 +1,413 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-p3-purple-correction-002-2026-07-22",
+  "step_id": "CTRL-1B-002-p3-purple-correction-002",
+  "work_order_id": "WO-CTRL-1B-002-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-CORRECTION-001.md",
+  "directive_id": 59,
+  "directive_supersedes": 58,
+  "milestone": "Control 1B P3 purple independent acceptance after Q1 dual-viewport correction + A2 a11y re-audit",
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "profile_name": "aidle-worldgen-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_sha256": "9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; required_skills always + evidence-memory-ledger + adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches; never ACCEPTED; verdicts VERIFIED|CHANGES_REQUESTED|NEED_HUMAN only.",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "independent acceptance verification of C0→Q1→A2 correction lineage + H-01..H-33 dual-viewport + product safety + regressions sample; exclusive writes receipt+log only; NEVER product/contract/test/scene/evidence patch; never ACCEPTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:83d32a6543c8bbb5142a2e9589d8b22f246dc7ca26823e1831c77a7cd9a4ae6a",
+  "input_context_hash_16": "83d32a6543c8bbb5",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002-CORRECTION-001.md + CONTROL_1B_ACCEPTANCE_CONTRACT.md + aidle-worldgen-purple-acceptance.md",
+  "status": "WAITING_CODEX",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "VERIFIED",
+  "purple_verdict": "VERIFIED",
+  "verdict_detail": "Independent Purple VERIFY_ONLY of WO-CTRL-1B-002-CORRECTION-001 after Q1 FULL_33_PASS + A2 A11Y_GATES_CLOSED_WITH_RESIDUAL. P3 re-ran: fixtures HARNESS_RESULT=PASS exit 0; control_1b_integration_smoke PASS checks=25 exit 0 product_error=0; clean boot exit 0 ALL_ERROR=0; G8 UX collision sample PASS checks=6 product_error=0. Q1 evidence pack independently re-authenticated: 38 PNG (36 required) distinct hashes, 0 mismatch vs headed_runner_summary, dual 1280x720+868x517 for all 33 H-rows, art_style_id_active=cozy_cyber_pixel, capture_source=godot_headed. Ten correction findings CLOSED_EVIDENCE (H-03/07/12/17/19/20/26/28 + A3-F09/F10). Product safety: confirm handoff client_world_commit=false (main.gd + H-20 meta + integration); proposal_only delete/card; preview owns_collision=false; inspect read_only durable_mutation=false. Responsive 868 panels no hard clip of primary a11y surfaces. A2-R01 residual low contrast on H-28 cursor/label: functional H-28 closed + dual captures exist → adjudicated NON_BLOCKING polish residual (does not reopen H-28). Historical B1/Q2 child_task_ref mismatches immutable. Purple NEVER patches and does NOT ACCEPT. next_owner=CODEX.",
+  "child_task_ref": "019f8702-87db-7c23-b5a4-c91dfea45cbc",
+  "transcript_ref": "019f8702-87db-7c23-b5a4-c91dfea45cbc",
+  "writer_transcript_ref": "019f8702-87db-7c23-b5a4-c91dfea45cbc",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_session_dir": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f8702-87db-7c23-b5a4-c91dfea45cbc",
+  "prior_a2_ref": "019f86ff-2dcd-7043-b4bf-f72a6bab12cd",
+  "prior_a2_receipt": "orchestration/receipts/control/CTRL_1B_002_a2_a11y_correction_002.json",
+  "prior_q1_ref": "019f86f8-27e7-7c00-986c-f260c89f99df",
+  "prior_q1_receipt": "orchestration/receipts/control/CTRL_1B_002_q1_qa_correction_002.json",
+  "prior_c0_ref": "019f86ee-11d9-7363-ae7b-db36d1d69801",
+  "prior_c0_receipt": "orchestration/receipts/control/CTRL_1B_002_c0_runtime_correction_002.json",
+  "prior_p4_historical_ref": "019f86e1-343c-7d00-9f41-6784b41c02c5",
+  "prior_p4_historical_receipt": "orchestration/receipts/control/CTRL_1B_002_p4_purple_001.json",
+  "historical_mismatches": [
+    {
+      "wave": "B1",
+      "receipt_child_task_ref": "e85e1802-24f4-41a1-9968-8371bd39317d",
+      "durable_child_task_ref": "019f86ca-008a-7bd2-ba32-3c5ec9858e51",
+      "immutable": true,
+      "note": "Do not rewrite D58 receipts; recorded as historical lineage evidence only."
+    },
+    {
+      "wave": "Q2",
+      "receipt_child_task_ref": "2b857b73-3622-49ef-8747-4974b05b6ce6",
+      "durable_child_task_ref": "019f86d6-91f6-7091-9456-0c3da2173af7",
+      "immutable": true,
+      "note": "Do not rewrite D58 receipts; recorded as historical lineage evidence only."
+    }
+  ],
+  "chain_id_note": "Durable spawn ids correction wave: C0 019f86ee-11d9-7363-ae7b-db36d1d69801; Q1 019f86f8-27e7-7c00-986c-f260c89f99df; A2 019f86ff-2dcd-7043-b4bf-f72a6bab12cd; P3 019f8702-87db-7c23-b5a4-c91dfea45cbc. Parent 019f7ffd-3995-71c0-aca1-51078e24a852. Foundation historical: B0 019f86c1-854c-76a3-a36b-004cc8e39216; B1 durable 019f86ca-008a-7bd2-ba32-3c5ec9858e51; Q2 durable 019f86d6-91f6-7091-9456-0c3da2173af7; A3 019f86dd-5eba-7db3-bb7a-f9437c720100; P4 019f86e1-343c-7d00-9f41-6784b41c02c5.",
+  "next_owner": "CODEX",
+  "next_route": "CODEX",
+  "character_binding": {
+    "trustlayer": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "ui": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "role": "P3 VERIFY_ONLY independent acceptance of Control 1B correction; never patch; never ACCEPTED"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded purple profile, WO-CTRL-1B-002-CORRECTION-001, CONTROL_1B_ACCEPTANCE_CONTRACT, Q1/A2/C0 receipts, evidence pack, character cards, and skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ROUTED_PROFILE",
+      "source": "required by purple profile; ledger applied via receipt + H-matrix + PNG authenticity + re-run exits + residual adjudication",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED_PROFILE",
+      "source": "required by purple profile; applied to safety (World Commit bypass), dual-viewport honesty, residual reopen risk, lease exclusivity",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_p3_purple_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-p3-purple-correction-002.log"
+  ],
+  "product_writes": [],
+  "contract_writes": [],
+  "test_writes": [],
+  "scene_writes": [],
+  "evidence_writes": [],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_p3_purple_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-p3-purple-correction-002.log"
+  ],
+  "no_product_patch": true,
+  "no_contract_patch": true,
+  "no_test_patch": true,
+  "no_scene_patch": true,
+  "no_evidence_rewrite": true,
+  "no_d58_receipt_rewrite": true,
+  "child_meta": {
+    "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8702-87db-7c23-b5a4-c91dfea45cbc/meta.json",
+    "description": "P3 Purple correction gate",
+    "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "started_at": "2026-07-21T23:28:37.854872300Z",
+    "effective_model_id": "grok-4.5",
+    "status": "running"
+  },
+  "result": {
+    "verdict": "VERIFIED",
+    "purple_verdict": "VERIFIED",
+    "h_matrix_pass": 33,
+    "h_matrix_fail": 0,
+    "h_matrix_total": 33,
+    "dual_viewport_rows": 33,
+    "correction_findings_closed": 10,
+    "open_finding_count": 1,
+    "open_finding_ids": ["A2-R01"],
+    "blocking_findings": [],
+    "blockers": [],
+    "a2_r01_adjudication": "NON_BLOCKING_POLISH_RESIDUAL",
+    "product_safety_world_commit_bypass": "PASS",
+    "accepted": false,
+    "self_accept": false,
+    "next_owner": "CODEX"
+  },
+  "smoke_test": {
+    "validator": {
+      "cmd": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "exit": 0,
+      "marker": "HARNESS_RESULT=PASS",
+      "valid": "PASS",
+      "invalid_rejected": "12/12",
+      "failures": 0,
+      "error_line_count": 0,
+      "rerun_by": "P3"
+    },
+    "integration": {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game --user-data-dir <isolated> -s res://tests/control_1b_integration_smoke.gd",
+      "user_data": "C:/Users/phant/AppData/Local/Temp/ctrl1b_p3_int_20260722_062922",
+      "exit": 0,
+      "marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS",
+      "checks": 25,
+      "error_line_count": 0,
+      "rerun_by": "P3",
+      "closed_correction_checks": [
+        "H-03_prompt_send_vs_newline",
+        "H-07_inspect_read_only_provenance",
+        "H-12_q_build_rotate_left",
+        "H-17_proposal_card_understanding",
+        "H-19_confirmation_hold_0_and_0_8",
+        "H-20_handoff_complete_collision_cancel_clean",
+        "H-26_sensitivity_observable_bounded",
+        "H-28_cursor_and_A3_F10_action_label_consumer",
+        "A3-F09_full_remappable_catalog_ui"
+      ]
+    },
+    "clean_boot": {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game --user-data-dir <isolated> --quit-after 3",
+      "user_data": "C:/Users/phant/AppData/Local/Temp/ctrl1b_p3_boot_20260722_062922",
+      "exit": 0,
+      "error_line_count": 0,
+      "all_error_matches": 0,
+      "isolated_user_data": true,
+      "rerun_by": "P3",
+      "notes": "Navigation mesh bake WARNINGs only; zero ERROR lines"
+    },
+    "regression_sample": [
+      {
+        "test": "res://tests/g8_ux_input_collision_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_G8_UX_SMOKE=PASS",
+        "checks": 6,
+        "error_line_count": 0,
+        "rerun_by": "P3",
+        "safety_note": "preview_stages_non_solid + complete manifestation collision blocked"
+      }
+    ],
+    "q1_headed_capture_consumed": {
+      "dir": "orchestration/evidence/control_1b_002_correction_001",
+      "exit": 0,
+      "marker": "AIDLE_CTRL_1B_Q1_HEADED_CAPTURE=PASS",
+      "captures": 38,
+      "required_pngs": 36,
+      "viewports": ["1280x720", "868x517"],
+      "art_style_id_active": "cozy_cyber_pixel",
+      "capture_source": "godot_headed",
+      "p3_reauth": {
+        "distinct_sha_count": 38,
+        "required_hash_mismatches": 0,
+        "missing_required": 0,
+        "png_magic_ok": true
+      }
+    }
+  },
+  "h_matrix": {
+    "path": "orchestration/evidence/control_1b_002_correction_001/h_matrix_status.json",
+    "sha256": "1400a7b8a34ffceaec9ec452432ca9c863539e56185a2d60b1fbc5e1c5a1f7cb",
+    "summary": {
+      "total": 33,
+      "PASS": 33,
+      "FAIL": 0,
+      "verdict_implication": "FULL_33_PASS"
+    },
+    "dual_viewport_requirement": {
+      "viewports": ["1280x720", "868x517"],
+      "rows_dual_true": 33,
+      "headed_capture_count": 38,
+      "required_png_count": 36
+    },
+    "honesty": "Missing/scaffold-only would be FAIL; all 33 rows have dual_viewport evidence + executable smoke/capture witness."
+  },
+  "correction_findings": [
+    {"id": "H-03", "status": "CLOSED_EVIDENCE", "p3": "CONFIRMED"},
+    {"id": "H-07", "status": "CLOSED_EVIDENCE", "p3": "CONFIRMED"},
+    {"id": "H-12", "status": "CLOSED_EVIDENCE", "p3": "CONFIRMED"},
+    {"id": "H-17", "status": "CLOSED_EVIDENCE", "p3": "CONFIRMED"},
+    {"id": "H-19", "status": "CLOSED_EVIDENCE", "p3": "CONFIRMED"},
+    {"id": "H-20", "status": "CLOSED_EVIDENCE", "p3": "CONFIRMED"},
+    {"id": "H-26", "status": "CLOSED_EVIDENCE", "p3": "CONFIRMED"},
+    {"id": "H-28", "status": "CLOSED_EVIDENCE", "p3": "CONFIRMED_WITH_RESIDUAL_NOTE", "residual_ref": "A2-R01"},
+    {"id": "A3-F09", "status": "CLOSED_EVIDENCE", "p3": "CONFIRMED"},
+    {"id": "A3-F10", "status": "CLOSED_EVIDENCE", "p3": "CONFIRMED_WITH_RESIDUAL_NOTE", "residual_ref": "A2-R01"}
+  ],
+  "residual_findings": [
+    {
+      "id": "A2-R01",
+      "severity": "low",
+      "status": "OPEN",
+      "blocking": false,
+      "h_rows": ["H-28"],
+      "related_closed": ["H-28", "A3-F10"],
+      "contract_gates": ["C1B-A11Y-09", "C1B-A11Y-10"],
+      "summary": "Large cursor proxy and action label remain low-contrast on light mint terrain in dual headed PNGs; human visual audit cannot clearly resolve cursor/label despite runtime snapshot scale=1.75, proxy_px=31.5, readable_large=true, label_visible=true.",
+      "p3_adjudication": "NON_BLOCKING_POLISH_RESIDUAL",
+      "p3_rationale": "Functional H-28 consumer closed by integration smoke + dual captures + cursor_snapshot meta. Contrast polish does not reopen H-28 functional gate or force CHANGES_REQUESTED. Residual retained for optional follow-up outline/contrast work.",
+      "evidence": [
+        "orchestration/evidence/control_1b_002_correction_001/H-28_cursor_large_label_1280x720.png",
+        "orchestration/evidence/control_1b_002_correction_001/H-28_cursor_large_label_868x517.png",
+        "visual_claim_meta cursor_snapshot dual",
+        "integration:H-28_cursor_and_A3_F10_action_label_consumer"
+      ],
+      "does_not_reopen": ["H-03", "H-07", "H-12", "H-17", "H-19", "H-20", "H-26", "A3-F09"]
+    }
+  ],
+  "mission_gates": [
+    {
+      "id": "P3-M-01",
+      "title": "Product safety — no client World Commit bypass",
+      "status": "PASS",
+      "evidence": [
+        "game/scripts/main/main.gd client_world_commit=false on confirm handoff",
+        "integration H-20_handoff_complete_collision_cancel_clean",
+        "visual_claim_meta H-20 dual client_world_commit=false",
+        "H-17 dual proposal_only never direct durable mutation",
+        "H-07 dual inspect read_only durable_mutation=false",
+        "preview owns_collision=false in meta + integration"
+      ]
+    },
+    {
+      "id": "P3-M-02",
+      "title": "H-01..H-33 dual viewport 33/33 authentic",
+      "status": "PASS",
+      "evidence": [
+        "h_matrix_status.json PASS 33/33 dual_viewport true on all rows",
+        "38 PNG distinct hashes; 36 required match headed_runner_summary sha256",
+        "capture_source=godot_headed art_style_id_active=cozy_cyber_pixel"
+      ]
+    },
+    {
+      "id": "P3-M-03",
+      "title": "Responsive no hard clip at 868x517",
+      "status": "PASS",
+      "evidence": [
+        "Visual sample H-07/H-17/H-22/H-28 868 panels in-bounds",
+        "integration responsive_bottom_layers_metrics",
+        "A2 M-03 dual viewport no hard clip"
+      ]
+    },
+    {
+      "id": "P3-M-04",
+      "title": "Regressions sample clean",
+      "status": "PASS",
+      "evidence": [
+        "P3 re-run g8_ux_input_collision_smoke PASS 0 ERROR",
+        "Q1 pack also recorded G8/P1E suite PASS (consumed lineage)"
+      ]
+    },
+    {
+      "id": "P3-M-05",
+      "title": "Writer leases + lineage honesty",
+      "status": "PASS",
+      "evidence": [
+        "P3 exclusive receipt+log only; product_writes empty",
+        "Q1/A2 leases not invaded; evidence pack not rewritten",
+        "B1/Q2 historical dual-id mismatches recorded immutable",
+        "child_task_ref real durable spawn 019f8702-87db-7c23-b5a4-c91dfea45cbc"
+      ]
+    },
+    {
+      "id": "P3-M-06",
+      "title": "A2-R01 residual adjudication",
+      "status": "PASS_WITH_RESIDUAL",
+      "evidence": [
+        "Functional H-28 CLOSED_EVIDENCE",
+        "Dual H-28 captures exist",
+        "P3 human visual agrees low contrast polish",
+        "Non-blocking; VERIFIED with residual note"
+      ]
+    }
+  ],
+  "product_safety": {
+    "world_commit_bypass": "PASS",
+    "client_world_commit": false,
+    "confirm_handoff_only": true,
+    "delete_proposal_only": true,
+    "undo_compensation_only": true,
+    "preview_owns_collision": false,
+    "preview_owns_ownership": false,
+    "inspect_read_only": true,
+    "proposal_card_mutation_class": "proposal_only",
+    "complete_only_durable_collision": true
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "contract_untouched": true,
+    "evidence_not_rewritten": true,
+    "d58_receipts_not_rewritten": true,
+    "child_task_ref_real_durable_spawn": true,
+    "historical_mismatches_recorded": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "never_accepted": true,
+    "findings_honest": true,
+    "exclusive_paths_only": true,
+    "residual_adjudicated": true,
+    "no_false_verified": true
+  },
+  "evidence_refs": [
+    "orchestration/evidence/control_1b_002_correction_001/",
+    "orchestration/evidence/control_1b_002_correction_001/h_matrix_status.json",
+    "orchestration/evidence/control_1b_002_correction_001/visual_claim_meta.json",
+    "orchestration/evidence/control_1b_002_correction_001/headed_runner_summary.json",
+    "orchestration/evidence/control_1b_002_correction_001/correction_findings.json",
+    "orchestration/evidence/control_1b_002_correction_001/png_sha256.json",
+    "orchestration/evidence/control_1b_002_correction_001/H-07_inspect_provenance_868x517.png",
+    "orchestration/evidence/control_1b_002_correction_001/H-17_proposal_card_868x517.png",
+    "orchestration/evidence/control_1b_002_correction_001/H-20_confirm_complete_1280x720.png",
+    "orchestration/evidence/control_1b_002_correction_001/H-28_cursor_large_label_1280x720.png",
+    "orchestration/evidence/control_1b_002_correction_001/H-28_cursor_large_label_868x517.png",
+    "orchestration/receipts/control/CTRL_1B_002_q1_qa_correction_002.json",
+    "orchestration/receipts/control/CTRL_1B_002_a2_a11y_correction_002.json",
+    "orchestration/receipts/control/CTRL_1B_002_c0_runtime_correction_002.json",
+    "Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "game/scripts/main/main.gd",
+    "game/tests/control_1b_integration_smoke.gd"
+  ],
+  "evidence_hashes": {
+    "h_matrix_status.json": "1400a7b8a34ffceaec9ec452432ca9c863539e56185a2d60b1fbc5e1c5a1f7cb",
+    "correction_findings.json": "eae3af6a8717eb5d6101b60d6364fe4398c81aa0cdbac26cd3b3fca06e8e5e11",
+    "headed_runner_summary.json": "cb9033993dfd587a5292ceba08ff4ee36ed555b9fd4421c6822e5047dae95a89",
+    "CTRL_1B_002_q1_qa_correction_002.json": "ec4aad08c3f0036ae1ccca4d27e20ebe33b08ddf8e6a303ceabe9c5e94c3513e",
+    "CTRL_1B_002_a2_a11y_correction_002.json": "a6d9ced9c7e3fcad3d2fd803664c3965228eee89696a01e92dd1010cfcc61986"
+  },
+  "log_path": "orchestration/logs/ctrl-1b-002-p3-purple-correction-002.log",
+  "log_sha256": "42390477896b8921a63867aa1d0e3bbcdb7ddda67c66f1c79ef36ae45a28720e",
+  "codex_handoff_notes": [
+    "purple_verdict=VERIFIED; accepted=false; self_accept=false; Purple does not ACCEPTED.",
+    "Ten correction findings closed; H matrix 33/33 dual-viewport authentic under control_1b_002_correction_001.",
+    "A2-R01 remains OPEN low polish residual (H-28 cursor/label contrast) — non-blocking; optional follow-up outline work.",
+    "P3 independently re-ran fixtures + integration + clean boot + G8 sample; all clean.",
+    "Historical B1/Q2 child_task_ref mismatches preserved immutable.",
+    "next_owner=CODEX for human/Codex acceptance decision only."
+  ]
+}

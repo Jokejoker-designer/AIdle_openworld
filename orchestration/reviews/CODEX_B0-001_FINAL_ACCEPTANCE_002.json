@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-B0-001-FINAL-ACCEPTANCE-002",
+  "reviewed_at": "2026-07-21T14:28:30+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "B0-001",
+  "directives_reviewed": [46, 47],
+  "verdict": "ACCEPTED",
+  "accepted": true,
+  "scope": "Blender Bridge P0 machine gate only",
+  "machine_evidence": {
+    "blender": "PASS: E:/blender.exe reports Blender 5.2.0 LTS",
+    "pytest": "PASS: 11 passed",
+    "compileall": "PASS",
+    "maf": "PASS: all three correction receipts validate against agent_step_contract.schema.json",
+    "server_mediated_probe": {
+      "job_id": "BLD-8A8D63935D6B",
+      "state": "QUARANTINED_COMPLETE",
+      "runner_mode": "real",
+      "exit_code": 0,
+      "preview": "512x512 visually inspected, nonblank low-poly probe",
+      "job_receipt_sha256": "28227144828152D31B0AB851BDCDD765D56B58ECA3D40D2E4506E390C2D179D9",
+      "validation_sha256": "E4DBAD69EBDB672F50E2F1DA2050B9944B8620895194436073E6A5C5853C52C7",
+      "artifact_hashes_sha256": "0FB2642F270B1B3BFB0785A8FFAB9C4AE4CA368B48B8D34967B7634A1B1051D9"
+    },
+    "correction_receipts": {
+      "schema": "FD7104567D548D6B03F13BD59B32CCEF4016BAFF8A57F4F39271497711833E5C",
+      "rig": "05F88772A284D273E83B167B5DEC5C039AD80341CD1B0DAA1CE98B13D4890619",
+      "purple": "6C1293DF88389F565B3237FA614BC54EC461DE3AF58E0F5F6125F7D52B4BBB3F"
+    },
+    "write_lease": "PASS: exactly six correction receipt/log files; zero product writes"
+  },
+  "purple_external_transcript_binding": {
+    "reason": "Purple receipt's root child_task_ref is noncanonical and is not used as transcript identity evidence.",
+    "canonical_child_task_ref": "019f838b-ea85-7720-9a68-ddb711aae8f9",
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "status": "completed",
+    "started_at": "2026-07-21T07:20:12.681146500Z",
+    "completed_at": "2026-07-21T07:24:14.585142Z",
+    "meta_sha256": "73C2A9608BA28E8B33A283A87E588DA1690894E36F7395677956778B936CAFD3",
+    "output_sha256": "761027B0F999CF3C5E04A9DAD86FC4B598FFB3A763F0C64380B42ACFC2F72F5A",
+    "binding_source": "immutable Grok parent subagent meta.json plus child session summary",
+    "receipt_field_disposition": "noncanonical; superseded by this Codex external machine binding",
+    "acceptance_basis": "Human previously authorized machine timestamps/external transcript binding; no worker self-accept is used."
+  },
+  "rejected_evidence_preserved": {
+    "path": "orchestration/logs/blender-p0-schema-001-hash.txt",
+    "sha256": "63D3E6CD2D1AC9EBA1262AF1FC1C5A58E977C397771B97AE6AF6A6A409B3756B",
+    "counts_toward_acceptance": false
+  },
+  "residuals": [
+    "P0 verifies the secure Blender export pipeline, not a production Nori-7 rig or animation set.",
+    "AIDLE_DISABLE_NETWORK is a policy marker; OS-level Blender network isolation is a later hardening gate.",
+    "FastAPI TestClient emits a non-blocking Starlette/httpx deprecation warning.",
+    "G8-001 human visual/gameplay acceptance remains separate and unaccepted."
+  ],
+  "scope_confirmation": {
+    "bridge_product_patch_by_grok": false,
+    "godot_scene_character_control_started": false,
+    "nori7_built": false,
+    "g8_accepted": false,
+    "continuity": "ARMED_INACTIVE_AT_HUMAN_REPORTED_19_PERCENT"
+  },
+  "next_route": "HITL_REQUIRED: Human Product Lead returns G8 HUMAN PASS or G8 HUMAN FAIL using HUMAN_ACCEPTANCE_CHECKLIST_014.md"
+}

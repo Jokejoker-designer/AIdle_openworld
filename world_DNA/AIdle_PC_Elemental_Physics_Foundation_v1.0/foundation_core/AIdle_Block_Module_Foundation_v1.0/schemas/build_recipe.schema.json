@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "recipe_id",
+    "recipe_type",
+    "world_profile",
+    "root_module_id",
+    "instances",
+    "connections",
+    "material_overrides",
+    "animation_bindings",
+    "behavior_bindings",
+    "validation",
+    "outputs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "recipe_id": {
+      "type": "string"
+    },
+    "recipe_type": {
+      "type": "string"
+    },
+    "world_profile": {
+      "type": "string"
+    },
+    "root_module_id": {
+      "type": "string"
+    },
+    "instances": {
+      "type": "array"
+    },
+    "connections": {
+      "type": "array"
+    },
+    "material_overrides": {
+      "type": "array"
+    },
+    "animation_bindings": {
+      "type": "array"
+    },
+    "behavior_bindings": {
+      "type": "array"
+    },
+    "validation": {
+      "type": "object"
+    },
+    "outputs": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "block_dna_adapt_001_source_baseline/1.0",
+  "lock_version": "1.0",
+  "note": "Immutable DNA package baseline hashes. Zero writes to world_DNA/**. Method matches B0: SHA-256 of raw file bytes; tree aggregate is SHA-256 over sorted relative-path UTF-8 + raw bytes excluding __pycache__ and Thumbs.db.",
+  "b0_receipt": "orchestration/receipts/block_dna_adapt_001/B0_ssot_preflight_001.json",
+  "b0_child_task_ref": "019f8800-17d3-7b00-87c6-73a6153b990f",
+  "packages": {
+    "v1.0_root": "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.0",
+    "v1.1_Tier3_root": "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.1_Tier3",
+    "v1.0_zip_sha256": "766489cfc0062a0252822ee6c9ea286d138038bd7acc155089f146c0dfa8e2ad",
+    "v1.1_Tier3_zip_sha256": "24dc81432a39fc8315a7a37940f030968c50bdfe4a39033c69336a63fcae2bb9",
+    "v1.0_manifest_json_sha256": "ce4f496c43cd520c9e18a073bcb8a78e6d0c6d92dbbc536801ea3da964ae0de2",
+    "v1.1_manifest_json_sha256": "32e4d7aad3dc36983816aca030ed567d117ae03e10b83d2a3bc96595a2790c77",
+    "v1.0_SHA256SUMS_txt_sha256": "fdc45759fabe7379385ad290c7510770dab4e789ef6aa028455da5ca879eacb4",
+    "v1.1_SHA256SUMS_txt_sha256": "2772391a3e2e8ebb2f4f8938b0ad3ec51ea669057b9c16a7c9bcff9d05b3a978",
+    "v1.0_package_tree_aggregate_sha256": "44a0e19402d50b42361077e2435e44a8d0dcb4ac2b158d156b60935c4bd8a3c7",
+    "v1.0_package_tree_file_count_ex_pycache": 153,
+    "v1.1_Tier3_package_tree_aggregate_sha256": "5edd562312b6b8b1411afbefbea1625d74e0cb2a5ee8105b0a4e585c321d6c28",
+    "v1.1_Tier3_package_tree_file_count_ex_pycache": 183
+  },
+  "block_module_foundation": {
+    "embedded_path_suffix": "foundation_core/AIdle_Block_Module_Foundation_v1.0",
+    "v1.0_and_v1.1_block_manifest_sha256": "836ed0b99127b3d18a45c6a3c56951d1fa9e819705014950d6129a5cc017288b",
+    "v1.0_and_v1.1_socket_types_sha256": "37f0522e03048529b041b47c700f6ad48f3739ac5f94863706b1acabb3f3ef41",
+    "v1.0_and_v1.1_compatibility_matrix_sha256": "2fcb4c2eb109fbc72a08583c8e65fed28f9b0b37562872a2ab7c0f5a23b61ea5",
+    "v1.0_and_v1.1_block_module_tree_aggregate_sha256": "edd60074e9863d9018fcdadb30fb38bd2b353d5859a41819f8dea0e3d5017d95",
+    "block_module_tree_file_count_ex_pycache": 71,
+    "block_identity_across_dna_packages": "IDENTICAL_EMBEDDED_BLOCK_CORE",
+    "source_schemas": {
+      "build_graph.schema.json": "0ba98924a81efe37d7f7fa8765df77719c2724e838d7af01559f6e796875276b",
+      "build_recipe.schema.json": "cd96f472dd24ed8582ca8e65ff501436d706a17c8e04a30a729b4551255934bf",
+      "module_definition.schema.json": "6ca7fc0bab14004c8b831ac3a84e6560fbe30e6fdbd5c937d617313979dd53a5"
+    },
+    "source_schema_note": "DNA source Build Recipe/Graph schemas are fail-open (loose array items, weak numeric bounds). Closure lives under this contract tree only; DNA sources are never rewritten."
+  },
+  "active_project_refs": {
+    "world_prompt_schema": "contracts/world_prompt.schema.json",
+    "world_prompt_schema_sha256": "cc57300fb01d5e803b44aca80c77ff1d8dee72f00974a90f9ec6f500ceb2841c",
+    "p1e006_state_visual_variants": "game/resources/world_profiles/state_visual_variants.json",
+    "p1e006_state_visual_variants_sha256": "595699ea6f23650a9fb790489099045f98c7d859bf343da6250ccd05dbff06c2"
+  },
+  "asymmetric_source_socket_relations": [
+    {
+      "pair": [
+        "terrain_surface",
+        "prop_base"
+      ],
+      "source_issue": "terrain_surface lists prop_base; prop_base only lists prop_surface (one-way)",
+      "adapter_normalization_id": "norm_terrain_surface_prop_base_v1"
+    },
+    {
+      "pair": [
+        "building_foundation",
+        "vertical_stack"
+      ],
+      "source_issue": "building_foundation lists vertical_stack; vertical_stack only lists itself (one-way)",
+      "adapter_normalization_id": "norm_building_foundation_vertical_stack_v1"
+    },
+    {
+      "pair": [
+        "wall_edge",
+        "window_opening"
+      ],
+      "source_issue": "wall_edge lists window_opening; window_opening only lists window_frame (one-way)",
+      "adapter_normalization_id": "norm_wall_edge_window_opening_v1"
+    },
+    {
+      "pair": [
+        "wall_edge",
+        "door_opening"
+      ],
+      "source_issue": "wall_edge lists door_opening; door_opening only lists door_leaf/path_endpoint (one-way)",
+      "adapter_normalization_id": "norm_wall_edge_door_opening_v1"
+    }
+  ],
+  "tree_aggregate_method": {
+    "algorithm": "SHA-256",
+    "encoding": "sorted relative path as POSIX UTF-8 bytes concatenated with raw file bytes",
+    "excludes": [
+      "__pycache__",
+      "Thumbs.db"
+    ],
+    "note": "C0 recomputed live during CORRECTION-001; supersedes unreproducible B0 aggregate intermediate while preserving key-file hashes identical to B0"
+  },
+  "b0_recorded_tree_aggregates_superseded": {
+    "v1.0_package_tree_aggregate_sha256": "cb5ff00352955481e33e930069c794987f01a0af805a376fb1f00483526ec103",
+    "v1.1_Tier3_package_tree_aggregate_sha256": "8c9f517c57764272e0c64d33a554f08c788cca62eb4e95cc2d45404e6ba69db9",
+    "reason": "B0-recorded aggregates not reproducible under documented path+bytes method with current immutable trees (counts match); C0 locks verifiable recomputation"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIdle Tier 3 Offline Advance Receipt",
+  "type": "object",
+  "required": [
+    "receipt_id",
+    "mutation_kind",
+    "chunk_id",
+    "observed_elapsed_seconds",
+    "used_elapsed_seconds",
+    "time_decision",
+    "updated_entity_ids",
+    "skipped_entity_ids",
+    "before_hash",
+    "after_hash",
+    "event_trace",
+    "accepted",
+    "self_accept",
+    "tier3_source_status"
+  ],
+  "properties": {
+    "receipt_id": {
+      "type": "string"
+    },
+    "mutation_kind": {
+      "const": "TIER3_OFFLINE_ADVANCE"
+    },
+    "chunk_id": {
+      "type": "string"
+    },
+    "observed_elapsed_seconds": {
+      "type": "number"
+    },
+    "used_elapsed_seconds": {
+      "type": "number",
+      "minimum": 0
+    },
+    "time_decision": {
+      "enum": [
+        "ACCEPTED",
+        "CLOCK_BACKWARD_REJECTED",
+        "MAX_OFFLINE_CLAMPED"
+      ]
+    },
+    "updated_entity_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "skipped_entity_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "before_hash": {
+      "type": "string"
+    },
+    "after_hash": {
+      "type": "string"
+    },
+    "event_trace": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "accepted": {
+      "const": false
+    },
+    "self_accept": {
+      "const": false
+    },
+    "tier3_source_status": {
+      "const": "IMPLEMENTED_HERE_SOURCE_PACKAGE_MISSING"
+    }
+  },
+  "additionalProperties": true
+}

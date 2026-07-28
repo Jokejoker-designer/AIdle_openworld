@@ -1,0 +1,179 @@
+{
+  "pass": true,
+  "method": "hsl_hue_sat_not_rgb_distance",
+  "bible": {
+    "rgb": [
+      143,
+      212,
+      232
+    ],
+    "hue_deg": 193.48314606741573,
+    "sat": 38.36206896551724,
+    "val": 90.98039215686275,
+    "rb_spread": 89
+  },
+  "glb_water_rgb": [
+    5,
+    26,
+    46
+  ],
+  "glb_eval": {
+    "label": "glb_base",
+    "pass": true,
+    "hsv": {
+      "rgb": [
+        5,
+        26,
+        46
+      ],
+      "hue_deg": 209.26829268292687,
+      "sat": 89.13043478260869,
+      "val": 18.03921568627451,
+      "rb_spread": 41
+    },
+    "hue_delta": 16.26829268292687,
+    "fail_reasons": []
+  },
+  "pond": {
+    "n": 1535,
+    "candidates": 3071,
+    "median_rgb": [
+      191,
+      252,
+      255
+    ],
+    "white_pct": 0.17307692307692307,
+    "hsv": {
+      "rgb": [
+        191,
+        252,
+        255
+      ],
+      "hue_deg": 182.8125,
+      "sat": 25.098039215686274,
+      "val": 100.0,
+      "rb_spread": 64
+    },
+    "eval": {
+      "label": "pond_median",
+      "pass": true,
+      "hsv": {
+        "rgb": [
+          191,
+          252,
+          255
+        ],
+        "hue_deg": 182.8125,
+        "sat": 25.098039215686274,
+        "val": 100.0,
+        "rb_spread": 64
+      },
+      "hue_delta": 10.1875,
+      "fail_reasons": []
+    }
+  },
+  "fail_reasons": [],
+  "four_value_demo": {
+    "demo": "four_value_hsl",
+    "pass": true,
+    "results": [
+      {
+        "label": "beige_218_209_195",
+        "pass": false,
+        "hsv": {
+          "rgb": [
+            218,
+            209,
+            195
+          ],
+          "hue_deg": 36.5217391304348,
+          "sat": 10.550458715596331,
+          "val": 85.49019607843137,
+          "rb_spread": -23
+        },
+        "hue_delta": 156.4782608695652,
+        "fail_reasons": [
+          "hue_out_of_band hue=36.5 target=193.0\u00b128.0",
+          "sat_too_low sat=10.6% < 22.0% (achromatic)",
+          "rb_spread_too_low spread=-23 < 25"
+        ]
+      },
+      {
+        "label": "white_255_255_255",
+        "pass": false,
+        "hsv": {
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "hue_deg": 0.0,
+          "sat": 0.0,
+          "val": 100.0,
+          "rb_spread": 0
+        },
+        "hue_delta": 167.0,
+        "fail_reasons": [
+          "hue_out_of_band hue=0.0 target=193.0\u00b128.0",
+          "sat_too_low sat=0.0% < 22.0% (achromatic)",
+          "near_white val=100.0% sat=0.0%",
+          "rb_spread_too_low spread=0 < 25"
+        ]
+      },
+      {
+        "label": "grey_185_195_189",
+        "pass": false,
+        "hsv": {
+          "rgb": [
+            185,
+            195,
+            189
+          ],
+          "hue_deg": 144.0000000000001,
+          "sat": 5.128205128205124,
+          "val": 76.47058823529412,
+          "rb_spread": 4
+        },
+        "hue_delta": 48.999999999999886,
+        "fail_reasons": [
+          "hue_out_of_band hue=144.0 target=193.0\u00b128.0",
+          "sat_too_low sat=5.1% < 22.0% (achromatic)",
+          "rb_spread_too_low spread=4 < 25"
+        ]
+      },
+      {
+        "label": "bible_143_212_232",
+        "pass": true,
+        "hsv": {
+          "rgb": [
+            143,
+            212,
+            232
+          ],
+          "hue_deg": 193.48314606741573,
+          "sat": 38.36206896551724,
+          "val": 90.98039215686275,
+          "rb_spread": 89
+        },
+        "hue_delta": 0.4831460674157313,
+        "fail_reasons": []
+      }
+    ],
+    "expected": {
+      "beige_218_209_195": false,
+      "white_255_255_255": false,
+      "grey_185_195_189": false,
+      "bible_143_212_232": true
+    },
+    "tolerances": {
+      "hue_target_deg": 193.0,
+      "hue_tol_deg": 28.0,
+      "sat_min_pct": 22.0,
+      "val_max_near_white": 98.0,
+      "rb_spread_min": 25
+    }
+  },
+  "art_style_id_active": "n/a_blender_eevee",
+  "capture_source": "blender_eevee",
+  "live_parity": false
+}

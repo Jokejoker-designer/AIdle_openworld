@@ -1,0 +1,80 @@
+{
+  "schema_version": "block_dna_adapt_001/1.0",
+  "request_id": "req_prop_bench_001",
+  "build_graph_id": "graph_prop_bench_v1",
+  "world_profile": "cozy_cyber_pixel",
+  "expected_world_revision": 0,
+  "current_world_revision": 0,
+  "idempotency_key": "idem_graph_prop_bench_v1",
+  "bounds": {
+    "min": {
+      "x": -32,
+      "y": -32,
+      "z": 0
+    },
+    "max": {
+      "x": 32,
+      "y": 32,
+      "z": 16
+    }
+  },
+  "nodes": [
+    {
+      "node_id": "bench",
+      "module_id": "prop_bench_simple",
+      "transform": {
+        "x": 0.0,
+        "y": 0.0,
+        "elevation": 0.0,
+        "rotation_deg": 90.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": 0,
+        "cy": 0,
+        "cz": 0
+      },
+      "material_slot": "wood",
+      "p1e_material_id": "MAT_CozyWood"
+    }
+  ],
+  "edges": [],
+  "generators": [
+    {
+      "generator_id": "gen_path_spline_v1",
+      "seed": 7
+    }
+  ],
+  "world_rules": [
+    {
+      "rule_id": "rule_day_night_v1"
+    }
+  ],
+  "manifestation": {
+    "stages": [
+      "wireframe",
+      "hologram",
+      "materializing",
+      "complete"
+    ],
+    "requires_confirmation": true,
+    "presentation_duration_seconds": 4
+  },
+  "validation": {
+    "collision": true,
+    "occupancy": true,
+    "sockets": true,
+    "cycle": true,
+    "snap": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  },
+  "adapter_proposal": {
+    "kind": "structured_world_prompt_proposal",
+    "confirmation_state": "pending",
+    "preview_required": true
+  },
+  "payload_fingerprint": "e4fb4c76df675704e5966f54a7b0490737293dab4132f14dd8d5e7ff936f1fac"
+}

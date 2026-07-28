@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "request_id": "arcane_0001",
+  "build_graph_id": "graph_arcane_clocktower_v1",
+  "world_profile": "arcane_clockwork",
+  "expected_world_revision": 0,
+  "bounds": {
+    "center": [
+      0,
+      0,
+      0
+    ],
+    "size_m": [
+      128,
+      128,
+      64
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "tower",
+      "module_id": "cluster_arcane_clocktower_A",
+      "position": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "node_id": "workshop",
+      "module_id": "cluster_arcane_workshop_A",
+      "position": [
+        -16,
+        -8,
+        0
+      ]
+    },
+    {
+      "node_id": "golem",
+      "module_id": "char_golem_base",
+      "position": [
+        -8,
+        3,
+        0
+      ]
+    }
+  ],
+  "edges": [],
+  "generators": [
+    {
+      "generator_id": "gen_clock_tower_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    },
+    {
+      "generator_id": "gen_clockwork_mechanism_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    }
+  ],
+  "world_rules": [
+    {
+      "rule_id": "rule_arcane_energy_network_v1",
+      "config": {}
+    }
+  ],
+  "manifestation": {
+    "stages": [
+      "WIREFRAME",
+      "HOLOGRAM",
+      "MATERIALIZING",
+      "COMMITTING",
+      "COMPLETE"
+    ],
+    "requires_confirmation": true
+  },
+  "validation": {
+    "collision": true,
+    "navigation": true,
+    "style": true,
+    "performance": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  }
+}

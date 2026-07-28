@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0.0",
+  "package_id": "ucbv_001_nori7_character_rig_anim_v1",
+  "asset_id": "ucbv_001_nori7_character_rig_anim_v1",
+  "author_wave": "C1R_MESH_WEIGHT_CORRECTION",
+  "prior_author_wave": "C1_CHARACTER_PRODUCTION",
+  "directive_id": 85,
+  "work_order_id": "WO-UCBV-001-C1-MESH-WEIGHT-CORRECTION-004",
+  "work_order_addendum": "WO-UCBV-001-MOTION-KIT-ADDENDUM-003",
+  "base_work_order_id": "WO-UCBV-001-STRICT-CORRECTION-002",
+  "authority_token": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "identity": {
+    "display_name": "Nori-7",
+    "character_id": "CCP-RH-001",
+    "character_class": "ROBOT_HELPER",
+    "world_profile_id": "cozy_cyber_pixel",
+    "recipe_id": "recipe_nori7_v1",
+    "root_module_id": "char_nori7_base",
+    "attachment_modules": [
+      "attach_water_tank_small",
+      "attach_watering_nozzle_A",
+      "attach_mechanical_sprout_A"
+    ],
+    "skeleton_id": "skel_small_biped_robot_v1",
+    "animation_set_id": "anim_robot_gardener_v1",
+    "style_lock_id": "ucbv_001_style_lock_v1"
+  },
+  "production_slice": "c1_offline_blender_skinned_glb",
+  "files": {
+    "skeleton_hierarchy": "skeleton/skel_small_biped_robot_v1.hierarchy.json",
+    "skin_weight_policy": "skin/skin_weight_policy.json",
+    "attachment_sockets": "sockets/attachment_sockets.json",
+    "timing_table": "animations/anim_robot_gardener_v1.timing_table.json",
+    "state_machine": "animations/animation_state_machine.json",
+    "mesh_descriptor": "mesh/nori7_mesh_descriptor.json",
+    "glb_export_contract": "export/glb_export_contract.json",
+    "godot_resource_specs": "export/godot_resource_specs.json",
+    "procedural_slice_historical": "godot/nori7_procedural_slice_spec.json",
+    "glb_binary": "export/nori7_rigged.glb",
+    "blend_source": "export/nori7_rigged.blend",
+    "bridge_job_manifest": "export/nori7_bridge_job_manifest.json",
+    "glb_validation": "export/nori7_glb_validation.json",
+    "animation_adapter": "res://resources/ucbv_001/character/nori7_animation_adapter.json",
+    "provenance": "provenance.json"
+  },
+  "deliverables": {
+    "real_bone_hierarchy_14": true,
+    "dna_placeholder_superseded": true,
+    "skin_weight_policy": true,
+    "attachment_sockets_recipe_bound": true,
+    "explicit_timing_table": true,
+    "runtime_transition_map_preview_confirm_cancel": true,
+    "glb_export_contract": true,
+    "glb_binary": true,
+    "skinned_mesh": true,
+    "layer_a_actions": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "layer_b_ucbv_extension": [
+      "turn_left",
+      "turn_right",
+      "build_place",
+      "build_place_hold",
+      "confirm"
+    ],
+    "animation_adapter": true,
+    "godot_procedural_production_slice": true,
+    "procedural_normal_play_status": "SUPERSEDED_BY_GLB_FOR_NORMAL_PLAY_C2",
+    "provenance_ccp_rh_001": true,
+    "layer_c_gardener": [
+      "water",
+      "plant_seed",
+      "harvest",
+      "charge",
+      "low_energy"
+    ],
+    "animation_clip_count_target": 15
+  },
+  "bridge": {
+    "job_id": "NORI7_ANIM_REALISM_V2",
+    "mode": "offline_real_blender_factory_startup",
+    "blender": "E:/blender.exe 5.2.0 LTS",
+    "glb_sha256": "8af77c042f336b1377aaacfb746c7c0198fdbec022f808baed15dea309d65f2b",
+    "blend_sha256": "6023f65fd5913df5d56704239fafca1102094ba3d73fa6471862f10606e2a9a5",
+    "package_hash_sha256": "561a543aac9efbe4da93ab3479616970279a42c91f293d8965ba276ee33015d9",
+    "glb_bytes": 1669588,
+    "blend_bytes": 218171
+  },
+  "prior_refs": {
+    "parent": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "c0": "019f8bf6-ac4c-7012-911d-06750ea92812",
+    "c1": "019f8c08-d346-7250-b834-1887b51713c6",
+    "c1r": "019f8c18-933b-7d21-9ecd-bcdda4023cf8",
+    "u0": "019f8a9c-e24f-7571-b057-186550c97383",
+    "u1": "019f8aa1-a648-7ed2-84d9-46d982d79e7a",
+    "u2": "019f8aa8-4de9-7f02-97f7-b61f28cdb3b8",
+    "u3": "019f8ab1-24d7-7d90-8018-2f4051361c41",
+    "u4": "019f8ab9-38c8-7e60-8c41-d83a485b27a1"
+  },
+  "export": {
+    "glb": true,
+    "procedural_godot_spec": true,
+    "reason": "C1R mesh-weight correction: clamped/normalized deform weights, validate=false, clean GLB export with Layer A+B actions"
+  },
+  "next_owner": "CODEX_C1R_GATE_THEN_C2",
+  "forbidden_this_wave": [
+    "motion_kit_edit",
+    "main_gd_patch",
+    "runtime_scene_patch",
+    "dna_rewrite",
+    "p2e_002",
+    "self_accept",
+    "grandchildren"
+  ],
+  "visual_wave": "NORI7_MOCKUP_UPGRADE_V4_CUTE_WATER",
+  "glb_sha256_live": "8af77c042f336b1377aaacfb746c7c0198fdbec022f808baed15dea309d65f2b",
+  "glb_bytes_live": 1669588
+}

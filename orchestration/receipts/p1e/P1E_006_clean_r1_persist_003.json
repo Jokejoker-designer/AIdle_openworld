@@ -1,0 +1,267 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P1E-006-clean-r1-persist-003-2026-07-22",
+  "step_id": "P1E-006-clean-r1-persist-003",
+  "work_order_id": "WO-P1E-006-CLEAN-REGRESSION-CORRECTION-002",
+  "work_order": "orchestration/work_orders/WO-P1E-006-CLEAN-REGRESSION-CORRECTION-002.md",
+  "directive_id": 53,
+  "directive_supersedes": 52,
+  "review_source": "orchestration/reviews/CODEX_P1E-006_REVIEW_002.json",
+  "findings_addressed": ["P1E006-CODEX-F05"],
+  "agent_id": "persist",
+  "agent_type": "persist",
+  "profile_name": "aidle-persist",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "F05_PERSIST_SAVE_RELOAD_BOOT_CLEAN_NO_ACCEPT",
+  "child_task_ref": "019f865d-4942-73e0-8966-0908429fd9f3",
+  "transcript_ref": "019f865d-4942-73e0-8966-0908429fd9f3",
+  "writer_transcript_ref": "019f865d-4942-73e0-8966-0908429fd9f3",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f8651-8cdb-7642-98b3-4712a3568cc1",
+  "prior_r0_receipt": "orchestration/receipts/p1e/P1E_006_clean_r0_asset_003.json",
+  "next_owner": "R2_QA",
+  "next_route": "R2_QA",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/persist.md",
+  "character_binding": {
+    "trustlayer": "purple-team-finding-triage",
+    "ui": "ui-a11y-auditor",
+    "role": "R1 persistence + save-reload + clean-boot verification for F05 (real non-skipped commands)"
+  },
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_clean_003/**",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_clean_r1_persist_003.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-clean-r1-persist-003.log"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_clean_003/elemental_persist.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_clean_003/p1e002_save_reload.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_clean_003/clean_boot.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_clean_003/regression_exits.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_clean_r1_persist_003.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-clean-r1-persist-003.log"
+  ],
+  "original_evidence_preserved": true,
+  "error_filtering_used": false,
+  "result": {
+    "verdict": "F05_PERSIST_SAVE_RELOAD_BOOT_CLEAN_NO_ACCEPT",
+    "summary": "R1 VERIFY_ONLY re-ran three real commands for F05: p1e004 elemental (incl. persist_static_and_dynamic_state), p1e002 intake/save-reload (incl. save_reload_no_duplicate), and clean Godot 4.3 headless project boot. All exit_code=0, required PASS/OK markers present, error_line_count=0 (no ERROR:/SCRIPT ERROR/parse/compile). No SKIP entries. regression_all_exit_zero is honest only because all three actually ran.",
+    "f05_status": "CLOSED_PENDING_PURPLE",
+    "f05_closed": true,
+    "f05_note": "Prior C1 defect was SKIP_NO_TEST_PRESENT for persistence_clean_boot while claiming regression_all_exit_zero. This wave binds literal exits for all three required surfaces with raw logs under evidence/p1e_006_clean_003.",
+    "product_patches": "none (VERIFY_ONLY)",
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+        "bytes": 1741,
+        "total_lines": 46,
+        "load_evidence": "FULL EOF hash+line count for R1 clean correction child"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+        "bytes": 1938,
+        "total_lines": 53,
+        "load_evidence": "FULL EOF hash+line count for R1 clean correction child"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+        "bytes": 982,
+        "total_lines": 36,
+        "load_evidence": "FULL EOF hash+line count for R1 clean correction child"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+        "bytes": 1681,
+        "total_lines": 65,
+        "load_evidence": "FULL EOF hash+line count for R1 clean correction child (always skill from skills_manifest)"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+        "bytes": 34306,
+        "total_lines": 1123,
+        "load_evidence": "FULL EOF hash+line count for R1 clean correction child (always skill from skills_manifest)"
+      }
+    ],
+    "profile_load_evidence": {
+      "path": "E:/AIdle_openworld/.grok/agents/persist.md",
+      "load": "FULL_EOF",
+      "sha256": "16a449f351da543e20a3897041320bb5ac11ce5b852fe94b11a3f07370840607",
+      "bytes": 699,
+      "total_lines": 15,
+      "name": "aidle-persist",
+      "profile_id": "persist",
+      "trustlayer": "purple-team-finding-triage",
+      "ui": "ui-a11y-auditor",
+      "authority_token_assigned": "VERIFY_ONLY",
+      "note": "Profile default authority is PATCH_DRAFT; this step is bound VERIFY_ONLY by WO R1 / parent dispatch and does not patch game/**."
+    },
+    "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; COMPLIANCE/registry/WO/review/schema/skills loaded manually."
+  },
+  "smoke_test": {
+    "all_required_commands_executed": true,
+    "any_skipped": false,
+    "regression_all_exit_zero": true,
+    "regression_all_exit_zero_honest": true,
+    "all_commands_clean": true,
+    "suites": {
+      "p1e004_elemental_persist": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e004_elemental_pilot_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_P1E004_ELEMENTAL_SMOKE=PASS checks=5",
+        "pass_marker_present": true,
+        "required_check": "persist_static_and_dynamic_state",
+        "required_check_ok": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "skipped": false,
+        "clean": true,
+        "log": "orchestration/evidence/p1e_006_clean_003/elemental_persist.log"
+      },
+      "p1e002_save_reload": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_tests.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_P1E002_TESTS=PASS checks=14",
+        "pass_marker_present": true,
+        "required_check": "save_reload_no_duplicate",
+        "required_check_ok": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "skipped": false,
+        "clean": true,
+        "log": "orchestration/evidence/p1e_006_clean_003/p1e002_save_reload.log"
+      },
+      "persistence_clean_boot": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game --quit-after 3",
+        "exit_code": 0,
+        "pass_marker": "Godot Engine v4.3 + Main/GameManager/PersistModule boot",
+        "pass_marker_present": true,
+        "boot_proof": [
+          "Godot Engine v4.3.stable.official",
+          "[GameManager] AIdle Core 0.1.0-core booting",
+          "[PersistModule] Ready – Private Reality signed journal",
+          "[Main] PersistModule mounted (real, not AgentPersistStub).",
+          "[Main] Headed playable shell ready"
+        ],
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "warning_count": 4,
+        "warning_note": "Navigation mesh source geometry / agent_height/radius precision WARNINGs only — not ERROR:/SCRIPT ERROR/parse/compile",
+        "skipped": false,
+        "clean": true,
+        "log": "orchestration/evidence/p1e_006_clean_003/clean_boot.log"
+      }
+    },
+    "regression_exits": "orchestration/evidence/p1e_006_clean_003/regression_exits.json",
+    "full_capture_log": "orchestration/logs/p1e-006-clean-r1-persist-003.log"
+  },
+  "self_audit": {
+    "no_error_filtering": true,
+    "no_stderr_suppression": true,
+    "no_skip_as_pass": true,
+    "no_skip_masquerading_as_zero": true,
+    "original_evidence_preserved": true,
+    "only_allowlist_written": true,
+    "allowlist_respected": true,
+    "no_product_patches": true,
+    "no_self_accept": true,
+    "accepted_false": true,
+    "regression_all_exit_zero_requires_all_real": true,
+    "notes": [
+      "Did not claim SKIP_NO_TEST_PRESENT as success.",
+      "Did not filter ERROR lines; clean_boot warnings left unfiltered in raw log.",
+      "Did not rewrite old evidence/receipts; new wave under p1e_006_clean_003 and r1_persist_003 only.",
+      "Did not patch game/** (VERIFY_ONLY).",
+      "accepted=false; self_accept=false; next_owner=R2_QA."
+    ]
+  },
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/persist.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-006-CLEAN-REGRESSION-CORRECTION-002.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_P1E-006_REVIEW_002.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_clean_r0_asset_003.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_clean_003/elemental_persist.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_clean_003/p1e002_save_reload.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_clean_003/clean_boot.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_clean_003/regression_exits.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_clean_r1_persist_003.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-clean-r1-persist-003.log"
+  ],
+  "commands": [
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e004_elemental_pilot_smoke.gd",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "AIDLE_P1E004_ELEMENTAL_SMOKE=PASS checks=5",
+      "required_ok": "persist_static_and_dynamic_state",
+      "skipped": false
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_tests.gd",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "AIDLE_P1E002_TESTS=PASS checks=14",
+      "required_ok": "save_reload_no_duplicate",
+      "skipped": false
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game --quit-after 3",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "Godot Engine v4.3 clean headless boot + PersistModule mounted",
+      "required_ok": "persistence_clean_boot",
+      "skipped": false
+    }
+  ],
+  "error_line_counts": {
+    "p1e004_elemental_persist": 0,
+    "p1e002_save_reload": 0,
+    "persistence_clean_boot": 0
+  },
+  "exit_codes": {
+    "p1e004_elemental_persist": 0,
+    "p1e002_save_reload": 0,
+    "persistence_clean_boot": 0
+  },
+  "f05_closed": true,
+  "evidence_refs": [
+    "orchestration/evidence/p1e_006_clean_003/elemental_persist.log",
+    "orchestration/evidence/p1e_006_clean_003/p1e002_save_reload.log",
+    "orchestration/evidence/p1e_006_clean_003/clean_boot.log",
+    "orchestration/evidence/p1e_006_clean_003/regression_exits.json",
+    "orchestration/logs/p1e-006-clean-r1-persist-003.log",
+    "orchestration/receipts/p1e/P1E_006_clean_r1_persist_003.json",
+    "orchestration/receipts/p1e/P1E_006_clean_r0_asset_003.json",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_002.json",
+    "orchestration/work_orders/WO-P1E-006-CLEAN-REGRESSION-CORRECTION-002.md"
+  ],
+  "next_route": "R2_QA"
+}

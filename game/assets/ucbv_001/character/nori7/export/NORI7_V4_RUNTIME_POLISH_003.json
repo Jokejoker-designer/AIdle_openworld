@@ -1,0 +1,39 @@
+{
+  "schema_version": "nori7_swap/1.0",
+  "receipt_id": "NORI7_V4_RUNTIME_POLISH_003",
+  "job": "NORI7_V4_WALK_LOOP_MATERIAL_DROPLET_FIX",
+  "authority": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "timestamp_utc": "2026-07-24T16:05:00Z",
+  "user_report": {
+    "works": ["water", "plant_seed", "harvest", "charge", "low_energy"],
+    "broken": ["walk", "many other clips", "Basis zero-scale spam", "colors dull"]
+  },
+  "root_causes": [
+    "Player locomotion never called move_start/move_stop on Nori presenter — walk only existed as a trigger, not WASD-bound",
+    "animation_finished / state on_finished never wired — one-shots did not return to idle/walk",
+    "idle/walk loop_mode may stay LOOP_NONE after import",
+    "water droplet scale keys = 0.0 cause Godot Basis→Quaternion ERROR spam",
+    "V4 materials slightly dull vs cozy bright target"
+  ],
+  "product_writes": [
+    "game/scripts/modules/ucbv_001/nori7_presenter.gd — locomotion sync, on_finished chain, loop force, scale sanitize, material boost",
+    "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb — binary clamp WaterDrop scale 0→0.001 (24 keys)",
+    "ucbv_paths.gd + nori7_animation_adapter.json + package_manifest.json + cast_roster.json — SHA rekey after GLB patch"
+  ],
+  "glb_sha256": "8af77c042f336b1377aaacfb746c7c0198fdbec022f808baed15dea309d65f2b",
+  "glb_bytes": 1669588,
+  "backup": "nori7_rigged.glb.bak_pre_droplet_scale_fix",
+  "verify_headless": {
+    "nori": "built=true bones=14",
+    "basis_zero_scale_spam": "gone after node rest scale + anim key clamp",
+    "product_shell": "ready"
+  },
+  "human_verify": [
+    "WASD → walk clip loops; stop → idle",
+    "gardener water/plant/harvest then auto return idle (or walk if still moving)",
+    "console: fewer/no Basis zero-scale errors",
+    "cream body brighter, leaves greener, eyes teal emissive"
+  ]
+}

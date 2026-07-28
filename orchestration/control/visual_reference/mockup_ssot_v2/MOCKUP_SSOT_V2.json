@@ -1,0 +1,729 @@
+{
+  "schema_version": "2.0.0",
+  "mockup_id": "MOCKUP_SSOT_V2",
+  "title": "AIdle Official Visual Mockup SSOT — 15 cast + 30 props + 10 buildings",
+  "binding": "MOCKUP_DESIGN_LOCK",
+  "binding_path": "orchestration/control/visual_reference/mockup_ssot_v2/MOCKUP_DESIGN_LOCK.md",
+  "html": "MOCKUP_SSOT_V2.html",
+  "accepted": false,
+  "self_accept": false,
+  "status": "DESIGN_SSOT_ACTIVE",
+  "counts": {
+    "characters": 15,
+    "props": 30,
+    "buildings": 10
+  },
+  "art_direction": {
+    "style": "Cozy Cyber-Pixel / Dreamy Low-Poly 2.5D",
+    "palette": {
+      "cream": "#fdf3e2",
+      "ink": "#263238",
+      "sky": "#9ED7E5",
+      "leaf": "#72A96B",
+      "wood": "#c98a5e",
+      "cyan_manifest_only": "#62E6FF",
+      "warm_light": "#f5c451"
+    },
+    "camera": "fixed three-quarter / isometric",
+    "character_height": "2 heads chibi",
+    "cyan_rule": "manifestation accent only — never body fill"
+  },
+  "animation_contract": {
+    "character_clips_min": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "nori_layer_b": [
+      "turn_left",
+      "turn_right",
+      "build_place",
+      "build_place_hold",
+      "confirm"
+    ],
+    "timing_bible": "COZY_ART_BIBLE_001.md section 4",
+    "timings_seconds": {
+      "bob": 2.4,
+      "bob_small": 3.0,
+      "blink": 4.0,
+      "sway": 3.5,
+      "sway_small": 4.2,
+      "pulse": 2.0,
+      "spin": 9.0,
+      "steam_rise": 2.6,
+      "tail_flick": 2.2,
+      "breathe": 2.8
+    },
+    "manifestation_stages": [
+      "wireframe",
+      "hologram",
+      "materializing",
+      "complete"
+    ],
+    "video_samples": [
+      "anim/anim_nori7_idle.mp4",
+      "anim/anim_buimo_idle.mp4",
+      "anim/anim_bacbap_idle.mp4",
+      "anim/anim_kito_idle.mp4",
+      "anim/anim_house_ambient.mp4",
+      "anim/anim_lamp_pulse.mp4"
+    ]
+  },
+  "characters": [
+    {
+      "id": "CCP-RH-001",
+      "slug": "nori7",
+      "name": "Nori-7",
+      "class": "ROBOT_HELPER",
+      "world": "cozy_cyber_pixel",
+      "form": "robot",
+      "img": "chars/char_01_nori7.jpg",
+      "video": "anim/anim_nori7_idle.mp4",
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel",
+        "turn_left",
+        "turn_right",
+        "build_place",
+        "build_place_hold",
+        "confirm"
+      ],
+      "motion": "bob_small",
+      "signature": "sprout_sway + water_drip",
+      "prod": "runtime_glb"
+    },
+    {
+      "id": "CCP-NS-002",
+      "slug": "may_mach",
+      "name": "Mây Mạch",
+      "class": "NPC_SOCIAL",
+      "world": "cozy_cyber_pixel",
+      "form": "humanoid",
+      "img": "chars/char_02_maymach.jpg",
+      "video": null,
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "bob",
+      "signature": "letter_flutter",
+      "prod": "runtime_glb"
+    },
+    {
+      "id": "CCP-NW-003",
+      "slug": "bac_bap",
+      "name": "Bác Bắp",
+      "class": "NPC_WORKER",
+      "world": "cozy_cyber_pixel",
+      "form": "humanoid",
+      "img": "chars/char_03_bacbap.jpg",
+      "video": "anim/anim_bacbap_idle.mp4",
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "bob",
+      "signature": "tool_tap",
+      "prod": "runtime_glb"
+    },
+    {
+      "id": "CCP-CT-004",
+      "slug": "bui_mo",
+      "name": "Bụi Mơ",
+      "class": "CREATURE_TAMEABLE",
+      "world": "cozy_cyber_pixel",
+      "form": "quad",
+      "img": "chars/char_04_buimo.jpg",
+      "video": "anim/anim_buimo_idle.mp4",
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "breathe",
+      "signature": "tail_flick",
+      "prod": "runtime_glb"
+    },
+    {
+      "id": "SPH-RH-011",
+      "slug": "kito",
+      "name": "Kito Thụ Phấn",
+      "class": "ROBOT_HELPER",
+      "world": "solarpunk_haven",
+      "form": "robot",
+      "img": "chars/char_05_kito.jpg",
+      "video": "anim/anim_kito_idle.mp4",
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "bob_small",
+      "signature": "pollen_puff",
+      "prod": "runtime_glb"
+    },
+    {
+      "id": "OA-RG-021",
+      "slug": "nereu",
+      "name": "Nereu-5",
+      "class": "ROBOT_HELPER",
+      "world": "oceanpunk_abyss",
+      "form": "robot",
+      "img": "chars/char_06_nereu.jpg",
+      "video": null,
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "bob_small",
+      "signature": "sonar_pulse",
+      "prod": "runtime_glb"
+    },
+    {
+      "id": "AC-CO-015",
+      "slug": "cinder",
+      "name": "Cinder-04",
+      "class": "CONSTRUCT",
+      "world": "arcane_clockwork",
+      "form": "construct",
+      "img": "chars/char_07_cinder.jpg",
+      "video": null,
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "bob",
+      "signature": "gear_spin",
+      "prod": "runtime_glb"
+    },
+    {
+      "id": "TD-CT-028",
+      "slug": "patch",
+      "name": "Patch Gấu Nút",
+      "class": "CREATURE_TAMEABLE",
+      "world": "tiny_diorama",
+      "form": "quad",
+      "img": "chars/char_08_patch.jpg",
+      "video": null,
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "breathe",
+      "signature": "stitch_wiggle",
+      "prod": "runtime_glb"
+    },
+    {
+      "id": "SV-NW-019",
+      "slug": "truc_nhi",
+      "name": "Trúc Nhi",
+      "class": "NPC_WORKER",
+      "world": "spirit_valley",
+      "form": "humanoid",
+      "img": "chars/char_09_truc.jpg",
+      "video": null,
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "bob",
+      "signature": "bamboo_sway",
+      "prod": "runtime_glb"
+    },
+    {
+      "id": "SPH-NG-009",
+      "slug": "luma",
+      "name": "Luma Tán Lá",
+      "class": "NPC_GUIDE",
+      "world": "solarpunk_haven",
+      "form": "humanoid",
+      "img": "chars/char_10_luma.jpg",
+      "video": null,
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "bob",
+      "signature": "leaf_sway",
+      "prod": "runtime_glb"
+    },
+    {
+      "id": "SC-NG-005",
+      "slug": "ke_giu",
+      "name": "Kẻ Giữ Khung",
+      "class": "NPC_GUIDE",
+      "world": "surrealism_canvas",
+      "form": "humanoid",
+      "img": "chars/char_11_kegiu.jpg",
+      "video": null,
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "bob",
+      "signature": "frame_pulse",
+      "prod": "mockup_art"
+    },
+    {
+      "id": "SC-NS-006",
+      "slug": "lua_nguoc",
+      "name": "Lụa Ngược",
+      "class": "NPC_SOCIAL",
+      "world": "surrealism_canvas",
+      "form": "humanoid",
+      "img": "chars/char_12_luanguoc.jpg",
+      "video": null,
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "bob",
+      "signature": "silk_flow",
+      "prod": "mockup_art"
+    },
+    {
+      "id": "SC-NW-007",
+      "slug": "ong_nho",
+      "name": "Ông Nhỏ Lớn",
+      "class": "NPC_WORKER",
+      "world": "surrealism_canvas",
+      "form": "humanoid",
+      "img": "chars/char_13_ongnho.jpg",
+      "video": null,
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "bob",
+      "signature": "scale_shift",
+      "prod": "mockup_art"
+    },
+    {
+      "id": "SC-CA-008",
+      "slug": "gap_bong",
+      "name": "Gấp Bóng",
+      "class": "CREATURE_AMBIENT",
+      "world": "surrealism_canvas",
+      "form": "construct",
+      "img": "chars/char_14_gapbong.jpg",
+      "video": null,
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "breathe",
+      "signature": "fold_pop",
+      "prod": "mockup_art"
+    },
+    {
+      "id": "SPH-NW-010",
+      "slug": "sora",
+      "name": "Sora Giữ Sương",
+      "class": "NPC_WORKER",
+      "world": "solarpunk_haven",
+      "form": "humanoid",
+      "img": "chars/char_15_sora.jpg",
+      "video": null,
+      "clips": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ],
+      "motion": "bob",
+      "signature": "mist_rise",
+      "prod": "mockup_art"
+    }
+  ],
+  "buildings": [
+    {
+      "id": "cozy_house_small_A",
+      "name": "Nhà nhỏ Cozy",
+      "cat": "residence",
+      "anim": "door_pulse",
+      "img": "buildings/bld_01_house.jpg",
+      "video": "anim/anim_house_ambient.mp4",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_greenhouse_A",
+      "name": "Nhà kính",
+      "cat": "farm",
+      "anim": "steam_rise",
+      "img": "buildings/bld_02_greenhouse.jpg",
+      "video": null,
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_barn_small_A",
+      "name": "Nhà kho",
+      "cat": "farm",
+      "anim": "idle_static",
+      "img": "buildings/bld_03_barn.jpg",
+      "video": null,
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_workshop_A",
+      "name": "Xưởng",
+      "cat": "craft",
+      "anim": "steam_rise",
+      "img": "buildings/bld_04_workshop.jpg",
+      "video": null,
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_market_stall_A",
+      "name": "Sạp chợ",
+      "cat": "social",
+      "anim": "cloth_sway",
+      "img": "buildings/bld_05_market.jpg",
+      "video": null,
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_windmill_A",
+      "name": "Cối xay gió",
+      "cat": "landmark",
+      "anim": "spin",
+      "img": "buildings/bld_06_windmill.jpg",
+      "video": null,
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_well_house_A",
+      "name": "Nhà giếng",
+      "cat": "utility",
+      "anim": "idle_static",
+      "img": "buildings/bld_07_well.jpg",
+      "video": null,
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_watchtower_A",
+      "name": "Tháp canh",
+      "cat": "landmark",
+      "anim": "flag_sway",
+      "img": "buildings/bld_08_watchtower.jpg",
+      "video": null,
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_bridge_arch_A",
+      "name": "Cầu vòm",
+      "cat": "path",
+      "anim": "idle_static",
+      "img": "buildings/bld_09_bridge.jpg",
+      "video": null,
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_gazebo_A",
+      "name": "Chòi nghỉ",
+      "cat": "social",
+      "anim": "idle_static",
+      "img": "buildings/bld_10_gazebo.jpg",
+      "video": null,
+      "design_status": "concept_art"
+    }
+  ],
+  "props": [
+    {
+      "id": "cozy_tree_landmark_A",
+      "name": "Cây tròn mốc",
+      "cat": "nature",
+      "anim": "sway",
+      "img": "props/prop_tree_landmark.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_tree_pine_A",
+      "name": "Cây thông",
+      "cat": "nature",
+      "anim": "sway",
+      "img": "props/prop_tree_pine.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_tree_cluster_A",
+      "name": "Cụm cây",
+      "cat": "nature",
+      "anim": "sway",
+      "img": "props/prop_tree_cluster.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_tree_blossom_A",
+      "name": "Cây hoa",
+      "cat": "nature",
+      "anim": "sway_small",
+      "img": "props/prop_tree_blossom.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_tree_fruit_A",
+      "name": "Cây quả",
+      "cat": "nature",
+      "anim": "sway",
+      "img": "props/prop_tree_fruit.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_tree_willow_A",
+      "name": "Liễu rũ",
+      "cat": "nature",
+      "anim": "sway",
+      "img": "props/prop_tree_willow.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_rock_small_A",
+      "name": "Đá nhỏ",
+      "cat": "nature",
+      "anim": "idle_static",
+      "img": "props/prop_rock_small.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_rock_mossy_A",
+      "name": "Đá rêu",
+      "cat": "nature",
+      "anim": "idle_static",
+      "img": "props/prop_rock_mossy.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_rock_stacked_A",
+      "name": "Đá xếp",
+      "cat": "nature",
+      "anim": "idle_static",
+      "img": "props/prop_rock_stacked.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_rock_cluster_A",
+      "name": "Cụm đá",
+      "cat": "nature",
+      "anim": "idle_static",
+      "img": "props/prop_rock_cluster.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_flower_cluster_A",
+      "name": "Cụm hoa",
+      "cat": "nature",
+      "anim": "sway_small",
+      "img": "props/prop_flower_cluster.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_flower_bed_B",
+      "name": "Bồn hoa",
+      "cat": "nature",
+      "anim": "sway_small",
+      "img": "props/prop_flower_bed.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_bush_round_A",
+      "name": "Bụi tròn",
+      "cat": "nature",
+      "anim": "sway_small",
+      "img": "props/prop_bush_round.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_grass_tuft_A",
+      "name": "Cỏ cụm",
+      "cat": "nature",
+      "anim": "sway_small",
+      "img": "props/prop_grass_tuft.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_pond_small_A",
+      "name": "Ao nhỏ",
+      "cat": "water",
+      "anim": "ripple",
+      "img": "props/prop_pond.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_farm_plot_A",
+      "name": "Luống canh tác",
+      "cat": "farm",
+      "anim": "idle_static",
+      "img": "props/prop_farm_plot.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_crop_row_A",
+      "name": "Hàng cây trồng",
+      "cat": "farm",
+      "anim": "sway_small",
+      "img": "props/prop_crop_row.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_fence_section_A",
+      "name": "Hàng rào",
+      "cat": "infra",
+      "anim": "idle_static",
+      "img": "props/prop_fence.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_garden_lamp_A",
+      "name": "Đèn vườn",
+      "cat": "infra",
+      "anim": "pulse",
+      "img": "props/prop_garden_lamp.jpg",
+      "video": "anim/anim_lamp_pulse.mp4",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_path_stone_A",
+      "name": "Lối đá",
+      "cat": "infra",
+      "anim": "idle_static",
+      "img": "props/prop_path_stone.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_bench_A",
+      "name": "Ghế dài",
+      "cat": "furn",
+      "anim": "idle_static",
+      "img": "props/prop_bench.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_crate_small_A",
+      "name": "Thùng gỗ",
+      "cat": "furn",
+      "anim": "idle_static",
+      "img": "props/prop_crate.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_barrel_A",
+      "name": "Thùng tròn",
+      "cat": "furn",
+      "anim": "idle_static",
+      "img": "props/prop_barrel.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_signpost_A",
+      "name": "Biển chỉ đường",
+      "cat": "infra",
+      "anim": "sway_small",
+      "img": "props/prop_signpost.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_mailbox_A",
+      "name": "Hộp thư",
+      "cat": "infra",
+      "anim": "idle_static",
+      "img": "props/prop_mailbox.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_water_pump_A",
+      "name": "Bơm nước",
+      "cat": "utility",
+      "anim": "idle_static",
+      "img": "props/prop_water_pump.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_scarecrow_A",
+      "name": "Bù nhìn",
+      "cat": "farm",
+      "anim": "sway_small",
+      "img": "props/prop_scarecrow.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_cart_A",
+      "name": "Xe kéo",
+      "cat": "utility",
+      "anim": "idle_static",
+      "img": "props/prop_cart.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_tool_rack_A",
+      "name": "Giá dụng cụ",
+      "cat": "craft",
+      "anim": "idle_static",
+      "img": "props/prop_tool_rack.jpg",
+      "design_status": "concept_art"
+    },
+    {
+      "id": "cozy_birdbath_A",
+      "name": "Bồn tắm chim",
+      "cat": "decor",
+      "anim": "ripple",
+      "img": "props/prop_birdbath.jpg",
+      "design_status": "concept_art"
+    }
+  ],
+  "honesty": {
+    "mockup_is_design_ssot": true,
+    "production_glb_subset": "10 cast + 10 modules currently in game/; remainder mockup-art until promoted under WO",
+    "not_human_accepted": true,
+    "not_ship": true
+  },
+  "visual_fill": {
+    "buildings_with_art": 10,
+    "props_with_art": 30,
+    "no_svg_placeholder_for_ssot": true,
+    "note": "All 10 buildings + 30 props now have dedicated concept art JPGs matching cozy clay style of house #1"
+  },
+  "revision": "V2.1-full-concept-art"
+}

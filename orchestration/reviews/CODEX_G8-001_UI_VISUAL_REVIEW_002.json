@@ -1,0 +1,36 @@
+{
+  "review_id": "CODEX-G8-001-UI-VISUAL-REVIEW-002",
+  "reviewer_role": "codex-final-machine-acceptor",
+  "directive_reviewed": 22,
+  "task_id": "G8-001",
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "preserve_existing_code": true,
+  "independent_machine_results": {
+    "validator": "PASS",
+    "maf_ui_receipts": "PASS count=8",
+    "g3_e2e": "PASS checks=76",
+    "g4_persist": "PASS checks=22",
+    "manifestation": "PASS checks=8",
+    "companion": "PASS",
+    "bridge": "PASS checks=11",
+    "headed_smoke_exit": 0,
+    "headed_smoke_clean_log": "FAIL"
+  },
+  "blocking_findings": [
+    "Independent headed run emitted ERROR: Unknown art style: cozy_cyber_pixel before later reporting PASS.",
+    "The smoke forces Cozy after loading persisted Surrealism, so art_style_cozy_default does not honestly prove a clean first-run default.",
+    "responsive_868x517.png and companion_bridge_ui.png are byte-identical SHA-256 duplicates.",
+    "No separate hologram, materializing, complete/confirmed or Bridge interaction captures exist.",
+    "At 868x517 the Companion content/input area and lower labels remain clipped/overprinted, while action text is too small for the claimed responsive gate.",
+    "Top-left and quest HUD text has weak contrast against the bright world and lacks a stable readable surface.",
+    "The manifested object remains visually ambiguous in the captured evidence; the banner carries most of the stage meaning."
+  ],
+  "evidence": [
+    "orchestration/evidence/g8_headed_correction/*.png",
+    "orchestration/logs/g8-ui-skill-correction-001.log",
+    "independent headed_visual_smoke output 2026-07-21",
+    "orchestration/receipts/g8/ui_skill_correction/U0_schema.json through U7_network.json"
+  ],
+  "next_action": "Execute WO-G8-001-UI-VISUAL-CORRECTION-002 in the same Grok Desktop parent."
+}

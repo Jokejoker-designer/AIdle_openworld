@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-P1E-006-REVIEW-001",
+  "reviewed_at": "2026-07-22T02:39:00+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "P1E-006",
+  "directive_reviewed": 51,
+  "work_order_reviewed": "orchestration/work_orders/WO-P1E-006-PER-STYLE-PALETTE-VARIANTS.md",
+  "machine_verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "next_state": "CHANGES_REQUESTED",
+  "independent_checks": {
+    "same_unique_desktop_parent": "PASS",
+    "w2_w3_w4_real_child_refs": "PASS",
+    "w2_agent_step_contract": "PASS",
+    "w3_agent_step_contract": "PASS",
+    "w4_agent_step_contract": "PASS",
+    "w1_agent_step_contract": "FAIL_6_REQUIRED_FIELDS",
+    "w1_parent_inline_null_ref_disclosed": "PASS_HONEST_BUT_NONCONFORMING",
+    "durable_child_timestamps": "FAIL_W2_W3_W4_RECEIPTS_DO_NOT_MATCH_META_JSON",
+    "headed_evidence_both_profiles": "FAIL_NO_SCREENSHOT_FILES_AND_LIVE_PARITY_FALSE",
+    "accepted_false_and_self_accept_false": "PASS",
+    "merge_append_preserve_governance": "PASS",
+    "hsl_and_headless_smokes": "PASS_FROM_RERUN_LOGS",
+    "scope_two_world_profiles_only": "PASS",
+    "state_variants_reused": "PASS"
+  },
+  "blocking_findings": [
+    {
+      "id": "P1E006-CODEX-F01",
+      "severity": "HIGH",
+      "finding": "P1E_006_w1_blue_001.json fails agent_step_contract.schema.json with six missing required properties: agent_step_id, agent_type, authority_token, smoke_test, self_audit and next_route.",
+      "required": "Preserve the original receipt and create a schema-valid correction receipt from a real installed asset child. Never fabricate a child reference for the parent-inline execution."
+    },
+    {
+      "id": "P1E006-CODEX-F02",
+      "severity": "HIGH",
+      "finding": "Receipt completion times for W2, W3 and W4 do not equal the durable Grok child meta.json completion timestamps.",
+      "required": "Bind a correction ledger to the exact meta.json started_at/completed_at values and SHA-256 hashes without rewriting historical receipts."
+    },
+    {
+      "id": "P1E006-CODEX-F03",
+      "severity": "HIGH",
+      "finding": "P1E-006 evidence contains only JSON and a helper script; visual_claim_meta says live_parity=false and no distinct headed screenshots exist for cozy_cyber_pixel and surrealism_canvas.",
+      "required": "Capture distinct headed runtime evidence for both profiles in isolated user data, with hashes, dimensions, runtime profile/style binding and clean logs."
+    },
+    {
+      "id": "P1E006-CODEX-F04",
+      "severity": "MEDIUM",
+      "finding": "The original Purple gate treated the parent-inline W1 receipt as a passing chain element despite its schema failure and missing child lineage.",
+      "required": "Run a fresh Purple review after F01-F03 are corrected; original VERIFIED is not acceptance evidence."
+    }
+  ],
+  "clarification": "The material-language issue is temporal rather than an architecture reversal: P1E-004 correctly recorded that pre-P1E-006 GLB intake preserved module materials, while P1E-006 introduced world_profile_variant_selector.gd to recolor selected materials after GLB attachment. Correction evidence must state this chronology.",
+  "durable_child_meta": {
+    "w2": {
+      "child_task_ref": "019f8625-8258-7683-9773-4b42dfa3aac2",
+      "started_at": "2026-07-21T19:27:13.001115100Z",
+      "completed_at": "2026-07-21T19:31:15.110509500Z",
+      "sha256": "5B4FEFAEF51BE64B50E40AEC83EB02FE7063F5B00305B7C34693A3EFA9898F5D"
+    },
+    "w3": {
+      "child_task_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+      "started_at": "2026-07-21T19:31:22.787742800Z",
+      "completed_at": "2026-07-21T19:34:15.800124100Z",
+      "sha256": "56866FEAF55781A7FB2E3EDC7EE3CAA381B79EBCD9CC58E9138CC2F09CA06C70"
+    },
+    "w4": {
+      "child_task_ref": "019f862c-15ac-7b52-940f-9907be1d685b",
+      "started_at": "2026-07-21T19:34:23.919576Z",
+      "completed_at": "2026-07-21T19:37:20.810403200Z",
+      "sha256": "CF4C579342F7F8000AFEAD1DF1D049ABB60F1B35132E691E1FBAFF2556D9DB0C"
+    }
+  },
+  "self_accept": false
+}

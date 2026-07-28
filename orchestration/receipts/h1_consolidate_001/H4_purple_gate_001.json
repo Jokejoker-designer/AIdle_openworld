@@ -1,0 +1,674 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "H1-CONSOLIDATE-001-h4-purple-gate-001-2026-07-22T083720Z",
+  "step_id": "H1-CONSOLIDATE-001-h4-purple-gate-001",
+  "work_order_id": "WO-H1-CONSOLIDATE-001-VERTICAL-SLICE",
+  "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-VERTICAL-SLICE.md",
+  "work_order_sha256": "3c1452b275d09d2b37fe707e2327c8b80b76bc4a812ad3586e199eff1832ec82",
+  "directive_id": 74,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "7436b2175a423903bc5c4364bcd38c7f03f479d404f65670574fc3e782b145c7",
+  "directive_state": "READY",
+  "directive_verdict": "P2E_001_ACCEPTED_H1_CONSOLIDATION_OPEN",
+  "supersedes_directive_id": 73,
+  "permitted_task_ids": ["H1-CONSOLIDATE-001"],
+  "accepted_task_ids_from_directive": ["P2E-001"],
+  "p2e_acceptance_binding": {
+    "review": "orchestration/reviews/CODEX_P2E-001_FINAL_ACCEPTANCE_004.json",
+    "state": "ACCEPTED",
+    "accepted_scope": "First playable offline Block Assembly preview slice only",
+    "e2_receipt_status": "REJECTED_AS_RECEIPT under CODEX_EXTERNAL_TRANSCRIPT_BINDING; does not reopen accepted BA slice",
+    "e2_receipt_path": "orchestration/receipts/p2e_001/correction_003/E2_purple_gate_004.json"
+  },
+  "milestone": "H1 vertical-slice consolidation — H4 Purple independent acceptance gate (VERIFY_ONLY, never ACCEPTED)",
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "profile_name": "aidle-worldgen-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_sha256": "9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger,adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patch; never ACCEPTED; writer_set exclusive_purple_receipt_log",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "Purple independent acceptance gate only; exclusive log+receipt; product_writes=[]; never patch product/tests/contracts/prior receipts/evidence trees; never ACCEPTED; no grandchildren; no Scene/Character/DNA v1.2/Tier3/network/shipping",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:h1c-h4-d74-purple-gate-h3-b1dbffc4",
+  "input_context_hash_16": "h1c-h4-d74-purple",
+  "input_context_hash_method": "composite binding: WO+directive74+profile+H0+H1+H2+H3 receipts+agent_step_contract+adversarial-review",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "purple_never_accepted": true,
+  "verdict": "PURPLE_PASS_WITH_HEADLESS_GATES_HEADED_RESIDUAL_WAITING_CODEX",
+  "child_task_ref": "019f88f6-fb14-7162-9db2-e030dc182e2d",
+  "transcript_ref": "019f88f6-fb14-7162-9db2-e030dc182e2d",
+  "writer_transcript_ref": "019f88f6-fb14-7162-9db2-e030dc182e2d",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_h0": "019f88d4-0d38-7162-8bbd-de4b3e86aaa9",
+  "prior_h0_receipt": "orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json",
+  "prior_h0_sha256": "7317459a357e384c9700743c2b9a4fe02c169bafb7960489272381eee7846623",
+  "prior_h1": "019f88d8-715a-76e3-9792-bfa7663e0bf8",
+  "prior_h1_receipt": "orchestration/receipts/h1_consolidate_001/H1_runtime_001.json",
+  "prior_h1_sha256": "22237489efa4f21a88e8081d581d09c23f93eb6c9da0f4a0bdf1ebad8c347d31",
+  "prior_h2": "019f88e4-19d6-7c52-9b4f-699e62a9d2c6",
+  "prior_h2_receipt": "orchestration/receipts/h1_consolidate_001/H2_control_ux_001.json",
+  "prior_h2_sha256": "5c9eab0f591636672f77a5a32ab477ce5827251cce9ea7b001ac95f2915f868b",
+  "prior_h3": "019f88e9-6abd-7300-958b-5f316e9fbc82",
+  "prior_h3_receipt": "orchestration/receipts/h1_consolidate_001/H3_qa_evidence_001.json",
+  "prior_h3_sha256": "b1dbffc41ce124f125c656a6ece811024c9c9ffbce2cf6a58b05d4b6288f39b4",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f88f6-fb14-7162-9db2-e030dc182e2d/meta.json",
+  "started_at": "2026-07-22T08:35:15.350678500Z",
+  "completed_at_utc": "2026-07-22T08:37:20Z",
+  "next_owner": "CODEX",
+  "next_route": "CODEX",
+  "human_five_minute_gate": {
+    "opened_by_purple": false,
+    "status": "NOT_OPENED",
+    "note": "Human five-minute first-session gate only after Codex validates H0-H4; Purple does not open WAITING_HUMAN"
+  },
+  "parent_product_patch": false,
+  "successor_wave_started": false,
+  "scene_expansion_started": false,
+  "character_runtime_started": false,
+  "dna_v1_2_started": false,
+  "tier3_started": false,
+  "network_shipping_started": false,
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "trustlayer_read": "full_header_role_rules",
+    "ui_character_id": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_header_role_rules",
+    "role": "H4 VERIFY_ONLY Purple independent acceptance gate — synthesize H0–H3 for Codex; never patch; never ACCEPTED"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, purple profile full EOF, TrustLayer/UI cards, WO, Directive 74, ARCHITECTURE_LOCK, CODEX_P2E-001_FINAL_ACCEPTANCE_004, H0–H3 receipts, evidence tree spot-check, skills ALWAYS full EOF + adversarial-review full EOF manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Hard stops"
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "agent_step_contract.schema.json"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "E:\\\\shared\\\\LOOP.md"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "E:\\\\agents\\\\projects\\\\README.md"
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "read_mode": "size_hash_verify_plus_tail_prime_directive",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Prime Directive / trustworthy testable result"
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "bytes": 8484,
+      "read_mode": "full_chunked_to_eof",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Evidence memory: NO_DURABLE_RECORD"
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "bytes": 1766,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "request Human Lead approval"
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/h1-consolidate-h4-purple-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/h1_consolidate_001/H4_purple_gate_001.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "orchestration/logs/h1-consolidate-h4-purple-001.log",
+    "orchestration/receipts/h1_consolidate_001/H4_purple_gate_001.json"
+  ],
+  "forbidden_paths_not_written": [
+    "game/**",
+    "world_DNA/**",
+    "Scene/**",
+    "game_character/**",
+    "orchestration/evidence/h1_consolidate_001/001/**",
+    "orchestration/evidence/p2e_001/**",
+    "orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json",
+    "orchestration/receipts/h1_consolidate_001/H1_runtime_001.json",
+    "orchestration/receipts/h1_consolidate_001/H2_control_ux_001.json",
+    "orchestration/receipts/h1_consolidate_001/H3_qa_evidence_001.json"
+  ],
+  "lineage": {
+    "mode": "strictly_sequential_five_children_directive_74",
+    "max_children": 5,
+    "parent_coordinator_only": true,
+    "one_product_writer": "H1",
+    "no_grandchildren": true,
+    "children": [
+      {
+        "wave": "H0",
+        "ref": "019f88d4-0d38-7162-8bbd-de4b3e86aaa9",
+        "profile": "aidle-worldgen-ssot-sequence",
+        "authority_token": "VERIFY_ONLY",
+        "receipt": "orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json",
+        "receipt_sha256": "7317459a357e384c9700743c2b9a4fe02c169bafb7960489272381eee7846623",
+        "log": "orchestration/logs/h1-consolidate-h0-ssot-001.log",
+        "verdict": "H0_H1_CONSOLIDATE_SSOT_PREFLIGHT_PASS_NO_ACCEPT",
+        "product_writes": [],
+        "accepted": false
+      },
+      {
+        "wave": "H1",
+        "ref": "019f88d8-715a-76e3-9792-bfa7663e0bf8",
+        "profile": "aidle-worldgen-godot-runtime",
+        "authority_token": "PATCH_DRAFT",
+        "receipt": "orchestration/receipts/h1_consolidate_001/H1_runtime_001.json",
+        "receipt_sha256": "22237489efa4f21a88e8081d581d09c23f93eb6c9da0f4a0bdf1ebad8c347d31",
+        "log": "orchestration/logs/h1-consolidate-h1-runtime-001.log",
+        "verdict": "H1_RUNTIME_CONSOLIDATION_PASS_NO_ACCEPT",
+        "sole_product_writer": true,
+        "product_writes_count": 14,
+        "accepted": false
+      },
+      {
+        "wave": "H2",
+        "ref": "019f88e4-19d6-7c52-9b4f-699e62a9d2c6",
+        "profile": "aidle-worldgen-control-input",
+        "authority_token": "VERIFY_ONLY",
+        "authority_reduced": true,
+        "receipt": "orchestration/receipts/h1_consolidate_001/H2_control_ux_001.json",
+        "receipt_sha256": "5c9eab0f591636672f77a5a32ab477ce5827251cce9ea7b001ac95f2915f868b",
+        "log": "orchestration/logs/h1-consolidate-h2-control-001.log",
+        "verdict": "CONTROL_PASS_WITH_RESIDUALS_NO_ACCEPT",
+        "product_writes": [],
+        "accepted": false,
+        "lineage_note": "H2 receipt child_task_ref is synthetic string h2-control-ux-wave-h1-consolidate-001; parent-bound durable UUID 019f88e4-19d6-7c52-9b4f-699e62a9d2c6 is authoritative (H4-R-LINEAGE)"
+      },
+      {
+        "wave": "H3",
+        "ref": "019f88e9-6abd-7300-958b-5f316e9fbc82",
+        "profile": "aidle-worldgen-qa-evidence",
+        "authority_token": "VERIFY_ONLY",
+        "receipt": "orchestration/receipts/h1_consolidate_001/H3_qa_evidence_001.json",
+        "receipt_sha256": "b1dbffc41ce124f125c656a6ece811024c9c9ffbce2cf6a58b05d4b6288f39b4",
+        "log": "orchestration/logs/h1-consolidate-h3-qa-001.log",
+        "evidence_root": "orchestration/evidence/h1_consolidate_001/001/",
+        "verdict": "H3_QA_HEADED_MATRIX_PASS_ZERO_ERROR_RESIDUAL_NO_ACCEPT",
+        "product_writes": [],
+        "headed_pass": false,
+        "zero_error_including_teardown": false,
+        "accepted": false
+      },
+      {
+        "wave": "H4",
+        "ref": "019f88f6-fb14-7162-9db2-e030dc182e2d",
+        "profile": "aidle-worldgen-purple-acceptance",
+        "authority_token": "VERIFY_ONLY",
+        "receipt": "orchestration/receipts/h1_consolidate_001/H4_purple_gate_001.json",
+        "log": "orchestration/logs/h1-consolidate-h4-purple-001.log",
+        "verdict": "PURPLE_PASS_WITH_HEADLESS_GATES_HEADED_RESIDUAL_WAITING_CODEX",
+        "product_writes": [],
+        "accepted": false
+      }
+    ],
+    "five_child_refs": [
+      "019f88d4-0d38-7162-8bbd-de4b3e86aaa9",
+      "019f88d8-715a-76e3-9792-bfa7663e0bf8",
+      "019f88e4-19d6-7c52-9b4f-699e62a9d2c6",
+      "019f88e9-6abd-7300-958b-5f316e9fbc82",
+      "019f88f6-fb14-7162-9db2-e030dc182e2d"
+    ],
+    "exclusive_leases_respected": true,
+    "evidence_h1c_001_not_rewritten_by_purple": true,
+    "p2e_evidence_not_rewritten": true
+  },
+  "adjudication": {
+    "axes": [
+      {
+        "id": "1_lineage_leases",
+        "verdict": "PASS",
+        "note": "Five sequential children H0→H4; sole product writer H1; each exclusive lease respected; H2/H3/H4 product_writes=[]; Purple did not rewrite priors/evidence"
+      },
+      {
+        "id": "2_companion_five_minute_flow_headed_matrix",
+        "verdict": "PASS_MATRIX_COMPLETE",
+        "note": "13 required states × 2 resolutions = 26 PNGs; distinct hashes 26/26; marker AIDLE_H1C_H3_HEADED=PASS; states launch→companion_request→structured_proposal→preview→build_R→confirm→wireframe→hologram→materializing→complete→save_reload_identity→undo→cancel"
+      },
+      {
+        "id": "3_no_diagnostic_first_normal_chrome",
+        "verdict": "PASS_WITH_RESIDUAL",
+        "note": "Product chrome default on; debug overlay F3-only; harness H1C-H3 top banner is evidence overlay not product. Residual H3-R03: action bar 'Paid (fixture) · cozy_cyber_pixel' chip visible in headed PNGs — not a QA counter wall; minor first-session chrome residual"
+      },
+      {
+        "id": "4_manifestation_save_reload_undo_cancel",
+        "verdict": "PASS_HEADED_MATRIX",
+        "note": "wireframe/hologram/materializing/complete PNGs present both res; save_reload_identity + undo + cancel captured; H3-R02 notes stage walk uses BA advance_stage presentation path for visual distinctness while commit uses KEY_ENTER player confirm only"
+      },
+      {
+        "id": "5_qr_build_r_regressions",
+        "verdict": "PASS",
+        "note": "Build-R camera_yaw_unchanged=true both res (rot 0→60); P2E QR/auth/core + Control router + Block-DNA 14/14+42/42 + H1 flow/chrome independently re-confirmed ERROR=0 under H4"
+      },
+      {
+        "id": "6_h3_r01_zero_error_gate",
+        "verdict": "BLOCKING_RESIDUAL",
+        "note": "WO requires zero Godot errors including teardown. H3 honestly recorded 4× USER ERROR get_node absolute paths during Companion proposal both viewports; godot_headed.log confirms node.cpp:1727. Product uses get_node_or_null(\"/root/ControlContextRouter\") etc. under SceneTree -s harness. Not filtered. product_patch_required=true; VERIFY_ONLY cannot patch."
+      },
+      {
+        "id": "7_routing_status",
+        "verdict": "PASS",
+        "note": "status=REVIEW_REQUESTED; completion_signal=WAITING_CODEX; next_owner=CODEX; accepted=false; self_accept=false; WAITING_HUMAN not opened"
+      },
+      {
+        "id": "8_forbidden_scope",
+        "verdict": "PASS",
+        "note": "No Scene/Character/DNA v1.2/Tier3/network/shipping/live provider/install/Godot upgrade/push/deploy/publish"
+      }
+    ],
+    "h3_r01_blocking_for_zero_error_gate": true,
+    "h3_r01_product_patch_required": true,
+    "full_machine_verified_claim": false,
+    "honesty_over_false_pass": true
+  },
+  "flow_coverage_matrix": {
+    "required_states": [
+      "launch",
+      "companion_request",
+      "structured_proposal",
+      "preview",
+      "build_R",
+      "confirm",
+      "wireframe",
+      "hologram",
+      "materializing",
+      "complete",
+      "save_reload_identity",
+      "undo",
+      "cancel"
+    ],
+    "viewports": ["1280x720", "868x517"],
+    "png_count": 26,
+    "unique_sha256_count": 26,
+    "duplicate_shas": 0,
+    "build_R_yaw_proof": {
+      "1280x720": {"camera_yaw_before": 0, "camera_yaw_after": 0, "camera_yaw_unchanged": true, "rot_before": 0, "rot_after": 60},
+      "868x517": {"camera_yaw_before": 0, "camera_yaw_after": 0, "camera_yaw_unchanged": true, "rot_before": 0, "rot_after": 60}
+    },
+    "headed_pass": false,
+    "zero_error_including_teardown": false,
+    "error_line_count_including_teardown": 4,
+    "error_samples": [
+      "USER ERROR: Can't use get_node() with absolute paths from outside the active scene tree.",
+      "USER ERROR: Can't use get_node() with absolute paths from outside the active scene tree.",
+      "USER ERROR: Can't use get_node() with absolute paths from outside the active scene tree.",
+      "USER ERROR: Can't use get_node() with absolute paths from outside the active scene tree."
+    ],
+    "spot_check_visual": {
+      "launch_1280x720": "Explore context; Small Build / Confirm / Cancel; Starter Realm quest; no diagnostic wall; harness banner only",
+      "structured_proposal_1280x720": "Proposal Card pending confirm; mutation_class=proposal_only; Companion chat focused; no World Commit tool",
+      "build_R_1280x720": "BA HUD Rotation 60°; stage hologram; Confirm/Cancel glyph+text; camera yaw meta unchanged"
+    }
+  },
+  "result": {
+    "verdict": "PURPLE_PASS_WITH_HEADLESS_GATES_HEADED_RESIDUAL_WAITING_CODEX",
+    "machine_full_pass": false,
+    "headless_gates_pass": true,
+    "headed_matrix_complete": true,
+    "headed_zero_error_pass": false,
+    "accepted": false,
+    "summary": "H4 Purple VERIFY_ONLY under Directive 74. Five-child lineage H0–H4 sequential; sole product writer H1; leases exact. Companion-led 13-state dual-res headed matrix complete (26 distinct PNGs; Build-R yaw unchanged). Headless Block-DNA/Control/P2E/H1 gates green (H3 + independent H4 subset). Zero-ERROR-including-teardown FAIL on H3-R01 (4× USER ERROR absolute get_node during Companion proposal; product /root/ get_node_or_null under -s harness). Honesty: not full VERIFIED; not ACCEPTED; residual register for Codex. product_writes=[]; next_owner=CODEX; WAITING_HUMAN not opened.",
+    "gates": {
+      "lineage_five_child_sequential": true,
+      "one_product_writer_h1": true,
+      "exact_leases": true,
+      "companion_flow_matrix_26_png": true,
+      "build_r_yaw_unchanged": true,
+      "block_dna_14_14_42_42": true,
+      "control_smokes": true,
+      "p2e_regressions": true,
+      "h1_flow_chrome_smokes": true,
+      "normal_product_chrome": true,
+      "zero_error_including_teardown": false,
+      "purple_never_accepted": true,
+      "waiting_codex_not_human": true
+    }
+  },
+  "residual_register": [
+    {
+      "id": "H3-R01",
+      "severity": "P1",
+      "axis": "zero_error_including_teardown",
+      "finding": "4× USER ERROR: Can't use get_node() with absolute paths from outside the active scene tree (node.cpp:1727) during Companion proposal on both viewports. Product calls get_node_or_null(\"/root/ControlContextRouter\") (and similar) from main/companion/BA/camera/HUD surfaces; emitted under SceneTree -s headed harness after proposal_ready. Not teardown RID/RenderingServer noise.",
+      "impact": "WO zero-ERROR-including-teardown acceptance criterion FAIL despite complete 26-PNG dual-res matrix and marker PASS.",
+      "blocking_headed_zero_error": true,
+      "blocking_full_machine_accept": true,
+      "product_patch_required": true,
+      "verify_only_cannot_patch": true,
+      "owner_after_codex": "PATCH_DRAFT product writer under future correction WO if Codex requires close",
+      "evidence": [
+        "orchestration/evidence/h1_consolidate_001/001/godot_headed.log",
+        "orchestration/evidence/h1_consolidate_001/001/evidence_manifest.json",
+        "orchestration/receipts/h1_consolidate_001/H3_qa_evidence_001.json",
+        "game/scripts/main/main.gd",
+        "game/scripts/modules/companion/companion_chat_panel.gd"
+      ]
+    },
+    {
+      "id": "H3-R02",
+      "severity": "P3",
+      "axis": "presentation_stage_walk",
+      "finding": "wireframe/hologram/materializing PNGs use BA advance_stage presentation walk for visual distinctness; commit path uses KEY_ENTER player confirm.",
+      "impact": "Stage visuals proven; not a second commit path.",
+      "blocking_headed_zero_error": false,
+      "blocking_full_machine_accept": false
+    },
+    {
+      "id": "H3-R03",
+      "severity": "P3",
+      "axis": "action_bar_fixture_label",
+      "finding": "Playable action bar shows 'Paid (fixture) · cozy_cyber_pixel' chip adjacent to product actions in headed captures.",
+      "impact": "Minor product-chrome residual for Human five-minute gate; not a diagnostic counter wall.",
+      "blocking_headed_zero_error": false,
+      "blocking_full_machine_accept": false
+    },
+    {
+      "id": "H3-R04",
+      "severity": "P3",
+      "axis": "h2_residuals_carried",
+      "finding": "H2-R01 KEY_P project.godot persistence; H2-R04 context HUD slot incomplete for module cycle/place; H2-R05 RMB build_cancel unwired.",
+      "impact": "Non-blocking for Purple package; Esc/InputMap paths own cancel and place.",
+      "blocking_headed_zero_error": false,
+      "blocking_full_machine_accept": false
+    },
+    {
+      "id": "H4-R-LINEAGE",
+      "severity": "P3",
+      "axis": "h2_receipt_transcript_binding",
+      "finding": "H2_control_ux_001.json child_task_ref/transcript_ref use synthetic string h2-control-ux-wave-h1-consolidate-001 rather than durable UUID 019f88e4-19d6-7c52-9b4f-699e62a9d2c6 present in parent binding and H3 prior_h2.",
+      "impact": "Lineage recoverable via parent + H3 prior_h2; residual honesty note only.",
+      "blocking_headed_zero_error": false,
+      "blocking_full_machine_accept": false
+    }
+  ],
+  "adversarial_review": {
+    "review_id": "H1-CONSOLIDATE-001-H4-ADV-001",
+    "reviewer_role": "aidle-worldgen-purple-acceptance VERIFY_ONLY (purple-team-release-gate + ui-visual-critic)",
+    "intent_anchor": {
+      "user_goal": "Independent Purple gate of H1-CONSOLIDATE-001 five-child package; honest residual adjudication; route CODEX only",
+      "current_priority": "Adjudicate H3-R01 zero-error honesty without false VERIFIED/ACCEPTED; package five-child refs + residual register",
+      "allowed_scope": [
+        "orchestration/logs/h1-consolidate-h4-purple-001.log",
+        "orchestration/receipts/h1_consolidate_001/H4_purple_gate_001.json",
+        "read-only review of H0–H3 receipts and h1_consolidate_001/001 evidence",
+        "optional independent headless subset re-run"
+      ],
+      "forbidden_scope": [
+        "product patches",
+        "test patches",
+        "evidence rewrite",
+        "self-accept ACCEPTED",
+        "WAITING_HUMAN open by Purple",
+        "grandchildren",
+        "Scene/Character/DNA v1.2/Tier3/network/shipping"
+      ]
+    },
+    "claim_under_review": "H1 consolidation five-minute Companion-led package is machine-ready for Codex with only non-blocking residuals",
+    "what_i_accept": [
+      "Five-child sequential lineage and exact leases",
+      "H1 sole product writer 14-path lease honesty (H2 hash MATCH)",
+      "Headed dual-res 26-PNG matrix complete with Build-R yaw proof",
+      "Headless DNA/Control/P2E/H1 gates green (H3 + H4 independent subset)",
+      "Product chrome not diagnostic-primary (F3 debug only; harness banner disclosed)",
+      "H3 honesty on headed_pass=false and zero_error=false (did not hide USER ERROR)"
+    ],
+    "what_i_challenge": [
+      "Any claim that zero-error dual-res headed evidence is fully met under WO Directive 74",
+      "Any Purple ACCEPTED or WAITING_HUMAN self-route",
+      "Reclassifying H3-R01 as harness-only noise when product absolute /root/ get_node_or_null is the emitter"
+    ],
+    "strongest_counter_argument": "Headless ERROR=0 and complete matrix could be sold as 'good enough,' but WO and Directive required zero Godot errors including teardown on headed evidence — 4 USER ERROR lines fail that bar until product absolute-path node lookup is fixed or risk-accepted by Codex/Human.",
+    "missing_evidence": [
+      "Codex disposition of H3-R01 (require patch vs risk-accept residual)",
+      "Human five-minute first-session checklist (post-Codex only)"
+    ],
+    "scope_drift_risk": "low — H4 stayed on exclusive lease; did not open Scene/Character/DNA/network",
+    "final_verdict": "PURPLE_PASS_WITH_HEADLESS_GATES_HEADED_RESIDUAL_WAITING_CODEX — headless green + matrix complete; H3-R01 blocks full zero-error claim; never ACCEPTED; route CODEX",
+    "self_audit": {
+      "preserved_user_intent": true,
+      "did_not_invent_objection": true,
+      "evidence_based": true,
+      "no_scope_hijack": true
+    },
+    "confidence_after_challenge": 0.9
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "independent_headless_subset_plus_h3_evidence_spot_check",
+    "status": "PASS_HEADLESS_HEADED_RESIDUAL",
+    "h3_smokes_all_exit_zero": true,
+    "h3_headed_zero_error": false,
+    "godot_pin": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+    "project": "E:/AIdle_openworld/game",
+    "independent_h4_checks": [
+      {
+        "id": "H1_FLOW",
+        "script": "res://tests/h1_consolidation_flow_smoke.gd",
+        "exit": 0,
+        "error_lines": 0,
+        "detail": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13"
+      },
+      {
+        "id": "H1_CHROME",
+        "script": "res://tests/h1_consolidation_chrome_smoke.gd",
+        "exit": 0,
+        "error_lines": 0,
+        "detail": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS"
+      },
+      {
+        "id": "P2E_QR",
+        "script": "res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+        "exit": 0,
+        "error_lines": 0,
+        "detail": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8"
+      },
+      {
+        "id": "P2E_AUTH",
+        "script": "res://tests/p2e001_block_assembly_authority_smoke.gd",
+        "exit": 0,
+        "error_lines": 0,
+        "detail": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8"
+      },
+      {
+        "id": "P2E_CORE",
+        "script": "res://tests/p2e001_block_assembly_core_smoke.gd",
+        "exit": 0,
+        "error_lines": 0,
+        "detail": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14"
+      },
+      {
+        "id": "CTRL_ROUTER",
+        "script": "res://tests/control_1b_context_router_smoke.gd",
+        "exit": 0,
+        "error_lines": 0,
+        "detail": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16"
+      },
+      {
+        "id": "BLOCK_DNA",
+        "cmd": "python orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+        "exit": 0,
+        "error_lines": 0,
+        "detail": "valid 14/14; invalid 42/42; C0_BLOCK_DNA_CORRECTION_COMPLETE_NO_ACCEPT"
+      },
+      {
+        "id": "CONTROL_1B_FIXTURES",
+        "cmd": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+        "exit": 0,
+        "error_lines": 0,
+        "detail": "HARNESS_RESULT=PASS; invalid_rejected 12/12"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_verify_only": true,
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "no_product_patch": true,
+    "no_test_patch": true,
+    "exclusive_lease_only": true,
+    "evidence_not_rewritten": true,
+    "h0_h1_h2_h3_receipts_not_rewritten": true,
+    "accepted_false": true,
+    "self_accept_false": true,
+    "purple_never_accepted": true,
+    "no_grandchildren": true,
+    "no_network_install_publish": true,
+    "no_waiting_human_opened": true,
+    "skills_full_eof": true,
+    "schema_required_fields_present": true,
+    "bootstrap_parser_limitation_recorded": true,
+    "zero_error_gate_honest": true,
+    "did_not_filter_hide_errors": true,
+    "honesty_over_false_pass": true,
+    "next_route_set": "CODEX",
+    "honesty_notes": [
+      "H3-R01 is blocking for WO zero-error headed gate; Purple does not invent a pass",
+      "Hybrid verdict records headless green + headed residual without claiming full VERIFIED",
+      "Machine H0-H4 completion is not final product acceptance",
+      "Human five-minute gate remains post-Codex only"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/h1-consolidate-h4-purple-001.log",
+    "orchestration/receipts/h1_consolidate_001/H4_purple_gate_001.json",
+    "orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json",
+    "orchestration/receipts/h1_consolidate_001/H1_runtime_001.json",
+    "orchestration/receipts/h1_consolidate_001/H2_control_ux_001.json",
+    "orchestration/receipts/h1_consolidate_001/H3_qa_evidence_001.json",
+    "orchestration/evidence/h1_consolidate_001/001/evidence_manifest.json",
+    "orchestration/evidence/h1_consolidate_001/001/visual_claim_meta.json",
+    "orchestration/evidence/h1_consolidate_001/001/png_sha256.json",
+    "orchestration/evidence/h1_consolidate_001/001/godot_headed.log",
+    "orchestration/evidence/h1_consolidate_001/001/smoke_summary.json",
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-H1-CONSOLIDATE-001-VERTICAL-SLICE.md",
+    "orchestration/reviews/CODEX_P2E-001_FINAL_ACCEPTANCE_004.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "commands": [
+    {
+      "cmd": "Godot --headless res://tests/h1_consolidation_flow_smoke.gd",
+      "exit": 0,
+      "result": "PASS checks=13 ERROR=0"
+    },
+    {
+      "cmd": "Godot --headless res://tests/h1_consolidation_chrome_smoke.gd",
+      "exit": 0,
+      "result": "PASS ERROR=0"
+    },
+    {
+      "cmd": "Godot --headless res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "exit": 0,
+      "result": "PASS checks=8 ERROR=0"
+    },
+    {
+      "cmd": "Godot --headless res://tests/p2e001_block_assembly_authority_smoke.gd",
+      "exit": 0,
+      "result": "PASS checks=8 ERROR=0"
+    },
+    {
+      "cmd": "Godot --headless res://tests/p2e001_block_assembly_core_smoke.gd",
+      "exit": 0,
+      "result": "PASS checks=14 ERROR=0"
+    },
+    {
+      "cmd": "Godot --headless res://tests/control_1b_context_router_smoke.gd",
+      "exit": 0,
+      "result": "PASS checks=16 ERROR=0"
+    },
+    {
+      "cmd": "python orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit": 0,
+      "result": "valid 14/14; invalid 42/42"
+    },
+    {
+      "cmd": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "exit": 0,
+      "result": "HARNESS_RESULT=PASS"
+    }
+  ],
+  "parent_package": {
+    "task_id": "H1-CONSOLIDATE-001",
+    "directive_id": 74,
+    "five_child_refs": [
+      "019f88d4-0d38-7162-8bbd-de4b3e86aaa9",
+      "019f88d8-715a-76e3-9792-bfa7663e0bf8",
+      "019f88e4-19d6-7c52-9b4f-699e62a9d2c6",
+      "019f88e9-6abd-7300-958b-5f316e9fbc82",
+      "019f88f6-fb14-7162-9db2-e030dc182e2d"
+    ],
+    "receipts": [
+      "orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json",
+      "orchestration/receipts/h1_consolidate_001/H1_runtime_001.json",
+      "orchestration/receipts/h1_consolidate_001/H2_control_ux_001.json",
+      "orchestration/receipts/h1_consolidate_001/H3_qa_evidence_001.json",
+      "orchestration/receipts/h1_consolidate_001/H4_purple_gate_001.json"
+    ],
+    "evidence_root": "orchestration/evidence/h1_consolidate_001/001/",
+    "status": "REVIEW_REQUESTED",
+    "completion_signal": "WAITING_CODEX",
+    "next_owner": "CODEX",
+    "accepted": false,
+    "blocking_residual": "H3-R01",
+    "residual_register_ids": ["H3-R01", "H3-R02", "H3-R03", "H3-R04", "H4-R-LINEAGE"]
+  }
+}

@@ -722,7 +722,18 @@ func _service(service_name: String) -> Node:
 
 
 func _update_aura_color() -> void:
-	if _aura == null or _aura.material_override == null:
+	if _aura == null:
+		return
+	# Control 1B hide_aura privacy (blueprint 07) — expression VFX off when user opts out.
+	var hide := false
+	var a11y := get_node_or_null("/root/ControlAccessibilitySettings")
+	if a11y != null:
+		if a11y.has_method("effective_aura_visible"):
+			hide = not bool(a11y.call("effective_aura_visible"))
+		elif "hide_aura" in a11y:
+			hide = bool(a11y.hide_aura)
+	_aura.visible = not hide
+	if hide or _aura.material_override == null:
 		return
 	var mat := _aura.material_override as StandardMaterial3D
 	if mat == null:

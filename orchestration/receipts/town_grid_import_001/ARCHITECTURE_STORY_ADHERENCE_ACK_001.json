@@ -1,0 +1,65 @@
+{
+  "schema_version": "adherence_ack/1.0",
+  "receipt_id": "ARCHITECTURE_STORY_ADHERENCE_ACK_001",
+  "work_order": "WO-TOWN-GRID-IMPORT-001 + continuous_iteration_authorization",
+  "agent": "grok",
+  "timestamp_utc": "2026-07-24T06:15:00Z",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "documents_read": [
+    {
+      "path": "orchestration/control/AIDLE_TOWN_ARCHITECTURE_DESIGN_001.md",
+      "status": "read_end_to_end",
+      "role": "design_identity_layer_subordinate_to_vision_lock_and_geometry_ssot"
+    },
+    {
+      "path": "orchestration/control/AIDLE_STORY_BIBLE_001.md",
+      "status": "read_end_to_end",
+      "role": "narrative_identity_layer_subordinate_to_vision_lock_and_architecture"
+    }
+  ],
+  "geometry_ssot_reconfirmed": {
+    "town_grid_plan_v1": "game/resources/town/town_grid_plan_v1.json",
+    "fairy_street": "orchestration/control/visual_reference/town_plan/TOWN_FAIRY_STREET_PLAN_V1.json",
+    "plots": 50,
+    "districts": 10,
+    "positions_rotations_footprints": "FROZEN_NOT_ALTERED"
+  },
+  "conflict_audit": {
+    "architecture_vs_town_grid_plan": {
+      "result": "NO_CONFLICT",
+      "checked": "all 10 district BLD object_ids + CHAR object_ids + HOME/GARDEN grid cells match plan verbatim"
+    },
+    "architecture_vs_fairy_street": {
+      "result": "NO_CONFLICT",
+      "note": "WD-GAZEBO already at GARDEN H12 per prior HUMAN_RULED_MOVE_DECK; architecture restates, does not re-open"
+    },
+    "story_bible_vs_cast_status": {
+      "result": "NO_CONFLICT",
+      "natives": ["CCP-RH-001", "CCP-NW-003", "CCP-NS-002", "CCP-CT-004"],
+      "visitors": ["SPH-RH-011", "OA-RG-021", "AC-CO-015", "TD-CT-028", "SV-NW-019", "SPH-NG-009"],
+      "visitor_origin_stories": "UNRESOLVED_ON_PURPOSE — will not author definitive backstories without Human directive"
+    },
+    "vision_lock": {
+      "result": "NO_CONFLICT_FLAGGED",
+      "note": "Documents explicitly subordinate to Vision Lock; no system opens claimed"
+    }
+  },
+  "binding_constraints_loaded": [
+    "No rename/reskin/reassign of building/character/prop across districts",
+    "No new plot/district/position/rotation/footprint/character/world_profile/game system",
+    "HOME.BLD CLOSED_PERMANENTLY untouched",
+    "Bụi Mơ (GARDEN) non-verbal/quiet — no chatty dialogue",
+    "Nori-7 voice stays Vision Lock §6 collaborator not authority",
+    "Six visitor origins stay mystery",
+    "Signage/dialogue/flavor only within existing plot footprints when authorized",
+    "continuous_iteration_authorization unchanged; 3x same residual -> NEED_HUMAN"
+  ],
+  "what_this_dispatch_does_not_do": [
+    "No retroactive 50-plot backfill of signage/dialogue",
+    "No geometry changes",
+    "No new build scope beyond already-authorized continuous streams"
+  ],
+  "next_continuous_work": "Continue V7 mesh iteration on 6 buildings + fidelity; identity tone when presentation is touched"
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "element_id",
+    "name",
+    "class",
+    "traits",
+    "runtime_representation",
+    "ai_authority"
+  ],
+  "properties": {
+    "element_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string"
+    },
+    "traits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "runtime_representation": {
+      "type": "string"
+    },
+    "ai_authority": {
+      "const": "CONFIGURE_ONLY"
+    }
+  },
+  "additionalProperties": false
+}

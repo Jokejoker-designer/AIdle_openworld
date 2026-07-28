@@ -1,0 +1,50 @@
+{
+  "agent_step_id": "G8-001-HEADED-H1-asset-2026-07-21",
+  "agent_type": "aidle-asset",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-HEADED-CORRECTION-001",
+    "directive_id": 21,
+    "wave": "H1_ASSET_REALM",
+    "profile": "asset",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "PATCH_DRAFT: StarterRealmBuilder creates Dreamy Low-Poly landmarks from Godot primitives (house, path, farm, trees, fence, pond, stones, lamps, flowers). Palette-driven; headless skips meshes.",
+    "product_writes": [
+      "game/scripts/modules/asset/starter_realm_builder.gd"
+    ],
+    "children": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "Starter Realm landmarks=9"
+      },
+      {
+        "marker": "AIDLE_HEADED_VISUAL_SMOKE=PASS checks=26"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_downloads": true,
+    "no_self_accept": true,
+    "residual_risks": [
+      "Surrealism palette still dark; landmarks use multi-color materials"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-headed-correction-001.log",
+    "orchestration/work_orders/WO-G8-001-HEADED-CORRECTION-001.md",
+    "orchestration/work_orders/G8-001_HEADED_DISPATCH_MAP.md",
+    "orchestration/reviews/G8-001_HEADED_ACCEPTANCE_MATRIX.md",
+    "orchestration/evidence/g8_headed_correction/",
+    "game/scripts/modules/asset/starter_realm_builder.gd"
+  ],
+  "next_route": "H2_CORE_INTEGRATE"
+}

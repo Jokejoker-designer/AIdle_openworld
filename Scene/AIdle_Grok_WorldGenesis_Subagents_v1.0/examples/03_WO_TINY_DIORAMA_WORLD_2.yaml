@@ -1,0 +1,31 @@
+work_order_id: WO-WG02-TINY-001
+world_number: 2
+world_profile: tiny_diorama
+phase_slice: "World 2 vertical slice"
+objective: "Xây grid, placement, Hand Tool, Collection Tray, limited camera rotation và group recipe."
+state: BLOCKED
+coverage: NONE
+authority: PATCH_DRAFT
+dependencies:
+  - "World 1 ACCEPTED"
+allowed_files:
+  - "game/worlds/tiny_diorama/**"
+  - "game/scripts/diorama/**"
+  - "tests/tiny_diorama/**"
+forbidden_files:
+  - "World 3+ runtime"
+  - "Marketplace"
+  - "Generated mesh direct commit"
+acceptance_tests:
+  - "Preview-only drag/drop"
+  - "Confirm applies grouped placement"
+  - "Cancel restores prior transforms"
+  - "Camera rotation limited to configured range"
+  - "Recipe save/reload no duplicate"
+required_evidence:
+  - "unit and headed tests"
+  - "screenshot manifest"
+  - "regression matrix"
+human_gates: []
+max_children: 5
+grandchildren_forbidden: true

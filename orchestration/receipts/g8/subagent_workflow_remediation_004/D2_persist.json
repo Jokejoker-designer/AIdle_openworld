@@ -1,0 +1,345 @@
+{
+  "agent_step_id": "G8-001-D2-persist-remediation-004-2026-07-21",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "READ_ONLY_AUDIT",
+  "input_context_hash": "sha256:cf7cc6e2ea391dc18d6c6ffccd664b695866db1d32ea3b5afef194a3cbe13c9d",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8277-f858-7d41-b54e-a3d876019aab",
+  "transcript_ref": "019f8277-f858-7d41-b54e-a3d876019aab",
+  "writer_transcript_ref": "019f8277-f858-7d41-b54e-a3d876019aab",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "trace_ref": "orchestration/logs/g8-d2-persist-child.log",
+  "handoff_ref": "D3_NETWORK_PURPLE",
+  "start_time": "2026-07-21T02:19:00.0000000Z",
+  "end_time": "2026-07-21T02:20:15.0000000Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/persist.md",
+  "profile_binding_evidence": "FULL read: name=aidle-persist; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop; Authority PATCH_DRAFT profile default overridden by WO-004 to READ_ONLY_AUDIT; verify keyboard/focus/readability/reduced-motion/non-color state; visual work must not dirty durable evidence.",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/persist.md",
+    "E:/agents/characters/12-purple-team-finding-triage.md",
+    "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "E:/agents/ui-design/registry.yaml",
+    "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004.md",
+    "E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md",
+    "E:/AIdle_openworld/DESIGN.md",
+    "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D0_schema.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/headed/H6_persist.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/ui_visual_correction_003/C6_persist.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/ui_skill_correction/U6_persist.json",
+    "E:/AIdle_openworld/orchestration/reviews/G8-001_CORRECTION_001_REPORT.md",
+    "E:/AIdle_openworld/game/scripts/modules/persist/g4_persist_smoke.gd",
+    "E:/AIdle_openworld/game/scripts/modules/g3_ui/starter_realm_panel.gd",
+    "E:/AIdle_openworld/game/scripts/ui/playable_action_bar.gd",
+    "E:/AIdle_openworld/game/scripts/ui/hud.gd",
+    "E:/AIdle_openworld/game/scripts/modules/companion/companion_chat_panel.gd",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/responsive_868x517.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/companion_open_868x517.png",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/Agents.md"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_persist.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-persist-child.log",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-persist-g4-this-run.log",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-persist-six-exports-this-run.log",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-persist-hash-result.txt"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004",
+    "directive_id": 25,
+    "wave": "D2_PERSIST",
+    "profile": "persist",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/persist.md",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "D2 persist READ_ONLY_AUDIT by real child 019f8277-f858-7d41-b54e-a3d876019aab. This-run G4_PERSIST_SMOKE=PASS checks=22 exit=0 with evidence only under user://g4_persist_smoke/; SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS vs 60fccdd before and after G4 (durable tracked fixtures not dirtied). Headed UI a11y/focus/readability audit at 1280x720 and 868x517 PASS from D1 core evidence captures + source (StatusPill ≥12px high-contrast, focusable action bar, disabled Confirm/Cancel distinct from primary Demo Build, keyboard E companion). product_writes=[]. G8 not ACCEPTED. handoff D3.",
+    "character_binding": {
+      "trustlayer_character_id": "purple-team-finding-triage",
+      "trustlayer_character_source": "E:/agents/characters/12-purple-team-finding-triage.md",
+      "ui_character_id": "ui-a11y-auditor",
+      "ui_character_source": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+      "maf_role": "agent",
+      "authority_token": "READ_ONLY_AUDIT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: Load COMPLIANCE.md + registry; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no inventing evidence / no exceed authority"
+      },
+      {
+        "skill_id": "ui-a11y-character-rules",
+        "source": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+        "mode": "character_rules",
+        "load_evidence": "character_rules mode (not full OD craft execution): WCAG contrast, keyboard, focus, ARIA, reduced-motion; findings only; authority READ_ONLY_AUDIT; registry E:/agents/ui-design/registry.yaml#ui-a11y-auditor slot 12"
+      }
+    ],
+    "character_card_evidence": {
+      "purple-team-finding-triage": "E:/agents/characters/12-purple-team-finding-triage.md — VERIFY_ONLY/triage; do not fix code; normalize findings; no invent evidence",
+      "ui-a11y-auditor": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md — READ_ONLY_AUDIT; contrast/keyboard/focus/ARIA/reduced-motion; findings only"
+    },
+    "input_context_hash": "sha256:cf7cc6e2ea391dc18d6c6ffccd664b695866db1d32ea3b5afef194a3cbe13c9d",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004.md",
+        "E:/AIdle_openworld/DESIGN.md",
+        "E:/AIdle_openworld/game/scripts/modules/persist/g4_persist_smoke.gd",
+        "E:/AIdle_openworld/game/scripts/modules/g3_ui/starter_realm_panel.gd"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "cf7cc6e2ea391dc18d6c6ffccd664b695866db1d32ea3b5afef194a3cbe13c9d",
+      "BYTE_LEN": 54822,
+      "result_file": "orchestration/logs/g8-d2-persist-hash-result.txt"
+    },
+    "product_writes": [],
+    "no_children_spawned": true,
+    "no_product_patch": true,
+    "trace_ref": "orchestration/logs/g8-d2-persist-child.log",
+    "handoff_ref": "D3_NETWORK_PURPLE",
+    "handoff_note": "Persist D2 gates recorded (G4=22, six-export zero-diff, user:// isolation, a11y 868/1280). Concurrent D2 peers companion/manifestation/asset are not children of persist. Parent collates only after D3 network Purple.",
+    "child_task_ref": "019f8277-f858-7d41-b54e-a3d876019aab",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "start_time": "2026-07-21T02:19:00.0000000Z",
+    "end_time": "2026-07-21T02:20:15.0000000Z",
+    "gates": {
+      "G4_PERSIST_SMOKE": "PASS checks=22 exit=0",
+      "SIX_TRACKED_EXPORTS_ZERO_DIFF": "PASS vs 60fccdd792d6d8f682441bbfe9ff6e7d67a27226",
+      "SIX_TRACKED_EXPORTS_ZERO_DIFF_POST_G4": "PASS",
+      "user_isolation": "PASS user://g4_persist_smoke/ only; tracked_res_export_dual_write=false",
+      "durable_evidence_not_dirtied_by_visual_work": "PASS six tracked fixtures byte-equal baseline after this-run G4",
+      "a11y_readability_1280x720": "PASS",
+      "a11y_readability_868x517": "PASS",
+      "focus_keyboard_discovery": "PASS_SOURCE_AND_CAPTURE"
+    },
+    "g4_this_run": {
+      "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless -s res://scripts/modules/persist/g4_persist_smoke.gd",
+      "exit_code": 0,
+      "marker": "G4_PERSIST_SMOKE=PASS checks=22",
+      "evidence_write_marker": "wrote evidence user://g4_persist_smoke/g4_persist_smoke_evidence.json (isolated user:// only)",
+      "log": "orchestration/logs/g8-d2-persist-g4-this-run.log",
+      "checks_observed": [
+        "interface_surface",
+        "canonical_json_key_order_and_float_format",
+        "missing_key_provider_fail_closed",
+        "deterministic_save_reload_same_entity_hashes",
+        "duplicate_request_id_no_duplicate_entity",
+        "stale_expected_world_revision_rejected",
+        "truncated_malformed_journal_fail_closed",
+        "incompatible_schema_version_fail_closed",
+        "reject_non_private_reality_journal",
+        "compensation_append_only_history_preserved",
+        "cancelled_preview_never_in_journal",
+        "g3_expected_world_revision_3_through_save_reload",
+        "sealed_journal_save_reload_verify_ok",
+        "wrong_key_fail_closed",
+        "modified_entry_detected",
+        "removed_entry_detected",
+        "reordered_entries_detected",
+        "broken_previous_seal_detected",
+        "invalid_or_missing_seal_fail_closed",
+        "only_offline_private_reality_journals",
+        "g3_rejected_handoff_not_auto_journaled",
+        "explicit_offline_confirmed_apply_succeeds"
+      ],
+      "checks_count": 22
+    },
+    "six_tracked_exports": {
+      "baseline_commit": "60fccdd792d6d8f682441bbfe9ff6e7d67a27226",
+      "method": "git hash-object working tree == git rev-parse baseline:path; git diff empty",
+      "verdict": "PASS",
+      "post_g4_verdict": "PASS",
+      "log": "orchestration/logs/g8-d2-persist-six-exports-this-run.log",
+      "files": [
+        {
+          "path": "game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+          "wt_hash": "4da2fcde3678c28deebefb1f9392817696eb5cd3",
+          "base_hash": "4da2fcde3678c28deebefb1f9392817696eb5cd3",
+          "match": true
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+          "wt_hash": "6509d045dda64865a5cd446f8a231cebd48a1afe",
+          "base_hash": "6509d045dda64865a5cd446f8a231cebd48a1afe",
+          "match": true
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/g3_complete_receipt.json",
+          "wt_hash": "241e1a8f747db2e6cae93f6924736780d96d9a8a",
+          "base_hash": "241e1a8f747db2e6cae93f6924736780d96d9a8a",
+          "match": true
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/g3_undo_receipt.json",
+          "wt_hash": "a5dc41be613f3d5693cbde70fa1dae0749515621",
+          "base_hash": "a5dc41be613f3d5693cbde70fa1dae0749515621",
+          "match": true
+        },
+        {
+          "path": "game/scripts/modules/executor/exports/world_prompt_from_build.json",
+          "wt_hash": "5a595df14394bfff6d21d2f051023e942fd8dfe5",
+          "base_hash": "5a595df14394bfff6d21d2f051023e942fd8dfe5",
+          "match": true
+        },
+        {
+          "path": "game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+          "wt_hash": "febf4c781badafb3cd3ca7bf407f9d5ebef7e39a",
+          "base_hash": "febf4c781badafb3cd3ca7bf407f9d5ebef7e39a",
+          "match": true
+        }
+      ]
+    },
+    "user_isolation": {
+      "g4_runtime_evidence": "user://g4_persist_smoke/g4_persist_smoke_evidence.json",
+      "g4_journals": "user://g4_persist_smoke/* (journal, sealed, tamper matrices)",
+      "tracked_res_export_dual_write": false,
+      "source_const": "g4_persist_smoke.gd USER_EVIDENCE + isolation.tracked_res_export_dual_write=false",
+      "art_style_note": "ArtStyleManager may hold surrealism_canvas from user:// world meta; does not rewrite the six tracked export fixtures",
+      "verdict": "PASS"
+    },
+    "a11y_audit": {
+      "mode": "character_rules ui-a11y-auditor READ_ONLY",
+      "viewports": [
+        {
+          "size": "1280x720",
+          "evidence": "orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png",
+          "manifest_dims": {"width": 1280, "height": 720},
+          "findings": [
+            "Top HUD pill high-contrast dark bg + cream/white text with outline (readable over scene)",
+            "StatusPill top-right ≥12px cream text on near-black panel; quest/status/companion lines non-overlapping",
+            "Action bar: Demo Build primary (cream) vs Confirm/Cancel disabled (muted) — non-color + luminance state encoding",
+            "Keyboard hint 'WASD move · E Companion · Esc pause' visible with outline",
+            "No major control-to-control overlap at default idle"
+          ],
+          "verdict": "PASS"
+        },
+        {
+          "size": "868x517",
+          "evidence": [
+            "orchestration/evidence/g8_ui_visual_correction_003/responsive_868x517.png",
+            "orchestration/evidence/g8_ui_visual_correction_003/companion_open_868x517.png"
+          ],
+          "manifest_dims": {"width": 868, "height": 517},
+          "findings": [
+            "Compact layout keeps StatusPill and two-row action bar legible",
+            "Companion open panel does not obscure action bar controls; text-only chat readable",
+            "playable_action_bar two-row compact path (Directive 23) + min button heights enforced in source",
+            "starter_realm_panel MIN_PLAYER_FONT=12 never below 12px; outline_size=2 on pill labels"
+          ],
+          "verdict": "PASS"
+        }
+      ],
+      "focus_keyboard": {
+        "action_bar_focus_mode": "Control.FOCUS_ALL on all six buttons (playable_action_bar.gd)",
+        "companion_hotkey": "E (label + StatusPill companion line)",
+        "debug_behind_f3": "session/snapshot labels gated behind debug toggle (F3 path)",
+        "bridge_consent_grab_focus": "bridge_consent_dialog.gd grab_focus on accept",
+        "verdict": "PASS_SOURCE_AND_CAPTURE"
+      },
+      "residual_a11y": [
+        "No automated WCAG contrast meter in harness — visual+source audit only",
+        "Reduced-motion preference not instrumented in headed smoke",
+        "Screen-reader ARIA equivalents limited by Godot Control surface (findings-only note)"
+      ]
+    },
+    "commands": [
+      {
+        "id": "input_context_hash",
+        "command": "python sha256(WO-004 + DESIGN.md + g4_persist_smoke.gd + starter_realm_panel.gd)",
+        "exit_code": 0,
+        "INPUT_CONTEXT_HASH": "sha256:cf7cc6e2ea391dc18d6c6ffccd664b695866db1d32ea3b5afef194a3cbe13c9d",
+        "log": "orchestration/logs/g8-d2-persist-hash-result.txt"
+      },
+      {
+        "id": "g4_persist",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless -s res://scripts/modules/persist/g4_persist_smoke.gd",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22",
+        "log": "orchestration/logs/g8-d2-persist-g4-this-run.log"
+      },
+      {
+        "id": "six_tracked_exports",
+        "command": "git hash-object + git rev-parse 60fccdd792d6d8f682441bbfe9ff6e7d67a27226:<path> for six tracked export files (pre and post G4)",
+        "exit_code": 0,
+        "marker": "SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS",
+        "post_g4_marker": "SIX_TRACKED_EXPORTS_ZERO_DIFF_POST_G4=PASS",
+        "log": "orchestration/logs/g8-d2-persist-six-exports-this-run.log"
+      }
+    ],
+    "children": [],
+    "findings": [],
+    "residual_risks": [
+      "No automated WCAG AA meter; a11y verdict is character_rules visual+source audit.",
+      "ArtStyleManager may show non-Cozy style from user:// meta after smokes — not a tracked-export dirtiness failure.",
+      "G8-001 overall remains non-ACCEPTED; self_accept=false; D3 network Purple + parent collate + Codex required.",
+      "Concurrent D2 peers may still be RUNNING; this receipt does not claim wave-complete."
+    ]
+  },
+  "smoke_test": {
+    "passed": true,
+    "executable_smoke_run": true,
+    "attributed_to_child_task_ref": "019f8277-f858-7d41-b54e-a3d876019aab",
+    "commands": [
+      {
+        "id": "g4_persist",
+        "exit_code": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22"
+      },
+      {
+        "id": "six_tracked",
+        "exit_code": 0,
+        "marker": "SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS"
+      },
+      {
+        "id": "six_tracked_post_g4",
+        "exit_code": 0,
+        "marker": "SIX_TRACKED_EXPORTS_ZERO_DIFF_POST_G4=PASS"
+      },
+      {
+        "id": "user_isolation",
+        "exit_code": 0,
+        "marker": "wrote evidence user://g4_persist_smoke/g4_persist_smoke_evidence.json (isolated user:// only)"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "READ_ONLY_AUDIT",
+    "no_product_patch": true,
+    "product_writes_empty": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "character_skill_trace_present": true,
+    "no_catalog_false_claim": true,
+    "control_foundation_not_implemented": true,
+    "no_grandchildren": true,
+    "parent_product_patch": false,
+    "durable_evidence_not_dirtied": true,
+    "real_child_task_ref": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-d2-persist-child.log",
+    "orchestration/logs/g8-d2-persist-g4-this-run.log",
+    "orchestration/logs/g8-d2-persist-six-exports-this-run.log",
+    "orchestration/logs/g8-d2-persist-hash-result.txt",
+    "orchestration/evidence/g8_ui_visual_correction_003/",
+    "orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+    "orchestration/work_orders/WO-G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004.md"
+  ],
+  "next_route": "D3_NETWORK_PURPLE"
+}

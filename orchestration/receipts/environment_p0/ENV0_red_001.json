@@ -1,0 +1,545 @@
+{
+  "agent_step_id": "ENV0-001-red-001-2026-07-21",
+  "agent_type": "aidle-worldgen-red-scope",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "READ_ONLY_AUDIT",
+  "input_context_hash": "sha256:1a83e7868aac8091d6aa4112f29084225edbdc1b129a780257345f468fcc9614",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f83b9-f229-7d01-bfc4-9c376a0525f7",
+  "transcript_ref": "019f83b9-f229-7d01-bfc4-9c376a0525f7",
+  "writer_transcript_ref": "019f83b9-f229-7d01-bfc4-9c376a0525f7",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/environment-p0-red-001.log",
+  "handoff_ref": "ENV0_E3_QA",
+  "start_time": "2026-07-21T08:10:00Z",
+  "end_time": "2026-07-21T08:13:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-red-scope; trustlayer_character=red-team-source-auditor; ui_character=ui-visual-critic; authority_token=READ_ONLY_AUDIT; required_skills include adversarial-review + architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; findings only never patch.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "adversarial-review",
+      "architecture-lock"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE concepts via skills + profile/cards + WO/E0/E1 receipts + product sources manually. No bootstrap loop.",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-001-ENVIRONMENT-BRIDGE-P0E.md",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_schema_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_blue_001.json",
+    "E:/AIdle_openworld/orchestration/control/GROK_AUTONOMOUS_OPERATING_ENVELOPE_ENV0.md",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/06_GODOT_INTAKE_AND_RUNTIME_BOUNDARY.md",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/07_SECURITY_QUARANTINE_VALIDATION.md",
+    "E:/AIdle_Blender_Bridge_P0/docs/SECURITY.md",
+    "E:/AIdle_Blender_Bridge_P0/docs/CODEX_HARDENING_REPORT_20260721.md",
+    "E:/AIdle_Blender_Bridge_P0/app/environment_models.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/dependencies.py",
+    "E:/AIdle_Blender_Bridge_P0/app/main.py",
+    "E:/AIdle_Blender_Bridge_P0/app/config.py",
+    "E:/AIdle_Blender_Bridge_P0/app/security/path_policy.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/blender_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/job_store.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/blender_scripts/environment_worker_entry.py",
+    "E:/AIdle_Blender_Bridge_P0/config/environment_operation_allowlist.yaml",
+    "E:/AIdle_Blender_Bridge_P0/config/environment_templates.yaml",
+    "E:/AIdle_Blender_Bridge_P0/config/environment_modules.yaml",
+    "E:/AIdle_Blender_Bridge_P0/config/environment_validation_limits.yaml",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_environment_api.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_environment_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-46173CA8830E/environment_job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-46173CA8830E/blender_command.json",
+    "E:/agents/characters/05-red-team-source-auditor.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_red_001.json",
+    "E:/AIdle_openworld/orchestration/logs/environment-p0-red-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "ENV0-001",
+    "directive_id": 49,
+    "work_order": "orchestration/work_orders/WO-ENV0-001-ENVIRONMENT-BRIDGE-P0E.md",
+    "wave": "E2_RED",
+    "profile": "aidle-worldgen-red-scope",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "authority_token": "READ_ONLY_AUDIT",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "FINDINGS_REPORTED",
+    "summary": "READ_ONLY_AUDIT of Environment Bridge P0E Blue product (E1). Source review of environment paths/wiring under E:/AIdle_Blender_Bridge_P0. No product patches. 8 findings (2 high-context local authority, 4 medium concurrency/idempotency/integrity, 2 low registry/budget evidence). Controls observed: strict schema, quarantine-relative artifacts, server-generated paths, shared BoundedSemaphore at execute, dual evidence const, no Godot/promotion APIs, environment_worker_entry security flags on real probe BLD-46173CA8830E. Handoff ENV0_E3_QA. G8 HITL_REQUIRED; P1E blocked.",
+    "finding_counts": {
+      "critical": 0,
+      "high": 1,
+      "medium": 5,
+      "low": 4,
+      "info_controls": 6,
+      "total_actionable": 10
+    },
+    "character_binding": {
+      "trustlayer_character_id": "red-team-source-auditor",
+      "trustlayer_card": "E:/agents/characters/05-red-team-source-auditor.md",
+      "ui_character_id": "ui-visual-critic",
+      "ui_card": "E:/agents/ui-design/characters (ui-visual-critic binding per profile; no UI product audit this wave)",
+      "maf_role": "agent",
+      "authority_token": "READ_ONLY_AUDIT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; no inventing evidence; authority READ_ONLY_AUDIT only"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: slot 05 red-team-source-auditor finds only never fixes; Blue patches only approved WO; Purple never patches"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: hub E:/; handoff to E3 after findings; do not skip purple chain"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: exclusive receipt/log lease only; product_writes empty"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: FACT from source read of environment_job_service/job_service/path_policy/worker; INFERENCE labeled where race hypothesized"
+      },
+      {
+        "skill_id": "adversarial-review",
+        "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL profile-routed: authority bypass, path, lease, idempotency, ops, promotion adversarial frames applied"
+      },
+      {
+        "skill_id": "architecture-lock",
+        "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL profile-routed: quarantine-only output, no World Commit/Godot mutation, server-mediated Blender"
+      }
+    ],
+    "hunt_categories": [
+      "authority_bypass",
+      "path_traversal",
+      "client_budget_concurrency_control",
+      "idempotency_collision",
+      "arbitrary_blender_operation",
+      "output_promotion_godot_mutation",
+      "runtime_boundary_evidence_gaps"
+    ],
+    "findings": [
+      {
+        "finding_id": "ENV0-RED-F01",
+        "severity": "high",
+        "category": "authority_bypass",
+        "title": "Unauthenticated environment job API — any local caller can enqueue Blender work",
+        "evidence_type": "source-code evidence",
+        "locations": [
+          "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+          "E:/AIdle_Blender_Bridge_P0/app/main.py",
+          "E:/AIdle_Blender_Bridge_P0/app/config.py"
+        ],
+        "evidence": "No auth middleware, API key, or session checks under app/. POST /v1/environment/jobs accepts EnvironmentJobRequest from any client that can reach the listener. Default host is 127.0.0.1:8741 (loopback). Grep for auth/API_KEY/Bearer/middleware in app/ returned no matches.",
+        "impact": "Any local process can force real Blender execution (CPU/disk fill under storage/generated_quarantine), cancel only queued jobs, and list templates/modules. Mis-bind to non-loopback elevates to LAN abuse.",
+        "wo_mapping": "WO acceptance does not require auth for P0E; still in-scope Red hunt category authority_bypass.",
+        "residual_vs_docs": "Aligned with docs/SECURITY.md P0 local-trust model; not a claim of production sandbox.",
+        "recommendation_for_blue_only": "Require local capability token or named-pipe peer identity before create; keep loopback bind fail-closed."
+      },
+      {
+        "finding_id": "ENV0-RED-F02",
+        "severity": "medium",
+        "category": "client_budget_concurrency_control",
+        "title": "Shared max_active_jobs=1 lease is asymmetric — Character create ignores environment active receipts",
+        "evidence_type": "source-code evidence",
+        "locations": [
+          "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py:_bridge_busy",
+          "E:/AIdle_Blender_Bridge_P0/app/services/job_service.py:_create_locked",
+          "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py"
+        ],
+        "evidence": "EnvironmentJobService._bridge_busy scans environment_job_receipt.json (QUEUED/RUNNING) AND character job_receipt.json AND probes runner._worker_gate. CharacterJobService._create_locked never checks environment receipts or busy; always allocates QUEUED and schedules execute. Separate _create_lock objects per service — not a single Bridge create lock. Shared BoundedSemaphore only serializes Blender at execute time.",
+        "impact": "WO criterion 5 ('all jobs share one Bridge-wide active lease') is only partially true: concurrent Character+Environment creates can both queue while an environment job is active; env-side 409 busy is not mutual. Unbounded queue of Blender work possible; gate still prevents dual simultaneous Blender processes in-process.",
+        "classification": "FACT (source asymmetry) + INFERENCE (race under concurrent HTTP)",
+        "recommendation_for_blue_only": "Character create path must call the same Bridge-wide busy scan; single create lock spanning both services."
+      },
+      {
+        "finding_id": "ENV0-RED-F03",
+        "severity": "medium",
+        "category": "idempotency_collision",
+        "title": "Canonical fingerprint includes request_id and idempotency_key — same key + same body with new request_id false-conflicts",
+        "evidence_type": "source-code evidence",
+        "locations": [
+          "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py:canonical_request_fingerprint",
+          "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py:_create_locked"
+        ],
+        "evidence": "canonical_request_fingerprint dumps full EnvironmentJobRequest via model_dump(mode='json'), which includes request_id and idempotency_key. Idempotency path compares full fingerprint; therefore a retry that preserves idempotency_key and semantic body but rotates request_id raises IdempotencyConflictError (409) instead of stable replay.",
+        "impact": "Breaks standard idempotency-key semantics (identity fields should be outside body fingerprint). Clients that generate new request_id per attempt with fixed key get permanent collision; WO criterion 4 only tested exact full-body replay including same request_id.",
+        "recommendation_for_blue_only": "Fingerprint exclude request_id (and possibly idempotency_key); keep request_id uniqueness as separate exact-replay gate."
+      },
+      {
+        "finding_id": "ENV0-RED-F04",
+        "severity": "medium",
+        "category": "authority_bypass",
+        "title": "expected_bridge_revision accepted but never enforced against server revision",
+        "evidence_type": "source-code evidence",
+        "locations": [
+          "E:/AIdle_Blender_Bridge_P0/app/environment_models.py:EnvironmentJobRequest.expected_bridge_revision",
+          "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py:_validate_registries"
+        ],
+        "evidence": "Field expected_bridge_revision is required (ge=0) and is copied into internal_spec, but _validate_registries only checks registry_version, template/module/profile/terrain allowlist — no comparison to a server bridge revision constant or settings value.",
+        "impact": "Stale-revision clients are not fail-closed; weakens revision-binding authority pattern used elsewhere in AIdle (commit/AGM).",
+        "recommendation_for_blue_only": "Pin server bridge_revision; reject mismatch before queue."
+      },
+      {
+        "finding_id": "ENV0-RED-F05",
+        "severity": "medium",
+        "category": "runtime_boundary_evidence_gaps",
+        "title": "build_spec.sha256 written as evidence but never re-verified before Blender execution",
+        "evidence_type": "source-code evidence",
+        "locations": [
+          "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py:_create_locked",
+          "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py:_run_real"
+        ],
+        "evidence": "create writes build_spec.internal.json then build_spec.sha256. _run_real/_build_real_command read build_spec path and invoke Blender without hashing the file and comparing to build_spec.sha256. Worker trusts server_output_dir and allowed_operations from that file.",
+        "impact": "TOCTOU window between create and execute: any process with write access to storage/jobs can alter internal_spec (ops, paths within env roots, placements) while receipt fingerprint remains original. Integrity evidence is post-hoc only.",
+        "classification": "FACT (no verify call) + INFERENCE (requires jobs_root write collusion)",
+        "recommendation_for_blue_only": "Re-hash and compare before subprocess; refuse on mismatch."
+      },
+      {
+        "finding_id": "ENV0-RED-F06",
+        "severity": "medium",
+        "category": "client_budget_concurrency_control",
+        "title": "Stuck QUEUED/RUNNING environment receipts permanently block new env jobs (no reaper/TTL)",
+        "evidence_type": "source-code evidence",
+        "locations": [
+          "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py:EnvironmentJobStore.has_active",
+          "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py:_bridge_busy"
+        ],
+        "evidence": "has_active treats any environment_job_receipt with state QUEUED or RUNNING as busy forever. No TTL, orphan reaper, or crash recovery. Process kill after QUEUED write leaves durable busy forever until manual receipt edit.",
+        "impact": "Availability denial for /v1/environment/jobs after crash mid-flight; character path may still enqueue (see F02).",
+        "recommendation_for_blue_only": "Age-out or fail-closed reaper for stale active receipts; document operator recovery."
+      },
+      {
+        "finding_id": "ENV0-RED-F07",
+        "severity": "low",
+        "category": "arbitrary_blender_operation",
+        "title": "Secondary registry identifiers (height_profile_id, material_id, camera_template_id) not validated against server registries",
+        "evidence_type": "source-code evidence",
+        "locations": [
+          "E:/AIdle_Blender_Bridge_P0/app/environment_models.py",
+          "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py:_validate_registries",
+          "E:/AIdle_Blender_Bridge_P0/blender_scripts/environment_worker_entry.py"
+        ],
+        "evidence": "Pattern-validated strings for height_profile_id/material_id/camera_template_id pass schema; _validate_registries does not resolve them. P0E worker ignores them and hardcodes terrain/camera — mitigates execution risk for this probe.",
+        "impact": "Incomplete fail-closed registry binding for future worker paths that honor those fields; clients can assert false provenance in request body.",
+        "recommendation_for_blue_only": "Registry-require or forbid unknown secondary ids; reject until registered."
+      },
+      {
+        "finding_id": "ENV0-RED-F08",
+        "severity": "low",
+        "category": "client_budget_concurrency_control",
+        "title": "Client may disable save_blend / export_glb_modules / render_preview; max_materials not enforced post-run",
+        "evidence_type": "source-code evidence",
+        "locations": [
+          "E:/AIdle_Blender_Bridge_P0/app/environment_models.py:EnvironmentOutputRequest",
+          "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py:_verify_real_outputs",
+          "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py:_clamped_budget"
+        ],
+        "evidence": "Only export_scene_manifest and generate_validation_report are Literal[True]. save_blend/export_glb_modules/render_preview remain optional bools. _verify_real_outputs skips optional artifacts when false. Clamped max_materials is stored in internal_spec but _verify_real_outputs never checks material count.",
+        "impact": "Jobs can reach QUARANTINED_COMPLETE without dual visual artifacts (blend/glb/preview); materials budget is advisory only. Real probe used all true — acceptance #9 path OK, general API weaker.",
+        "recommendation_for_blue_only": "For STARTER_REALM P0E, require visual triad; enforce max_materials in verification."
+      },
+      {
+        "finding_id": "ENV0-RED-F09",
+        "severity": "low",
+        "category": "runtime_boundary_evidence_gaps",
+        "title": "No automated test for Bridge-wide character+environment mutual lease exclusion",
+        "evidence_type": "source-code evidence",
+        "locations": [
+          "E:/AIdle_Blender_Bridge_P0/tests/test_environment_api.py",
+          "E:/AIdle_Blender_Bridge_P0/tests/test_environment_runner.py"
+        ],
+        "evidence": "ENV tests cover schema reject, unknown registry, idempotency same-body replay, budget schema cap, mock quarantine paths, real-command flags, missing-artifact fail-closed. No test creates concurrent character-job while environment QUEUED/RUNNING or asserts EnvironmentBusyError when character active. Blue acceptance_map criterion 5 cites Settings.max_active_jobs le=1 and _worker_gate usage without mutual create-path test.",
+        "impact": "Evidence gap for WO criterion 5; Purple should not treat criterion as fully proven from current pytest alone.",
+        "recommendation_for_blue_only": "Add TestClient race/sequence tests for cross-kind busy."
+      },
+      {
+        "finding_id": "ENV0-RED-F10",
+        "severity": "low",
+        "category": "runtime_boundary_evidence_gaps",
+        "title": "Network deny remains policy marker only (TARGET_HARDENING residual)",
+        "evidence_type": "docs evidence + source-code evidence",
+        "locations": [
+          "E:/AIdle_Blender_Bridge_P0/docs/SECURITY.md",
+          "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py:_run_real",
+          "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/07_SECURITY_QUARANTINE_VALIDATION.md"
+        ],
+        "evidence": "AIDLE_NETWORK_POLICY=deny set in worker env when settings.disable_network; no OS firewall/container isolation in code. SECURITY.md and Blueprint 07 explicitly mark dedicated OS account, egress deny, durable multi-process lease as not implemented.",
+        "impact": "Blender/Python retain OS account network capability; do not claim sandbox complete.",
+        "recommendation_for_blue_only": "Keep labeled TARGET_HARDENING; do not promote to implemented without OS evidence."
+      }
+    ],
+    "controls_observed": [
+      {
+        "control_id": "ENV0-RED-C01",
+        "title": "Path policy blocks traversal in job_id and root escape",
+        "status": "observed",
+        "evidence": "safe_child rejects '/', '\\\\', '..'; resolve_within ensures candidates stay under approved root. Used for job_dir and quarantine_dir."
+      },
+      {
+        "control_id": "ENV0-RED-C02",
+        "title": "Strict environment schema extra=forbid; dual evidence const True",
+        "status": "observed",
+        "evidence": "StrictModel; EnvironmentOutputRequest.export_scene_manifest and generate_validation_report Literal[True]; tests reject python_code, output_path, approved_catalog zone, execute_shell terrain."
+      },
+      {
+        "control_id": "ENV0-RED-C03",
+        "title": "Server-generated quarantine paths; artifact refs quarantine-relative",
+        "status": "observed",
+        "evidence": "server_output_dir set from settings.quarantine_root/job_id; _artifact_ref relative_to quarantine_root with generated_quarantine/ prefix; worker resolves output under AIDLE_ALLOWED_QUARANTINE_ROOT."
+      },
+      {
+        "control_id": "ENV0-RED-C04",
+        "title": "No Godot / approved catalog / World Commit promotion API in Bridge app",
+        "status": "observed",
+        "evidence": "grep app/ for approved_catalog|promote|godot|world_commit|publish → no matches. output_zone fixed generated_quarantine. Forbidden ops list includes mutate_godot_world_state / publish_to_godot / write_approved_catalog."
+      },
+      {
+        "control_id": "ENV0-RED-C05",
+        "title": "Real Blender command uses environment_worker_entry + security flags",
+        "status": "observed",
+        "evidence": "BLD-46173CA8830E blender_command.json: --background --factory-startup --disable-autoexec --python-exit-code 20 --python environment_worker_entry.py; not character worker_entry.py. shell=False subprocess."
+      },
+      {
+        "control_id": "ENV0-RED-C06",
+        "title": "Worker fail-closed on unregistered module_id and non-environment job_kind",
+        "status": "observed",
+        "evidence": "environment_worker_entry raises PermissionError for unknown module_id and job_kind != environment; required allowed_operations set checked."
+      }
+    ],
+    "path_traversal_assessment": {
+      "status": "no_open_traversal_in_reviewed_paths",
+      "notes": "Client cannot supply output paths; job_id constrained by safe_child; instance_id pattern excludes path separators; manifest artifact_path checked for '..', abs, drive in _verify_real_outputs."
+    },
+    "promotion_assessment": {
+      "status": "no_promotion_path_found",
+      "notes": "Artifacts remain under storage/generated_quarantine; no Godot intake or catalog write endpoints in ENV0 product surface."
+    },
+    "blue_claims_triage": [
+      {
+        "claim": "Shared Bridge-wide active lease max_active_jobs=1",
+        "blue_status": "PASS",
+        "red_status": "PARTIAL — see ENV0-RED-F02/F09"
+      },
+      {
+        "claim": "Idempotency stable replay; same key + changed payload conflicts",
+        "blue_status": "PASS",
+        "red_status": "PASS for exact body; SEMANTICS WEAK — see ENV0-RED-F03"
+      },
+      {
+        "claim": "Artifact references quarantine-relative and traversal-safe",
+        "blue_status": "PASS",
+        "red_status": "AGREE (C01/C03)"
+      },
+      {
+        "claim": "No Godot/Scene/catalog/World Commit mutation",
+        "blue_status": "PASS",
+        "red_status": "AGREE (C04) for reviewed Bridge app surface"
+      },
+      {
+        "claim": "Strict environment request rejects unknown fields/paths/URLs/code/ops",
+        "blue_status": "PASS",
+        "red_status": "AGREE for schema surface; secondary ids weak (F07)"
+      }
+    ],
+    "input_context_hash": "sha256:1a83e7868aac8091d6aa4112f29084225edbdc1b129a780257345f468fcc9614",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-001-ENVIRONMENT-BRIDGE-P0E.md",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_schema_001.json",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_blue_001.json",
+        "E:/AIdle_Blender_Bridge_P0/app/environment_models.py",
+        "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py",
+        "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+        "E:/AIdle_Blender_Bridge_P0/blender_scripts/environment_worker_entry.py"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "1a83e7868aac8091d6aa4112f29084225edbdc1b129a780257345f468fcc9614",
+      "BYTE_LEN": 116438
+    },
+    "child_task_ref": "019f83b9-f229-7d01-bfc4-9c376a0525f7",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "trace_ref": "orchestration/logs/environment-p0-red-001.log",
+    "handoff_ref": "ENV0_E3_QA",
+    "handoff_note": "E2 Red complete. Handoff to E3 aidle-worldgen-qa-evidence VERIFY_ONLY for full character regression + ENV0 tests + compileall + server-mediated real probe evidence package. Red did not patch product. Purple E4 triages findings after QA. No grandchildren. G8 HITL_REQUIRED; P1E blocked.",
+    "g8_hitl_note": "G8 stays HITL_REQUIRED. ENV0 red findings do not authorize Godot/Scene/P1E work.",
+    "product_writes": [],
+    "out_of_scope_this_child": [
+      "Product patches (Blue only after triage)",
+      "QA probe re-run ownership (E3)",
+      "Purple acceptance (E4)",
+      "P1E production content",
+      "Godot/Scene runtime",
+      "Grandchildren"
+    ],
+    "children": [],
+    "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE concepts via skills + profile/cards + WO/E0/E1 + product sources manually.",
+    "transcript_ref": "019f83b9-f229-7d01-bfc4-9c376a0525f7",
+    "evidence_correction": [
+      {
+        "type": "evidence_correction",
+        "corrected_at": "2026-07-21T08:32:28.171886+00:00",
+        "corrector": "aidle-continuity-conductor",
+        "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+        "directive_id": 49,
+        "task_id": "ENV0-001",
+        "reason": "Receipt used non-durable process-local UUID instead of real Grok Desktop child_task_ref required by WO-ENV0-001 for transcript-backed provenance. Corrected to platform subagent id recorded in grok_status.completed_children; not a silent overwrite.",
+        "fields": [
+          {
+            "field": "child_task_ref",
+            "previous_value": "471ba582-f94e-48a3-a260-f2b2b07cc6f7",
+            "corrected_value": "019f83b9-f229-7d01-bfc4-9c376a0525f7"
+          },
+          {
+            "field": "transcript_ref",
+            "previous_value": "471ba582-f94e-48a3-a260-f2b2b07cc6f7",
+            "corrected_value": "019f83b9-f229-7d01-bfc4-9c376a0525f7"
+          }
+        ],
+        "wave": "E2",
+        "silent_overwrite": false
+      }
+    ]
+  },
+  "smoke_test": {
+    "passed": true,
+    "attributed_to_transcript_ref": "019f83b9-f229-7d01-bfc4-9c376a0525f7",
+    "commands": [
+      {
+        "command": "static source audit only — no product mutation; no pytest re-run claimed as Red ownership",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "Read-only review of ENV0 Blue product sources, E0/E1 receipts, WO, SECURITY/Blueprint quarantine docs; storage job receipt BLD-46173CA8830E inspected",
+        "mutating": false
+      },
+      {
+        "command": "python scan storage/jobs receipt states",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "No QUEUED/RUNNING receipts present at audit time; probe BLD-46173CA8830E QUARANTINED_COMPLETE",
+        "mutating": false
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "READ_ONLY_AUDIT",
+    "no_self_accept": true,
+    "accepted": false,
+    "self_accept": false,
+    "product_writes_empty": true,
+    "no_product_patch": true,
+    "no_nested_grandchildren": true,
+    "character_skill_trace_present": true,
+    "no_invented_gate_pass": true,
+    "codex_directive_untouched": true,
+    "no_install_no_credentials_no_public_network_no_push_deploy": true,
+    "exclusive_orchestration_writes_only": [
+      "orchestration/receipts/environment_p0/ENV0_red_001.json",
+      "orchestration/logs/environment-p0-red-001.log"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/environment-p0-red-001.log",
+    "orchestration/work_orders/WO-ENV0-001-ENVIRONMENT-BRIDGE-P0E.md",
+    "orchestration/receipts/environment_p0/ENV0_schema_001.json",
+    "orchestration/receipts/environment_p0/ENV0_blue_001.json",
+    "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/security/path_policy.py",
+    "E:/AIdle_Blender_Bridge_P0/blender_scripts/environment_worker_entry.py",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-46173CA8830E/environment_job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-46173CA8830E/blender_command.json",
+    "E:/AIdle_Blender_Bridge_P0/docs/SECURITY.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "ENV0_E3_QA",
+  "evidence_correction": [
+    {
+      "type": "evidence_correction",
+      "corrected_at": "2026-07-21T08:32:28.171886+00:00",
+      "corrector": "aidle-continuity-conductor",
+      "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "directive_id": 49,
+      "task_id": "ENV0-001",
+      "reason": "Receipt used non-durable process-local UUID instead of real Grok Desktop child_task_ref required by WO-ENV0-001 for transcript-backed provenance. Corrected to platform subagent id recorded in grok_status.completed_children; not a silent overwrite.",
+      "fields": [
+        {
+          "field": "child_task_ref",
+          "previous_value": "471ba582-f94e-48a3-a260-f2b2b07cc6f7",
+          "corrected_value": "019f83b9-f229-7d01-bfc4-9c376a0525f7"
+        },
+        {
+          "field": "transcript_ref",
+          "previous_value": "471ba582-f94e-48a3-a260-f2b2b07cc6f7",
+          "corrected_value": "019f83b9-f229-7d01-bfc4-9c376a0525f7"
+        }
+      ],
+      "wave": "E2",
+      "silent_overwrite": false
+    },
+    {
+      "type": "evidence_correction",
+      "corrected_at": "2026-07-21T08:32:58.382273+00:00",
+      "corrector": "aidle-continuity-conductor",
+      "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "directive_id": 49,
+      "task_id": "ENV0-001",
+      "reason": "Follow-up integrity pass: residual process-local UUIDs remained in writer_transcript_ref / attributed_to_transcript_ref / nested child_task_ref. Aligned to durable Grok Desktop child ids; previous_value history preserved.",
+      "fields": [
+        {
+          "field": "writer_transcript_ref",
+          "previous_value": "471ba582-f94e-48a3-a260-f2b2b07cc6f7",
+          "corrected_value": "019f83b9-f229-7d01-bfc4-9c376a0525f7"
+        },
+        {
+          "field": "smoke_test.attributed_to_transcript_ref",
+          "previous_value": "471ba582-f94e-48a3-a260-f2b2b07cc6f7",
+          "corrected_value": "019f83b9-f229-7d01-bfc4-9c376a0525f7"
+        }
+      ],
+      "wave": "E2",
+      "silent_overwrite": false,
+      "pass": "followup_residual_identity_fields"
+    }
+  ]
+}

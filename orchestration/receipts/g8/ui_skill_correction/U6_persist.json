@@ -1,0 +1,67 @@
+{
+  "agent_step_id": "U6_persist.json",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "READ_ONLY_AUDIT",
+  "input_context_hash": "sha256:639dc67955c90beb",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-UI-SKILL-CORRECTION-001",
+    "directive_id": 22,
+    "wave": "U6_A11Y_AUDIT",
+    "profile": "persist",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "READ_ONLY a11y/responsive audit: F3 debug gate for session text; compact 868 hides redundant labels; outline contrast on HUD; keyboard E + focusable buttons; residual: no automated WCAG contrast meter in harness.",
+    "character_binding": {
+      "trustlayer_character_id": "purple-team-finding-triage",
+      "ui_character_id": "ui-a11y-auditor",
+      "maf_role": "agent",
+      "authority_token": "READ_ONLY_AUDIT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full"
+      },
+      {
+        "skill_id": "ui-a11y-character-rules",
+        "source": "E:/agents/ui-design/registry.yaml#ui-a11y-auditor",
+        "mode": "character_rules"
+      }
+    ],
+    "trace_ref": "orchestration/logs/g8-ui-skill-correction-001.log#U6_A11Y_AUDIT",
+    "handoff_ref": "U7_VISUAL_PURPLE_GATE",
+    "product_writes": [],
+    "children": [],
+    "findings": [],
+    "residual_risks": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22"
+      },
+      {
+        "marker": "art_style_cozy_default"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "no_catalog_false_claim": true,
+    "character_skill_trace_present": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ui-skill-correction-001.log",
+    "orchestration/evidence/g8_headed_correction/",
+    "orchestration/reviews/G8-001_UI_BRIEF.md",
+    "DESIGN.md"
+  ],
+  "next_route": "U7_VISUAL_PURPLE_GATE"
+}

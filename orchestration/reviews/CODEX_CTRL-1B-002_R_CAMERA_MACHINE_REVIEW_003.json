@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_CTRL-1B-002-R-CAMERA-MACHINE-REVIEW-003",
+  "task_id": "CTRL-1B-002",
+  "reviewed_at": "2026-07-22T00:41:37.6824865Z",
+  "reviewed_by": "codex",
+  "directive_reviewed": 60,
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "product_behavior": {
+    "contract_validator": "PASS; invalid 12/12 rejected",
+    "context_router_smoke": "PASS; zero ERROR/parse",
+    "integration_smoke": "PASS; zero ERROR/parse",
+    "headed_smoke": "PASS; zero ERROR/parse",
+    "g8_regression": "PASS; zero ERROR/parse",
+    "clean_boot": "PASS; zero ERROR/parse",
+    "exploration_R_camera_yaw_delta_abs": 0.785398163397448,
+    "build_R_preview_only": true,
+    "dual_fire": false,
+    "remap_compatibility": true,
+    "witness_sha256": "513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f"
+  },
+  "receipt_schema": {
+    "CTRL_1B_002_s0_r_contract_003.json": 0,
+    "CTRL_1B_002_r1_camera_runtime_003.json": 1,
+    "CTRL_1B_002_q2_r_camera_003.json": 0,
+    "CTRL_1B_002_p3_r_camera_003.json": 1
+  },
+  "blockers": [
+    "R1 receipt is missing required top-level smoke_test",
+    "P3 receipt is missing required top-level smoke_test"
+  ],
+  "scope_note": "Runtime correction is independently PASS. Directive 61 is evidence-only and may not change product, tests, contract, fixture or prior receipts.",
+  "next_route": "DIRECTIVE_61_EVIDENCE_ONLY"
+}

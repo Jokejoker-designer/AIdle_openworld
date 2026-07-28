@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_block_panel_wall_v1",
+  "module_id": "block_panel",
+  "module_role": "wall",
+  "display_name": "Panel Wall",
+  "world_profile_id": "cozy_cyber_pixel",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "author_wave": "U3_BLOCK_FAMILY_ART",
+  "allowlist_verified": true,
+  "dna_catalog_present": true,
+  "domain": "GEOMETRY",
+  "category": "PRIMITIVE",
+  "geometry_family": "block_panel",
+  "bounds_m": {
+    "width": 4.0,
+    "depth": 0.25,
+    "height": 2.8,
+    "origin": "center_bottom",
+    "source": "4m kit span + cozy_house wall height 2.8m reference scale"
+  },
+  "sockets_from_dna": {
+    "socket_inputs": ["snap_grid"],
+    "socket_outputs": ["snap_grid"],
+    "source": "module_catalog.json",
+    "role_intent_residual": "wall_edge not declared on primitive; for openings use arch_wall_door_4m / arch_wall_window_4m"
+  },
+  "socket_types_contract_ref": "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json",
+  "material_slots_dna": ["body", "accent"],
+  "material_slots_production": {
+    "body": {"semantic_slot": "body", "mat_id": "MAT_CozyCeramic", "bible_hex": "#fdf3e2"},
+    "accent": {"semantic_slot": "wood", "mat_id": "MAT_CozyWood", "bible_hex": "#c98a5e"}
+  },
+  "silhouette": {
+    "family": "ucbv_cozy_rounded_readable_v1",
+    "form": "soft_vertical_panel",
+    "bevel_face_fraction": 0.04,
+    "hard_90_outer_corners": false,
+    "value_vs_nori": "wall cream slightly deeper/same MAT than Nori body so character separates"
+  },
+  "lod": {
+    "LOD0": "panel_with_wood_trim_band",
+    "LOD1": "panel_mass",
+    "LOD2_or_billboard": "thin_box"
+  },
+  "performance_class_dna": "XS",
+  "collision_policy_dna_hint": "CONVEX",
+  "mesh_descriptor": "mesh_descriptors/block_panel.meshdesc.json",
+  "visual_states_ref": "visual_states.json",
+  "remapped_from_preferred": "arch_wall_solid_4m (DNA only, not adapter allowlist)"
+}

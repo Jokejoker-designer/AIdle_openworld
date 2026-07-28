@@ -1,0 +1,359 @@
+{
+  "agent_step_id": "ENV0-003-w2-red-001-2026-07-21",
+  "agent_type": "aidle-worldgen-red-scope",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "READ_ONLY_AUDIT",
+  "input_context_hash": "sha256:9be8c0f2c91c13e39c053bbbb0230d55abff87fd84bb479957fcba100c9c2456",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f84b9-d8ec-79a3-81ef-6fedeefb761e",
+  "transcript_ref": "019f84b9-d8ec-79a3-81ef-6fedeefb761e",
+  "writer_transcript_ref": "019f84b9-d8ec-79a3-81ef-6fedeefb761e",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/env0-003-w2-red-001.log",
+  "handoff_ref": "ENV0_003_W3_QA",
+  "start_time": "2026-07-21T12:50:02Z",
+  "end_time": "2026-07-21T12:55:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-red-scope; trustlayer_character=red-team-source-auditor; ui_character=ui-visual-critic; authority_token=READ_ONLY_AUDIT; required_skills include adversarial-review + architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; findings only never patch.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "adversarial-review",
+      "architecture-lock"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE concepts via Agents.md + WO-ENV0-003 + W1 blue receipt + product sources manually. No bootstrap loop.",
+  "files_read": [
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-003-CHARACTER-BUSY-409.md",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_003_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c2_red_002.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_d50_w2_red_003.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_d50_w4_purple_003.json",
+    "E:/AIdle_openworld/orchestration/logs/env0-003-w1-blue-001.log",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/blender_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_api.py",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_003_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/logs/env0-003-w2-red-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "ENV0-003",
+    "directive_id": 50,
+    "work_order": "orchestration/work_orders/WO-ENV0-003-CHARACTER-BUSY-409.md",
+    "wave": "ENV0_003_W2_RED",
+    "profile": "aidle-worldgen-red-scope",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "authority_token": "READ_ONLY_AUDIT",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "FINDINGS_REPORTED",
+    "summary": "READ_ONLY_AUDIT after WO-ENV0-003 W1 Blue PATCH_DRAFT. Source+test audit confirms residual ENV0-C2-R01 is closed on disk: jobs.py imports BridgeBusyError and maps except BridgeBusyError → HTTP 409 detail {message, reason: worker_lease_busy}, matching environment_jobs.py EnvironmentBusyError shape. EnvironmentBusyError path and lease/busy logic (blender_runner, job_service, environment_job_service) unchanged in worktree vs HEAD. Regression test_character_create_returns_409_when_bridge_lease_held holds public worker_lease and asserts 409 not 500. Named test 1 passed; full suite 44 passed. Worktree product delta for this WO is allowlist-only (jobs.py + test_api.py). product_writes=[]. Handoff ENV0_003_W3_QA. accepted=false.",
+    "finding_counts": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info_controls": 5,
+      "scope_notes": 1,
+      "total_actionable": 0,
+      "blocking_reopen": 0
+    },
+    "character_binding": {
+      "trustlayer_character_id": "red-team-source-auditor",
+      "trustlayer_card": "E:/agents/characters/05-red-team-source-auditor.md",
+      "ui_character_id": "ui-visual-critic",
+      "ui_card": "E:/agents/ui-design/characters (ui-visual-critic binding per profile; no UI product surface audited this wave)",
+      "maf_role": "agent",
+      "authority_token": "READ_ONLY_AUDIT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; authority-bound READ_ONLY_AUDIT; no inventing evidence; no self-accept"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: slot 05 red finds only never fixes; Blue already patched W1; Purple never patches; one writer per file"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: hub E:/; handoff ENV0_003_W3_QA after W2 findings; no skip purple chain"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: exclusive receipt/log lease only; product_writes empty; parent 019f7ffd only; no grandchildren"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: FACT from pytest named 1 + full 44 passed; R01 closed confirmed by source+HTTP regression"
+      },
+      {
+        "skill_id": "adversarial-review",
+        "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL profile-routed: adversarial check for 500 vs 409, allowlist breach, lease logic side-effects, env path regression"
+      },
+      {
+        "skill_id": "architecture-lock",
+        "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL profile-routed: HTTP mapping only; no lease redesign; no Godot/Scene/Control; G8 HITL_REQUIRED untouched"
+      }
+    ],
+    "audit_checks": [
+      {
+        "id": "AC1",
+        "claim": "jobs.py catches BridgeBusyError → HTTP 409 reason worker_lease_busy",
+        "status": "PASS",
+        "evidence": [
+          "app/api/jobs.py L5: from app.services.blender_runner import BridgeBusyError",
+          "app/api/jobs.py L25-29: except BridgeBusyError as exc → HTTPException(status_code=409, detail={message, reason: worker_lease_busy})",
+          "Shape identical to environment_jobs.py L64-68 EnvironmentBusyError handler"
+        ]
+      },
+      {
+        "id": "AC2",
+        "claim": "EnvironmentBusyError path unchanged",
+        "status": "PASS",
+        "evidence": [
+          "git worktree vs HEAD: no diff on app/api/environment_jobs.py",
+          "environment_jobs.py still except EnvironmentBusyError → 409 {message, reason: worker_lease_busy}",
+          "environment_job_service.py still class EnvironmentBusyError(BridgeBusyError) and raise EnvironmentBusyError() on is_bridge_busy()",
+          "mtime environment_jobs.py earlier than W1 jobs.py write; not rewritten by W1"
+        ]
+      },
+      {
+        "id": "AC3",
+        "claim": "Lease logic unchanged",
+        "status": "PASS",
+        "evidence": [
+          "git worktree vs HEAD: no product delta on blender_runner.py / job_service.py / environment_job_service.py for this WO",
+          "CharacterJobService still raise BridgeBusyError() when is_bridge_busy() (service-level refusal intact)",
+          "BlenderRunner.worker_lease / is_bridge_busy / bridge_create_lock public surface unchanged",
+          "W1 diff is HTTP mapping only (+import +except block)"
+        ]
+      },
+      {
+        "id": "AC4",
+        "claim": "Test proves character create returns 409 not 500 when lease held",
+        "status": "PASS",
+        "evidence": [
+          "tests/test_api.py::test_character_create_returns_409_when_bridge_lease_held",
+          "Holds dependencies.get_blender_runner().worker_lease(); asserts is_bridge_busy True; POST /v1/character-jobs → status_code==409, detail.reason==worker_lease_busy, message non-empty",
+          "pytest named: 1 passed; full suite: 44 passed (test_api 8; bridge_lease 10; environment_api 17; environment_runner 5; runner 2; security 2)"
+        ]
+      },
+      {
+        "id": "AC5",
+        "claim": "W1 product writes limited to allowlist jobs.py + test_api.py",
+        "status": "PASS",
+        "evidence": [
+          "git diff --stat HEAD worktree product surface for Bridge P0: only app/api/jobs.py (+6) and tests/test_api.py (+18)",
+          "W1 receipt product_writes matches allowlist",
+          "Red product_writes=[] (this wave)"
+        ]
+      }
+    ],
+    "finding_status": [
+      {
+        "finding_id": "ENV0-C2-R01",
+        "prior_status": "CLOSED_IN_DRAFT",
+        "status": "CLOSED_CONFIRMED",
+        "severity": "medium",
+        "title": "Character API jobs.py maps BridgeBusyError to HTTP 409 worker_lease_busy",
+        "detail": "Asymmetric 500-vs-409 gap closed. Character create under held Bridge-wide lease returns structured 409 matching environment API. Service-level BridgeBusyError refusal was already proven by lease tests; residual was HTTP mapping only.",
+        "evidence": "jobs.py L5+L25-29; test_character_create_returns_409_when_bridge_lease_held passed; suite 44 green"
+      }
+    ],
+    "info_controls": [
+      {
+        "id": "INFO-01",
+        "title": "BridgeBusyError import + except present and ordered after DuplicateRequestError",
+        "status": "OK"
+      },
+      {
+        "id": "INFO-02",
+        "title": "Detail shape parity with environment EnvironmentBusyError handler",
+        "status": "OK"
+      },
+      {
+        "id": "INFO-03",
+        "title": "EnvironmentBusyError remains BridgeBusyError subclass; env API still catches subclass explicitly",
+        "status": "OK"
+      },
+      {
+        "id": "INFO-04",
+        "title": "Named HTTP regression uses public worker_lease API (no _worker_gate reach-in)",
+        "status": "OK"
+      },
+      {
+        "id": "INFO-05",
+        "title": "Full suite non-regression 44 passed after W1 +1 test",
+        "status": "OK"
+      }
+    ],
+    "scope_notes": [
+      {
+        "id": "SCOPE-01",
+        "severity": "info",
+        "title": "Pre-existing staged index dirt on test_bridge_lease.py / test_runner.py",
+        "detail": "git status shows MM on tests/test_bridge_lease.py and tests/test_runner.py (staged index differs from HEAD; worktree content matches HEAD for those paths — staged+unstaged cancel). Classified as prior Dir50 fixture adaptation index residue, NOT W1 product worktree delta and NOT ENV0-003 allowlist breach. No reopen of BLK-ENV0-01/02/03. Hygiene note for human/conductor only.",
+        "blocking": false
+      }
+    ],
+    "acceptance_criteria_map": [
+      {
+        "id": "WO-AC1",
+        "claim": "Character job create returns 409 (not 500) when Bridge-wide lease held, detail shaped like environment API",
+        "status": "CONFIRMED",
+        "evidence": "jobs.py BridgeBusyError→409; test asserts 409 + reason + message"
+      },
+      {
+        "id": "WO-AC2",
+        "claim": "Environment API busy handling unchanged",
+        "status": "CONFIRMED",
+        "evidence": "environment_jobs.py worktree==HEAD for path; handler intact"
+      },
+      {
+        "id": "WO-AC3",
+        "claim": "Pre-existing tests remain green",
+        "status": "CONFIRMED",
+        "evidence": "pytest tests/ → 44 passed"
+      },
+      {
+        "id": "WO-AC4",
+        "claim": "New regression test proves the fix",
+        "status": "CONFIRMED",
+        "evidence": "test_character_create_returns_409_when_bridge_lease_held 1 passed"
+      },
+      {
+        "id": "WO-AC5",
+        "claim": "No file outside writer allowlist touched (W1 product surface)",
+        "status": "CONFIRMED",
+        "evidence": "worktree product delta only jobs.py + test_api.py; Red wrote only exclusive receipt+log"
+      }
+    ],
+    "prior_wave": {
+      "wave": "ENV0_003_W1_BLUE",
+      "child_task_ref": "019f84b6-e544-79d2-9b17-2ca923813668",
+      "receipt": "orchestration/receipts/environment_p0/ENV0_003_w1_blue_001.json",
+      "claim": "CLOSED_IN_DRAFT ENV0-C2-R01",
+      "red_disposition": "CONFIRMED_CLOSED"
+    },
+    "blk_status": {
+      "BLK-ENV0-01": "NOT_REOPENED",
+      "BLK-ENV0-02": "NOT_REOPENED",
+      "BLK-ENV0-03": "NOT_REOPENED"
+    },
+    "residual_out_of_lease": [
+      "F01 auth, F07 secondary registry ids, F08 output toggles, F10 network deny hardening still out of scope",
+      "ENV0-001 product acceptance remains WAITING_HUMAN / not accepted by this wave",
+      "G8 stays HITL_REQUIRED; P1E blocked",
+      "Pre-existing staged index residue on test_bridge_lease/test_runner (SCOPE-01) is hygiene only"
+    ],
+    "input_context_hash": "sha256:9be8c0f2c91c13e39c053bbbb0230d55abff87fd84bb479957fcba100c9c2456",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-003-CHARACTER-BUSY-409.md",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_003_w1_blue_001.json",
+        "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+        "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+        "E:/AIdle_Blender_Bridge_P0/tests/test_api.py"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "9be8c0f2c91c13e39c053bbbb0230d55abff87fd84bb479957fcba100c9c2456",
+      "BYTE_LEN": 24362
+    },
+    "child_task_ref": "019f84b9-d8ec-79a3-81ef-6fedeefb761e",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "trace_ref": "orchestration/logs/env0-003-w2-red-001.log",
+    "handoff_ref": "ENV0_003_W3_QA",
+    "handoff_note": "W2 Red READ_ONLY_AUDIT complete. ENV0-C2-R01 CLOSED_CONFIRMED. No new actionable findings. No product patches. Handoff ENV0_003_W3_QA VERIFY_ONLY for independent evidence re-run then Purple. No grandchildren. G8 HITL_REQUIRED; P1E blocked. accepted=false.",
+    "g8_hitl_note": "G8 stays HITL_REQUIRED. This wave does not imply G8 or ENV0-001 acceptance. No Godot/Scene/Control/Foundry/P1E edits.",
+    "product_writes": [],
+    "pytest": {
+      "named": {
+        "command": "python -m pytest tests/test_api.py::test_character_create_returns_409_when_bridge_lease_held -v",
+        "result": "1 passed"
+      },
+      "full_suite": {
+        "command": "python -m pytest tests/ -v",
+        "result": "44 passed",
+        "breakdown": "test_api 8; test_bridge_lease 10; test_environment_api 17; test_environment_runner 5; test_runner 2; test_security 2"
+      }
+    },
+    "source_diff_summary": {
+      "jobs.py_vs_HEAD": "+import BridgeBusyError; +except BridgeBusyError → HTTP 409 {message, reason: worker_lease_busy} after DuplicateRequestError",
+      "test_api.py_vs_HEAD": "+test_character_create_returns_409_when_bridge_lease_held",
+      "environment_jobs.py_vs_HEAD": "no worktree diff",
+      "lease_modules_vs_HEAD": "no worktree product delta for blender_runner/job_service/environment_job_service"
+    }
+  },
+  "smoke_test": {
+    "command": "python -m pytest tests/test_api.py::test_character_create_returns_409_when_bridge_lease_held tests/ -q",
+    "exit_code": 0,
+    "summary": "named 1 passed; full suite 44 passed",
+    "evidence_ref": "orchestration/logs/env0-003-w2-red-001.log"
+  },
+  "self_audit": {
+    "allowlist_respected": true,
+    "product_writes_empty": true,
+    "findings_only_no_patch": true,
+    "environment_busy_path_untouched": true,
+    "lease_logic_untouched": true,
+    "self_accept": false,
+    "accepted": false,
+    "no_godot": true,
+    "no_codex_directive": true,
+    "no_grandchildren": true,
+    "child_task_ref_is_durable_019f": true,
+    "notes": [
+      "Durable child_task_ref/transcript_ref = 019f84b9-d8ec-79a3-81ef-6fedeefb761e (subagent under parent 019f7ffd)",
+      "Prior W1 blue = 019f84b6-e544-79d2-9b17-2ca923813668",
+      "No invent acceptance; handoff QA only",
+      "SCOPE-01 index residue noted as non-blocking hygiene"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/receipts/environment_p0/ENV0_003_w2_red_001.json",
+    "orchestration/logs/env0-003-w2-red-001.log",
+    "orchestration/receipts/environment_p0/ENV0_003_w1_blue_001.json",
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_api.py"
+  ],
+  "next_route": "ENV0_003_W3_QA"
+}

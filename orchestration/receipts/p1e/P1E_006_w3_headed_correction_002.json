@@ -1,0 +1,294 @@
+{
+  "schema_version": "1.0.0",
+  "step_id": "P1E-006-w3-headed-correction-002",
+  "agent_step_id": "P1E-006-w3-headed-correction-002-2026-07-22",
+  "work_order_id": "WO-P1E-006-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+  "directive_id": 52,
+  "finding_closed": "P1E006-CODEX-F03",
+  "f03_closed": true,
+  "agent_id": "aidle-worldgen-qa-evidence",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "authority": "VERIFY_ONLY",
+  "authority_token": "VERIFY_ONLY",
+  "status": "REVIEW_REQUESTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "wave": "C1",
+  "child_task_ref": "019f8639-37b9-75b2-bd86-4abc48792555",
+  "transcript_ref": "019f8639-37b9-75b2-bd86-4abc48792555",
+  "writer_transcript_ref": "019f8639-37b9-75b2-bd86-4abc48792555",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f8636-7653-7572-8eaa-fd306bb8c4ae",
+  "prior_wave": {
+    "wave": "C0",
+    "receipt": "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "child_task_ref": "019f8636-7653-7572-8eaa-fd306bb8c4ae",
+    "verdict": "CORRECTION_COMPLETE_SCHEMA_VALID_NO_ACCEPT"
+  },
+  "self_accept": false,
+  "accepted": false,
+  "verdict": "HEADED_TWO_PROFILE_EVIDENCE_PASS_F03_CLOSED_NO_ACCEPT",
+  "completion_signal": "REVIEW_REQUESTED",
+  "next_owner": "C2_PROVENANCE",
+  "next_route": "C2_PROVENANCE",
+  "handoff_ref": "C2_PROVENANCE",
+  "trace_ref": "orchestration/logs/p1e-006-w3-headed-correction-002.log",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "character_binding": {
+    "trustlayer": "purple-team-finding-triage",
+    "ui": "ui-a11y-auditor",
+    "role": "C1 headed two-profile evidence + full regression VERIFY_ONLY"
+  },
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/**",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-w3-headed-correction-002.log"
+  ],
+  "product_writes": [],
+  "product_diff_zero": true,
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\maf-mandatory-standard\\SKILL.md",
+      "bytes_or_line_count": "bytes=1741 lines=46",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\trustlayer-x16-crew\\SKILL.md",
+      "bytes_or_line_count": "bytes=1938 lines=53",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\agentwork-knowledge-loop\\SKILL.md",
+      "bytes_or_line_count": "bytes=982 lines=36",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\project-room-collab\\SKILL.md",
+      "bytes_or_line_count": "bytes=1681 lines=65",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\curiosity-engine\\SKILL.md",
+      "bytes_or_line_count": "bytes=34306 lines=1123",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\evidence-memory-ledger\\SKILL.md",
+      "bytes_or_line_count": "bytes=8484 lines=292",
+      "load_to_eof": true
+    }
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/standards/HEADED_VISUAL_EVIDENCE_QA.md",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/game/scripts/core/headed_visual_smoke.gd",
+    "E:/AIdle_openworld/scripts/run_g8_headed_visual_c003.py",
+    "E:/AIdle_openworld/game/tests/p1e006_world_profile_variants_smoke.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/world_profile_variant_selector.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+    "E:/AIdle_openworld/game/scripts/main/main.gd",
+    "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/evidence-memory-ledger/SKILL.md"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/capture_profiles.gd",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/run_capture.py",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/cozy_cyber_pixel_1280x720.png",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/surrealism_canvas_1280x720.png",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/visual_claim_meta.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/godot_cozy.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/godot_surreal.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/godot_headed.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/runner.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/png_sha256.txt",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/regression_exits.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-w3-headed-correction-002.log"
+  ],
+  "commands": [
+    "python orchestration/evidence/p1e_006_correction_002/run_capture.py",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+    "python orchestration/evidence/p1e_006/_hsl_per_profile_demo.py",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/p1e003_density_exposure_smoke.gd",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/p1e004_art_style_manager_smoke.gd",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/g8_ux_input_collision_smoke.gd"
+  ],
+  "exit_codes": [0, 0, 0, 0, 0, 0, 0],
+  "skipped_commands": [
+    {
+      "name": "persistence_clean_boot",
+      "reason": "no dedicated *persist* or *boot* smoke under game/tests",
+      "exit_code": null,
+      "status": "SKIP_NO_TEST_PRESENT"
+    }
+  ],
+  "smoke_test": {
+    "command": "python orchestration/evidence/p1e_006_correction_002/run_capture.py",
+    "exit_code": 0,
+    "pass": true,
+    "gate_line": "AIDLE_P1E006_HEADED_C1_RUNNER=PASS",
+    "inner_gate": "AIDLE_P1E006_HEADED_C1=PASS checks_ok=13 checks_fail=0 captures=2",
+    "logs_clean": true,
+    "error_lines": 0,
+    "godot_binary": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+    "godot_version": "4.3-stable",
+    "secondary_regression": {
+      "p1e006_variants": {"exit_code": 0, "gate": "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5"},
+      "hsl_demo": {"exit_code": 0, "gate": "P1E006_HSL_DEMO=PASS"},
+      "p1e003_density": {"exit_code": 0, "gate": "AIDLE_P1E003_SMOKE=PASS checks=9"},
+      "p1e004_asm": {"exit_code": 0, "gate": "AIDLE_P1E004_ASM_SMOKE=PASS checks=6"},
+      "g8_ux002_fence": {"exit_code": 0, "gate": "AIDLE_G8_UX002_SMOKE=PASS checks=2"},
+      "g8_ux_input": {"exit_code": 0, "gate": "AIDLE_G8_UX_SMOKE=PASS checks=6"}
+    }
+  },
+  "self_audit": {
+    "schema_required_fields_present": true,
+    "required_fields_checked": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "product_outside_lease": false,
+    "game_product_patches": false,
+    "fabricated_refs": false,
+    "original_p1e_006_evidence_rewritten": false,
+    "human_world_meta_touched": false,
+    "self_accept": false,
+    "accepted": false,
+    "verdict_non_null": true,
+    "child_task_ref_real": true,
+    "distinct_png_sha": true,
+    "dimensions_1280x720": true,
+    "runtime_binding_present": true,
+    "logs_clean": true
+  },
+  "result": {
+    "mode": "headed_two_profile_capture_plus_full_regression",
+    "f03_closed": true,
+    "f03_id": "P1E006-CODEX-F03",
+    "f03_note": "Distinct headed 1280x720 screenshots now exist for cozy_cyber_pixel and surrealism_canvas with runtime world_profile_id + art_style_id_active binding, hashes, dimensions, package_job_id, capture_source=godot_headed, clean logs.",
+    "package_job_id": "BLD-03CB1AADD475",
+    "capture_source": "godot_headed",
+    "live_parity": true,
+    "live_parity_reason": "same BLD-03CB1AADD475 package + runtime-forced art_style_id_active==world_profile_id binding for each capture",
+    "isolation": {
+      "method": "temp AppData/LOCALAPPDATA redirect + ArtStyleManager set_world_meta_path_override + persist_style=false",
+      "user_data": "C:/Users/phant/AppData/Local/Temp/p1e006_c1_userdata_20260722_025149",
+      "godot_43_note": "Godot 4.3-stable has no --user-data-dir CLI flag; isolation via env + world_meta override; human live world_meta.cfg not read/renamed/written"
+    },
+    "screenshots": {
+      "cozy_cyber_pixel": {
+        "path": "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/cozy_cyber_pixel_1280x720.png",
+        "sha256": "E761B3DA0B686BB37FEC91172B0C58F86E8C8CD7D821543392EEA60E0D6BBA77",
+        "width": 1280,
+        "height": 720,
+        "world_profile_id": "cozy_cyber_pixel",
+        "art_style_id_active": "cozy_cyber_pixel",
+        "variant_mode": "identity_register",
+        "materials_rewritten": 144,
+        "pond_present": true,
+        "house_present": true,
+        "starter_realm": true,
+        "visual_notes": "mint/green cozy ground; pond cyan/blue readable; fence + player + companion silhouettes; HUD Art: Cozy Cyber-Pixel"
+      },
+      "surrealism_canvas": {
+        "path": "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/surrealism_canvas_1280x720.png",
+        "sha256": "BFB9CE17F08305D3268F80BD14B6E68B86B79FC68F66FC3335A16B7E278A014E",
+        "width": 1280,
+        "height": 720,
+        "world_profile_id": "surrealism_canvas",
+        "art_style_id_active": "surrealism_canvas",
+        "variant_mode": "material_table",
+        "materials_rewritten": 93,
+        "pond_present": true,
+        "house_present": true,
+        "starter_realm": true,
+        "visual_notes": "lavender/purple chromatic ground (not white-on-lavender wash); pond cyan/blue readable as water; silhouettes readable; HUD Art: Surrealism Canvas"
+      }
+    },
+    "distinct_sha": true,
+    "logs_clean": true,
+    "error_lines": 0,
+    "regression_all_exit_zero": true,
+    "chronology_note": "P1E-004 preserved GLB module materials on intake; P1E-006 world_profile_variant_selector recolors selected materials AFTER GLB attach. Headed capture forces art style + rebuilds with package BLD-03CB1AADD475 then apply_to_node for each profile."
+  },
+  "png_sha256": {
+    "cozy_cyber_pixel_1280x720.png": "E761B3DA0B686BB37FEC91172B0C58F86E8C8CD7D821543392EEA60E0D6BBA77",
+    "surrealism_canvas_1280x720.png": "BFB9CE17F08305D3268F80BD14B6E68B86B79FC68F66FC3335A16B7E278A014E"
+  },
+  "dimensions_proof": {
+    "cozy_cyber_pixel_1280x720.png": {"w": 1280, "h": 720},
+    "surrealism_canvas_1280x720.png": {"w": 1280, "h": 720}
+  },
+  "evidence_refs": [
+    "orchestration/evidence/p1e_006_correction_002/cozy_cyber_pixel_1280x720.png",
+    "orchestration/evidence/p1e_006_correction_002/surrealism_canvas_1280x720.png",
+    "orchestration/evidence/p1e_006_correction_002/visual_claim_meta.json",
+    "orchestration/evidence/p1e_006_correction_002/godot_cozy.log",
+    "orchestration/evidence/p1e_006_correction_002/godot_surreal.log",
+    "orchestration/evidence/p1e_006_correction_002/png_sha256.txt",
+    "orchestration/evidence/p1e_006_correction_002/regression_exits.json",
+    "orchestration/logs/p1e-006-w3-headed-correction-002.log",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "orchestration/standards/HEADED_VISUAL_EVIDENCE_QA.md"
+  ],
+  "inputs": [
+    "orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "orchestration/control/codex_directive.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "orchestration/standards/HEADED_VISUAL_EVIDENCE_QA.md"
+  ],
+  "outputs": [
+    "orchestration/evidence/p1e_006_correction_002/**",
+    "orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json",
+    "orchestration/logs/p1e-006-w3-headed-correction-002.log"
+  ],
+  "not_touched": [
+    "game/**",
+    "world_meta.cfg",
+    "orchestration/control/codex_directive.json",
+    "orchestration/control/grok_status.json",
+    "orchestration/evidence/p1e_006/**",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_006_w3_qa_001.json"
+  ],
+  "hard_stops_honored": [
+    "no_product_patches_game",
+    "no_P2E_P6E",
+    "no_art_waves_2_4",
+    "no_control",
+    "no_character_foundry",
+    "no_network_install_push_deploy_publish",
+    "no_grandchildren",
+    "no_historical_receipt_rewrite",
+    "no_human_world_meta",
+    "no_self_accept",
+    "no_original_p1e_006_evidence_rewrite"
+  ]
+}

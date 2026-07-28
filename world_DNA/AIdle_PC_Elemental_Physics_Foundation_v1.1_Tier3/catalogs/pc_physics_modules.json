@@ -1,0 +1,148 @@
+{
+  "catalog_version": "1.0",
+  "physics_modules": [
+    {
+      "physics_module_id": "physics_rigid_prop_v1",
+      "category": "MOTION",
+      "components": [
+        "RigidBody3D",
+        "CollisionShape3D"
+      ],
+      "properties": [
+        "mass_density",
+        "friction",
+        "restitution"
+      ],
+      "simulation_modes": [
+        "FULL",
+        "SLEEP_PREFERRED",
+        "OFF"
+      ]
+    },
+    {
+      "physics_module_id": "physics_structural_object_v1",
+      "category": "STRUCTURAL",
+      "components": [
+        "StaticBody3D",
+        "StructuralState"
+      ],
+      "properties": [
+        "structural_strength",
+        "integrity",
+        "support_graph"
+      ],
+      "simulation_modes": [
+        "FULL_RULE",
+        "AGGREGATED",
+        "STATE_ONLY"
+      ]
+    },
+    {
+      "physics_module_id": "physics_fluid_network_v1",
+      "category": "FLUID",
+      "components": [
+        "FluidNetworkState"
+      ],
+      "properties": [
+        "flow",
+        "capacity",
+        "pressure",
+        "cleanliness"
+      ],
+      "simulation_modes": [
+        "FULL_GRAPH",
+        "AGGREGATED",
+        "TIME_DELTA_ONLY"
+      ]
+    },
+    {
+      "physics_module_id": "physics_thermal_body_v1",
+      "category": "THERMAL",
+      "components": [
+        "ThermalState"
+      ],
+      "properties": [
+        "temperature",
+        "heat_capacity",
+        "conductivity"
+      ],
+      "simulation_modes": [
+        "FULL_RULE",
+        "LOW_RATE",
+        "TIME_DELTA_ONLY"
+      ]
+    },
+    {
+      "physics_module_id": "physics_energy_node_v1",
+      "category": "ENERGY",
+      "components": [
+        "EnergyNodeState"
+      ],
+      "properties": [
+        "generation",
+        "storage",
+        "load",
+        "capacity"
+      ],
+      "simulation_modes": [
+        "FULL_GRAPH",
+        "AGGREGATED",
+        "TIME_DELTA_ONLY"
+      ]
+    },
+    {
+      "physics_module_id": "physics_biological_body_v1",
+      "category": "BIOLOGICAL",
+      "components": [
+        "BiologicalState"
+      ],
+      "properties": [
+        "health",
+        "growth",
+        "water_need",
+        "light_need"
+      ],
+      "simulation_modes": [
+        "FULL_RULE",
+        "LOW_RATE",
+        "TIME_DELTA_ONLY"
+      ]
+    },
+    {
+      "physics_module_id": "physics_area_field_v1",
+      "category": "FIELD",
+      "components": [
+        "Area3D"
+      ],
+      "properties": [
+        "field_type",
+        "direction",
+        "strength",
+        "bounds"
+      ],
+      "simulation_modes": [
+        "FULL",
+        "STATE_ONLY"
+      ]
+    },
+    {
+      "physics_module_id": "physics_mechanism_v1",
+      "category": "MECHANISM",
+      "components": [
+        "AnimatableBody3D",
+        "MechanismState"
+      ],
+      "properties": [
+        "motor_speed",
+        "torque",
+        "energy_input",
+        "path"
+      ],
+      "simulation_modes": [
+        "FULL",
+        "ANIMATION_ONLY",
+        "STATE_ONLY"
+      ]
+    }
+  ]
+}

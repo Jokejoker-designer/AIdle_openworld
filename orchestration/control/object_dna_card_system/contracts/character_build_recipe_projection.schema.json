@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/object-dna-card-system/contracts/character_build_recipe_projection.schema.json",
+  "title": "Character Build Recipe Projection (Object DNA §15) — NOT IR SSOT",
+  "description": "UI/confirmation projection of SOURCE §15. Compiler SSOT remains dna_platform_vnext UniversalEntityRecipe. See MAPPING_TO_VNEXT_001.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "projection_of",
+    "character_id",
+    "design_card_id",
+    "world_profile",
+    "skeleton_family",
+    "body_modules",
+    "attachments",
+    "animation_sets",
+    "material_theme",
+    "output",
+    "accepted",
+    "self_accept"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "object_dna_card_system/character_build_recipe_projection/0.1"
+    },
+    "projection_of": {
+      "const": "dna_platform_vnext/universal_entity_recipe/0.1"
+    },
+    "universal_recipe_id": {
+      "type": ["string", "null"],
+      "pattern": "^[a-z0-9_]+$",
+      "description": "If already compiled, the UER recipe_id."
+    },
+    "character_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "design_card_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "world_profile": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "skeleton_family": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*_v[0-9]+$"
+    },
+    "rest_pose": {
+      "type": "string",
+      "maxLength": 64
+    },
+    "body_modules": {
+      "type": "array",
+      "maxItems": 64,
+      "items": { "type": "string", "minLength": 1, "maxLength": 128 }
+    },
+    "attachments": {
+      "type": "array",
+      "maxItems": 64,
+      "items": { "type": "string", "minLength": 1, "maxLength": 128 }
+    },
+    "animation_sets": {
+      "type": "array",
+      "maxItems": 16,
+      "items": { "type": "string", "minLength": 1, "maxLength": 128 }
+    },
+    "material_theme": {
+      "type": "string",
+      "maxLength": 128
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lod_levels", "collision", "glb", "godot_scene"],
+      "properties": {
+        "lod_levels": { "type": "integer", "minimum": 1, "maximum": 8 },
+        "collision": { "type": "boolean" },
+        "glb": { "type": "boolean" },
+        "godot_scene": { "type": "boolean" }
+      }
+    },
+    "authority_reminder": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposal_only": { "const": true },
+        "may_commit_world": { "const": false },
+        "requires_human_confirmation": { "const": true }
+      }
+    },
+    "accepted": { "const": false },
+    "self_accept": { "const": false }
+  }
+}

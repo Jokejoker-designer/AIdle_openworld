@@ -1,0 +1,452 @@
+{
+  "schema_version": "1.0.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "agent_step_id": "COMMERCIAL-RED-001-findings-2026-07-23",
+  "step_id": "RED_commercial_findings_001",
+  "task_id": "COMMERCIAL-RED-PACKAGE-AUDIT",
+  "work_order_context": "COMMERCIAL_COMPLETION_WAVE_PLAN_001 CH-SAVE-RED / package honesty audit",
+  "directive_id": 99,
+  "milestone": "Commercial completion package Red READ_ONLY_AUDIT — honesty, lease, self-accept, scope creep, missing evidence",
+  "agent_id": "aidle-worldgen-red-scope",
+  "agent_type": "aidle-worldgen-red-scope",
+  "profile_name": "aidle-worldgen-red-scope",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "authority_token": "READ_ONLY_AUDIT",
+  "authority": "READ_ONLY_AUDIT",
+  "authority_scope": "findings/receipt only under orchestration/receipts/commercial_red_001/**; product_writes=[]; never patch; no grandchildren; no self-accept",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "skills_loaded": [
+    "maf-mandatory-standard",
+    "trustlayer-x16-crew",
+    "agentwork-knowledge-loop",
+    "curiosity-engine",
+    "adversarial-review",
+    "architecture-lock"
+  ],
+  "character_binding": {
+    "trustlayer": "red-team-source-auditor",
+    "ui": "ui-visual-critic",
+    "role": "Red findings-only commercial package auditor"
+  },
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "writer_transcript_ref": "019f8e12-b69a-7bc3-b78f-88d769ebe335",
+  "child_task_ref": "019f8e12-b69a-7bc3-b78f-88d769ebe335",
+  "transcript_ref": "019f8e12-b69a-7bc3-b78f-88d769ebe335",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8e12-b69a-7bc3-b78f-88d769ebe335/meta.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "RED_COMMERCIAL_FINDINGS_ROUTE_PURPLE_HUMAN",
+  "accepted": false,
+  "self_accept": false,
+  "no_grandchildren": true,
+  "parent_spawn_only": true,
+  "one_writer_per_file": true,
+  "product_writes": [],
+  "product_writes_this_wave": [],
+  "verdict": "PACKAGE_GOVERNANCE_PASS_WITH_COMMERCIAL_RESIDUALS_NO_SHIP",
+  "verdict_detail": "Four commercial wave receipts (save-soak QA, CTRL-1B polish, Foundry 1C status, P1E art status) audited READ_ONLY. No self-accept; no ship claim; TIER3 not opened; product_writes empty or inside named WO lease; gate #8 kept PARTIAL with honest gaps. Package process blocking_count=0. Commercial quality residuals remain on gates 8–12 (soak/recovery UX, hide_aura consumer+UI, art outline/coherence, perf/onboarding not measured). Route Purple then Human batch. accepted=false self_accept=false.",
+  "audited_receipts": [
+    {
+      "path": "orchestration/receipts/commercial_save_soak_001/QA_save_soak_001.json",
+      "writer_transcript_ref": "019f8e0d-10d7-70a2-83c9-7de770ff62e9",
+      "authority_token": "VERIFY_ONLY",
+      "accepted": false,
+      "self_accept": false,
+      "product_writes": [],
+      "claim_ship": false,
+      "gate_8_post": "PARTIAL"
+    },
+    {
+      "path": "orchestration/receipts/commercial_ctrl_1b_001/CTRL_1B_polish_001.json",
+      "writer_transcript_ref": "019f8e0d-10d8-7fb1-9925-94b7fc1d3235",
+      "authority_token": "PATCH_DRAFT",
+      "accepted": false,
+      "self_accept": false,
+      "product_writes": [
+        "game/autoload/control_accessibility_settings.gd",
+        "game/tests/control_1b_accessibility_smoke.gd"
+      ],
+      "tier3": false,
+      "network_ship": false,
+      "confirm_gate_changed": false
+    },
+    {
+      "path": "orchestration/receipts/commercial_foundry_1c_001/FOUNDRY_1C_status_001.json",
+      "writer_transcript_ref": "019f8e0d-10d8-7fb1-9925-94c3d63b4a2b",
+      "authority_token": "PATCH_DRAFT",
+      "accepted": false,
+      "self_accept": false,
+      "product_writes": [],
+      "backbone_tier3_locked": true
+    },
+    {
+      "path": "orchestration/receipts/commercial_p1e_001/P1E_art_status_001.json",
+      "writer_transcript_ref": "019f8e0d-10d8-7fb1-9925-94df126e049d",
+      "authority_token": "VERIFY_ONLY",
+      "accepted": false,
+      "self_accept": false,
+      "product_writes": [],
+      "gate_12": "OPEN",
+      "red_f01_ship": "BLOCKED"
+    }
+  ],
+  "control_docs_read": [
+    "orchestration/control/COMMERCIAL_COMPLETION_WAVE_PLAN_001.md",
+    "orchestration/control/COMMERCIAL_READY_SHIP_CHECKLIST_001.md",
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-COMMERCIAL-SAVE-SOAK-001.md",
+    "orchestration/work_orders/WO-COMMERCIAL-CTRL-1B-POLISH-001.md",
+    "orchestration/work_orders/WO-COMMERCIAL-FOUNDRY-1C-001.md",
+    "orchestration/work_orders/WO-COMMERCIAL-P1E-ART-001.md"
+  ],
+  "governance_checks": {
+    "product_writes_leases": {
+      "status": "PASS",
+      "detail": "SAVE product_writes=[]; CTRL writes only control_accessibility_settings.gd + control_1b_accessibility_smoke.gd (both on WO candidate lease: autoload + game/tests/control_1b_*.gd); FOUNDRY product_writes=[]; P1E product_writes=[]. No out-of-lease game/** writes claimed."
+    },
+    "accepted_false_all_waves": {
+      "status": "PASS",
+      "detail": "All four audited receipts accepted=false and self_accept=false; this Red receipt same."
+    },
+    "self_accept": {
+      "status": "PASS",
+      "detail": "No worker self-accept detected in package."
+    },
+    "tier3_not_opened": {
+      "status": "PASS",
+      "detail": "Foundry and P1E receipts restate TIER3 lock (backbone, P2E-002, DNA vNext EXECUTION, H2–H6, TTS/Text-to-3D/voxel). CTRL tier3=false. SAVE excludes Shared District / server World Commit. No TIER3 horizon work claimed."
+    },
+    "ship_not_claimed": {
+      "status": "PASS",
+      "detail": "SAVE claim_ship=false and explicit do-not-claim-ship language. Checklist gate 14 BLOCKED Red F01. P1E governance.red_f01_ship=BLOCKED. No publish/network claim."
+    },
+    "gate_8_partial_honesty": {
+      "status": "PASS",
+      "detail": "QA_save_soak keeps checklist_gate_8_assessment post_this_wo_status=PARTIAL; documents G8-GAP-SOAK-ITERATIONS, G8-GAP-REVISION-RECOVERY-UX, G8-GAP-MULTI-SESSION as blocks_gate_pass=true. Live checklist still PARTIAL. Kernel G4_PERSIST_SMOKE=PASS checks=22 evidenced in logs."
+    },
+    "writer_transcript_refs_real": {
+      "status": "PASS",
+      "detail": "Save/CTRL/Foundry/P1E writer_transcript_ref values match durable parent subagent meta ids under 019f7ffd…/subagents/. This Red id=019f8e12-b69a-7bc3-b78f-88d769ebe335 confirmed running meta."
+    },
+    "evidence_spot_check": {
+      "status": "PASS_WITH_NOTES",
+      "detail": "Confirmed markers: g4_persist_smoke exit 0 + G4_PERSIST_SMOKE=PASS checks=22; CTRL a11y post checks=12 hide_aura_privacy OK exit 0; foundry HARNESS_RESULT=PASS via grep (log binary/UTF-16-ish for text reader); p1e003/004/006 PASS markers + smoke_exits.json all_exit_zero. Foundry log ergonomics residual only."
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "F-COM-001",
+      "title": "Gate #8 remains PARTIAL — soak / multi-session / revision-recovery UX missing",
+      "severity": "medium",
+      "disposition": "residual",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": true,
+      "gate": 8,
+      "evidence": [
+        "orchestration/receipts/commercial_save_soak_001/QA_save_soak_001.json result.checklist_gate_8_assessment.post_this_wo_status=PARTIAL",
+        "commercial_gate_8_gaps: G8-GAP-SOAK-ITERATIONS, G8-GAP-REVISION-RECOVERY-UX, G8-GAP-MULTI-SESSION blocks_gate_pass=true",
+        "orchestration/control/COMMERCIAL_READY_SHIP_CHECKLIST_001.md row 8 PARTIAL",
+        "orchestration/logs/commercial_save_soak_001/g4_persist_smoke.utf8.txt marker G4_PERSIST_SMOKE=PASS checks=22 (kernel only)"
+      ],
+      "honesty_note": "QA correctly refused to upgrade gate #8; WO name SAVE-SOAK over-promises relative to single-pass 22-check suite, but receipt gap list is honest.",
+      "recommended_owner": "QA/Blue optional soak+UX wave after Human batch priority"
+    },
+    {
+      "finding_id": "F-COM-002",
+      "title": "hide_aura foundation patched without product consumer wiring",
+      "severity": "medium",
+      "disposition": "residual",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": true,
+      "gate": 10,
+      "evidence": [
+        "orchestration/receipts/commercial_ctrl_1b_001/CTRL_1B_polish_001.json residual_still_open includes companion_module does not yet consume hide_aura/effective_aura_visible",
+        "game/autoload/control_accessibility_settings.gd set_hide_aura + effective_aura_visible present",
+        "workspace grep: hide_aura/effective_aura_visible only in control_accessibility_settings.gd and control_1b_accessibility_smoke.gd — no companion_module consumer"
+      ],
+      "honesty_note": "CTRL receipt labels residual_closed_machine as foundation only and lists consumer residual; not a false close of gate 10.",
+      "recommended_owner": "Blue companion a11y consumer WO (named lease companion_module.gd + UI if needed)"
+    },
+    {
+      "finding_id": "F-COM-003",
+      "title": "hide_aura settings-panel UI checkbox not leased/shipped this wave",
+      "severity": "low",
+      "disposition": "residual",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": true,
+      "gate": 10,
+      "evidence": [
+        "CTRL_1B_polish_001.json residual_still_open: control_settings_panel UI checkbox for hide_aura not leased this WO",
+        "WO-COMMERCIAL-CTRL-1B-POLISH-001.md candidate lease does not name control_settings_panel as mandatory write"
+      ],
+      "recommended_owner": "Blue Control settings panel residual WO"
+    },
+    {
+      "finding_id": "F-COM-004",
+      "title": "Prior a11y residual A2-R01 H-28 large cursor contrast still open",
+      "severity": "low",
+      "disposition": "residual",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": false,
+      "gate": 10,
+      "evidence": [
+        "CTRL_1B_polish_001.json residual_still_open A2-R01 H-28 large cursor contrast visual residual"
+      ],
+      "recommended_owner": "prior CTRL-1B a11y backlog / Human triage"
+    },
+    {
+      "finding_id": "F-COM-005",
+      "title": "P1E art coherence gate #12 OPEN — ART-G01 toon/outline HIGH + headed visual residual",
+      "severity": "high",
+      "disposition": "residual",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": true,
+      "gate": 12,
+      "evidence": [
+        "P1E_art_status_001.json inventory_summary.ship_checklist_gate_12_content_art_coherence=OPEN",
+        "gaps ART-G01 severity HIGH title No mesh silhouette/toon outline pipeline",
+        "ART-G02..G06 OPEN/DOCUMENTED including headed_visual_gate",
+        "product_patch_decision.applied=false; ASSET_REQUEST + DRAFT_WO filed under commercial_p1e_001 evidence",
+        "orchestration/control/COMMERCIAL_READY_SHIP_CHECKLIST_001.md row 12 OPEN",
+        "smoke suite PASS_3_OF_3 only proves density/style_manager/variants — not outline delight"
+      ],
+      "honesty_note": "P1E correctly kept gate 12 OPEN and did not claim product art polish complete; smokes green is not ship delight proof (ART-G06).",
+      "recommended_owner": "Human batch then DRAFT_WO_P1E_ART_POLISH_002 / asset pipeline"
+    },
+    {
+      "finding_id": "F-COM-006",
+      "title": "Foundry 1C machine intake PASS is not character runtime / backbone readiness",
+      "severity": "medium",
+      "disposition": "residual",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": false,
+      "gate": null,
+      "evidence": [
+        "FOUNDRY_1C_status_001.json tier3_lock_statement + residual_risks machine contract acceptance is not character runtime",
+        "not_in_scope mesh/rig/runtime/Godot Foundry implementation",
+        "live_validator_run harness_result PASS 28/28 3/3 21/21; product_writes=[]"
+      ],
+      "honesty_note": "Status-only wave correctly refuses backbone production; residual risk statements prevent scope creep into TIER3.",
+      "recommended_owner": "Human/Codex status accept only; backbone stays locked"
+    },
+    {
+      "finding_id": "F-COM-007",
+      "title": "Checklist gates 9/11/13 still NOT MEASURED/OPEN; gate 14 BLOCKED",
+      "severity": "medium",
+      "disposition": "residual",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": true,
+      "gate": "9,11,13,14",
+      "evidence": [
+        "COMMERCIAL_READY_SHIP_CHECKLIST_001.md gate 9 NOT MEASURED; 11 OPEN; 13 OPEN; 14 BLOCKED Red F01",
+        "wave plan Done when targets gates 8–12 toward PASS; 13 Human; 14 Human-only ship"
+      ],
+      "recommended_owner": "Purple package + Human commercial batch; no ship"
+    },
+    {
+      "finding_id": "F-COM-008",
+      "title": "CTRL MACHINE_COMPLETE verdict naming vs residual commercial a11y incompleteness",
+      "severity": "low",
+      "disposition": "residual",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": false,
+      "gate": 10,
+      "evidence": [
+        "CTRL_1B_polish_001.json verdict=MACHINE_COMPLETE_HIDE_AURA_POLISH_SMOKES_GREEN",
+        "same receipt residual_still_open non-empty; checklist gate 10 remains PARTIAL"
+      ],
+      "honesty_note": "Not a ship claim; residual_still_open mitigates. Naming can be misread as gate-complete — Purple should treat as machine polish slice complete only.",
+      "recommended_owner": "Purple wording discipline on batch summary"
+    },
+    {
+      "finding_id": "F-COM-009",
+      "title": "Self-accept / accepted=true in commercial package — not observed",
+      "severity": "info",
+      "disposition": "false_alarm",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": false,
+      "evidence": [
+        "QA_save_soak_001 accepted=false self_accept=false",
+        "CTRL_1B_polish_001 accepted=false self_accept=false",
+        "FOUNDRY_1C_status_001 accepted=false self_accept=false",
+        "P1E_art_status_001 accepted=false self_accept=false"
+      ],
+      "honesty_note": "Probe for self-accept failed closed (no violation)."
+    },
+    {
+      "finding_id": "F-COM-010",
+      "title": "TIER3 horizon open or ship claim — not observed",
+      "severity": "info",
+      "disposition": "false_alarm",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": false,
+      "evidence": [
+        "codex_directive.json tier3_locked list + red_f01_network_shipping_hard_stop=true",
+        "Foundry/P1E explicit TIER3 lock statements",
+        "CTRL network_ship=false tier3=false",
+        "SAVE claim_ship=false"
+      ],
+      "honesty_note": "Probe for TIER3/ship creep failed closed (no violation)."
+    },
+    {
+      "finding_id": "F-COM-011",
+      "title": "Out-of-lease product_writes — not observed",
+      "severity": "info",
+      "disposition": "false_alarm",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": false,
+      "evidence": [
+        "WO-COMMERCIAL-CTRL-1B-POLISH-001.md exact product lease candidates",
+        "CTRL product_writes subset of lease",
+        "SAVE/FOUNDRY/P1E product_writes empty"
+      ],
+      "honesty_note": "Probe for lease violation failed closed (no violation)."
+    },
+    {
+      "finding_id": "F-COM-012",
+      "title": "Foundry validator log non-UTF8 ergonomics residual",
+      "severity": "low",
+      "disposition": "residual",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": false,
+      "evidence": [
+        "orchestration/logs/commercial_foundry_1c_001/validate_character_foundry_1c.log present; text read_file reports binary; rg finds HARNESS_RESULT=PASS",
+        "FOUNDRY_1C_status_001.json live_validator_run.log_sha256=e84178f195e0c937f4d69195abf48e57718ff251fa4c5f6853833bdd40fbc0ca"
+      ],
+      "honesty_note": "Does not invalidate harness claim; decode/UTF-8 mirror recommended for Purple re-read.",
+      "recommended_owner": "optional ops hygiene on next Foundry wave"
+    },
+    {
+      "finding_id": "F-COM-013",
+      "title": "TIER2 CTRL product patch executed under commercial-grade continue (not per-item Human batch line)",
+      "severity": "low",
+      "disposition": "residual",
+      "blocks_package_governance_accept": false,
+      "blocks_commercial_gate": false,
+      "evidence": [
+        "codex_directive.json tier2_draft_then_batch_signoff includes Control 1B; execute only after batch approval",
+        "COMMERCIAL_READY_SHIP_CHECKLIST_001.md Open TIER2 queue authorized to execute under Human commercial-grade continue",
+        "WO-COMMERCIAL-CTRL-1B-POLISH-001.md TIER2 authorized by Human commercial-grade continue",
+        "COMMERCIAL_COMPLETION_WAVE_PLAN_001.md CH-CTRL PATCH_DRAFT"
+      ],
+      "honesty_note": "Governance tension exists between generic tier2 batch-signoff language and checklist commercial-continue authorization. Package treats commercial continue as TIER2 queue authorization; not reclassified as true_positive lease breach given explicit checklist+WO wording. Purple/Human should reaffirm.",
+      "recommended_owner": "Human batch reaffirm TIER2 commercial-continue scope"
+    }
+  ],
+  "finding_counts": {
+    "total": 13,
+    "true_positive": 0,
+    "residual": 10,
+    "false_alarm": 3,
+    "blocking_process": 0,
+    "blocking_commercial_gate_residuals": 5
+  },
+  "blocking_count": 0,
+  "blocking_count_definition": "true_positive process/governance violations that must block package acceptance (self-accept, out-of-lease product write, TIER3 open, ship claim, gate-8 false PASS). Commercial quality residuals counted separately.",
+  "commercial_gate_residual_blockers": [
+    "F-COM-001",
+    "F-COM-002",
+    "F-COM-003",
+    "F-COM-005",
+    "F-COM-007"
+  ],
+  "result": {
+    "summary": "Commercial completion package is governance-honest: no self-accept, no ship, no TIER3 open, product_writes leased or empty, gate #8 correctly still PARTIAL. blocking_count=0 for process. Residual commercial quality gaps remain (save soak/recovery UX, hide_aura consumer+UI, P1E outline/coherence, perf/onboarding/Human gates). Route Purple VERIFY then Human batch. Do not ship.",
+    "package_governance_verdict": "PASS_WITH_RESIDUALS",
+    "ship_permission": "DENIED_RED_F01",
+    "checklist_snapshot_observed": {
+      "gate_8": "PARTIAL",
+      "gate_9": "NOT_MEASURED",
+      "gate_10": "PARTIAL",
+      "gate_11": "OPEN",
+      "gate_12": "OPEN",
+      "gate_13": "OPEN",
+      "gate_14": "BLOCKED"
+    }
+  },
+  "smoke_test": {
+    "executed": false,
+    "mode": "READ_ONLY_AUDIT_spot_check_existing_logs",
+    "note": "Red did not re-run Godot/python smokes; verified existing log markers and exit codes for package honesty.",
+    "spot_checks": [
+      {
+        "surface": "g4_persist_smoke",
+        "exit": 0,
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22",
+        "log": "orchestration/logs/commercial_save_soak_001/g4_persist_smoke.utf8.txt"
+      },
+      {
+        "surface": "control_1b_accessibility_smoke_post",
+        "exit": 0,
+        "marker": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS checks=12",
+        "log": "orchestration/logs/commercial_ctrl_1b_001/control_1b_accessibility_smoke_post.utf8.log"
+      },
+      {
+        "surface": "validate_character_foundry_1c",
+        "marker": "HARNESS_RESULT=PASS",
+        "log": "orchestration/logs/commercial_foundry_1c_001/validate_character_foundry_1c.log"
+      },
+      {
+        "surface": "p1e003_004_006",
+        "suite_status": "PASS_3_OF_3",
+        "log": "orchestration/logs/commercial_p1e_001/smoke_exits.json"
+      }
+    ],
+    "pass": true,
+    "failed_checks": []
+  },
+  "self_audit": {
+    "authority_token": "READ_ONLY_AUDIT",
+    "self_accept": false,
+    "accepted": false,
+    "worker_cannot_self_accept": true,
+    "product_writes": [],
+    "no_product_code_patch": true,
+    "no_children_spawned": true,
+    "no_grandchildren": true,
+    "parent_spawn_only": true,
+    "no_network_ship_publish": true,
+    "one_writer_receipt_only": true,
+    "writer_transcript_ref_is_real_subagent_id": true,
+    "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded profile, receipts, checklist, directive 99, WOs, agent_step_contract schema manually.",
+    "owned_write_surface_only": [
+      "orchestration/receipts/commercial_red_001/**"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/receipts/commercial_save_soak_001/QA_save_soak_001.json",
+    "orchestration/receipts/commercial_ctrl_1b_001/CTRL_1B_polish_001.json",
+    "orchestration/receipts/commercial_foundry_1c_001/FOUNDRY_1C_status_001.json",
+    "orchestration/receipts/commercial_p1e_001/P1E_art_status_001.json",
+    "orchestration/control/COMMERCIAL_COMPLETION_WAVE_PLAN_001.md",
+    "orchestration/control/COMMERCIAL_READY_SHIP_CHECKLIST_001.md",
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-COMMERCIAL-SAVE-SOAK-001.md",
+    "orchestration/work_orders/WO-COMMERCIAL-CTRL-1B-POLISH-001.md",
+    "orchestration/work_orders/WO-COMMERCIAL-FOUNDRY-1C-001.md",
+    "orchestration/work_orders/WO-COMMERCIAL-P1E-ART-001.md",
+    "orchestration/logs/commercial_save_soak_001/g4_persist_smoke.utf8.txt",
+    "orchestration/logs/commercial_save_soak_001/g4_persist_smoke.exitcode.txt",
+    "orchestration/logs/commercial_ctrl_1b_001/control_1b_accessibility_smoke_post.utf8.log",
+    "orchestration/logs/commercial_ctrl_1b_001/control_1b_accessibility_smoke_post.exit.txt",
+    "orchestration/logs/commercial_foundry_1c_001/validate_character_foundry_1c.log",
+    "orchestration/logs/commercial_p1e_001/smoke_exits.json",
+    "orchestration/evidence/commercial_p1e_001/ASSET_REQUEST_P1E_ART_POLISH_001.md",
+    "orchestration/evidence/commercial_p1e_001/DRAFT_WO_P1E_ART_POLISH_002.md",
+    "game/autoload/control_accessibility_settings.gd",
+    "game/tests/control_1b_accessibility_smoke.gd",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "PURPLE_VERIFY_THEN_HUMAN_COMMERCIAL_BATCH_NO_SHIP",
+  "next_owner": "aidle-worldgen-purple-acceptance then human_product_lead",
+  "recorded_at": "2026-07-23T15:30:00+07:00",
+  "remaining_risks": [
+    "Gate #8 PARTIAL until soak + multi-session + revision-recovery UX evidenced",
+    "Gate #10 PARTIAL until hide_aura consumer + settings UI close",
+    "Gate #12 OPEN until toon/outline and headed art coherence",
+    "Gates 9/11/13 not package-closed; gate 14 ship hard-stop",
+    "Human must batch-accept; agents must not self-accept"
+  ]
+}

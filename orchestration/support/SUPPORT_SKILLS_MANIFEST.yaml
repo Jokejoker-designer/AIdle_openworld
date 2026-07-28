@@ -1,0 +1,61 @@
+version: "1.0.0"
+status: installed_not_active_in_directive_25
+policy:
+  installed_profile_is_not_authorization: true
+  real_spawn_subagent_required: true
+  no_nested_grandchildren: true
+  max_support_children_with_domain_wave: 2
+  self_accept_forbidden: true
+  product_patch_default: false
+profiles:
+  support-world-genesis:
+    authority: READ_ONLY_AUDIT
+    trustlayer_character: cartographer
+    ui_character: ui-ux-researcher
+    skills:
+      - {id: maf-mandatory-standard, mode: full}
+      - {id: trustlayer-x16-crew, mode: full}
+      - {id: agentwork-knowledge-loop, mode: full}
+      - {id: architecture-lock, mode: full}
+      - {id: curiosity-engine, mode: full}
+  support-control-a11y:
+    authority: READ_ONLY_AUDIT
+    trustlayer_character: code-reader
+    ui_character: ui-a11y-auditor
+    skills:
+      - {id: maf-mandatory-standard, mode: full}
+      - {id: trustlayer-x16-crew, mode: full}
+      - {id: agentwork-knowledge-loop, mode: full}
+      - {id: architecture-lock, mode: full}
+      - {id: game-ui-icons, mode: full}
+  support-regression-evidence:
+    authority: VERIFY_ONLY
+    trustlayer_character: purple-team-finding-triage
+    ui_character: ui-visual-critic
+    skills:
+      - {id: maf-mandatory-standard, mode: full}
+      - {id: trustlayer-x16-crew, mode: full}
+      - {id: agentwork-knowledge-loop, mode: full}
+      - {id: adversarial-review, mode: full}
+      - {id: evidence-memory-ledger, mode: full}
+      - {id: game-ui-icons, mode: full}
+  support-evidence-memory:
+    authority: REPORT_ONLY
+    trustlayer_character: memory-curator
+    ui_character: ui-memory-curator
+    skills:
+      - {id: maf-mandatory-standard, mode: full}
+      - {id: trustlayer-x16-crew, mode: full}
+      - {id: agentwork-knowledge-loop, mode: full}
+      - {id: evidence-memory-ledger, mode: full}
+      - {id: project-room-collab, mode: full}
+  support-worktree-integrator:
+    authority: READ_ONLY_AUDIT
+    trustlayer_character: inspector
+    ui_character: ui-frontend-handoff
+    skills:
+      - {id: maf-mandatory-standard, mode: full}
+      - {id: trustlayer-x16-crew, mode: full}
+      - {id: agentwork-knowledge-loop, mode: full}
+      - {id: architecture-lock, mode: full}
+      - {id: project-room-collab, mode: full}

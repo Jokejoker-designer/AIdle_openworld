@@ -1,0 +1,303 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P2E-001-c0-runtime-correction-002-2026-07-22",
+  "step_id": "P2E-001-c0-runtime-correction-002",
+  "agent_type": "aidle-worldgen-godot-runtime",
+  "agent_id": "aidle-worldgen-godot-runtime",
+  "profile_name": "aidle-worldgen-godot-runtime",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-godot-runtime.md",
+  "profile_sha256": "220c643ab23e3d62de8252cfdfc75f8c8f99db383bfc69235ab4e25c5d5a22b9",
+  "authority_token": "PATCH_DRAFT",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:p2e001-c0-d71-correction",
+  "directive_id": 71,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "ddee83d1c5318dd1804829d23d226a8efebd858fa311592343b4ee01cb98c70e",
+  "work_order": "orchestration/work_orders/WO-P2E-001-PLAYABILITY-CORRECTION-001.md",
+  "work_order_sha256": "5151b4b6671ed508ae16ffed4521dbe6a39179bb08afa744a702939bd52dbeaa",
+  "review": "orchestration/reviews/CODEX_P2E-001_MACHINE_REVIEW_001.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C0_COMPLETE_ROUTE_C1",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C0_P2E_PLAYABILITY_CORRECTION_COMPLETE_NO_ACCEPT",
+  "child_task_ref": "019f8883-4c2b-7341-9093-074ac8449a5c",
+  "resume_from_a1_ref": "019f8858-18aa-7970-a9d5-216a28c17ffa",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "transcript_ref": "019f8883-4c2b-7341-9093-074ac8449a5c",
+  "started_at": "2026-07-22T06:28:54.000695900Z",
+  "completed_at_utc": "2026-07-22T06:37:30Z",
+  "next_route": "C1_CONTROL",
+  "next_owner": "C1_CONTROL",
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "ui_character_id": "ui-app-dashboard",
+    "ui_file": "E:/agents/ui-design/characters/08-ui-app-dashboard.md",
+    "ui_sha256": "20ab5ba77ed1fd3f410de284f70d27ca1b7379a5c0d00c0f3a83eef11d5f990d",
+    "role": "C0 PATCH_DRAFT resume A1 playability correction"
+  },
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "line_count": 1123,
+      "eof_marker": "Prime Directive"
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    }
+  ],
+  "finding_ids_closed": {
+    "P2E-CODEX-F01": {
+      "closed": true,
+      "how": "Superseding C0_runtime_correction_002.json includes non-empty smoke_test and self_audit; original A1_runtime_implementation_001.json left immutable as historical reject"
+    },
+    "P2E-CODEX-F02": {
+      "closed": true,
+      "how": "BlockPreviewEntity._dispose_visuals frees mesh/material/shape; controller.dispose_all_previews + _exit_tree; correction smoke teardown_dispose_clean PASS; headless smokes ERROR=0"
+    },
+    "P2E-CODEX-F03": {
+      "closed": true,
+      "how": "Added remappable build_module_prev/next + build_place path; cycle_module/place_highlighted_module; playable_select smoke proves no select_module API for state creation"
+    },
+    "P2E-CODEX-F04": {
+      "closed": true,
+      "how": "CozyCamera freezes yaw while Build primary (no residual lerp); hard-blocks rotate_camera_* in build; main freezes yaw before build rotate; correction + qr smokes PASS"
+    },
+    "P2E-CODEX-F05": {
+      "closed": true,
+      "how": "BlockAssemblyHud plain-language module/context/snap/validity/rotation/elevation/confirm-cancel; responsive top-left card; bound from main in Build context"
+    },
+    "P2E-CODEX-F06": {
+      "closed": true,
+      "how": "Idempotency key binds only after successful commit; invalid/intermediate remint; invalid_then_corrected_submit PASS; changed payload after commit rejects"
+    }
+  },
+  "result": {
+    "verdict": "C0_P2E_PLAYABILITY_CORRECTION_COMPLETE_NO_ACCEPT",
+    "summary": "Closed P2E-CODEX-F01..F06 under Directive 71. Playable module picker via InputMap, plain BA HUD, Build camera yaw freeze, commit-only idempotency bind, clean preview dispose. All P2E+router smokes PASS exit 0 ERROR=0; DNA 14/14 42/42. A1 receipt preserved. accepted=false.",
+    "historical_a1_receipt_preserved": "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json",
+    "d70_evidence_immutable": "orchestration/evidence/p2e_001/001/**"
+  },
+  "smoke_test": {
+    "status": "PASS",
+    "all_exit_zero": true,
+    "error_lines_total": 0,
+    "commands": [
+      {
+        "cmd": "PYTHONDONTWRITEBYTECODE=1 E:/standards/maf/.venv/Scripts/python.exe -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+        "exit_code": 0,
+        "result": "PASS",
+        "detail": "valid 14/14 invalid 42/42"
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_core_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14",
+        "error_lines": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+        "error_lines": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+        "error_lines": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_playable_select_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_PLAYABLE_SELECT_SMOKE=PASS checks=5",
+        "error_lines": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_correction_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_CORRECTION_SMOKE=PASS checks=4",
+        "error_lines": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+        "error_lines": 0
+      }
+    ]
+  },
+  "self_audit": {
+    "lease_respected": true,
+    "a1_receipt_not_rewritten": true,
+    "d70_evidence_not_rewritten": true,
+    "no_dna_package_import": true,
+    "no_world_dna_edit": true,
+    "no_client_forged_commit": true,
+    "no_network_install_publish": true,
+    "accepted_false": true,
+    "self_accept_false": true,
+    "playable_select_avoids_select_module_in_evidence_path": true,
+    "idempotency_bind_only_after_commit": true,
+    "camera_yaw_frozen_in_build": true,
+    "notes": [
+      "cozy_camera.gd edited outside original minimal list to freeze residual yaw lerp (root cause of F-A4-01); required for F04 product proof",
+      "control_action_catalog gained build_module_prev/next for remappable picker",
+      "Headed capture deferred to C2; product teardown and headless ERROR=0 gates closed for F02"
+    ],
+    "files_to_touch_declared_before_write": true
+  },
+  "product_writes": [
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+      "sha256": "f5de6332366834e7e76846118b5acb46972ec4229df905bff3f5aaee09cb5b26"
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_hud.gd",
+      "sha256": "4420f6879de09dca06710049cc42a64d8fb0e59f1aee073137d519107af7c6d0"
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_catalog_gate.gd",
+      "sha256": "e635314fd8b38533f9be4bbb223e2b7dacc17674f8bf59d393db5e6047bff779"
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_preview_entity.gd",
+      "sha256": "101217b908ff743fcd973b4bb32fb80d572457eba0d94832685f4bf8ad50b85d"
+    },
+    {
+      "path": "game/tests/p2e001_block_assembly_playable_select_smoke.gd",
+      "sha256": "9aed8b9fb7089fae9b3848fad8dc37e4e18f1c89df5a2e4a5007f299695e1933"
+    },
+    {
+      "path": "game/tests/p2e001_block_assembly_correction_smoke.gd",
+      "sha256": "5d1e1935843232959bb9c928bf46ac73e70f77d0cfe56c9e0d0c8c75e2616b6a"
+    },
+    {
+      "path": "game/tests/p2e001_block_assembly_authority_smoke.gd",
+      "sha256": "d0f69f0d04d74e16a52286e86bf4bfe7bbc3eae85036a4a395244cecf96c3382"
+    },
+    {
+      "path": "game/scripts/main/main.gd",
+      "sha256": "a444446d5ed45eef713336bcb79cccc5e6c0bc23b1d266506e183e8a1cc51838"
+    },
+    {
+      "path": "game/scripts/input/control_action_catalog.gd",
+      "sha256": "3d259d86d317e7214b33d7fe782c29569f149485827d1d16bfdd6020dd3f4fea"
+    },
+    {
+      "path": "game/scripts/ui/context_action_hud.gd",
+      "sha256": "f5402f03eab3ba614df8c3f97d4a061278ca32fa41c42be1f3f6d29ef904c057"
+    },
+    {
+      "path": "game/scripts/camera/cozy_camera.gd",
+      "sha256": "17d17b29ebe714fab891d9ce464f13f9c418e7ee90b751c6877e1e3512508320"
+    }
+  ],
+  "files_written": [
+    "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+    "game/scripts/modules/block_assembly/block_assembly_hud.gd",
+    "game/scripts/modules/block_assembly/block_catalog_gate.gd",
+    "game/scripts/modules/block_assembly/block_preview_entity.gd",
+    "game/tests/p2e001_block_assembly_playable_select_smoke.gd",
+    "game/tests/p2e001_block_assembly_correction_smoke.gd",
+    "game/tests/p2e001_block_assembly_authority_smoke.gd",
+    "game/scripts/main/main.gd",
+    "game/scripts/input/control_action_catalog.gd",
+    "game/scripts/ui/context_action_hud.gd",
+    "game/scripts/camera/cozy_camera.gd",
+    "orchestration/logs/p2e-001-c0-runtime-002.log",
+    "orchestration/receipts/p2e_001/correction_001/C0_runtime_correction_002.json"
+  ],
+  "files_read": [
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-P2E-001-PLAYABILITY-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_P2E-001_MACHINE_REVIEW_001.json",
+    "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+    "game/autoload/control_context_router.gd",
+    "game/scripts/camera/cozy_camera.gd",
+    "game/scripts/input/control_action_catalog.gd"
+  ],
+  "evidence_refs": [
+    "orchestration/logs/p2e-001-c0-runtime-002.log",
+    "orchestration/receipts/p2e_001/correction_001/C0_runtime_correction_002.json"
+  ],
+  "commands": [
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_core_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_playable_select_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_correction_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "PYTHONDONTWRITEBYTECODE=1 E:/standards/maf/.venv/Scripts/python.exe -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit_code": 0
+    }
+  ]
+}

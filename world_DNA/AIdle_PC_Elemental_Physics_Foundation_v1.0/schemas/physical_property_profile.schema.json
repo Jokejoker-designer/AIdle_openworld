@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "profile_id",
+    "elements",
+    "mass_density",
+    "friction",
+    "restitution",
+    "structural_strength",
+    "toughness",
+    "flammability",
+    "thermal_conductivity",
+    "heat_capacity",
+    "electrical_conductivity",
+    "water_resistance",
+    "corrosion_resistance",
+    "pressure_resistance",
+    "buoyancy"
+  ],
+  "properties": {
+    "profile_id": {
+      "type": "string"
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mass_density": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "friction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "restitution": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "structural_strength": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "toughness": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "flammability": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "thermal_conductivity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "heat_capacity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "electrical_conductivity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "water_resistance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "corrosion_resistance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "pressure_resistance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "buoyancy": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  },
+  "additionalProperties": {
+    "type": [
+      "number",
+      "string",
+      "boolean",
+      "array",
+      "object",
+      "null"
+    ]
+  }
+}

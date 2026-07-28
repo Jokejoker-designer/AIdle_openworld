@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_UCBV-001_C1_CHARACTER_GATE_004",
+  "task_id": "UCBV-001",
+  "directive_reviewed": 84,
+  "reviewed_at": "2026-07-23T06:08:15+07:00",
+  "reviewed_by": "codex",
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "c1_lineage": {
+    "child_task_ref": "019f8c08-d346-7250-b834-1887b51713c6",
+    "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8c08-d346-7250-b834-1887b51713c6/meta.json",
+    "durable_started_at": "2026-07-22T22:53:36.457330Z",
+    "durable_completed_at": "2026-07-22T23:05:37.970633100Z",
+    "receipt_worker_times_status": "NON_CANONICAL_ARTIFACT_CLAIMS",
+    "receipt": "orchestration/receipts/ucbv_001/correction_002/C1_character_production_002.json",
+    "receipt_schema_errors": 0,
+    "declared_product_hashes_verified": "11/11",
+    "accepted": false,
+    "self_accept": false
+  },
+  "verified_positive": {
+    "glb_sha256": "e70cbe35542a45ea8ebffa03308335b9aa271584a62a9971481f8e6ffb235ef0",
+    "glb_bytes": 629156,
+    "glb_scene_roots": ["Nori7_Mesh", "root"],
+    "single_skinned_mesh": true,
+    "bone_count": 14,
+    "bone_hierarchy_exact": true,
+    "actions": ["idle", "walk", "scan", "happy", "cancel", "turn_left", "turn_right", "build_place", "build_place_hold", "confirm"],
+    "action_count": 10,
+    "motion_kit_hashes_match": "7/7",
+    "motion_kit_validator": "ALL CHECKS GREEN",
+    "scope_accounting": "C1 declared writes are inside its exact lease; concurrent character_build files are Human-attributed Claude advisory writes, not C1 writes"
+  },
+  "blocking_findings": [
+    {
+      "id": "C1-CODEX-F01",
+      "severity": "HIGH",
+      "finding": "The delivered nori7_rigged.blend contains invalid deform weights. Blender mesh.validate(clean_customdata=false, verbose=true) reports five vertices in deform group 9 with weight 1.0000001 and returns true, proving the source mesh needs correction.",
+      "evidence": "Independent Blender 5.2.0 background inspection at 2026-07-23T06:07+07:00."
+    },
+    {
+      "id": "C1-CODEX-F02",
+      "severity": "HIGH",
+      "finding": "The final export still emits 'Mesh Sphere is not valid, and may be exported wrongly'. The same warning appears on all three export attempts, including the final GLB hash presented as production-complete.",
+      "evidence": "orchestration/logs/ucbv_001/correction_002/C1_character_production_002.log lines 73, 89 and 123"
+    },
+    {
+      "id": "C1-CODEX-F03",
+      "severity": "MEDIUM",
+      "finding": "The submitted C1 log is not a clean production log: it preserves an initial Action.fcurves failure and repeated deprecation and invalid-mesh warnings. Historical evidence stays immutable, but a correction must produce a separate clean log rather than overwrite it.",
+      "evidence": "C1 log lines 34-49, 57, 73, 89, 106 and 123"
+    }
+  ],
+  "decision": {
+    "c1_result": "REJECTED_AS_C2_INPUT_PENDING_CORRECTION",
+    "c2_authorized": false,
+    "correction_scope": "Normalize/clamp and renormalize all deform weights, validate the source mesh without mutation, export a fresh GLB with no invalid-mesh warning, and rebind all affected hashes/manifests without changing character identity, skeleton, action names, palette or motion-kit inputs.",
+    "prior_evidence_policy": "C1 correction_002 receipt and log remain immutable rejected evidence."
+  },
+  "next_route": "C1R_CHARACTER_MESH_WEIGHT_CORRECTION"
+}

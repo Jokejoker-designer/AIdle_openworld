@@ -1,0 +1,298 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P2E-001-a1-runtime-implementation-001-2026-07-22",
+  "step_id": "P2E-001-a1-runtime-implementation-001",
+  "work_order_id": "WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE",
+  "work_order": "orchestration/work_orders/WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md",
+  "work_order_sha256": "39bf0b224201ec9d38a34aba0209348bfa993540c065d72b8fc186280b0d37e4",
+  "directive_id": 70,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "milestone": "P2E-001 Block Assembly preview slice — A1 Godot runtime implementation",
+  "agent_id": "aidle-worldgen-godot-runtime",
+  "agent_type": "aidle-worldgen-godot-runtime",
+  "profile_name": "aidle-worldgen-godot-runtime",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-godot-runtime.md",
+  "profile_sha256": "220c643ab23e3d62de8252cfdfc75f8c8f99db383bfc69235ab4e25c5d5a22b9",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-godot-runtime; trustlayer_character=blue-team-p0-remediator; ui_character=ui-app-dashboard; authority_token=PATCH_DRAFT; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "sole product/test writer for P2E-001 lease only; no self-accept; no DNA rewrite; no network/install/Godot version change",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "A1_COMPLETE_ROUTE_A2_CONTROL_UX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "A1_BLOCK_ASSEMBLY_PREVIEW_COMPLETE_NO_ACCEPT",
+  "child_task_ref": "019f8858-18aa-7970-a9d5-216a28c17ffa",
+  "transcript_ref": "019f8858-18aa-7970-a9d5-216a28c17ffa",
+  "writer_transcript_ref": "019f8858-18aa-7970-a9d5-216a28c17ffa",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_child_ref": "019f8854-9d26-7663-93c3-11e68a2cb537",
+  "prior_a0_receipt": "orchestration/receipts/p2e_001/A0_ssot_preflight_001.json",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8858-18aa-7970-a9d5-216a28c17ffa/meta.json",
+  "durable_meta_sha256_at_start": "b2057cf40b97d67a836745e1ddb156acf4ae16abc2bee213b27872372dfad361",
+  "started_at": "2026-07-22T05:41:42.702149600Z",
+  "completed_at_utc": "2026-07-22T05:56:30Z",
+  "next_owner": "A2_CONTROL_UX",
+  "next_route": "A2_CONTROL_UX",
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_read": "profile_bound",
+    "ui_character_id": "ui-app-dashboard",
+    "ui_file": "E:/agents/ui-design/characters/08-ui-app-dashboard.md",
+    "ui_sha256": "20ab5ba77ed1fd3f410de284f70d27ca1b7379a5c0d00c0f3a83eef11d5f990d",
+    "ui_read": "profile_bound",
+    "role": "A1 PATCH_DRAFT sole product/test writer for Block Assembly preview runtime"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO, ARCHITECTURE_LOCK, skills (curiosity-engine chunked EOF through Prime Directive L1123), Block-DNA contracts, A0 receipt manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "read_mode": "chunked_full_eof",
+      "line_count": 1123,
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "also_read_project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md"
+    }
+  ],
+  "files_to_touch_declared_before_writes": [
+    "game/scripts/modules/block_assembly/block_assembly_constants.gd",
+    "game/scripts/modules/block_assembly/block_catalog_gate.gd",
+    "game/scripts/modules/block_assembly/block_socket_rules.gd",
+    "game/scripts/modules/block_assembly/block_placement_math.gd",
+    "game/scripts/modules/block_assembly/block_preview_entity.gd",
+    "game/scripts/modules/block_assembly/block_world_prompt_builder.gd",
+    "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+    "game/resources/block_assembly/runtime_catalog.json",
+    "game/resources/block_assembly/socket_rules.json",
+    "game/scenes/modules/block_assembly/block_assembly_root.tscn",
+    "game/tests/p2e001_block_assembly_core_smoke.gd",
+    "game/tests/p2e001_block_assembly_authority_smoke.gd",
+    "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+    "game/scripts/main/main.gd",
+    "orchestration/logs/p2e-001-a1-runtime-001.log",
+    "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json"
+  ],
+  "product_writes": [
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_constants.gd",
+      "sha256": "8bcb3407fb46fb32362e13e446dd2cf39b2f74af84e86170934dc0a7d93b89e2",
+      "bytes": 1016
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_catalog_gate.gd",
+      "sha256": "e46b1a73b82e95f778a4309c9c4906dc5c25c60d13f7166e822a9289c2866272",
+      "bytes": 5511
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_socket_rules.gd",
+      "sha256": "cba6ee794e24ba0ab48de0e14706bc9352f4cd7546ec594793d9b34888a3be26",
+      "bytes": 6997
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_placement_math.gd",
+      "sha256": "55c4e6122cd4ee780fb7123ae2dabf9949c2ed952a4b9eb35d15c1968a6c4f3b",
+      "bytes": 2091
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_preview_entity.gd",
+      "sha256": "1e425d8ea1c5b067791c514cc0e68ae35791c4cb17d9dbb71c11a142281d5da8",
+      "bytes": 5775
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_world_prompt_builder.gd",
+      "sha256": "10623702b8849f96f3d69344d521377763ea2d050d8a67c9c2c322f949b2580f",
+      "bytes": 5880
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+      "sha256": "a7143da937dc8dd333c9544ae9fe79a8674e45e04bd4f3187b2b6128e21c7074",
+      "bytes": 21161
+    },
+    {
+      "path": "game/resources/block_assembly/runtime_catalog.json",
+      "sha256": "b247b3ea296bb98e0ae3f5c360950252e110d18c1ec83f74bca707bf47166c2b",
+      "bytes": 3252
+    },
+    {
+      "path": "game/resources/block_assembly/socket_rules.json",
+      "sha256": "d2c3874b737e88e01a8385bf16bc983f40fe07fcd4a64af306662d3cd51c2b50",
+      "bytes": 6438
+    },
+    {
+      "path": "game/scenes/modules/block_assembly/block_assembly_root.tscn",
+      "sha256": "7ba24992a7f3a7379805c3182a3f8214f6c7c3e3fe9a315910ae8d92e5df204d",
+      "bytes": 255
+    },
+    {
+      "path": "game/tests/p2e001_block_assembly_core_smoke.gd",
+      "sha256": "b193112f08a44300fc8d47cdd3fb5aa8672a72cbe85de98ee1bc63891f53f97c",
+      "bytes": 10817
+    },
+    {
+      "path": "game/tests/p2e001_block_assembly_authority_smoke.gd",
+      "sha256": "c7fc1057afaf3efa92c187b225c173947f56833b8493aba95e78fa9882a54343",
+      "bytes": 11677
+    },
+    {
+      "path": "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "sha256": "b626c2c4e67cdefd3676b3312fcbc5f10b9df37b2aead49e4227c24a6977c911",
+      "bytes": 9515
+    },
+    {
+      "path": "game/scripts/main/main.gd",
+      "sha256": "3f6d056991b55e508155fc42df4c9ad4d6dd1566541eed4d4c9dee3d711b8596",
+      "bytes": 39599,
+      "note": "minimal integration: mount BlockAssemblyController; wire build rotate/cancel/confirm/undo"
+    }
+  ],
+  "evidence_writes": [
+    "orchestration/logs/p2e-001-a1-runtime-001.log",
+    "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json"
+  ],
+  "product_writes_not_touched": [
+    "game/project.godot",
+    "game/scripts/input/control_action_catalog.gd",
+    "game/autoload/control_context_router.gd",
+    "game/scripts/ui/context_action_hud.gd",
+    "game/scenes/ui/hud.tscn",
+    "world_DNA/**",
+    "orchestration/contracts/block_dna_adapt_001/**"
+  ],
+  "commands": [
+    {
+      "cmd": "PYTHONDONTWRITEBYTECODE=1 E:/standards/maf/.venv/Scripts/python.exe -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "result": "valid 14/14; invalid 42/42 rejected"
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_core_smoke.gd",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "marker": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14",
+      "error_lines": 0,
+      "script_errors": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "marker": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+      "error_lines": 0,
+      "script_errors": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+      "error_lines": 0,
+      "script_errors": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "note": "catalog/router not modified; regression confidence re-run"
+    }
+  ],
+  "behavior_coverage": {
+    "exploration_qr_camera_preserved": true,
+    "build_qr_preview_only_no_dual_fire": true,
+    "snap_grid_0_5m_elev_0_25m_rot_15deg": true,
+    "pair_bound_norm_and_mutual_socket": true,
+    "unknown_module_socket_norm_material_reject": true,
+    "budget_fail_reject": true,
+    "preview_stages_no_collision_until_receipt": true,
+    "cancel_any_stage_no_receipt_no_committed_remove": true,
+    "confirm_via_world_authority_local_only": true,
+    "client_authored_success_reject": true,
+    "idempotent_replay_no_duplicate": true,
+    "changed_payload_same_key_reject": true,
+    "stale_revision_reject": true,
+    "undo_compensation_authority_path": true,
+    "missing_asset_request_only": true
+  },
+  "contract_consume": {
+    "source": "orchestration/contracts/block_dna_adapt_001/**",
+    "import_dna_package_runtime_code": false,
+    "parallel_grammar_invented": false,
+    "runtime_snapshots": [
+      "game/resources/block_assembly/runtime_catalog.json",
+      "game/resources/block_assembly/socket_rules.json"
+    ],
+    "validator_still": "14/14 valid, 42/42 invalid"
+  },
+  "hard_stops_observed": [
+    "no_world_DNA_edit",
+    "no_dna_v1_2",
+    "no_tier3",
+    "no_character_foundry_runtime",
+    "no_network",
+    "no_install",
+    "no_godot_version_change",
+    "no_ownership_economy_minting",
+    "no_direct_client_commit",
+    "no_generated_code_execution"
+  ],
+  "result": {
+    "verdict": "A1_BLOCK_ASSEMBLY_PREVIEW_COMPLETE_NO_ACCEPT",
+    "summary": "A1 implemented offline Block Assembly preview slice under sole product lease: allowlisted module select, contract snap (0.5/0.25/15), socket mutual+pair-bound norms, manifestation stages without pre-commit collision/nav, cancel isolation, explicit confirm via existing WorldAuthorityLocal, idempotency/stale/changed-payload gates, authority undo compensation, asset-request-only for missing modules. Headless smokes PASS 14+8+8 with 0 ERROR; DNA validator 14/14 42/42; Control 1B router regression PASS. Catalog/router InputMap not modified. accepted=false; self_accept=false; next_owner=A2_CONTROL_UX.",
+    "playable_integration": "main.gd mounts BlockAssemblyController and routes build rotate/cancel/confirm/undo; Exploration Q/R camera path unchanged via existing ControlContextRouter + catalog allow-lists"
+  },
+  "trace": {
+    "handoff": "A2_CONTROL_UX VERIFY_ONLY audit of InputMap/context routing, Q/R semantics, action discoverability, responsive layout and accessibility; findings only, no patch",
+    "log": "orchestration/logs/p2e-001-a1-runtime-001.log",
+    "receipt": "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json"
+  }
+}

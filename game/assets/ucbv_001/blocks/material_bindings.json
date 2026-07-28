@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "package_id": "ucbv_001_cozy_architecture_kit_v1",
+  "wave": "U3_BLOCK_FAMILY_ART",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "world_profile_id": "cozy_cyber_pixel",
+  "state_variants": {
+    "reuse_path": "game/resources/world_profiles/state_visual_variants.json",
+    "parallel_system": "FORBIDDEN",
+    "cozy_cyber_pixel_mode": "identity_register",
+    "note": "Applying cozy_cyber_pixel is a no-op recolor; MAT_* ids remain identity."
+  },
+  "authority": {
+    "art_direction_ssot": "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/world_profiles/COZY_ART_BIBLE_001.md",
+    "runtime_material_ssot": "orchestration/contracts/block_dna_adapt_001/material_slot_mapping.contract.json",
+    "tokens_ssot": "game/resources/art_styles/tokens/ucbv_001_shared_character_block_tokens.json",
+    "dna_material_theme_status": "NON_AUTHORITATIVE_ALIAS_ONLY"
+  },
+  "shared_vocabulary_to_mat": {
+    "body": {"semantic_slot": "body", "mat_id": "MAT_CozyCeramic", "bible_hex_primary": "#fdf3e2"},
+    "stone": {"semantic_slot": "stone", "mat_id": "MAT_CozyStone", "bible_hex_primary": "#e0d5c4"},
+    "structure": {"semantic_slot": "structure", "mat_id": "MAT_CozyStoneWarm", "bible_hex_primary": "#efe0c8"},
+    "wood": {"semantic_slot": "wood", "mat_id": "MAT_CozyWood", "bible_hex_primary": "#c98a5e"},
+    "door": {"semantic_slot": "door", "mat_id": "MAT_CozyDoor", "bible_hex_primary": "#c98a5e"},
+    "glass": {"semantic_slot": "glass", "mat_id": "MAT_CozyGlass", "bible_hex_primary": "#a8dced"},
+    "roof": {"semantic_slot": "roof", "mat_id": "MAT_CozyRoof", "bible_hex_primary": "#e88b6f"},
+    "roof_shade": {"semantic_slot": "roof", "mat_id": "MAT_CozyRoofShade", "bible_hex_primary": "#d4785e"},
+    "emission": {"semantic_slot": "emission", "mat_id": "MAT_CozyLampWarm", "bible_hex_primary": "#f5c451"},
+    "metal": {"semantic_slot": "metal", "mat_id": "MAT_CozyMetal", "surface_fraction_max": 0.15},
+    "leaf": {"semantic_slot": "leaf", "mat_id": "MAT_CozyLeaf", "bible_hex_primary": "#7fc98f"},
+    "ground": {"semantic_slot": "ground", "mat_id": "MAT_CozyGround"},
+    "fence_post": {"semantic_slot": "wood", "mat_id": "MAT_CozyFencePost", "note": "P1E live mat; maps via wood vocabulary for fence role"},
+    "fence_rail": {"semantic_slot": "wood", "mat_id": "MAT_CozyFenceRail"},
+    "interactive_preview": {"mat_id": "MAT_CozyPreviewMarker", "non_color_signals_required": ["outline", "opacity", "icon", "stage_label"]},
+    "interactive_glass_preview": {"mat_id": "MAT_CozyGlassPreview", "non_color_signals_required": ["outline", "opacity", "icon", "stage_label"]}
+  },
+  "role_default_slots": {
+    "foundation": {
+      "primary": "structure",
+      "secondary": "stone",
+      "trim": "wood",
+      "primary_mat": "MAT_CozyStoneWarm",
+      "secondary_mat": "MAT_CozyStone",
+      "trim_mat": "MAT_CozyWood"
+    },
+    "floor": {
+      "primary": "structure",
+      "trim": "wood",
+      "primary_mat": "MAT_CozyStoneWarm",
+      "trim_mat": "MAT_CozyWood"
+    },
+    "wall": {
+      "primary": "body",
+      "trim": "wood",
+      "primary_mat": "MAT_CozyCeramic",
+      "trim_mat": "MAT_CozyWood",
+      "value_note": "Wall cream #fdf3e2 / MAT_CozyCeramic; Nori body may sit slightly lighter in paint callouts only — same MAT_* identity."
+    },
+    "corner": {
+      "primary": "body",
+      "accent": "structure",
+      "primary_mat": "MAT_CozyCeramic",
+      "accent_mat": "MAT_CozyStoneWarm"
+    },
+    "door": {
+      "primary": "door",
+      "trim": "wood",
+      "metal_budget": "MAT_CozyMetal",
+      "primary_mat": "MAT_CozyDoor",
+      "trim_mat": "MAT_CozyWood"
+    },
+    "window": {
+      "frame": "wood",
+      "pane": "glass",
+      "frame_mat": "MAT_CozyWood",
+      "pane_mat": "MAT_CozyGlass"
+    },
+    "roof": {
+      "primary": "roof",
+      "shade": "roof_shade",
+      "trim": "wood",
+      "primary_mat": "MAT_CozyRoof",
+      "shade_mat": "MAT_CozyRoofShade",
+      "trim_mat": "MAT_CozyWood"
+    },
+    "fence": {
+      "post": "fence_post",
+      "rail": "fence_rail",
+      "post_mat": "MAT_CozyFencePost",
+      "rail_mat": "MAT_CozyFenceRail"
+    },
+    "prop": {
+      "primary": "wood",
+      "accent": "leaf",
+      "primary_mat": "MAT_CozyWood",
+      "accent_mat": "MAT_CozyLeaf"
+    },
+    "wall_door": {
+      "primary": "body",
+      "trim": "wood",
+      "opening": "door",
+      "primary_mat": "MAT_CozyCeramic",
+      "trim_mat": "MAT_CozyWood",
+      "opening_mat": "MAT_CozyDoor"
+    }
+  },
+  "manifestation_reserved": {
+    "hex": ["#3fd0e0", "#8ff0ff"],
+    "allowed_on_complete_base_kit": false,
+    "stages_only": ["wireframe", "hologram", "materializing"]
+  },
+  "surface": {
+    "final_surface": "matte_tactile",
+    "construction_surface": "translucent_luminous",
+    "no_photoreal_mix": true,
+    "specular_exceptions": ["glass", "lamp"],
+    "metal_accent_max": 0.15
+  }
+}

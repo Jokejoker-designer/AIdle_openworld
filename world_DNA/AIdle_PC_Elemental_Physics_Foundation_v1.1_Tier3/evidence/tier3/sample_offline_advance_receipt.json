@@ -1,0 +1,98 @@
+{
+  "receipt_id": "tier3_cozy_center_1003600_d7abddb796c2",
+  "mutation_kind": "TIER3_OFFLINE_ADVANCE",
+  "chunk_id": "cozy_center",
+  "observed_elapsed_seconds": 3600.0,
+  "used_elapsed_seconds": 3600.0,
+  "time_decision": "ACCEPTED",
+  "saved_wall_clock_unix": 1000000.0,
+  "current_wall_clock_unix": 1003600.0,
+  "saved_monotonic_msec": 500000,
+  "current_monotonic_msec": 4100000,
+  "monotonic_delta_seconds": 3600.0,
+  "monotonic_reset_detected": false,
+  "max_offline_seconds": 28800.0,
+  "updated_entity_ids": [
+    "farm_01"
+  ],
+  "skipped_entity_ids": [
+    "fence_01",
+    "path_01",
+    "pond_01",
+    "preview_farm",
+    "rock_01"
+  ],
+  "before_hash": "e26d71655de77d97d0ca85305157afc00eff29f95ef296274340bc0117cacdef",
+  "after_hash": "d7abddb796c2d3e0046e774eb0a56517068bea7342c2c3dd0e27382b8847ae23",
+  "entity_metrics": {
+    "farm_01": {
+      "wetness_before": 0.85,
+      "wetness_after": 0.814,
+      "growth_before": 0.1,
+      "growth_after": 0.15760000000000002,
+      "growth_delta": 0.05760000000000001,
+      "pond_available": true,
+      "closed_form_segments": 1,
+      "state_changed": true,
+      "selected_visual_variant": "wet"
+    },
+    "fence_01": {
+      "reason": "OUTSIDE_DYNAMIC_PILOT_SCOPE",
+      "byte_identical": true
+    },
+    "path_01": {
+      "reason": "OUTSIDE_DYNAMIC_PILOT_SCOPE",
+      "byte_identical": true
+    },
+    "pond_01": {
+      "reason": "OUTSIDE_DYNAMIC_PILOT_SCOPE",
+      "byte_identical": true
+    },
+    "preview_farm": {
+      "reason": "NOT_CANONICAL_COMMITTED"
+    },
+    "rock_01": {
+      "reason": "OUTSIDE_DYNAMIC_PILOT_SCOPE",
+      "byte_identical": true
+    }
+  },
+  "visual_variants": {
+    "farm_01": "wet"
+  },
+  "event_trace": [
+    "interaction_disabled",
+    "records_loaded",
+    "deterministic_advance_started",
+    "deterministic_advance_complete",
+    "persist:farm_01",
+    "persistence_complete",
+    "visual_variants_selected",
+    "interaction_enabled"
+  ],
+  "authority_proof": {
+    "original_entity_ids": [
+      "farm_01",
+      "fence_01",
+      "path_01",
+      "pond_01",
+      "preview_farm",
+      "rock_01"
+    ],
+    "final_entity_ids": [
+      "farm_01",
+      "fence_01",
+      "path_01",
+      "pond_01",
+      "preview_farm",
+      "rock_01"
+    ],
+    "entity_count_unchanged": true,
+    "transforms_unchanged": true,
+    "only_canonical_entities_updated": true,
+    "persistence_gateway": "ValidatedPersistenceStore.update_existing_state"
+  },
+  "accepted": false,
+  "self_accept": false,
+  "tier3_source_status": "IMPLEMENTED_HERE_SOURCE_PACKAGE_MISSING",
+  "grok_status_crosscheck": "NOT_AVAILABLE_IN_SUPPLIED_PACKAGE"
+}

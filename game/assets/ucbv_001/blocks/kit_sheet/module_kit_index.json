@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "kit_sheet_id": "ucbv_001_cozy_architecture_kit_sheet_v1",
+  "family_id": "ucbv_001_cozy_architecture_kit_v1",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "wave": "U3_BLOCK_FAMILY_ART",
+  "sheet_svg": "module_kit_sheet.svg",
+  "design_sheet_mirror": "orchestration/design/ucbv_001/blocks/sheets/module_kit_sheet.svg",
+  "grid": {"snap_m": 0.5, "cell_display_m": 1.0},
+  "layout": {
+    "columns": 5,
+    "rows": 2,
+    "viewport_proof": ["1280x720", "868x517"]
+  },
+  "cells": [
+    {"index": 0, "role": "foundation", "module_id": "block_platform", "label": "FND"},
+    {"index": 1, "role": "floor", "module_id": "arch_floor_round_4m", "label": "FLR"},
+    {"index": 2, "role": "wall", "module_id": "block_panel", "label": "WAL"},
+    {"index": 3, "role": "corner", "module_id": "block_cube_round", "label": "CRN"},
+    {"index": 4, "role": "door", "module_id": "arch_door_round", "label": "DOR"},
+    {"index": 5, "role": "window", "module_id": "arch_window_frame_simple", "label": "WIN"},
+    {"index": 6, "role": "roof", "module_id": "arch_roof_dome_4m", "label": "ROF"},
+    {"index": 7, "role": "fence", "module_id": "block_beam", "label": "FNC"},
+    {"index": 8, "role": "prop", "module_id": "prop_crate_small", "label": "PRP"},
+    {"index": 9, "role": "wall_door", "module_id": "arch_wall_door_4m", "label": "WDR"}
+  ],
+  "palette_swatches": [
+    {"hex": "#fdf3e2", "mat": "MAT_CozyCeramic", "role": "wall_body"},
+    {"hex": "#efe0c8", "mat": "MAT_CozyStoneWarm", "role": "structure"},
+    {"hex": "#c98a5e", "mat": "MAT_CozyWood", "role": "wood_trim"},
+    {"hex": "#a8dced", "mat": "MAT_CozyGlass", "role": "glass"},
+    {"hex": "#e88b6f", "mat": "MAT_CozyRoof", "role": "roof"},
+    {"hex": "#3fd0e0", "mat": null, "role": "manifestation_cyan_reserved"}
+  ],
+  "socket_legend": [
+    "snap_grid",
+    "vertical_stack",
+    "wall_edge",
+    "door_opening",
+    "door_leaf",
+    "window_opening",
+    "window_frame",
+    "roof_edge",
+    "prop_base",
+    "prop_surface",
+    "terrain_surface"
+  ],
+  "socket_grammar_source": "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json",
+  "nori_belonging_note": "Compose at least one frame with Nori-7 beside wall cream + fence post + crate for shared DNA proof (U2 handoff)."
+}

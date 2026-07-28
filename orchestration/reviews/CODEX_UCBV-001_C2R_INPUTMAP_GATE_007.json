@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_UCBV-001_C2R_INPUTMAP_GATE_007",
+  "task_id": "UCBV-001",
+  "directive_reviewed": 87,
+  "reviewed_at": "2026-07-23T07:18:30+07:00",
+  "reviewed_by": "codex",
+  "verdict": "C2R_ACCEPTED_AS_C3_INPUT_UI_CONTEXT_HOLD",
+  "accepted": false,
+  "self_accept": false,
+  "scope_acceptance": "C2R_ONLY",
+  "lineage": {
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "child_task_ref": "019f8c3b-d7da-7d40-be05-75f1fc74873e",
+    "durable_started_at": "2026-07-22T23:49:19.965581200Z",
+    "durable_completed_at": "2026-07-23T00:11:19.902371Z",
+    "receipt": "orchestration/receipts/ucbv_001/correction_004/C2R_inputmap_evidence_004.json",
+    "log": "orchestration/logs/ucbv_001/correction_004/C2R_inputmap_evidence_004.log"
+  },
+  "independent_validation": {
+    "receipt_schema_errors": 0,
+    "declared_product_hashes_and_bytes": "6/6 match",
+    "inputmap_e2e_exit": 0,
+    "inputmap_e2e_marker": "AIDLE_UCBV001_INPUTMAP_E2E_SMOKE=PASS checks=17 inputs=34",
+    "normal_main_scene_loaded": true,
+    "input_injection": "InputEventAction through Input.parse_input_event with press/release frame gaps",
+    "direct_controller_action_calls_in_e2e": false,
+    "catalog_modules_selected": 3,
+    "qr_camera_yaw_unchanged": true,
+    "elevation_labelled": true,
+    "confirm_cancel_delete_undo_event_paths": true,
+    "strict_runtime_errors": 0,
+    "submitted_navigation_warnings_present": 3
+  },
+  "closed_findings": ["C2-CODEX-F01"],
+  "open_audit_input": {
+    "id": "C2-CODEX-OBS01",
+    "finding": "Normal Main E2E still emits the three navigation bake/voxel precision warnings reported by Human. C3 must classify scope and C4 cannot pass until a Blue correction removes them or Codex explicitly routes them.",
+    "accepted_as_non_blocking": false
+  },
+  "ui_context_violation": {
+    "detected": true,
+    "process_id": 31644,
+    "process_identity": "grok-windows-x86_64",
+    "observed_title": "Initiate ERP Research Using Subagents Sk... - grok",
+    "observed_content": "unrelated PCB image labelled Phu",
+    "expected": "AIdle parent 019f7ffd-3995-71c0-aca1-51078e24a852",
+    "action": "No UI dispatch performed; require Human to return Grok Desktop to the exact AIdle parent before C3 dispatch."
+  },
+  "decision": {
+    "c2r_result": "ACCEPTED_AS_C3_INPUT_ONLY",
+    "c3_authorized_after_ui_context_restore": true,
+    "c4_c5_authorized": false,
+    "overall_ucbv_accepted": false,
+    "human_gate_open": true,
+    "red_f01_hard_stop": true
+  },
+  "next_route": "WAITING_HUMAN_RESTORE_EXACT_AIDLE_GROK_PARENT_THEN_C3_RED_SCOPE"
+}

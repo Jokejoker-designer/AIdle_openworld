@@ -1,0 +1,88 @@
+{
+  "assembly_version": "1.0",
+  "character_id": "CCP-RH-001",
+  "display_name": "Nori-7",
+  "source_recipe": "world_DNA/.../examples/01_nori7_character_recipe.json",
+  "identity_authority": "accepted Character Foundry 1C manifest (record 1 of 28) — not invented here",
+  "skeleton": {
+    "skeleton_id": "skel_small_biped_robot_v1",
+    "bone_count_target": 14,
+    "locomotion": "BIPED"
+  },
+  "animation_set": "anim_robot_gardener_v1",
+  "attachments": [
+    {
+      "instance": "tank",
+      "module": "attach_water_tank_small",
+      "mounted_on": "character_back",
+      "via": "back_attachment"
+    },
+    {
+      "instance": "nozzle",
+      "module": "attach_watering_nozzle_A",
+      "mounted_on": "character_hand",
+      "via": "tool_grip"
+    },
+    {
+      "instance": "sprout",
+      "module": "attach_mechanical_sprout_A",
+      "mounted_on": "character_head",
+      "via": "head_attachment"
+    }
+  ],
+  "material_theme": "mat_cozy_cream_leaf_v1",
+  "body_color": "#F7E9C6",
+  "behavior": "behavior_companion_helper_v1",
+  "motion_resolution": [
+    {
+      "clip": "idle",
+      "kind": "LOCOMOTION_CYCLE",
+      "build_tier": "base-pose driven (author base once)"
+    },
+    {
+      "clip": "walk",
+      "kind": "LOCOMOTION_CYCLE",
+      "build_tier": "base-pose driven (author base once)"
+    },
+    {
+      "clip": "scan",
+      "kind": "PROCEDURAL_AIM",
+      "build_tier": "procedural (no authoring)"
+    },
+    {
+      "clip": "water",
+      "kind": "REACH_MANIPULATE",
+      "build_tier": "base-pose driven (author base once)"
+    },
+    {
+      "clip": "plant_seed",
+      "kind": "REACH_MANIPULATE",
+      "build_tier": "base-pose driven (author base once)"
+    },
+    {
+      "clip": "harvest",
+      "kind": "REACH_MANIPULATE",
+      "build_tier": "base-pose driven (author base once)"
+    },
+    {
+      "clip": "charge",
+      "kind": "SIGNATURE_UNIQUE",
+      "build_tier": "MUST AUTHOR (real keyframes)"
+    },
+    {
+      "clip": "happy",
+      "kind": "IDLE_VARIANT",
+      "build_tier": "base-pose driven (author base once)"
+    },
+    {
+      "clip": "low_energy",
+      "kind": "IDLE_VARIANT",
+      "build_tier": "base-pose driven (author base once)"
+    },
+    {
+      "clip": "cancel",
+      "kind": "SIGNATURE_UNIQUE",
+      "build_tier": "MUST AUTHOR (real keyframes)"
+    }
+  ]
+}

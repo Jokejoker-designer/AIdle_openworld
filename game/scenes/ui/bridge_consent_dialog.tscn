@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://cfctif7mw7l8y"]
 
 [ext_resource type="Script" path="res://scripts/modules/bridge/bridge_consent_dialog.gd" id="1_consent"]
 
 [node name="BridgeConsentDialog" type="CanvasLayer"]
-layer = 60
 process_mode = 3
+layer = 60
 script = ExtResource("1_consent")
 
 [node name="Dim" type="ColorRect" parent="."]
@@ -38,18 +38,17 @@ horizontal_alignment = 1
 
 [node name="Body" type="Label" parent="Center/Panel/VBox"]
 layout_mode = 2
-autowrap_mode = 3
 text = "A Decision Envelope arrived via Desktop Bridge. Nothing is applied until you confirm."
+autowrap_mode = 3
 
 [node name="Detail" type="Label" parent="Center/Panel/VBox"]
 layout_mode = 2
 autowrap_mode = 3
-text = ""
 
 [node name="Buttons" type="HBoxContainer" parent="Center/Panel/VBox"]
 layout_mode = 2
-alignment = 1
 theme_override_constants/separation = 16
+alignment = 1
 
 [node name="Reject" type="Button" parent="Center/Panel/VBox/Buttons"]
 custom_minimum_size = Vector2(140, 36)

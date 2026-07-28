@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TOWN_FAIRY_STREET_PLAN_V1 — Thị trấn Cổ tích Thân thiện</title>
+<style>
+  :root {
+    --paper: #fbf6ee;
+    --ink: #3d3a36;
+    --path: #e8d5b5;
+    --plaza: #b8e0b0;
+    --rose: #f2a7b0;
+    --lilac: #c4b0e0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: "Segoe UI", system-ui, sans-serif;
+    background: linear-gradient(165deg, #e8f4fc 0%, var(--paper) 40%, #f7ebe0 100%);
+    color: var(--ink); line-height: 1.5;
+  }
+  header {
+    padding: 1.5rem 1.25rem 1rem; text-align: center;
+    background: radial-gradient(ellipse at 50% 0%, #fff8e8 0%, transparent 60%);
+  }
+  h1 { margin: 0 0 .35rem; font-size: 1.65rem; letter-spacing: -0.02em; }
+  .sub { color: #5a5550; max-width: 48rem; margin: 0 auto; }
+  .badge {
+    display: inline-block; margin: .5rem .25rem; padding: .2rem .6rem;
+    border-radius: 999px; background: #fff; border: 1px solid #e0d5c4;
+    font-size: .75rem;
+  }
+  .badge.warn { background: #fff3cd; border-color: #e0c36a; }
+  main { max-width: 1100px; margin: 0 auto; padding: 0 1rem 3rem; }
+  section {
+    background: rgba(255,255,255,.72); border: 1px solid #eadfce;
+    border-radius: 16px; padding: 1.1rem 1.25rem; margin: 1rem 0;
+    box-shadow: 0 8px 24px rgba(80,60,40,.06);
+  }
+  h2 { margin: 0 0 .75rem; font-size: 1.15rem; }
+  .map-wrap {
+    background: #fff; border-radius: 12px; overflow: auto;
+    border: 1px solid #e5d9c6; max-height: 70vh;
+  }
+  .map-wrap img { width: 100%; height: auto; display: block; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .75rem; }
+  .card {
+    background: #fff; border-radius: 12px; padding: .75rem .9rem;
+    border: 2px solid #ddd;
+  }
+  .card h3 { margin: 0 0 .25rem; font-size: .95rem; }
+  .muted { color: #777; font-size: .8rem; margin: 0 0 .4rem; }
+  .tag {
+    display: inline-block; font-size: .72rem; background: #f3ebe0;
+    padding: .1rem .4rem; border-radius: 6px; margin: .15rem .15rem 0 0;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  th, td { border-bottom: 1px solid #efe6d8; padding: .4rem .35rem; text-align: left; vertical-align: top; }
+  th { background: #f7f0e6; position: sticky; top: 0; }
+  code { font-size: .78rem; background: #f0ebe3; padding: .05rem .25rem; border-radius: 4px; }
+  .filters button {
+    margin: 0 .25rem .5rem 0; padding: .35rem .7rem; border-radius: 999px;
+    border: 1px solid #d8cbb8; background: #fff; cursor: pointer; font-size: .8rem;
+  }
+  .filters button.active { background: #3d3a36; color: #fff; }
+  ul.rules { padding-left: 1.1rem; }
+  ul.rules li { margin: .35rem 0; }
+  footer { text-align: center; color: #888; font-size: .8rem; padding: 1rem; }
+  a { color: #3a6d8c; }
+  .callout {
+    background: linear-gradient(90deg, #fff5f7, #f5f0ff);
+    border-left: 4px solid var(--rose);
+    padding: .75rem 1rem; border-radius: 0 12px 12px 0; margin: .5rem 0;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>🏡 Thị trấn Cổ tích Thân thiện</h1>
+  <p class="sub">Quy hoạch <strong>storybook street town</strong> + <strong>đường đá lát phẳng</strong> +
+  <strong>bệ / ván gỗ</strong> — modular (ý 3DStreet), kiến trúc lặp hài hòa, plaza mềm.
+  Cảm giác cổ tích thân thiện <em>không dùng IP Disney</em>.</p>
+  <span class="badge">TOWN_FAIRY_STREET_PLAN_V1</span>
+  <span class="badge">MOCKUP_SSOT_V2 · 50 plots</span>
+  <span class="badge">13 stone · 12 wood</span>
+  <span class="badge warn">accepted=false · design only</span>
+</header>
+<main>
+  <section>
+    <h2>Bản đồ (đá + gỗ hiển thị rõ)</h2>
+    <div class="map-wrap">
+      <img src="TOWN_FAIRY_STREET_PLAN_V1.svg" alt="Fairy street town map with stone paths and wood decks"/>
+    </div>
+    <p style="font-size:.85rem;color:#666">
+      <a href="TOWN_FAIRY_STREET_PLAN_V1.svg" target="_blank">SVG</a> ·
+      <a href="TOWN_FAIRY_STREET_PLAN_V1.json" target="_blank">JSON</a> ·
+      <a href="TOWN_FAIRY_STREET_PLAN_V1_README.md" target="_blank">README</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>Bề mặt đi — đá lát phẳng &amp; bệ gỗ</h2>
+    <div class="callout">
+      <strong>Mọi path = slope 0° (bằng phẳng).</strong>
+      Trục chính / vành đai / hẻm = <em>đá lát</em> (paver soft).
+      Trước cửa nhà, shop, giếng, tháp = <em>bệ gỗ</em>.
+      Ven nước = <em>boardwalk ván gỗ</em>. Cầu = mặt sàn gỗ trên đá tiếp cận.
+    </div>
+    <p class="muted">Đá lát luôn mặt phẳng 0° làm lớp đi chính. Bệ gỗ nằm trên / sát path, cao thêm chút để đọc mép, vẫn coi là walkable flat. Boardwalk ven nước thay đá ở đoạn WELL. Junction: đá–gỗ dùng mép bo tròn, không bậc cao.</p>
+    <h3 style="font-size:1rem;margin:1rem 0 .5rem">Vật liệu</h3>
+    <div style="overflow:auto">
+    <table>
+      <thead><tr><th>ID</th><th>Tên</th><th>Phẳng?</th><th>Module hint</th><th>Dùng</th></tr></thead>
+      <tbody><tr><td><code>STONE_PAVER_FLAT</code></td><td>Đá lát phẳng</td><td>✓ phẳng 0°</td><td><code>cozy_path_stone_A</code></td><td>Trục chính, vành đai, hẻm chợ — đi êm, đọc rõ hướng</td></tr><tr><td><code>STONE_RING_PLAZA</code></td><td>Vòng đá quảng trường</td><td>✓ phẳng 0°</td><td><code>cozy_path_stone_A</code></td><td>Vòng quanh gazebo — lát đá phẳng trên nền cỏ</td></tr><tr><td><code>WOOD_DECK_FLAT</code></td><td>Bệ gỗ phẳng</td><td>✓ phẳng 0°</td><td><code>future_cozy_wood_deck_A | placeholder: wood plank plane</code></td><td>Sàn đứng trước nhà / shop / giếng / chân tháp — thân thiện, ấm</td></tr><tr><td><code>WOOD_BOARDWALK</code></td><td>Cầu ván / lối gỗ dài</td><td>✓ phẳng 0°</td><td><code>future_cozy_boardwalk_A</code></td><td>Ven nước, tiếp cận cầu, đoạn trên cỏ ẩm — thay đá nơi cần cảm giác ấm</td></tr><tr><td><code>WOOD_BRIDGE_DECK</code></td><td>Mặt sàn gỗ cầu</td><td>✓ phẳng 0°</td><td><code>part_of cozy_bridge_arch_A</code></td><td>Mặt cầu vòm — phẳng an toàn, lan can mềm</td></tr></tbody>
+    </table>
+    </div>
+    <h3 style="font-size:1rem;margin:1rem 0 .5rem">Mạng đường đá (13 segment)</h3>
+    <div style="overflow:auto;max-height:280px">
+    <table>
+      <thead><tr><th>ID</th><th>Tên</th><th>Rộng (m)</th><th>Geometry</th><th>Flat</th></tr></thead>
+      <tbody><tr><td><code>SP-01</code></td><td>Storybook Lane — đá lát phẳng</td><td>3.0</td><td>axis_aligned</td><td>✓</td></tr><tr><td><code>SP-02</code></td><td>Cottage Walk — đá lát phẳng</td><td>2.5</td><td>axis_aligned</td><td>✓</td></tr><tr><td><code>SP-03</code></td><td>Craft Alley — đá lát phẳng</td><td>2.0</td><td>axis_aligned</td><td>✓</td></tr><tr><td><code>SP-04</code></td><td>Trục đá ngang plaza (Đông–Tây)</td><td>2.5</td><td>axis_aligned</td><td>✓</td></tr><tr><td><code>SP-05</code></td><td>Trục đá dọc plaza (Bắc–Nam)</td><td>2.5</td><td>axis_aligned</td><td>✓</td></tr><tr><td><code>SP-06</code></td><td>Nối đá plaza → boardwalk giếng</td><td>1.8</td><td>axis_aligned</td><td>✓</td></tr><tr><td><code>SP-07</code></td><td>Mill Road — đá lát phẳng</td><td>2.0</td><td>axis_aligned</td><td>✓</td></tr><tr><td><code>SP-08</code></td><td>Nhánh đá vườn nghỉ</td><td>1.5</td><td>axis_aligned</td><td>✓</td></tr><tr><td><code>SP-09</code></td><td>Bridge Approach — đá phẳng</td><td>2.0</td><td>axis_aligned</td><td>✓</td></tr><tr><td><code>SP-10</code></td><td>Nhánh đá nhà kính</td><td>1.5</td><td>axis_aligned</td><td>✓</td></tr><tr><td><code>SP-11</code></td><td>Nhánh đá tháp vọng</td><td>1.5</td><td>axis_aligned</td><td>✓</td></tr><tr><td><code>SP-RING</code></td><td>Vành đai đá phẳng (4 cạnh soft rect)</td><td>1.8</td><td>ring_rect</td><td>✓</td></tr><tr><td><code>SP-PLAZA-RING</code></td><td>Vòng đá quanh gazebo</td><td>1.2</td><td>ring_ellipse</td><td>✓</td></tr></tbody>
+    </table>
+    </div>
+    <h3 style="font-size:1rem;margin:1rem 0 .5rem">Bệ / ván gỗ (12)</h3>
+    <div style="overflow:auto;max-height:280px">
+    <table>
+      <thead><tr><th>ID</th><th>Tên</th><th>Surface</th><th>District</th><th>Phục vụ</th><th>Cao hơn path</th></tr></thead>
+      <tbody><tr><td><code>WD-GAZEBO</code></td><td>Bệ gỗ dưới gazebo (plaza)</td><td>WOOD_DECK_FLAT</td><td>PLAZA</td><td>cozy_gazebo_A</td><td>+0.08m</td></tr><tr><td><code>WD-COTTAGE</code></td><td>Bệ gỗ hiên cottage</td><td>WOOD_DECK_FLAT</td><td>HOME</td><td>cozy_house_small_A</td><td>+0.1m</td></tr><tr><td><code>WD-SHOP</code></td><td>Bệ gỗ mặt tiền chợ</td><td>WOOD_DECK_FLAT</td><td>MARKET</td><td>cozy_market_stall_A</td><td>+0.08m</td></tr><tr><td><code>WD-WORKSHOP</code></td><td>Bệ gỗ sân xưởng</td><td>WOOD_DECK_FLAT</td><td>WORKSHOP</td><td>cozy_workshop_A</td><td>+0.1m</td></tr><tr><td><code>WD-WELL</code></td><td>Bệ gỗ quanh nhà giếng</td><td>WOOD_DECK_FLAT</td><td>WELL</td><td>cozy_well_house_A</td><td>+0.08m</td></tr><tr><td><code>WB-01</code></td><td>Boardwalk gỗ ven nước (N–S)</td><td>WOOD_BOARDWALK</td><td>WELL</td><td>water_edge_walk</td><td>+0.06m</td></tr><tr><td><code>WD-GREENHOUSE</code></td><td>Bệ gỗ cửa nhà kính</td><td>WOOD_DECK_FLAT</td><td>GREENHOUSE</td><td>cozy_greenhouse_A</td><td>+0.08m</td></tr><tr><td><code>WD-WINDMILL</code></td><td>Bệ gỗ chân cối xay</td><td>WOOD_DECK_FLAT</td><td>WINDMILL</td><td>cozy_windmill_A</td><td>+0.1m</td></tr><tr><td><code>WD-BARN</code></td><td>Bệ gỗ sân barn</td><td>WOOD_DECK_FLAT</td><td>BARN</td><td>cozy_barn_small_A</td><td>+0.1m</td></tr><tr><td><code>WD-BRIDGE</code></td><td>Mặt sàn gỗ cầu vòm</td><td>WOOD_BRIDGE_DECK</td><td>BRIDGE</td><td>cozy_bridge_arch_A</td><td>+0.12m</td></tr><tr><td><code>WD-LOOKOUT</code></td><td>Bệ gỗ chân tháp vọng</td><td>WOOD_DECK_FLAT</td><td>LOOKOUT</td><td>cozy_watchtower_A</td><td>+0.1m</td></tr><tr><td><code>WD-GARDEN</code></td><td>Bệ gỗ góc vườn nghỉ</td><td>WOOD_DECK_FLAT</td><td>GARDEN</td><td>bench_nook</td><td>+0.08m</td></tr></tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ý tưởng cốt lõi</h2>
+    <div class="callout">
+      <strong>3DStreet:</strong> phố = lớp segment. <strong>AIdle:</strong> đá phẳng + bệ gỗ + family kiến trúc lặp.
+    </div>
+    <ul class="rules"><li><strong>H1</strong> — Cùng family → cùng silhouette mái / tỉ lệ cửa sổ — chỉ đổi màu &amp; chi tiết nhỏ</li><li><strong>H2</strong> — Nhịp mặt phố: building–gap–building đều (2m cell) — không dồn cụm rồi để trống</li><li><strong>H3</strong> — Vỉa hè + cây/đèn/hoa tạo “đệm thân thiện” giữa path và tường nhà</li><li><strong>H4</strong> — Landmark (cối xay, tháp) đối xứng góc — không cạnh nhau che tầm nhìn</li><li><strong>H5</strong> — Tâm plaza mở — gazebo thấp, sightline xuyên 4 hướng</li><li><strong>H6</strong> — Palette pastel ấm; tránh neon / harsh cyber trên facade (cyber chỉ accent nhỏ)</li><li><strong>H7</strong> — Scale trẻ em/storybook: cửa cao ~1.1–1.3 unit relative, không brutalist</li><li><strong>H8</strong> — Lặp module có chủ đích (production-friendly) nhưng cảm giác “ngôi làng sống”, không clone cứng</li><li><strong>H9</strong> — Mọi đường đi = mặt phẳng 0°; trục chính/vành đai/hẻm = đá lát; bệ gỗ trước cửa &amp; boardwalk ven nước — mép bo, không bậc cao</li><li><strong>H10</strong> — Đá–gỗ nối liền mạch (junction soft); thớ gỗ song song cạnh dài bệ; paver không gồ gameplay</li></ul>
+  </section>
+
+  <section>
+    <h2>Districts (làng cổ tích)</h2>
+    <div class="grid"><article class="card" style="border-color:#b8e0b0">
+  <h3>Quảng trường Cỏ Làng</h3>
+  <p class="muted">Village Green</p>
+  <p>Tâm xã hội — gazebo + vòng hoa + chỗ tụ họp</p>
+  <p class="tag">segment: seg_plaza_green</p>
+  <p class="tag">arch: ARCH_GAZEBO</p>
+</article><article class="card" style="border-color:#f5c451">
+  <h3>Dãy Cottage</h3>
+  <p class="muted">Cottage Row</p>
+  <p>Cư trú — nhiều nhà cùng family ARCH_COTTAGE, palette xen kẽ</p>
+  <p class="tag">segment: seg_cottage_row</p>
+  <p class="tag">arch: ARCH_COTTAGE</p>
+</article><article class="card" style="border-color:#e88b7a">
+  <h3>Phố Chợ Storybook</h3>
+  <p class="muted">Storybook Lane Market</p>
+  <p>Thương mại thân thiện — shop front lặp nhịp</p>
+  <p class="tag">segment: seg_storybook_lane</p>
+  <p class="tag">arch: ARCH_SHOP</p>
+</article><article class="card" style="border-color:#c98a5e">
+  <h3>Hẻm Xưởng</h3>
+  <p class="muted">Craft Alley</p>
+  <p>Thủ công — workshop + prop rack</p>
+  <p class="tag">segment: seg_craft_alley</p>
+  <p class="tag">arch: ARCH_WORKSHOP</p>
+</article><article class="card" style="border-color:#7fc98f">
+  <h3>Vườn Nghỉ</h3>
+  <p class="muted">Rest Garden</p>
+  <p>Hoa + bụi + ghế — đệm giữa cottage và chợ</p>
+  <p class="tag">segment: seg_orchard_lane</p>
+  <p class="tag">arch: ARCH_GAZEBO</p>
+</article><article class="card" style="border-color:#8fd4b0">
+  <h3>Khu Kính Xanh</h3>
+  <p class="muted">Glass Garden</p>
+  <p>Nhà kính + luống — nhịp farm thân thiện</p>
+  <p class="tag">segment: seg_orchard_lane</p>
+  <p class="tag">arch: ARCH_GREENHOUSE</p>
+</article><article class="card" style="border-color:#7eb8c9">
+  <h3>Góc Nước</h3>
+  <p class="muted">Water Nook</p>
+  <p>Giếng + ao nhỏ + chim tắm</p>
+  <p class="tag">segment: seg_water_path</p>
+  <p class="tag">arch: ARCH_WELL</p>
+</article><article class="card" style="border-color:#6b8cae">
+  <h3>Đồi Cối Xay</h3>
+  <p class="muted">Windmill Knoll</p>
+  <p>Landmark SW — silhouette cổ tích</p>
+  <p class="tag">segment: seg_mill_road</p>
+  <p class="tag">arch: ARCH_WINDMILL</p>
+</article><article class="card" style="border-color:#c47a6a">
+  <h3>Sân Kho Mềm</h3>
+  <p class="muted">Soft Barn Yard</p>
+  <p>Barn + cây ăn quả — farm edge</p>
+  <p class="tag">segment: seg_orchard_lane</p>
+  <p class="tag">arch: ARCH_BARN</p>
+</article><article class="card" style="border-color:#a89f90">
+  <h3>Cầu Vòm</h3>
+  <p class="muted">Arch Crossing</p>
+  <p>Cầu + cây liễu — hành trình vào làng</p>
+  <p class="tag">segment: seg_bridge_approach</p>
+  <p class="tag">arch: ARCH_BRIDGE</p>
+</article><article class="card" style="border-color:#b08d57">
+  <h3>Tháp Vọng</h3>
+  <p class="muted">Wonder Lookout</p>
+  <p>Tháp SE — nhìn ra map</p>
+  <p class="tag">segment: seg_mill_road</p>
+  <p class="tag">arch: ARCH_LOOKOUT</p>
+</article></div>
+  </section>
+
+  <section>
+    <h2>Architecture families — lặp giống nhau, hài hòa</h2>
+    <p class="muted">Cùng skeleton / silhouette; đổi palette, mái, cửa. MVP gắn 10 building SSOT; wave sau nhân bản cottage/shop.</p>
+    <div style="overflow:auto">
+    <table>
+      <thead><tr><th>Family</th><th>Tên</th><th>SSOT module</th><th>Lặp?</th><th>Palette</th></tr></thead>
+      <tbody><tr><td><code>ARCH_COTTAGE</code></td><td>Nhà tranh cổ tích (cottage)</td><td><code>cozy_house_small_A</code></td><td>✓ lặp</td><td>cream_rose, butter_peach, mint_soft</td></tr><tr><td><code>ARCH_SHOP</code></td><td>Mặt phố cửa hàng</td><td><code>cozy_market_stall_A</code></td><td>✓ lặp</td><td>strawberry_awning, honey_awning, blueberry_awning</td></tr><tr><td><code>ARCH_WORKSHOP</code></td><td>Xưởng thợ</td><td><code>cozy_workshop_A</code></td><td>✓ lặp</td><td>clay_umber, warm_sand</td></tr><tr><td><code>ARCH_GAZEBO</code></td><td>Chòi vườn</td><td><code>cozy_gazebo_A</code></td><td>landmark</td><td>cream_wood</td></tr><tr><td><code>ARCH_GREENHOUSE</code></td><td>Nhà kính</td><td><code>cozy_greenhouse_A</code></td><td>✓ lặp</td><td>mint_frame, white_frame</td></tr><tr><td><code>ARCH_WELL</code></td><td>Nhà giếng</td><td><code>cozy_well_house_A</code></td><td>landmark</td><td>stone_warm</td></tr><tr><td><code>ARCH_WINDMILL</code></td><td>Cối xay gió</td><td><code>cozy_windmill_A</code></td><td>landmark</td><td>cream_tower_blue_blades</td></tr><tr><td><code>ARCH_BARN</code></td><td>Kho / chuồng</td><td><code>cozy_barn_small_A</code></td><td>✓ lặp</td><td>soft_red, soft_cream</td></tr><tr><td><code>ARCH_BRIDGE</code></td><td>Cầu vòm</td><td><code>cozy_bridge_arch_A</code></td><td>landmark</td><td>stone_warm</td></tr><tr><td><code>ARCH_LOOKOUT</code></td><td>Tháp vọng</td><td><code>cozy_watchtower_A</code></td><td>landmark</td><td>stone_ivy</td></tr></tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Plots (50)</h2>
+    <div class="filters" id="filters">
+      <button type="button" class="active" data-f="all">Tất cả</button>
+      <button type="button" data-f="building">Building</button>
+      <button type="button" data-f="prop">Prop</button>
+      <button type="button" data-f="character_spawn">Cast</button>
+    </div>
+    <div style="overflow:auto;max-height:420px">
+    <table id="plots">
+      <thead><tr><th>Plot</th><th>Role</th><th>Object</th><th>District</th><th>Arch</th><th>XZ</th><th>Ghi chú</th></tr></thead>
+      <tbody><tr data-role="building"><td>P-B01</td><td>building</td><td><code>cozy_house_small_A</code></td><td>HOME</td><td>ARCH_COTTAGE</td><td>(0.0, 4.0)</td><td>Cottage hub — prototype family ARCH_COTTAGE (có thể lặp dọc hàng F–H).</td></tr><tr data-role="building"><td>P-B02</td><td>building</td><td><code>cozy_workshop_A</code></td><td>WORKSHOP</td><td>ARCH_WORKSHOP</td><td>(8.0, -4.0)</td><td>Xưởng thợ — cùng chimney language cottage.</td></tr><tr data-role="building"><td>P-B03</td><td>building</td><td><code>cozy_market_stall_A</code></td><td>MARKET</td><td>ARCH_SHOP</td><td>(8.0, 2.0)</td><td>Shop module — nhịp lặp dọc Storybook Lane (awning cùng cao độ).</td></tr><tr data-role="building"><td>P-B04</td><td>building</td><td><code>cozy_gazebo_A</code></td><td>PLAZA</td><td>ARCH_GAZEBO</td><td>(0.0, 0.0)</td><td>Tâm Village Green — chòi mở, không che sightline.</td></tr><tr data-role="building"><td>P-B05</td><td>building</td><td><code>cozy_greenhouse_A</code></td><td>GREENHOUSE</td><td>ARCH_GREENHOUSE</td><td>(-8.0, 6.0)</td><td>Nhà kính NW — khung mỏng, lặp được nếu farm mở rộng.</td></tr><tr data-role="building"><td>P-B06</td><td>building</td><td><code>cozy_well_house_A</code></td><td>WELL</td><td>ARCH_WELL</td><td>(-8.0, 0.0)</td><td>Nhà giếng — scale thấp hơn cottage.</td></tr><tr data-role="building"><td>P-B07</td><td>building</td><td><code>cozy_windmill_A</code></td><td>WINDMILL</td><td>ARCH_WINDMILL</td><td>(-8.0, -8.0)</td><td>Landmark duy nhất SW — silhouette cổ tích.</td></tr><tr data-role="building"><td>P-B08</td><td>building</td><td><code>cozy_barn_small_A</code></td><td>BARN</td><td>ARCH_BARN</td><td>(0.0, -8.0)</td><td>Barn S — gable rộng, cùng góc mái cottage.</td></tr><tr data-role="building"><td>P-B09</td><td>building</td><td><code>cozy_bridge_arch_A</code></td><td>BRIDGE</td><td>ARCH_BRIDGE</td><td>(0.0, -11.0)</td><td>Cầu vòm nam — tách barn/lookout, không overlap.</td></tr><tr data-role="building"><td>P-B10</td><td>building</td><td><code>cozy_watchtower_A</code></td><td>LOOKOUT</td><td>ARCH_LOOKOUT</td><td>(10.0, -10.0)</td><td>Tháp vọng SE — complement windmill, không cạnh nhau.</td></tr><tr data-role="prop"><td>P-P01</td><td>prop</td><td><code>cozy_path_stone_A</code></td><td>HOME</td><td>—</td><td>(-1.0, 1.0)</td><td>Lối đá ra plaza</td></tr><tr data-role="prop"><td>P-P02</td><td>prop</td><td><code>cozy_garden_lamp_A</code></td><td>HOME</td><td>—</td><td>(-3.0, 3.0)</td><td>Đèn vườn — nhịp 4–6m</td></tr><tr data-role="prop"><td>P-P03</td><td>prop</td><td><code>cozy_mailbox_A</code></td><td>HOME</td><td>—</td><td>(-3.0, 5.0)</td><td>Hộp thư cottage</td></tr><tr data-role="prop"><td>P-P04</td><td>prop</td><td><code>cozy_tool_rack_A</code></td><td>WORKSHOP</td><td>—</td><td>(5.0, -3.0)</td><td>Giá dụng cụ mặt hẻm</td></tr><tr data-role="prop"><td>P-P05</td><td>prop</td><td><code>cozy_crate_small_A</code></td><td>WORKSHOP</td><td>—</td><td>(5.0, -5.0)</td><td>Thùng gỗ</td></tr><tr data-role="prop"><td>P-P06</td><td>prop</td><td><code>cozy_barrel_A</code></td><td>WORKSHOP</td><td>—</td><td>(7.0, -7.0)</td><td>Thùng tròn</td></tr><tr data-role="prop"><td>P-P07</td><td>prop</td><td><code>cozy_bench_A</code></td><td>MARKET</td><td>—</td><td>(5.0, 3.0)</td><td>Ghế vỉa hè chợ</td></tr><tr data-role="prop"><td>P-P08</td><td>prop</td><td><code>cozy_cart_A</code></td><td>MARKET</td><td>—</td><td>(5.0, 1.0)</td><td>Xe kéo chợ</td></tr><tr data-role="prop"><td>P-P09</td><td>prop</td><td><code>cozy_signpost_A</code></td><td>MARKET</td><td>—</td><td>(5.0, 5.0)</td><td>Biển chỉ đường thân thiện</td></tr><tr data-role="prop"><td>P-P10</td><td>prop</td><td><code>cozy_flower_cluster_A</code></td><td>GARDEN</td><td>—</td><td>(3.0, 7.0)</td><td>Cụm hoa — soft color</td></tr><tr data-role="prop"><td>P-P11</td><td>prop</td><td><code>cozy_flower_bed_B</code></td><td>GARDEN</td><td>—</td><td>(1.0, 7.0)</td><td>Luống hoa</td></tr><tr data-role="prop"><td>P-P12</td><td>prop</td><td><code>cozy_bush_round_A</code></td><td>GARDEN</td><td>—</td><td>(3.0, 5.0)</td><td>Bụi tròn</td></tr><tr data-role="prop"><td>P-P13</td><td>prop</td><td><code>cozy_farm_plot_A</code></td><td>GREENHOUSE</td><td>—</td><td>(-11.0, 7.0)</td><td>Luống canh tác</td></tr><tr data-role="prop"><td>P-P14</td><td>prop</td><td><code>cozy_crop_row_A</code></td><td>GREENHOUSE</td><td>—</td><td>(-11.0, 5.0)</td><td>Hàng rau</td></tr><tr data-role="prop"><td>P-P15</td><td>prop</td><td><code>cozy_scarecrow_A</code></td><td>GREENHOUSE</td><td>—</td><td>(-7.0, 9.0)</td><td>Bù nhìn dễ thương</td></tr><tr data-role="prop"><td>P-P16</td><td>prop</td><td><code>cozy_pond_small_A</code></td><td>WELL</td><td>—</td><td>(-11.0, 1.0)</td><td>Ao nhỏ</td></tr><tr data-role="prop"><td>P-P17</td><td>prop</td><td><code>cozy_water_pump_A</code></td><td>WELL</td><td>—</td><td>(-11.0, -1.0)</td><td>Bơm nước</td></tr><tr data-role="prop"><td>P-P18</td><td>prop</td><td><code>cozy_birdbath_A</code></td><td>WELL</td><td>—</td><td>(-7.0, 1.0)</td><td>Bồn tắm chim</td></tr><tr data-role="prop"><td>P-P19</td><td>prop</td><td><code>cozy_fence_section_A</code></td><td>WINDMILL</td><td>—</td><td>(-11.0, -7.0)</td><td>Hàng rào mềm</td></tr><tr data-role="prop"><td>P-P20</td><td>prop</td><td><code>cozy_grass_tuft_A</code></td><td>WINDMILL</td><td>—</td><td>(-7.0, -7.0)</td><td>Cỏ trang trí</td></tr><tr data-role="prop"><td>P-P21</td><td>prop</td><td><code>cozy_rock_cluster_A</code></td><td>WINDMILL</td><td>—</td><td>(-7.0, -9.0)</td><td>Đá chân tháp cối</td></tr><tr data-role="prop"><td>P-P22</td><td>prop</td><td><code>cozy_tree_fruit_A</code></td><td>BARN</td><td>—</td><td>(-3.0, -7.0)</td><td>Cây ăn quả</td></tr><tr data-role="prop"><td>P-P23</td><td>prop</td><td><code>cozy_rock_small_A</code></td><td>BARN</td><td>—</td><td>(3.0, -7.0)</td><td>Đá nhỏ</td></tr><tr data-role="prop"><td>P-P24</td><td>prop</td><td><code>cozy_rock_stacked_A</code></td><td>BARN</td><td>—</td><td>(3.0, -9.0)</td><td>Đá xếp</td></tr><tr data-role="prop"><td>P-P25</td><td>prop</td><td><code>cozy_tree_willow_A</code></td><td>BRIDGE</td><td>—</td><td>(-3.0, -11.0)</td><td>Liễu bên cầu</td></tr><tr data-role="prop"><td>P-P26</td><td>prop</td><td><code>cozy_tree_blossom_A</code></td><td>BRIDGE</td><td>—</td><td>(3.0, -11.0)</td><td>Cây hoa — fairy soft</td></tr><tr data-role="prop"><td>P-P27</td><td>prop</td><td><code>cozy_fence_section_A</code></td><td>BRIDGE</td><td>—</td><td>(1.0, -9.0)</td><td>Lan can mềm tiếp cận cầu</td></tr><tr data-role="prop"><td>P-P28</td><td>prop</td><td><code>cozy_garden_lamp_A</code></td><td>LOOKOUT</td><td>—</td><td>(7.0, -9.0)</td><td>Đèn tháp vọng</td></tr><tr data-role="prop"><td>P-P29</td><td>prop</td><td><code>cozy_bench_A</code></td><td>PLAZA</td><td>—</td><td>(-3.0, -1.0)</td><td>Ghế quảng trường</td></tr><tr data-role="prop"><td>P-P30</td><td>prop</td><td><code>cozy_flower_cluster_A</code></td><td>PLAZA</td><td>—</td><td>(3.0, -1.0)</td><td>Vòng hoa plaza</td></tr><tr data-role="character_spawn"><td>P-C01</td><td>character_spawn</td><td><code>CCP-RH-001</code></td><td>HOME</td><td>—</td><td>(1.0, 3.0)</td><td>Nori / home hub</td></tr><tr data-role="character_spawn"><td>P-C02</td><td>character_spawn</td><td><code>CCP-NW-003</code></td><td>WORKSHOP</td><td>—</td><td>(5.0, -1.0)</td><td>Thợ xưởng</td></tr><tr data-role="character_spawn"><td>P-C03</td><td>character_spawn</td><td><code>CCP-NS-002</code></td><td>MARKET</td><td>—</td><td>(7.0, 5.0)</td><td>Người bán chợ</td></tr><tr data-role="character_spawn"><td>P-C04</td><td>character_spawn</td><td><code>CCP-CT-004</code></td><td>PLAZA</td><td>—</td><td>(1.0, -1.0)</td><td>Bạn ở gazebo</td></tr><tr data-role="character_spawn"><td>P-C05</td><td>character_spawn</td><td><code>SPH-RH-011</code></td><td>GREENHOUSE</td><td>—</td><td>(-7.0, 5.0)</td><td>Người làm vườn</td></tr><tr data-role="character_spawn"><td>P-C06</td><td>character_spawn</td><td><code>OA-RG-021</code></td><td>WELL</td><td>—</td><td>(-7.0, -1.0)</td><td>Gác giếng</td></tr><tr data-role="character_spawn"><td>P-C07</td><td>character_spawn</td><td><code>AC-CO-015</code></td><td>WINDMILL</td><td>—</td><td>(-7.0, -5.0)</td><td>Gác cối xay</td></tr><tr data-role="character_spawn"><td>P-C08</td><td>character_spawn</td><td><code>TD-CT-028</code></td><td>BARN</td><td>—</td><td>(1.0, -5.0)</td><td>Chăm barn</td></tr><tr data-role="character_spawn"><td>P-C09</td><td>character_spawn</td><td><code>SV-NW-019</code></td><td>BRIDGE</td><td>—</td><td>(1.0, -11.0)</td><td>Cạnh cầu</td></tr><tr data-role="character_spawn"><td>P-C10</td><td>character_spawn</td><td><code>CCP-RH-001</code></td><td>LOOKOUT</td><td>—</td><td>(7.0, -7.0)</td><td>Nhìn từ tháp (instance B)</td></tr></tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Modular repeat (nhiều nhà giống nhau)</h2>
+    <p>Một family kiến trúc = 1 skeleton + nhiều instance. Bố trí theo nhịp phố (3DStreet street-edge rhythm), không rải ngẫu nhiên. Xen palette / cửa / mái để thân thiện, không đơn điệu, không hỗn loạn.</p>
+    <p><strong>Cottage row:</strong> spacing 2 cells · setback 1m · palette sequence
+      <code>cream_rose → butter_peach → mint_soft → sky_lilac</code></p>
+    <p><strong>Shop lane:</strong> awning height lock · frontage dọc Storybook Lane</p>
+    <p><strong>Street furniture:</strong> đèn ~5m · ghế ~8m · hoa ~4m (ý tưởng density 3DStreet, module AIdle)</p>
+  </section>
+</main>
+<footer>
+  TOWN_FAIRY_STREET_PLAN_V1 · Design Parent · không patch game/** · Human accept trước khi import runtime
+</footer>
+<script>
+document.getElementById('filters').addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  const f = b.dataset.f;
+  document.querySelectorAll('#filters button').forEach(x => x.classList.toggle('active', x === b));
+  document.querySelectorAll('#plots tbody tr').forEach(tr => {
+    tr.style.display = (f === 'all' || tr.dataset.role === f) ? '' : 'none';
+  });
+});
+</script>
+</body>
+</html>

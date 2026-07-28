@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-B0-001-MACHINE-REVIEW-001",
+  "reviewed_at": "2026-07-21T14:12:35+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "B0-001",
+  "directive_id": 46,
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "machine_gates": {
+    "blender_version": "PASS: Blender 5.2.0 LTS",
+    "pytest": "PASS: 11 passed",
+    "compileall": "PASS",
+    "maf_receipts": "PASS: four receipts validate against agent_step_contract.schema.json",
+    "preview_visual": "PASS: independently inspected 512x512 nonblank low-poly probe",
+    "server_mediated_real_probe": {
+      "status": "PASS",
+      "job_id": "BLD-8A8D63935D6B",
+      "state": "QUARANTINED_COMPLETE",
+      "runner_mode": "real",
+      "exit_code": 0,
+      "job_receipt_sha256": "28227144828152D31B0AB851BDCDD765D56B58ECA3D40D2E4506E390C2D179D9",
+      "validation_sha256": "E4DBAD69EBDB672F50E2F1DA2050B9944B8620895194436073E6A5C5853C52C7",
+      "artifact_hashes_sha256": "0FB2642F270B1B3BFB0785A8FFAB9C4AE4CA368B48B8D34967B7634A1B1051D9"
+    }
+  },
+  "blockers": [
+    {
+      "id": "B0-SCOPE-001",
+      "severity": "blocking",
+      "finding": "Schema child wrote orchestration/logs/blender-p0-schema-001-hash.txt outside its exact two-file lease.",
+      "evidence_sha256": "63D3E6CD2D1AC9EBA1262AF1FC1C5A58E977C397771B97AE6AF6A6A409B3756B",
+      "disposition": "Preserve as rejected evidence; do not delete or use for acceptance."
+    },
+    {
+      "id": "B0-PROBE-001",
+      "severity": "blocking",
+      "finding": "Rig child BLD-D2C21066E6F2 was a direct Blender command-contract probe and has no job_receipt.json; its receipt overstates service-owned QUARANTINED_COMPLETE proof.",
+      "disposition": "Correct the receipt by distinguishing the direct probe from Codex's independent server-mediated job BLD-8A8D63935D6B."
+    },
+    {
+      "id": "B0-PURPLE-001",
+      "severity": "blocking",
+      "finding": "Purple returned PASS_FOR_HUMAN_REVIEW without detecting the schema write-lease violation or the missing fresh service receipt.",
+      "disposition": "Run a fresh Purple correction after corrected Schema and Rig receipts."
+    }
+  ],
+  "scope_confirmation": {
+    "bridge_product_writes_after_directive": [],
+    "parent_product_patch": false,
+    "continuity_state": "ARMED_INACTIVE_19_PERCENT",
+    "g8_accepted": false
+  },
+  "next_route": "orchestration/work_orders/WO-B0-001-EVIDENCE-CORRECTION-001.md"
+}

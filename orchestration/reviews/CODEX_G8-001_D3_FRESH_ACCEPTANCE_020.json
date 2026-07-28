@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-G8-001-D3-FRESH-ACCEPTANCE-020",
+  "reviewed_at": "2026-07-21T13:08:00+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "G8-001",
+  "directive_reviewed": 40,
+  "work_order_reviewed": "orchestration/work_orders/WO-G8-001-D3-PURPLE-GATE-019.md",
+  "machine_verdict": "PASS_FOR_HUMAN_REVIEW",
+  "g8_accepted": false,
+  "next_state": "HITL_REQUIRED",
+  "child_binding": {
+    "child_task_ref": "019f833c-2fbc-7220-892f-bad6bd1d6d07",
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/network.md",
+    "authority": "VERIFY_ONLY",
+    "trustlayer": "purple-team-release-gate",
+    "ui_character": "ui-visual-critic",
+    "started_at_machine": "2026-07-21T05:53:07.519186200Z",
+    "completed_at_machine": "2026-07-21T05:57:46.513485700Z",
+    "tool_calls_machine": 67
+  },
+  "external_artifact_binding": {
+    "receipt": "orchestration/receipts/g8/d3_fresh_after_external_binding_019/D3_network_019.json",
+    "receipt_last_write_utc": "2026-07-21T05:57:10.4046268Z",
+    "receipt_sha256": "2db11377fb16019303c0771cff70365591966a57275e5e22006f2b5dc72f5f8b",
+    "trace": "orchestration/logs/g8-d3-network-019.log",
+    "trace_last_write_utc": "2026-07-21T05:57:10.4066260Z",
+    "trace_sha256": "c934bf7ea7fe48099b2d61987a68b747c9e6f5babbb88388c54db368a2c769e3"
+  },
+  "independent_checks": {
+    "maf_agent_step_contract": "PASS",
+    "same_unique_desktop_parent": "PASS",
+    "fresh_network_child_no_grandchildren": "PASS",
+    "d3_013_not_reused": "PASS",
+    "character_and_skill_bindings": "PASS",
+    "one_writer_exact_lease": "PASS",
+    "product_writes_empty": "PASS",
+    "self_accept_false_and_accepted_false": "PASS",
+    "g3_76_g4_22_manifestation_8": "PASS_FROM_EXISTING_EVIDENCE",
+    "six_exports_zero_diff": "PASS_READ_ONLY",
+    "screenshot_manifest_dimensions_hashes": "PASS",
+    "godot_error_canonical_logs": "PASS",
+    "free_bridge_and_text_companion_boundaries": "PASS"
+  },
+  "residuals_for_human_review": [
+    "Starter Realm still uses prototype-grade primitive geometry.",
+    "The 868x517 layout has low-contrast and dense text around Free Bridge and Companion.",
+    "Some HUD/status language remains internal or debug-like.",
+    "Machine PASS_FOR_HUMAN_REVIEW is not Human visual acceptance."
+  ],
+  "parallel_safe_followup": "Grok specialist-profile onboarding may proceed as OPS-001 because it changes agent registry files only and does not start Character Foundry, Scene or Control product implementation.",
+  "self_accept": false
+}

@@ -1,0 +1,531 @@
+{
+  "agent_step_id": "B0-001-purple-001-2026-07-21",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:de8854ed1a9d28bfbb6672b059a5866a0b898f5d5a7b3f93e2acb5cb780ada09",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "B0-001-purple-child4-VERIFY_ONLY-parent-019f7ffd-3995-71c0-aca1-51078e24a852",
+  "transcript_ref": "B0-001-purple-child4-VERIFY_ONLY-parent-019f7ffd-3995-71c0-aca1-51078e24a852",
+  "writer_transcript_ref": "B0-001-purple-child4-VERIFY_ONLY-parent-019f7ffd-3995-71c0-aca1-51078e24a852",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/blender-p0-purple-001.log",
+  "handoff_ref": "B0_PARENT_CODEX_REVIEW",
+  "next_route": "B0_PARENT_CODEX_REVIEW",
+  "start_time": "2026-07-21T07:00:00Z",
+  "end_time": "2026-07-21T07:05:00Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set=purple_review_only; never ACCEPTED.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "routed": [
+      "evidence-memory-ledger",
+      "adversarial-review"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded profile, TrustLayer purple-team-release-gate, UI ui-visual-critic, skills, WO, and prior receipts manually. No bootstrap loop.",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+    "E:/agents/characters/13-purple-team-release-gate.md",
+    "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-B0-001-BLENDER-BRIDGE-P0-GATE.md",
+    "E:/AIdle_openworld/orchestration/tasks.json",
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_schema_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_rig_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/blender-p0-schema-001.log",
+    "E:/AIdle_openworld/orchestration/logs/blender-p0-rig-001.log",
+    "E:/AIdle_openworld/orchestration/logs/blender-p0-qa-001.log",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+    "E:/shared/skills/library/adversarial-review/SKILL.md",
+    "E:/AIdle_Blender_Bridge_P0/app/models.py",
+    "E:/AIdle_Blender_Bridge_P0/Grok/tool_definitions.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/artifact_hashes.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/p0_probe_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-0B63ED79CCFD/job_receipt.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_purple_001.json",
+    "E:/AIdle_openworld/orchestration/logs/blender-p0-purple-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "B0-001",
+    "directive_id": 46,
+    "work_order": "orchestration/work_orders/WO-B0-001-BLENDER-BRIDGE-P0-GATE.md",
+    "wave": "B0_PURPLE_FINAL",
+    "child_index": 4,
+    "profile": "aidle-worldgen-purple-acceptance",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+    "bridge_root": "E:/AIdle_Blender_Bridge_P0",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "purple_verdict": "PASS_FOR_HUMAN_REVIEW",
+    "verdict": "PASS_FOR_HUMAN_REVIEW",
+    "maf_gate_status": "VERIFIED_FOR_HUMAN_CODEX",
+    "summary": "Independent Purple VERIFY_ONLY after children 1–3: WO-B0-001 machine gates re-checked with live commands and artifact inspection. Blender 5.2.0 LTS confirmed; pytest 11 passed + compileall 0 at bridge root; fresh probe BLD-D2C21066E6F2 artifacts/hashes/identity/visual_signal (0.8745) and non-blank PNG confirmed; failed BLD-0B63ED79CCFD preserved; schema/QA fail-closed and Grok tool surface claims hold under independent spot-check; prior children all accepted=false/self_accept=false/product_writes=[]. Purple does NOT accept B0-001. Recommend PASS_FOR_HUMAN_REVIEW / parent REVIEW_REQUESTED → WAITING_CODEX with honest residuals (P0 probe is not production rig; command-contract probe not full HTTP-server job path; OS-level Blender network isolation incomplete).",
+    "character_binding": {
+      "trustlayer_character_id": "purple-team-release-gate",
+      "trustlayer_source": "E:/agents/characters/13-purple-team-release-gate.md",
+      "ui_character_id": "ui-visual-critic",
+      "ui_source": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: COMPLIANCE + registry; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stop no inventing evidence / no exceeding authority"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: slot 13 purple-team-release-gate VERIFY_ONLY; Purple gates never patch product; Red finds never fixes; Blue only approved WOs"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: hub E:/; MASTER_PLAN/JOURNAL; handoff discipline"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: project rooms; respect authority tokens; Purple verifies"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: FACT/INFERENCE classification; command evidence must be observed; verification gate before complete"
+      },
+      {
+        "skill_id": "evidence-memory-ledger",
+        "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: claim-to-source; no secrets; do not promote hypothesis as fact"
+      },
+      {
+        "skill_id": "adversarial-review",
+        "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: test claims against evidence/scope/risk; no invented objections; no scope hijack"
+      }
+    ],
+    "prior_children": [
+      {
+        "child_index": 1,
+        "profile": "schema",
+        "child_task_ref": "019f8373-dc17-7b02-914f-073b4ae5c03a",
+        "receipt": "orchestration/receipts/blender_p0/B0_schema_001.json",
+        "claimed_verdict": "PASS",
+        "accepted": false,
+        "self_accept": false,
+        "product_writes": []
+      },
+      {
+        "child_index": 2,
+        "profile": "aidle-character-rig-animation",
+        "child_task_ref": "019f8373-dc18-7010-bc49-97f61e6402b5",
+        "receipt": "orchestration/receipts/blender_p0/B0_rig_001.json",
+        "claimed_verdict": "PASS",
+        "accepted": false,
+        "self_accept": false,
+        "product_writes": [],
+        "fresh_probe_job_id": "BLD-D2C21066E6F2"
+      },
+      {
+        "child_index": 3,
+        "profile": "aidle-worldgen-qa-evidence",
+        "child_task_ref": "019f8373-dc18-7010-bc49-980d27cd672c",
+        "receipt": "orchestration/receipts/blender_p0/B0_qa_001.json",
+        "claimed_verdict": "PASS",
+        "accepted": false,
+        "self_accept": false,
+        "product_writes": [],
+        "primary_inspected_job_id": "BLD-6D1FFC4ECA6F"
+      }
+    ],
+    "independent_recheck": {
+      "no_install": true,
+      "no_product_patch": true,
+      "commands": [
+        {
+          "command": "E:\\blender.exe --version",
+          "exit_code": 0,
+          "stdout_first_line": "Blender 5.2.0 LTS",
+          "build_hash": "fbe6228777e7",
+          "build_branch": "blender-v5.2-release",
+          "status": "PASS"
+        },
+        {
+          "command": "python -m pytest -q",
+          "cwd": "E:/AIdle_Blender_Bridge_P0",
+          "exit_code": 0,
+          "observed": "11 dots / [100%] with 1 StarletteDeprecationWarning",
+          "status": "PASS",
+          "note": "Wrong-cwd run from E:/AIdle_openworld hits OSError reparse E:\\acorn — not a bridge failure; bridge-root run is authoritative."
+        },
+        {
+          "command": "python -m compileall -q app tests blender_scripts",
+          "cwd": "E:/AIdle_Blender_Bridge_P0",
+          "exit_code": 0,
+          "status": "PASS"
+        }
+      ],
+      "fresh_probe_BLD-D2C21066E6F2": {
+        "status": "PASS",
+        "quarantine_dir": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2",
+        "artifacts_recomputed": {
+          "p0_probe.blend": {
+            "bytes": 115584,
+            "sha256": "ee402978b0f086035ecc209d4d5d5982543a45163ed5ce88aa5a06dcec5fad80",
+            "matches_artifact_hashes_json": true
+          },
+          "p0_probe.glb": {
+            "bytes": 110916,
+            "sha256": "296e43314d0566a0907f5f3c3fde6e63f25b4034ab8c7d94f1a5f14a1a4aa108",
+            "matches_artifact_hashes_json": true
+          },
+          "p0_probe_preview.png": {
+            "bytes": 196100,
+            "sha256": "0378d5be7f277602a6abbe998233e0e4efdbe9374a2ac5342863d7f7af5f249b",
+            "matches_artifact_hashes_json": true
+          },
+          "validation.json": {
+            "bytes": 589,
+            "sha256": "21580e28d426fc8f8eed45d0601b05fffec9003898eea7f452eee30598be1000",
+            "matches_artifact_hashes_json": true
+          },
+          "artifact_hashes.json": {
+            "bytes": 1087,
+            "job_id": "BLD-D2C21066E6F2",
+            "character_id": "AIDLE-P0-PROBE"
+          }
+        },
+        "validation_json": {
+          "passed": true,
+          "runner_mode": "real",
+          "job_id": "BLD-D2C21066E6F2",
+          "character_id": "AIDLE-P0-PROBE",
+          "object_count": 6,
+          "triangle_count": 1488,
+          "preview_visual_signal": 0.874509871006012,
+          "preview_visual_signal_threshold": 0.15,
+          "preview_visual_signal_pass": true
+        },
+        "worker_stderr_empty": true,
+        "blender_exit_code_file_present": true,
+        "visual_inspection": {
+          "method": "multimodal read_file on PNG",
+          "flat_or_blank": false,
+          "description": "Low-poly cream egg/robot body, green biped legs, green sprout antenna, cyan rectangular face panel, dark gradient lower body, dark gray backdrop; non-uniform materials/geometry; not a solid flat or blank frame."
+        }
+      },
+      "failed_probe_BLD-0B63ED79CCFD": {
+        "status": "PASS_PRESERVED",
+        "job_receipt_exists": true,
+        "state": "FAILED",
+        "exit_code": 20,
+        "error": "Blender worker failed",
+        "rewritten_by_purple": false
+      },
+      "security_fail_closed_spotcheck": {
+        "status": "PASS",
+        "models_extra_forbid": true,
+        "generate_validation_report_literal_true": true,
+        "output_zone_literal_generated_quarantine": true,
+        "runner_exit_65_on_missing_artifacts": true,
+        "path_policy_tests_present": true,
+        "grok_tools_only": [
+          "inspect_character_template",
+          "build_character_from_template",
+          "get_character_job_status"
+        ],
+        "tool_definitions_notes": "generate_validation_report typed boolean without const:true while API requires Literal[True] — still fail-closed at API (schema child B0-S-F1 info)."
+      },
+      "no_self_accept_prior_children": {
+        "status": "PASS",
+        "schema_accepted": false,
+        "schema_self_accept": false,
+        "rig_accepted": false,
+        "rig_self_accept": false,
+        "qa_accepted": false,
+        "qa_self_accept": false
+      }
+    },
+    "wo_gate_matrix": [
+      {
+        "gate": "Blender 5.2.0 LTS version string",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "E:/blender.exe --version → Blender 5.2.0 LTS (purple re-run)"
+      },
+      {
+        "gate": "pytest 11 passed without install",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "cwd=E:/AIdle_Blender_Bridge_P0; python -m pytest -q exit 0; 11 dots"
+      },
+      {
+        "gate": "compileall app tests blender_scripts exit 0",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "cwd=bridge root; exit 0 (purple re-run)"
+      },
+      {
+        "gate": "Fresh real-mode probe QUARANTINED artifacts with E:/blender.exe + approved worker + server paths",
+        "status": "PASS_WITH_RESIDUAL",
+        "classification": "FACT",
+        "evidence": "BLD-D2C21066E6F2 non-empty blend/glb/png/validation/artifact_hashes; exit 0; worker stderr empty",
+        "residual": "Rig invoked command-contract path because HTTP bridge/.venv unavailable — matches BlenderRunner.build_command semantics but is not full API-server job issuance proof."
+      },
+      {
+        "gate": "Preview non-blank + visual_signal >= 0.15",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "preview_visual_signal=0.874509871006012; multimodal PNG inspection non-blank character"
+      },
+      {
+        "gate": "Negative fail-closed cases (extra/validation-off/unknown template/path escape/duplicate/exit0-missing)",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "pytest matrix 11 passed includes those cases; models Literal/extra=forbid + runner exit 65 confirmed by purple code read"
+      },
+      {
+        "gate": "No shell/Python/download/add-on/output-path Grok tools",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "tool_definitions.json three tools only; additionalProperties false"
+      },
+      {
+        "gate": "Quarantine-only; no Godot copy/catalog/state mutation",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "JobReceipt.output_zone Literal generated_quarantine; publish_to_godot globally denied; children reported no Godot copy"
+      },
+      {
+        "gate": "Failed compat probe BLD-0B63ED79CCFD preserved",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "job_receipt state=FAILED exit=20 still present; purple read-only"
+      },
+      {
+        "gate": "No self-accept by prior children",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "schema/rig/qa receipts accepted=false self_accept=false product_writes=[]"
+      },
+      {
+        "gate": "Purple self-accept / B0-001 ACCEPTED",
+        "status": "PASS_DENIED_BY_DESIGN",
+        "classification": "FACT",
+        "evidence": "Purple never accepts. accepted=false self_accept=false. ACCEPTED reserved for Codex/Human only."
+      }
+    ],
+    "adversarial_review": {
+      "review_id": "B0-PURPLE-ADV-001",
+      "reviewer_role": "purple-team-release-gate",
+      "intent_anchor": {
+        "user_goal": "Independently verify Blender Bridge P0 machine gate evidence for WO-B0-001 without product patch or self-accept",
+        "current_priority": "Purple final VERIFY_ONLY after children 1–3",
+        "allowed_scope": [
+          "read receipts/logs/artifacts",
+          "non-mutating re-run of version/pytest/compileall/hash checks",
+          "write B0_purple_001.json + blender-p0-purple-001.log only"
+        ],
+        "forbidden_scope": [
+          "product patches under E:/AIdle_Blender_Bridge_P0",
+          "ACCEPT of B0-001",
+          "install/credentials/push/deploy/publish",
+          "grandchildren",
+          "Nori-7 / Character Foundry / Godot publish claims"
+        ]
+      },
+      "claim_under_review": "Children 1–3 PASS claims satisfy WO-B0-001 machine gates sufficiently for human/Codex review progression",
+      "what_i_accept": [
+        "Blender 5.2.0 LTS present at E:/blender.exe",
+        "Unit/security matrix 11 green at bridge root",
+        "Real headless worker produced non-empty quarantine artifacts with matching hashes and non-blank preview signal >= 0.15",
+        "Fail-closed schema/policy surface is implemented and tested",
+        "Prior children did not self-accept or write product"
+      ],
+      "what_i_challenge": [
+        "Calling the probe a production character rig (rig_family null; six primitives only)",
+        "Equating command-contract probe with full FastAPI-mediated production job lifecycle when server/.venv were down",
+        "Treating P0 quarantine GLB as trusted Godot/world truth (Architecture Lock forbids this)"
+      ],
+      "strongest_counter_argument": "A green unit suite + one headless primitive probe could over-claim 'Blender Bridge ready for production characters' if residuals are omitted — so Purple requires PASS_FOR_HUMAN_REVIEW not ACCEPTED and forces residual disclosure.",
+      "missing_evidence": [
+        "Live API-server-mediated job create→status→QUARANTINED_COMPLETE under current .venv/.env (not available this wave)",
+        "OS-level Blender process network isolation beyond AIDLE_DISABLE_NETWORK policy marker",
+        "Production skeleton/animation/LOD/Godot import acceptance (explicitly out of P0 scope)"
+      ],
+      "scope_drift_risk": "LOW if residuals honored; HIGH if parent or human interprets Purple PASS_FOR_HUMAN_REVIEW as ACCEPTED or production-rig complete",
+      "final_verdict": "PASS_FOR_HUMAN_REVIEW",
+      "self_audit": {
+        "preserved_user_intent": true,
+        "did_not_invent_objection": true,
+        "evidence_based": true,
+        "no_scope_hijack": true
+      }
+    },
+    "findings": [
+      {
+        "finding_id": "B0-P-F1",
+        "severity": "info",
+        "classification": "FACT",
+        "title": "Machine gates independently re-verified",
+        "statement": "Blender version, pytest 11, compileall 0, probe artifacts/hashes/visual signal, failed-probe preservation, and no-self-accept are reconfirmed by Purple."
+      },
+      {
+        "finding_id": "B0-P-F2",
+        "severity": "info",
+        "classification": "FACT",
+        "title": "P0 probe is not a production rig",
+        "statement": "object_count=6 triangle_count=1488 rig_family null; pipeline readiness only — not Character Foundry/Nori-7/animation acceptance."
+      },
+      {
+        "finding_id": "B0-P-F3",
+        "severity": "low",
+        "classification": "FACT",
+        "title": "Command-contract probe residual",
+        "statement": "Fresh probe BLD-D2C21066E6F2 used BlenderRunner-equivalent CLI because bridge HTTP/.venv was unavailable. Artifacts and worker contract are real; full server-mediated path remains residual for Codex/Human."
+      },
+      {
+        "finding_id": "B0-P-F4",
+        "severity": "info",
+        "classification": "FACT",
+        "title": "Tool schema boolean vs API Literal[True]",
+        "statement": "tool_definitions generate_validation_report is boolean; models force Literal[True]. Fail-closed preserved at API; optional client-schema tighten is non-blocking."
+      },
+      {
+        "finding_id": "B0-P-F5",
+        "severity": "info",
+        "classification": "FACT",
+        "title": "OS network isolation incomplete",
+        "statement": "SECURITY residual from schema child: AIDLE_DISABLE_NETWORK is policy marker; OS-level isolation not claimed complete."
+      }
+    ],
+    "residual_risks": [
+      "P0 probe is pipeline/export smoke only — not production character rig, skeleton, sockets, anim set, LOD, or Godot intake.",
+      "Fresh probe was command-contract (server down) not full HTTP job lifecycle.",
+      "OS-level Blender network/ACL isolation incomplete in P0.",
+      "Starlette/httpx TestClient deprecation warning during pytest (non-blocking).",
+      "Purple and all prior children leave B0-001 unaccepted; Codex + Human remain required."
+    ],
+    "ui_visual_critic_note": {
+      "source": "ui-visual-critic slot 11",
+      "artifact": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/p0_probe_preview.png",
+      "assessment": "Preview is a readable low-poly character silhouette with material contrast (cream body, green limbs/sprout, cyan face plate) on dark ground — hierarchy and silhouette read clearly for a probe still; not blank/flat AI-slop empty frame. Not a production presentation UI claim."
+    },
+    "product_writes": [],
+    "children": [],
+    "no_grandchildren": true,
+    "handoff": {
+      "to": "parent / Codex",
+      "message": "Purple PASS_FOR_HUMAN_REVIEW. Four child receipts complete. Parent should set REVIEW_REQUESTED / WAITING_CODEX. Do not ACCEPTED B0-001 from Grok. Residuals must travel with the package.",
+      "blocking_for_accept": true,
+      "accepted": false
+    },
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-B0-001-BLENDER-BRIDGE-P0-GATE.md",
+        "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_schema_001.json",
+        "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_rig_001.json",
+        "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_qa_001.json"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "de8854ed1a9d28bfbb6672b059a5866a0b898f5d5a7b3f93e2acb5cb780ada09",
+      "BYTE_LEN": 66809
+    }
+  },
+  "smoke_test": {
+    "name": "blender_p0_purple_independent_recheck",
+    "passed": true,
+    "commands": [
+      {
+        "cmd": "E:\\blender.exe --version",
+        "exit_code": 0,
+        "observed": "Blender 5.2.0 LTS"
+      },
+      {
+        "cmd": "python -m pytest -q",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "observed_passed": 11
+      },
+      {
+        "cmd": "python -m compileall -q app tests blender_scripts",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0
+      }
+    ],
+    "artifact_rehash": {
+      "job_id": "BLD-D2C21066E6F2",
+      "all_required_artifacts_present": true,
+      "hashes_match_artifact_hashes_json": true,
+      "preview_visual_signal": 0.874509871006012,
+      "preview_non_blank": true
+    }
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "VERIFY_ONLY",
+    "no_self_accept": true,
+    "accepted": false,
+    "self_accept": false,
+    "no_product_patch": true,
+    "product_writes_empty": true,
+    "no_nested_grandchildren": true,
+    "character_skill_trace_present": true,
+    "no_invented_gate_pass": true,
+    "no_invented_hash": true,
+    "never_accept_B0_001": true,
+    "exclusive_writes_only": [
+      "orchestration/receipts/blender_p0/B0_purple_001.json",
+      "orchestration/logs/blender-p0-purple-001.log"
+    ],
+    "status": "PASS"
+  },
+  "evidence_refs": [
+    "orchestration/logs/blender-p0-purple-001.log",
+    "orchestration/receipts/blender_p0/B0_schema_001.json",
+    "orchestration/receipts/blender_p0/B0_rig_001.json",
+    "orchestration/receipts/blender_p0/B0_qa_001.json",
+    "orchestration/work_orders/WO-B0-001-BLENDER-BRIDGE-P0-GATE.md",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/artifact_hashes.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-D2C21066E6F2/p0_probe_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-0B63ED79CCFD/job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/Grok/tool_definitions.json",
+    "E:/AIdle_Blender_Bridge_P0/app/models.py",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ]
+}

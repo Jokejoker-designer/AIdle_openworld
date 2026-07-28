@@ -1,0 +1,67 @@
+{
+  "schema_version": "character_4_subagent_dispatch/1.0",
+  "character_id": "CCP-RH-001",
+  "agent_id": "S1",
+  "job_state": "CLAY_HEAD_BODY",
+  "workspace": "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001",
+  "write_path_only": "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\work\\S1_head_hair_face.blend",
+  "read_paths": [
+    "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\spec\\character_spec.json",
+    "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\references",
+    "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\spec\\BLENDER_COLLECTION_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/control/visual_reference/mockup_ssot_v2/MOCKUP_DESIGN_LOCK.md",
+    "E:/AIdle_openworld/orchestration/control/AIDLE_GAME_VISION_LOCK_001.md"
+  ],
+  "prompt_file": "E:\\agents\\AIdle_4_Subagent_Blender_Character_System\\aidle_character_4_subagents\\prompts\\S1_HEAD_HAIR_FACE.md",
+  "prompt_text_preview": "# S1 — HEAD / HAIR / FACE\n\nBạn chỉ được sửa `S1_HEAD_HAIR_FACE` trong file do S1 sở hữu.\n\n## Trách nhiệm\n- Head base, face silhouette, ears, eyes.\n- Hair cloud/lobes và bangs.\n- Rear identifier thuộc vùng đầu.\n- Primary three-quarter silhouette.\n\n## Luật hình khối\n- Không sửa bằng scale-only khi topology/silhouette sai.\n- Không tạo tóc bằng các quả cầu gần giống nhau.\n- Hair cloud phải được sculpt thành các lobe có nhịp lớn/nhỏ và nối silhouette.\n- Bangs dùng dạng petal/teardrop có chủ ý, không bead chain.\n- Không dùng sphere rời làm má, miệng hoặc mũi.\n- Mắt phải đọc đúng trạng thái từ mockup, không tự biến thành mắt nhắm.\n- Tỷ lệ đầu phải theo landmark/spec, không suy đoán.\n\n## Trình tự\n1. Import reference plane và locked camera.\n2. Dựng clay head base.\n3. Dựng hair mass lớn.\n4. Chỉnh bangs/eyes/ears.\n5. Render primary/front/side/back.\n6. Emit receipt; không tự PASS.\n\n## Cấm\n- Material pass trước FORM_LOCKED.\n- Chạm body/clothes.\n- Đổi camera.\n- Join collection với S2.",
+  "mcp": {
+    "allowed_mcp": [
+      "blender__get_scene_info",
+      "blender__get_object_info",
+      "blender__get_viewport_screenshot",
+      "blender__execute_blender_code"
+    ],
+    "code_scope": "Only collections under S1_HEAD_HAIR_FACE; save only work/S1_head_hair_face.blend",
+    "forbidden": [
+      "edit S2 collections",
+      "export release GLB",
+      "self_accept"
+    ]
+  },
+  "hard_rules": [
+    "One writer path only — do not write outside write_path_only",
+    "self_accept=false always",
+    "accepted=false until Human Product Lead",
+    "Do not promote to game/**",
+    "Clay/form before materials if state < FORM_LOCKED",
+    "Exact clip names from character_spec.clips — no idle alias for missing"
+  ],
+  "aidle_clip_contract": [
+    "idle",
+    "walk",
+    "scan",
+    "happy",
+    "cancel",
+    "turn_left",
+    "turn_right",
+    "build_place",
+    "build_place_hold",
+    "confirm",
+    "water",
+    "plant_seed",
+    "harvest",
+    "charge",
+    "low_energy"
+  ],
+  "skeleton_family": "robot_biped_small_v1",
+  "receipt_required": {
+    "agent_id": "S1",
+    "status": "IN_PROGRESS|DONE|BLOCKED",
+    "artifacts": [],
+    "self_accept": false,
+    "accepted": false
+  },
+  "accepted": false,
+  "self_accept": false,
+  "emitted_utc": "2026-07-25T16:17:05.191054+00:00"
+}

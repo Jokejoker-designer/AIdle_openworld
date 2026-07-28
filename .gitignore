@@ -1,20 +1,64 @@
+# --- Godot / build ---
 .godot/
 .import/
+export_presets.cfg
 build/
 dist/
 logs/
 *.log
 *.tmp
+*.translation
+
+# --- Secrets / env ---
 .env
 .env.*
 !.env.example
-vendor/
-generated/assets/
-orchestration/runtime/
-tools/*.exe
-tools/*.zip
-/AIdle_Openworld_Prototype_v0.1.zip
-/aidlaedemo/
+*.pem
+id_rsa*
+credentials*.json
+*secret*
+
+# --- Python ---
 __pycache__/
 *.pyc
-/orchestration/reviews/_*tmp.py
+*.pyo
+.venv/
+venv/
+
+# --- Vendor / tools binaries (download separately) ---
+vendor/
+tools/*.exe
+tools/*.zip
+tools/gh/
+tools/Godot*
+tools/blender-mcp/exports/
+/AIdle_Openworld_Prototype_v0.1.zip
+/aidlaedemo/
+
+# --- Orchestration runtime noise ---
+orchestration/runtime/
+orchestration/reviews/_*tmp.py
+orchestration/control/character_build/**/_blender_addons_tmp/
+orchestration/control/character_build/**/*BACKUP*
+orchestration/control/character_build/**/*BACKUP_LOOP*
+orchestration/control/character_build/**/*.blend1
+orchestration/control/character_build/royal_lightkeep/ROYAL_LIGHTKEEP_*_PASS8_V*.blend
+!orchestration/control/character_build/royal_lightkeep/ROYAL_LIGHTKEEP_*_PASS5_MATERIALS.blend
+!orchestration/control/character_build/royal_lightkeep/ROYAL_LIGHTKEEP_*_PASS1D.blend
+!orchestration/control/character_build/royal_lightkeep/ROYAL_LIGHTKEEP_*_FINAL.blend
+
+# --- Asset backups ---
+**/*.bak_pre_*
+**/*.glb.bak*
+**/*.blend1
+
+# --- Large evidence dumps (keep small receipts) ---
+orchestration/evidence/**/*.log
+orchestration/evidence/**/godot_headed*.log
+
+# --- Generated ---
+generated/assets/
+*.user
+*.suo
+.DS_Store
+Thumbs.db

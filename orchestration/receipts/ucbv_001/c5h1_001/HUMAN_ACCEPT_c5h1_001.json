@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "HUMAN_PRODUCT_ACCEPTANCE",
+  "step_id": "UCBV-001-c5h1-human-accept-001",
+  "milestone": "UCBV-001 C5/H1 Human-gate correction — companion deadlock — Human acceptance",
+  "accepted_by": "human_product_lead",
+  "accepted_by_name": "Hanh (le.minhhanh1611@gmail.com)",
+  "acceptance_channel": "chat, via aidle-continuity-conductor (Claude), Codex-absent capsule",
+  "recorded_at": "2026-07-23T14:14:00+07:00",
+  "decision_trigger": "AskUserQuestion selection: \"Accept C5H1 + tiếp tục C5 release (Recommended)\", in response to \"Việc tiếp theo giao cho Grok là việc gì?\" after user said \"Ok vậy cho tôi promt giao việc cho Grok\"",
+  "accepted": true,
+  "self_accept": false,
+  "accepted_scope": "C5H1 companion-deadlock correction WO only (WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001). Does NOT accept full UCBV-001 C5 product release, does NOT accept Nori-7 visual quality (Human Finding 2 unresolved, redesign still queued), does NOT authorize P2E-002, character-backbone production, or DNA Platform vNext.",
+  "basis": {
+    "purple_receipt": "orchestration/receipts/ucbv_001/c5h1_001/PURPLE_companion_deadlock_gate_001.json",
+    "purple_receipt_sha256": "independently recomputed by conductor, matches Purple's own self-hash and Purple's citation chain to QA/Red/Blue",
+    "purple_verdict": "VERIFIED (machine, correction WO only)",
+    "qa_receipt": "orchestration/receipts/ucbv_001/c5h1_001/QA_companion_deadlock_evidence_001.json",
+    "qa_criteria_all_pass": ["c1_open_close_locomotion", "c2_confirm_world_commit", "c3_esc_non_deadlock", "c4_zero_error_build_esc_no_pause", "c5_art_style_world_profile"],
+    "blue_receipt": "orchestration/receipts/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.json",
+    "red_receipt": "orchestration/receipts/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.json",
+    "red_blocking_findings_count": 0,
+    "independent_conductor_verification": "orchestration/control/CONDUCTOR_JOURNAL.md Entry 065 — main.gd sha256 recomputed and matched at every hop (Blue post-hash = Red-audited = QA-verified = Purple-adjudicated = disk); 9/9 evidence PNG hashes recomputed and matched; godot_headed/headless logs (UTF-16LE) decoded and confirmed 0 ERROR occurrences plus PASS marker; 3 of 9 screenshots opened and visually confirmed the fix (companion open vs closed, Confirm button enabled after preview placement); 3 regression smokes (h1_consolidation_flow, ucbv_001_inputmap_e2e, h1_human_ux_manual_build) all PASS zero-error",
+    "human_own_replay": "Human independently reopened the running game after the fix and observed a normal, non-deadlocked Manual Build hologram preview with Confirm enabled — consistent with the QA/Purple evidence"
+  },
+  "residuals_acknowledged_non_blocking": [
+    "R-C5H1-01: HUD label says 'press E to chat' but companion_call is bound to physical key C (prompt_quick_open is KEY_SLASH). Human informed directly in chat before this acceptance.",
+    "R-C5H1-02: mid-build companion_call not on build context allow-list (prompt_quick_open works)",
+    "R-C5H1-03: closing Companion mid-build returns to exploration context rather than restoring prior build context"
+  ],
+  "next_authorized_action": "Resume the full UCBV-001 C5 Purple release recommendation (WO-UCBV-001-C5-PURPLE-RELEASE-011.md), which was rerouted (not cancelled) by directive 97 when the H1 deadlock blocker was found. See directive 98.",
+  "not_authorized_by_this_acceptance": [
+    "Nori-7 visual redesign (Human Finding 2) — remains queued, resume after C5 closes per Human's original sequencing choice",
+    "P2E-002",
+    "character-backbone production",
+    "DNA Platform vNext / GROK_EXECUTION_BRIEF_001"
+  ]
+}

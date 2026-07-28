@@ -1,0 +1,855 @@
+{
+  "schema_version": "town_grid_redo_loop_iterations/1.0",
+  "directive_id": 99,
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "agent": "grok",
+  "accepted": false,
+  "self_accept": false,
+  "mode": "ITERATE_TO_MATCH",
+  "raw_godot_log_paths": [
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_001.log",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v1.log",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v2_boost.log",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v3_house11.log",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v4_freecam.log",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v9_house16.log",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v10_cast_fix.log",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v11_house17_cast2.log",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v12_cast_v2.log",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v14_house18_lamp3.log",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v16_house19_props2_cast3.log"
+  ],
+  "latest_headed_log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_alignment_v1.log",
+  "iterations": [
+    {
+      "n": 1,
+      "name": "TOWN_FIDELITY_BATCH_V1",
+      "action": "Blender rebuild 11 module GLBs (house, mailbox, lamp, path, greenhouse full, flower, pond, fence, rock, tree, farm-plot fix)",
+      "result": "10/11 OK; farm_plot fixed in follow-up; catalog updated"
+    },
+    {
+      "n": 2,
+      "name": "MATERIAL_BOOST_RUNTIME",
+      "action": "town_grid_loader._boost_mockup_materials after GLB intake (saturate cream/lilac/roof/mail)",
+      "result": "cream+lilac+yellow roof readable; still geometry gaps on house"
+    },
+    {
+      "n": 3,
+      "name": "HOUSE_FIDELITY_V11",
+      "action": "House re-author denser fish-scale tiles with full transform_apply; stronger palette",
+      "result": "tiles more visible; silhouette still boxy vs SSOT gable cottage"
+    },
+    {
+      "n": 4,
+      "name": "HEADED_FREECAM",
+      "action": "QA free Camera3D (disable CozyCamera override); per-plot close-ups",
+      "result": "true plot close-ups: mailbox/greenhouse/fence/home captured correctly"
+    },
+    {
+      "n": 5,
+      "name": "HOUSE_FIDELITY_V12",
+      "action": "Solid gable slabs + denser tiles; Blender preview good but Godot axis still mangled slopes",
+      "result": "Blender OK; in-game still chaotic roof (axis/export issue)"
+    },
+    {
+      "n": 6,
+      "name": "HOUSE_FIDELITY_V13",
+      "action": "Simplify slopes + disc scallops",
+      "result": "Godot still flat yellow bars — same mangled-rotation family"
+    },
+    {
+      "n": 7,
+      "name": "HOUSE_FIDELITY_V14",
+      "action": "Custom roof_prism mesh (verts only, NO object rotation) + translation-only scallops",
+      "result": "BROKE prior failure signature. In-game shows A-frame gable + yellow roof + lilac pad + chimney. Still not 100% fish-scale SSOT but silhouette family correct.",
+      "failure_signature_before": "box_body_chaotic_tiles_not_ssot_gable",
+      "failure_signature_after": "gable_ok_tiles_simplified_not_full_fishscale",
+      "strikes_on_old_signature": "reset (signature changed)"
+    },
+    {
+      "n": 8,
+      "name": "BUILDINGS_WAVE1_V1",
+      "action": "Author 8 missing building GLBs from MOCKUP_SSOT_V2 cards (workshop/market/gazebo/well/windmill/barn/bridge/watchtower). Register module_catalog. Cadastre positions unchanged. HOME.BLD not re-touched.",
+      "result": "AIDLE_TOWN_GRID_IMPORT=PASS real_glb 21→29, buildings 10/10 real, placeholders 21 (all props). Headed QA PASS captures=28 including 8 building close-ups. All 8 buildings HIGH_PARTIAL v1 (not 100% SSOT).",
+      "log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_buildings_wave1_v1.log",
+      "receipt": "orchestration/receipts/town_grid_import_001/BUILDINGS_WAVE1_V1.json",
+      "objects": [
+        "cozy_workshop_A",
+        "cozy_market_stall_A",
+        "cozy_gazebo_A",
+        "cozy_well_house_A",
+        "cozy_windmill_A",
+        "cozy_barn_small_A",
+        "cozy_bridge_arch_A",
+        "cozy_watchtower_A"
+      ],
+      "matching_100_pct": false,
+      "matching_100_pct_count": 0,
+      "high_partial_new_buildings": 8,
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "n": 9,
+      "name": "BUILDINGS_FIDELITY_V2",
+      "action": "Re-author 8 buildings with denser SSOT detail; extend material boost for green roof/awn/fruit/yarn. No HOME/GH remodel; no position moves.",
+      "result": "Headed QA PASS real_glb=29. All 8 remain HIGH_PARTIAL strike=2. Progress: market pink awning, workshop soft body+window+yarn, barn planks, thicker windmill blades, clearer bridge arch. Residual: roofs still read as flat shelves; not 100% SSOT.",
+      "log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_buildings_fidelity_v2.log",
+      "receipt": "orchestration/receipts/town_grid_import_001/BUILDINGS_FIDELITY_V2.json",
+      "matching_100_pct": false,
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "n": 10,
+      "name": "BUILDINGS_FIDELITY_V3",
+      "action": "Replace shelf-plank roof helper with true slope sphere fishscales (roof_tiles_gable V3 + aframe for well). Re-export all 8. No HOME/GH/position changes.",
+      "result": "Headed QA PASS real_glb=29. Workshop+barn roofs now clay scale canopies — shelf-plank signature RESOLVED. Well A-frame sphere shingles. All 8 still HIGH_PARTIAL (0 at 100%). Six buildings at strike 3 overall residual → NEED_HUMAN candidates. Workshop/barn new roof sig strike 1.",
+      "log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_buildings_fidelity_v3.log",
+      "receipt": "orchestration/receipts/town_grid_import_001/BUILDINGS_FIDELITY_V3.json",
+      "matching_100_pct": false,
+      "accepted": false,
+      "self_accept": false,
+      "roof_plank_fixed": true
+    },
+    {
+      "n": 11,
+      "name": "BUILDINGS_FIDELITY_V4",
+      "action": "HUMAN_AUTHORIZED_ONE_MORE_REMESH: signature-targeted remesh for MARKET/GARDEN/WELL/WINDMILL/BRIDGE/LOOKOUT only. Workshop/barn/home untouched. Positions unchanged.",
+      "result": "Headed QA PASS real_glb=29. matching_100_pct_count=0. Progress on all 6 signatures but none closed to 100% SSOT. STOP auto-iterate — all 6 returned NEED_HUMAN_AGAIN for fresh Product Lead decision.",
+      "log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_buildings_fidelity_v4.log",
+      "receipt": "orchestration/receipts/town_grid_import_001/BUILDINGS_FIDELITY_V4.json",
+      "matching_100_pct": false,
+      "matching_100_pct_count": 0,
+      "accepted": false,
+      "self_accept": false,
+      "need_human_again": [
+        "MARKET.BLD",
+        "GARDEN.BLD",
+        "WELL.BLD",
+        "WINDMILL.BLD",
+        "BRIDGE.BLD",
+        "LOOKOUT.BLD"
+      ]
+    },
+    {
+      "n": 12,
+      "name": "TOWN_ALIGNMENT_V1",
+      "action": "Reprioritize to town-wide alignment: axis-aligned pads/labels (yaw on content only); fairy-street wood platform primitive overlay 12/12; stone MultiMesh already present; no remesh of any building; plan transform SSOT unchanged.",
+      "result": "Headed QA PASS. Wood 12/12 + stone 13/13. Flagged CONFLICT_WD_GAZEBO_VS_HOME_BLD (deck at 0,0 vs HOME.BLD @ 0,0; gazebo at 2,10). No silent move. accepted=false.",
+      "log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_alignment_v1.log",
+      "receipt": "orchestration/receipts/town_grid_import_001/TOWN_ALIGNMENT_V1.json",
+      "matching_100_pct": false,
+      "accepted": false,
+      "self_accept": false,
+      "design_flags": [
+        "CONFLICT_WD_GAZEBO_VS_HOME_BLD"
+      ]
+    }
+  ],
+  "latest_headed_log_after_v14": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v7_house14.log",
+  "iterations_continued": [
+    {
+      "n": 8,
+      "name": "HOUSE_FIDELITY_V15",
+      "action": "Dense fish-scale rows (8x10 front + back) on prism via translation-only placement",
+      "result": "In-game roof shows ordered yellow scallop rows on A-frame; HIGH_PARTIAL vs SSOT",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v8_house15_lamp2.log"
+    },
+    {
+      "n": 9,
+      "name": "LAMP_FIDELITY_V2",
+      "action": "Cream cyber lantern: post collars, arm, hanging glow, cyan lines, ivy",
+      "result": "HOME.P2 cream lamp with arm visible; still not full SSOT ivy density"
+    },
+    {
+      "n": 10,
+      "name": "HOUSE_FIDELITY_V16",
+      "action": "Denser 9x11 scales + larger door",
+      "result": "Freecam close_home: ordered yellow scallop rows on A-frame, cream body, lilac pad, chimney, side glow window, mailbox/lamp/path present. Still HIGH_PARTIAL vs SSOT (not 100% clay fish-scale detail, door less prominent from angle).",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v9_house16.log"
+    },
+    {
+      "n": 11,
+      "name": "CAST_ROOT_CAUSE_PRESENTER_PLUS_SSOT_SILHOUETTES_V1",
+      "action": "ONE root-cause fix for shared white_sphere_cast_presenter across all 10 CHAR plots: (1) cast_presenter.gd multisurface material rebind + ground_align + no prop-boost; (2) town_grid_loader skips _boost_mockup_materials on cast; (3) CAST_SSOT_SILHOUETTES_V1 re-author all 10 cast GLBs (pear/humanoid/quad/construct) with multi-material + 10 real clips; (4) cast_roster.json SHAs updated.",
+      "result": "cast_built=10 idle=10 on headed v10. Signature partially broken: multi-surface accents (leaf sprout, cyan eyes) now visible on freecam close-ups (esp. GREENHOUSE.CHAR/kito). Cream body still washes near-white under realm sun — residual HIGH_PARTIAL cast, not pure FAIL white sphere. No uncommitted house v17 prior to this receipt (catalog/house mtime was v16).",
+      "failure_signature_before": "white_sphere_cast_presenter",
+      "failure_signature_after": "cast_multisurface_cream_wash_high_partial",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v10_cast_fix.log",
+      "strikes_on_old_signature": "reset (shared root fixed once for all 10)"
+    },
+    {
+      "n": 12,
+      "name": "CAST_PRESENTER_CONTRAST_V2_PLUS_NORI_SHA_SYNC",
+      "action": "cast_presenter: aggressive cream→warm beige, leaf/cyan emission, orange/metal heuristics; cast town scale 1.35→1.65; sync NORI_GLB_SHA256_EXPECTED + nori7_animation_adapter.sha256 to CAST_SSOT dig e5dfdbde… (was stale 3f2e1c2e… causing companion glb_sha256_mismatch fail-closed).",
+      "result": "Headed v11: Nori companion SHA ok (built=true); cast scale 1.65; cream→beige heuristics live. Workshop Bac Bap peach body + Market May Mach yellow body prove per-character palettes after shared fix. specular property warning fixed. Residual: cream robots still bright under sun.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v11_house17_cast2.log"
+    },
+    {
+      "n": 13,
+      "name": "HOUSE_FIDELITY_V17",
+      "action": "Larger clay fish-scale scallops (10x12 front staggered peach/yellow/cream bands), stronger door planks/arch/3 steps, denser lavender pot, thicker tile lift. roof_prism still verts-only.",
+      "result": "Headed v11 close_home: denser yellow clay scallops on A-frame, cream body, lilac pad, chimney, side glow window, mailbox/lamp present. Still HIGH_PARTIAL vs SSOT (peach tile bands less distinct in-game, door less prominent from freecam angle). Not 100%.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v11_house17_cast2.log",
+      "failure_signature_before": "gable_ok_tiles_simplified_not_full_fishscale",
+      "failure_signature_after": "gable_ok_dense_scallops_door_still_weak_high_partial",
+      "strikes_on_old_signature": "reset (signature changed toward denser scallops)"
+    },
+    {
+      "n": 14,
+      "name": "CAST_SSOT_SILHOUETTES_V2",
+      "action": "Re-author all 10 cast: darker cream bases (nori 0.82/0.76/0.58), larger cyan eye + green snout, larger robot eyes; sync NORI sha 6137efe7…; allow glTF neutral_bone in nori7_presenter.",
+      "result": "Blender 10/10 OK. Headed v12: cast_built=10 idle=10. HOME.CHAR shows green snout/vial/cyan accents on pear body; GREENHOUSE.CHAR green eyes+sprout; WORKSHOP peach humanoid; MARKET yellow humanoid. Shared white_sphere_cast_presenter signature broken. Per-char still HIGH_PARTIAL vs SSOT cards (not 100% pear/snout silhouette). Companion nori fail-closed neutral_bone patched in presenter.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v12_cast_v2.log",
+      "failure_signature_before": "cast_multisurface_cream_wash_high_partial",
+      "failure_signature_after": "cast_palette_ok_silhouette_high_partial_vs_ssot_cards"
+    },
+    {
+      "n": 15,
+      "name": "HOUSE_FIDELITY_V18",
+      "action": "Stronger peach/yellow/cream tile bands + door extruded further on +Y freecam face",
+      "result": "GLB sha=af866f08… bytes=1014744. Headed v14 re-score pending visual. Still targeting 100% SSOT.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v14_house18_lamp3.log"
+    },
+    {
+      "n": 16,
+      "name": "LAMP_FIDELITY_V3",
+      "action": "Denser ivy (10+ leaves both sides) + stronger cyan circuit emit + lantern rim glow",
+      "result": "GLB sha=e8c2afa2… bytes=135828. Headed v14 capture close_lamp.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v14_house18_lamp3.log"
+    },
+    {
+      "n": 17,
+      "name": "HOUSE_ROOF_BAND_BOOST_PRESERVE",
+      "action": "town_grid_loader roof boost no longer collapses all tiles to one orange; preserves M_roof_a/b/c peach/yellow/cream bands",
+      "result": "Headed v15 re-render for band readability",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v15_roof_bands.log"
+    },
+    {
+      "n": 18,
+      "name": "HOUSE_FIDELITY_V19",
+      "action": "Root-cause door axis: Blender +Y door faced away from freecam (glTF maps Y→−Z). Moved arched wood door + peach steps to Blender −Y (Godot +Z freecam face). Denser 11x13 clay fish-scale coins with peach/yellow/cream row bands; freecam close_home_door capture.",
+      "result": "Headed v16: door clearly visible brown wood + peach frame on freecam face; roof shows ordered clay scallop rows with peach+yellow bands. Still HIGH_PARTIAL vs SSOT (not 100% soft clay half-disc density / interior window detail / exact arch). Signature: door_axis_fixed_gable_clay_high_partial. Not NEED_HUMAN.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v16_house19_props2_cast3.log",
+      "failure_signature_before": "gable_ok_dense_scallops_door_still_weak_high_partial",
+      "failure_signature_after": "door_axis_fixed_gable_clay_high_partial",
+      "strikes_on_old_signature": "reset (door axis root cause fixed)"
+    },
+    {
+      "n": 19,
+      "name": "CAST_PER_CARD_V3",
+      "action": "Individual SSOT card polish (not shared presenter): Nori pear+large cyan eye+green barrel snout+vial; Bac Bap orange coveralls+bald tan+mustache+toolbox; May Mach yellow+blue hair; Kito dual green eyes; others palette punch.",
+      "result": "10/10 re-author OK. Headed v16: Bac Bap orange stocky + grey toolbox visible; Nori green snout+vial+sprout on pear; per-char HIGH_PARTIAL vs cards (not 100% facial/tool detail). Shared white_sphere remains FIXED_ONCE.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v16_house19_props2_cast3.log"
+    },
+    {
+      "n": 20,
+      "name": "PROPS_FIDELITY_V2",
+      "action": "path denser stones+moss; pond multi-rock ring+lilies; tree multi-lobe canopy+roots; flower multi-pot blooms; rock cluster+moss",
+      "result": "5/5 GLBs promoted. Headed v16: path multi-stone cluster reads HIGH_PARTIAL; tree multi-canopy visible; pond freecam aim missed WELL.P1 (hit birdbath placeholder) — re-aim next; flower/rock need dedicated close-ups.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v16_house19_props2_cast3.log"
+    },
+    {
+      "n": 21,
+      "name": "PROP_CLOSEUP_REAIM_V17",
+      "action": "Correct freecam aims for WELL.P1 pond (-11.4,4.8), GARDEN.P1 flower, BARN.P2 rock, LOOKOUT.P1 tree plan coords",
+      "result": "Headed v17 captures=18; prop close-ups re-scored HIGH_PARTIAL for path/pond/tree/flower/rock families",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v17_prop_closeups.log"
+    },
+    {
+      "n": 22,
+      "name": "POND_WATER_BOOST_V2B",
+      "action": "Darker M_water author + town_grid_loader water/pond/lily/trunk name boosts so cyan pond reads under realm sun",
+      "result": "Headed v18 re-score pond",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v18_pond_boost.log"
+    },
+    {
+      "n": 23,
+      "name": "HOUSE_FIDELITY_V20",
+      "action": "Half-disc clay 12x14 (scale Z=0.22); door X≈−0.28 clear of HOME.CHAR at plan (1.6,1.4); freecam door from −X; peach arch+planks+knob",
+      "result": "Headed v19 close_home_door: full brown door + peach frame visible, char off to side. Roof dense peach/yellow/cream half-disc rows. HIGH_PARTIAL→near-SSOT door; not yet 100% clay softness/interior. Signature door_clear_halfdisc_clay_high_partial.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v19_house20_cast4_pond3.log",
+      "failure_signature_before": "door_axis_fixed_gable_clay_high_partial",
+      "failure_signature_after": "door_clear_halfdisc_clay_high_partial",
+      "strikes_on_old_signature": "reset"
+    },
+    {
+      "n": 24,
+      "name": "CAST_PER_CARD_V4",
+      "action": "Nori dark eye socket+cyan ring; Bac Bap thick mustache+brows+toolbox latches+wrench; Kito dual eye dots",
+      "result": "Headed v19: Bac Bap mustache+toolbox readable; Nori snout/vial/sprout; still HIGH_PARTIAL per card (not 100% SSOT facial).",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v19_house20_cast4_pond3.log"
+    },
+    {
+      "n": 25,
+      "name": "PROPS_POND_ROCK_V3",
+      "action": "Pond: 12 elevated ring stones + multi lily pads/flowers; Rock: 7-boulder stacked cluster + moss",
+      "result": "Headed v19: pond cyan with full stone ring+green lilies HIGH_PARTIAL; rock multi-lobe HIGH_PARTIAL.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v19_house20_cast4_pond3.log"
+    },
+    {
+      "n": 26,
+      "name": "PROPS_REMAINING_V2",
+      "action": "Mailbox purple dome+gold knobs+pots; fence finials+triple rail; farm dense crops; greenhouse glass+plants+smoke; path/flower/tree denser",
+      "result": "Headed v20: mailbox/fence/farm/flower HIGH_PARTIAL; greenhouse cream frame+interior plants+chimney HIGH_PARTIAL. Still 0/21 at 100%.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v20_props_remaining.log"
+    },
+    {
+      "n": 27,
+      "name": "HOUSE_FIDELITY_V21_PLUS_GLASS_BOOST",
+      "action": "13x15 flatter clay half-discs; greenhouse glass transparency+emission boost in loader",
+      "result": "Headed v21 re-score house clay density + greenhouse glass readability. Door remains clear of char. Still HIGH_PARTIAL not 100% SSOT soft clay.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v21_house21_glass.log",
+      "failure_signature_before": "door_clear_halfdisc_clay_high_partial",
+      "failure_signature_after": "door_clear_dense_halfdisc_clay_high_partial",
+      "strikes_on_old_signature": 1
+    },
+    {
+      "n": 28,
+      "name": "CAST_NORI_DUAL_EYE_V5",
+      "action": "Nori dual-facing cyan eye rings (+Y/-Y + side) so freecam always sees SSOT eye; full cast re-author CAST_PER_CARD_V5",
+      "result": "Headed v22 re-score HOME.CHAR; still HIGH_PARTIAL if body cream wash remains",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v22_nori_eye.log"
+    },
+    {
+      "n": 29,
+      "name": "HOUSE_FIDELITY_V22",
+      "action": "Softer peach/cream/yellow clay half-discs; SSOT side picture window with purple curtains, interior lamp+pot, pixel dots; pixel smoke; door stays freecam-clear",
+      "result": "Headed v23: soft clay bands; door clear; side window warm glow visible. HIGH_PARTIAL — still not 100% soft clay cottage SSOT (scale density/interior depth). Signature: soft_clay_door_side_window_high_partial.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v23_house22_gh3_cast6.log",
+      "failure_signature_before": "door_clear_dense_halfdisc_clay_high_partial",
+      "failure_signature_after": "soft_clay_door_side_window_high_partial",
+      "strikes_on_old_signature": "reset"
+    },
+    {
+      "n": 30,
+      "name": "GREENHOUSE_SSOT_V3",
+      "action": "True M_glass cyan alpha panes (wall+roof); thin wood frame/muntins; dense interior pots+vines+glow mushrooms; loader glass force-cyan on mesh name Glass*",
+      "result": "Headed v23 close_greenhouse: cyan glass panes now readable (broke cream-opaque failure). Interior plants visible through frame. HIGH_PARTIAL vs SSOT (not full dense jungle / exact A-frame). Signature: cyan_glass_frame_high_partial.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v23_house22_gh3_cast6.log"
+    },
+    {
+      "n": 31,
+      "name": "CAST_PER_CARD_V6",
+      "action": "Darker nori cream + stronger cyan dual eyes; Bac Bap stronger orange; full 10-char re-author",
+      "result": "Headed v23: Nori freecam cyan eye ring clearly visible (eye readability FIXED for freecam); Bac Bap orange+mustache+toolbox. Per-char still HIGH_PARTIAL vs full SSOT cards.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v23_house22_gh3_cast6.log"
+    },
+    {
+      "n": 32,
+      "name": "HOUSE_FIDELITY_V23_SOFTER_CLAY",
+      "action": "Softer SSOT peach/cream/yellow clay colors + thicker half-discs (Z=0.32); loader roof boost softened to match",
+      "result": "Headed v24. Door clear + side window + soft clay bands. Still HIGH_PARTIAL not 100% (SSOT clay softness/detail residual). Signature soft_clay_door_side_window_high_partial strike=2.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v24_house23.log",
+      "failure_signature": "soft_clay_door_side_window_high_partial",
+      "strikes_on_signature": 2,
+      "need_human": false
+    },
+    {
+      "n": 33,
+      "name": "HOUSE_FIDELITY_V24_WALL_TEXTURE",
+      "action": "Soft stucco wall beads + V23 soft clay; re-render freecam",
+      "result": "Headed v25. House still HIGH_PARTIAL soft_clay_door_side_window family. strikes_on_signature=3 → NEED_HUMAN if identical under-100% residual.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v25_house24.log",
+      "failure_signature": "soft_clay_door_side_window_high_partial",
+      "strikes_on_signature": 3,
+      "need_human_house": true,
+      "note": "Third consecutive under-100% house pass in soft_clay_door_side_window family after door-clear achieved. Escalate NEED_HUMAN for house visual 100% judgment (clay softness residual). Other plots continue."
+    }
+  ],
+  "placement_check": {
+    "method": "runtime TownCadastre plot nodes at plan transform; labels show plot_id+object_id",
+    "coords_within_pm12": true,
+    "max_abs_xz": 11.5,
+    "drift": "none detected beyond float (loader uses plan transform x/y/z/rotation_deg/scale directly)",
+    "status": "PASS"
+  },
+  "assessment_after_iteration_4": {
+    "matching_100_pct": [],
+    "high_partial_near_ssot": [
+      {
+        "plot_id": "HOME.P3",
+        "object_id": "cozy_mailbox_A",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false,
+        "note": "Purple dome + cream post + pots + stones visible; close_home_mailbox_1280x720.png. Missing exact gold knobs/flag silhouette of prop_mailbox.jpg — continue next iter, not 100% yet."
+      },
+      {
+        "plot_id": "WINDMILL.P1",
+        "object_id": "cozy_fence_section_A",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false,
+        "note": "Brown post+rail section correct family; SSOT fence art more ornate — not 100%."
+      },
+      {
+        "plot_id": "GREENHOUSE.BLD",
+        "object_id": "cozy_greenhouse_A",
+        "score": "PARTIAL",
+        "match_100_pct": false,
+        "note": "Cream frame + glass + lilac base + interior plants + farm_plot adjacent. SSOT has denser pixel plants/chimney steam — not 100%."
+      },
+      {
+        "plot_id": "GREENHOUSE.P1",
+        "object_id": "cozy_farm_plot_A",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false,
+        "note": "Wood-border soil bed with green crop dots — family match; SSOT farm plot more detailed."
+      }
+    ],
+    "still_rework": [
+      {
+        "plot_id": "HOME.BLD",
+        "object_id": "cozy_house_small_A",
+        "score": "PARTIAL",
+        "failure_signature": "box_body_chaotic_tiles_not_ssot_gable",
+        "strikes": 2,
+        "note": "v9 + batch + v11; signature still not SSOT fish-scale gable cottage"
+      },
+      {
+        "plot_id": "HOME.P1",
+        "object_id": "cozy_path_stone_A",
+        "score": "PARTIAL"
+      },
+      {
+        "plot_id": "HOME.P2",
+        "object_id": "cozy_garden_lamp_A",
+        "score": "PARTIAL",
+        "note": "lamp present but not cream cyber-ivy lantern SSOT"
+      },
+      {
+        "plot_id": "HOME.CHAR",
+        "object_id": "CCP-RH-001",
+        "score": "FAIL_CAST_BLOB",
+        "failure_signature": "white_sphere_cast_presenter",
+        "strikes": 1
+      },
+      {
+        "plot_id": "WORKSHOP.CHAR",
+        "object_id": "CCP-NW-003",
+        "score": "FAIL_CAST_BLOB"
+      },
+      {
+        "plot_id": "MARKET.CHAR",
+        "object_id": "CCP-NS-002",
+        "score": "FAIL_CAST_BLOB"
+      },
+      {
+        "plot_id": "GARDEN.CHAR",
+        "object_id": "CCP-CT-004",
+        "score": "FAIL_CAST_BLOB"
+      },
+      {
+        "plot_id": "GARDEN.P1",
+        "object_id": "cozy_flower_cluster_A",
+        "score": "PARTIAL"
+      },
+      {
+        "plot_id": "GREENHOUSE.CHAR",
+        "object_id": "SPH-RH-011",
+        "score": "FAIL_CAST_BLOB"
+      },
+      {
+        "plot_id": "WELL.CHAR",
+        "object_id": "OA-RG-021",
+        "score": "FAIL_CAST_BLOB"
+      },
+      {
+        "plot_id": "WELL.P1",
+        "object_id": "cozy_pond_small_A",
+        "score": "PARTIAL"
+      },
+      {
+        "plot_id": "WINDMILL.CHAR",
+        "object_id": "AC-CO-015",
+        "score": "FAIL_CAST_BLOB"
+      },
+      {
+        "plot_id": "BARN.CHAR",
+        "object_id": "TD-CT-028",
+        "score": "FAIL_CAST_BLOB"
+      },
+      {
+        "plot_id": "BARN.P2",
+        "object_id": "cozy_rock_small_A",
+        "score": "PARTIAL"
+      },
+      {
+        "plot_id": "BRIDGE.CHAR",
+        "object_id": "SV-NW-019",
+        "score": "FAIL_CAST_BLOB"
+      },
+      {
+        "plot_id": "LOOKOUT.CHAR",
+        "object_id": "SPH-NG-009",
+        "score": "FAIL_CAST_BLOB"
+      },
+      {
+        "plot_id": "LOOKOUT.P1",
+        "object_id": "cozy_tree_landmark_A",
+        "score": "PARTIAL"
+      }
+    ],
+    "matching_100_pct_count": 0,
+    "rework_count": 21
+  },
+  "next_iterations_planned": [
+    "House clay softness + SSOT window interior to 100%",
+    "Cast facial micro (nori eye ring freecam-facing) per card",
+    "Greenhouse glass cyan readability if still opaque"
+  ],
+  "need_human": false,
+  "purple": "WAITING",
+  "mtime_audit_post_v16": {
+    "supervisor_note": "module_catalog.json and cozy_house_small_A.glb later mtime than last iteration entry",
+    "finding": "No uncommitted house v17. House+catalog mtime 2026-07-23 23:28 matched HOUSE_FIDELITY_V16. Post-v16 work was CAST_SSOT_SILHOUETTES_V1 + cast_presenter (23:40–23:42) without iteration receipt — now recorded as n=11.",
+    "house_v17_this_pass": "2026-07-23 ~23:47 HOUSE_FIDELITY_V17"
+  },
+  "cast_root_cause_note": "All 10 character_spawn plots shared white_sphere_cast_presenter. Fixed once via cast_presenter + content silhouettes; re-score each plot individually vs its MOCKUP_SSOT_V2 / cast card palette after shared fix.",
+  "assessment_after_v12": {
+    "matching_100_pct": [],
+    "matching_100_pct_count": 0,
+    "high_partial_near_ssot": [
+      {
+        "plot_id": "HOME.BLD",
+        "object_id": "cozy_house_small_A",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false,
+        "note": "V17 gable+dense yellow clay scallops+lilac pad+chimney. Not 100% peach band fish-scale or front door SSOT."
+      },
+      {
+        "plot_id": "HOME.P3",
+        "object_id": "cozy_mailbox_A",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false
+      },
+      {
+        "plot_id": "HOME.P2",
+        "object_id": "cozy_garden_lamp_A",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false,
+        "note": "Cream cyber lantern with arm+base; SSOT ivy density/cyan glow still light."
+      },
+      {
+        "plot_id": "WINDMILL.P1",
+        "object_id": "cozy_fence_section_A",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false
+      },
+      {
+        "plot_id": "GREENHOUSE.P1",
+        "object_id": "cozy_farm_plot_A",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false
+      },
+      {
+        "plot_id": "GREENHOUSE.BLD",
+        "object_id": "cozy_greenhouse_A",
+        "score": "PARTIAL",
+        "match_100_pct": false
+      },
+      {
+        "plot_id": "WORKSHOP.CHAR",
+        "object_id": "CCP-NW-003",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false,
+        "note": "Peach stocky humanoid — shared white sphere fixed; not full Bac Bap SSOT card."
+      },
+      {
+        "plot_id": "MARKET.CHAR",
+        "object_id": "CCP-NS-002",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false,
+        "note": "Yellow humanoid May Mach palette reads; not 100% SSOT card."
+      },
+      {
+        "plot_id": "HOME.CHAR",
+        "object_id": "CCP-RH-001",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false,
+        "note": "Pear body + green snout/vial/sprout/cyan accents after CAST_SSOT_V2; not 100% nori7 card detail."
+      },
+      {
+        "plot_id": "GREENHOUSE.CHAR",
+        "object_id": "SPH-RH-011",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false
+      }
+    ],
+    "cast_shared_root": {
+      "status": "FIXED_ONCE",
+      "old_signature": "white_sphere_cast_presenter",
+      "new_signature": "cast_palette_ok_silhouette_high_partial_vs_ssot_cards",
+      "note": "All 10 CHAR no longer share pure white sphere failure; re-score each vs own SSOT card (palette differs)."
+    },
+    "still_rework_roles": [
+      "remaining cast HIGH_PARTIAL per card",
+      "house door/peach tiles",
+      "lamp ivy",
+      "path/pond/tree/flower/rock PARTIAL"
+    ],
+    "house_strikes": "signature changed at V14 and again at V17 — not 3 identical; no NEED_HUMAN"
+  },
+  "assessment_after_v16": {
+    "matching_100_pct": [],
+    "matching_100_pct_count": 0,
+    "high_partial_near_ssot": [
+      {
+        "plot_id": "HOME.BLD",
+        "object_id": "cozy_house_small_A",
+        "score": "HIGH_PARTIAL",
+        "match_100_pct": false,
+        "note": "V19 door now freecam-visible (axis fix); clay peach/yellow scallop bands; lilac pad. Not 100% SSOT clay softness / window detail."
+      },
+      {
+        "plot_id": "HOME.CHAR",
+        "object_id": "CCP-RH-001",
+        "score": "HIGH_PARTIAL",
+        "note": "CAST_PER_CARD_V3 pear + green snout/vial/sprout/cyan; not full SSOT facial eye ring."
+      },
+      {
+        "plot_id": "WORKSHOP.CHAR",
+        "object_id": "CCP-NW-003",
+        "score": "HIGH_PARTIAL",
+        "note": "Orange stocky + toolbox; not full Bac Bap mustache/facial card."
+      },
+      {
+        "plot_id": "MARKET.CHAR",
+        "object_id": "CCP-NS-002",
+        "score": "HIGH_PARTIAL"
+      },
+      {
+        "plot_id": "HOME.P1",
+        "object_id": "cozy_path_stone_A",
+        "score": "HIGH_PARTIAL",
+        "note": "PROPS_V2 multi-stone path; closer to SSOT stepping stones."
+      },
+      {
+        "plot_id": "HOME.P2",
+        "object_id": "cozy_garden_lamp_A",
+        "score": "HIGH_PARTIAL"
+      },
+      {
+        "plot_id": "HOME.P3",
+        "object_id": "cozy_mailbox_A",
+        "score": "HIGH_PARTIAL"
+      },
+      {
+        "plot_id": "LOOKOUT.P1",
+        "object_id": "cozy_tree_landmark_A",
+        "score": "HIGH_PARTIAL"
+      },
+      {
+        "plot_id": "WINDMILL.P1",
+        "object_id": "cozy_fence_section_A",
+        "score": "HIGH_PARTIAL"
+      },
+      {
+        "plot_id": "GREENHOUSE.P1",
+        "object_id": "cozy_farm_plot_A",
+        "score": "HIGH_PARTIAL"
+      }
+    ],
+    "cast_shared_root": {
+      "status": "FIXED_ONCE",
+      "old_signature": "white_sphere_cast_presenter",
+      "note": "Per-card V3 polish only; no re-touch of shared presenter."
+    },
+    "scope_note": "WO-TOWN-GRID-IMPORT-001 only; avoided parallel session 019f8e3c town-map rebuild surfaces."
+  },
+  "assessment_after_v21": {
+    "matching_100_pct": [],
+    "matching_100_pct_count": 0,
+    "high_partial_near_ssot": [
+      {
+        "plot_id": "HOME.BLD",
+        "score": "HIGH_PARTIAL",
+        "note": "V21 door clear of char; dense peach/yellow/cream half-disc clay; lilac pad. Not 100% SSOT soft clay/interior."
+      },
+      {
+        "plot_id": "HOME.P3",
+        "score": "HIGH_PARTIAL",
+        "note": "Purple dome mailbox+pots+flag"
+      },
+      {
+        "plot_id": "HOME.P2",
+        "score": "HIGH_PARTIAL",
+        "note": "Lamp with ivy"
+      },
+      {
+        "plot_id": "HOME.P1",
+        "score": "HIGH_PARTIAL",
+        "note": "Path multi-stone"
+      },
+      {
+        "plot_id": "WINDMILL.P1",
+        "score": "HIGH_PARTIAL",
+        "note": "Fence finials+rails"
+      },
+      {
+        "plot_id": "GREENHOUSE.BLD",
+        "score": "HIGH_PARTIAL",
+        "note": "Frame+plants+chimney smoke"
+      },
+      {
+        "plot_id": "GREENHOUSE.P1",
+        "score": "HIGH_PARTIAL",
+        "note": "Dense farm crops"
+      },
+      {
+        "plot_id": "WELL.P1",
+        "score": "HIGH_PARTIAL",
+        "note": "Pond ring stones+lilies"
+      },
+      {
+        "plot_id": "BARN.P2",
+        "score": "HIGH_PARTIAL",
+        "note": "Multi-boulder rock"
+      },
+      {
+        "plot_id": "LOOKOUT.P1",
+        "score": "HIGH_PARTIAL",
+        "note": "Tree multi-canopy"
+      },
+      {
+        "plot_id": "GARDEN.P1",
+        "score": "HIGH_PARTIAL",
+        "note": "Flower multi-pot cluster"
+      },
+      {
+        "plot_id": "WORKSHOP.CHAR",
+        "score": "HIGH_PARTIAL",
+        "note": "Bac Bap mustache+toolbox"
+      },
+      {
+        "plot_id": "HOME.CHAR",
+        "score": "HIGH_PARTIAL",
+        "note": "Nori snout/vial/sprout"
+      }
+    ],
+    "cast_shared_root": "FIXED_ONCE",
+    "need_human": false,
+    "note": "0/21 at 100%; continue toward 100%; no identical 3-strike on any object"
+  },
+  "assessment_after_v23": {
+    "matching_100_pct": [],
+    "matching_100_pct_count": 0,
+    "high_partial": [
+      "HOME.BLD V22 soft clay+door+side window",
+      "GREENHOUSE.BLD cyan glass fixed",
+      "HOME.CHAR nori cyan eye freecam",
+      "WORKSHOP.CHAR bac bap mustache",
+      "mailbox,lamp,path,fence,farm,pond,rock,tree,flower,other cast"
+    ],
+    "fixed_this_pass": [
+      "greenhouse cream-opaque→cyan glass",
+      "nori freecam eye readable",
+      "house side interior window"
+    ],
+    "cast_shared_root": "FIXED_ONCE"
+  },
+  "assessment_after_v24": {
+    "matching_100_pct_count": 0,
+    "honest_note": "0/21 still under 100% MOCKUP_SSOT_V2. Real progress: greenhouse cyan glass, nori freecam eye, house door clear + side interior + soft clay. No 3-strike NEED_HUMAN yet (house sig strike 2).",
+    "high_partial_plots_all_21_real_glb": true,
+    "cast_shared_root": "FIXED_ONCE"
+  },
+  "need_human_objects": [
+    {
+      "plot_id": "MARKET.BLD",
+      "object_id": "cozy_market_stall_A",
+      "reason": "V4_under_100_pct_no_further_auto_iterate",
+      "prior_strikes_before_v4": 3,
+      "v4_was_authorized_fourth_attempt": true,
+      "signature_at_return": "market_awning_ok_fruit_still_partial_under_awning_read"
+    },
+    {
+      "plot_id": "GARDEN.BLD",
+      "object_id": "cozy_gazebo_A",
+      "reason": "V4_under_100_pct_no_further_auto_iterate",
+      "prior_strikes_before_v4": 3,
+      "v4_was_authorized_fourth_attempt": true,
+      "signature_at_return": "gazebo_dense_dome_improved_still_not_ssot_100"
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "object_id": "cozy_well_house_A",
+      "reason": "V4_under_100_pct_no_further_auto_iterate",
+      "prior_strikes_before_v4": 3,
+      "v4_was_authorized_fourth_attempt": true,
+      "signature_at_return": "well_form_improved_still_high_partial"
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "object_id": "cozy_windmill_A",
+      "reason": "V4_under_100_pct_no_further_auto_iterate",
+      "prior_strikes_before_v4": 3,
+      "v4_was_authorized_fourth_attempt": true,
+      "signature_at_return": "windmill_tiers_blades_improved_still_simplified_vs_ssot"
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "object_id": "cozy_bridge_arch_A",
+      "reason": "V4_under_100_pct_no_further_auto_iterate",
+      "prior_strikes_before_v4": 3,
+      "v4_was_authorized_fourth_attempt": true,
+      "signature_at_return": "bridge_arch_clearer_still_soft_sphere_masonry"
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "object_id": "cozy_watchtower_A",
+      "reason": "V4_under_100_pct_no_further_auto_iterate",
+      "prior_strikes_before_v4": 3,
+      "v4_was_authorized_fourth_attempt": true,
+      "signature_at_return": "watchtower_roof_denser_still_partial_vs_ssot_thatch"
+    }
+  ],
+  "closed_by_human_objects": [
+    {
+      "plot_id": "HOME.BLD",
+      "object_id": "cozy_house_small_A",
+      "prior_reason": "3_identical_failure_signature",
+      "signature": "soft_clay_door_side_window_high_partial",
+      "strikes_at_acceptance": 3,
+      "decision": "HUMAN_ACCEPTED_RESIDUAL",
+      "decided_by": "Human Product Lead",
+      "relayed_by": "Claude conductor",
+      "ssot_100_pct_match": false,
+      "scorecard_count_as_100_pct": false,
+      "loop_status": "CLOSED_PERMANENTLY",
+      "do_not_resume_iteration": true,
+      "receipt": "orchestration/receipts/town_grid_import_001/HOME_BLD_HUMAN_ACCEPTED_001.json",
+      "note": "Human accepts residual soft-clay finish as FINAL. Not 100% SSOT. Not self-accept. WO-level accepted remains false."
+    }
+  ],
+  "home_bld_loop": {
+    "status": "CLOSED_PERMANENTLY",
+    "decision": "HUMAN_ACCEPTED_RESIDUAL",
+    "further_passes": "FORBIDDEN"
+  },
+  "buildings_wave1": {
+    "status": "STRUCTURE_PASS_FIDELITY_HIGH_PARTIAL",
+    "real_glb": 29,
+    "buildings_10_of_10": true,
+    "props_placeholder_remaining": 21,
+    "receipt": "BUILDINGS_WAVE1_V1.json"
+  },
+  "buildings_fidelity_v3": {
+    "roof_shelf_plank": "RESOLVED_workshop_barn",
+    "matching_100_pct_count": 0,
+    "need_human_candidates": 6,
+    "receipt": "BUILDINGS_FIDELITY_V3.json"
+  },
+  "buildings_fidelity_v4": {
+    "authorized": "HUMAN_AUTHORIZED_ONE_MORE_REMESH",
+    "matching_100_pct_count": 0,
+    "need_human_again": 6,
+    "receipt": "BUILDINGS_FIDELITY_V4.json"
+  },
+  "town_alignment_v1": {
+    "receipt": "TOWN_ALIGNMENT_V1.json",
+    "wood_platforms_placed": 12,
+    "stone_segments": 13,
+    "design_flags": 1
+  }
+}

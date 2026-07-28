@@ -1,0 +1,70 @@
+{
+  "schema": "headed_visual_evidence_qa/1.0",
+  "work_order": "WO-P1E-006",
+  "w3_qa_verified_at": "2026-07-22T02:32:25+07:00",
+  "w3_qa_child_task_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+  "w3_qa_note": "Both world profiles documented with art_style_id_active. Headless/synthetic only; live_parity=false. Headed capture still residual for Purple/human live gate.",
+  "artefacts": [
+    {
+      "file": "hsl_per_profile_demo.json",
+      "capture_source": "synthetic_hsl_demo",
+      "art_style_id_active": "n/a_synthetic",
+      "world_profile_id": "both",
+      "live_parity": false,
+      "note": "Proves per-profile HSL gates; washed Surrealism deliberately FAILs.",
+      "w3_qa_rerun": {
+        "exit": 0,
+        "P1E006_HSL_DEMO": "PASS",
+        "log": "orchestration/logs/_p1e006_w3_qa_hsl_demo.txt"
+      }
+    },
+    {
+      "file": "cozy_variant_smoke_note",
+      "capture_source": "godot_headless_viewport",
+      "art_style_id_active": "cozy_cyber_pixel",
+      "world_profile_id": "cozy_cyber_pixel",
+      "package_job_id": "BLD-03CB1AADD475",
+      "live_parity": false,
+      "note": "P1E006 variants smoke: cozy identity no-op; materials from quarantine GLB.",
+      "w3_qa_independent_measure": {
+        "AIDLE_P1E006_VARIANTS_SMOKE": "PASS checks=5",
+        "cozy_water_primary_albedo": [0.1517, 0.3492, 0.4614, 1.0],
+        "identity_before_after_match": true,
+        "switch_back_match": true,
+        "log": "orchestration/logs/_p1e006_w3_qa_variants_smoke.txt"
+      }
+    },
+    {
+      "file": "surrealism_variant_smoke_note",
+      "capture_source": "godot_headless_viewport",
+      "art_style_id_active": "surrealism_canvas",
+      "world_profile_id": "surrealism_canvas",
+      "package_job_id": "BLD-03CB1AADD475",
+      "live_parity": false,
+      "note": "93 materials rewritten; water albedo (0.35,0.32,0.62) chromatic purple-water.",
+      "w3_qa_independent_measure": {
+        "AIDLE_P1E006_VARIANTS_SMOKE": "PASS checks=5",
+        "surreal_rewritten": 93,
+        "surreal_water_primary_albedo": [0.35, 0.32, 0.62, 1.0],
+        "sat_pct_approx": 48.39,
+        "hue_deg_approx": 246.0,
+        "achromatic_fail": false,
+        "log": "orchestration/logs/_p1e006_w3_qa_variants_smoke.txt"
+      }
+    }
+  ],
+  "profiles_documented": [
+    {
+      "world_profile_id": "cozy_cyber_pixel",
+      "art_style_id_active": "cozy_cyber_pixel",
+      "mode": "identity_register",
+      "visual_claim_complete_fields": true
+    },
+    {
+      "world_profile_id": "surrealism_canvas",
+      "art_style_id_active": "surrealism_canvas",
+      "mode": "material_table_recolor",
+      "visual_claim_complete_fields": true
+    }
+  ]
+}

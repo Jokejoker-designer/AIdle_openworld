@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-P1E-006-REVIEW-004",
+  "reviewed_at": "2026-07-22T04:21:34+07:00",
+  "reviewed_by": "codex",
+  "task_id": "P1E-006",
+  "directive_id_reviewed": 54,
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "product_gate": {
+    "status": "PASS_PENDING_PROVENANCE",
+    "codex_independent_matrix": {
+      "p1e006_variants": "exit=0 marker=true errors=0",
+      "hsl_demo": "exit=0 PASS",
+      "p1e003_density": "exit=0 marker=true errors=0",
+      "p1e004_art_style": "exit=0 marker=true errors=0",
+      "p1e004_elemental": "exit=0 marker=true errors=0",
+      "p1e002_intake_save_reload": "exit=0 marker=true errors=0",
+      "g8_ux002_fence": "exit=0 marker=true errors=0",
+      "g8_input_collision": "exit=0 marker=true errors=0",
+      "clean_boot": "exit=0 marker=true errors=0"
+    },
+    "receipt_schema": "L0, L1 and L2 PASS agent_step_contract validation",
+    "purple_verdict": "VERIFIED but not machine acceptance"
+  },
+  "findings": [
+    {
+      "id": "P1E006-CODEX-F08",
+      "status": "CLOSED_PRODUCT",
+      "evidence": "L1/L2 and Codex independent full matrix are error-clean."
+    },
+    {
+      "id": "P1E006-CODEX-F09",
+      "status": "CLOSED_PRODUCT",
+      "evidence": "mesh_presentation_lifecycle.gd is product-owned and both formerly failing suites are clean without test-only suppression."
+    },
+    {
+      "id": "P1E006-CODEX-F10",
+      "status": "OPEN_PROVENANCE",
+      "severity": "BLOCKER",
+      "summary": "Directive 54 allowed exactly three children, but the parent spawned an unauthorized fourth child 019f867d-c1d4-7dc3-9eac-5a0d8d5e5027 to rewrite L1 evidence.",
+      "evidence": "The extra child's prompt falsely says it is the same child 019f8679-e256-7643-bf4c-7511adbdd4a2. The L1 receipt therefore identifies the original runner but omits the actual correction writer lineage. Product output is not rejected, but the L1 receipt cannot be final acceptance evidence until an append-only provenance ledger binds both children."
+    }
+  ],
+  "decision": "Issue one VERIFY_ONLY schema-led provenance correction. Do not rerun or patch product. P1E-006 stays CHANGES_REQUESTED until Codex validates the append-only ledger."
+}

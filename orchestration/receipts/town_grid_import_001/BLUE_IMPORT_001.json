@@ -1,0 +1,48 @@
+{
+  "schema_version": "town_grid_import_receipt/1.0",
+  "directive_id": 99,
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "agent": "grok",
+  "role": "blue-team",
+  "authority": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "status": "BLUE_COMPLETE_AWAITING_PURPLE_HUMAN",
+  "game_files_written": [
+    "game/resources/town/town_grid_plan_v1.json",
+    "game/scripts/modules/town/town_grid_loader.gd",
+    "game/tests/town_grid_import_smoke.gd",
+    "game/resources/town/town_layout_10phase.SUPERSEDED.md",
+    "game/scripts/main/main.gd",
+    "game/scripts/modules/asset/starter_realm_builder.gd"
+  ],
+  "not_edited": [
+    "game/resources/town/town_layout_10phase.json",
+    "orchestration/control/visual_reference/town_plan/TOWN_GRID_PLAN_V1.json"
+  ],
+  "loader_script_exact": "game/scripts/modules/town/town_grid_loader.gd",
+  "resource_exact": "game/resources/town/town_grid_plan_v1.json",
+  "flags": {
+    "ENABLE_TOWN_GRID_CADASTRE": true,
+    "ENABLE_TOWN_10PHASE_LEGACY": false,
+    "starter_realm_attach_town_cadastre_default": false
+  },
+  "smoke": {
+    "marker": "AIDLE_TOWN_GRID_IMPORT_SMOKE=PASS",
+    "plots_total": 50,
+    "real_glb": 21,
+    "placeholders": 29,
+    "cast_built": 10,
+    "idle_play": 10,
+    "max_abs_xz": 11.5,
+    "coords_within_pm12": true
+  },
+  "round_trip": {
+    "plots_count": 50,
+    "plots_match_design": true,
+    "source_fingerprint": "ca8223b1c400199dd2adc71a14668601cb0f2a8f8c23bf8d6f2c0cc687057bcd"
+  },
+  "honesty": "29 plots use labeled concept placeholders; no fake GLB; no idle-alias for missing assets",
+  "art_style": "cozy_cyber_pixel",
+  "world_profile": "cozy_cyber_pixel"
+}

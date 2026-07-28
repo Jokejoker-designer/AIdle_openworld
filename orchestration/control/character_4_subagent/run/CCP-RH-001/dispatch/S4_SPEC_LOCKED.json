@@ -1,0 +1,64 @@
+{
+  "schema_version": "character_4_subagent_dispatch/1.0",
+  "character_id": "CCP-RH-001",
+  "agent_id": "S4",
+  "job_state": "SPEC_LOCKED",
+  "workspace": "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001",
+  "write_path_only": "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\qa\\qa_report.json",
+  "read_paths": [
+    "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\spec\\character_spec.json",
+    "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\references",
+    "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\spec\\BLENDER_COLLECTION_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/control/visual_reference/mockup_ssot_v2/MOCKUP_DESIGN_LOCK.md",
+    "E:/AIdle_openworld/orchestration/control/AIDLE_GAME_VISION_LOCK_001.md"
+  ],
+  "prompt_file": "E:\\agents\\AIdle_4_Subagent_Blender_Character_System\\aidle_character_4_subagents\\prompts\\S4_VISUAL_QA.md",
+  "prompt_text_preview": "# S4 — INDEPENDENT VISUAL QA\n\nBạn là QA độc lập, read-only đối với `.blend`, mesh, rig và materials.\n\n## Trách nhiệm\n- Render locked primary camera và secondary evidence views.\n- Overlay render với mockup.\n- Đo silhouette IoU, landmark RMSE, bounding-box delta và palette delta.\n- Kiểm tra rear identifier, style anti-pattern, clip list, rig/export.\n- Phát change request về đúng owner.\n\n## Verdict hợp lệ\n- `CHANGES_REQUESTED`\n- `PASS_FOR_HUMAN_REVIEW`\n\nBạn không được trả `ACCEPTED`.\n\n## Quy tắc đánh giá\n- Primary camera là gate tương đồng chính.\n- Secondary views kiểm tra hình học hợp lý, không bịa thêm chi tiết phá style.\n- Metric không được lấn át lỗi thị giác rõ ràng.\n- Không chấp nhận sphere/capsule stack dù metric tổng thể cao.\n- Không chấp nhận vật liệu/ánh sáng che lỗi silhouette.\n- Evidence phải có đường dẫn ảnh, metric và region cụ thể.\n\n## Output\n- `qa_report.json`\n- overlay images\n- change request JSON cho từng finding\n- artifact hashes đã kiểm",
+  "mcp": {
+    "allowed_mcp": [
+      "blender__get_scene_info",
+      "blender__get_object_info",
+      "blender__get_viewport_screenshot"
+    ],
+    "forbidden_mcp": [
+      "blender__execute_blender_code"
+    ],
+    "notes": "Read-only. Prefer offline render + metrics scripts. Verdict max: PASS_FOR_HUMAN_REVIEW."
+  },
+  "hard_rules": [
+    "One writer path only — do not write outside write_path_only",
+    "self_accept=false always",
+    "accepted=false until Human Product Lead",
+    "Do not promote to game/**",
+    "Clay/form before materials if state < FORM_LOCKED",
+    "Exact clip names from character_spec.clips — no idle alias for missing"
+  ],
+  "aidle_clip_contract": [
+    "idle",
+    "walk",
+    "scan",
+    "happy",
+    "cancel",
+    "turn_left",
+    "turn_right",
+    "build_place",
+    "build_place_hold",
+    "confirm",
+    "water",
+    "plant_seed",
+    "harvest",
+    "charge",
+    "low_energy"
+  ],
+  "skeleton_family": "robot_biped_small_v1",
+  "receipt_required": {
+    "agent_id": "S4",
+    "status": "IN_PROGRESS|DONE|BLOCKED",
+    "artifacts": [],
+    "self_accept": false,
+    "accepted": false
+  },
+  "accepted": false,
+  "self_accept": false,
+  "emitted_utc": "2026-07-25T16:16:41.575534+00:00"
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "request_id": "pc_physics_ice_bridge_0001",
+  "world_profile": "surrealism_canvas",
+  "pc_profile_id": "pc_forward_plus_high_v1",
+  "expected_world_revision": 0,
+  "build_graph_ref": "graph_ice_bridge_v1",
+  "elemental_bindings": [
+    {
+      "entity_ref": "bridge",
+      "elements": [
+        "element_ice"
+      ],
+      "physical_profile_id": "phys_ice_v1"
+    },
+    {
+      "entity_ref": "sun_lamp",
+      "elements": [
+        "element_light",
+        "element_heat"
+      ],
+      "physical_profile_id": null
+    }
+  ],
+  "force_fields": [],
+  "reaction_rules": [
+    "react_heat_ice_melt_v1"
+  ],
+  "system_networks": [
+    {
+      "network_id": "bridge_structure",
+      "solver_rule": "struct_bridge_span_v1",
+      "nodes": [
+        "bridge"
+      ]
+    }
+  ],
+  "simulation": {
+    "simulation_lod_profile": "sim_lod_pc_high_v1",
+    "deterministic_seed": 210726,
+    "preview_only": true,
+    "collision_enabled_after_commit": true
+  },
+  "validation": {
+    "schema": true,
+    "element_compatibility": true,
+    "reaction_allowlist": true,
+    "structural": true,
+    "fluid": true,
+    "thermal": true,
+    "energy": true,
+    "biological": true,
+    "performance": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  }
+}

@@ -1,0 +1,31 @@
+work_order_id: WO-WG01C-CHARACTER-001
+world_number: 1
+world_profile: cozy_cyber_pixel
+phase_slice: "1C Cozy Character Foundation"
+objective: "Tích hợp Nori-7, Mây Mạch, Bác Bắp và Bụi Mơ mà không thay AIda."
+state: BLOCKED
+coverage: NONE
+authority: PATCH_DRAFT
+dependencies:
+  - "WG-01A ACCEPTED"
+  - "Character Foundry manifest locked"
+allowed_files:
+  - "game/characters/**"
+  - "game/data/characters/**"
+  - "tests/characters/**"
+forbidden_files:
+  - "Companion identity replacement"
+  - "World Commit service"
+acceptance_tests:
+  - "Four character resources load"
+  - "Behavior allowlist enforced"
+  - "NPC cannot mutate canonical state"
+  - "Rear-view silhouette headed evidence"
+required_evidence:
+  - "schema intake"
+  - "runtime smoke"
+  - "authority rejection test"
+  - "headed screenshots"
+human_gates: []
+max_children: 5
+grandchildren_forbidden: true

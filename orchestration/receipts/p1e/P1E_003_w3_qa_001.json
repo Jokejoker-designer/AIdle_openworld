@@ -1,0 +1,350 @@
+{
+  "agent_step_id": "P1E-003-w3-qa-001-2026-07-21",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:c22137d7ea0a0765843d7736ba21c764085b7202d5cc51afc8f82265852c8e18",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f854b-a4da-78c2-a94e-f0c94a4239e8",
+  "transcript_ref": "019f854b-a4da-78c2-a94e-f0c94a4239e8",
+  "writer_transcript_ref": "019f854b-a4da-78c2-a94e-f0c94a4239e8",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f8547-6edc-7031-9abb-2dec5c05c8e4",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/p1e-003-w3-qa-001.log",
+  "handoff_ref": "P1E_003_W4_PURPLE",
+  "start_time": "2026-07-21T15:28:00Z",
+  "end_time": "2026-07-21T15:32:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-qa-evidence; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; authority_token=VERIFY_ONLY; required_skills include evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches product; writer_set tests_logs_screenshots_receipts_only.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "evidence-memory-ledger"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded Agents.md + aidle-worldgen-qa-evidence profile + WO-P1E-003 + COZY_ART_BIBLE_001 §8 + W1 blue / W2 red receipts + evidence/p1e_w1 + package BLD-DF6B006072E1 + Godot p1e002/p1e003/G8 UX smokes + Bridge pytest + agent_step_contract schema manually. No bootstrap loop.",
+  "character_binding": {
+    "trustlayer": "purple-team-finding-triage",
+    "ui": "ui-a11y-auditor"
+  },
+  "skills_loaded": [
+    {"skill_id": "maf-mandatory-standard", "version": "1.0"},
+    {"skill_id": "trustlayer-x16-crew", "version": "1.0"},
+    {"skill_id": "agentwork-knowledge-loop", "version": "1.0"},
+    {"skill_id": "project-room-collab", "version": "1.0"},
+    {"skill_id": "curiosity-engine", "version": "1.0"},
+    {"skill_id": "evidence-memory-ledger", "version": "1.0"}
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-003-WAVE1-EXPOSURE-PROPS-DENSITY.md",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/world_profiles/COZY_ART_BIBLE_001.md",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_003_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_003_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-003-w1-blue-001.log",
+    "E:/AIdle_openworld/orchestration/logs/p1e-003-w2-red-001.log",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_w1/luma_metrics.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_w1/starter_realm_preview_p1e003_w1.png",
+    "E:/AIdle_openworld/game/tests/p1e003_density_exposure_smoke.gd",
+    "E:/AIdle_openworld/game/tests/p1e002_glb_intake_smoke.gd",
+    "E:/AIdle_openworld/game/tests/g8_ux_input_collision_smoke.gd",
+    "E:/AIdle_openworld/game/tests/g8_ux002_fence_rail_collision_smoke.gd",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/scene_manifest.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/artifact_hashes.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_003_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-003-w3-qa-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "P1E-003",
+    "work_order": "orchestration/work_orders/WO-P1E-003-WAVE1-EXPOSURE-PROPS-DENSITY.md",
+    "wave": "P1E_003_W3_QA",
+    "profile": "aidle-worldgen-qa-evidence",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "status": "REVIEW_REQUESTED",
+    "verdict": "PASS_WITH_NOTES",
+    "summary": "VERIFY_ONLY Wave 3 QA for P1E-003 W1 Blue 019f8527 / W2 Red 019f8547 (package BLD-DF6B006072E1). Independent Rec.709 re-measure: mean_luma=155.663 blown=0.097% shadow=10.106% all inside art bible §8. Instance_count=43 (band 35–50); fence_collision_bodies=10; GAME_GLB_COUNT=0; quarantine hash ok=47/47. Full Bridge pytest 44 passed; AIDLE_P1E003_SMOKE=PASS checks=9; AIDLE_P1E002_SMOKE=PASS checks=4; AIDLE_G8_UX_SMOKE=PASS checks=6; AIDLE_G8_UX002_SMOKE=PASS checks=2; all exit 0. Headed visual evidence confirmed (evidence/p1e_w1 preview byte-identical to quarantine; density/fence/flowers/lamps/rocks visible; shadows directional). Red findings R-MED-01..R-INFO-09 carried non-blocking. product_writes=[]. Handoff P1E_003_W4_PURPLE. accepted=false.",
+    "package_job_id": "BLD-DF6B006072E1",
+    "package_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1",
+    "lighting_rig": "p1e_cozy_sun_area_v2",
+    "prior_wave": {
+      "child_task_ref": "019f8547-6edc-7031-9abb-2dec5c05c8e4",
+      "receipt": "orchestration/receipts/p1e/P1E_003_w2_red_001.json",
+      "wave": "P1E_003_W2_RED",
+      "verdict": "FINDINGS_REPORTED",
+      "service_diff_clean": true,
+      "blocking_reopen": 0
+    },
+    "blue_wave": {
+      "child_task_ref": "019f8527-ec7c-7bd2-a4a1-6dc478df99cd",
+      "receipt": "orchestration/receipts/p1e/P1E_003_w1_blue_001.json",
+      "wave": "P1E_003_W1_BLUE",
+      "package": "BLD-DF6B006072E1",
+      "mean_luma_claimed": 155.663,
+      "blown_pct_claimed": 0.097,
+      "shadow_pct_claimed": 10.106,
+      "instance_count_claimed": 43
+    },
+    "independent_remeasure": {
+      "preview_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/starter_realm_preview.png",
+      "evidence_copy_path": "E:/AIdle_openworld/orchestration/evidence/p1e_w1/starter_realm_preview_p1e003_w1.png",
+      "method": "Pillow RGB Rec.709 luma L=0.2126R+0.7152G+0.0722B full-frame 768x512",
+      "sha256": "7e3b9bbdb528e15a3b3e66ee326d1844a4846f3141d70175af12e43b2357eea0",
+      "bytes": 447378,
+      "evidence_byte_identical_to_quarantine": true,
+      "mean_luma": 155.662815,
+      "blown_pct": 0.096639,
+      "shadow_pct": 10.105642,
+      "min_luma": 8.1456,
+      "max_luma": 255.0,
+      "cyanish_pixels": 0,
+      "targets_art_bible_s8": {
+        "mean_luma": [150, 185],
+        "blown_pct_max": 3.0,
+        "shadow_pct": [5.0, 15.0]
+      },
+      "pass": {
+        "mean": true,
+        "blown": true,
+        "shadow": true
+      },
+      "worker_preview_luma_validation_json": {
+        "mean_luma": 155.756,
+        "blown_pct": 0.113,
+        "shadow_pct": 10.036
+      },
+      "matches_w1_receipt": true,
+      "matches_w2_remeasure": true,
+      "matches_evidence_luma_metrics_json": true
+    },
+    "independent_smoke": {
+      "bridge_pytest_full": {
+        "tests": "tests/",
+        "result": "44 passed",
+        "exit": 0
+      },
+      "bridge_pytest_environment": {
+        "tests": "tests/test_environment_api.py tests/test_environment_runner.py",
+        "result": "22 passed",
+        "exit": 0
+      },
+      "p1e003_smoke": {
+        "marker": "AIDLE_P1E003_SMOKE=PASS checks=9",
+        "exit": 0,
+        "package_density": 43,
+        "fence_collision_bodies": 10,
+        "anim_stagger_unique": 11,
+        "build_plot_clear": true,
+        "hash_ok": "47/47",
+        "godot_runtime_load": "OK",
+        "game_glb_count": 0,
+        "package_job_id": "BLD-DF6B006072E1"
+      },
+      "p1e002_smoke": {
+        "marker": "AIDLE_P1E002_SMOKE=PASS checks=4",
+        "exit": 0,
+        "note": "Regression on prior package BLD-E6BCC14D117E modules=9; preview stages non-solid retained"
+      },
+      "g8_ux_smoke": {
+        "marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+        "exit": 0
+      },
+      "g8_ux002_smoke": {
+        "marker": "AIDLE_G8_UX002_SMOKE=PASS checks=2",
+        "exit": 0
+      },
+      "quarantine_hash": {"ok": 47, "fail": 0, "miss": 0},
+      "game_glb_count": 0,
+      "known_residual_script_error": "ArtStyleManager cozy_cyber_pixel key miss (R-LOW-06) — smokes still PASS exit 0"
+    },
+    "density_composition": {
+      "instance_count": 43,
+      "range_target": [35, 50],
+      "range_ok": true,
+      "by_module": {
+        "cozy_house_small_A": 1,
+        "cozy_path_stone_A": 8,
+        "cozy_pond_small_A": 1,
+        "cozy_tree_landmark_A": 1,
+        "cozy_farm_plot_A": 1,
+        "shared_light_brush_station_A": 1,
+        "cozy_greenhouse_preview_anchor_A": 1,
+        "cozy_fence_section_A": 10,
+        "cozy_flower_cluster_A": 9,
+        "cozy_garden_lamp_A": 4,
+        "cozy_rock_small_A": 6
+      },
+      "unique_positions": 43,
+      "unique_yaws": 39,
+      "unique_scales": 18,
+      "near_identity_count": 3,
+      "fence_collision_hints": 10,
+      "fence_collision_bodies_smoke": 10,
+      "anim_stagger_unique_delays": 11
+    },
+    "headed_visual": {
+      "status": "CONFIRMED_EXISTING",
+      "re_capture_attempted": false,
+      "reason_no_recapture": "W1 headed Bridge preview + evidence copy already present, byte-identical to quarantine package, and sufficient for density/exposure/composition judgment. VERIFY_ONLY exclusive writes do not require product harness recapture.",
+      "screenshots": [
+        {
+          "path": "orchestration/evidence/p1e_w1/starter_realm_preview_p1e003_w1.png",
+          "size": "768x512",
+          "bytes": 447378,
+          "sha256": "7e3b9bbdb528e15a3b3e66ee326d1844a4846f3141d70175af12e43b2357eea0",
+          "mean_luma": 155.662815,
+          "review": "Isometric cozy starter realm: house with soft green roof shadow, path stones, farm plot, greenhouse, pond disc, tree, multi-cluster fence sections, flower clusters, garden lamps, scattered rocks. Soft directional shadows present (not zero-shadow washout). Build plot (yellow pad + grey block) clear. Density reads substantially above prior 9-instance kit."
+        }
+      ],
+      "supporting_metrics": "orchestration/evidence/p1e_w1/luma_metrics.json",
+      "package_preview": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/starter_realm_preview.png",
+      "human_charm_note": "R-MED-01 fence multi-cluster (not continuous enclosure) still visible in headed view; metrics/density PASS does not equal product delight — Purple/human final taste remains open."
+    },
+    "acceptance_criteria_matrix": [
+      {
+        "id": "AC1",
+        "criterion": "Exposure inside art bible §8 targets, measured and reported numerically",
+        "verdict": "PASS",
+        "evidence": "Independent full-frame Rec.709: mean_luma=155.663 (150–185), blown=0.097% (<3%), shadow=10.106% (5–15%). Matches W1/W2 and evidence/p1e_w1/luma_metrics.json."
+      },
+      {
+        "id": "AC2",
+        "criterion": "Four new modules authored, registry records complete with extended fields",
+        "verdict": "PASS",
+        "evidence": "Package contains fence×10 flower×9 lamp×4 rock×6; smoke wave1_modules_present PASS; Red H2 registry/YAML extended fields confirmed; not re-authored under VERIFY_ONLY."
+      },
+      {
+        "id": "AC3",
+        "criterion": "Fence rails collide; player cannot walk between posts",
+        "verdict": "PASS",
+        "evidence": "AIDLE_P1E003_SMOKE fence_collision_bodies_10; AIDLE_G8_UX002_SMOKE=PASS checks=2; collision_hints fence BOX×10. Note R-LOW-04: full-section BOX not per-rail mesh."
+      },
+      {
+        "id": "AC4",
+        "criterion": "35–50 instances placed, with varied rotation and scale",
+        "verdict": "PASS",
+        "evidence": "modules[] length=43; unique_pos=43 unique_yaws=39 unique_scales=18 near_identity=3; smoke package_density_43 + runtime_build_43."
+      },
+      {
+        "id": "AC5",
+        "criterion": "Animations staggered — no visible synchronisation",
+        "verdict": "PASS_WITH_NOTES",
+        "evidence": "Smoke anim_stagger_unique_11 (0–1.5s Godot-side). R-LOW-05: delays not serialized in scene_manifest.",
+        "red_finding": "R-LOW-05"
+      },
+      {
+        "id": "AC6",
+        "criterion": "Build plot clear; house / player / Companion not occluded",
+        "verdict": "PASS",
+        "evidence": "Smoke build_plot_clear=true; headed preview shows open yellow pad + house/tree/path readable silhouettes. Player/Companion runtime silhouettes not re-headed in this wave (kit composition clear)."
+      },
+      {
+        "id": "AC7",
+        "criterion": "Quarantine boundary intact — GAME_GLB_COUNT=0 under game/",
+        "verdict": "PASS",
+        "evidence": "Recursive game/** *.glb/*.gltf = 0; smoke GAME_GLB_COUNT=0; load from absolute quarantine BLD-DF6B006072E1 only."
+      },
+      {
+        "id": "AC8",
+        "criterion": "No regression: 44 tests, G8-UX smokes, preview stages still non-solid",
+        "verdict": "PASS",
+        "evidence": "Bridge pytest tests/ = 44 passed exit 0; AIDLE_G8_UX_SMOKE=PASS checks=6; AIDLE_G8_UX002_SMOKE=PASS checks=2; AIDLE_P1E002_SMOKE preview_stages wireframe/hologram/materializing collision_layer=0."
+      }
+    ],
+    "red_findings_carried": [
+      {"id": "R-MED-01", "severity": "medium", "title": "Fence multi-cluster not continuous garden boundary", "blocking": false},
+      {"id": "R-MED-02", "severity": "medium", "title": "WO expected-shape omitted worker_entry + job_service", "blocking": false},
+      {"id": "R-LOW-03", "severity": "low", "title": "Blue log understated service delta", "blocking": false},
+      {"id": "R-LOW-04", "severity": "low", "title": "Fence BOX not per-rail mesh colliders", "blocking": false},
+      {"id": "R-LOW-05", "severity": "low", "title": "Anim stagger Godot-side only", "blocking": false},
+      {"id": "R-LOW-06", "severity": "low", "title": "ArtStyleManager cozy_cyber_pixel SCRIPT ERROR residual", "blocking": false},
+      {"id": "R-INFO-07", "severity": "info", "title": "jobs.py tree dirtiness non-W1", "blocking": false},
+      {"id": "R-INFO-08", "severity": "info", "title": "object_count 46 vs modules 43", "blocking": false},
+      {"id": "R-INFO-09", "severity": "info", "title": "Headed charm remains human judgment", "blocking": false}
+    ],
+    "finding_counts": {
+      "blocking_reopen": 0,
+      "gates_fail": 0,
+      "acceptance_pass": 7,
+      "acceptance_pass_with_notes": 1,
+      "red_findings_carried": 9
+    }
+  },
+  "smoke_test": {
+    "commands": [
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e003_density_exposure_smoke.gd",
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_smoke.gd",
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux_input_collision_smoke.gd",
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+      "cd E:/AIdle_Blender_Bridge_P0 && python -m pytest tests/ -q",
+      "cd E:/AIdle_Blender_Bridge_P0 && python -m pytest tests/test_environment_api.py tests/test_environment_runner.py -q",
+      "Pillow Rec.709 full-frame re-measure starter_realm_preview.png + evidence copy identity",
+      "artifact_hashes.json reverify + recursive game GLB count"
+    ],
+    "markers": {
+      "AIDLE_P1E003_SMOKE": "PASS checks=9",
+      "AIDLE_P1E002_SMOKE": "PASS checks=4",
+      "AIDLE_G8_UX_SMOKE": "PASS checks=6",
+      "AIDLE_G8_UX002_SMOKE": "PASS checks=2",
+      "GODOT_RUNTIME_LOAD": "OK",
+      "GAME_GLB_COUNT": "0",
+      "bridge_pytest_full": "44 passed",
+      "bridge_pytest_environment": "22 passed",
+      "quarantine_hash": "ok=47 fail=0",
+      "exposure_remeasure": "mean=155.663 blown=0.097 shadow=10.106 PASS",
+      "instance_count": 43
+    },
+    "exit_codes_all_zero": true
+  },
+  "self_audit": {
+    "authority_verify_only": true,
+    "no_product_patch": true,
+    "product_writes_empty": true,
+    "self_accept": false,
+    "accepted": false,
+    "exclusive_writes_receipt_log_only": true,
+    "evidence_p1e_w1_unchanged": true,
+    "durable_child_task_ref": "019f854b-a4da-78c2-a94e-f0c94a4239e8",
+    "prior_wave_crosscheck": "019f8547-6edc-7031-9abb-2dec5c05c8e4",
+    "blue_wave_crosscheck": "019f8527-ec7c-7bd2-a4a1-6dc478df99cd",
+    "parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "no_grandchildren": true,
+    "handoff": "P1E_003_W4_PURPLE"
+  },
+  "evidence_refs": [
+    "orchestration/logs/p1e-003-w3-qa-001.log",
+    "orchestration/receipts/p1e/P1E_003_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_003_w2_red_001.json",
+    "orchestration/logs/p1e-003-w1-blue-001.log",
+    "orchestration/logs/p1e-003-w2-red-001.log",
+    "orchestration/evidence/p1e_w1/luma_metrics.json",
+    "orchestration/evidence/p1e_w1/starter_realm_preview_p1e003_w1.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/scene_manifest.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/artifact_hashes.json"
+  ],
+  "next_route": "P1E_003_W4_PURPLE",
+  "completion_signal": "REVIEW_REQUESTED"
+}

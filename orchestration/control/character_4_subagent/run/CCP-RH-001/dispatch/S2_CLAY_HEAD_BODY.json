@@ -1,0 +1,67 @@
+{
+  "schema_version": "character_4_subagent_dispatch/1.0",
+  "character_id": "CCP-RH-001",
+  "agent_id": "S2",
+  "job_state": "CLAY_HEAD_BODY",
+  "workspace": "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001",
+  "write_path_only": "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\work\\S2_body_clothes.blend",
+  "read_paths": [
+    "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\spec\\character_spec.json",
+    "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\references",
+    "E:\\AIdle_openworld\\orchestration\\control\\character_4_subagent\\run\\CCP-RH-001\\spec\\BLENDER_COLLECTION_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/control/visual_reference/mockup_ssot_v2/MOCKUP_DESIGN_LOCK.md",
+    "E:/AIdle_openworld/orchestration/control/AIDLE_GAME_VISION_LOCK_001.md"
+  ],
+  "prompt_file": "E:\\agents\\AIdle_4_Subagent_Blender_Character_System\\aidle_character_4_subagents\\prompts\\S2_BODY_CLOTHES.md",
+  "prompt_text_preview": "# S2 — BODY / CLOTHES / LIMBS\n\nBạn chỉ được sửa `S2_BODY_CLOTHES` trong file do S2 sở hữu.\n\n## Trách nhiệm\n- Torso, inner garment, outer garment, panels.\n- Arms, continuous sleeves, hands.\n- Legs, boots and body accessories.\n- Overall body height/width beneath locked head socket.\n\n## Luật hình khối\n- Chibi proportion theo spec; không kéo thân cao và mảnh ngoài mockup.\n- Sleeve phải đọc như một khối vải liên tục, không chuỗi capsule.\n- Hands và boots là mesh hoàn chỉnh, không placeholder sphere/capsule.\n- Áo nhiều lớp phải đọc được ở primary camera.\n- Giữ interface socket với S1; không sửa đầu/tóc/mặt.\n\n## Trình tự\n1. Dùng head proxy do Orchestrator cấp.\n2. Dựng torso và clothing masses bằng clay.\n3. Dựng limbs/hands/boots.\n4. Kiểm tra silhouette primary/front/side/back.\n5. Emit receipt; không tự PASS.\n\n## Cấm\n- Material pass trước FORM_LOCKED.\n- Chạm collection S1.\n- Thay locked head dimensions.\n- Join collection với S1.",
+  "mcp": {
+    "allowed_mcp": [
+      "blender__get_scene_info",
+      "blender__get_object_info",
+      "blender__get_viewport_screenshot",
+      "blender__execute_blender_code"
+    ],
+    "code_scope": "Only collections under S2_BODY_CLOTHES; save only work/S2_body_clothes.blend",
+    "forbidden": [
+      "edit S1 collections",
+      "export release GLB",
+      "self_accept"
+    ]
+  },
+  "hard_rules": [
+    "One writer path only — do not write outside write_path_only",
+    "self_accept=false always",
+    "accepted=false until Human Product Lead",
+    "Do not promote to game/**",
+    "Clay/form before materials if state < FORM_LOCKED",
+    "Exact clip names from character_spec.clips — no idle alias for missing"
+  ],
+  "aidle_clip_contract": [
+    "idle",
+    "walk",
+    "scan",
+    "happy",
+    "cancel",
+    "turn_left",
+    "turn_right",
+    "build_place",
+    "build_place_hold",
+    "confirm",
+    "water",
+    "plant_seed",
+    "harvest",
+    "charge",
+    "low_energy"
+  ],
+  "skeleton_family": "robot_biped_small_v1",
+  "receipt_required": {
+    "agent_id": "S2",
+    "status": "IN_PROGRESS|DONE|BLOCKED",
+    "artifacts": [],
+    "self_accept": false,
+    "accepted": false
+  },
+  "accepted": false,
+  "self_accept": false,
+  "emitted_utc": "2026-07-25T16:17:05.283809+00:00"
+}

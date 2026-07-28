@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "request_id": "pc_physics_fire_house_0001",
+  "world_profile": "cozy_cyber_pixel",
+  "pc_profile_id": "pc_forward_plus_high_v1",
+  "expected_world_revision": 0,
+  "build_graph_ref": "graph_cozy_fire_safety_test_v1",
+  "elemental_bindings": [
+    {
+      "entity_ref": "house",
+      "elements": [
+        "element_wood"
+      ],
+      "physical_profile_id": "phys_wood_soft_v1"
+    },
+    {
+      "entity_ref": "pond",
+      "elements": [
+        "element_water"
+      ],
+      "physical_profile_id": "phys_water_v1"
+    },
+    {
+      "entity_ref": "fire_source",
+      "elements": [
+        "element_fire",
+        "element_heat"
+      ],
+      "physical_profile_id": null
+    }
+  ],
+  "force_fields": [
+    {
+      "force_id": "force_wind_directional_v1",
+      "target_ref": "test_region",
+      "parameters": {
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "strength": 0.35,
+        "gust": 0.12
+      }
+    }
+  ],
+  "reaction_rules": [
+    "react_fire_wood_burn_v1",
+    "react_wind_fire_spread_v1",
+    "react_water_extinguish_fire_v1",
+    "react_rain_fire_reduce_v1"
+  ],
+  "system_networks": [
+    {
+      "network_id": "fire_cells",
+      "solver_rule": "thermal_fire_cell_v1",
+      "nodes": [
+        "house_wall_A",
+        "house_wall_B",
+        "roof"
+      ]
+    }
+  ],
+  "simulation": {
+    "simulation_lod_profile": "sim_lod_pc_high_v1",
+    "deterministic_seed": 210726,
+    "preview_only": true,
+    "collision_enabled_after_commit": true
+  },
+  "validation": {
+    "schema": true,
+    "element_compatibility": true,
+    "reaction_allowlist": true,
+    "structural": true,
+    "fluid": true,
+    "thermal": true,
+    "energy": true,
+    "biological": true,
+    "performance": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  }
+}

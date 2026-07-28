@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIdle Evidence Bundle",
+  "type": "object",
+  "required": [
+    "bundle_id",
+    "work_order_id",
+    "child_receipts",
+    "tests",
+    "logs",
+    "screenshots",
+    "regression_matrix",
+    "verdict"
+  ],
+  "properties": {
+    "bundle_id": {
+      "type": "string"
+    },
+    "work_order_id": {
+      "type": "string"
+    },
+    "child_receipts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transcripts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "logs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "screenshots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hash_manifest": {
+      "type": "string"
+    },
+    "regression_matrix": {
+      "type": "string"
+    },
+    "purple_verdict": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "EVIDENCE_COMPLETE",
+        "EVIDENCE_PARTIAL",
+        "BLOCKED"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

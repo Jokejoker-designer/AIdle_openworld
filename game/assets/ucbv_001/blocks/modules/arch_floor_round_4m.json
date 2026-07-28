@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_arch_floor_round_4m_v1",
+  "module_id": "arch_floor_round_4m",
+  "module_role": "floor",
+  "display_name": "Floor Round 4M",
+  "world_profile_id": "cozy_cyber_pixel",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "author_wave": "U3_BLOCK_FAMILY_ART",
+  "allowlist_verified": true,
+  "dna_catalog_present": true,
+  "domain": "ARCHITECTURE",
+  "category": "STRUCTURE",
+  "geometry_family": "arch_floor_round_4m",
+  "bounds_m": {
+    "width": 4.0,
+    "depth": 4.0,
+    "height": 0.15,
+    "origin": "center_bottom",
+    "corner_radius_m": 0.35,
+    "source": "4m name + grid snap_m 0.5"
+  },
+  "sockets_from_dna": {
+    "socket_inputs": ["vertical_stack"],
+    "socket_outputs": ["wall_edge", "roof_edge", "door_opening", "window_opening", "path_endpoint", "prop_surface"],
+    "source": "module_catalog.json",
+    "adapter_normalizations_applicable": ["norm_building_foundation_vertical_stack_v1"]
+  },
+  "socket_types_contract_ref": "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json",
+  "material_slots_dna": ["structure", "trim", "glass"],
+  "material_slots_production": {
+    "structure": {"semantic_slot": "structure", "mat_id": "MAT_CozyStoneWarm", "bible_hex": "#efe0c8"},
+    "trim": {"semantic_slot": "wood", "mat_id": "MAT_CozyWood", "bible_hex": "#c98a5e"},
+    "glass": {"semantic_slot": "glass", "mat_id": "MAT_CozyGlass", "usage": "unused_on_solid_floor_default"}
+  },
+  "silhouette": {
+    "family": "ucbv_cozy_rounded_readable_v1",
+    "form": "rounded_square_deck",
+    "bevel_face_fraction": 0.04,
+    "hard_90_outer_corners": false
+  },
+  "lod": {
+    "LOD0": "rounded_deck_trim_ring",
+    "LOD1": "rounded_deck",
+    "LOD2_or_billboard": "box_deck"
+  },
+  "performance_class_dna": "M",
+  "collision_policy_dna_hint": "STATIC_MESH",
+  "mesh_descriptor": "mesh_descriptors/arch_floor_round_4m.meshdesc.json",
+  "visual_states_ref": "visual_states.json"
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_G8-001-D1-EXTERNAL-TIMING-ACCEPTANCE-012",
+  "reviewed_at": "2026-07-21T11:17:52+07:00",
+  "reviewer": "codex",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "task_id": "G8-001",
+  "wave": "D1",
+  "verdict": "PASS_D1_RELEASE_D2",
+  "accepted": true,
+  "g8_accepted": false,
+  "d2_spawn_allowed": true,
+  "d3_spawn_allowed": false,
+  "human_product_lead_decision": {
+    "received": true,
+    "text": "Cho phép dùng timestamp máy làm nguồn chuẩn và tiếp tục D",
+    "interpreted_scope": "Use machine timestamps as canonical evidence and continue D2 only.",
+    "does_not_authorize": [
+      "G8 acceptance",
+      "D3",
+      "Control 1B",
+      "product patch",
+      "install, push, deploy or publish"
+    ]
+  },
+  "canonical_timing_evidence": {
+    "correction_child_ref": "019f82da-85dd-76e0-ae0b-6c3c08098d79",
+    "child_started_at": "2026-07-21T04:06:27.040117800Z",
+    "receipt_mtime_utc": "2026-07-21T04:10:12.0020124Z",
+    "trace_mtime_utc": "2026-07-21T04:10:43.7099776Z",
+    "child_completed_at": "2026-07-21T04:11:35.913522700Z",
+    "child_status": "completed",
+    "receipt_sha256": "DD7E6425FBF06ABF4C55BA9818B54926B205D8673FDA72598C076EE4E3F1FCD5",
+    "trace_sha256": "DCA6B5BBFF654875B3921F71D3B0144CEA1C73CABB9ED4372DAF90750A59CB56"
+  },
+  "protocol_decision": {
+    "worker_receipt_writer_end_time": "informational and non-canonical",
+    "canonical_completion_time": "durable Grok child metadata completed_at",
+    "canonical_artifact_write_time": "filesystem LastWriteTimeUtc bound to artifact hash",
+    "historical_receipt_rewrite": false,
+    "future_worker_rule": "Workers do not predict their own durable completion; Codex binds timing externally after exit."
+  },
+  "independent_checks_preserved": {
+    "prior_finalizer_ledger": "PASS 11 of 11 exact transcript commands and exits",
+    "prior_correction_ledger": "PASS 17 of 17 exact transcript commands and exits; two exit_code=1",
+    "material_editor_calls": "PASS disclosed",
+    "temporary_cleanup": "PASS six removed; remaining count=0",
+    "no_product_writes": "PASS",
+    "no_grandchildren": "PASS",
+    "maf_jsonschema": "PASS"
+  },
+  "release_conditions": [
+    "Use four fresh real D2 child sessions under the same authorized Desktop parent.",
+    "Use new receipt and trace paths; do not reuse or overwrite quarantined premature D2 evidence.",
+    "D2 is verification-only/read-only and cannot patch product, tests, contracts, harnesses or headed evidence.",
+    "Codex independently binds child timing after exit and accepts or rejects D2.",
+    "D3 remains blocked."
+  ],
+  "self_accept": false
+}

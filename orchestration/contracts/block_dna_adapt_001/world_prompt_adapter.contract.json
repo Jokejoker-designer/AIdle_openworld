@@ -1,0 +1,79 @@
+{
+  "schema_version": "block_dna_adapt_001_world_prompt_adapter/1.0",
+  "title": "Build Graph / Recipe → Structured World Prompt proposal adapter",
+  "active_world_prompt_schema": "contracts/world_prompt.schema.json",
+  "active_world_prompt_schema_sha256": "cc57300fb01d5e803b44aca80c77ff1d8dee72f00974a90f9ec6f500ceb2841c",
+  "adapter_output_kind": "STRUCTURED_WORLD_PROMPT_PROPOSAL",
+  "authority_boundary": {
+    "may": [
+      "emit_world_prompt_proposal",
+      "set_confirmation_state_pending",
+      "require_preview",
+      "emit_asset_request_proposal_for_missing_modules"
+    ],
+    "must_not": [
+      "confirm",
+      "commit",
+      "direct_world_commit",
+      "mutate_ownership",
+      "mutate_economy",
+      "mutate_inventory",
+      "execute_arbitrary_code",
+      "bypass_preview",
+      "bypass_world_commit",
+      "write_game_scene_tree",
+      "rewrite_dna_packages"
+    ]
+  },
+  "forbidden_output_fields": [
+    "direct_commit",
+    "world_commit",
+    "commit",
+    "authority_token",
+    "execute_code",
+    "ownership_mutation",
+    "economy_mutation",
+    "inventory_mutation",
+    "confirmed_by",
+    "canonical_mutation"
+  ],
+  "proposal_confirmation_const": {
+    "preview_required": true,
+    "state": "pending"
+  },
+  "manifestation_stages_const": ["wireframe", "hologram", "materializing", "complete"],
+  "mapping": {
+    "build_graph.request_id": "world_prompt.request_id",
+    "build_graph.build_graph_id": "world_prompt.entity.recipe_id (prefixed graph:)",
+    "build_graph.world_profile": "world_prompt.style_profile.profile_id",
+    "build_graph.expected_world_revision": "world_prompt.target.expected_world_revision",
+    "build_graph.bounds": "world_prompt.entity.bounds (width/depth/height from size_m)",
+    "build_graph.nodes[].position": "world_prompt.entity.transform (root) + provenance child list",
+    "material_slot": "resolve via material_slot_mapping.contract.json → MAT_* only",
+    "missing_module_id": "AssetRequestProposal { kind: asset_request, module_id, never code }"
+  },
+  "asset_request_proposal": {
+    "schema_version": "block_dna_adapt_001_asset_request/1.0",
+    "required": ["kind", "module_id", "reason", "executable_code"],
+    "properties": {
+      "kind": {"const": "asset_request"},
+      "module_id": {"type": "string"},
+      "reason": {"type": "string"},
+      "executable_code": {"const": null}
+    },
+    "additionalProperties": false
+  },
+  "idempotency": {
+    "key_field": "idempotency_key",
+    "binds": "canonical_validated_payload_fingerprint",
+    "fingerprint_algorithm": "sha256",
+    "fingerprint_canonicalization": "json_dumps_sort_keys_separators_no_whitespace_utf8",
+    "identical_replay": "STABLE_ACCEPT",
+    "same_key_changed_payload": "CONFLICT_REJECT"
+  },
+  "stale_revision_policy": {
+    "expected_world_revision_must_match_or_be_current": true,
+    "negative_revision": "REJECT",
+    "stale_revision": "REJECT"
+  }
+}

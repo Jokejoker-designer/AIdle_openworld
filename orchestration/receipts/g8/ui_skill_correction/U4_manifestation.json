@@ -1,0 +1,75 @@
+{
+  "agent_step_id": "U4_manifestation.json",
+  "agent_type": "aidle-manifestation",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "input_context_hash": "sha256:639dc67955c90beb",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-UI-SKILL-CORRECTION-001",
+    "directive_id": 22,
+    "wave": "U4_MANIFESTATION_STATES",
+    "profile": "manifestation",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "Object-level stage visuals: scale/opacity/emission distinct wireframe→hologram→materializing→complete; cyan construction light.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "ui_character_id": "ui-component-craftsman",
+      "maf_role": "agent",
+      "authority_token": "PATCH_DRAFT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full"
+      },
+      {
+        "skill_id": "game-asset-core",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+        "mode": "full"
+      },
+      {
+        "skill_id": "game-ui-icons",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+        "mode": "full"
+      }
+    ],
+    "trace_ref": "orchestration/logs/g8-ui-skill-correction-001.log#U4_MANIFESTATION_STATES",
+    "handoff_ref": "U5_EXECUTOR_INTERACTION",
+    "product_writes": [
+      "game/scripts/modules/manifestation/manifestation_instance.gd",
+      "game/scripts/modules/manifestation/manifestation_stages.gd"
+    ],
+    "children": [],
+    "findings": [],
+    "residual_risks": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8"
+      },
+      {
+        "marker": "capture_manifestation_preview.png"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "no_catalog_false_claim": true,
+    "character_skill_trace_present": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ui-skill-correction-001.log",
+    "orchestration/evidence/g8_headed_correction/",
+    "orchestration/reviews/G8-001_UI_BRIEF.md",
+    "DESIGN.md"
+  ],
+  "next_route": "U5_EXECUTOR_INTERACTION"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_UCBV-001_C2_RUNTIME_GATE_006",
+  "task_id": "UCBV-001",
+  "directive_reviewed": 86,
+  "reviewed_at": "2026-07-23T06:47:30+07:00",
+  "reviewed_by": "codex",
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "lineage": {
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "child_task_ref": "019f8c2b-59a3-7642-abe4-c95080fa3a08",
+    "durable_started_at": "2026-07-22T23:31:19.078825500Z",
+    "durable_completed_at": "2026-07-22T23:43:33.415608900Z",
+    "receipt": "orchestration/receipts/ucbv_001/correction_002/C2_runtime_build_controls_002.json",
+    "log": "orchestration/logs/ucbv_001/correction_002/C2_runtime_build_controls_002.log"
+  },
+  "verified_positive": {
+    "receipt_schema_errors": 0,
+    "declared_product_hashes_and_bytes": "12/12 match",
+    "independent_headless_tests": "5/5 exit 0",
+    "runtime_log_strict_errors": 0,
+    "glb_and_catalog_static_contracts_present": true,
+    "delete_presentation_cleanup_after_authoritative_commit": true,
+    "c3_c4_c5_spawned": false
+  },
+  "blocking_findings": [
+    {
+      "id": "C2-CODEX-F01",
+      "severity": "HIGH",
+      "finding": "The C2 receipt claims tests use InputMap entrypoints and controller_api_fallback_in_tests=false, but the submitted evidence tests directly call controller methods for rotation, confirmation and delete selection/commit. This does not prove the player's keyboard and mouse event path.",
+      "evidence": [
+        "game/tests/ucbv_001_integration_smoke.gd lines 339, 352, 377, 384, 394, 403 and 417",
+        "game/tests/p2e001_block_assembly_player_input_smoke.gd lines 98, 108 and 123",
+        "game/tests/p2e001_block_assembly_qr_context_smoke.gd line 191",
+        "game/tests/h1_human_ux_manual_build_smoke.gd lines 499 and 564"
+      ]
+    }
+  ],
+  "decision": {
+    "c2_result": "REJECTED_AS_C3_INPUT_PENDING_EVIDENCE_CORRECTION",
+    "c2r_authorized": true,
+    "c3_c4_c5_authorized": false,
+    "overall_ucbv_accepted": false,
+    "red_f01_hard_stop": true
+  },
+  "next_route": "C2R_REAL_INPUTMAP_EVIDENCE_CORRECTION"
+}

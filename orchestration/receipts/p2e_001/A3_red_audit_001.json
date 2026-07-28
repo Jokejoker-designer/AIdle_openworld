@@ -1,0 +1,472 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P2E-001-a3-red-audit-001-2026-07-22",
+  "step_id": "P2E-001-a3-red-audit-001",
+  "work_order_id": "WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE",
+  "work_order": "orchestration/work_orders/WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md",
+  "work_order_sha256": "39bf0b224201ec9d38a34aba0209348bfa993540c065d72b8fc186280b0d37e4",
+  "directive_id": 70,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "milestone": "P2E-001 Block Assembly preview slice — A3 red adversarial audit",
+  "agent_id": "aidle-worldgen-red-scope",
+  "agent_type": "aidle-worldgen-red-scope",
+  "profile_name": "aidle-worldgen-red-scope",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "profile_sha256": "7faf2b2b6bc07d18a1de109ccffd29279e7c7e060a24545e0fa2ee2bed1bebe5",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-red-scope; trustlayer_character=red-team-source-auditor; ui_character=ui-visual-critic; authority_token=READ_ONLY_AUDIT; findings only never patch; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set review_findings_only",
+  "authority_token": "READ_ONLY_AUDIT",
+  "authority": "READ_ONLY_AUDIT",
+  "authority_scope": "findings-only exclusive A3 log+receipt; product_writes=[]; never patch product/tests/contracts; never ACCEPTED; no grandchildren",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:b5c27f71fb1ed3dbb89414ea67505249689357cac2ac8ef4a8f9cd641cbbdf58",
+  "input_context_hash_16": "b5c27f71fb1ed3db",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md + A1_runtime_implementation_001.json + A2_control_ux_audit_001.json + block_assembly_controller.gd + ARCHITECTURE_LOCK.md + aidle-worldgen-red-scope.md",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "A3_COMPLETE_ROUTE_A4_QA",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "A3_RED_AUTHORITY_KERNEL_PASS_PLAYABLE_AND_F01_RESIDUALS_NO_ACCEPT",
+  "child_task_ref": "019f886b-3873-7e90-ae93-1ff0ecb7a605",
+  "transcript_ref": "019f886b-3873-7e90-ae93-1ff0ecb7a605",
+  "writer_transcript_ref": "019f886b-3873-7e90-ae93-1ff0ecb7a605",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_child_ref": "019f8867-27b7-7e50-a78a-c7c606a0c363",
+  "prior_a0_ref": "019f8854-9d26-7663-93c3-11e68a2cb537",
+  "prior_a1_ref": "019f8858-18aa-7970-a9d5-216a28c17ffa",
+  "prior_a2_ref": "019f8867-27b7-7e50-a78a-c7c606a0c363",
+  "prior_a0_receipt": "orchestration/receipts/p2e_001/A0_ssot_preflight_001.json",
+  "prior_a1_receipt": "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json",
+  "prior_a2_receipt": "orchestration/receipts/p2e_001/A2_control_ux_audit_001.json",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f886b-3873-7e90-ae93-1ff0ecb7a605/meta.json",
+  "durable_meta_sha256_at_start": "313281f48673b4be82670de45239a6c5d533fd4a2c647700fc0b36c23dd53bb1",
+  "started_at": "2026-07-22T06:02:36.022430900Z",
+  "completed_at_utc": "2026-07-22T06:05:53Z",
+  "next_owner": "A4_QA",
+  "next_route": "A4_QA",
+  "character_binding": {
+    "trustlayer_character_id": "red-team-source-auditor",
+    "trustlayer_file": "E:/agents/characters/05-red-team-source-auditor.md",
+    "trustlayer_sha256": "6d809c350b34e4512e886e582d555235bf85361884c05c8e4e2f7c6e5f838951",
+    "trustlayer_read": "full_header_and_role",
+    "ui_character_id": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_header_role_rules",
+    "role": "A3 READ_ONLY_AUDIT red adversarial audit of Block Assembly preview slice — findings only; never patch; never self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO, ARCHITECTURE_LOCK, skills (ALWAYS + architecture-lock + adversarial-review full EOF; curiosity-engine through Prime Directive L1123), A0/A1/A2 receipts, implementation and tests manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "line_count": 1123,
+      "read_mode": "full_no_limit",
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "also_read_project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027"
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "orchestration/logs/p2e-001-a3-red-001.log",
+    "orchestration/receipts/p2e_001/A3_red_audit_001.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "orchestration/logs/p2e-001-a3-red-001.log",
+    "orchestration/receipts/p2e_001/A3_red_audit_001.json"
+  ],
+  "product_paths_inspected_not_written": [
+    "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+    "game/scripts/modules/block_assembly/block_preview_entity.gd",
+    "game/scripts/modules/block_assembly/block_world_prompt_builder.gd",
+    "game/scripts/modules/block_assembly/block_catalog_gate.gd",
+    "game/scripts/modules/block_assembly/block_socket_rules.gd",
+    "game/scripts/modules/block_assembly/block_placement_math.gd",
+    "game/scripts/modules/block_assembly/block_assembly_constants.gd",
+    "game/scripts/modules/network/world_authority_local.gd",
+    "game/scripts/modules/network/authority_client.gd",
+    "game/scripts/main/main.gd",
+    "game/tests/p2e001_block_assembly_core_smoke.gd",
+    "game/tests/p2e001_block_assembly_authority_smoke.gd",
+    "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+    "game/resources/block_assembly/runtime_catalog.json",
+    "game/resources/block_assembly/socket_rules.json",
+    "orchestration/contracts/block_dna_adapt_001/**"
+  ],
+  "lease_honesty": {
+    "a1_product_hashes_match_disk": true,
+    "sampled_hashes": {
+      "block_assembly_controller.gd": "a7143da937dc8dd333c9544ae9fe79a8674e45e04bd4f3187b2b6128e21c7074",
+      "main.gd": "3f6d056991b55e508155fc42df4c9ad4d6dd1566541eed4d4c9dee3d711b8596",
+      "p2e001_block_assembly_authority_smoke.gd": "c7fc1057afaf3efa92c187b225c173947f56833b8493aba95e78fa9882a54343",
+      "runtime_catalog.json": "b247b3ea296bb98e0ae3f5c360950252e110d18c1ec83f74bca707bf47166c2b"
+    },
+    "dna_package_import_in_game_block_assembly": false,
+    "parallel_grammar_invented": false,
+    "a3_product_writes_empty": true,
+    "contracts_untouched": true
+  },
+  "adversarial_axes": {
+    "authority_boundary": {
+      "result": "PASS_OFFLINE",
+      "detail": "confirm_and_commit routes solely through AuthorityClient.commit → WorldAuthorityLocal; submit_preview_proposal mutates=false; explicit confirm required; undo compensation via authority delete path"
+    },
+    "dual_fire_qr": {
+      "result": "PASS",
+      "detail": "QR smoke PASS checks=8; catalog/router isolation; build R does not change camera yaw; exploration R does not rotate preview"
+    },
+    "client_forged_commit": {
+      "result": "PASS_KERNEL_WITH_TEST_HONESTY_RESIDUAL",
+      "detail": "WorldAuthorityLocal rejects client_forged actor/session mismatches; BA reject_client_authored_success is synthetic always-reject helper (F-A3-03); real path never accepts client-authored receipt as input"
+    },
+    "cancel_idempotency": {
+      "result": "PASS_WITH_UX_TRAP",
+      "detail": "cancel-after-confirm keeps committed; idempotent replay no duplicate; changed-payload same key reject; stale rev conflicted; post-submit placement re-submit key freeze trap F-A3-02"
+    },
+    "lease_honesty": {
+      "result": "PASS",
+      "detail": "A1 hashes stable on disk; A3 product_writes=[]; no world_DNA edit"
+    },
+    "dna_import_avoidance": {
+      "result": "PASS",
+      "detail": "block_assembly preloads only local JSON snapshots + existing network/persist/manifestation modules; no world_DNA path references"
+    }
+  },
+  "findings": [
+    {
+      "id": "F-A3-01",
+      "severity": "P2",
+      "title": "No playable select_module entry from main/UI",
+      "classification": "FACT",
+      "finding_type": "CODE_QUALITY",
+      "status": "OPEN",
+      "blocking_for": ["honest_headed_playable_wo_claim"],
+      "detail": "Reconfirms A2 F-A2-01. main.gd mounts BlockAssemblyController and wires rotate/cancel/confirm/undo, but never calls select_module / elevate / build_place. Only p2e001 tests inject selection. Demo Build path is manifestation demo, not BA module select.",
+      "impact": "Headed player cannot exercise WO playable select/lift/rotate without test harness injection; A4 headed demos of BA select require API injection or later blue patch",
+      "files": [
+        "game/scripts/main/main.gd",
+        "game/scripts/modules/block_assembly/block_assembly_controller.gd"
+      ],
+      "evidence": "source-code; A2 receipt F-A2-01; grep select_module only in controller + tests"
+    },
+    {
+      "id": "F-A3-02",
+      "severity": "P2",
+      "title": "Idempotency key frozen at select traps legitimate post-submit re-preview",
+      "classification": "FACT",
+      "finding_type": "CODE_QUALITY",
+      "status": "OPEN",
+      "blocking_for": [],
+      "detail": "_idempotency_key is derived once in select_module from initial payload fingerprint and is not regenerated in _reapply_placement. After first submit_preview_proposal stores _local_idem[key]=fp, any placement edit keeps the same key with new fingerprint → idempotency_payload_mismatch. Attack rejection is correct; legitimate re-submit after edit fails without re-select.",
+      "impact": "If UI ever submits then elevates/rotates before confirm, confirm auto-submit fails. main currently confirm-only without intermediate submit, so default path works.",
+      "files": [
+        "game/scripts/modules/block_assembly/block_assembly_controller.gd"
+      ],
+      "evidence": "source-code lines select_module key assignment; _reapply_placement does not refresh key; attempt_changed_payload_same_key intentional same-key mutation"
+    },
+    {
+      "id": "F-A3-03",
+      "severity": "P3",
+      "title": "client_forged BA smoke uses synthetic helper, not forged commit injection",
+      "classification": "FACT",
+      "finding_type": "DEFENSE_IN_DEPTH",
+      "status": "RESIDUAL",
+      "blocking_for": [],
+      "detail": "reject_client_authored_success(forged) always returns code=client_forged without consulting WorldAuthorityLocal or AuthorityClient.attempt_forged_commit. Authority smoke therefore proves helper existence, not pipeline rejection of a forged commit body. Real WorldAuthorityLocal still enforces client_forged on actor/session mismatches (source-code evidence).",
+      "impact": "Test honesty residual; offline kernel still safe because confirm path only consumes authority-issued receipts",
+      "files": [
+        "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+        "game/tests/p2e001_block_assembly_authority_smoke.gd",
+        "game/scripts/modules/network/world_authority_local.gd"
+      ],
+      "evidence": "source-code; runtime smoke PASS on helper"
+    },
+    {
+      "id": "F-A3-04",
+      "severity": "P3",
+      "title": "Public enable_post_commit_physics without receipt binding (Red F01 residual)",
+      "classification": "FACT",
+      "finding_type": "DEFENSE_IN_DEPTH",
+      "status": "RESIDUAL",
+      "blocking_for": ["networked_work", "shipping"],
+      "detail": "BlockPreviewEntity.enable_post_commit_physics() is a public method that enables collision/navigation and marks durable_mutation_applied without verifying a World Commit receipt_id or issuer. Any in-process caller with a node reference can enable physics. Acceptable only under single-process offline trust; WO states Red F01 hard-stops later networked work or shipping.",
+      "impact": "Offline residual; must not be treated as multiplayer-safe presentation authority",
+      "files": [
+        "game/scripts/modules/block_assembly/block_preview_entity.gd",
+        "game/scripts/modules/block_assembly/block_assembly_controller.gd"
+      ],
+      "evidence": "source-code"
+    },
+    {
+      "id": "F-A3-05",
+      "severity": "P3",
+      "title": "confirm_and_commit enables physics on status alone; issuer re-check omitted",
+      "classification": "FACT",
+      "finding_type": "DEFENSE_IN_DEPTH",
+      "status": "RESIDUAL",
+      "blocking_for": ["networked_work", "shipping"],
+      "detail": "On receipt status committed|idempotent_replay, controller enables post-commit physics without requiring authority.issuer==world_commit_service. AuthorityClient.verify_receipt is invoked inside client.commit path but its return is not gated by BA controller. Offline WorldAuthorityLocal always sets issuer correctly; residual if receipt channel is ever untrusted.",
+      "impact": "Defense-in-depth gap for any future remote authority adapter",
+      "files": [
+        "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+        "game/scripts/modules/network/authority_client.gd"
+      ],
+      "evidence": "source-code"
+    },
+    {
+      "id": "F-A3-06",
+      "severity": "P4",
+      "title": "cancel_preview hardcodes committed_untouched=true",
+      "classification": "FACT",
+      "finding_type": "CODE_QUALITY",
+      "status": "OPEN",
+      "blocking_for": [],
+      "detail": "Return flag committed_untouched is always true rather than computed from before/after committed entity lists. Smoke still asserts get_committed_count stability.",
+      "impact": "API honesty for callers trusting the flag alone",
+      "files": [
+        "game/scripts/modules/block_assembly/block_assembly_controller.gd"
+      ],
+      "evidence": "source-code cancel_preview return dict"
+    },
+    {
+      "id": "F-A3-07",
+      "severity": "P2",
+      "title": "Discoverability gaps reconfirmed (elevation/HUD/status surface)",
+      "classification": "FACT",
+      "finding_type": "CODE_QUALITY",
+      "status": "OPEN",
+      "blocking_for": ["honest_headed_playable_wo_claim"],
+      "detail": "Reconfirms A2 F-A2-02..F-A2-05: no plain-language module/snap/validity surface; elevation InputMap not wired to BA; Build HUD omits confirm/rotate-left; Esc cancel_target not auto-armed for BA-only previews.",
+      "impact": "Headed playability and A4 evidence quality for full WO UX claims",
+      "files": [
+        "game/scripts/main/main.gd",
+        "game/scripts/ui/context_action_hud.gd",
+        "game/scripts/input/control_action_catalog.gd"
+      ],
+      "evidence": "A2 receipt findings; main.gd wiring review"
+    }
+  ],
+  "blocking_findings": [
+    {
+      "id": "F-A3-01",
+      "severity": "P2",
+      "scope": "honest_headed_playable_wo_claim",
+      "summary": "No main/UI select_module path — headed playable BA select incomplete"
+    },
+    {
+      "id": "F-A3-04",
+      "severity": "P3",
+      "scope": "networked_work_or_shipping_F01",
+      "summary": "Public post-commit physics without receipt binding — WO Red F01 residual hard stop for network/shipping"
+    }
+  ],
+  "blocking_findings_for_offline_authority_kernel": [],
+  "pass_assertions": [
+    {
+      "id": "AUTH-01",
+      "result": "PASS",
+      "detail": "confirm via WorldAuthorityLocal only; issuer world_commit_service on successful smoke"
+    },
+    {
+      "id": "AUTH-02",
+      "result": "PASS",
+      "detail": "preview submit does not mutate world_revision"
+    },
+    {
+      "id": "AUTH-03",
+      "result": "PASS",
+      "detail": "idempotent replay no duplicate entity; changed-payload same key reject; stale revision conflict"
+    },
+    {
+      "id": "AUTH-04",
+      "result": "PASS",
+      "detail": "cancel any stage / cancel after confirm leaves committed untouched (count verified)"
+    },
+    {
+      "id": "AUTH-05",
+      "result": "PASS",
+      "detail": "undo compensation_request via authority; not direct SceneTree as mutation source"
+    },
+    {
+      "id": "QR-01",
+      "result": "PASS",
+      "detail": "no dual-fire Q/R across exploration/build contexts"
+    },
+    {
+      "id": "DNA-01",
+      "result": "PASS",
+      "detail": "validator 14/14 valid 42/42 invalid; no DNA package runtime import into game"
+    },
+    {
+      "id": "LEASE-01",
+      "result": "PASS",
+      "detail": "A1 product hashes match disk; A3 product_writes=[]"
+    }
+  ],
+  "result": {
+    "verdict": "A3_RED_AUTHORITY_KERNEL_PASS_PLAYABLE_AND_F01_RESIDUALS_NO_ACCEPT",
+    "summary": "A3 READ_ONLY_AUDIT adversarial audit: offline authority kernel PASS (confirm/cancel/idempotency/stale/changed-payload/undo/compensation via existing WorldAuthorityLocal; dual-fire closed; DNA import avoided; lease honest). Automated gates re-run green: DNA 14/14+42/42; core 14; authority 8; qr 8; zero ERROR. No P0/P1 authority bypass found. Open residuals: playable select/discoverability (P2), idempotency key freeze after submit (P2), synthetic client_forged helper (P3), public enable_post_commit_physics and issuer re-check (P3 F01 residual for network/shipping). product_writes=[]; accepted=false; self_accept=false; next_owner=A4_QA.",
+    "authority_kernel": "PASS",
+    "dual_fire": "PASS",
+    "dna_import": "PASS",
+    "lease_honesty": "PASS",
+    "playable_headed": "FAIL_OPEN_FINDINGS",
+    "f01_network_shipping": "RESIDUAL_HARD_STOP"
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "headless_godot_p2e001_core_authority_qr_plus_block_dna_validator",
+    "pass": true,
+    "commands": [
+      {
+        "cmd": "PYTHONDONTWRITEBYTECODE=1 E:/standards/maf/.venv/Scripts/python.exe -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+        "cwd": "E:/AIdle_openworld",
+        "exit_code": 0,
+        "result": "valid 14/14; invalid 42/42 rejected"
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_core_smoke.gd",
+        "cwd": "E:/AIdle_openworld",
+        "exit_code": 0,
+        "marker": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14",
+        "error_lines": 0,
+        "script_errors": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+        "cwd": "E:/AIdle_openworld",
+        "exit_code": 0,
+        "marker": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+        "error_lines": 0,
+        "script_errors": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+        "cwd": "E:/AIdle_openworld",
+        "exit_code": 0,
+        "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+        "error_lines": 0,
+        "script_errors": 0
+      }
+    ],
+    "exit_code": 0
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "authority_token_is_read_only_audit": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "one_writer_per_file": true,
+    "exclusive_lease_only": true,
+    "did_not_patch_product": true,
+    "did_not_patch_tests": true,
+    "did_not_patch_contracts": true,
+    "skills_transcript_backed": true,
+    "characters_bound": true,
+    "did_not_invent_evidence": true,
+    "findings_evidence_based": true,
+    "maf_required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "residual_risks": [
+      "F-A3-01 may force A4 to inject select_module via test/API for headed BA demos.",
+      "F-A3-04/F-A3-05 remain hard stops for any networked or shipping claim (WO Red F01).",
+      "BA binds a private WorldAuthorityLocal instance (existing class) — offline POC OK; not a shared process-wide journal singleton."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "orchestration/receipts/p2e_001/A0_ssot_preflight_001.json",
+    "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json",
+    "orchestration/receipts/p2e_001/A2_control_ux_audit_001.json",
+    "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+    "game/scripts/modules/block_assembly/block_preview_entity.gd",
+    "game/scripts/modules/network/world_authority_local.gd",
+    "game/scripts/modules/network/authority_client.gd",
+    "game/scripts/main/main.gd",
+    "game/tests/p2e001_block_assembly_core_smoke.gd",
+    "game/tests/p2e001_block_assembly_authority_smoke.gd",
+    "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+    "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+    "orchestration/logs/p2e-001-a3-red-001.log",
+    "orchestration/receipts/p2e_001/A3_red_audit_001.json"
+  ],
+  "trace": {
+    "handoff_from": "A2_CONTROL_UX",
+    "handoff_to": "A4_QA",
+    "wave": "A3",
+    "task_id": "P2E-001",
+    "log": "orchestration/logs/p2e-001-a3-red-001.log",
+    "receipt": "orchestration/receipts/p2e_001/A3_red_audit_001.json"
+  }
+}

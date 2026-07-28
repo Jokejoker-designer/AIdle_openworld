@@ -1,0 +1,80 @@
+{
+  "schema_version": "block_dna_adapt_001/1.0",
+  "request_id": "req_lamp_001",
+  "build_graph_id": "graph_lamp_post_v1",
+  "world_profile": "cozy_cyber_pixel",
+  "expected_world_revision": 0,
+  "current_world_revision": 0,
+  "idempotency_key": "idem_graph_lamp_post_v1",
+  "bounds": {
+    "min": {
+      "x": -32,
+      "y": -32,
+      "z": 0
+    },
+    "max": {
+      "x": 32,
+      "y": 32,
+      "z": 16
+    }
+  },
+  "nodes": [
+    {
+      "node_id": "lamp",
+      "module_id": "prop_lamp_post",
+      "transform": {
+        "x": -4.0,
+        "y": 3.5,
+        "elevation": 0.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": -8,
+        "cy": 7,
+        "cz": 0
+      },
+      "material_slot": "emission",
+      "p1e_material_id": "MAT_CozyLampWarm"
+    }
+  ],
+  "edges": [],
+  "generators": [
+    {
+      "generator_id": "gen_road_network_v1",
+      "seed": 42
+    }
+  ],
+  "world_rules": [
+    {
+      "rule_id": "rule_day_night_v1"
+    }
+  ],
+  "manifestation": {
+    "stages": [
+      "wireframe",
+      "hologram",
+      "materializing",
+      "complete"
+    ],
+    "requires_confirmation": true,
+    "presentation_duration_seconds": 4
+  },
+  "validation": {
+    "collision": true,
+    "occupancy": true,
+    "sockets": true,
+    "cycle": true,
+    "snap": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  },
+  "adapter_proposal": {
+    "kind": "structured_world_prompt_proposal",
+    "confirmation_state": "pending",
+    "preview_required": true
+  },
+  "payload_fingerprint": "0a083ec3f12b2d7b664e4d46ac54e3ce6499fff3f7545aa08a49903c76044327"
+}

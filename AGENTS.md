@@ -2,11 +2,29 @@
 
 ## Active truth
 
-1. Read `AIdle_Openworld_Blueprint_v1.1/00_README.md` and
+1. Read `orchestration/control/AIDLE_GAME_VISION_LOCK_001.md` FIRST — it is the
+   standing whole-game vision every agent must follow until the game is
+   complete. Then read `AIdle_Openworld_Blueprint_v1.1/00_README.md` and
    `orchestration/ARCHITECTURE_LOCK.md` before planning or editing.
+1b. For **character, animation, prop, building, manifestation visuals**, also
+   read and obey `orchestration/control/visual_reference/mockup_ssot_v2/MOCKUP_DESIGN_LOCK.md`
+   and open `MOCKUP_SSOT_V2.html` (15 cast + 30 props + 10 buildings). Game art
+   must bám sát that mockup; mockup delta fail = CHANGES_REQUESTED.
+1c. For **town production (10 phases: 1 cast + 1 building + 3 props each)** use
+   `orchestration/control/town_build_10phase/` — subagents, layout, and
+   `MOCKUP_PARITY_100` gate. Do not stop a phase until parity 100. Runtime town:
+   `game/scripts/modules/town/town_layout_loader.gd` +
+   `game/resources/town/town_layout_10phase.json`.
+1d. **Wave packets** must follow `orchestration/control/WAVE_PACKET_TEMPLATE_V1.md`
+   (Read list → Blue/Red/QA/Purple → Honesty → Mockup fidelity if SSOT → Escalate →
+   Acknowledge then run). Purple cannot proceed without `QA_<wave>_001.json`
+   existing (headed evidence + raw log file path).
 2. `AIdle_Openworld_Blueprint_v1.0/` is historical input, never implementation authority.
 3. Every world mutation uses `contracts/world_prompt.schema.json`.
 4. An LLM proposes; only the World Commit service mutates canonical state.
+5. Deviating from `AIDLE_GAME_VISION_LOCK_001.md` is itself a reportable
+   finding; if a task appears to require it, stop and route `NEED_HUMAN` /
+   `NEED_CODEX` rather than proceed.
 
 ## MAF and TrustLayer
 

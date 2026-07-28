@@ -1,0 +1,76 @@
+{
+  "schema_version": "mockup_parity_100/1.0",
+  "phase_id": "TOWN_PHASE_01",
+  "mockup_ssot": "MOCKUP_SSOT_V2",
+  "character_id": "CCP-RH-001",
+  "building_module_id": "cozy_house_small_A",
+  "prop_module_ids": [
+    "cozy_path_stone_A",
+    "cozy_garden_lamp_A",
+    "cozy_mailbox_A"
+  ],
+  "checks": {
+    "ids_match_mockup": true,
+    "clips_named_exact": true,
+    "idle_plays": true,
+    "building_loads": true,
+    "props_load_count": 3,
+    "no_cyan_body": true,
+    "silhouette_readable_25d": true,
+    "town_no_overlap": true,
+    "district_role_intact": true,
+    "assets_hashed": true
+  },
+  "verdict": "PARITY_100_VERIFIED",
+  "self_accept": false,
+  "findings": [],
+  "evidence_paths": [
+    "game/tests/town_layout_10phase_smoke.gd",
+    "game/assets/p1e_cozy/modules/cozy_mailbox_A.glb",
+    "game/resources/p1e_cozy/module_catalog.json",
+    "orchestration/control/character_build/author_cozy_mailbox_A.py",
+    "AIdle_Blender_Bridge_P0/storage/generated_quarantine/COZY_MAILBOX_A_V1/receipt.json"
+  ],
+  "smoke": {
+    "marker": "AIDLE_TOWN_LAYOUT_SMOKE=PASS",
+    "layout_marker": "AIDLE_TOWN_PHASE_LAYOUT=PASS",
+    "phases_built": 1,
+    "chars_built": 1,
+    "modules_built": 4,
+    "idle_play": 1,
+    "missing": 0,
+    "failed": 0,
+    "parity_ok": true,
+    "runtime_usable": true
+  },
+  "mailbox": {
+    "module_id": "cozy_mailbox_A",
+    "glb_sha256": "a9371bebf7bb67ee5e4b83ea2863b966ca0f2871e892a3a15329657edcddd2c0",
+    "bytes": 178380,
+    "source": "COZY_MAILBOX_A_V1",
+    "mockup_ref": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_mailbox.jpg"
+  },
+  "loaded": {
+    "character": "CCP-RH-001",
+    "building": "cozy_house_small_A",
+    "props": [
+      "cozy_path_stone_A",
+      "cozy_garden_lamp_A",
+      "cozy_mailbox_A"
+    ]
+  },
+  "agent": "grok",
+  "role_note": "Machine smoke + catalog/hash gate. Purple character card may re-verify visual delta offline. Human ACCEPT still required for product ship.",
+  "accepted": false,
+  "human_accept_required": true,
+  "next_phase_unlock": "TOWN_PHASE_02 may leave BLOCKED_UNTIL_PREV only if this verdict stands; Human may still request rework.",
+  "visual_correction": {
+    "issue": "in_game_white_blob_not_matching_mockup",
+    "fix": "NORI7_MOCKUP_PARITY_V1 cream teardrop multi-material skinned GLB",
+    "nori_glb_sha256": "3f2e1c2e86d4ab53f950a8962b45c4a79567859d31701a393b3f47b6fbe3c766",
+    "ucbv_smoke": "AIDLE_UCBV001_INTEGRATION_SMOKE=PASS checks=10",
+    "town_smoke": "AIDLE_TOWN_LAYOUT_SMOKE=PASS",
+    "self_accept": false,
+    "note": "Previous machine parity only checked load/idle IDs; visual rebuild required after user screenshot evidence"
+  }
+}

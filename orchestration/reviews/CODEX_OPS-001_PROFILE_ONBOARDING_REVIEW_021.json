@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-OPS-001-PROFILE-ONBOARDING-REVIEW-021",
+  "reviewed_at": "2026-07-21T13:20:00+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "OPS-001",
+  "directive_reviewed": 41,
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "independent_passes": {
+    "unique_existing_desktop_parent": "PASS",
+    "one_real_schema_child_no_grandchildren": "PASS",
+    "profile_count_8_plus_13": "PASS",
+    "unique_profile_names_and_files": "PASS_21_OF_21",
+    "source_files_and_sha256": "PASS_21_OF_21",
+    "mandatory_skills_declared": "PASS_21_OF_21",
+    "profile_frontmatter_and_aidle_invariants": "PASS_21_OF_21",
+    "existing_profile_overwrite": "NONE",
+    "specialists_spawned": "ZERO",
+    "maf_receipt_schema": "PASS",
+    "product_writes": "NONE"
+  },
+  "blocking_findings": [
+    {
+      "id": "OPS-021-AUTH-QA",
+      "finding": "aidle-worldgen-qa-evidence declares VERIFY_ONLY but binds TrustLayer inspector, whose canonical authority is READ_ONLY_AUDIT.",
+      "required_fix": "Bind purple-team-finding-triage (VERIFY_ONLY) or another exact VERIFY_ONLY canonical character."
+    },
+    {
+      "id": "OPS-021-AUTH-TRACKER",
+      "finding": "aidle-worldgen-tracker-steward declares PATCH_DRAFT but binds TrustLayer memory-curator, whose canonical authority is REPORT_ONLY.",
+      "required_fix": "Bind blue-team-test-writer (PATCH_DRAFT) or another exact PATCH_DRAFT canonical character."
+    },
+    {
+      "id": "OPS-021-REQUIRED-READS",
+      "finding": "OPS-001 receipt does not list the Character orchestrator/workflow or World Genesis orchestrator/workflow as files read, although the work order required complete reads before profile synthesis.",
+      "required_fix": "Correction child must read all four files fully and record transcript-backed coverage in a new correction receipt. Parent-side OPS-002 preload remains separately required."
+    }
+  ],
+  "ops002_release_allowed": false,
+  "next_route": "OPS-001-CORRECTION-001",
+  "self_accept": false
+}

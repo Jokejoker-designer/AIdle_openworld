@@ -1,0 +1,430 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "BLOCK-DNA-ADAPT-001-b2-red-audit-001-2026-07-22",
+  "step_id": "BLOCK-DNA-ADAPT-001-b2-red-audit-001",
+  "work_order_id": "WO-BLOCK-DNA-ADAPT-001-STRICT-CONTRACT-GATE",
+  "work_order": "orchestration/work_orders/WO-BLOCK-DNA-ADAPT-001-STRICT-CONTRACT-GATE.md",
+  "work_order_sha256": "2f228d7373679bbd0715b7225be5aa3db7777cd2b1fa8f712b99c869e54e5e03",
+  "directive_id": 68,
+  "milestone": "Block-DNA strict contract gate — B2 red findings-only audit",
+  "agent_id": "aidle-worldgen-red-scope",
+  "agent_type": "aidle-worldgen-red-scope",
+  "profile_name": "aidle-worldgen-red-scope",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "profile_sha256": "7faf2b2b6bc07d18a1de109ccffd29279e7c7e060a24545e0fa2ee2bed1bebe5",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-red-scope; trustlayer_character=red-team-source-auditor; ui_character=ui-visual-critic; authority_token=READ_ONLY_AUDIT; findings only never patch; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set review_findings_only.",
+  "authority_token": "READ_ONLY_AUDIT",
+  "authority": "READ_ONLY_AUDIT",
+  "authority_scope": "findings-only exclusive B2 log+receipt; product_writes=[]; never patch contracts/DNA/game; never ACCEPTED; no grandchildren",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:870d0ddafb09799b53697eb152681ff8b49f953ae159f707cd2f4bdaeb810a89",
+  "input_context_hash_16": "870d0ddafb09799b",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-BLOCK-DNA-ADAPT-001-STRICT-CONTRACT-GATE.md + B1_schema_contract_001.json + aidle-worldgen-red-scope.md + ARCHITECTURE_LOCK.md + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "B2_COMPLETE_ROUTE_B3_QA",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "CHANGES_REQUESTED",
+  "child_task_ref": "019f880d-303a-7243-b540-1d0cf699918c",
+  "transcript_ref": "019f880d-303a-7243-b540-1d0cf699918c",
+  "writer_transcript_ref": "019f880d-303a-7243-b540-1d0cf699918c",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_b0_ref": "019f8800-17d3-7b00-87c6-73a6153b990f",
+  "prior_b1_ref": "019f8804-7915-71d2-b3b1-573b701a202e",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f880d-303a-7243-b540-1d0cf699918c/meta.json",
+  "durable_meta_sha256_at_start": "330d7f600e9bbdef20cc123f613c7d2d406094f58682eed9417c516c71ce2869",
+  "started_at": "2026-07-22T04:19:53.534069700Z",
+  "completed_at_utc": "2026-07-22T04:23:30Z",
+  "next_owner": "B3_QA",
+  "next_route": "B3_QA",
+  "character_binding": {
+    "trustlayer_character_id": "red-team-source-auditor",
+    "trustlayer_file": "E:/agents/characters/05-red-team-source-auditor.md",
+    "trustlayer_sha256": "6d809c350b34e4512e886e582d555235bf85361884c05c8e4e2f7c6e5f838951",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_eof",
+    "role": "B2 READ_ONLY_AUDIT red findings-only attack on Block-DNA contract gate; never patch; never self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO, B0/B1 receipts, ARCHITECTURE_LOCK, skills, and contract tree manually with transcript-backed full-EOF ranges.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "chunked_three_invocations",
+      "transcript_ranges": [
+        {"offset": 1, "limit": 400, "note": "read_file invocation 1 intended L1-400; tool returned full-file content through L1123"},
+        {"offset": 401, "limit": 400, "note": "read_file invocation 2 intended L401-800; tool again returned full-file content"},
+        {"offset": 801, "limit": 400, "note": "read_file invocation 3 intended L801-EOF; full content through L1123 Prime Directive verified"}
+      ],
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "honesty_note": "Three distinct durable read_file calls issued with offset/limit as required. Tool returned complete 1123-line body on each call; EOF confirmed via terminal Prime Directive paragraph."
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "bytes": 828,
+      "line_count": 26,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "also_read_project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027"
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "bytes": 1766,
+      "line_count": 51,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/block-dna-adapt-001-b2-red-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/block_dna_adapt_001/B2_red_audit_001.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/logs/block-dna-adapt-001-b2-red-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/block_dna_adapt_001/B2_red_audit_001.json"
+  ],
+  "forbidden_paths_not_written": [
+    "world_DNA/**",
+    "game/**",
+    "Scene/**",
+    "Control/**",
+    "game_character/**",
+    "PersistModule/**",
+    "contracts/world_prompt.schema.json",
+    "orchestration/contracts/block_dna_adapt_001/**",
+    "P1E resource trees"
+  ],
+  "result": {
+    "verdict": "CHANGES_REQUESTED",
+    "summary": "B2 READ_ONLY_AUDIT re-ran the B1 fixture gate (valid 12/12 PASS, invalid 30/30 REJECT, baseline PASS, B1 artifact hashes intact). DNA packages immutable. Authority-shaped forbidden fields and additionalProperties close direct_commit paths. Residual adversarial probes found three BLOCKING contract/semantic gaps vs WO fail-closed text: (1) payload_fingerprint excluded by schema while idempotency binding depends on it; same-key different payload both pass without fingerprint; (2) declared polarity not bound to catalog default_polarity enabling peer-peer laundering of directed sockets; (3) adapter_normalization_id not pair-bound. Additional medium notes on material co-requirement and recipe free-form parameters. Findings only; product_writes=[]; accepted=false; next_owner=B3_QA.",
+    "fixture_gate_re_run": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit_code": 0,
+      "valid_n": 12,
+      "valid_pass": 12,
+      "invalid_m": 30,
+      "invalid_rejected": 30,
+      "baseline_key_files": "PASS",
+      "b1_core_artifact_hashes": "ALL_MATCH"
+    },
+    "blocking_findings_count": 3,
+    "non_blocking_findings_count": 5,
+    "findings": [
+      {
+        "finding_id": "F-B2-01",
+        "severity": "BLOCKING",
+        "classification": "FACT",
+        "finding_type": "CONFIRMED_VULNERABILITY",
+        "title": "Idempotency fingerprint field excluded by schema; same-key changed payload passes",
+        "statement": "WO requires idempotency_key to bind a canonical validated payload fingerprint and reject same-key changed payload. Graph/recipe schemas set additionalProperties:false and do not declare payload_fingerprint, so valid documents cannot carry the binding field. Semantic check only conflicts when payload_fingerprint is present and mismatches. Two in-memory docs with identical idempotency_key and different request_id both PASS with zero errors. INV-29 is rejected (schema additionalProperties on payload_fingerprint plus semantic conflict), so the fixture matrix still greens without proving production-grade key↔fingerprint binding or cross-request store semantics.",
+        "affected_files": [
+          "orchestration/contracts/block_dna_adapt_001/build_graph.schema.json",
+          "orchestration/contracts/block_dna_adapt_001/build_recipe.schema.json",
+          "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+          "orchestration/contracts/block_dna_adapt_001/world_prompt_adapter.contract.json",
+          "orchestration/contracts/block_dna_adapt_001/fixtures/invalid/INV-29-idempotency-conflict.json"
+        ],
+        "reproduction": {
+          "performed": true,
+          "method": "in-memory mutate VALID-01 with same idempotency_key and divergent request_id; validate_document both copies",
+          "result": "BOTH_PASS; schema rejects payload_fingerprint as unexpected additional property"
+        },
+        "wo_requirement": "Idempotency key binds a canonical validated payload fingerprint; identical replay stable; changed payload with same key is conflict",
+        "recommended_fix_owner": "B1_SCHEMA_or_blue_after_triage",
+        "recommended_fix": "Add optional-or-required payload_fingerprint (pattern sha256 hex) to both schemas; require fingerprint presence OR document that store-side binding is out of gate scope; add fixture same-key-no-fingerprint residual if in-gate store is not in scope; keep INV-29 semantic conflict after field is schema-legal"
+      },
+      {
+        "finding_id": "F-B2-02",
+        "severity": "BLOCKING",
+        "classification": "FACT",
+        "finding_type": "CONFIRMED_VULNERABILITY",
+        "title": "Declared polarity not bound to socket catalog default_polarity; peer-peer laundering",
+        "statement": "Semantic polarity_ok only checks output→input or peer→peer pairs of declared polarities. It does not verify declared polarity against socket_catalog.contract.json default_polarity for from_socket/to_socket. Probes: (P2) rewrite first VALID-01 edge to peer/peer → PASS; (P3b) prop_base declared output and terrain_surface declared input with normalization → PASS; (P24) prop_surface/prop_base connected as peer/peer → PASS. This bypasses WO intent that sockets carry explicit polarity with opposite-polarity connections for directed sockets.",
+        "affected_files": [
+          "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+          "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json"
+        ],
+        "reproduction": {
+          "performed": true,
+          "method": "in-memory edge polarity overrides on VALID-01 and synthetic two-node graphs",
+          "result": "PASS for peer-peer laundering and catalog-mismatched declared polarities; REJECT only for input→output"
+        },
+        "wo_requirement": "Sockets carry explicit input/output polarity; connections require opposite polarity and mutual compatibility both directions",
+        "recommended_fix_owner": "B1_SCHEMA_or_blue_after_triage",
+        "recommended_fix": "Bind from_polarity/to_polarity to catalog default_polarity (or allow only compatible declared sets); forbid peer on sockets whose default is input/output; add invalid fixtures"
+      },
+      {
+        "finding_id": "F-B2-03",
+        "severity": "BLOCKING",
+        "classification": "FACT",
+        "finding_type": "CONFIRMED_VULNERABILITY",
+        "title": "adapter_normalization_id not pair-bound",
+        "statement": "For ASYMMETRIC_SOURCE_PAIRS the validator requires some adapter_normalization_id and that the id exists in catalog. It does not require that the normalization's pair equals the edge's socket pair. Probe P12: wall_edge/window_opening with norm_terrain_surface_prop_base_v1 → PASS. Weakens the asymmetric source-audit trail that WO requires for the four DNA one-way relations.",
+        "affected_files": [
+          "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+          "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json"
+        ],
+        "reproduction": {
+          "performed": true,
+          "method": "synthetic wall_edge→window_opening edge with wrong known norm id",
+          "result": "PASS (no pair-mismatch error)"
+        },
+        "wo_requirement": "Four asymmetric source relations fail source audit unless normalized explicitly in the adapter contract without rewriting DNA",
+        "recommended_fix_owner": "B1_SCHEMA_or_blue_after_triage",
+        "recommended_fix": "When adapter_normalization_id present, require frozenset(norm.pair)==frozenset({from_socket,to_socket}); add INV fixture"
+      },
+      {
+        "finding_id": "F-B2-04",
+        "severity": "MEDIUM",
+        "classification": "FACT",
+        "finding_type": "DEFENSE_IN_DEPTH",
+        "title": "material_slot and p1e_material_id not co-required",
+        "statement": "Semantic material check only runs mismatch when both slot and mat present (or unknown slot). material_slot alone PASS; orphan p1e_material_id without slot PASS and is not checked against live_p1e_material_ids when slot is absent. Weakens WO semantic material-slot → P1E mapping explicitness.",
+        "affected_files": [
+          "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+          "orchestration/contracts/block_dna_adapt_001/build_graph.schema.json"
+        ],
+        "reproduction": {
+          "performed": true,
+          "result": "P4 and P5 both PASS"
+        },
+        "recommended_fix": "If material_slot present require p1e_material_id matching slot_map; if p1e_material_id present require material_slot and live-set membership"
+      },
+      {
+        "finding_id": "F-B2-05",
+        "severity": "MEDIUM",
+        "classification": "FACT",
+        "finding_type": "DEFENSE_IN_DEPTH",
+        "title": "Recipe instance parameters accept code-shaped free-form values",
+        "statement": "build_recipe.schema.json instance.parameters patternProperties allow string|number|boolean|null. Probe with script_body and execute:true PASS. Not executable in this gate, but weakens catalog-only/never-code posture for later adapter consumers if parameters are forwarded unchecked.",
+        "affected_files": [
+          "orchestration/contracts/block_dna_adapt_001/build_recipe.schema.json"
+        ],
+        "reproduction": {
+          "performed": true,
+          "result": "P9 PASS"
+        },
+        "recommended_fix": "Constrain parameters to allowlisted keys/types or forbid code-like keys; ensure adapter never maps parameters to executable surfaces"
+      },
+      {
+        "finding_id": "F-B2-06",
+        "severity": "LOW",
+        "classification": "FACT",
+        "finding_type": "CODE_QUALITY",
+        "title": "validation.* flags are non-enforcing",
+        "statement": "Graph validation.collision/occupancy/sockets/cycle/snap may all be false while semantic_validate_graph still enforces those policies. Not a fail-open of semantics, but flags can mislead consumers.",
+        "affected_files": [
+          "orchestration/contracts/block_dna_adapt_001/build_graph.schema.json",
+          "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py"
+        ],
+        "recommended_fix": "Const true on validation flags or ignore flags in docs; optional reject false flags"
+      },
+      {
+        "finding_id": "F-B2-07",
+        "severity": "LOW",
+        "classification": "FACT",
+        "finding_type": "DEFENSE_IN_DEPTH",
+        "title": "Adapter contract is declarative; no executable world_prompt emission check",
+        "statement": "world_prompt_adapter.contract.json maps fields and authority_boundary, and partial adapter_proposal checks exist, but validator does not emit/validate a full contracts/world_prompt.schema.json instance. Acceptable for contract-only gate; residual for runtime adapter implementation.",
+        "affected_files": [
+          "orchestration/contracts/block_dna_adapt_001/world_prompt_adapter.contract.json",
+          "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py"
+        ],
+        "recommended_fix": "Future runtime/adapter tests must validate proposal against active world_prompt schema; not blocking if B3/B4 scope remains contract matrix"
+      },
+      {
+        "finding_id": "F-B2-08",
+        "severity": "LOW",
+        "classification": "FACT",
+        "finding_type": "CODE_QUALITY",
+        "title": "Baseline runtime verifies key files only",
+        "statement": "source_baseline.lock.json records package tree aggregates, but verify_baseline() only hashes selected manifests/schemas/socket_types/world_prompt. Key-file check PASS; full tree re-aggregate not performed by gate. DNA immutability for this audit confirmed via key manifests matching B0.",
+        "affected_files": [
+          "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+          "orchestration/contracts/block_dna_adapt_001/source_baseline.lock.json"
+        ],
+        "recommended_fix": "Optional: re-hash tree aggregates in validator or B3 evidence pass"
+      }
+    ],
+    "closed_controls": [
+      "additionalProperties rejects unknown authority-shaped root fields",
+      "FORBIDDEN_AUTHORITY_FIELDS deep scan + schema reject on direct_commit",
+      "asymmetric pair without normalization_id REJECT",
+      "unknown normalization_id REJECT",
+      "scale_delta, occupancy integer, bool revision closed",
+      "manifestation.requires_confirmation const true",
+      "DNA source files not rewritten; B0 baseline manifests match",
+      "P1E variants sha matches material mapping contract",
+      "fixture matrix 12 valid / 30 invalid still green"
+    ],
+    "dna_immutable": true,
+    "p2e_blocked": true,
+    "runtime_block_assembly": false
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "python_validator_fixture_gate_plus_in_memory_residual_probes",
+    "command": "PYTHONDONTWRITEBYTECODE=1 python -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+    "cwd": "E:/AIdle_openworld",
+    "exit_code": 0,
+    "pass": true,
+    "valid_n": 12,
+    "invalid_m": 30,
+    "valid_pass": 12,
+    "invalid_rejected": 30,
+    "baseline_key_files": "PASS",
+    "residual_probes_performed": true,
+    "residual_blocking_bypasses": 3,
+    "log": "orchestration/logs/block-dna-adapt-001-b2-red-001.log",
+    "checks": [
+      {"id": "VALIDATOR_EXIT_0", "result": "PASS"},
+      {"id": "ALL_VALID_PASS", "result": "PASS", "detail": "12/12"},
+      {"id": "ALL_INVALID_REJECT", "result": "PASS", "detail": "30/30"},
+      {"id": "SOURCE_BASELINE_KEY_FILES", "result": "PASS"},
+      {"id": "B1_ARTIFACT_HASHES_INTACT", "result": "PASS"},
+      {"id": "DNA_MANIFESTS_UNCHANGED", "result": "PASS"},
+      {"id": "NO_PRODUCT_WRITES", "result": "PASS"},
+      {"id": "IDEMPOTENCY_BINDING_RESIDUAL", "result": "FAIL", "detail": "F-B2-01"},
+      {"id": "POLARITY_CATALOG_BINDING", "result": "FAIL", "detail": "F-B2-02"},
+      {"id": "NORM_ID_PAIR_BINDING", "result": "FAIL", "detail": "F-B2-03"}
+    ]
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "one_writer_per_file": true,
+    "exclusive_lease_only": true,
+    "dna_not_modified": true,
+    "game_not_modified": true,
+    "contract_tree_not_modified": true,
+    "findings_only_no_patch": true,
+    "skills_transcript_backed": true,
+    "characters_bound": true,
+    "did_not_invent_evidence": true,
+    "maf_required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "residual_risks": [
+      "Cross-request idempotency store is out of this offline gate by design; F-B2-01 is about in-document schema/semantic inconsistency, not missing server store alone.",
+      "curiosity-engine read_file tool returned full-file content on each chunked call; content EOF verified but strict line-window metadata was not emitted by the tool.",
+      "No P2E runtime; findings target contract gate residual bypasses only."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-BLOCK-DNA-ADAPT-001-STRICT-CONTRACT-GATE.md",
+    "orchestration/receipts/block_dna_adapt_001/B0_ssot_preflight_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B1_schema_contract_001.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "orchestration/logs/block-dna-adapt-001-b2-red-001.log",
+    "orchestration/receipts/block_dna_adapt_001/B2_red_audit_001.json",
+    "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+    "orchestration/contracts/block_dna_adapt_001/build_graph.schema.json",
+    "orchestration/contracts/block_dna_adapt_001/build_recipe.schema.json",
+    "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json",
+    "orchestration/contracts/block_dna_adapt_001/material_slot_mapping.contract.json",
+    "orchestration/contracts/block_dna_adapt_001/world_prompt_adapter.contract.json",
+    "orchestration/contracts/block_dna_adapt_001/source_baseline.lock.json",
+    "contracts/world_prompt.schema.json",
+    "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.0/manifest.json",
+    "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.1_Tier3/manifest.json"
+  ],
+  "trace": {
+    "handoff_from": "B1_019f8804-7915-71d2-b3b1-573b701a202e",
+    "handoff_to": "B3_QA",
+    "wave": "B2",
+    "task_id": "BLOCK-DNA-ADAPT-001"
+  },
+  "commands": [
+    {
+      "cmd": "PYTHONDONTWRITEBYTECODE=1 python -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit_code": 0,
+      "summary": "valid 12/12 pass; invalid 30/30 rejected; baseline PASS"
+    },
+    {
+      "cmd": "python -B in-memory residual bypass probes (no writes)",
+      "exit_code": 0,
+      "summary": "3 blocking residual bypasses confirmed (F-B2-01..03); several medium/low notes"
+    }
+  ]
+}

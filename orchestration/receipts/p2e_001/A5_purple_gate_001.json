@@ -1,0 +1,505 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P2E-001-a5-purple-gate-001-2026-07-22",
+  "step_id": "P2E-001-a5-purple-gate-001",
+  "work_order_id": "WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE",
+  "work_order": "orchestration/work_orders/WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md",
+  "work_order_sha256": "39bf0b224201ec9d38a34aba0209348bfa993540c065d72b8fc186280b0d37e4",
+  "directive_id": 70,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "0fe87242235de1c47483b500507247f037ff370e573a06c33c3ac1ae81f5f0ac",
+  "directive_state": "READY",
+  "directive_verdict": "DISPATCH_APPROVED",
+  "directive_completion_signal": "WAITING_CODEX",
+  "directive_accepted": false,
+  "accepted_task_ids_from_directive": ["CTRL-1B-001", "CTRL-1B-002", "P1E-006", "CHAR-1C-001", "BLOCK-DNA-ADAPT-001"],
+  "permitted_task_ids": ["P2E-001"],
+  "milestone": "P2E-001 Block Assembly preview slice — A5 Purple acceptance gate (VERIFY_ONLY, never ACCEPTED)",
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "profile_name": "aidle-worldgen-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_sha256": "9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger,adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patch; never ACCEPTED",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "Purple independent acceptance gate only; exclusive log+receipt; product_writes=[]; never patch product/tests/contracts/evidence of other children; never ACCEPTED; no grandchildren; no DNA v1.2/Tier3/network/shipping",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "purple_never_accepted": true,
+  "verdict": "PURPLE_PASS_GATES_WITH_PLAYABILITY_RESIDUALS_WAITING_CODEX",
+  "child_task_ref": "019f887b-36cb-7d02-9dde-f9b6d4209352",
+  "transcript_ref": "019f887b-36cb-7d02-9dde-f9b6d4209352",
+  "writer_transcript_ref": "019f887b-36cb-7d02-9dde-f9b6d4209352",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f887b-36cb-7d02-9dde-f9b6d4209352/meta.json",
+  "started_at": "2026-07-22T06:20:04.174651Z",
+  "completed_at_utc": "2026-07-22T06:22:30Z",
+  "next_owner": "CODEX",
+  "next_route": "CODEX",
+  "parent_product_patch": false,
+  "successor_wave_started": false,
+  "p2e_002_started": false,
+  "dna_v1_2_started": false,
+  "tier3_started": false,
+  "lineage": {
+    "mode": "strictly_sequential_six_children",
+    "max_children": 6,
+    "parent_coordinator_only": true,
+    "one_product_writer": "A1",
+    "children": [
+      {
+        "wave": "A0",
+        "ref": "019f8854-9d26-7663-93c3-11e68a2cb537",
+        "profile": "aidle-worldgen-ssot-sequence",
+        "authority_token": "VERIFY_ONLY",
+        "receipt": "orchestration/receipts/p2e_001/A0_ssot_preflight_001.json",
+        "log": "orchestration/logs/p2e-001-a0-ssot-001.log",
+        "verdict": "A0_P2E_SSOT_PREFLIGHT_PASS_NO_ACCEPT",
+        "product_writes": []
+      },
+      {
+        "wave": "A1",
+        "ref": "019f8858-18aa-7970-a9d5-216a28c17ffa",
+        "profile": "aidle-worldgen-godot-runtime",
+        "authority_token": "PATCH_DRAFT",
+        "receipt": "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json",
+        "log": "orchestration/logs/p2e-001-a1-runtime-001.log",
+        "verdict": "A1_BLOCK_ASSEMBLY_PREVIEW_COMPLETE_NO_ACCEPT",
+        "sole_product_writer": true,
+        "product_writes_count": 14
+      },
+      {
+        "wave": "A2",
+        "ref": "019f8867-27b7-7e50-a78a-c7c606a0c363",
+        "profile": "aidle-worldgen-control-input",
+        "authority_token": "VERIFY_ONLY",
+        "authority_reduced": true,
+        "receipt": "orchestration/receipts/p2e_001/A2_control_ux_audit_001.json",
+        "log": "orchestration/logs/p2e-001-a2-control-ux-001.log",
+        "verdict": "A2_CONTROL_UX_AUDIT_QR_PASS_DISCOVERABILITY_GAPS_NO_ACCEPT",
+        "product_writes": []
+      },
+      {
+        "wave": "A3",
+        "ref": "019f886b-3873-7e90-ae93-1ff0ecb7a605",
+        "profile": "aidle-worldgen-red-scope",
+        "authority_token": "READ_ONLY_AUDIT",
+        "receipt": "orchestration/receipts/p2e_001/A3_red_audit_001.json",
+        "log": "orchestration/logs/p2e-001-a3-red-001.log",
+        "verdict": "A3_RED_AUTHORITY_KERNEL_PASS_PLAYABLE_AND_F01_RESIDUALS_NO_ACCEPT",
+        "product_writes": []
+      },
+      {
+        "wave": "A4",
+        "ref": "019f8871-2f68-7d93-86ec-83b507666b19",
+        "profile": "aidle-worldgen-qa-evidence",
+        "authority_token": "VERIFY_ONLY",
+        "receipt": "orchestration/receipts/p2e_001/A4_qa_evidence_001.json",
+        "log": "orchestration/logs/p2e-001-a4-qa-001.log",
+        "evidence_root": "orchestration/evidence/p2e_001/001/",
+        "verdict": "A4_GATES_PASS_HEADED_CAPTURED_PLAYABILITY_RESIDUALS_NO_ACCEPT",
+        "product_writes": []
+      },
+      {
+        "wave": "A5",
+        "ref": "019f887b-36cb-7d02-9dde-f9b6d4209352",
+        "profile": "aidle-worldgen-purple-acceptance",
+        "authority_token": "VERIFY_ONLY",
+        "receipt": "orchestration/receipts/p2e_001/A5_purple_gate_001.json",
+        "log": "orchestration/logs/p2e-001-a5-purple-001.log",
+        "verdict": "PURPLE_PASS_GATES_WITH_PLAYABILITY_RESIDUALS_WAITING_CODEX",
+        "product_writes": []
+      }
+    ],
+    "six_child_refs": [
+      "019f8854-9d26-7663-93c3-11e68a2cb537",
+      "019f8858-18aa-7970-a9d5-216a28c17ffa",
+      "019f8867-27b7-7e50-a78a-c7c606a0c363",
+      "019f886b-3873-7e90-ae93-1ff0ecb7a605",
+      "019f8871-2f68-7d93-86ec-83b507666b19",
+      "019f887b-36cb-7d02-9dde-f9b6d4209352"
+    ],
+    "exclusive_leases_respected": true,
+    "no_grandchildren": true
+  },
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_header_role_rules",
+    "role": "A5 VERIFY_ONLY Purple independent acceptance gate — synthesize A0–A4 for Codex; never patch; never ACCEPTED"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, Directive 70, WO, A0–A4 receipts, skills (ALWAYS + adversarial-review + evidence-memory-ledger full EOF; curiosity-engine through Prime Directive L1123) manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "line_count": 1123,
+      "read_mode": "full_no_limit",
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/p2e-001-a5-purple-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/p2e_001/A5_purple_gate_001.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "orchestration/logs/p2e-001-a5-purple-001.log",
+    "orchestration/receipts/p2e_001/A5_purple_gate_001.json"
+  ],
+  "gate_adjudication": {
+    "sequential_lineage": "PASS",
+    "one_product_writer_a1_only": "PASS",
+    "exclusive_leases": "PASS",
+    "qr_exploration_camera_preserved": "PASS_HEADLESS",
+    "qr_build_preview_only": "PASS_HEADLESS",
+    "qr_no_dual_fire": "PASS_HEADLESS",
+    "qr_headed_residual_f_a4_01": "OPEN_NOT_OVERRIDING_HEADLESS",
+    "block_dna_contract_only": "PASS",
+    "no_dna_runtime_import": "PASS",
+    "no_world_dna_edits": "PASS",
+    "offline_authority_kernel": "PASS",
+    "f01_network_shipping": "RESIDUAL_HARD_STOP",
+    "playability_select_module_ui": "OPEN",
+    "playability_plain_language_hud": "OPEN",
+    "headed_six_states_captured": "PASS_WITH_API_INJECTION_AND_TEARDOWN_NOISE",
+    "automated_gates_independent_rerun": "PASS",
+    "purple_accepted": false,
+    "honest_playable_headed_without_api": "FAIL_OPEN_FINDINGS"
+  },
+  "synthesis_from_priors": {
+    "A0": "SSOT preflight PASS: deps accepted; DNA contract tree + validator matrix; Godot 4.3 pin; leases free; Q/R catalog separation preserved; no product writes.",
+    "A1": "Sole product writer implemented block_assembly module tree + 3 smokes + minimal main.gd integration (mount + rotate/cancel/confirm/undo). Catalog/router/HUD not modified. DNA validator 14/14 42/42; core14/auth8/qr8 PASS. Contract consumed as local JSON snapshots only.",
+    "A2": "Q/R kernel PASS (headless). Discoverability P2/P3 OPEN: F-A2-01 select_module, F-A2-02 plain-language status, F-A2-03 HUD confirm/rotate-left, F-A2-04 elevation unwired, F-A2-05 Esc cancel_target, F-A2-06 residual camera fallback.",
+    "A3": "Offline authority kernel PASS; dual-fire PASS; DNA import PASS; lease honesty PASS. Residuals F-A3-01..07 incl. F01 network/shipping hard stop on public post-commit physics (F-A3-04) and issuer re-check (F-A3-05).",
+    "A4": "Gates reconfirmed green; 12 distinct headed PNGs at 1280x720 and 868x517; BA select via API injection (F-A3-01); F-A4-01 headed build yaw residual; F-A4-02 teardown RendererRD noise only."
+  },
+  "residual_findings": [
+    {
+      "id": "F-A2-01",
+      "also": "F-A3-01",
+      "severity": "P2",
+      "status": "OPEN",
+      "source_waves": ["A2", "A3", "A4"],
+      "title": "No playable select_module entry from main/UI",
+      "blocking_for": ["honest_headed_playable_wo_claim"],
+      "detail": "main never calls select_module/build_place/elevation; A4 headed demos required API injection via main.get_block_assembly(). Not closed."
+    },
+    {
+      "id": "F-A2-02",
+      "severity": "P2",
+      "status": "OPEN",
+      "source_waves": ["A2", "A3", "A4"],
+      "title": "Missing plain-language BA status surface (module/snap/validity)",
+      "detail": "context_action_hud / hud.tscn untouched for BA continuous status; harness banner is evidence chrome only."
+    },
+    {
+      "id": "F-A2-03",
+      "severity": "P3",
+      "status": "OPEN",
+      "source_waves": ["A2", "A3"],
+      "title": "Build HUD omits Confirm and rotate-left"
+    },
+    {
+      "id": "F-A2-04",
+      "severity": "P3",
+      "status": "OPEN",
+      "source_waves": ["A2", "A3"],
+      "title": "Elevation actions catalogued but unwired to BA"
+    },
+    {
+      "id": "F-A2-05",
+      "severity": "P3",
+      "status": "OPEN",
+      "source_waves": ["A2", "A3"],
+      "title": "Esc cancel_target preview_hologram not auto-armed for BA"
+    },
+    {
+      "id": "F-A2-06",
+      "severity": "P4",
+      "status": "RESIDUAL",
+      "source_waves": ["A2"],
+      "title": "cozy_camera fallback asymmetric for camera Q in build"
+    },
+    {
+      "id": "F-A3-02",
+      "severity": "P2",
+      "status": "OPEN",
+      "source_waves": ["A3", "A4"],
+      "title": "Idempotency key freeze after submit traps legitimate re-preview",
+      "detail": "Default main confirm-only path works; trap if intermediate submit then edit."
+    },
+    {
+      "id": "F-A3-03",
+      "severity": "P3",
+      "status": "RESIDUAL",
+      "source_waves": ["A3", "A4"],
+      "title": "Synthetic client_forged helper honesty (test residual)"
+    },
+    {
+      "id": "F-A3-04",
+      "severity": "P3",
+      "status": "RESIDUAL",
+      "source_waves": ["A3", "A4"],
+      "title": "Public enable_post_commit_physics without receipt binding",
+      "blocking_for": ["networked_work", "shipping"],
+      "detail": "Red F01 residual hard stop for network/shipping only; offline kernel acceptable under single-process trust."
+    },
+    {
+      "id": "F-A3-05",
+      "severity": "P3",
+      "status": "RESIDUAL",
+      "source_waves": ["A3", "A4"],
+      "title": "confirm_and_commit issuer re-check defense-in-depth",
+      "blocking_for": ["networked_work", "shipping"]
+    },
+    {
+      "id": "F-A3-06",
+      "severity": "P4",
+      "status": "OPEN",
+      "source_waves": ["A3", "A4"],
+      "title": "cancel_preview committed_untouched flag hardcoded true"
+    },
+    {
+      "id": "F-A3-07",
+      "severity": "P2",
+      "status": "OPEN",
+      "source_waves": ["A3"],
+      "title": "Discoverability gaps reconfirmed (elevation/HUD/status)",
+      "detail": "Aggregate of F-A2-02..05"
+    },
+    {
+      "id": "F-A4-01",
+      "severity": "P3",
+      "status": "OPEN",
+      "source_waves": ["A4"],
+      "title": "Headed build_preview_R camera yaw continued moving",
+      "detail": "visual_claim_meta camera_yaw_unchanged=false on build_preview_R; headless QR isolation remains authoritative PASS.",
+      "classification": "FACT"
+    },
+    {
+      "id": "F-A4-02",
+      "severity": "P4",
+      "status": "RESIDUAL",
+      "source_waves": ["A4"],
+      "title": "Godot 4.3 headed exit RendererRD RID leak + RenderingServer null",
+      "detail": "4 ERROR lines only at process exit after AIDLE_P2E001_A4_HEADED=PASS; not SCRIPT/Parse/missing resource during capture."
+    }
+  ],
+  "evidence_index": {
+    "root": "E:/AIdle_openworld/orchestration/evidence/p2e_001/001",
+    "manifest": "orchestration/evidence/p2e_001/001/evidence_manifest.json",
+    "manifest_sha256_a5_spotcheck": "4df87534bad0911266affd60b944a0997f3b7c2df3c18f0814a91ada791c3466",
+    "png_sha256_index": "orchestration/evidence/p2e_001/001/png_sha256.json",
+    "png_sha256_index_sha256": "a1cfd0242cf0a6e38cc0ace0726c6e6e9e18a2accb9adb7494a6e714b8cc01d2",
+    "visual_claim_meta": "orchestration/evidence/p2e_001/001/visual_claim_meta.json",
+    "evidence_tree_sha256": "orchestration/evidence/p2e_001/001/evidence_tree_sha256.json",
+    "godot_headed_log": "orchestration/evidence/p2e_001/001/godot_headed.log",
+    "a4_did_not_rewrite": true,
+    "png_count": 12,
+    "viewports": ["1280x720", "868x517"],
+    "sample_png_hashes_verified_on_disk": {
+      "exploration_camera_R_1280x720.png": "ac174c696165b731807949b0c798470f7d171b290f00339403f42b8ac9b3fe22",
+      "confirmed_complete_1280x720.png": "2172eb0efe5af6612487d4e74f043f3d6e8622054d34bb7c04cc06e7ece255bb",
+      "cancelled_preview_1280x720.png": "b650e0001fb439e1bce55103f9a41c968a288023159d3a546367e4e9a4066173"
+    },
+    "select_module_path": "api_injection_via_main.get_block_assembly",
+    "a1_product_hashes_stable_a5_spotcheck": {
+      "block_assembly_controller.gd": "a7143da937dc8dd333c9544ae9fe79a8674e45e04bd4f3187b2b6128e21c7074",
+      "main.gd": "3f6d056991b55e508155fc42df4c9ad4d6dd1566541eed4d4c9dee3d711b8596",
+      "match_a1_a3_receipts": true
+    }
+  },
+  "commands": [
+    {
+      "cmd": "PYTHONDONTWRITEBYTECODE=1 E:/standards/maf/.venv/Scripts/python.exe -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "result": "valid 14/14; invalid 42/42 rejected; PASS gate",
+      "kind": "a5_independent_rerun"
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_core_smoke.gd",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "marker": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14",
+      "error_lines": 0,
+      "kind": "a5_independent_rerun"
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "marker": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+      "error_lines": 0,
+      "kind": "a5_independent_rerun"
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+      "error_lines": 0,
+      "kind": "a5_independent_rerun",
+      "qr_assertions": [
+        "catalog_exploration_camera_qr",
+        "catalog_build_preview_qr_not_camera",
+        "no_dual_fire_context_isolation",
+        "build_r_preview_only_camera_yaw_unchanged",
+        "exploration_r_camera_only_preview_unchanged",
+        "remap_logical_actions_still_context_gated"
+      ]
+    }
+  ],
+  "result": {
+    "verdict": "PURPLE_PASS_GATES_WITH_PLAYABILITY_RESIDUALS_WAITING_CODEX",
+    "summary": "A5 Purple VERIFY_ONLY gate package for Codex (not worker self-accept). Sequential six-child lineage confirmed (A0→A5); sole product writer A1; exclusive leases respected; product_writes=[] this wave. Independent A5 re-runs: Block-DNA 14/14+42/42; P2E core14/authority8/qr8 all PASS exit 0. Offline authority kernel PASS (A3+A4+A5). Q/R headless isolation PASS; headed F-A4-01 residual does not override. Block-DNA consumed as contract/snapshots only; no DNA runtime import; no world_DNA edits. F01 residuals hard-stop network/shipping only. Playability residuals remain OPEN (select_module UI, plain-language HUD, elevation, Esc cancel, etc.). Headed 12 PNGs exist with verified sample hashes. accepted=false; self_accept=false; purple_never_accepted=true; status=REVIEW_REQUESTED; completion_signal=WAITING_CODEX; next_owner=CODEX; no P2E-002/DNA v1.2/Tier3 started.",
+    "automated_gates": "PASS",
+    "offline_authority_kernel": "PASS",
+    "qr_kernel_headless": "PASS",
+    "headed_evidence": "PASS_WITH_API_INJECTION_TEARDOWN_NOISE_AND_YAW_RESIDUAL",
+    "playable_headed_without_api_injection": "FAIL_OPEN_FINDINGS",
+    "f01_network_shipping": "RESIDUAL_HARD_STOP",
+    "codex_decision_required": true,
+    "purple_does_not_accept": true
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "a5_independent_block_dna_plus_p2e001_core_authority_qr",
+    "pass": true,
+    "exit_code": 0
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "authority_token_is_verify_only": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "purple_never_accepted": true,
+    "no_grandchildren": true,
+    "one_writer_per_file": true,
+    "exclusive_lease_only": true,
+    "did_not_patch_product": true,
+    "did_not_patch_tests_or_contracts": true,
+    "did_not_rewrite_a4_evidence": true,
+    "did_not_invent_evidence": true,
+    "did_not_close_open_residuals": true,
+    "skills_transcript_backed": true,
+    "characters_bound": true,
+    "no_network_install_push_deploy": true,
+    "no_dna_v1_2_tier3": true,
+    "maf_required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "residual_risks": [
+      "Codex must not treat this Purple gate as ACCEPTED.",
+      "Honest full WO playable headed claim still blocked by F-A2-01/F-A3-01 without UI select path.",
+      "F-A3-04/F-A3-05 remain hard stops for any networked work or shipping claim.",
+      "F-A4-01 headed yaw residual should be blue-reviewed if Codex elevates playability acceptance bar."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md",
+    "orchestration/control/codex_directive.json",
+    "orchestration/receipts/p2e_001/A0_ssot_preflight_001.json",
+    "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json",
+    "orchestration/receipts/p2e_001/A2_control_ux_audit_001.json",
+    "orchestration/receipts/p2e_001/A3_red_audit_001.json",
+    "orchestration/receipts/p2e_001/A4_qa_evidence_001.json",
+    "orchestration/evidence/p2e_001/001/",
+    "orchestration/evidence/p2e_001/001/evidence_manifest.json",
+    "orchestration/evidence/p2e_001/001/png_sha256.json",
+    "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+    "game/tests/p2e001_block_assembly_core_smoke.gd",
+    "game/tests/p2e001_block_assembly_authority_smoke.gd",
+    "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+    "orchestration/logs/p2e-001-a5-purple-001.log",
+    "orchestration/receipts/p2e_001/A5_purple_gate_001.json"
+  ],
+  "trace": {
+    "handoff_from": "A4_QA",
+    "handoff_to": "CODEX",
+    "wave": "A5",
+    "task_id": "P2E-001",
+    "log": "orchestration/logs/p2e-001-a5-purple-001.log",
+    "receipt": "orchestration/receipts/p2e_001/A5_purple_gate_001.json",
+    "completion_signal": "WAITING_CODEX",
+    "parent_return": "REVIEW_REQUESTED / WAITING_CODEX accepted=false"
+  }
+}

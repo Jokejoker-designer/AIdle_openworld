@@ -1,0 +1,78 @@
+{
+  "schema_version": "dna_platform_vnext/generation_result/0.1",
+  "request_id": "DNA:NORI7:20260723:001",
+  "status": "ASSET_REQUEST_REQUIRED",
+  "recipe_ref": {
+    "recipe_id": "nori7_vnext_staging_001",
+    "payload_fingerprint": "9527e7de3528bf51ff41e29ac8879021ca74b453a728de26479b63d2c0e05e87"
+  },
+  "claims": [
+    {
+      "classification": "FACT",
+      "statement": "All four selected module IDs exist in the locked v1.1 module catalog.",
+      "evidence_ref": "SOURCE_REGISTRY.json#module_catalog"
+    },
+    {
+      "classification": "FACT",
+      "statement": "The Nori-7 animation set lists ten actions using clip_id, loop and events metadata only.",
+      "evidence_ref": "SOURCE_REGISTRY.json#animation_library"
+    },
+    {
+      "classification": "FACT",
+      "statement": "The selected skeleton targets 14 bones but its source record requires only root, body and head.",
+      "evidence_ref": "SOURCE_REGISTRY.json#skeleton_families"
+    },
+    {
+      "classification": "INFERENCE",
+      "statement": "Geometry, a complete skinned rig and motion payload are three separate authoring deliverables.",
+      "evidence_ref": "examples/nori7_universal_recipe.json#/readiness"
+    }
+  ],
+  "findings": [
+    {
+      "severity": "BLOCKING",
+      "code": "DESIGN_ONLY_MODULES",
+      "path": "$.readiness.source_status",
+      "message": "Selected legacy modules do not carry approved artifact hashes."
+    },
+    {
+      "severity": "BLOCKING",
+      "code": "SKELETON_AUTHORING_REQUIRED",
+      "path": "$.facets.motion.skeleton_id",
+      "message": "The 14-bone target is not a complete authored hierarchy."
+    },
+    {
+      "severity": "BLOCKING",
+      "code": "MOTION_PAYLOAD_MISSING",
+      "path": "$.facets.motion.actions",
+      "message": "No selected action is proven as keyed or runtime procedural payload by the source catalogs."
+    }
+  ],
+  "asset_requests": [
+    {
+      "asset_request_id": "AR:NORI7:MODULES:001",
+      "missing_capability": "verified_character_geometry_materials_lod_colliders",
+      "deliverable_kind": "MODULE_GLTF"
+    },
+    {
+      "asset_request_id": "AR:NORI7:RIG:001",
+      "missing_capability": "real_14_bone_skinned_rig",
+      "deliverable_kind": "SKELETON_RIG"
+    },
+    {
+      "asset_request_id": "AR:NORI7:MOTION:001",
+      "missing_capability": "real_keyed_and_runtime_proven_motion_set",
+      "deliverable_kind": "ANIMATION_ACTIONS"
+    }
+  ],
+  "compile_outputs": {
+    "strict_build_recipe": null,
+    "strict_build_graph": null,
+    "physics_extension": null,
+    "structured_world_prompt": null
+  },
+  "accepted": false,
+  "self_accept": false,
+  "world_mutated": false,
+  "next_route": "ASSET_AUTHORING_GATE"
+}

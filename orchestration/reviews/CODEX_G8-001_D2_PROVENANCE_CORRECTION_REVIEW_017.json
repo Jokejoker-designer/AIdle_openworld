@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-G8-001-D2-PROVENANCE-CORRECTION-REVIEW-017",
+  "reviewed_at": "2026-07-21T12:18:40+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "G8-001",
+  "directive_reviewed": 37,
+  "work_order_reviewed": "orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md",
+  "wave_verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "g8_accepted": false,
+  "d3_spawn_allowed": false,
+  "independent_passes": {
+    "same_unique_desktop_parent": "PASS",
+    "four_fresh_real_children": "PASS",
+    "profile_character_authority_binding": "PASS",
+    "no_grandchildren": "PASS",
+    "maf_jsonschema": "PASS_4_OF_4",
+    "input_context_hash_recomputed": "PASS_4_OF_4",
+    "exclusive_receipt_trace_leases": "PASS",
+    "product_writes_empty": "PASS_4_OF_4",
+    "self_accept_false": "PASS_4_OF_4",
+    "receipt_trace_before_durable_completion": "PASS_4_OF_4",
+    "manifestation_skill_eof": "PASS",
+    "asset_skill_eof": "PASS",
+    "persist_skill_eof": "PASS"
+  },
+  "blocking_failures": [
+    {
+      "id": "D2-017-SKILL-COMPANION",
+      "severity": "BLOCKER",
+      "profile": "companion",
+      "finding": "The receipt claims curiosity-engine lines 1-1123 were loaded, but the durable child transcript contains only read_file chunks 1-250, 251-500 and 501-750. A later terminal command reads the file into a process and prints only chunk boundaries; lines 751-1123 were not returned to the agent context as skill content.",
+      "claimed_refs": [
+        "transcript://019f830a-e077-7761-9be6-4fedb4a3f69c/read_file/22",
+        "transcript://019f830a-e077-7761-9be6-4fedb4a3f69c/read_file/24",
+        "transcript://019f830a-e077-7761-9be6-4fedb4a3f69c/read_file/25",
+        "transcript://019f830a-e077-7761-9be6-4fedb4a3f69c/run_terminal_command/6"
+      ],
+      "actual_semantic_coverage": "1-750"
+    },
+    {
+      "id": "D2-017-EXACT-INPUT",
+      "severity": "BLOCKER",
+      "profiles": ["companion", "manifestation", "asset", "persist"],
+      "finding": "The transcript-exact provenance contract is not met consistently. Companion paraphrases every tool input; manifestation omits terminal descriptions and changes grep argument keys; asset uses global ordinals as kind-local transcript refs and adds/removes argument fields; persist records terminal commands and selected paths rather than the complete raw arguments JSON for every material call.",
+      "required_fix": "For each covered call, record the exact raw arguments string from chat_history.jsonl without normalization, summary, renamed keys, omitted description fields, inserted nulls or changed ordinal semantics."
+    }
+  ],
+  "external_machine_bindings": [
+    {
+      "profile": "companion",
+      "child_task_ref": "019f830a-e077-7761-9be6-4fedb4a3f69c",
+      "completed_at": "2026-07-21T05:06:56.251584Z",
+      "receipt_last_write_utc": "2026-07-21T05:06:36.5130473Z",
+      "receipt_sha256": "59e8bcbf1fdc540ee66d0c1de0f530536fb41ab43fc813df991e440a3592eda6",
+      "trace_last_write_utc": "2026-07-21T05:06:36.5130473Z",
+      "trace_sha256": "3535f4301c72164e9906a4e13dc8ff3aef76146ee7535dffdc7cab4355dc6c99"
+    },
+    {
+      "profile": "manifestation",
+      "child_task_ref": "019f830a-e078-7291-868d-63c406c499a4",
+      "completed_at": "2026-07-21T05:06:15.420577500Z",
+      "receipt_last_write_utc": "2026-07-21T05:05:48.9694058Z",
+      "receipt_sha256": "985afdfa121d59a2f632619c90f73ef119887892e78b897daf04173def067d64",
+      "trace_last_write_utc": "2026-07-21T05:05:48.9684072Z",
+      "trace_sha256": "caec5d6f20d0b21607f847241190501d508f87f3d99417708fc55b7b338e8e7a"
+    },
+    {
+      "profile": "asset",
+      "child_task_ref": "019f830a-e078-7291-868d-63dadf2dccd2",
+      "completed_at": "2026-07-21T05:06:36.033113900Z",
+      "receipt_last_write_utc": "2026-07-21T05:06:09.5282027Z",
+      "receipt_sha256": "ed900b7377f1725569983b02fa87546ed15750b26403c398f1d057230f1d50d0",
+      "trace_last_write_utc": "2026-07-21T05:06:09.5292074Z",
+      "trace_sha256": "28cd4a287aaa1191a539e2c148115731863c5574ce41049300b5f8ea6550f2a8"
+    },
+    {
+      "profile": "persist",
+      "child_task_ref": "019f830a-e078-7291-868d-63ef06a928fc",
+      "completed_at": "2026-07-21T05:07:24.873471300Z",
+      "receipt_last_write_utc": "2026-07-21T05:07:00.1892895Z",
+      "receipt_sha256": "a2ee91941f7653ab1b98a776c81d062312963851e55f664e82e2b650b0648cf0",
+      "trace_last_write_utc": "2026-07-21T05:04:02.4438512Z",
+      "trace_sha256": "1c107149c6f156733824539c9b943a05c7f851fbab860eea36e952140b72ec7e"
+    }
+  ],
+  "next_route": "DIRECTIVE_38_D2_EXACT_PROVENANCE_CORRECTION",
+  "self_accept": false
+}

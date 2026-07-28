@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_OPS-003_CONTINUITY_PRELOAD_ACCEPTANCE_024",
+  "reviewed_at": "2026-07-21T13:49:30+07:00",
+  "reviewed_by": "codex",
+  "task_id": "OPS-003",
+  "directive_id": 44,
+  "verdict": "ACCEPTED_ARMED_NOT_ACTIVE",
+  "accepted": true,
+  "authority_token": "VERIFY_ONLY",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "checks": {
+    "unique_existing_parent": "PASS",
+    "capsule_sha256": "cbdd6baced7a714451fe35bf58eb6ab5bb3fafc0a97d9b863c5570328fc96634",
+    "handoff_sha256": "fa973a5152dba6568cd68c177226182f7e02a6817209cfce3794c2846e3cac8a",
+    "profile_sha256": "bcf189083d198a95e88b588b02fcd8032b7c0e90ba6f7b6f53b37567e7ef1d2a",
+    "continuity_conductor_preloaded": true,
+    "handoff_state": "ARMED",
+    "takeover_active": false,
+    "usage_signal_verified": false,
+    "activation_authorized": false,
+    "children_spawned": 0,
+    "specialists_spawned": 0,
+    "new_top_level_sessions": 0,
+    "product_files_written": [],
+    "self_accept": false
+  },
+  "activation_policy": "Only verified usage <=5 percent or explicit Human Product Lead trigger may transition ARMED to TRIGGERED.",
+  "accepted_scope": "Dormant preload only; no takeover or product execution",
+  "next_gate": "HITL_REQUIRED until a valid activation trigger exists"
+}

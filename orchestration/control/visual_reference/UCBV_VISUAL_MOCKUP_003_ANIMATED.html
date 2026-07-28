@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>UCBV-001 Visual Mockup Part 3 — Animated</title>
+<style>
+:root { --ink:#3d3226; --sub:#8a8272; --paper:#fbf6ec; --card:#ffffff; --line:#e7ddc8; }
+* { box-sizing: border-box; }
+body { margin:0; background:#f1ead8; font-family: 'Segoe UI', Arial, sans-serif; color: var(--ink); }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 32px 24px 80px; }
+.cover { background: linear-gradient(160deg, #fdf3e2, #eef0da); border-radius: 18px; padding: 40px; text-align:center; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+.cover-badge { display:inline-block; background:#3fd0e0; color:#083b40; font-weight:700; font-size:11px; letter-spacing:1px; padding:4px 12px; border-radius:20px; margin-bottom:14px; }
+.cover h1 { margin: 6px 0 4px; font-size: 30px; }
+.cover-sub { color: var(--sub); margin-bottom: 22px; }
+.cover-meta { display:grid; grid-template-columns: repeat(2,1fr); gap:14px; text-align:left; max-width:720px; margin:0 auto 20px; font-size:13px; }
+.cover-meta div { background: var(--card); border-radius:10px; padding:10px 14px; border:1px solid var(--line); }
+.cover-warn { text-align:left; background:#fff8e6; border:1px solid #eddca0; border-radius:10px; padding:14px 18px; font-size:12.5px; max-width:760px; margin:0 auto; line-height:1.5; }
+.sheet { background: var(--card); border-radius: 16px; padding: 28px 30px; margin-top: 26px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+.sheet-head h2 { margin: 0 0 4px; font-size: 20px; }
+.sheet-head p { margin: 0 0 18px; color: var(--sub); font-size: 13px; max-width: 820px; }
+.pal-wrap { display:flex; flex-direction:column; gap:18px; }
+.pal-group h4 { margin: 0 0 10px; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--sub); }
+.char-grid { display:grid; grid-template-columns: 1.6fr 1fr; gap: 24px; align-items:start; }
+.id-card { background:#faf5e8; border:1px solid var(--line); border-radius:10px; padding:14px 16px; font-size:12.5px; line-height:1.6; margin-bottom:14px;}
+.prop-block { background:#faf5e8; border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+.prop-block h4 { margin:0 0 6px; font-size:12px; color:var(--sub); }
+.sub { margin: 22px 0 10px; font-size: 13.5px; color: var(--ink); border-top:1px solid var(--line); padding-top:16px;}
+.chip-row { display:flex; gap:12px; flex-wrap:wrap; }
+.chip { background:#eef6f8; border:1px solid #cdeaf0; border-radius:10px; padding:8px 12px; font-size:11.5px; min-width:160px; }
+.chip b { display:block; font-size:12.5px; margin-bottom:2px; }
+.chip span { display:block; color:#1a7f8f; font-weight:600; }
+.chip small { color: var(--sub); }
+.block-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.block-card { background:#faf5e8; border:1px solid var(--line); border-radius:12px; padding:12px; text-align:center; }
+.block-id { font-family: Consolas, monospace; font-size: 11.5px; margin-top:6px; font-weight:700; }
+.block-cat { font-size: 10.5px; color: var(--sub); margin-top:2px; }
+.live-badge, .design-badge { display:inline-block; margin-top:6px; font-size:9.5px; font-weight:700; padding:2px 8px; border-radius:8px; }
+.live-badge { background:#dff5df; color:#1e6b2e; }
+.design-badge { background:#eee3f4; color:#6a3f8f; }
+.warn-box { margin-top:16px; background:#fff2e2; border:1px solid #f0cf9e; border-radius:10px; padding:12px 16px; font-size:12px; line-height:1.55; }
+.manifest-row { display:flex; gap:16px; flex-wrap:wrap; }
+.manifest-cell { text-align:center; font-size:11px; }
+.m-label { font-weight:700; margin-top:4px; }
+.m-note { color: var(--sub); max-width:150px; margin: 0 auto; }
+.ref-table { width:100%; border-collapse: collapse; font-size:12.5px; margin-bottom:10px;}
+.ref-table th, .ref-table td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+.ref-table th { color: var(--sub); font-weight:600; width:180px;}
+.cap-list { font-size:12.5px; line-height:1.6; padding-left:20px; }
+.tiny { font-size:11px; color:var(--sub); }
+code { background:#f1ead8; padding:1px 5px; border-radius:4px; font-size:0.92em; }
+h1, h2, h3, h4 { font-family: 'Segoe UI', Arial, sans-serif; }
+
+
+.tag-confirmed, .tag-proposed { display:inline-block; margin-left:8px; font-size:9.5px; font-weight:700; padding:2px 9px; border-radius:8px; vertical-align:middle; }
+.tag-confirmed { background:#dff5df; color:#1e6b2e; }
+.tag-proposed { background:#fff2e2; color:#a15d1f; }
+
+
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
+.char-bob { animation: bob 2.4s ease-in-out infinite; }
+
+@keyframes blink { 0%,88%,100%{transform:scaleY(1)} 94%{transform:scaleY(0.1)} 97%{transform:scaleY(1)} }
+.eyes-blink { animation: blink 4.0s ease-in-out infinite; }
+
+@keyframes sway_sprout { 0%,100%{transform:rotate(-2.5deg)} 50%{transform:rotate(2.5deg)} }
+.sprout-sway { animation: sway_sprout 3.6s ease-in-out infinite; }
+
+@keyframes drip { 0%{transform:translateY(0);opacity:0} 25%{opacity:1} 90%{opacity:0.2} 100%{transform:translateY(16px);opacity:0} }
+.nori-drip { animation: drip 1.8s ease-in infinite; }
+
+@keyframes wire_pulse { 0%,100%{opacity:0.55} 50%{opacity:1} }
+.wire-pulse { animation: wire_pulse 2.0s ease-in-out infinite; }
+
+@keyframes scan_move { 0%{transform:translateY(0)} 100%{transform:translateY(78px)} }
+.scan-line { animation: scan_move 2.4s ease-in-out infinite alternate; }
+
+@keyframes rise_grow { 0%{transform:scaleY(0)} 55%{transform:scaleY(1)} 100%{transform:scaleY(1)} }
+.rise-fill { transform-box: fill-box; transform-origin: bottom; animation: rise_grow 3.2s ease-out infinite; }
+
+@keyframes spark_twinkle { 0%,100%{opacity:0.2; transform:translateY(0)} 50%{opacity:1; transform:translateY(-6px)} }
+.spark { transform-box: fill-box; transform-origin:center; animation: spark_twinkle 1.6s ease-in-out infinite; }
+.spark-0{animation-delay:0s} .spark-1{animation-delay:0.3s} .spark-2{animation-delay:0.6s} .spark-3{animation-delay:0.9s}
+
+@keyframes door_pulse { 0%,100%{opacity:0.6; transform:scale(1)} 50%{opacity:1; transform:scale(1.3)} }
+.door-pulse { transform-box: fill-box; transform-origin:center; animation: door_pulse 2.0s ease-in-out infinite; }
+
+@keyframes lamp_pulse { 0%,100%{opacity:0.55} 50%{opacity:1} }
+.lamp-pulse { animation: lamp_pulse 2.0s ease-in-out infinite; }
+
+@keyframes sway_small_k { 0%,100%{transform:rotate(-1.2deg)} 50%{transform:rotate(1.2deg)} }
+.sway-small { animation: sway_small_k 4.2s ease-in-out infinite; }
+
+@keyframes sway_foliage_k { 0%,100%{transform:rotate(-2.5deg)} 50%{transform:rotate(2.5deg)} }
+.sway-foliage { animation: sway_foliage_k 3.5s ease-in-out infinite; }
+
+@keyframes steam_rise_k { 0%{transform:translateY(2px); opacity:0.5} 100%{transform:translateY(-14px); opacity:0} }
+.steam { transform-box: fill-box; transform-origin:center; animation: steam_rise_k 2.6s ease-out infinite; }
+.steam-0{animation-delay:0s} .steam-1{animation-delay:0.9s} .steam-2{animation-delay:1.7s}
+
+.lineup-row { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+.lineup-cell { text-align:center; background:#faf5e8; border:1px solid var(--line); border-radius:12px; padding:10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="cover">
+  <div class="cover-badge">UCBV-001 &middot; PART 3 &mdash; LIVE MOTION</div>
+  <h1>Animated Reference &mdash; the same mockup, moving</h1>
+  <p class="cover-sub">Pure CSS keyframes, real art-bible durations where they exist</p>
+  <div class="cover-meta">
+    <div><b>Extends</b><br>parts 1 &amp; 2 (palette, characters, blocks, sockets, skeletons, elements, locations)</div>
+    <div><b>Motion source</b><br><code>COZY_ART_BIBLE_001.md</code> &sect;4 Animation catalogue &mdash; exact durations, not guessed</div>
+    <div><b>Open this file in a browser</b><br>Motion needs a live renderer &mdash; screenshots/PDF cannot show it</div>
+    <div><b>Authorization</b><br>Still reference only. UCBV-001 stays queued behind H1 Human PASS.</div>
+  </div>
+  <div class="cover-warn">
+    Every animation below is labelled <span class="tag-confirmed">BIBLE TIMING</span> (the exact duration is
+    written in <code>COZY_ART_BIBLE_001.md</code> &sect;4 — bob 2.4s, blink 4.0s, sway_small 4.2s, pulse 2.0s,
+    tail_flick 2.2s) or <span class="tag-proposed">ILLUSTRATIVE PACING</span> (no source file specifies a
+    duration for this motion — e.g. the DNA package's animation clip names like "walk" or "wave" have no timing
+    data anywhere, and the manifestation stage-to-stage speed isn't specified either). Do not treat illustrative
+    numbers as approved.
+  </div>
+</div>
+<section class="sheet">
+  <div class="sheet-head"><h2>7 &middot; Nori-7 — the flagship, animated</h2><p>Same silhouette as the part-1 turnaround, now structured as independent CSS groups so bob / blink / sway can loop on their own real timings.</p></div>
+  <div class="char-grid"><div style="text-align:center"><svg width="280" height="260" viewBox="0 0 280 260" xmlns="http://www.w3.org/2000/svg"><ellipse cx="140" cy="196.3" rx="39.1" ry="6.8" fill="#000000" opacity="0.1"/><g class="char-bob" style="transform-box:fill-box; transform-origin:center;"><rect x="117.9" y="165.7" width="13.6" height="25.5" rx="6.8" ry="6.8" fill="#6bb87f"/><rect x="148.5" y="165.7" width="13.6" height="25.5" rx="6.8" ry="6.8" fill="#7fc98f"/><path d="M 140 67.1 C 100.9 65.39999999999999 95.80000000000001 121.5 102.6 155.5 C 107.7 175.9 124.7 179.3 140 179.3 C 155.3 179.3 172.3 175.9 177.4 155.5 C 184.2 121.5 179.1 65.39999999999999 140 67.1 Z" fill="#f2e9d8"/><path d="M 102.6 148.7 C 107.7 172.5 126.4 179.3 140 179.3 C 153.6 179.3 172.3 172.5 177.4 148.7 L 177.4 155.5 C 172.3 175.9 155.3 179.3 140 179.3 C 124.7 179.3 107.7 175.9 102.6 155.5 Z" fill="#e3d6bd"/><ellipse cx="140" cy="155.5" rx="34.0" ry="5.95" fill="#7fc98f" opacity="0.55"/><rect x="99.2" y="126.6" width="8.5" height="22.099999999999998" rx="4.25" ry="4.25" fill="#7fc98f"/><rect x="174.0" y="128.3" width="22.099999999999998" height="7.6499999999999995" rx="3.8249999999999997" ry="3.8249999999999997" fill="#5d6b7a"/><g class="sprout-sway" style="transform-box:fill-box; transform-origin: bottom center;"><rect x="137.45" y="48.39999999999999" width="5.1" height="20.4" rx="2.55" ry="2.55" fill="#5aa06e"/><ellipse cx="132.35" cy="46.699999999999996" rx="6.8" ry="10.2" fill="#7fc98f" opacity="1"/><ellipse cx="147.65" cy="48.39999999999999" rx="6.8" ry="10.2" fill="#7fc98f" opacity="1"/><ellipse cx="140" cy="41.599999999999994" rx="6.8" ry="10.2" fill="#7fc98f" opacity="1"/></g><g class="eyes-blink" style="transform-box:fill-box; transform-origin:center;"><ellipse cx="127.25" cy="104.5" rx="7.225" ry="8.5" fill="#3d3226" opacity="1"/><ellipse cx="127.25" cy="104.5" rx="5.1" ry="6.375" fill="#a8dced" opacity="1"/><circle cx="125.125" cy="101.95" r="1.53" fill="#ffffff" opacity="1"/><ellipse cx="127.25" cy="116.4" rx="5.95" ry="3.4" fill="#f4a09a" opacity="0.55"/><ellipse cx="152.75" cy="104.5" rx="7.225" ry="8.5" fill="#3d3226" opacity="1"/><ellipse cx="152.75" cy="104.5" rx="5.1" ry="6.375" fill="#a8dced" opacity="1"/><circle cx="150.625" cy="101.95" r="1.53" fill="#ffffff" opacity="1"/><ellipse cx="152.75" cy="116.4" rx="5.95" ry="3.4" fill="#f4a09a" opacity="0.55"/></g></g><circle class="nori-drip" cx="197.8" cy="133.4" r="2.04" fill="#a8dced"/></svg></div><div>
+<table class="ref-table">
+<tr><th>Motion</th><th>Duration</th><th>Provenance</th></tr>
+<tr><td>Body bob (idle)</td><td>2.4 s, Y 0→−3→0</td><td class="tag-confirmed">BIBLE TIMING — art bible §4 "bob"</td></tr>
+<tr><td>Blink</td><td>4.0 s, scaleY snap to 0.1 at 95%</td><td class="tag-confirmed">BIBLE TIMING — art bible §4 "blink"</td></tr>
+<tr><td>Sprout sway</td><td>3.6 s, rotate ±2.5°</td><td class="tag-confirmed">BIBLE TIMING — art bible §4 "sway" (nearest analog; sprout isn't foliage but reuses the same organic-wobble entry)</td></tr>
+<tr><td>Nozzle drip</td><td>~1.8 s loop</td><td class="tag-proposed">ILLUSTRATIVE — "water" clip exists in <code>anim_robot_gardener_v1</code> but has no duration in the source catalog</td></tr>
+</table>
+</div></div>
+</section>
+<section class="sheet">
+  <div class="sheet-head"><h2>8 &middot; Full cozy lineup, idle together</h2><p>All four starter characters looping the same 2.4 s bob from the art bible, each with a small stagger delay (0.0/0.4/0.9/1.3 s) so the loop reads as alive rather than mechanically synced — the art bible explicitly calls for a 0&ndash;1.5 s random offset for exactly this reason.</p></div>
+  <div class="lineup-row"><div class="lineup-cell"><svg width="150" height="190" viewBox="0 0 150 190" xmlns="http://www.w3.org/2000/svg"><ellipse cx="75" cy="137.76" rx="19.32" ry="3.36" fill="#000000" opacity="0.1"/><g class="char-bob" style="transform-box:fill-box; transform-origin:center;"><rect x="64.08" y="122.64" width="6.72" height="12.6" rx="3.36" ry="3.36" fill="#6bb87f"/><rect x="79.2" y="122.64" width="6.72" height="12.6" rx="3.36" ry="3.36" fill="#7fc98f"/><path d="M 75 73.92 C 55.68 73.08 53.16 100.8 56.519999999999996 117.6 C 59.04 127.68 67.44 129.36 75 129.36 C 82.56 129.36 90.96 127.68 93.48 117.6 C 96.84 100.8 94.32 73.08 75 73.92 Z" fill="#f2e9d8"/><path d="M 56.519999999999996 114.24 C 59.04 126.0 68.28 129.36 75 129.36 C 81.72 129.36 90.96 126.0 93.48 114.24 L 93.48 117.6 C 90.96 127.68 82.56 129.36 75 129.36 C 67.44 129.36 59.04 127.68 56.519999999999996 117.6 Z" fill="#e3d6bd"/><ellipse cx="75" cy="117.6" rx="16.8" ry="2.94" fill="#7fc98f" opacity="0.55"/><rect x="54.84" y="103.32" width="4.2" height="10.92" rx="2.1" ry="2.1" fill="#7fc98f"/><rect x="91.8" y="104.16" width="10.92" height="3.78" rx="1.89" ry="1.89" fill="#5d6b7a"/><g class="sprout-sway" style="transform-box:fill-box; transform-origin: bottom center;"><rect x="73.74" y="64.68" width="2.52" height="10.08" rx="1.26" ry="1.26" fill="#5aa06e"/><ellipse cx="71.22" cy="63.84" rx="3.36" ry="5.04" fill="#7fc98f" opacity="1"/><ellipse cx="78.78" cy="64.68" rx="3.36" ry="5.04" fill="#7fc98f" opacity="1"/><ellipse cx="75" cy="61.32" rx="3.36" ry="5.04" fill="#7fc98f" opacity="1"/></g><g class="eyes-blink" style="transform-box:fill-box; transform-origin:center;"><ellipse cx="68.7" cy="92.4" rx="3.57" ry="4.2" fill="#3d3226" opacity="1"/><ellipse cx="68.7" cy="92.4" rx="2.52" ry="3.15" fill="#a8dced" opacity="1"/><circle cx="67.65" cy="91.14" r="0.756" fill="#ffffff" opacity="1"/><ellipse cx="68.7" cy="98.28" rx="2.94" ry="1.68" fill="#f4a09a" opacity="0.55"/><ellipse cx="81.3" cy="92.4" rx="3.57" ry="4.2" fill="#3d3226" opacity="1"/><ellipse cx="81.3" cy="92.4" rx="2.52" ry="3.15" fill="#a8dced" opacity="1"/><circle cx="80.25" cy="91.14" r="0.756" fill="#ffffff" opacity="1"/><ellipse cx="81.3" cy="98.28" rx="2.94" ry="1.68" fill="#f4a09a" opacity="0.55"/></g></g><circle class="nori-drip" cx="103.56" cy="106.68" r="1.008" fill="#a8dced"/></svg><div class="block-id">Nori-7</div><div class="tiny">CCP-RH-001 · bob 2.4s</div></div><div class="lineup-cell"><svg width="150" height="190" viewBox="0 0 150 190" xmlns="http://www.w3.org/2000/svg"><ellipse cx="75" cy="178" rx="28" ry="6" fill="#000000" opacity="0.1"/><g class="char-bob" style="transform-box:fill-box; transform-origin:center; animation-delay:0.4s;"><ellipse cx="75" cy="177.51999999999998" rx="21.08" ry="4.34" fill="#000000" opacity="0.1"/><rect x="61.36" y="147.76" width="9.3" height="26.04" rx="4.34" ry="4.34" fill="#e8d7ac"/><rect x="79.34" y="147.76" width="9.3" height="26.04" rx="4.34" ry="4.34" fill="#F7E9C6"/><path d="M 56.4 130.4 C 53.92 106.84 60.120000000000005 89.48 75 88.24000000000001 C 89.88 89.48 96.08 106.84 93.6 130.4 C 91.12 144.04 58.879999999999995 144.04 56.4 130.4 Z" fill="#F7E9C6"/><path d="M 56.4 122.96 C 58.260000000000005 136.6 91.74 136.6 93.6 122.96 L 93.6 130.4 C 91.12 144.04 58.879999999999995 144.04 56.4 130.4 Z" fill="#e8d7ac"/><rect x="50.2" y="111.8" width="6.82" height="24.8" rx="3.41" ry="3.41" fill="#F7E9C6"/><rect x="92.98" y="111.8" width="6.82" height="24.8" rx="3.41" ry="3.41" fill="#F7E9C6"/><circle cx="75" cy="78.32" r="16.12" fill="#F7E9C6" opacity="1"/><path d="M 58.879999999999995 78.32 A 16.12 16.12 0 0 1 91.12 78.32" fill="#e8d7ac" opacity="0.6"/><circle cx="75" cy="60.96" r="4.96" fill="#87CFF0" opacity="1"/><rect x="62.6" y="64.68" width="24.8" height="8.68" rx="4.34" ry="4.34" fill="#87CFF0"/><ellipse cx="69.42" cy="77.08" rx="3.1" ry="3.7199999999999998" fill="#3d3226" opacity="1"/><ellipse cx="69.42" cy="77.08" rx="2.046" ry="2.728" fill="#3d3226" opacity="1"/><circle cx="68.552" cy="75.964" r="0.62" fill="#ffffff" opacity="1"/><ellipse cx="69.42" cy="82.03999999999999" rx="2.48" ry="1.426" fill="#f4a09a" opacity="0.5"/><ellipse cx="80.58" cy="77.08" rx="3.1" ry="3.7199999999999998" fill="#3d3226" opacity="1"/><ellipse cx="80.58" cy="77.08" rx="2.046" ry="2.728" fill="#3d3226" opacity="1"/><circle cx="79.712" cy="75.964" r="0.62" fill="#ffffff" opacity="1"/><ellipse cx="80.58" cy="82.03999999999999" rx="2.48" ry="1.426" fill="#f4a09a" opacity="0.5"/><rect x="96.08" y="119.24" width="4.96" height="16.12" rx="1.8599999999999999" ry="1.8599999999999999" fill="#F4A261"/></g></svg><div class="block-id">Mây Mạch</div><div class="tiny">CCP-NS-002 · bob 2.4s (proposed)</div></div><div class="lineup-cell"><svg width="150" height="190" viewBox="0 0 150 190" xmlns="http://www.w3.org/2000/svg"><ellipse cx="75" cy="178" rx="28" ry="6" fill="#000000" opacity="0.1"/><g class="char-bob" style="transform-box:fill-box; transform-origin:center; animation-delay:0.9s;"><ellipse cx="75" cy="183.28" rx="23.12" ry="4.760000000000001" fill="#000000" opacity="0.1"/><rect x="60.04" y="150.64" width="10.200000000000001" height="28.560000000000002" rx="4.760000000000001" ry="4.760000000000001" fill="#d6bd91"/><rect x="79.76" y="150.64" width="10.200000000000001" height="28.560000000000002" rx="4.760000000000001" ry="4.760000000000001" fill="#e9d3ae"/><path d="M 54.599999999999994 131.6 C 51.879999999999995 105.76 58.68 86.72 75 85.36 C 91.32 86.72 98.12 105.76 95.4 131.6 C 92.68 146.56 57.32 146.56 54.599999999999994 131.6 Z" fill="#e9d3ae"/><path d="M 54.599999999999994 123.44 C 56.64 138.4 93.36 138.4 95.4 123.44 L 95.4 131.6 C 92.68 146.56 57.32 146.56 54.599999999999994 131.6 Z" fill="#d6bd91"/><rect x="47.8" y="111.2" width="7.48" height="27.200000000000003" rx="3.74" ry="3.74" fill="#e9d3ae"/><rect x="94.72" y="111.2" width="7.48" height="27.200000000000003" rx="3.74" ry="3.74" fill="#e9d3ae"/><circle cx="75" cy="74.47999999999999" r="17.68" fill="#e9d3ae" opacity="1"/><path d="M 57.32 74.47999999999999 A 17.68 17.68 0 0 1 92.68 74.47999999999999" fill="#d6bd91" opacity="0.6"/><path d="M 58.68 64.96 A 24 24 0 0 1 91.32 64.96 Z" fill="#A66A43"/><rect x="70.92" y="62.239999999999995" width="23.12" height="5.44" rx="2.72" ry="2.72" fill="#A66A43"/><ellipse cx="68.88" cy="73.12" rx="3.4000000000000004" ry="4.08" fill="#3d3226" opacity="1"/><ellipse cx="68.88" cy="73.12" rx="2.244" ry="2.9920000000000004" fill="#3d3226" opacity="1"/><circle cx="67.928" cy="71.896" r="0.68" fill="#ffffff" opacity="1"/><ellipse cx="68.88" cy="78.56" rx="2.72" ry="1.564" fill="#f4a09a" opacity="0.5"/><ellipse cx="81.12" cy="73.12" rx="3.4000000000000004" ry="4.08" fill="#3d3226" opacity="1"/><ellipse cx="81.12" cy="73.12" rx="2.244" ry="2.9920000000000004" fill="#3d3226" opacity="1"/><circle cx="80.168" cy="71.896" r="0.68" fill="#ffffff" opacity="1"/><ellipse cx="81.12" cy="78.56" rx="2.72" ry="1.564" fill="#f4a09a" opacity="0.5"/><rect x="98.12" y="119.36" width="5.44" height="17.68" rx="2.04" ry="2.04" fill="#F4A261"/></g></svg><div class="block-id">Bác Bắp</div><div class="tiny">CCP-NW-003 · bob 2.4s (proposed)</div></div><div class="lineup-cell"><svg width="150" height="190" viewBox="0 0 150 190" xmlns="http://www.w3.org/2000/svg"><ellipse cx="75" cy="148" rx="30" ry="6" fill="#000000" opacity="0.1"/><g class="char-bob" style="transform-box:fill-box; transform-origin:center; animation-delay:1.3s;"><ellipse cx="75" cy="159.68" rx="34.96" ry="5.5200000000000005" fill="#000000" opacity="0.1"/><rect x="49.24" y="130.24" width="7.36" height="22.080000000000002" rx="3.68" ry="3.68" fill="#87ab61"/><rect x="62.12" y="130.24" width="7.36" height="22.080000000000002" rx="3.68" ry="3.68" fill="#87ab61"/><rect x="80.52" y="130.24" width="7.36" height="22.080000000000002" rx="3.68" ry="3.68" fill="#87ab61"/><rect x="93.39999999999999" y="130.24" width="7.36" height="22.080000000000002" rx="3.68" ry="3.68" fill="#87ab61"/><ellipse cx="75" cy="110" rx="36.800000000000004" ry="22.080000000000002" fill="#9CBF75" opacity="1"/><ellipse cx="75" cy="117.36" rx="36.800000000000004" ry="12.88" fill="#87ab61" opacity="0.7"/><path d="M 108.12 110 Q 128.36 97.12 121.0 82.4" stroke="#78B65B" stroke-width="6.44" fill="none" stroke-linecap="round"/><circle cx="40.04" cy="100.8" r="16.560000000000002" fill="#9CBF75" opacity="1"/><ellipse cx="38.199999999999996" cy="98.96" rx="3.128" ry="3.68" fill="#3d3226" opacity="1"/><circle cx="37.279999999999994" cy="97.58" r="0.8280000000000001" fill="#ffffff" opacity="1"/><ellipse cx="41.88" cy="98.96" rx="3.128" ry="3.68" fill="#3d3226" opacity="1"/><circle cx="40.96" cy="97.58" r="0.8280000000000001" fill="#ffffff" opacity="1"/><circle cx="71.32" cy="93.44" r="10.120000000000001" fill="#78B65B" opacity="1"/><circle cx="82.36" cy="89.75999999999999" r="8.280000000000001" fill="#78B65B" opacity="1"/><circle cx="76.84" cy="86.08" r="6.44" fill="#95d9a3" opacity="1"/></g></svg><div class="block-id">Bụi Mơ</div><div class="tiny">CCP-CT-004 · bob 2.4s</div></div></div>
+</section>
+<section class="sheet">
+  <div class="sheet-head"><h2>9 &middot; Manifestation staging, live</h2><p>Same 4 stages as the part-1 strip, but each one now performs the motion its own art-bible description names — this is the state machine a house actually goes through while being built, not a static illustration of it.</p></div>
+  <div class="manifest-row"><div class="manifest-cell"><svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="150" height="150" rx="6" ry="6" fill="#eef6f8"/><g class="wire-pulse"><polyline points="25,90 80,30 135,90 135,130 25,130 25,90" fill="none" stroke="#3fd0e0" stroke-width="2" stroke-dasharray="5,4"/><line x1="25" y1="130" x2="135" y2="90" stroke="#3fd0e0" stroke-width="1" stroke-dasharray="3,3"/></g></svg><div class="m-label">1 Wireframe</div><div class="m-note">pulse — BIBLE TIMING (art bible §4/§7, 2.0s)</div><div class="tiny">No collision</div></div><div class="manifest-cell"><svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="150" height="150" rx="6" ry="6" fill="#eef6f8"/><clipPath id="clipHolo"><polygon points="25,90 80,30 135,90 135,130 25,130 25,90"/></clipPath><polygon points="25,90 80,30 135,90 135,130 25,130" fill="#3fd0e0" opacity="0.26"/><polyline points="25,90 80,30 135,90 135,130 25,130 25,90" fill="none" stroke="#3fd0e0" stroke-width="2"/><g clip-path="url(#clipHolo)"><rect class="scan-line" x="25" y="60" width="110" height="4" fill="#8ff0ff" opacity="0.85"/></g></svg><div class="m-label">2 Hologram</div><div class="m-note">scan line moves — ILLUSTRATIVE (no source duration)</div><div class="tiny">No collision</div></div><div class="manifest-cell"><svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="150" height="150" rx="6" ry="6" fill="#eef6f8"/><clipPath id="clipMat"><polygon points="25,90 80,30 135,90 135,130 25,130 25,90"/></clipPath><polygon points="25,90 80,30 135,90 135,130 25,130" fill="#3fd0e0" opacity="0.22"/><g clip-path="url(#clipMat)"><rect class="rise-fill" x="25" y="40" width="110" height="90" fill="#fdf3e2"/></g><polyline points="25,90 80,30 135,90 135,130 25,130 25,90" fill="none" stroke="#3fd0e0" stroke-width="1.5"/><circle class="spark spark-0" cx="45" cy="105" r="1.6" fill="#8ff0ff"/><circle class="spark spark-1" cx="67" cy="97" r="1.6" fill="#8ff0ff"/><circle class="spark spark-2" cx="89" cy="105" r="1.6" fill="#8ff0ff"/><circle class="spark spark-3" cx="111" cy="97" r="1.6" fill="#8ff0ff"/></svg><div class="m-label">3 Materializing</div><div class="m-note">fill rises + sparks twinkle — ILLUSTRATIVE (no source duration)</div><div class="tiny">No collision</div></div><div class="manifest-cell"><svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="150" height="150" rx="6" ry="6" fill="#eef6f8"/><polygon points="25,90 80,30 135,90 135,130 25,130" fill="#fdf3e2" opacity="1"/><polygon points="25,90 80,30 135,90" fill="#e88b6f" opacity="1"/><circle class="door-pulse" cx="80" cy="108" r="2.5" fill="#f5c451"/><ellipse cx="80" cy="133" rx="40" ry="6" fill="#000000" opacity="0.12"/></svg><div class="m-label">4 Complete</div><div class="m-note">door light pulse — ILLUSTRATIVE (reuses §4 pulse=2.0s by analogy to the garden lamp; §7 doesn't itself assign an animation here)</div><div class="tiny">Collision — only after explicit confirm + World Commit</div></div></div>
+</section>
+<section class="sheet">
+  <div class="sheet-head"><h2>10 &middot; Living village diorama</h2><p>Same composition as part 1 section 5, now with every element that has a real art-bible animation actually running it: lamp pulse (2.0s), flowers sway_small (4.2s, staggered), tree sway (3.5s), chimney steam_rise (2.6s), door light pulse, Nori-7 bob (2.4s). The fence has no source animation and is left static rather than invented.</p></div>
+  <svg width="900" height="430" viewBox="0 0 900 430" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="900" height="430" rx="0" ry="0" fill="#d9ecf2"/><rect x="0" y="300" width="900" height="130" rx="0" ry="0" fill="#95d9a3"/><rect x="0" y="300" width="900" height="10" rx="0" ry="0" fill="#7fc98f"/><polygon points="300,430 340,430 300,300 280,300" fill="#ded4c2" opacity="1"/><rect x="325" y="282" width="250" height="22" rx="6" ry="6" fill="#a8a094"/><rect x="325" y="282" width="250" height="7" rx="4" ry="4" fill="#bdb5a8"/><rect x="330" y="162" width="240" height="120" rx="4" ry="4" fill="#fdf3e2"/><rect x="330" y="162" width="240" height="18" rx="4" ry="4" fill="#efe0c8"/><rect x="430" y="217" width="42" height="65" rx="16" ry="16" fill="#c98a5e"/><circle class="door-pulse" cx="470" cy="250" r="2.6" fill="#f5c451"/><circle cx="375" cy="217" r="22" fill="#e0d5c4" opacity="1"/><circle cx="375" cy="217" r="15" fill="#a8dced" opacity="1"/><line x1="375" y1="202" x2="375" y2="232" stroke="#e0d5c4" stroke-width="1.6"/><line x1="360" y1="217" x2="390" y2="217" stroke="#e0d5c4" stroke-width="1.6"/><circle cx="525" cy="217" r="18" fill="#e0d5c4" opacity="1"/><circle cx="525" cy="217" r="12" fill="#a8dced" opacity="1"/><polygon points="310,166 450,92 590,166" fill="#e88b6f" opacity="1"/><polygon points="310,166 450,122 590,166 590,178 310,178" fill="#d4785e" opacity="1"/><rect x="515" y="82" width="22" height="55" rx="3" ry="3" fill="#e0d5c4"/><circle class="steam steam-0" cx="523" cy="74" r="3.5" fill="#ffffff" opacity="0.5"/><circle class="steam steam-1" cx="529" cy="74" r="3.1" fill="#ffffff" opacity="0.5"/><circle class="steam steam-2" cx="526" cy="74" r="2.7" fill="#ffffff" opacity="0.5"/><rect x="615" y="242" width="10" height="58" rx="3" ry="3" fill="#b08560"/><rect x="653" y="242" width="10" height="58" rx="3" ry="3" fill="#b08560"/><rect x="691" y="242" width="10" height="58" rx="3" ry="3" fill="#b08560"/><rect x="612" y="258" width="92" height="7" rx="3" ry="3" fill="#c99a72"/><rect x="612" y="276" width="92" height="7" rx="3" ry="3" fill="#c99a72"/><rect x="126" y="210" width="8" height="90" rx="3" ry="3" fill="#5d6b7a"/><circle class="lamp-pulse" cx="130" cy="202" r="12" fill="#f5d98f" opacity="0.55"/><circle cx="130" cy="202" r="7" fill="#fdf0c8" opacity="1"/><g class="sway-small" style="animation-delay:0.0s; transform-box:fill-box; transform-origin:bottom;"><line x1="196" y1="300" x2="196" y2="278" stroke="#5aa06e" stroke-width="3"/><circle cx="196" cy="274" r="6" fill="#f4a8c8" opacity="1"/></g><g class="sway-small" style="animation-delay:0.5s; transform-box:fill-box; transform-origin:bottom;"><line x1="210" y1="300" x2="210" y2="278" stroke="#5aa06e" stroke-width="3"/><circle cx="210" cy="274" r="6" fill="#f5c451" opacity="1"/></g><g class="sway-small" style="animation-delay:1.1s; transform-box:fill-box; transform-origin:bottom;"><line x1="224" y1="300" x2="224" y2="278" stroke="#5aa06e" stroke-width="3"/><circle cx="224" cy="274" r="6" fill="#c8a8e8" opacity="1"/></g><rect x="755" y="255" width="10" height="45" rx="3" ry="3" fill="#a87d52"/><g class="sway-foliage" style="transform-box:fill-box; transform-origin:bottom;"><circle cx="746" cy="242" r="20" fill="#6bb87f" opacity="1"/><circle cx="772" cy="240" r="22" fill="#7fc98f" opacity="1"/><circle cx="760" cy="222" r="20" fill="#95d9a3" opacity="1"/></g><ellipse cx="540" cy="288.52" rx="15.64" ry="2.72" fill="#000000" opacity="0.1"/><g class="char-bob" style="transform-box:fill-box; transform-origin:center;"><rect x="531.16" y="276.28" width="5.44" height="10.200000000000001" rx="2.72" ry="2.72" fill="#6bb87f"/><rect x="543.4" y="276.28" width="5.44" height="10.200000000000001" rx="2.72" ry="2.72" fill="#7fc98f"/><path d="M 540 236.84 C 524.36 236.16 522.32 258.6 525.04 272.2 C 527.08 280.36 533.88 281.72 540 281.72 C 546.12 281.72 552.92 280.36 554.96 272.2 C 557.68 258.6 555.64 236.16 540 236.84 Z" fill="#f2e9d8"/><path d="M 525.04 269.48 C 527.08 279.0 534.56 281.72 540 281.72 C 545.44 281.72 552.92 279.0 554.96 269.48 L 554.96 272.2 C 552.92 280.36 546.12 281.72 540 281.72 C 533.88 281.72 527.08 280.36 525.04 272.2 Z" fill="#e3d6bd"/><ellipse cx="540" cy="272.2" rx="13.600000000000001" ry="2.3800000000000003" fill="#7fc98f" opacity="0.55"/><rect x="523.68" y="260.64" width="3.4000000000000004" height="8.84" rx="1.7000000000000002" ry="1.7000000000000002" fill="#7fc98f"/><rect x="553.6" y="261.32" width="8.84" height="3.06" rx="1.53" ry="1.53" fill="#5d6b7a"/><g class="sprout-sway" style="transform-box:fill-box; transform-origin: bottom center;"><rect x="538.98" y="229.36" width="2.04" height="8.16" rx="1.02" ry="1.02" fill="#5aa06e"/><ellipse cx="536.94" cy="228.68" rx="2.72" ry="4.08" fill="#7fc98f" opacity="1"/><ellipse cx="543.06" cy="229.36" rx="2.72" ry="4.08" fill="#7fc98f" opacity="1"/><ellipse cx="540" cy="226.64000000000001" rx="2.72" ry="4.08" fill="#7fc98f" opacity="1"/></g><g class="eyes-blink" style="transform-box:fill-box; transform-origin:center;"><ellipse cx="534.9" cy="251.8" rx="2.89" ry="3.4000000000000004" fill="#3d3226" opacity="1"/><ellipse cx="534.9" cy="251.8" rx="2.04" ry="2.5500000000000003" fill="#a8dced" opacity="1"/><circle cx="534.05" cy="250.78" r="0.6120000000000001" fill="#ffffff" opacity="1"/><ellipse cx="534.9" cy="256.56" rx="2.3800000000000003" ry="1.36" fill="#f4a09a" opacity="0.55"/><ellipse cx="545.1" cy="251.8" rx="2.89" ry="3.4000000000000004" fill="#3d3226" opacity="1"/><ellipse cx="545.1" cy="251.8" rx="2.04" ry="2.5500000000000003" fill="#a8dced" opacity="1"/><circle cx="544.25" cy="250.78" r="0.6120000000000001" fill="#ffffff" opacity="1"/><ellipse cx="545.1" cy="256.56" rx="2.3800000000000003" ry="1.36" fill="#f4a09a" opacity="0.55"/></g></g><circle class="nori-drip" cx="563.12" cy="263.36" r="0.8160000000000001" fill="#a8dced"/><text x="450.0" y="24" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="700" fill="#3d3226" text-anchor="middle">Living diorama — cluster_cozy_house_small_A + accepted P1E props, everything moving on its real art-bible timing</text></svg>
+</section>
+<section class="sheet">
+  <div class="sheet-head"><h2>11 &middot; Appendix — timing provenance</h2><p>Every duration used above, and whether it's an approved number or a labelled guess.</p></div>
+  
+<table class="ref-table">
+<tr><th>Motion</th><th>Class</th><th>Duration</th><th>Source</th></tr>
+<tr><td>Idle bob (all 4 characters)</td><td><code>.char-bob</code></td><td>2.4 s</td><td class="tag-confirmed">art bible §4 "bob"</td></tr>
+<tr><td>Blink (Nori-7)</td><td><code>.eyes-blink</code></td><td>4.0 s</td><td class="tag-confirmed">art bible §4 "blink"</td></tr>
+<tr><td>Sprout sway (Nori-7)</td><td><code>.sprout-sway</code></td><td>3.6 s</td><td class="tag-confirmed">art bible §4 "sway" (organic-wobble analog)</td></tr>
+<tr><td>Flower sway_small</td><td><code>.sway-small</code></td><td>4.2 s, staggered 0/0.5/1.1s</td><td class="tag-confirmed">art bible §4 "sway_small" + stagger instruction</td></tr>
+<tr><td>Tree foliage sway</td><td><code>.sway-foliage</code></td><td>3.5 s</td><td class="tag-confirmed">art bible §4 "sway", within its 3.4–3.6s range</td></tr>
+<tr><td>Garden lamp / door light pulse</td><td><code>.lamp-pulse</code> / <code>.door-pulse</code></td><td>2.0 s</td><td class="tag-confirmed">art bible §4 "pulse"</td></tr>
+<tr><td>Chimney steam</td><td><code>.steam</code></td><td>2.6 s, staggered</td><td class="tag-confirmed">art bible §4 "steam_rise"</td></tr>
+<tr><td>Wireframe pulse</td><td><code>.wire-pulse</code></td><td>2.0 s</td><td class="tag-confirmed">art bible §7 assigns "pulse" to stage 1 explicitly</td></tr>
+<tr><td>Nozzle drip</td><td><code>.nori-drip</code></td><td>1.8 s</td><td class="tag-proposed">illustrative — "water" clip exists, no duration in source</td></tr>
+<tr><td>Hologram scan line</td><td><code>.scan-line</code></td><td>2.4 s</td><td class="tag-proposed">illustrative — §7 names "scan line", no duration given</td></tr>
+<tr><td>Materializing rise + sparks</td><td><code>.rise-fill</code> / <code>.spark</code></td><td>3.2 s / 1.6 s</td><td class="tag-proposed">illustrative — §7 names the effect, no duration given</td></tr>
+</table>
+<p class="tiny">Nothing above changes any accepted timing. Where the art bible gives an exact number this sheet uses
+it exactly; where it only names an effect with no duration, this sheet picks a demo-reasonable pace and
+labels it illustrative so nobody mistakes it for an approved value.</p>
+<h4 class="sub">Scope</h4>
+<p class="tiny">Motion-only pass over parts 1 and 2 — no new ids, no new colours, no new decisions. Still a reference
+sheet, not production art, not a work order, not a dispatch. Open this HTML file directly in a browser; static
+screenshots or the PDF/image export of this page cannot show the animation.</p>
+
+</section>
+</div>
+</body>
+</html>

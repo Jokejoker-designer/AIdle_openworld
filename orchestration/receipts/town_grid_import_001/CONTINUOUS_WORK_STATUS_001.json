@@ -1,0 +1,42 @@
+{
+  "schema_version": "continuous_work_status/1.0",
+  "receipt_id": "CONTINUOUS_WORK_STATUS_001",
+  "work_order": "WO-TOWN-GRID-IMPORT-001 + NORI7-ANIM",
+  "authorization": "HUMAN_AUTHORIZED_CONTINUOUS_WORK_UNTIL_DONE",
+  "decided_at": "2026-07-24T12:30:00+07:00",
+  "timestamp_utc": "2026-07-24T05:51:59Z",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "streams": {
+    "A_buildings_6": {
+      "status": "IN_PROGRESS",
+      "pass": "V5",
+      "matching_100_pct": 0,
+      "need_human": [],
+      "streak_warning": [],
+      "note": "V5 different approaches for MARKET/BRIDGE/LOOKOUT; GARDEN/WELL/WINDMILL same-sig streak=1 under continuous auth"
+    },
+    "B_props_21": {
+      "status": "GLBS_AUTHORED_LIVE",
+      "count": 21,
+      "real_glb_town": 49,
+      "placeholders_left": 1,
+      "placeholder_detail": "HOME.CHAR CCP-RH-001 glb_sha256_mismatch (character cast, not one of 21 props)",
+      "fidelity": "not_100_claimed \u2014 soft clay props need fidelity loop if Human demands mockup match",
+      "receipt": "PROPS_MISSING_21_V1.json"
+    },
+    "C_nori7_anim_realism": {
+      "status": "REKEY_V2_SHIPPED",
+      "job": "NORI7_ANIM_REALISM_V2",
+      "sha256": "07d8d901aed60a3643ead3e7ccb66d4f3ab92274d155c2bff4bb2dc0ebf0facc",
+      "walk": "duration 1.0s, 33 fcurves, weight shift, double bounce, arm lag, spine counter",
+      "mesh_rebuild": false,
+      "live_gardener_buttons": "PASS 5/5 after rekey",
+      "human_judgment_pending": "play-test walk realism in real game",
+      "receipt": "nori7_anim_realism_v2_receipt.json"
+    }
+  },
+  "home_bld": "CLOSED_PERMANENTLY untouched",
+  "safety_valve": "No building has 3 consecutive same residual under continuous auth yet"
+}

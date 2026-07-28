@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "target_pipeline": "Blender to Godot 4.3 via GLB",
+  "allowed_operations": [
+    "load_registered_template",
+    "append_registered_module",
+    "create_geometry_nodes_instance",
+    "set_registered_geometry_parameters",
+    "create_socket_empty",
+    "assign_physical_profile_custom_properties",
+    "assign_element_tags",
+    "assign_material_slots",
+    "bind_registered_skeleton",
+    "apply_registered_animation_set",
+    "create_collision_hint_mesh",
+    "create_fluid_sensor_hint",
+    "create_reaction_sensor_hint",
+    "generate_lod0_lod1_lod2_lod3",
+    "generate_hlod_proxy",
+    "bake_lightmap_uv",
+    "export_glb_with_custom_properties",
+    "write_artifact_manifest"
+  ],
+  "forbidden_operations": [
+    "execute_ai_generated_python",
+    "run_shell_from_recipe",
+    "download_external_asset",
+    "install_addon",
+    "open_unregistered_blend",
+    "overwrite_approved_asset",
+    "write_canonical_world_state"
+  ]
+}

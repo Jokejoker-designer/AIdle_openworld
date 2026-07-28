@@ -1,0 +1,461 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "BLOCK-DNA-ADAPT-001-c3-purple-correction-002-2026-07-22",
+  "step_id": "BLOCK-DNA-ADAPT-001-c3-purple-correction-002",
+  "work_order_id": "WO-BLOCK-DNA-ADAPT-001-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-BLOCK-DNA-ADAPT-001-CORRECTION-001.md",
+  "work_order_sha256": "920603504f97c8a2b4a5741d64108724b3c9352c0303e99064fa1f2564830737",
+  "review_ref": "orchestration/reviews/CODEX_BLOCK-DNA-ADAPT-001_MACHINE_REVIEW_001.json",
+  "directive_id": 69,
+  "milestone": "Block-DNA contract gate — C3 purple independent acceptance (CORRECTION-001)",
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "profile_name": "aidle-worldgen-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_sha256": "9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger,adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches; never ACCEPTED; verdicts VERIFIED|CHANGES_REQUESTED|NEED_HUMAN.",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "exclusive C3 log+receipt only; product_writes=[]; never patch contracts/DNA/game; never rewrite D68 B0-B4 or C0-C2 evidence; never ACCEPTED; Purple never accepts; no grandchildren",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:920603504f97c8a2b4a5741d64108724b3c9352c0303e99064fa1f2564830737+c0be141b4ef9942df64d893937cf2e8d4174d9dcb3b03d80f38732428dc87370+9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2+494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027",
+  "input_context_hash_16": "920603504f97c8a2",
+  "input_context_hash_method": "concat of known SHA-256 hex of WO-BLOCK-DNA-ADAPT-001-CORRECTION-001.md + C2_qa_correction_002.json + purple profile + ARCHITECTURE_LOCK.md (receipt-side binding)",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "VERIFIED",
+  "purple_verdict": "VERIFIED",
+  "child_task_ref": "019f883f-6a28-7d62-b5d3-af84d6f825b2",
+  "transcript_ref": "019f883f-6a28-7d62-b5d3-af84d6f825b2",
+  "writer_transcript_ref": "019f883f-6a28-7d62-b5d3-af84d6f825b2",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_c0_ref": "019f882b-e07d-7aa3-bb81-386e36ead70f",
+  "prior_c1_ref": "019f8835-182e-7392-9f3f-49d9619cb285",
+  "prior_c2_ref": "019f883a-409f-7393-a0c6-61e76572b5dc",
+  "prior_b1_ref": "019f8804-7915-71d2-b3b1-573b701a202e",
+  "prior_b2_ref": "019f880d-303a-7243-b540-1d0cf699918c",
+  "prior_b3_ref": "019f8811-dce9-7aa3-998e-b9c2026fa87b",
+  "prior_b4_ref": "019f8817-4a1a-7463-9a69-7949fb7726d7",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f883f-6a28-7d62-b5d3-af84d6f825b2/meta.json",
+  "durable_meta_sha256_at_start": "63f9c5c857a01240594eaa69c259ee0c637cb7e8f979c2ba776768730c14de86",
+  "started_at": "2026-07-22T05:14:45.164126200Z",
+  "completed_at_utc": "2026-07-22T05:16:59Z",
+  "next_owner": "PARENT_CODEX",
+  "next_route": "WAITING_CODEX",
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_eof",
+    "role": "C3 VERIFY_ONLY purple independent acceptance gate for Block-DNA CORRECTION-001; never patch; never ACCEPTED; VERIFIED only if F-B2-01..03 CLOSED"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded profile, TrustLayer/UI, WO CORRECTION-001, C0-C2 receipts, ARCHITECTURE_LOCK, skills, contracts, and agent_step_contract schema manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "chunked_full_eof",
+      "transcript_ranges": [
+        {"offset": 1, "limit": 400},
+        {"offset": 401, "limit": 400},
+        {"offset": 801, "limit": 400}
+      ],
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "honesty_note": "Three durable read_file invocations issued; tool returned complete 1123-line body; EOF confirmed via Prime Directive paragraph."
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "bytes": 8484,
+      "line_count": 292,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "persistence_note": "NO_DURABLE_RECORD under .claude/curiosity/* — exclusive C3 lease allows only log+receipt; findings recorded in those evidence paths only"
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "bytes": 1766,
+      "line_count": 51,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "architecture_lock_project": {
+    "path": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+    "sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027",
+    "read": "full_eof",
+    "status": "ACTIVE"
+  },
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/block-dna-adapt-001-c3-purple-correction-002.log",
+    "E:/AIdle_openworld/orchestration/receipts/block_dna_adapt_001/C3_purple_correction_002.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/logs/block-dna-adapt-001-c3-purple-correction-002.log",
+    "E:/AIdle_openworld/orchestration/receipts/block_dna_adapt_001/C3_purple_correction_002.json"
+  ],
+  "immutable_not_rewritten": [
+    "orchestration/logs/block-dna-adapt-001-b0-ssot-001.log",
+    "orchestration/logs/block-dna-adapt-001-b1-schema-001.log",
+    "orchestration/logs/block-dna-adapt-001-b2-red-001.log",
+    "orchestration/logs/block-dna-adapt-001-b3-qa-001.log",
+    "orchestration/logs/block-dna-adapt-001-b4-purple-001.log",
+    "orchestration/receipts/block_dna_adapt_001/B0_ssot_preflight_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B1_schema_contract_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B2_red_audit_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B3_qa_evidence_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B4_purple_gate_001.json",
+    "orchestration/logs/block-dna-adapt-001-c0-schema-correction-002.log",
+    "orchestration/receipts/block_dna_adapt_001/C0_schema_correction_002.json",
+    "orchestration/logs/block-dna-adapt-001-c1-red-correction-002.log",
+    "orchestration/receipts/block_dna_adapt_001/C1_red_correction_002.json",
+    "orchestration/logs/block-dna-adapt-001-c2-qa-correction-002.log",
+    "orchestration/receipts/block_dna_adapt_001/C2_qa_correction_002.json",
+    "orchestration/contracts/block_dna_adapt_001/**",
+    "world_DNA/**"
+  ],
+  "forbidden_paths_not_written": [
+    "world_DNA/**",
+    "game/**",
+    "Scene/**",
+    "Control/**",
+    "game_character/**",
+    "PersistModule/**",
+    "contracts/world_prompt.schema.json",
+    "orchestration/contracts/block_dna_adapt_001/**",
+    "P1E resource trees"
+  ],
+  "c0_product_hash_recheck": {
+    "all_match": true,
+    "hashes": {
+      "build_recipe.schema.json": "55eabacc0791fbee2da5565bee3d78d9c6492fd7d2ca5467d6cbc5f04b3173af",
+      "build_graph.schema.json": "dc4152fce582181169483895c1ac4e96ac2eb927a0cdb738cd8321958681c806",
+      "socket_catalog.contract.json": "cc7cc19fd0b23d229c1ff93148366d5419988fd9afb03ddc9b6adc111c9b1a5c",
+      "material_slot_mapping.contract.json": "cdbbe48d5cfd0e24430283797c8ef5a0379682748bb014cb4cebe889daeab753",
+      "world_prompt_adapter.contract.json": "4fe3618b2a6d0b690921ccf990d450a777356f1240143589f0cae232cea5cddf",
+      "catalog_allowlists.json": "647397765ea37fa58b3b8dc1f2d87134fa2038e096c118af029a3e723e8490ad",
+      "validate_block_dna_adapt_001.py": "5b75c271c1fdf7a9b4f9526877c7b979238d0033b01dd647cefe3a6e68110a1e",
+      "source_baseline.lock.json": "ddeaf8ec93bf001a30164876e82afcc1a680f780556d5f0a328aa6344a793cda"
+    }
+  },
+  "d68_evidence_integrity": {
+    "not_rewritten": true,
+    "receipts": {
+      "B0_ssot_preflight_001.json": "c5e7d8cbdd2d9d6ecdbcd600c4a73ec15da49c56661fa955c900bc1d56e4c716",
+      "B1_schema_contract_001.json": "257a494530e079d6d0401f4822316d452fe1f80518eb1b6e3f9c699bc15d973e",
+      "B2_red_audit_001.json": "7f6a7ac73c2c6956c3e9024c7c08059b4ebaa4f60b075921929b3de5556565cf",
+      "B3_qa_evidence_001.json": "f78218b15640573f7b6b11fff06696b93ed6ea5750a20bcda8b4fe0bcaaac524",
+      "B4_purple_gate_001.json": "f0cd44de690948a39ff06eb3b4e1df1611e837ad1d810fe8b6359fd9e5497660"
+    },
+    "logs": {
+      "block-dna-adapt-001-b0-ssot-001.log": "fc3e1edf2ee4826e47c8b795cef1b73b5e4d6e4fbd06ef2a56a2eb5604e0a392",
+      "block-dna-adapt-001-b1-schema-001.log": "0fd8f40c08be23aeb1e93fe226a2b7af74bb6c402b2c9946fd79e97c47bcd4ee",
+      "block-dna-adapt-001-b2-red-001.log": "eb27af7f16421b474c95d8fd84a2e3f7030c78ac7475936cf101aef16e83c16d",
+      "block-dna-adapt-001-b3-qa-001.log": "75446ab8a343b1b1548f9a3522d22ee5693a82a8107d24a40ff3c301bed489b0",
+      "block-dna-adapt-001-b4-purple-001.log": "574bf99fec4341e8bf92b7b96da6a52da61d9d849f788f5b211462d22efed000"
+    }
+  },
+  "maf_c0_c2_lineage": {
+    "parent": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "C0": {
+      "child_task_ref": "019f882b-e07d-7aa3-bb81-386e36ead70f",
+      "authority_token": "PATCH_DRAFT",
+      "accepted": false,
+      "self_accept": false,
+      "next_route": "C1_RED"
+    },
+    "C1": {
+      "child_task_ref": "019f8835-182e-7392-9f3f-49d9619cb285",
+      "authority_token": "READ_ONLY_AUDIT",
+      "product_writes": [],
+      "accepted": false,
+      "self_accept": false,
+      "next_route": "C2_QA"
+    },
+    "C2": {
+      "child_task_ref": "019f883a-409f-7393-a0c6-61e76572b5dc",
+      "authority_token": "VERIFY_ONLY",
+      "product_writes": [],
+      "accepted": false,
+      "self_accept": false,
+      "next_route": "C3_PURPLE"
+    },
+    "sequential_ok": true
+  },
+  "result": {
+    "verdict": "VERIFIED",
+    "purple_verdict": "VERIFIED",
+    "summary": "C3 VERIFY_ONLY re-ran the full C0 correction matrix (valid 14/14 PASS, invalid 42/42 REJECT, baseline key-file + BOTH DNA tree aggregates PASS) and independently re-probed F-B2-01..03 in-memory without product writes. All three prior BLOCKING residuals now REJECT on the adversarial cases that previously passed. Hardening co-require material, code-shaped params, validation const true, and live tree aggregates PASS. C0 product hashes ALL_MATCH. D68 B0-B4 evidence immutable. DNA packages not written. product_writes=[]; accepted=false; self_accept=false; completion WAITING_CODEX (never ACCEPTED).",
+    "blocking_findings_count": 0,
+    "non_blocking_notes_count": 3,
+    "matrix": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "cwd": "E:/AIdle_openworld",
+      "exit_code": 0,
+      "valid_n": 14,
+      "valid_pass": 14,
+      "invalid_m": 42,
+      "invalid_rejected": 42,
+      "ledger_valid_stable_replays": 1,
+      "ledger_valid_conflicts": 0,
+      "ledger_inv_stable_replays": 0,
+      "ledger_inv_conflicts": 1,
+      "baseline_key_files_and_trees": "PASS",
+      "gate_line": "PASS gate: valid_n=14 invalid_m=42 verdict=C0_BLOCK_DNA_CORRECTION_COMPLETE_NO_ACCEPT"
+    },
+    "findings_status": {
+      "F-B2-01": {
+        "prior_severity": "BLOCKING",
+        "status": "CLOSED",
+        "classification": "FACT",
+        "title": "Canonical idempotency binding via required payload_fingerprint + ReplayLedger",
+        "independent_probes": [
+          {"id": "P1a_MISSING_FP", "result": "REJECT", "detail": "schema required + missing_payload_fingerprint"},
+          {"id": "P1b_MALFORMED_FP", "result": "REJECT", "detail": "pattern ^[a-f0-9]{64}$ + malformed_payload_fingerprint"},
+          {"id": "P1c_WRONG_FP", "result": "REJECT", "detail": "payload_fingerprint_mismatch vs canonical projection"},
+          {"id": "P1d_SAME_KEY_CHANGED_REQUEST_ID", "result": "REJECT", "detail": "idempotency_replay_conflict:same_key_changed_payload after correct recompute of fingerprint"},
+          {"id": "P1e_STABLE_REPLAY", "result": "PASS", "detail": "identical key+payload → stable_replays=1 conflicts=0"},
+          {"id": "P1f_SAME_KEY_PAYLOAD_X_CHANGED", "result": "REJECT", "detail": "transform.x mutated + recomputed fingerprint → ledger conflict"},
+          {"id": "P1_SCHEMA_LEGAL_REQUIRED", "result": "PASS", "detail": "graph+recipe property+required; pattern ^[a-f0-9]{64}$"},
+          {"id": "P1_PROJECTION_EXCLUDES_ONLY_FP", "result": "PASS", "detail": "canonical_payload_projection drops only payload_fingerprint"}
+        ]
+      },
+      "F-B2-02": {
+        "prior_severity": "BLOCKING",
+        "status": "CLOSED",
+        "classification": "FACT",
+        "title": "Catalog-bound polarity; peer laundering of directed sockets rejected",
+        "independent_probes": [
+          {"id": "P2a_PEER_LAUNDER_NO_NORM", "result": "REJECT", "detail": "peer/peer on terrain_surface/prop_base → catalog_polarity_mismatch + peer_launder_directed_sockets + asymmetric_source_without_normalization"},
+          {"id": "P2b_PEER_LAUNDER_WITH_NORM", "result": "REJECT", "detail": "peer/peer with norm present → normalization_orientation_or_polarity_mismatch"},
+          {"id": "P2c_CATALOG_POLARITY_MISMATCH", "result": "REJECT", "detail": "declared input/output != catalog peer/peer defaults"},
+          {"id": "P2_CONTROL_VALID01", "result": "PASS", "detail": "unmutated VALID-01 still validates"}
+        ]
+      },
+      "F-B2-03": {
+        "prior_severity": "BLOCKING",
+        "status": "CLOSED",
+        "classification": "FACT",
+        "title": "adapter_normalization_id pair-bound; wrong known ID rejects",
+        "independent_probes": [
+          {"id": "P3a_WRONG_KNOWN_NORM", "result": "REJECT", "detail": "wall_edge/window_opening + norm_terrain_surface_prop_base_v1 → adapter_normalization_pair_mismatch"},
+          {"id": "P3b_UNKNOWN_NORM", "result": "REJECT", "detail": "unknown_normalization_id:norm_does_not_exist_v9"},
+          {"id": "P3c_FOUR_ASYMMETRIC_NORMS", "result": "PASS", "detail": "VALID-14 covers all four asymmetric source pairs with matching norm IDs and validates"}
+        ]
+      }
+    },
+    "hardening_probes": {
+      "material_co_require_slot_without_p1e": "REJECT",
+      "material_co_require_p1e_without_slot": "REJECT",
+      "bidirectional_material_reverse_mismatch": "REJECT",
+      "code_shaped_parameter_keys": "REJECT",
+      "validation_flags_false": "REJECT",
+      "validation_schema_const_true": "PASS",
+      "dna_tree_aggregates_verify_baseline": "PASS",
+      "tree_aggregates_observed": {
+        "v1.0_package_tree_aggregate_sha256": "44a0e19402d50b42361077e2435e44a8d0dcb4ac2b158d156b60935c4bd8a3c7",
+        "v1.0_package_tree_file_count_ex_pycache": 153,
+        "v1.1_Tier3_package_tree_aggregate_sha256": "5edd562312b6b8b1411afbefbea1625d74e0cb2a5ee8105b0a4e585c321d6c28",
+        "v1.1_Tier3_package_tree_file_count_ex_pycache": 183
+      }
+    },
+    "dna_baseline_hashes": {
+      "v1.0_package_tree_aggregate_sha256_live": "44a0e19402d50b42361077e2435e44a8d0dcb4ac2b158d156b60935c4bd8a3c7",
+      "v1.1_Tier3_package_tree_aggregate_sha256_live": "5edd562312b6b8b1411afbefbea1625d74e0cb2a5ee8105b0a4e585c321d6c28",
+      "key_file_and_tree_rehash": "MATCH",
+      "tree_aggregate_recomputed_this_step": true,
+      "dna_immutable_observed": true,
+      "dna_recent_writes_last_2h": 0
+    },
+    "adversarial_review": {
+      "review_id": "ADV-BLOCK-DNA-ADAPT-001-C3-2026-07-22",
+      "reviewer_role": "purple-team-release-gate",
+      "claim_under_review": "CORRECTION-001 closed F-B2-01..03 for offline Block-DNA contract gate Purple VERIFIED",
+      "what_i_accept": [
+        "Full matrix 14/14 valid PASS and 42/42 invalid REJECT exit 0",
+        "Independent residual probes REJECT for F-B2-01..03 bad cases",
+        "C0 contract product hashes ALL_MATCH",
+        "DNA tree aggregates MATCH lock; no DNA package writes",
+        "D68 B0-B4 evidence mtimes/hashes pre-C0 and not rewritten"
+      ],
+      "what_i_challenge": [
+        "Harness ReplayLedger is not a production idempotency store",
+        "Adapter remains proposal-only; no executable Structured World Prompt emission in this gate"
+      ],
+      "strongest_counter_argument": "VERIFIED applies only to this offline contract gate closure; it is not product ACCEPTED, P2E runtime, or shipping authorization",
+      "missing_evidence": [
+        "Production server-side idempotency binding (out of this gate by design)",
+        "Executable SWP emission (later adapter/runtime gate)"
+      ],
+      "scope_drift_risk": "LOW — exclusive lease honored; no product/DNA/D68 rewrites",
+      "final_verdict": "ACCEPT_WITH_LIMITATIONS",
+      "self_audit": {
+        "preserved_user_intent": true,
+        "did_not_invent_objection": true,
+        "evidence_based": true,
+        "no_scope_hijack": true
+      }
+    },
+    "non_blocking_notes": [
+      {
+        "note_id": "N-C3-01",
+        "severity": "INFO",
+        "statement": "ReplayLedger is harness-scoped (bounded in-memory). Production must still bind idempotency_key→payload_fingerprint server-side outside this offline gate. Does not reopen F-B2-01 relative to CORRECTION-001 WO text."
+      },
+      {
+        "note_id": "N-C3-02",
+        "severity": "INFO",
+        "statement": "Adapter remains proposal-only (pending+preview). No executable Structured World Prompt emission check in this gate — out of C3 residual scope; residual_risk already recorded."
+      },
+      {
+        "note_id": "N-C3-03",
+        "severity": "INFO",
+        "statement": "Purple VERIFIED is not product ACCEPTED. completion_signal=WAITING_CODEX; accepted=false; self_accept=false; Codex/Human decides final acceptance."
+      }
+    ]
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "python_validator_fixture_gate_plus_in_memory_residual_reprobes",
+    "command": "PYTHONDONTWRITEBYTECODE=1 python -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+    "exit_code": 0,
+    "pass": true,
+    "valid_n": 14,
+    "invalid_m": 42,
+    "valid_pass": 14,
+    "invalid_rejected": 42,
+    "residual_probes_performed": true,
+    "blocking_count": 0,
+    "f_b2_01": "CLOSED",
+    "f_b2_02": "CLOSED",
+    "f_b2_03": "CLOSED",
+    "hardening": "PASS",
+    "log": "orchestration/logs/block-dna-adapt-001-c3-purple-correction-002.log"
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "directive_68_evidence_not_rewritten": true,
+    "c0_c1_c2_evidence_not_rewritten": true,
+    "dna_not_modified": true,
+    "game_not_modified": true,
+    "world_prompt_schema_not_modified": true,
+    "p2e_not_started": true,
+    "verify_only_no_patch": true,
+    "purple_never_accepted": true,
+    "maf_required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "residual_risks": [
+      "Harness-scoped idempotency ledger is not a production store.",
+      "No executable SWP emission — adapter contract only.",
+      "Purple VERIFIED is contract-gate only; Codex/Human ACCEPTED still required."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-BLOCK-DNA-ADAPT-001-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_BLOCK-DNA-ADAPT-001_MACHINE_REVIEW_001.json",
+    "orchestration/receipts/block_dna_adapt_001/C0_schema_correction_002.json",
+    "orchestration/receipts/block_dna_adapt_001/C1_red_correction_002.json",
+    "orchestration/receipts/block_dna_adapt_001/C2_qa_correction_002.json",
+    "orchestration/receipts/block_dna_adapt_001/B2_red_audit_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B4_purple_gate_001.json",
+    "orchestration/logs/block-dna-adapt-001-c3-purple-correction-002.log",
+    "orchestration/receipts/block_dna_adapt_001/C3_purple_correction_002.json",
+    "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py"
+  ],
+  "trace": {
+    "handoff_from": "C2_019f883a-409f-7393-a0c6-61e76572b5dc",
+    "handoff_to": "PARENT_CODEX",
+    "wave": "C3",
+    "task_id": "BLOCK-DNA-ADAPT-001"
+  },
+  "commands": [
+    {
+      "cmd": "PYTHONDONTWRITEBYTECODE=1 python -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit_code": 0,
+      "summary": "valid 14/14; invalid 42/42; trees PASS; ledger valid_stable_replays=1 inv_conflicts=1"
+    },
+    {
+      "cmd": "python -B stdin independent residual re-probes (import validate_block_dna_adapt_001; Catalog(); no writes)",
+      "exit_code": 0,
+      "summary": "F-B2-01..03 CLOSED; hardening PASS; blocking_count=0; C0 hashes ALL_MATCH; DNA trees MATCH"
+    }
+  ]
+}

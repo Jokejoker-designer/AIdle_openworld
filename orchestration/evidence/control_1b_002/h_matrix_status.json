@@ -1,0 +1,328 @@
+{
+  "schema": "control_1b_002_q2_h_matrix/1.0",
+  "work_order": "WO-CTRL-1B-002-CONTROL-FOUNDATION-IMPLEMENTATION",
+  "contract": "Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md §10 H-01..H-33",
+  "authority": "VERIFY_ONLY",
+  "honesty_rule": "Missing H-row evidence is NOT PASS. Scaffold-only IDs without executable assertion or headed witness do not pass.",
+  "summary": {
+    "total": 33,
+    "PASS": 25,
+    "FAIL": 8,
+    "verdict_implication": "CHANGES_REQUESTED"
+  },
+  "rows": [
+    {
+      "id": "H-01",
+      "status": "PASS",
+      "evidence": [
+        "integration:hud_max_four_and_non_color_cues",
+        "headed:H-01_exploration_1280x720.png",
+        "headed:H-01_exploration_868x517.png",
+        "meta.hud_actions=4"
+      ],
+      "note": "Exploration boot HUD ≤4 with text+glyph cues"
+    },
+    {
+      "id": "H-02",
+      "status": "PASS",
+      "evidence": [
+        "headed:H-02_composer_focused_1280x720.png",
+        "headed:H-02_composer_focused_868x517.png",
+        "main:_open_companion_composer + set_locomotion_suppressed",
+        "router:prompt_quick_open"
+      ],
+      "note": "Composer open+focus; companion context; locomotion suppress wired"
+    },
+    {
+      "id": "H-03",
+      "status": "FAIL",
+      "evidence": [
+        "code:prompt_send/prompt_newline in InputMap + main_input",
+        "companion:send_current_input present"
+      ],
+      "gap": "No automated smoke that Ctrl+Enter sends and Shift+Enter newline does not send",
+      "note": "Wiring present; executable behavioral assertion missing"
+    },
+    {
+      "id": "H-04",
+      "status": "PASS",
+      "evidence": [
+        "integration:esc_composer_before_pause",
+        "headed:H-04_esc_composer_closed_1280x720.png",
+        "router:resolve_escape→prompt_composer_or_dialogue pause=false"
+      ],
+      "note": "Esc closes composer before pause"
+    },
+    {
+      "id": "H-05",
+      "status": "PASS",
+      "evidence": [
+        "integration:context_hud_updates_on_transition",
+        "headed:H-05_build_mode_1280x720.png",
+        "headed_smoke:H-05_build_mode"
+      ],
+      "note": "Tab/build context; HUD ≤4"
+    },
+    {
+      "id": "H-06",
+      "status": "PASS",
+      "evidence": [
+        "headed_smoke:H-06_exit_build_scaffold",
+        "router:build_mode_toggle toggle path"
+      ],
+      "note": "Exit build returns exploration"
+    },
+    {
+      "id": "H-07",
+      "status": "FAIL",
+      "evidence": [
+        "router:request_context inspect OK",
+        "router smoke:enter_inspect"
+      ],
+      "gap": "No inspect panel UI showing entity provenance without durable mutation in smoke/capture",
+      "note": "Context enter works; provenance visibility not evidenced"
+    },
+    {
+      "id": "H-08",
+      "status": "PASS",
+      "evidence": [
+        "integration:helper_pulse_non_durable",
+        "headed:H-08_helper_pulse_1280x720.png"
+      ],
+      "note": "Helper Pulse non-durable feedback"
+    },
+    {
+      "id": "H-09",
+      "status": "PASS",
+      "evidence": [
+        "integration:esc_homestead_before_pause",
+        "integration:homestead_read_only",
+        "headed:H-09_homestead_panel_1280x720.png",
+        "headed:H-09_homestead_panel_868x517.png"
+      ],
+      "note": "Homestead open read-only; Esc before pause"
+    },
+    {
+      "id": "H-10",
+      "status": "PASS",
+      "evidence": [
+        "integration:r_exploration_no_hologram_rotate",
+        "router:simulate_physical_r dual_fire=false"
+      ],
+      "note": "Exploration R does not rotate hologram"
+    },
+    {
+      "id": "H-11",
+      "status": "PASS",
+      "evidence": [
+        "integration:r_build_rotates_preview_no_dual_fire",
+        "headed:H-11_build_preview_rotate_1280x720.png",
+        "main:build_rotate rotated=true"
+      ],
+      "note": "Build R rotates preview; no dual-fire"
+    },
+    {
+      "id": "H-12",
+      "status": "FAIL",
+      "evidence": [
+        "code:build_rotate_left InputMap + main try_dispatch",
+        "catalog:build_rotate_left allowed in build"
+      ],
+      "gap": "No smoke asserting Q/build_rotate_left actually rotates hologram (only R covered)",
+      "note": "Symmetric left rotate not executable-proven"
+    },
+    {
+      "id": "H-13",
+      "status": "PASS",
+      "evidence": [
+        "integration:esc_preview_before_pause",
+        "headed:H-13_esc_preview_cancelled_1280x720.png",
+        "router:resolve_escape→preview_hologram"
+      ],
+      "note": "Esc cancels preview; no pause"
+    },
+    {
+      "id": "H-14",
+      "status": "PASS",
+      "evidence": [
+        "integration:esc_idle_pause_signal",
+        "headed_smoke:H-14_idle_esc_pause"
+      ],
+      "note": "Idle Esc opens pause"
+    },
+    {
+      "id": "H-15",
+      "status": "PASS",
+      "evidence": [
+        "integration:delete_proposal_ui_path mutation_class=proposal_only",
+        "router:delete_proposal_only",
+        "headed:H-15_delete_proposal_1280x720.png",
+        "main:DELETE_PROPOSAL_UI direct_durable=false"
+      ],
+      "note": "Delete creates proposal path only; not durable delete"
+    },
+    {
+      "id": "H-16",
+      "status": "PASS",
+      "evidence": [
+        "integration:undo_compensation_path",
+        "router:request_undo compensation_request erases_history=false"
+      ],
+      "note": "Ctrl+Z compensation request; history retained"
+    },
+    {
+      "id": "H-17",
+      "status": "FAIL",
+      "evidence": [
+        "companion module proposal-only claim",
+        "composer open capture only"
+      ],
+      "gap": "No headed/headless proof of Companion understanding + Proposal Card surface after prompt send",
+      "note": "Prompt path card UI not captured"
+    },
+    {
+      "id": "H-18",
+      "status": "PASS",
+      "evidence": [
+        "integration:preview_non_authority_flags",
+        "headed H-11 owns_collision=false",
+        "g8:ac5_preview_stages_non_solid"
+      ],
+      "note": "Preview hologram non-authority collision/ownership"
+    },
+    {
+      "id": "H-19",
+      "status": "FAIL",
+      "evidence": [
+        "a11y:confirmation_hold 0 and 0.8 settable",
+        "settings panel surface"
+      ],
+      "gap": "No smoke that significant confirm requires explicit control + hold duration end-to-end",
+      "note": "Hold setting only; confirm UX path incomplete"
+    },
+    {
+      "id": "H-20",
+      "status": "FAIL",
+      "evidence": [
+        "architecture lock product invariant documented",
+        "manifestation stages exist"
+      ],
+      "gap": "No control-suite smoke proving durable state only after confirm/commit path",
+      "note": "Commit boundary not control-smoke closed"
+    },
+    {
+      "id": "H-21",
+      "status": "PASS",
+      "evidence": [
+        "integration:esc_preview_before_pause",
+        "main:cancel_pending Preview cancelled (no orphan)",
+        "headed:H-13_esc_preview_cancelled_1280x720.png"
+      ],
+      "note": "Cancel mid-preview safe; world revision numeric not measured but cancel clears preview"
+    },
+    {
+      "id": "H-22",
+      "status": "PASS",
+      "evidence": [
+        "a11y:remap_known_action interact_primary E→T removes E",
+        "headed:H-22_control_settings_1280x720.png",
+        "headed:H-22_control_settings_868x517.png"
+      ],
+      "note": "Remap interact_primary; E no longer bound after remap"
+    },
+    {
+      "id": "H-23",
+      "status": "PASS",
+      "evidence": ["a11y:left_hand_preset"],
+      "note": "Left-hand preset applies without unknown actions"
+    },
+    {
+      "id": "H-24",
+      "status": "PASS",
+      "evidence": ["a11y:one_hand_preset"],
+      "note": "One-hand preset applies"
+    },
+    {
+      "id": "H-25",
+      "status": "PASS",
+      "evidence": [
+        "a11y:sprint_hold_toggle",
+        "integration:sprint_toggle_surface"
+      ],
+      "note": "Sprint toggle mode works"
+    },
+    {
+      "id": "H-26",
+      "status": "FAIL",
+      "evidence": [
+        "a11y:mouse_sensitivity_clamp",
+        "cozy_camera:_mouse_sensitivity reads ControlAccessibilitySettings"
+      ],
+      "gap": "No observational smoke that sensitivity change is player-visible",
+      "note": "Code path present; observable change not evidenced"
+    },
+    {
+      "id": "H-27",
+      "status": "PASS",
+      "evidence": [
+        "a11y:reduced_motion_screen_shake",
+        "helper_pulse:_apply_reduced_motion_visual"
+      ],
+      "note": "Reduced motion honored; no soft-lock in smokes"
+    },
+    {
+      "id": "H-28",
+      "status": "FAIL",
+      "evidence": [
+        "a11y:cursor_size_scale clamp",
+        "settings panel capture"
+      ],
+      "gap": "No headed proof large cursor remains readable in-world",
+      "note": "Setting exists; readability claim not visual-proven"
+    },
+    {
+      "id": "H-29",
+      "status": "PASS",
+      "evidence": ["a11y:cursor_and_confirmation_hold 0 and 0.8"],
+      "note": "Confirmation hold 0 and ≥0.8 configurable"
+    },
+    {
+      "id": "H-30",
+      "status": "PASS",
+      "evidence": [
+        "context_action_hud:FOCUS_ALL on slots",
+        "control_settings_panel:FOCUS_ALL controls",
+        "homestead close_btn FOCUS_ALL"
+      ],
+      "note": "Confirm/Cancel-class controls keyboard-focusable (not mouse-only)"
+    },
+    {
+      "id": "H-31",
+      "status": "PASS",
+      "evidence": [
+        "integration:hud_max_four_and_non_color_cues",
+        "ACTION_META glyph+pattern+text"
+      ],
+      "note": "Non-color cues on context actions; placement invalid cue inherits pattern/text design"
+    },
+    {
+      "id": "H-32",
+      "status": "PASS",
+      "evidence": [
+        "headed:H-08_helper_pulse_1280x720.png",
+        "integration:helper_pulse_non_durable",
+        "HUD world_ability glyph"
+      ],
+      "note": "Helper Pulse discoverable via V + HUD"
+    },
+    {
+      "id": "H-33",
+      "status": "PASS",
+      "evidence": [
+        "headed:H-09_homestead_panel_1280x720.png",
+        "homestead read-only sections"
+      ],
+      "note": "Homestead Panel reachable without relearning WASD/E"
+    }
+  ]
+}

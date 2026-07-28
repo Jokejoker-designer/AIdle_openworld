@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_CTRL-1B-001_FINAL_ACCEPTANCE_002",
+  "task_id": "CTRL-1B-001",
+  "directive_id": 57,
+  "reviewed_at": "2026-07-22T05:12:54+07:00",
+  "reviewed_by": "codex",
+  "verdict": "ACCEPTED",
+  "accepted": true,
+  "self_accept": false,
+  "acceptance_scope": "Control 1B contract and executable fixture gate only; no Godot product implementation is accepted here",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "children": [
+    {
+      "wave": "A0",
+      "child_task_ref": "019f869a-55bb-7210-b2e7-4396cb276a41",
+      "status": "completed",
+      "started_at": "2026-07-21T21:34:49.279081800Z",
+      "completed_at": "2026-07-21T21:39:50.396677800Z",
+      "durable_meta_sha256": "81173ba39b46c44621946ad8bcc689cf111360db14e38f839c4a17c9d97ea52c"
+    },
+    {
+      "wave": "S1",
+      "child_task_ref": "019f869f-21c3-7513-9d70-c91361eae08a",
+      "status": "completed",
+      "started_at": "2026-07-21T21:40:03.653673400Z",
+      "completed_at": "2026-07-21T21:48:52.468699100Z",
+      "durable_meta_sha256": "8b35efb84333ca374f8f0856744bc102836469172410e19fafb7b4e8c9647831"
+    },
+    {
+      "wave": "C0",
+      "child_task_ref": "019f86b0-4f51-7ff1-b4c8-2b0bb3a34908",
+      "status": "completed",
+      "started_at": "2026-07-21T21:58:49.427885700Z",
+      "completed_at": "2026-07-21T22:05:47.337270Z",
+      "duration_ms": 417909,
+      "durable_meta_sha256": "fec2a61559c088e0f265992cfda31a8a20e426559456e3a4b64b424cbce6008f",
+      "provenance_closed_by": "codex independent post-completion validation"
+    }
+  ],
+  "independent_checks": {
+    "single_parent": true,
+    "directive_56_exact_two_children_sequential": true,
+    "directive_57_exact_one_fresh_child": true,
+    "unexpected_child": false,
+    "maf_receipt_schema_errors": {
+      "A0": 0,
+      "S1": 0,
+      "C0": 0
+    },
+    "valid_fixture_schema_errors": 0,
+    "invalid_cases_executed": 12,
+    "invalid_cases_rejected": 12,
+    "inv08_multi_context_r_rejected": true,
+    "inv09_pause_before_cancel_rejected": true,
+    "duplicate_or_missing_context_rejected": true,
+    "valid_fixture_sha256": "d707bb32c43c005948599987fffa782d9206fb6ac2e04a623820d8b58427200a",
+    "original_a0_receipt_preserved": true,
+    "original_s1_receipt_preserved": true,
+    "original_a0_log_preserved": true,
+    "original_s1_log_preserved": true,
+    "declared_contract_hashes_match": true,
+    "game_write_in_correction_window": false,
+    "harness_exit_code": 0,
+    "harness_result": "PASS"
+  },
+  "accepted_artifacts": [
+    "Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "orchestration/contracts/control_1b/input_context.schema.json",
+    "orchestration/contracts/control_1b/valid_context_fixture.json",
+    "orchestration/contracts/control_1b/invalid_context_fixture.json",
+    "orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "orchestration/receipts/control/CTRL_1B_001_a0_a11y_001.json",
+    "orchestration/receipts/control/CTRL_1B_001_s1_schema_001.json",
+    "orchestration/receipts/control/CTRL_1B_001_c0_schema_correction_002.json"
+  ],
+  "closed_findings": [
+    "CTRL1B-CODEX-F01-DURABLE-META",
+    "CTRL1B-CODEX-F02-INVALID-HARNESS",
+    "CTRL1B-CODEX-F03-CONTEXT-CARDINALITY"
+  ],
+  "residuals": [
+    "This acceptance proves a contract and validator, not runtime controls, headed UX or gameplay.",
+    "CTRL-1B-002 must independently pass headless, headed, accessibility, safety and regression gates before product acceptance.",
+    "Red F01 remains a hard stop before any networked work or shipping."
+  ],
+  "next_route": "DIRECTIVE_58_CTRL_1B_002_IMPLEMENTATION"
+}

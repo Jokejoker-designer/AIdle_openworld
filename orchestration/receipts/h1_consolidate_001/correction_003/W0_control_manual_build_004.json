@@ -1,0 +1,311 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "H1-CONSOLIDATE-001-w0-control-manual-build-004-2026-07-22T145643Z",
+  "step_id": "H1-CONSOLIDATE-001-w0-control-manual-build-004",
+  "work_order_id": "WO-H1-CONSOLIDATE-001-HUMAN-UX-MANUAL-BUILD-CORRECTION-003",
+  "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-HUMAN-UX-MANUAL-BUILD-CORRECTION-003.md",
+  "work_order_sha256": "7f09ebd863997cc916e874dc039ab1a9cc822ef008c7823971643e5fedabc183",
+  "directive_id": 78,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "897441c22b736bae6da44376bd8e41172e0017dc419723ab64d0d06469181559",
+  "directive_state": "IN_PROGRESS",
+  "directive_verdict": "HUMAN_PLAYTEST_FINDINGS_CORRECTION_AUTHORIZED",
+  "supersedes_directive_id": 77,
+  "permitted_task_ids": ["H1-CONSOLIDATE-001"],
+  "review": "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_HUMAN_FINDINGS_004.json",
+  "review_sha256": "8a241faf8cd4d0c7bab1dd54ec3258b3b53551ee65b954a9503f10477ec525b0",
+  "milestone": "H1 Human UX and Manual Build correction — W0 Control/Manual Build product writer",
+  "agent_id": "aidle-worldgen-control-input",
+  "agent_type": "aidle-worldgen-control-input",
+  "profile_name": "aidle-worldgen-control-input",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+  "profile_sha256": "c6b718fb24ea7e1b9ca2453b25cff077c023a582b652307572fbe5184450fe6e",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-control-input; trustlayer_character=blue-team-p0-remediator; ui_character=ui-a11y-auditor; authority_token=PATCH_DRAFT; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set control_and_input under exact WO lease only.",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "W0 sole product/test writer under exact lease only; orchestration log+receipt only outside game; no DNA/Scene/Character/network/shipping/headed-evidence; never ACCEPTED; no grandchildren; no P2E-002/UCBV-001",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:366ad5b034e3658db055b88578ca795a47c37c4a324b7b7d6c31ec5f80be465d",
+  "input_context_hash_16": "366ad5b034e3658d",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-H1-CONSOLIDATE-001-HUMAN-UX-MANUAL-BUILD-CORRECTION-003.md + codex_directive.json + aidle-worldgen-control-input.md + CODEX_H1-CONSOLIDATE-001_HUMAN_FINDINGS_004.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "W0_COMPLETE_ROUTE_W1_RED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "W0_HUMAN_UX_MANUAL_BUILD_PATCHED_NO_ACCEPT",
+  "child_task_ref": "019f8a48-853f-7ec0-8bf1-0608170af2be",
+  "transcript_ref": "019f8a48-853f-7ec0-8bf1-0608170af2be",
+  "writer_transcript_ref": "019f8a48-853f-7ec0-8bf1-0608170af2be",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8a48-853f-7ec0-8bf1-0608170af2be/meta.json",
+  "started_at": "2026-07-22T14:43:56.362661900Z",
+  "completed_at_utc": "2026-07-22T14:56:43Z",
+  "next_owner": "W1_RED",
+  "next_route": "W1_RED",
+  "human_gate_open": false,
+  "human_result": "PLAYTEST_COMPLETED_WITH_FINDINGS_AND_CORRECTION_AUTHORIZED",
+  "human_pass_inferred": false,
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "ui_read": "full_eof",
+    "role": "W0 PATCH_DRAFT sole product/test writer — close H1-HUMAN-UX-01/02 + H1-HUMAN-BUILD-01; no self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO HUMAN-UX-MANUAL-BUILD-CORRECTION-003, Directive 78, ARCHITECTURE_LOCK, HUMAN_FINDINGS_004, skills full EOF manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "read_mode": "full_file_size_hash_verify",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "finding_ids_closed": [
+    "H1-HUMAN-UX-01",
+    "H1-HUMAN-UX-02",
+    "H1-HUMAN-BUILD-01"
+  ],
+  "finding_closures": [
+    {
+      "id": "H1-HUMAN-UX-01",
+      "status": "fixed_not_retested",
+      "summary": "Replaced centered 120x120 ColorRect square with TextureRect annular soft-ring pulse (procedural ring image, expand/fade). presentation=ring_pulse is_square=false."
+    },
+    {
+      "id": "H1-HUMAN-UX-02",
+      "status": "fixed_not_retested",
+      "summary": "Default OS pointer restored: no forced square proxy; custom cursor cleared by default; near-cursor action label only when action_label_near_cursor a11y true; enlarged tip only when cursor_size_scale>1.01; force_custom_cursor default false."
+    },
+    {
+      "id": "H1-HUMAN-BUILD-01",
+      "status": "fixed_not_retested",
+      "summary": "Renamed Small Build→Manual Build in playable_action_bar.gd; begin_manual_build + screen-to-ground ray + snapped cursor follow + valid/invalid hologram feedback; LMB place_at_cursor preview-only; Q/R remain build rotate (Exploration R camera); RMB/Esc cancel once; Confirm→handle_player_confirm→World Commit only."
+    }
+  ],
+  "product_writes": [
+    {
+      "path": "game/scripts/ui/cozy_helper_pulse.gd",
+      "sha256": "ec0d391f5551693be6f809cc5c64c860d8434cac21d66ba156280c8a55dfe685",
+      "bytes": 7154
+    },
+    {
+      "path": "game/scripts/ui/control_1b_cursor_label.gd",
+      "sha256": "109d81611c575f67508df2cdcf33549e0030446ac715f665b51146252f6abbc0",
+      "bytes": 8195
+    },
+    {
+      "path": "game/scripts/ui/playable_action_bar.gd",
+      "sha256": "13c45b2019db3e986db8ba4a69994882ef1c6aa710fcc11406b97172ce60d85c",
+      "bytes": 7876
+    },
+    {
+      "path": "game/scripts/main/main.gd",
+      "sha256": "93c4a3ee618ed2a78921be1992be9a3002659377a78c2180b08856b46ca9a2ca",
+      "bytes": 60903
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+      "sha256": "96efc5a131a516031528c51a11bffea2c52000f04617410a2f2c874b576c648f",
+      "bytes": 45962
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_preview_entity.gd",
+      "sha256": "b6b98744e03f9145f1462b02313b5cb91ee3c2332749d3b559f4859e78f7cc1b",
+      "bytes": 7146
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_hud.gd",
+      "sha256": "a5bcac38983b8dc1a971ef3207b43801e4ee159987a366f71a2dee31e1678739",
+      "bytes": 6493
+    },
+    {
+      "path": "game/autoload/control_accessibility_settings.gd",
+      "sha256": "590eafd4d4af695fa1e512729d2dd6e53b39aed3f12f10d175b5df4279a9948d",
+      "bytes": 10600
+    },
+    {
+      "path": "game/tests/h1_human_ux_manual_build_smoke.gd",
+      "sha256": "ce705a0586fa466aea54734b9d016e809349ea7c5d8a39d88b5f7801c0868aae",
+      "bytes": 17281
+    }
+  ],
+  "orch_writes": [
+    {
+      "path": "orchestration/receipts/h1_consolidate_001/correction_003/W0_control_manual_build_004.json",
+      "role": "this_receipt"
+    },
+    {
+      "path": "orchestration/logs/h1_consolidate_001/correction_003/W0_control_manual_build_004.log",
+      "role": "primary_smoke_log"
+    }
+  ],
+  "lease_respected": true,
+  "out_of_lease_writes": [],
+  "preserve_immutable": [
+    "orchestration/evidence/h1_consolidate_001/001/**",
+    "orchestration/evidence/h1_consolidate_001/002/**",
+    "orchestration/evidence/h1_consolidate_001/003/**",
+    "orchestration/receipts/h1_consolidate_001/**"
+  ],
+  "evidence_writes": [],
+  "result": {
+    "ok": true,
+    "wave": "W0",
+    "product_goal": "Close three human playtest findings: non-square Helper Pulse, OS pointer default, Manual Build cursor-led snapped preview with World Commit-only confirm",
+    "godot_pin": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+    "godot_version": "4.3.stable.official",
+    "invariants_held": [
+      "World Commit sole canonical mutator",
+      "preview non-durable until receipt",
+      "no free-float placement",
+      "Esc single-dispatch preserved",
+      "no absolute /root get_node reintroduced in lease",
+      "Exploration R remains camera; Build R rotates preview",
+      "no P2E-002 or UCBV-001 dispatch"
+    ]
+  },
+  "smoke_test": {
+    "required": true,
+    "primary": {
+      "path": "game/tests/h1_human_ux_manual_build_smoke.gd",
+      "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/h1_human_ux_manual_build_smoke.gd",
+      "result": "PASS",
+      "checks": 9,
+      "marker": "AIDLE_H1_HUMAN_UX_MANUAL_BUILD_SMOKE=PASS checks=9",
+      "log": "orchestration/logs/h1_consolidate_001/correction_003/W0_control_manual_build_004.log"
+    },
+    "regressions": [
+      {
+        "path": "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8"
+      },
+      {
+        "path": "game/tests/p2e001_block_assembly_player_input_smoke.gd",
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_PLAYER_INPUT_SMOKE=PASS checks=5"
+      },
+      {
+        "path": "game/tests/control_1b_context_router_smoke.gd",
+        "result": "PASS",
+        "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16"
+      },
+      {
+        "path": "game/tests/h1_consolidation_flow_smoke.gd",
+        "result": "FAIL",
+        "failed": 1,
+        "passed": 12,
+        "reason": "Stale string assert action_bar_small_build expects 'Small Build' after intentional rename to Manual Build (test out of W0 lease)"
+      },
+      {
+        "path": "game/tests/h1_consolidation_chrome_smoke.gd",
+        "result": "FAIL",
+        "failed": 1,
+        "passed": 5,
+        "reason": "Stale string assert action_bar_small_build_label / tscn still has Small Build (playable_action_bar.tscn + chrome smoke out of W0 lease)"
+      }
+    ]
+  },
+  "self_audit": {
+    "lease_only_writes": true,
+    "absolute_root_lookup_reintroduced": false,
+    "self_accept": false,
+    "accepted": false,
+    "human_pass_inferred": false,
+    "p2e002_dispatched": false,
+    "ucbv001_dispatched": false,
+    "evidence_001_002_003_immutable": true,
+    "world_commit_sole_mutator": true,
+    "dual_esc_dispatch": false,
+    "free_float_allowed": false,
+    "residuals": [
+      {
+        "id": "W0-RES-01",
+        "severity": "medium",
+        "item": "h1_consolidation_chrome_smoke.gd and h1_consolidation_flow_smoke.gd still assert source string 'Small Build'; playable_action_bar.tscn still ships text Small Build (runtime gd overrides to Manual Build).",
+        "owner": "parent_or_followup_test_lease",
+        "in_w0_lease": false
+      },
+      {
+        "id": "W0-RES-02",
+        "severity": "low",
+        "item": "Headed dual-resolution visual proof of ring pulse, OS pointer, and cursor-led Manual Build deferred to W2 QA (W0 is headless product writer only).",
+        "owner": "W2_QA",
+        "in_w0_lease": false
+      }
+    ],
+    "blocked_actions_not_taken": [
+      "self-accept",
+      "infer Human PASS",
+      "dispatch P2E-002",
+      "dispatch UCBV-001",
+      "network/live provider/credentials",
+      "install/Godot version change",
+      "push/deploy/publish",
+      "evidence write under 001/002/003",
+      "parent product patch"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/h1_consolidate_001/correction_003/W0_control_manual_build_004.log",
+    "orchestration/receipts/h1_consolidate_001/correction_003/W0_control_manual_build_004.json"
+  ],
+  "next_route": "W1_RED"
+}

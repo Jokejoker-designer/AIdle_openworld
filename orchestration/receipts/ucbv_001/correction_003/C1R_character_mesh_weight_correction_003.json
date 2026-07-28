@@ -1,0 +1,406 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "UCBV-001-c1r-mesh-weight-correction-003-2026-07-23",
+  "step_id": "UCBV-001-c1r-mesh-weight-correction-003",
+  "work_order_id": "WO-UCBV-001-C1-MESH-WEIGHT-CORRECTION-004",
+  "work_order": "orchestration/work_orders/WO-UCBV-001-C1-MESH-WEIGHT-CORRECTION-004.md",
+  "work_order_addendum": "orchestration/work_orders/WO-UCBV-001-MOTION-KIT-ADDENDUM-003.md",
+  "base_work_order": "orchestration/work_orders/WO-UCBV-001-STRICT-CORRECTION-002.md",
+  "directive_id": 85,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_state": "READY",
+  "directive_verdict": "CHANGES_REQUESTED_C1_SOURCE_MESH_INVALID_C2_BLOCKED",
+  "gate_review": "orchestration/reviews/CODEX_UCBV-001_C1_CHARACTER_GATE_004.json",
+  "human_decision": "AUTHORIZE_STRICT_UCBV_CORRECTION",
+  "waiver": false,
+  "permitted_task_ids": ["UCBV-001"],
+  "queued_not_authorized": ["P2E-002 AI Build Zone drag-selection and text-to-build intake - after Codex and Human accept UCBV-001"],
+  "milestone": "UCBV-001 C1 invalid deform-weight correction",
+  "agent_id": "aidle-worldgen-asset-art",
+  "agent_type": "aidle-worldgen-asset-art",
+  "profile_name": "aidle-worldgen-asset-art",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+  "profile_sha256": "58589f36dc42758ea9fce3f058ec5323351a086ae1cd06185ab39bb6624c6c28",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-asset-art; trustlayer_character=blue-team-p0-remediator; ui_character=ui-color-type-specialist; authority_token=PATCH_DRAFT; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,od-reference-design-contract; parent_spawn_only=true; no_grandchildren=true; self_accept=false.",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "exact lease: game/assets/ucbv_001/character/nori7/** + game/resources/ucbv_001/character/** + orchestration/design/ucbv_001/character/nori7/** + orch receipt/log correction_003 C1R only; no motion_kit edit; no C2 runtime; no P2E-002; no grandchildren; never ACCEPTED; correction_002 immutable",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:81d9bf047782bd5fc4ca2cc12bab3faf5c1da0ebc28843d0207bbe9dac3fb143",
+  "input_context_hash_16": "81d9bf047782bd5f",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-UCBV-001-C1-MESH-WEIGHT-CORRECTION-004.md + codex_directive.json + CODEX_UCBV-001_C1_CHARACTER_GATE_004.json + aidle-worldgen-asset-art.md + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C1R_COMPLETE_ROUTE_CODEX_GATE_NO_C2_SPAWN",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C1R_MESH_WEIGHT_CORRECTION_PASS_ROUTE_CODEX_GATE_NO_ACCEPT",
+  "need_human": false,
+  "child_task_ref": "019f8c18-933b-7d21-9ecd-bcdda4023cf8",
+  "transcript_ref": "019f8c18-933b-7d21-9ecd-bcdda4023cf8",
+  "writer_transcript_ref": "019f8c18-933b-7d21-9ecd-bcdda4023cf8",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_lineage_note": "C0 child 019f8bf6-ac4c-7012-911d-06750ea92812 completed not accepted; C1 child 019f8c08-d346-7250-b834-1887b51713c6 rejected as C2 input (CHANGES_REQUESTED C1-CODEX-F01/F02/F03); correction_002 receipt/log immutable; U0-U8 immutable",
+  "c0_child_ref": "019f8bf6-ac4c-7012-911d-06750ea92812",
+  "c1_child_ref_rejected": "019f8c08-d346-7250-b834-1887b51713c6",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8c18-933b-7d21-9ecd-bcdda4023cf8/meta.json",
+  "started_at": "2026-07-22T23:10:48Z",
+  "completed_at_utc": "2026-07-22T23:18:45Z",
+  "next_owner": "CODEX_C1R_GATE",
+  "next_route": "CODEX_C1R_GATE_THEN_C2_IF_ACCEPTED",
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-color-type-specialist",
+    "ui_file": "E:/agents/ui-design/characters/06-ui-color-type-specialist.md",
+    "ui_sha256": "c4a6b6e7c541c0d8be7f0b66a010955a58133fc9d44dbc3577d0fdf8b8d4c169",
+    "ui_read": "full_eof",
+    "role": "C1R PATCH_DRAFT sole writer for mesh-weight + clean-export correction under exact lease; no self-accept; no C2 spawn"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded Agents.md, profile, TrustLayer/UI cards, Directive 85, WO-004, C1 gate review 004, motion kit (read-only), skills (5 ALWAYS + od-reference-design-contract), agent_step_contract schema manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "chunked_and_eof_confirm",
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "od-reference-design-contract",
+      "mode": "PROFILE_REQUIRED",
+      "source": "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+      "sha256": "8b5e62a123a180e5f1b8e0b7f97605d257f85bf0a2b0ca7f8c7475b54e007775",
+      "bytes": 5367,
+      "line_count": 130,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/**",
+    "E:/AIdle_openworld/game/resources/ucbv_001/character/**",
+    "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/**",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/correction_003/C1R_character_mesh_weight_correction_003.log",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/correction_003/C1R_character_mesh_weight_correction_003.json"
+  ],
+  "product_writes": [
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+      "sha256": "e16d6af8e121879bc3080f2b64d281ee00975ef195db60b622917c28ca594b7f",
+      "bytes": 629164,
+      "role": "production_skinned_glb_weight_corrected"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/export/nori7_rigged.blend",
+      "sha256": "ba1a04458949d2aacb86dce184b5e1959041c615f2adefc0016b71aef2cbfd36",
+      "bytes": 218171,
+      "role": "offline_blender_source_weight_corrected"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/export/nori7_bridge_job_manifest.json",
+      "sha256": "606bda261af26930ac57027ba06f41ddd25141be0ec214ab9ae6a0421b325f17",
+      "bytes": 1883,
+      "role": "bridge_job_package_manifest"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/export/nori7_glb_validation.json",
+      "sha256": "5e162f45dfb7038b7e223297452abbda4d30921ff5b000dd9ebfce3ef7dcbfa7",
+      "bytes": 6640,
+      "role": "glb_validation"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/export/glb_export_contract.json",
+      "sha256": "3a522a418f9012777385424609f325c812bbc36d454cd0150e2a0515c7189420",
+      "bytes": 4142,
+      "role": "export_contract_hash_update"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/package_manifest.json",
+      "sha256": "d5b50b2be1857cb745f97ed06a1dc715b419ad600fea296fce17cbdbe5164aff",
+      "bytes": 4174,
+      "role": "package_manifest_c1r"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/provenance.json",
+      "sha256": "926011756869a0aa2e7cbf4e5c35a27709df6351f0fea7ecac174f750351e869",
+      "bytes": 3191,
+      "role": "provenance_c1r"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/mesh/nori7_mesh_descriptor.json",
+      "sha256": "d356e74db05de99c9cf53e573860a46e07d402a0b529e31644462cdd1a1b53c1",
+      "bytes": 7347,
+      "role": "mesh_descriptor_hash_update"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/resources/ucbv_001/character/nori7_animation_adapter.json",
+      "sha256": "cf31da4d7decb9cb22c75488b5955409df294642d662e15f171fff1cc6599041",
+      "bytes": 9402,
+      "role": "animation_adapter_hash_update"
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/C1_character_production_handoff.md",
+      "sha256": "55624fe97ff23b0d30c13ea1f98791a1d11e99ccfe52c3be23e91fee6dcef929",
+      "bytes": 3100,
+      "role": "design_handoff_c1r"
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/implementation-handoff.md",
+      "sha256": "fe1752c05beb8724ce854d06d66c0e12d97e4a2df18f7ccbac9d4343c63d324c",
+      "bytes": 2439,
+      "role": "implementation_handoff_c1r"
+    }
+  ],
+  "out_of_lease_writes": [],
+  "findings_closed": [
+    {
+      "id": "C1-CODEX-F01",
+      "status": "FIXED",
+      "detail": "Clamped 5 deform weights >1.0 to [0,1], normalized 1790 vertices, zero nonfinite; mesh.validate(clean_customdata=false, verbose=true) returns false with empty stdout (zero deform-weight errors)."
+    },
+    {
+      "id": "C1-CODEX-F02",
+      "status": "FIXED",
+      "detail": "Fresh GLB export log contains zero ERROR, zero traceback, zero 'Mesh ... is not valid' warning; zero DeprecationWarning (no use_nodes assignment in correction script)."
+    },
+    {
+      "id": "C1-CODEX-F03",
+      "status": "FIXED",
+      "detail": "Separate clean log written under correction_003; correction_002 receipt/log left immutable (sha256 verified)."
+    }
+  ],
+  "result": {
+    "status": "PASS_NO_ACCEPT",
+    "summary": "C1R mesh-weight correction under Directive 85: opened rejected C1 blend, clamped/normalized deform weights without new vertex groups or hierarchy change, mesh.validate=false with zero deform errors, restored 10 actions with fake_user, exported clean GLB, independent re-import gates pass. Motion kit RO green 7/7. Route Codex C1R gate; do not spawn C2.",
+    "character_id": "CCP-RH-001",
+    "recipe_id": "recipe_nori7_v1",
+    "skeleton_id": "skel_small_biped_robot_v1",
+    "animation_set_id": "anim_robot_gardener_v1",
+    "glb_path": "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "glb_sha256": "e16d6af8e121879bc3080f2b64d281ee00975ef195db60b622917c28ca594b7f",
+    "glb_bytes": 629164,
+    "blend_sha256": "ba1a04458949d2aacb86dce184b5e1959041c615f2adefc0016b71aef2cbfd36",
+    "blend_bytes": 218171,
+    "package_hash_sha256": "561a543aac9efbe4da93ab3479616970279a42c91f293d8965ba276ee33015d9",
+    "bridge_job_id": "BLD-UCBV-C1R-NORI7-019F8C18",
+    "bone_count": 14,
+    "skinned": true,
+    "root_motion": false,
+    "layer_a_clips": ["idle", "walk", "scan", "happy", "cancel"],
+    "layer_b_clips": ["turn_left", "turn_right", "build_place", "build_place_hold", "confirm"],
+    "deferred_optional": ["water", "plant_seed", "harvest", "charge", "low_energy"],
+    "cream_hex": "#fdf3e2",
+    "cream_shade_hex": "#efe0c8",
+    "leaf_hex": "#7fc98f",
+    "triangle_count": 3468,
+    "mesh_validate_return": false,
+    "mesh_validate_deform_weight_errors": 0,
+    "export_error_count": 0,
+    "export_mesh_not_valid_warning_count": 0,
+    "export_deprecation_warning_count": 0,
+    "import_proof": {
+      "exactly_one_scene_mesh": true,
+      "bones_exact_14": true,
+      "actions_exact_10": true,
+      "actions_all_nonzero_duration": true,
+      "actions_all_transform_channels": true,
+      "materials_exact_9": true,
+      "sockets_exact_4": true,
+      "imported_meshes_validate_without_correction": true,
+      "binary_glb_mesh_count": 1
+    },
+    "tier3_honesty": "names_compatibility_only_not_payload",
+    "extension_honesty": "game_local_not_from_tier3"
+  },
+  "motion_kit": {
+    "path": "orchestration/control/motion_kit/",
+    "edited": false,
+    "command": "python validate_motion_primitives.py",
+    "cwd": "E:/AIdle_openworld/orchestration/control/motion_kit",
+    "exit_code": 0,
+    "result": "ALL CHECKS GREEN",
+    "source_clip_coverage": "172/172",
+    "signature_unique_must_author": "35/35",
+    "hash_integrity_match": true,
+    "hashes_verified_against_binding_review": [
+      "motion_primitives.json",
+      "motion_primitives.schema.json",
+      "validate_motion_primitives.py",
+      "gen_motion_primitives.py",
+      "reference/motion_primitive_adapter.gd",
+      "reference/animation_tree_wiring.md",
+      "README_BUILD_GUIDE.md"
+    ],
+    "scope_limit_honored": "Nori-7 / skel_small_biped_robot_v1 only; not all 172 clips or 14 skeletons",
+    "reference_adapter_copied_to_game": false
+  },
+  "blender_bridge": {
+    "mode": "offline_real",
+    "executable": "E:/blender.exe",
+    "version": "5.2.0 LTS",
+    "flags": ["--background", "--factory-startup", "--disable-autoexec", "--python-exit-code 20"],
+    "worker_script_os_temp": "C:/Users/phant/AppData/Local/Temp/ucbv_c1r_nori7_mesh_weight/c1r_mesh_weight_correction.py",
+    "exit_code": 0,
+    "job_id": "BLD-UCBV-C1R-NORI7-019F8C18",
+    "post_export_gate": "joints=14 anims=10 skins=1 mesh_nodes=1 materials=9",
+    "validate_pre_save": false,
+    "validate_pre_export": false
+  },
+  "smoke_test": {
+    "executed": true,
+    "checks": [
+      {
+        "id": "pre_correction_weight_errors",
+        "result": "CONFIRMED_F01",
+        "details": "5 vertices deform group 9 weight 1.0000001; validate=True"
+      },
+      {
+        "id": "weight_clamp_normalize",
+        "result": "PASS",
+        "details": "clamped=5; normalized_vertices=1790; groups_unchanged=14; no new vertex groups"
+      },
+      {
+        "id": "mesh_validate_false",
+        "result": "PASS",
+        "details": "mesh.validate(clean_customdata=false, verbose=true) return=False; VALIDATE_STDOUT_EMPTY; zero deform-weight errors"
+      },
+      {
+        "id": "clean_glb_export",
+        "result": "PASS",
+        "details": "ERROR=0; Mesh_is_not_valid=0; DeprecationWarning=0; traceback=0; exit_code=0"
+      },
+      {
+        "id": "independent_reimport_proof",
+        "result": "PASS",
+        "details": "1 skinned mesh; 14 bones; 10 actions nonzero duration+channels; 9 materials; 4 sockets; import validate=False"
+      },
+      {
+        "id": "motion_kit_validator",
+        "command": "python validate_motion_primitives.py",
+        "exit_code": 0,
+        "result": "ALL CHECKS GREEN"
+      },
+      {
+        "id": "motion_kit_hash_integrity",
+        "result": "PASS_7_of_7"
+      },
+      {
+        "id": "correction_002_immutable",
+        "result": "PASS",
+        "receipt_sha256": "3b0bc4426546dcb98f32790dafc82bab74e8f5dfd7900e60b11cf33d51730cdb",
+        "log_sha256": "fe6a85462101b7bfa09d620a72501c884307733fe01e31fae883c45c3f1f8151"
+      },
+      {
+        "id": "lease_hygiene",
+        "result": "PASS",
+        "out_of_lease_writes": [],
+        "motion_kit_unedited": true,
+        "no_helper_tmp_under_orch_logs": true
+      }
+    ],
+    "overall": "PASS"
+  },
+  "self_audit": {
+    "exact_lease_respected": true,
+    "out_of_lease_writes": [],
+    "motion_kit_edited": false,
+    "correction_002_rewritten": false,
+    "c0_rewritten": false,
+    "u0_u8_rewritten": false,
+    "p2e_002_touched": false,
+    "network_used": false,
+    "install_performed": false,
+    "grandchildren_spawned": false,
+    "c2_spawned": false,
+    "self_accept": false,
+    "accepted": false,
+    "red_f01_network_shipping_hard_stop_honored": true,
+    "character_redesign_avoided": true,
+    "action_names_unchanged": true,
+    "bone_hierarchy_unchanged": true,
+    "anim_scope_not_expanded": true,
+    "runtime_untouched": true,
+    "one_writer_per_file": true,
+    "commands_logged_to_leased_log_or_os_temp": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/ucbv_001/correction_003/C1R_character_mesh_weight_correction_003.log",
+    "orchestration/reviews/CODEX_UCBV-001_C1_CHARACTER_GATE_004.json",
+    "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "game/assets/ucbv_001/character/nori7/export/nori7_glb_validation.json",
+    "game/assets/ucbv_001/character/nori7/export/nori7_bridge_job_manifest.json",
+    "game/resources/ucbv_001/character/nori7_animation_adapter.json",
+    "orchestration/receipts/ucbv_001/correction_002/C1_character_production_002.json"
+  ],
+  "do_not_spawn": ["C2", "C3", "C4", "C5"],
+  "forbidden_observed_none": [
+    "motion_kit_edit",
+    "correction_002_rewrite",
+    "network",
+    "install",
+    "push",
+    "deploy",
+    "publish",
+    "grandchildren",
+    "self_accept",
+    "p2e_002",
+    "dna_v1.2",
+    "tier3_activation",
+    "c2_spawn"
+  ]
+}

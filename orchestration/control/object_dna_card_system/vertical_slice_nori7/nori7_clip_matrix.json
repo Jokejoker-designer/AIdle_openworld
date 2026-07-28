@@ -1,0 +1,28 @@
+{
+  "schema_version": "object_dna_card_system/clip_matrix/0.1",
+  "character_id": "CCP-RH-001",
+  "family_id": "robot_biped_small_v1",
+  "rows": [
+    {"clip_id": "idle", "package": "pkg_robot_core_v1", "status": "REAL", "source": "mockup_parity_glb"},
+    {"clip_id": "walk", "package": "pkg_robot_core_v1", "status": "REAL", "source": "mockup_parity_glb"},
+    {"clip_id": "scan", "package": "pkg_robot_core_v1", "status": "REAL", "source": "mockup_parity_glb"},
+    {"clip_id": "happy", "package": "pkg_robot_core_v1", "status": "REAL", "source": "mockup_parity_glb"},
+    {"clip_id": "cancel", "package": "pkg_robot_core_v1", "status": "REAL", "source": "mockup_parity_glb"},
+    {"clip_id": "turn_left", "package": "pkg_ucbv_build_v1", "status": "REAL", "source": "ucbv_extension"},
+    {"clip_id": "turn_right", "package": "pkg_ucbv_build_v1", "status": "REAL", "source": "ucbv_extension"},
+    {"clip_id": "build_place", "package": "pkg_ucbv_build_v1", "status": "REAL", "source": "ucbv_extension"},
+    {"clip_id": "build_place_hold", "package": "pkg_ucbv_build_v1", "status": "REAL", "source": "ucbv_extension"},
+    {"clip_id": "confirm", "package": "pkg_ucbv_build_v1", "status": "REAL", "source": "ucbv_extension"},
+    {"clip_id": "water", "package": "pkg_gardener_v1", "status": "REAL", "source": "author_nori7_gardener_clips_v1"},
+    {"clip_id": "plant_seed", "package": "pkg_gardener_v1", "status": "REAL", "source": "author_nori7_gardener_clips_v1"},
+    {"clip_id": "harvest", "package": "pkg_gardener_v1", "status": "REAL", "source": "author_nori7_gardener_clips_v1"},
+    {"clip_id": "charge", "package": "pkg_gardener_v1", "status": "REAL", "source": "author_nori7_gardener_clips_v1"},
+    {"clip_id": "low_energy", "package": "pkg_gardener_v1", "status": "REAL", "source": "author_nori7_gardener_clips_v1"}
+  ],
+  "family_taxonomy_shared_list_not_required_as_is": {
+    "note": "SOURCE §5.5 shared robot/door/wheel list includes open/close/jammed — not required for biped gardener profile",
+    "not_in_nori_scope": ["rotate", "open", "close", "activate", "shutdown", "repair", "jammed", "broken", "discharge"]
+  },
+  "accepted": false,
+  "self_accept": false
+}

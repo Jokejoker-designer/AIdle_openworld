@@ -1,0 +1,386 @@
+{
+  "agent_step_id": "P1E-001-w3-qa-001-2026-07-21",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:a0cbf50c99c8e593ed1ceaae0532fe18ea7d3e94d834198193ee389834c28dad",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f84e6-bf22-72b0-9763-4de7dc6ef959",
+  "transcript_ref": "019f84e6-bf22-72b0-9763-4de7dc6ef959",
+  "writer_transcript_ref": "019f84e6-bf22-72b0-9763-4de7dc6ef959",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f84e2-53d1-7910-b044-d2e9fbb978cb",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/p1e-001-w3-qa-001.log",
+  "handoff_ref": "P1E_001_W4_PURPLE",
+  "start_time": "2026-07-21T13:39:02Z",
+  "end_time": "2026-07-21T13:42:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-qa-evidence; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; authority_token=VERIFY_ONLY; required_skills include evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches product; writer_set tests_logs_screenshots_receipts_only.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "evidence-memory-ledger"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded Agents.md + aidle-worldgen-qa-evidence profile + WO-P1E-001 + W1/W2 receipts + evidence/p1e + Bridge quarantine BLD-E6BCC14D117E + agent_step_contract schema manually. No bootstrap loop.",
+  "character_binding": {
+    "trustlayer": "purple-team-finding-triage",
+    "ui": "ui-a11y-auditor"
+  },
+  "skills_loaded": [
+    {"skill_id": "maf-mandatory-standard", "version": "1.0"},
+    {"skill_id": "trustlayer-x16-crew", "version": "1.0"},
+    {"skill_id": "agentwork-knowledge-loop", "version": "1.0"},
+    {"skill_id": "project-room-collab", "version": "1.0"},
+    {"skill_id": "curiosity-engine", "version": "1.0"},
+    {"skill_id": "evidence-memory-ledger", "version": "1.0"}
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-001-COZY-STARTER-REALM-KIT.md",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_001_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_001_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/p1e_scene_manifest.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/p1e_validation.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/p1e_library_hashes.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/lighting_before_after.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/lighting_before_p0e_BLD-BADA873442E7.png",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/lighting_after_p1e_BLD-E6BCC14D117E.png",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/p1e_starter_realm_preview.png",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/modules/",
+    "E:/AIdle_Blender_Bridge_P0/config/environment_modules.yaml",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-E6BCC14D117E/",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-E6BCC14D117E/",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_001_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-001-w3-qa-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "P1E-001",
+    "work_order": "orchestration/work_orders/WO-P1E-001-COZY-STARTER-REALM-KIT.md",
+    "wave": "P1E_001_W3_QA",
+    "profile": "aidle-worldgen-qa-evidence",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "status": "REVIEW_REQUESTED",
+    "verdict": "PARTIAL_PASS_GODOT_BLOCKED",
+    "summary": "VERIFY_ONLY Wave 3 QA for P1E W1 probe BLD-E6BCC14D117E (prior Red 019f84e2). Full Bridge pytest 44 passed; compileall OK; independent library SHA-256 FAIL=0/7 and job module SHA-256 FAIL=0/9; quarantine↔evidence byte-identical for scene_manifest/validation/preview; independent preview luma max_channel=255 avg_luma_255=219.35 cyan_ish=0 (matches Red ±noise on whiteish count). Headed review: AC1 isometric readability, AC3 build plot, AC4 path continuity, AC8 greenhouse distinct PASS; AC2 env house OK / player+Companion silhouettes deferred Godot. AC5 unique module_ids=7 PASS. AC6/AC7/AC9/AC10/AC11 BLOCKED_GODOT_OVERRIDE_REQUIRED (no Godot product work; Directive 50 / grok_status.godot_override_required=true). Optional second real Blender job SKIPPED_EXCLUSIVE_WRITE_SCOPE (would write Bridge storage outside exclusive writes); existing real job re-verified instead. Residuals R-MED-01 high-key washout and R-MED-02 PREVIEW→SHELTER content_phase carry forward non-blocking. product_writes=[]. Handoff P1E_001_W4_PURPLE. accepted=false.",
+    "real_blender_job_id": "BLD-E6BCC14D117E",
+    "optional_second_blender_job": {
+      "attempted": false,
+      "status": "SKIPPED_EXCLUSIVE_WRITE_SCOPE",
+      "reason": "Second real env job would write AIdle_Blender_Bridge_P0/storage/generated_quarantine/** and jobs/** outside exclusive writes (receipt/log/optional evidence/p1e only). Independent re-verify of existing QUARANTINED_COMPLETE job BLD-E6BCC14D117E substitutes for regression evidence."
+    },
+    "prior_wave": {
+      "child_task_ref": "019f84e2-53d1-7910-b044-d2e9fbb978cb",
+      "receipt": "orchestration/receipts/p1e/P1E_001_w2_red_001.json",
+      "wave": "P1E_001_W2_RED",
+      "probe": "BLD-E6BCC14D117E"
+    },
+    "blue_wave": {
+      "child_task_ref": "019f84d9-ad4c-7f50-8dd5-7fb7b24b03b2",
+      "receipt": "orchestration/receipts/p1e/P1E_001_w1_blue_001.json",
+      "wave": "P1E_001_W1_BLUE",
+      "probe": "BLD-E6BCC14D117E"
+    },
+    "acceptance_criteria_matrix": [
+      {
+        "id": "AC1",
+        "criterion": "Isometric readability — scene reads without UI",
+        "verdict": "PASS",
+        "evidence": "Headed review of lighting_after / p1e_starter_realm_preview (768x512). Soft isometric tabletop layout; all 7 module classes + path run + yellow build plot readable without UI chrome. Contrast vs P0E before (max_channel 99 underexposed)."
+      },
+      {
+        "id": "AC2",
+        "criterion": "House, player and Companion silhouettes not occluded",
+        "verdict": "PARTIAL_PASS",
+        "detail": "House silhouette clear and unoccluded in Blender env preview. Player and Companion silhouettes are not present in environment-only headed PNGs — requires Godot harness capture after GODOT_OVERRIDE. Not a Blue reopen.",
+        "godot_required": true
+      },
+      {
+        "id": "AC3",
+        "criterion": "Build plot clearly visible",
+        "verdict": "PASS",
+        "evidence": "Yellow/cream square under house is distinct from soft green ground plane in after/preview PNGs. Manifest build_plot center=[4,-2,0] size 10x10x5."
+      },
+      {
+        "id": "AC4",
+        "criterion": "Path continuity across cozy_path_stone_A placements",
+        "verdict": "PASS",
+        "evidence": "Three path stone instances (path_01/02/03) form continuous walkway between farm plot and greenhouse in headed preview; scene_manifest has 3 PATH placements."
+      },
+      {
+        "id": "AC5",
+        "criterion": "Module IDs unique across the registry",
+        "verdict": "PASS",
+        "evidence": "environment_modules.yaml: 7 module_ids, all unique. Matches p1e_library_hashes.json module list."
+      },
+      {
+        "id": "AC6",
+        "criterion": "GLB import into the Godot harness succeeds",
+        "verdict": "BLOCKED_GODOT_OVERRIDE_REQUIRED",
+        "detail": "No game/** writes this wave. grok_status.godot_override_required=true. Directive 50 fence held. Newest game files predate W1 (2026-07-21 ~17:20 local, G8 UX era)."
+      },
+      {
+        "id": "AC7",
+        "criterion": "Navigation bake succeeds on the assembled realm",
+        "verdict": "BLOCKED_GODOT_OVERRIDE_REQUIRED",
+        "detail": "Nav bake is Godot-side; not attempted under VERIFY_ONLY without override."
+      },
+      {
+        "id": "AC8",
+        "criterion": "Greenhouse preview reads as visually distinct from complete",
+        "verdict": "PASS",
+        "evidence": "Greenhouse = translucent mint glass box with floating roof and warm lamp; house = solid blue-gray body on yellow plot. Distinct form/material language. cyan_ish_px=0."
+      },
+      {
+        "id": "AC9",
+        "criterion": "Cancel leaves no geometry behind",
+        "verdict": "BLOCKED_GODOT_OVERRIDE_REQUIRED",
+        "detail": "Cancel/manifestation path is Godot executor; not executable without intake."
+      },
+      {
+        "id": "AC10",
+        "criterion": "Collision activates only in Godot after completion (preview non-solid)",
+        "verdict": "BLOCKED_GODOT_OVERRIDE_REQUIRED",
+        "detail": "Collision policy is Godot manifestation staging; registry collider_profile present but runtime not verified."
+      },
+      {
+        "id": "AC11",
+        "criterion": "Save/reload preserves the assembled realm",
+        "verdict": "BLOCKED_GODOT_OVERRIDE_REQUIRED",
+        "detail": "Persist/save-reload requires Godot intake + persist path; not run."
+      },
+      {
+        "id": "AC12",
+        "criterion": "No pre-existing test regresses (suite 44)",
+        "verdict": "PASS",
+        "evidence": "python -m pytest tests/ in AIdle_Blender_Bridge_P0 → 44 passed, 1 warning (Starlette TestClient deprecation), exit 0. compileall app/blender_scripts/tests → COMPILEALL_OK."
+      }
+    ],
+    "ac_summary": {
+      "pass": ["AC1", "AC3", "AC4", "AC5", "AC8", "AC12"],
+      "partial_pass": ["AC2"],
+      "blocked_godot_override_required": ["AC6", "AC7", "AC9", "AC10", "AC11"],
+      "fail": [],
+      "pass_count": 6,
+      "partial_count": 1,
+      "blocked_count": 5,
+      "fail_count": 0
+    },
+    "independent_measurements": {
+      "pytest": {
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "cmd": "python -m pytest tests/ --tb=no",
+        "result": "44 passed, 1 warning in 1.11s",
+        "exit_code": 0
+      },
+      "compileall": {
+        "paths": [
+          "E:/AIdle_Blender_Bridge_P0/app",
+          "E:/AIdle_Blender_Bridge_P0/blender_scripts",
+          "E:/AIdle_Blender_Bridge_P0/tests"
+        ],
+        "result": "COMPILEALL_OK",
+        "exit_code": 0
+      },
+      "library_sha256_fail_count": 0,
+      "library_sha256_ok_count": 7,
+      "job_module_sha256_fail_count": 0,
+      "job_module_sha256_ok_count": 9,
+      "module_count_registry": 7,
+      "module_ids_unique": true,
+      "job_receipt": {
+        "job_id": "BLD-E6BCC14D117E",
+        "state": "QUARANTINED_COMPLETE",
+        "runner_mode": "real",
+        "exit_code": 0,
+        "output_class": "STARTER_REALM",
+        "seed": 21072026,
+        "blender_cmd_flags": ["--background", "--factory-startup", "--disable-autoexec", "--python-exit-code", "20"]
+      },
+      "lighting": {
+        "before_job": "BLD-BADA873442E7",
+        "before_max_channel_255": 99,
+        "before_avg_luma_255": 56.8753,
+        "after_job": "BLD-E6BCC14D117E",
+        "after_max_channel_255": 255,
+        "after_avg_luma_255": 219.3529,
+        "after_avg_luma": 0.860207,
+        "cyan_ish_px_after": 0,
+        "whiteish_px_after": 689,
+        "whiteish_pct_after": 0.1752,
+        "validation_preview_luma_avg_255": 218.90740024931108,
+        "note": "Independent PIL scan vs validation.json preview_luma: avg_luma_255 within ~0.45 (different luma formula / float path); max_channel and underexposure closure confirmed."
+      },
+      "quarantine_evidence_byte_match": {
+        "scene_manifest.json": true,
+        "validation.json": true,
+        "starter_realm_preview.png_vs_p1e_starter_realm_preview": true,
+        "starter_realm_preview.png_vs_lighting_after": true
+      },
+      "preview_sha256": "e931f75dc22b132c35f268663665d849228de3563e61b97cd82231b34e734282",
+      "manifest": {
+        "job_id": "BLD-E6BCC14D117E",
+        "output_class": "STARTER_REALM",
+        "blender_version": "5.2.0 LTS",
+        "placements": 9,
+        "triangle_count": 4364,
+        "object_count": 44
+      },
+      "headed_pngs": {
+        "lighting_before": "orchestration/evidence/p1e/lighting_before_p0e_BLD-BADA873442E7.png",
+        "lighting_after": "orchestration/evidence/p1e/lighting_after_p1e_BLD-E6BCC14D117E.png",
+        "preview": "orchestration/evidence/p1e/p1e_starter_realm_preview.png",
+        "dimensions": "768x512",
+        "after_eq_preview": true
+      },
+      "godot_fence": {
+        "godot_override_required": true,
+        "game_product_writes_this_wave": 0,
+        "newest_game_mtime_observed": "2026-07-21T17:20:32 local (G8 UX files; pre-W1 window relative to Blender kit authoring)"
+      }
+    },
+    "red_findings_carry_forward": [
+      {
+        "id": "R-MED-01",
+        "severity": "medium",
+        "status": "CONFIRMED_RESIDUAL",
+        "title": "Preview still high-key; pond/house materials partially washed",
+        "detail": "W3 independent avg_luma_255=219.35 max_channel=255 whiteish_px=689 (0.175%). Silhouettes still readable; material midtones compromised. Non-blocking for Purple on Blender kit gate; recommend beauty retune before Godot intake polish."
+      },
+      {
+        "id": "R-MED-02",
+        "severity": "medium",
+        "status": "CONFIRMED_RESIDUAL",
+        "title": "Greenhouse class PREVIEW maps content_phase=SHELTER",
+        "detail": "Track through Godot import contract when override opens."
+      },
+      {
+        "id": "R-LOW-03",
+        "severity": "low",
+        "status": "CONFIRMED_RESIDUAL",
+        "title": "Library blend/glb sidecar vs job instance GLB hash dual-source"
+      },
+      {
+        "id": "R-LOW-04",
+        "severity": "low",
+        "status": "CONFIRMED_RESIDUAL",
+        "title": "lods[] policy-only; no discrete LOD mesh artifacts"
+      }
+    ],
+    "character_binding_detail": {
+      "trustlayer_character_id": "purple-team-finding-triage",
+      "ui_character_id": "ui-a11y-auditor",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "handoff_ref": "P1E_001_W4_PURPLE",
+    "next_wave": "P1E_001_W4_PURPLE",
+    "next_profile": "aidle-worldgen-purple-acceptance",
+    "next_authority": "VERIFY_ONLY",
+    "product_writes": []
+  },
+  "smoke_test": {
+    "ran": true,
+    "authority": "VERIFY_ONLY independent re-verify (no product mutation)",
+    "commands": [
+      {
+        "cmd": "cd E:/AIdle_Blender_Bridge_P0; python -m pytest tests/ --tb=no",
+        "result": "44 passed, 1 warning in 1.11s; EXIT=0"
+      },
+      {
+        "cmd": "python -m compileall -q app blender_scripts tests",
+        "result": "COMPILEALL_OK"
+      },
+      {
+        "cmd": "PowerShell Get-FileHash SHA256 on 14 library blend+glb vs p1e_library_hashes.json / environment_modules registry",
+        "result": "LIBRARY_HASH_FAIL=0 LIBRARY_HASH_OK=7"
+      },
+      {
+        "cmd": "PowerShell Get-FileHash SHA256 on 9 quarantine module GLBs vs scene_manifest artifact_sha256 + evidence/p1e/modules copies",
+        "result": "JOB_MODULE_HASH_FAIL=0 JOB_MODULE_HASH_OK=9"
+      },
+      {
+        "cmd": "Byte-compare quarantine BLD-E6BCC14D117E scene_manifest/validation/preview vs orchestration/evidence/p1e",
+        "result": "ALL_MATCH"
+      },
+      {
+        "cmd": "Python PIL independent luma/cyan scan of before/after/preview PNGs",
+        "result": "before max=99 avg=56.8753; after max=255 avg=219.3529 cyan_ish=0 whiteish=689; after==preview==quarantine SHA e931f75d…"
+      },
+      {
+        "cmd": "Read environment_job_receipt + blender_command for BLD-E6BCC14D117E",
+        "result": "QUARANTINED_COMPLETE exit 0; flags --background --factory-startup --disable-autoexec"
+      },
+      {
+        "cmd": "Headed multimodal review of p1e evidence PNGs for AC1/2/3/8",
+        "result": "AC1/3/8 PASS; AC2 house PASS player/Companion deferred Godot"
+      },
+      {
+        "cmd": "Optional second real env Blender job",
+        "result": "SKIPPED_EXCLUSIVE_WRITE_SCOPE"
+      }
+    ],
+    "passed": true,
+    "notes": "Godot smoke not run (BLOCKED_GODOT_OVERRIDE_REQUIRED). Bridge regression green at 44. AC matrix partial pending Godot override for intake/nav/cancel/collision/save-reload."
+  },
+  "self_audit": {
+    "allowlist_respected": true,
+    "product_writes_empty": true,
+    "self_accept": false,
+    "accepted": false,
+    "verify_only_no_patch": true,
+    "no_godot_writes": true,
+    "godot_acs_blocked_as_required": true,
+    "control_1b_not_started": true,
+    "character_foundry_1c_not_started": true,
+    "codex_directive_untouched": true,
+    "tasks_json_untouched": true,
+    "one_writer_per_file": true,
+    "no_grandchildren": true,
+    "parent_spawn_only": true,
+    "child_task_ref_durable": "019f84e6-bf22-72b0-9763-4de7dc6ef959",
+    "child_task_ref_source": "Grok Desktop subagent session under parent 019f7ffd; newest after W2 019f84e2; summary title 'P1E Wave3 QA VERIFY_ONLY Bridge Pytest'; session_kind=subagent",
+    "exclusive_writes_only": [
+      "orchestration/receipts/p1e/P1E_001_w3_qa_001.json",
+      "orchestration/logs/p1e-001-w3-qa-001.log"
+    ],
+    "issues": []
+  },
+  "evidence_refs": [
+    "orchestration/logs/p1e-001-w3-qa-001.log",
+    "orchestration/receipts/p1e/P1E_001_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_001_w2_red_001.json",
+    "orchestration/work_orders/WO-P1E-001-COZY-STARTER-REALM-KIT.md",
+    "orchestration/evidence/p1e/lighting_before_p0e_BLD-BADA873442E7.png",
+    "orchestration/evidence/p1e/lighting_after_p1e_BLD-E6BCC14D117E.png",
+    "orchestration/evidence/p1e/lighting_before_after.json",
+    "orchestration/evidence/p1e/p1e_starter_realm_preview.png",
+    "orchestration/evidence/p1e/p1e_scene_manifest.json",
+    "orchestration/evidence/p1e/p1e_validation.json",
+    "orchestration/evidence/p1e/p1e_library_hashes.json",
+    "orchestration/evidence/p1e/modules/",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-E6BCC14D117E/",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-E6BCC14D117E/"
+  ],
+  "next_route": "P1E_001_W4_PURPLE"
+}

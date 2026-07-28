@@ -1,0 +1,44 @@
+{
+  "schema_version": "character_4_subagent_bridge/1.0",
+  "upstream_root": "E:/agents/AIdle_4_Subagent_Blender_Character_System/aidle_character_4_subagents",
+  "integration_root": "E:/AIdle_openworld/orchestration/control/character_4_subagent",
+  "aidle_openworld": "E:/AIdle_openworld",
+  "paths": {
+    "mockup_ssot_json": "E:/AIdle_openworld/orchestration/control/visual_reference/mockup_ssot_v2/MOCKUP_SSOT_V2.json",
+    "mockup_ssot_html": "E:/AIdle_openworld/orchestration/control/visual_reference/mockup_ssot_v2/MOCKUP_SSOT_V2.html",
+    "mockup_design_lock": "E:/AIdle_openworld/orchestration/control/visual_reference/mockup_ssot_v2/MOCKUP_DESIGN_LOCK.md",
+    "mockup_chars_dir": "E:/AIdle_openworld/orchestration/control/visual_reference/mockup_ssot_v2/chars",
+    "object_dna_families": "E:/AIdle_openworld/orchestration/control/object_dna_card_system/registries/skeleton_family_categories_v1.json",
+    "nori7_hierarchy": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/skeleton/skel_small_biped_robot_v1.hierarchy.json",
+    "nori7_adapter": "E:/AIdle_openworld/game/resources/ucbv_001/character/nori7_animation_adapter.json",
+    "nori7_glb": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "character_build_scripts": "E:/AIdle_openworld/orchestration/control/character_build",
+    "vision_lock": "E:/AIdle_openworld/orchestration/control/AIDLE_GAME_VISION_LOCK_001.md",
+    "quarantine_root": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine"
+  },
+  "upstream": {
+    "character_spec_schema": "config/character_spec.schema.json",
+    "agent_receipt_schema": "config/agent_receipt.schema.json",
+    "change_request_schema": "config/change_request.schema.json",
+    "state_machine": "workflow/state_machine.json",
+    "mcp_allowlist": "blender/mcp_tool_allowlist.json",
+    "collection_contract": "blender/BLENDER_COLLECTION_CONTRACT.md",
+    "prompt_orchestrator": "prompts/ORCHESTRATOR.md",
+    "prompt_s1": "prompts/S1_HEAD_HAIR_FACE.md",
+    "prompt_s2": "prompts/S2_BODY_CLOTHES.md",
+    "prompt_s3": "prompts/S3_TECH_INTEGRATION.md",
+    "prompt_s4": "prompts/S4_VISUAL_QA.md"
+  },
+  "owners": {
+    "S1": "work/S1_head_hair_face.blend",
+    "S2": "work/S2_body_clothes.blend",
+    "S3": "work/S3_character_integration.blend",
+    "S4": "qa/qa_report.json",
+    "ORCHESTRATOR": "spec/character_spec.json"
+  },
+  "acceptance": {
+    "self_accept_allowed": false,
+    "machine_accepted_default": false,
+    "human_only_promote": true
+  }
+}

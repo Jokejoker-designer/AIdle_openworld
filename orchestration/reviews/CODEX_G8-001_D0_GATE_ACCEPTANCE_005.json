@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-G8-001-D0-GATE-ACCEPTANCE-005",
+  "task_id": "G8-001",
+  "directive_id": 25,
+  "reviewed_at": "2026-07-21T09:13:00+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "scope": "D0 schema child evidence gate only",
+  "verdict": "PASS_D0_RELEASE_D1",
+  "accepted_task": false,
+  "evidence": {
+    "original_child_task_ref": "019f824f-9817-7101-920f-9d0172934faf",
+    "correction_task_ref": "019f8263-5428-7332-a2e8-ce304eb291ca",
+    "final_transcript_ref": "019f826c-3df2-7552-8fb2-1134110b23dd",
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "receipt": "orchestration/receipts/g8/subagent_workflow_remediation_004/D0_schema.json",
+    "jsonschema": "PASS",
+    "semantic_provenance": "PASS",
+    "input_context_hash_recomputed": "sha256:16f377bb98ce653ea3a56d24cb796a60c26f50e9c975c5af9beef09b8af280c1",
+    "authority_and_self_accept": "PASS",
+    "product_writes": "NONE"
+  },
+  "decision": [
+    "D0 is accepted as an internal workflow gate, not as G8 task acceptance.",
+    "The existing Grok Desktop parent may spawn D1 core and executor children concurrently.",
+    "Core and executor remain sole PATCH_DRAFT writers on their disjoint WO-004 file sets.",
+    "The five newly installed support profiles are not permitted in Directive 25 and must remain inactive until a later directive."
+  ],
+  "next_route": "D1_CORE_EXECUTOR"
+}

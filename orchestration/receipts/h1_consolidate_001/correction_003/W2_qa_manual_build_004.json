@@ -1,0 +1,477 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "H1-CONSOLIDATE-001-w2-qa-manual-build-004-20260722T152431Z",
+  "step_id": "H1-CONSOLIDATE-001-w2-qa-manual-build-004",
+  "work_order_id": "WO-H1-CONSOLIDATE-001-HUMAN-UX-MANUAL-BUILD-CORRECTION-003",
+  "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-HUMAN-UX-MANUAL-BUILD-CORRECTION-003.md",
+  "work_order_sha256": "7f09ebd863997cc916e874dc039ab1a9cc822ef008c7823971643e5fedabc183",
+  "directive_id": 78,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "897441c22b736bae6da44376bd8e41172e0017dc419723ab64d0d06469181559",
+  "directive_state": "IN_PROGRESS",
+  "directive_verdict": "HUMAN_PLAYTEST_FINDINGS_CORRECTION_AUTHORIZED",
+  "supersedes_directive_id": 77,
+  "permitted_task_ids": [
+    "H1-CONSOLIDATE-001"
+  ],
+  "review": "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_HUMAN_FINDINGS_004.json",
+  "review_sha256": "8a241faf8cd4d0c7bab1dd54ec3258b3b53551ee65b954a9503f10477ec525b0",
+  "milestone": "H1 Human UX and Manual Build correction \u2014 W2 QA headed evidence 004",
+  "agent_id": "aidle-worldgen-qa-evidence",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "profile_name": "aidle-worldgen-qa-evidence",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_sha256": "bd9f7f941be811b1d81b35cc58fe06fba8bbd3768c04a49f41af626cc09f890a",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-qa-evidence; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set exclusive_evidence_004",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "QA evidence only; exclusive W2 log+receipt+evidence/h1_consolidate_001/004/**; product_writes=[]; never patch product/tests; never ACCEPTED; no grandchildren; preserve evidence 001/002/003 + W0/W1 immutable",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:669adc2327e905dd8cef0bb4205457d417999c61558a7fec8ae3416dd6591137",
+  "input_context_hash_16": "669adc2327e905dd",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-HUMAN-UX-MANUAL-BUILD-CORRECTION-003 + codex_directive.json + aidle-worldgen-qa-evidence.md + HUMAN_FINDINGS_004 + W0_control_manual_build_004 + W1_red_manual_build_004 + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "W2_COMPLETE_ROUTE_W3_PURPLE",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "W2_QA_FUNCTIONAL_MATRIX_PASS_ZERO_ERROR_FAIL_ROUTE_W3_NO_ACCEPT",
+  "child_task_ref": "019f8a5a-8d90-7292-9396-f9fecb1df3c8",
+  "transcript_ref": "019f8a5a-8d90-7292-9396-f9fecb1df3c8",
+  "writer_transcript_ref": "019f8a5a-8d90-7292-9396-f9fecb1df3c8",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_w0": "019f8a48-853f-7ec0-8bf1-0608170af2be",
+  "prior_w0_receipt": "orchestration/receipts/h1_consolidate_001/correction_003/W0_control_manual_build_004.json",
+  "prior_w0_sha256": "3226860d6c931599d2da26dd8f51570e02831f7711f1cef495c78e1868010796",
+  "prior_w1": "019f8a56-2d2b-7b63-b33f-03c5f2d4384a",
+  "prior_w1_receipt": "orchestration/receipts/h1_consolidate_001/correction_003/W1_red_manual_build_004.json",
+  "prior_w1_sha256": "92f4605fc751bdb235ac3e0da39c824775718cc07557724b714b3a17733adb5d",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8a5a-8d90-7292-9396-f9fecb1df3c8/meta.json",
+  "started_at": "2026-07-22T15:03:38.131665100Z",
+  "completed_at_utc": "2026-07-22T15:24:31Z",
+  "next_owner": "W3_PURPLE",
+  "next_route": "W3_PURPLE",
+  "human_gate_open": false,
+  "human_result": "PLAYTEST_COMPLETED_WITH_FINDINGS_AND_CORRECTION_AUTHORIZED",
+  "human_pass_inferred": false,
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-finding-triage",
+    "trustlayer_file": "E:/agents/characters/12-purple-team-finding-triage.md",
+    "trustlayer_sha256": "5ee9279e67793b135675725f0d6060b3bb749df6a169bbb43cb071372ea394a8",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "ui_read": "full_eof",
+    "role": "W2 VERIFY_ONLY QA/playability evidence after W1; never patch; never self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 \u2014 not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO HUMAN-UX-MANUAL-BUILD-CORRECTION-003, Directive 78, HUMAN_FINDINGS_004, W0+W1 receipts, skills ALWAYS full EOF + evidence-memory-ledger full EOF manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "No production destructive tests..."
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "agent_step_contract.schema.json"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "E:\\shared\\LOOP.md"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "E:\\agents\\projects\\README.md"
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "full_file_size_hash_verify",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Prime Directive / trustworthy testable result"
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "bytes": 8484,
+      "line_count": 292,
+      "read_mode": "full_chunked_to_eof",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Evidence memory: NO_DURABLE_RECORD"
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/h1_consolidate_001/correction_003/W2_qa_manual_build_004.log",
+    "E:/AIdle_openworld/orchestration/receipts/h1_consolidate_001/correction_003/W2_qa_manual_build_004.json",
+    "E:/AIdle_openworld/orchestration/evidence/h1_consolidate_001/004/**"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "orchestration/logs/h1_consolidate_001/correction_003/W2_qa_manual_build_004.log",
+    "orchestration/receipts/h1_consolidate_001/correction_003/W2_qa_manual_build_004.json",
+    "orchestration/evidence/h1_consolidate_001/004/**"
+  ],
+  "forbidden_paths_not_written": [
+    "game/**",
+    "world_DNA/**",
+    "Scene/**",
+    "orchestration/evidence/h1_consolidate_001/001/**",
+    "orchestration/evidence/h1_consolidate_001/002/**",
+    "orchestration/evidence/h1_consolidate_001/003/**",
+    "orchestration/receipts/h1_consolidate_001/correction_003/W0_control_manual_build_004.json",
+    "orchestration/receipts/h1_consolidate_001/correction_003/W1_red_manual_build_004.json"
+  ],
+  "prior_evidence_immutable_sha256": {
+    "orchestration/evidence/h1_consolidate_001/001/evidence_manifest.json": "5ec30774d054dbf553c72eec83660ffb6fa45ba1d02ff00db7f2a9cb3d70e5ea",
+    "orchestration/evidence/h1_consolidate_001/002/evidence_manifest.json": "573f1fcda203ec0a3c4f4438847c13866df6e33a2efbadd83fa09074942c87ba",
+    "orchestration/evidence/h1_consolidate_001/003/evidence_manifest.json": "b55e2284546f748341b80db6f6d9d43668a5a25c2673c8fef5e9d091bef663a0",
+    "orchestration/receipts/h1_consolidate_001/correction_003/W0_control_manual_build_004.json": "3226860d6c931599d2da26dd8f51570e02831f7711f1cef495c78e1868010796",
+    "orchestration/receipts/h1_consolidate_001/correction_003/W1_red_manual_build_004.json": "92f4605fc751bdb235ac3e0da39c824775718cc07557724b714b3a17733adb5d"
+  },
+  "result": {
+    "verdict": "W2_QA_FUNCTIONAL_MATRIX_PASS_ZERO_ERROR_FAIL_ROUTE_W3_NO_ACCEPT",
+    "headed_pass": false,
+    "headed_functional_pass": true,
+    "headed_matrix_complete": true,
+    "zero_error": false,
+    "zero_error_including_teardown": false,
+    "error_line_count": 4,
+    "f01_signature_repeated": false,
+    "hitl_required": false,
+    "smoke_all_pass_strict": false,
+    "smoke_pass_excluding_known_residuals": true,
+    "primary_manual_build_smoke": true,
+    "summary": "W2 VERIFY_ONLY fresh dual-res Manual Build headed matrix under Directive 78 after W0/W1. Primary AIDLE_H1_HUMAN_UX_MANUAL_BUILD_SMOKE=PASS checks=9. Headed functional: 11 states \u00d7 2 = 22 PNGs; all 20 gates ok; Build-R preview rot 0\u219290 both viewports camera_yaw_unchanged=true; distinct cursor snaps (0,0) vs (2,1.5); marker AIDLE_H1C_W2_HEADED=PASS; zero_error_including_teardown=FAIL (error_line_count=4 from W2-RES-01 HUD Variant inference). H1 FLOW/CHROME FAIL residual Small Build (W1-RES-01). P2E_PLAY FAIL same HUD residual. P2E core/auth/qr/corr/pin PASS; Control router/a11y/fixtures PASS; G3 E2E PASS; G4 persist PASS; Block-DNA 14/14+42/42 PASS. product_writes=[]; accepted=false; next W3_PURPLE.",
+    "gates": {
+      "dual_resolution_1280x720_868x517": true,
+      "normal_os_pointer_ordinary_play": true,
+      "helper_pulse_non_square_ring": true,
+      "manual_build_label_runtime_gd": true,
+      "tscn_residual_small_build_noted": true,
+      "distinct_cursor_snapped_preview": true,
+      "invalid_surface_feedback": true,
+      "qr_separation_build_preview_vs_camera": true,
+      "single_cancel_esc": true,
+      "confirm_through_world_commit": true,
+      "save_reload_undo_available": true,
+      "zero_error_including_teardown": false,
+      "primary_h1_human_ux_manual_build_smoke": true,
+      "headed_functional_matrix": true,
+      "headed_pass_strict_zero_error": false
+    },
+    "smoke_checks": [
+      {
+        "id": "H1_MANUAL_BUILD",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_H1_HUMAN_UX_MANUAL_BUILD_SMOKE=PASS checks=9",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/H1_MANUAL_BUILD.log"
+      },
+      {
+        "id": "LOOKUP",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_H1_RUNTIME_AUTOLOAD_LOOKUP_SMOKE=PASS checks=6 scan_hits=0 runtime_ok=2",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/LOOKUP.log"
+      },
+      {
+        "id": "ERROR_FREE",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/ERROR_FREE.log"
+      },
+      {
+        "id": "H1_FLOW",
+        "exit": 1,
+        "error_lines": 0,
+        "pass": false,
+        "detail": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=FAIL failed=1 passed=12",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/H1_FLOW.log"
+      },
+      {
+        "id": "H1_CHROME",
+        "exit": 1,
+        "error_lines": 0,
+        "pass": false,
+        "detail": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=FAIL failed=1 passed=5",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/H1_CHROME.log"
+      },
+      {
+        "id": "P2E_CORE",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_CORE.log"
+      },
+      {
+        "id": "P2E_AUTH",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_AUTH.log"
+      },
+      {
+        "id": "P2E_QR",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_QR.log"
+      },
+      {
+        "id": "P2E_PLAY",
+        "exit": 1,
+        "error_lines": 0,
+        "pass": false,
+        "detail": "FAIL compile residual: block_assembly_hud.gd:77 Variant inference warning-as-error; preload fails; HUD mount broken",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_PLAY.log"
+      },
+      {
+        "id": "P2E_CORR",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_P2E001_CORRECTION_SMOKE=PASS checks=4",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_CORR.log"
+      },
+      {
+        "id": "P2E_PIN",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_P2E001_PLAYER_INPUT_SMOKE=PASS checks=5",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_PIN.log"
+      },
+      {
+        "id": "CTRL_ROUTER",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/CTRL_ROUTER.log"
+      },
+      {
+        "id": "CTRL_A11Y",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS checks=11",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/CTRL_A11Y.log"
+      },
+      {
+        "id": "G3_E2E",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "G3_E2E_SMOKE=PASS checks=76",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/G3_E2E.log"
+      },
+      {
+        "id": "G4_PERSIST",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "G4_PERSIST_SMOKE=PASS checks=22",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/G4_PERSIST.log"
+      },
+      {
+        "id": "BLOCK_DNA",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "PASS gate: valid_n=14 invalid_m=42 verdict=C0_BLOCK_DNA_CORRECTION_COMPLETE_NO_ACCEPT",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/block_dna.log"
+      },
+      {
+        "id": "CONTROL_1B_FIXTURES",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "[INV-01-unknown_context_id] target=root declared=['unknown_context_id', 'schema_enum'] expected=FAIL actual=FAIL [OK] :: contexts: [{'context_id': 'free_edit', 'purpose': 'Illegal sixth/unknown context', 'allowed_actions': ['move_forward'], 'hud_actions': ['move_forward']}] is too short; contexts: [{'context_id': 'free_edit', 'purpose': 'Illegal sixth/unknown context', 'allowed_actions': ['move_forward'], 'hud_actions': ['move_forward']}] does not contain items matching the given schema; contexts: [{'context_id': 'free_edit', 'purpose': 'Illegal sixth/unknown context', 'allowed_actions': ['move_forward'], 'hud_actions': ['move_forward']}] does not contain items matching the given schema; contexts: [{'context_id': 'free_edit', 'purpose': 'Illegal sixth/unknown context', 'allowed_actions': ['move_forward'], 'hud_actions': ['move_forward']}] does not contain items matching the given schema; contexts: [{'context_id': 'free_edit', 'purpose': 'Illegal sixth/unknown context', 'allowed_actions': ['move_forward'], 'hud_actions': ['move_forward']}] does not contain items matching the given schema",
+        "log": "orchestration/evidence/h1_consolidate_001/004/smokes/control_1b_fixtures.log"
+      }
+    ],
+    "residuals": [
+      {
+        "id": "W1-RES-01",
+        "severity": "medium",
+        "status": "open_reconfirmed",
+        "title": "Small Build residual in tscn + H1 chrome/flow smokes",
+        "finding": "playable_action_bar.tscn still ships text=\"Small Build\". Runtime gd uses Manual Build. h1_consolidation_chrome_smoke and flow smoke FAIL action_bar_small_build*.",
+        "blocks_regression_green": true,
+        "blocks_primary_manual_build_smoke": false
+      },
+      {
+        "id": "W2-RES-01",
+        "severity": "high",
+        "status": "open",
+        "title": "block_assembly_hud.gd:77 Variant inference warning-as-error",
+        "finding": "W0-introduced `var cursor_valid := st.get(\"cursor_hit_valid\", null)` triggers GDScript warning treated as error. Cascades: main.gd const preload of HUD fails compile messages; BlockAssemblyHUD mount Invalid call .new(); P2E_PLAY preload fails and hangs without PASS marker. Functional BA Manual Build path still works (primary smoke + headed gates) but zero-ERROR-including-teardown fails (4 error lines in godot_headed.log).",
+        "evidence": [
+          "game/scripts/modules/block_assembly/block_assembly_hud.gd:77",
+          "orchestration/evidence/h1_consolidate_001/004/godot_headed.log",
+          "orchestration/evidence/h1_consolidate_001/004/smokes/P2E_PLAY.log.err"
+        ],
+        "blocks_zero_error_gate": true,
+        "blocks_p2e_play": true,
+        "product_patch_by_w2": false,
+        "owner": "followup_product_lease_type_annotate_cursor_valid"
+      },
+      {
+        "id": "W1-RES-02",
+        "severity": "low",
+        "status": "open_carried",
+        "title": "force_custom_cursor a11y flag not consumed",
+        "finding": "Carried from W1; default OS pointer path remains correct.",
+        "blocks_human_pass": false
+      },
+      {
+        "id": "W1-RES-03",
+        "severity": "low",
+        "status": "open_carried",
+        "title": "begin_manual_build origin hologram immediately confirmable",
+        "finding": "Carried from W1; still preview-only until World Commit.",
+        "blocks_human_pass": false
+      },
+      {
+        "id": "W1-RES-04",
+        "severity": "low",
+        "status": "open_carried",
+        "title": "place_at_cursor API can enable manual_build outside build context",
+        "finding": "Carried from W1; Main mouse path gated to build context.",
+        "blocks_human_pass": false
+      }
+    ],
+    "forbidden_scope_confirmation": {
+      "product_written": false,
+      "tests_written": false,
+      "evidence_001_rewritten": false,
+      "evidence_002_rewritten": false,
+      "evidence_003_rewritten": false,
+      "w0_receipt_rewritten": false,
+      "w1_receipt_rewritten": false,
+      "dna_v1_2_authorized": false,
+      "p2e_002_authorized": false,
+      "ucbv_001_authorized": false,
+      "network_authorized": false,
+      "self_accept_authorized": false,
+      "grandchildren_spawned": false
+    }
+  },
+  "headed_evidence": {
+    "path": "orchestration/evidence/h1_consolidate_001/004",
+    "manifest": "orchestration/evidence/h1_consolidate_001/004/evidence_manifest.json",
+    "visual_claim_meta": "orchestration/evidence/h1_consolidate_001/004/visual_claim_meta.json",
+    "png_sha256": "orchestration/evidence/h1_consolidate_001/004/png_sha256.json",
+    "godot_log": "orchestration/evidence/h1_consolidate_001/004/godot_headed.log",
+    "runner_log": "orchestration/evidence/h1_consolidate_001/004/runner.log",
+    "capture_script": "orchestration/evidence/h1_consolidate_001/004/capture_h1_w2_manual_build.gd",
+    "runner_script": "orchestration/evidence/h1_consolidate_001/004/run_capture.py",
+    "smoke_summary": "orchestration/evidence/h1_consolidate_001/004/smoke_summary.json",
+    "godot_exit": 0,
+    "marker_pass": true,
+    "headed_pass_strict": false,
+    "headed_functional_pass": true,
+    "png_count": 22,
+    "required_states": [
+      "launch",
+      "helper_pulse",
+      "manual_build_enter",
+      "cursor_pos_a",
+      "cursor_pos_b",
+      "invalid_surface",
+      "build_R",
+      "cancel",
+      "confirm",
+      "save_reload_identity",
+      "undo"
+    ],
+    "viewports": [
+      "1280x720",
+      "868x517"
+    ],
+    "build_R_ok": true,
+    "cursor_snap_ok": true,
+    "gates_ok": true,
+    "error_line_count": 4,
+    "error_samples": [
+      "USER SCRIPT ERROR: Parse Error: The variable type is being inferred from a Variant value, so it will be typed as Variant. (Warning treated as error.)",
+      "USER SCRIPT ERROR: Compile Error: ",
+      "ERROR: Failed to load script \"res://scripts/main/main.gd\" with error \"Compilation failed\".",
+      "USER SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'."
+    ],
+    "art_style_id_active": "cozy_cyber_pixel",
+    "capture_source": "godot_headed",
+    "live_parity": true
+  },
+  "closed_human_findings_qa_status": [
+    {
+      "id": "H1-HUMAN-UX-01",
+      "w0_status": "fixed_not_retested",
+      "w2_qa_status": "headed_functional_pass_ring_pulse",
+      "note": "helper_pulse gate ok both viewports; presentation ring; is_square=false in smoke"
+    },
+    {
+      "id": "H1-HUMAN-UX-02",
+      "w0_status": "fixed_not_retested",
+      "w2_qa_status": "headed_functional_pass_os_pointer",
+      "note": "forced_square_proxy=false gate ok both viewports; default OS pointer"
+    },
+    {
+      "id": "H1-HUMAN-BUILD-01",
+      "w0_status": "fixed_not_retested",
+      "w2_qa_status": "headed_functional_pass_with_tscn_and_hud_residuals",
+      "note": "cursor-led snaps distinct, invalid surface, Q/R, single Esc, World Commit confirm, save/reload/undo gates ok; tscn Small Build residual; HUD type residual blocks zero-error"
+    }
+  ],
+  "godot_pin": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+  "godot_version": "4.3.stable.official"
+}

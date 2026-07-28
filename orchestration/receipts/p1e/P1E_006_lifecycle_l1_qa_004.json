@@ -1,0 +1,439 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P1E-006-lifecycle-l1-qa-004-2026-07-22",
+  "step_id": "P1E-006-lifecycle-l1-qa-004",
+  "work_order_id": "WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003",
+  "work_order": "orchestration/work_orders/WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003.md",
+  "directive_id": 54,
+  "directive_supersedes": 53,
+  "review_source": "orchestration/reviews/CODEX_P1E-006_REVIEW_003.json",
+  "findings_addressed": [
+    "P1E006-CODEX-F08"
+  ],
+  "findings_context": [
+    "P1E006-CODEX-F08",
+    "P1E006-CODEX-F09",
+    "P1E006-CODEX-F10"
+  ],
+  "agent_id": "aidle-worldgen-qa-evidence",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "profile_name": "aidle-worldgen-qa-evidence",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "a905ae827b5f3910",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "FULL_MATRIX_CLEAN_NO_ACCEPT",
+  "verdict_detail": "Directive-53 full 9-suite matrix independently re-run after L0 product lifecycle; all exit=0, all expected PASS markers present, all error_line_count=0 including former F08 residual p1e003_density_exposure and g8_ux002_fence_rail_collision. VERIFY_ONLY does not accept; next_owner=L2_PURPLE.",
+  "child_task_ref": "019f8679-e256-7643-bf4c-7511adbdd4a2",
+  "transcript_ref": "019f8679-e256-7643-bf4c-7511adbdd4a2",
+  "writer_transcript_ref": "019f8679-e256-7643-bf4c-7511adbdd4a2",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_ref_correction": {
+    "corrected": true,
+    "previous_non_durable_placeholder": "P1E-006-lifecycle-l1-qa-004",
+    "corrected_to": "019f8679-e256-7643-bf4c-7511adbdd4a2",
+    "note": "Receipt child_task_ref/transcript_ref/writer_transcript_ref corrected to real Grok Desktop subagent UUID; agent_step_id remains step id string; matrix evidence unchanged; accepted=false."
+  },
+  "prior_wave_child_task_refs": {
+    "L0": "019f8675-c7bc-75c1-8bc1-3a652f89aff2",
+    "R0_clean": "019f8651-8cdb-7642-98b3-4712a3568cc1",
+    "R1_clean": "019f865d-4942-73e0-8966-0908429fd9f3",
+    "R2_clean": "019f8661-3f8d-7d81-9d6e-b446f1920393",
+    "R3_clean": "019f8665-4841-7400-9bef-af7071f41a82"
+  },
+  "prior_l0_receipt": "orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+  "next_owner": "L2_PURPLE",
+  "next_route": "L2_PURPLE",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "character_binding": {
+    "trustlayer": "purple-team-finding-triage",
+    "ui": "ui-a11y-auditor",
+    "role": "L1 independent full Directive-53 error-clean regression matrix (VERIFY_ONLY; no product patches)"
+  },
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l1-qa-004.log"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l1-qa-004.log"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l1-qa-004.log"
+  ],
+  "original_evidence_preserved": true,
+  "r3_out_of_lease_artifacts_preserved": true,
+  "error_filtering_used": false,
+  "result": {
+    "verdict": "FULL_MATRIX_CLEAN_NO_ACCEPT",
+    "summary": "L1 VERIFY_ONLY independent full Directive-53 matrix after L0 product-owned Starter Realm lifecycle (mesh_presentation_lifecycle). All 9 required commands executed with no skips. Every suite: exit_code=0, expected PASS marker present, error_line_count=0 (no ERROR:, SCRIPT ERROR, parse/compile). Former Codex residual unclean suites p1e003_density_exposure and g8_ux002_fence_rail_collision are now clean on independent L1 replay. Elemental includes OK persist_static_and_dynamic_state; p1e002 includes OK save_reload_no_duplicate; clean_boot real headless quit-after 3 with GameManager/PersistModule/Main proof. Headed screenshots re-hashed match prior sha256 (1280x720 both); NO_RECAPTURE (L0 free-path lifecycle, headed presentation unchanged). accepted=false; self_accept=false; next_owner=L2_PURPLE status=REVIEW_REQUESTED.",
+    "regression_all_exit_zero": true,
+    "regression_all_exit_zero_honest": true,
+    "regression_all_clean": true,
+    "any_skipped": false,
+    "any_missing_marker": false,
+    "any_error_lines": false,
+    "f08_status": "ENABLED_CLEAN_ON_L1_FULL_MATRIX_PENDING_L2_PURPLE",
+    "f08_readiness_note": "F08 (Directive-53 matrix not error-clean) residual surfaces named by REVIEW_003 — p1e003_density_exposure and g8_ux002_fence_rail_collision — both now exit=0 + PASS + error_line_count=0 on independent L1 matrix with full unfiltered capture. Full 9-suite matrix regression_all_clean=true. F08 formal close requires L2 Purple independent re-run and lease audit; L1 does not accept. F09 product lifecycle claimed by L0 (mesh_presentation_lifecycle + builder wiring); L1 confirms behavioral effect on residual suites without product inspection-as-accept. F10 is R3 lease hygiene; L1 lease is exact two paths only; prior _r3_* artifacts preserved untouched and not used as acceptance evidence.",
+    "f09_note": "L0 product lifecycle under review; L1 evidence shows residual unclean suites from F08/F09 now clean without log filtering.",
+    "f10_note": "L1 created no undeclared temps; capture technique was in-memory then append to single declared log. Prior R3 _r3_* logs/bats preserved under orchestration/logs (count observed=30) as rejected evidence only.",
+    "residual_blockers": [],
+    "product_patches": "none (VERIFY_ONLY)",
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+        "bytes": 1741,
+        "total_lines": 46,
+        "load_evidence": "FULL EOF hash+line count for L1 lifecycle QA child"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+        "bytes": 1938,
+        "total_lines": 53,
+        "load_evidence": "FULL EOF hash+line count for L1 lifecycle QA child"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+        "bytes": 982,
+        "total_lines": 36,
+        "load_evidence": "FULL EOF hash+line count for L1 lifecycle QA child"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+        "bytes": 1681,
+        "total_lines": 65,
+        "load_evidence": "FULL EOF hash+line count for L1 lifecycle QA child"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+        "bytes": 34306,
+        "total_lines": 1123,
+        "load_evidence": "FULL EOF hash+line count for L1 lifecycle QA child"
+      },
+      {
+        "skill_id": "evidence-memory-ledger",
+        "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+        "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+        "bytes": 8484,
+        "total_lines": 292,
+        "load_evidence": "FULL EOF routed skill hash+line count for L1 lifecycle QA child"
+      }
+    ],
+    "profile_load_evidence": {
+      "path": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+      "load": "FULL_EOF",
+      "sha256": "bd9f7f941be811b1d81b35cc58fe06fba8bbd3768c04a49f41af626cc09f890a",
+      "bytes": 1875,
+      "total_lines": 46,
+      "trustlayer": "purple-team-finding-triage",
+      "ui": "ui-a11y-auditor",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "schema_load_evidence": {
+      "path": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+      "load": "FULL_EOF",
+      "sha256": "7956f32a7ffe9173c226e60857cfb9dc3d9d5de4810369fe2ae7f571abd4d2e7",
+      "bytes": 875,
+      "total_lines": 20
+    },
+    "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; COMPLIANCE/registry/WO/review/schema/skills/profile loaded manually."
+  },
+  "smoke_test": {
+    "all_required_commands_executed": true,
+    "any_skipped": false,
+    "regression_all_exit_zero": true,
+    "regression_all_exit_zero_honest": true,
+    "regression_all_clean": true,
+    "suites_run": 9,
+    "suites_clean": 9,
+    "suites_unclean": 0,
+    "full_capture_log": "orchestration/logs/p1e-006-lifecycle-l1-qa-004.log",
+    "full_capture_log_sha256": "1a65f671dfacc3ba4026015232e8d2b2a0188bbc1eb93ff434e3e5091ad52575",
+    "full_capture_log_bytes": 22742,
+    "godot": "tools/Godot_v4.3-stable_win64_console.exe",
+    "regression_matrix": {
+      "p1e006_world_profile_variants": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "param_m_null_count": 0,
+        "skipped": false,
+        "clean": true
+      },
+      "hsl_per_profile_demo": {
+        "command": "python orchestration/evidence/p1e_006/_hsl_per_profile_demo.py",
+        "exit_code": 0,
+        "pass_marker": "P1E006_HSL_DEMO=PASS",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "skipped": false,
+        "clean": true
+      },
+      "p1e003_density_exposure": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e003_density_exposure_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_P1E003_SMOKE=PASS checks=9",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "param_m_null_count": 0,
+        "prior_codex_residual": "Parameter m is null at mesh_get_surface_count (REVIEW_003)",
+        "prior_residual_cleared_on_l1": true,
+        "skipped": false,
+        "clean": true
+      },
+      "p1e004_art_style_manager": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e004_art_style_manager_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_P1E004_ASM_SMOKE=PASS checks=6",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "skipped": false,
+        "clean": true
+      },
+      "p1e004_elemental_pilot": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e004_elemental_pilot_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_P1E004_ELEMENTAL_SMOKE=PASS checks=5",
+        "pass_marker_present": true,
+        "required_check": "persist_static_and_dynamic_state",
+        "required_check_ok": true,
+        "required_check_line": "OK  persist_static_and_dynamic_state",
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "skipped": false,
+        "clean": true
+      },
+      "p1e002_glb_intake": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_tests.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_P1E002_TESTS=PASS checks=14",
+        "pass_marker_present": true,
+        "required_check": "save_reload_no_duplicate",
+        "required_check_ok": true,
+        "required_check_line": "OK  save_reload_no_duplicate",
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "skipped": false,
+        "clean": true
+      },
+      "g8_ux002_fence_rail_collision": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_G8_UX002_SMOKE=PASS checks=2",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "param_m_null_count": 0,
+        "prior_codex_residual": "Parameter m is null at mesh_get_surface_count (REVIEW_003)",
+        "prior_residual_cleared_on_l1": true,
+        "skipped": false,
+        "clean": true
+      },
+      "g8_ux_input_collision": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux_input_collision_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "skipped": false,
+        "clean": true
+      },
+      "clean_boot": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game --quit-after 3",
+        "exit_code": 0,
+        "pass_marker": "Godot Engine v4.3 + Main/GameManager/PersistModule boot",
+        "pass_marker_present": true,
+        "boot_proof": [
+          "Godot Engine v4.3.stable.official",
+          "[GameManager] AIdle Core",
+          "[PersistModule]",
+          "[Main]"
+        ],
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "skipped": false,
+        "clean": true
+      }
+    },
+    "headed_screenshots": {
+      "recapture": false,
+      "decision": "NO_RECAPTURE",
+      "rationale": "L0 was free-path product lifecycle (detach presentation meshes before free under headless dummy). Headed presentation material path unchanged. Existing 1280x720 captures remain valid visual evidence; re-hash only.",
+      "preserved": true,
+      "cozy_cyber_pixel": {
+        "path": "orchestration/evidence/p1e_006_correction_002/cozy_cyber_pixel_1280x720.png",
+        "sha256": "e761b3da0b686bb37fec91172b0c58f86e8c8cd7d821543392eea60e0d6bba77",
+        "expected_sha256": "e761b3da0b686bb37fec91172b0c58f86e8c8cd7d821543392eea60e0d6bba77",
+        "hash_match": true,
+        "dims": "1280x720"
+      },
+      "surrealism_canvas": {
+        "path": "orchestration/evidence/p1e_006_correction_002/surrealism_canvas_1280x720.png",
+        "sha256": "bfb9ce17f08305d3268f80bd14b6e68b86b79fc68f66fc3335a16b7e278a014e",
+        "expected_sha256": "bfb9ce17f08305d3268f80bd14b6e68b86b79fc68f66fc3335a16b7e278a014e",
+        "hash_match": true,
+        "dims": "1280x720"
+      },
+      "visual_claim": "L1 re-hash confirms both headed PNGs unchanged vs prior R2/correction_002 evidence; profiles remain distinct; no recapture required for headless lifecycle fix."
+    }
+  },
+  "self_audit": {
+    "no_error_filtering": true,
+    "no_stderr_suppression": true,
+    "no_skip_as_pass": true,
+    "no_skip_masquerading_as_zero": true,
+    "no_undeclared_temps": true,
+    "undeclared_temps_created": false,
+    "no_product_patches": true,
+    "no_product_writes_under_game": true,
+    "original_evidence_preserved": true,
+    "r3_artifacts_not_deleted": true,
+    "r3_out_of_lease_not_used_as_acceptance": true,
+    "only_allowlist_written": true,
+    "allowlist_respected": true,
+    "writer_lease_exact_two_paths": true,
+    "files_written_exact_two_paths": true,
+    "no_self_accept": true,
+    "accepted_false": true,
+    "verdict_non_null": true,
+    "verdict": "FULL_MATRIX_CLEAN_NO_ACCEPT",
+    "did_not_claim_accepted": true,
+    "capture_technique": "in-memory stdout+stderr then append to single declared log only; no _l1_* temps, no extra .bat, no extra orchestration/logs",
+    "notes": [
+      "Did not filter ERROR lines; residual Parameter m is null would have been counted as unclean if present.",
+      "Did not treat exit=0 + PASS alone as clean without error_line_count==0 check.",
+      "Did not write game/** or any path outside the two-file writer lease.",
+      "Did not recapture headed screenshots; re-hash only (NO_RECAPTURE).",
+      "Did not delete or rewrite R3 _r3_* out-of-lease artifacts.",
+      "accepted=false; self_accept=false; next_owner=L2_PURPLE status=REVIEW_REQUESTED.",
+      "FULL_MATRIX_CLEAN_NO_ACCEPT is evidence readiness for Purple, not acceptance."
+    ]
+  },
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_P1E-006_REVIEW_003.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_clean_r2_qa_003.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/standards/maf/COMPLIANCE.md",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/cozy_cyber_pixel_1280x720.png",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/surrealism_canvas_1280x720.png",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "E:/shared/skills/library/evidence-memory-ledger/SKILL.md"
+  ],
+  "commands": [
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5",
+      "clean": true
+    },
+    {
+      "cmd": "python orchestration/evidence/p1e_006/_hsl_per_profile_demo.py",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "P1E006_HSL_DEMO=PASS",
+      "clean": true
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e003_density_exposure_smoke.gd",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "AIDLE_P1E003_SMOKE=PASS checks=9",
+      "clean": true
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e004_art_style_manager_smoke.gd",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "AIDLE_P1E004_ASM_SMOKE=PASS checks=6",
+      "clean": true
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e004_elemental_pilot_smoke.gd",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "AIDLE_P1E004_ELEMENTAL_SMOKE=PASS checks=5",
+      "required_check_ok": true,
+      "clean": true
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_tests.gd",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "AIDLE_P1E002_TESTS=PASS checks=14",
+      "required_check_ok": true,
+      "clean": true
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "AIDLE_G8_UX002_SMOKE=PASS checks=2",
+      "clean": true
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux_input_collision_smoke.gd",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+      "clean": true
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game --quit-after 3",
+      "exit_code": 0,
+      "error_line_count": 0,
+      "pass_marker": "Godot Engine v4.3 + Main/GameManager/PersistModule boot",
+      "clean": true
+    }
+  ],
+  "evidence_refs": [
+    "orchestration/receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+    "orchestration/logs/p1e-006-lifecycle-l1-qa-004.log",
+    "orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_003.json",
+    "orchestration/work_orders/WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003.md",
+    "orchestration/evidence/p1e_006_correction_002/cozy_cyber_pixel_1280x720.png",
+    "orchestration/evidence/p1e_006_correction_002/surrealism_canvas_1280x720.png"
+  ]
+}

@@ -1,0 +1,1590 @@
+{
+  "schema_version": "object_dna_card_system/skeleton_family_categories/0.1",
+  "registry_id": "skeleton_family_categories_v1",
+  "source_doc": "orchestration/control/object_dna_card_system/AIDLE_OBJECT_DNA_AI_BUILD_CARD_SYSTEM_SOURCE_001.md",
+  "source_sections": "§5.1–§5.7",
+  "vnext_bridge": {
+    "fills": "dna_platform_vnext L1 SKELETON catalog content",
+    "does_not_replace": "dna_platform_vnext/schemas/*",
+    "tier3_note": "SOURCE_REGISTRY.json observed_limits: skeleton_family_count=15, required bones only root/body/head — shallower than this taxonomy",
+    "tier3_source_id": "skeleton_families"
+  },
+  "categories": [
+    {
+      "category_id": "humanoid",
+      "section": "§5.1",
+      "clip_list_source": "§5.1 Animation cơ bản"
+    },
+    {
+      "category_id": "quadruped",
+      "section": "§5.2",
+      "clip_list_source": "§5.2 Animation"
+    },
+    {
+      "category_id": "bird_flying",
+      "section": "§5.3",
+      "clip_list_source": "§5.3 Animation"
+    },
+    {
+      "category_id": "fish_aquatic",
+      "section": "§5.4",
+      "clip_list_source": "§5.4 Animation"
+    },
+    {
+      "category_id": "robot_mechanism",
+      "section": "§5.5",
+      "clip_list_source": "§5.5 Animation (shared list for robot+door+wheel families)"
+    },
+    {
+      "category_id": "plant",
+      "section": "§5.6",
+      "clip_list_source": "§5.6 Animation"
+    },
+    {
+      "category_id": "vehicle",
+      "section": "§5.7",
+      "clip_list_source": "§5.7 has skeleton IDs only; clip list is DESIGN_TARGET_MINIMAL (not in SOURCE) — honesty flag"
+    }
+  ],
+  "honesty": [
+    "required_animation_clips are design targets from SOURCE lists (or minimal vehicle targets where SOURCE omits clips). They are not proof of GLB actions.",
+    "vehicle required_animation_clips are NOT copied from SOURCE (SOURCE §5.7 lists skeleton IDs only) — marked design targets.",
+    "Tier3 catalog remains separate; aliases bridge production IDs.",
+    "accepted=false self_accept=false"
+  ],
+  "counts": {
+    "categories": 7,
+    "families": 36
+  },
+  "families": [
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "humanoid_standard_v1",
+      "category": "humanoid",
+      "display_name": "humanoid standard v1",
+      "applications": [
+        "Adult human NPC"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "run",
+        "jump",
+        "fall",
+        "land",
+        "sit",
+        "stand",
+        "sleep",
+        "wave",
+        "talk_A",
+        "talk_B",
+        "handshake",
+        "carry",
+        "give_item",
+        "receive_item",
+        "push",
+        "pull",
+        "work",
+        "repair"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CHARACTER",
+        "CREATURE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.1",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "humanoid_small_v1",
+      "category": "humanoid",
+      "display_name": "humanoid small v1",
+      "applications": [
+        "Child",
+        "short human"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "run",
+        "jump",
+        "fall",
+        "land",
+        "sit",
+        "stand",
+        "sleep",
+        "wave",
+        "talk_A",
+        "talk_B",
+        "handshake",
+        "carry",
+        "give_item",
+        "receive_item",
+        "push",
+        "pull",
+        "work",
+        "repair"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CHARACTER",
+        "CREATURE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.1",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "humanoid_heavy_v1",
+      "category": "humanoid",
+      "display_name": "humanoid heavy v1",
+      "applications": [
+        "Large human",
+        "blacksmith type"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "run",
+        "jump",
+        "fall",
+        "land",
+        "sit",
+        "stand",
+        "sleep",
+        "wave",
+        "talk_A",
+        "talk_B",
+        "handshake",
+        "carry",
+        "give_item",
+        "receive_item",
+        "push",
+        "pull",
+        "work",
+        "repair"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CHARACTER",
+        "CREATURE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.1",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "humanoid_slender_v1",
+      "category": "humanoid",
+      "display_name": "humanoid slender v1",
+      "applications": [
+        "Tall slender human"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "run",
+        "jump",
+        "fall",
+        "land",
+        "sit",
+        "stand",
+        "sleep",
+        "wave",
+        "talk_A",
+        "talk_B",
+        "handshake",
+        "carry",
+        "give_item",
+        "receive_item",
+        "push",
+        "pull",
+        "work",
+        "repair"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CHARACTER",
+        "CREATURE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.1",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "humanoid_robot_v1",
+      "category": "humanoid",
+      "display_name": "humanoid robot v1",
+      "applications": [
+        "Humanoid robot"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "run",
+        "jump",
+        "fall",
+        "land",
+        "sit",
+        "stand",
+        "sleep",
+        "wave",
+        "talk_A",
+        "talk_B",
+        "handshake",
+        "carry",
+        "give_item",
+        "receive_item",
+        "push",
+        "pull",
+        "work",
+        "repair"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CHARACTER",
+        "CREATURE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.1",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "humanoid_four_arm_v1",
+      "category": "humanoid",
+      "display_name": "humanoid four arm v1",
+      "applications": [
+        "Four-arm creature"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "run",
+        "jump",
+        "fall",
+        "land",
+        "sit",
+        "stand",
+        "sleep",
+        "wave",
+        "talk_A",
+        "talk_B",
+        "handshake",
+        "carry",
+        "give_item",
+        "receive_item",
+        "push",
+        "pull",
+        "work",
+        "repair"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CHARACTER",
+        "CREATURE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.1",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "quadruped_small_v1",
+      "category": "quadruped",
+      "display_name": "quadruped small v1",
+      "applications": [
+        "Cat",
+        "small dog"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "trot",
+        "run",
+        "jump",
+        "sit",
+        "lie",
+        "sleep",
+        "sniff",
+        "dig",
+        "shake",
+        "eat",
+        "drink",
+        "pet_reaction",
+        "carry_rider"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CREATURE",
+        "CHARACTER"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.2",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "quadruped_medium_v1",
+      "category": "quadruped",
+      "display_name": "quadruped medium v1",
+      "applications": [
+        "Large dog",
+        "deer"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "trot",
+        "run",
+        "jump",
+        "sit",
+        "lie",
+        "sleep",
+        "sniff",
+        "dig",
+        "shake",
+        "eat",
+        "drink",
+        "pet_reaction",
+        "carry_rider"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CREATURE",
+        "CHARACTER"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.2",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "quadruped_heavy_v1",
+      "category": "quadruped",
+      "display_name": "quadruped heavy v1",
+      "applications": [
+        "Ox",
+        "cow",
+        "mount"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "trot",
+        "run",
+        "jump",
+        "sit",
+        "lie",
+        "sleep",
+        "sniff",
+        "dig",
+        "shake",
+        "eat",
+        "drink",
+        "pet_reaction",
+        "carry_rider"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CREATURE",
+        "CHARACTER"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.2",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "quadruped_long_body_v1",
+      "category": "quadruped",
+      "display_name": "quadruped long body v1",
+      "applications": [
+        "Weasel",
+        "ground dragon"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "trot",
+        "run",
+        "jump",
+        "sit",
+        "lie",
+        "sleep",
+        "sniff",
+        "dig",
+        "shake",
+        "eat",
+        "drink",
+        "pet_reaction",
+        "carry_rider"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CREATURE",
+        "CHARACTER"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.2",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "bird_small_v1",
+      "category": "bird_flying",
+      "display_name": "bird small v1",
+      "applications": [
+        "Small bird"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "flap",
+        "glide",
+        "takeoff",
+        "land",
+        "turn_left",
+        "turn_right",
+        "perch",
+        "fold_wings",
+        "hover",
+        "dive"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CREATURE",
+        "CHARACTER"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.3",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "bird_large_v1",
+      "category": "bird_flying",
+      "display_name": "bird large v1",
+      "applications": [
+        "Rideable bird"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "flap",
+        "glide",
+        "takeoff",
+        "land",
+        "turn_left",
+        "turn_right",
+        "perch",
+        "fold_wings",
+        "hover",
+        "dive"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CREATURE",
+        "CHARACTER"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.3",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "origami_bird_v1",
+      "category": "bird_flying",
+      "display_name": "origami bird v1",
+      "applications": [
+        "Paper bird"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "flap",
+        "glide",
+        "takeoff",
+        "land",
+        "turn_left",
+        "turn_right",
+        "perch",
+        "fold_wings",
+        "hover",
+        "dive"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CREATURE",
+        "CHARACTER"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.3",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "flying_spirit_v1",
+      "category": "bird_flying",
+      "display_name": "flying spirit v1",
+      "applications": [
+        "Flying spirit"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "flap",
+        "glide",
+        "takeoff",
+        "land",
+        "turn_left",
+        "turn_right",
+        "perch",
+        "fold_wings",
+        "hover",
+        "dive"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CREATURE",
+        "CHARACTER"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.3",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "fish_standard_v1",
+      "category": "fish_aquatic",
+      "display_name": "fish standard v1",
+      "applications": [
+        "Fish"
+      ],
+      "required_animation_clips": [
+        "idle_swim",
+        "swim",
+        "fast_swim",
+        "turn",
+        "dive",
+        "rise",
+        "glide",
+        "attack",
+        "carry_player",
+        "sleep"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CREATURE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.4",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "ray_v1",
+      "category": "fish_aquatic",
+      "display_name": "ray v1",
+      "applications": [
+        "Ray"
+      ],
+      "required_animation_clips": [
+        "idle_swim",
+        "swim",
+        "fast_swim",
+        "turn",
+        "dive",
+        "rise",
+        "glide",
+        "attack",
+        "carry_player",
+        "sleep"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CREATURE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.4",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "serpentine_swimmer_v1",
+      "category": "fish_aquatic",
+      "display_name": "serpentine swimmer v1",
+      "applications": [
+        "Sea serpent"
+      ],
+      "required_animation_clips": [
+        "idle_swim",
+        "swim",
+        "fast_swim",
+        "turn",
+        "dive",
+        "rise",
+        "glide",
+        "attack",
+        "carry_player",
+        "sleep"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CREATURE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.4",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "tentacle_swimmer_v1",
+      "category": "fish_aquatic",
+      "display_name": "tentacle swimmer v1",
+      "applications": [
+        "Tentacle swimmer"
+      ],
+      "required_animation_clips": [
+        "idle_swim",
+        "swim",
+        "fast_swim",
+        "turn",
+        "dive",
+        "rise",
+        "glide",
+        "attack",
+        "carry_player",
+        "sleep"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CREATURE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.4",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "robot_biped_small_v1",
+      "category": "robot_mechanism",
+      "display_name": "robot biped small v1",
+      "applications": [
+        "Nori-7 class small biped robot"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "rotate",
+        "open",
+        "close",
+        "activate",
+        "shutdown",
+        "repair",
+        "jammed",
+        "broken",
+        "charge",
+        "discharge"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [
+        "skel_small_biped_robot_v1"
+      ],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "PRODUCTION_HIERARCHY_EXISTS",
+        "production_bone_count": 14,
+        "hierarchy_ref": "game/assets/ucbv_001/character/nori7/skeleton/skel_small_biped_robot_v1.hierarchy.json",
+        "required_semantic_nodes": [
+          "root",
+          "pelvis",
+          "spine",
+          "chest",
+          "head",
+          "arm_L",
+          "hand_L",
+          "arm_R",
+          "hand_R",
+          "leg_L",
+          "foot_L",
+          "leg_R",
+          "foot_R",
+          "sprout_ctrl"
+        ],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CHARACTER"
+      ],
+      "lifecycle_status": "AUTHORING_REQUIRED",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.5",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "robot_biped_heavy_v1",
+      "category": "robot_mechanism",
+      "display_name": "robot biped heavy v1",
+      "applications": [
+        "Construction robot"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "rotate",
+        "open",
+        "close",
+        "activate",
+        "shutdown",
+        "repair",
+        "jammed",
+        "broken",
+        "charge",
+        "discharge"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CHARACTER"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.5",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "robot_wheeled_v1",
+      "category": "robot_mechanism",
+      "display_name": "robot wheeled v1",
+      "applications": [
+        "Wheeled robot"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "rotate",
+        "open",
+        "close",
+        "activate",
+        "shutdown",
+        "repair",
+        "jammed",
+        "broken",
+        "charge",
+        "discharge"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CHARACTER",
+        "PROP"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.5",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "golem_modular_v1",
+      "category": "robot_mechanism",
+      "display_name": "golem modular v1",
+      "applications": [
+        "Modular golem"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "rotate",
+        "open",
+        "close",
+        "activate",
+        "shutdown",
+        "repair",
+        "jammed",
+        "broken",
+        "charge",
+        "discharge"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "CHARACTER",
+        "CREATURE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.5",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "building_mechanism_v1",
+      "category": "robot_mechanism",
+      "display_name": "building mechanism v1",
+      "applications": [
+        "Tower machinery"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "rotate",
+        "open",
+        "close",
+        "activate",
+        "shutdown",
+        "repair",
+        "jammed",
+        "broken",
+        "charge",
+        "discharge"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "BUILDING",
+        "SYSTEM",
+        "PROP"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.5",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "door_mechanism_v1",
+      "category": "robot_mechanism",
+      "display_name": "door mechanism v1",
+      "applications": [
+        "Door"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "rotate",
+        "open",
+        "close",
+        "activate",
+        "shutdown",
+        "repair",
+        "jammed",
+        "broken",
+        "charge",
+        "discharge"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "PROP",
+        "BUILDING"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.5",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "water_wheel_v1",
+      "category": "robot_mechanism",
+      "display_name": "water wheel v1",
+      "applications": [
+        "Water wheel"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "walk",
+        "rotate",
+        "open",
+        "close",
+        "activate",
+        "shutdown",
+        "repair",
+        "jammed",
+        "broken",
+        "charge",
+        "discharge"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "PROP",
+        "BUILDING"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.5",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "plant_small_v1",
+      "category": "plant",
+      "display_name": "plant small v1",
+      "applications": [
+        "Small plant"
+      ],
+      "required_animation_clips": [
+        "seed",
+        "sprout",
+        "grow",
+        "bloom",
+        "fruit",
+        "wind_idle",
+        "wind_medium",
+        "wind_strong",
+        "wither",
+        "restore"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "PLANT",
+        "PROP"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.6",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "tree_standard_v1",
+      "category": "plant",
+      "display_name": "tree standard v1",
+      "applications": [
+        "Standard tree"
+      ],
+      "required_animation_clips": [
+        "seed",
+        "sprout",
+        "grow",
+        "bloom",
+        "fruit",
+        "wind_idle",
+        "wind_medium",
+        "wind_strong",
+        "wither",
+        "restore"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "PLANT",
+        "PROP"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.6",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "tree_landmark_v1",
+      "category": "plant",
+      "display_name": "tree landmark v1",
+      "applications": [
+        "Landmark tree"
+      ],
+      "required_animation_clips": [
+        "seed",
+        "sprout",
+        "grow",
+        "bloom",
+        "fruit",
+        "wind_idle",
+        "wind_medium",
+        "wind_strong",
+        "wither",
+        "restore"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "PLANT",
+        "PROP"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.6",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "vine_v1",
+      "category": "plant",
+      "display_name": "vine v1",
+      "applications": [
+        "Vine"
+      ],
+      "required_animation_clips": [
+        "seed",
+        "sprout",
+        "grow",
+        "bloom",
+        "fruit",
+        "wind_idle",
+        "wind_medium",
+        "wind_strong",
+        "wither",
+        "restore"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "PLANT",
+        "PROP"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.6",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "flower_v1",
+      "category": "plant",
+      "display_name": "flower v1",
+      "applications": [
+        "Flower"
+      ],
+      "required_animation_clips": [
+        "seed",
+        "sprout",
+        "grow",
+        "bloom",
+        "fruit",
+        "wind_idle",
+        "wind_medium",
+        "wind_strong",
+        "wither",
+        "restore"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "PLANT",
+        "PROP"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.6",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "vehicle_wheeled_small_v1",
+      "category": "vehicle",
+      "display_name": "vehicle wheeled small v1",
+      "applications": [
+        "Small wheeled vehicle"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "move",
+        "turn",
+        "stop",
+        "board",
+        "alight"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "VEHICLE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.7",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "vehicle_cart_v1",
+      "category": "vehicle",
+      "display_name": "vehicle cart v1",
+      "applications": [
+        "Cart"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "move",
+        "turn",
+        "stop",
+        "board",
+        "alight"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "VEHICLE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.7",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "vehicle_train_v1",
+      "category": "vehicle",
+      "display_name": "vehicle train v1",
+      "applications": [
+        "Train"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "move",
+        "turn",
+        "stop",
+        "board",
+        "alight"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "VEHICLE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.7",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "vehicle_boat_v1",
+      "category": "vehicle",
+      "display_name": "vehicle boat v1",
+      "applications": [
+        "Boat"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "move",
+        "turn",
+        "stop",
+        "board",
+        "alight"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "VEHICLE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.7",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "vehicle_submarine_v1",
+      "category": "vehicle",
+      "display_name": "vehicle submarine v1",
+      "applications": [
+        "Submarine"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "move",
+        "turn",
+        "stop",
+        "board",
+        "alight"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "VEHICLE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.7",
+      "accepted": false,
+      "self_accept": false
+    },
+    {
+      "schema_version": "object_dna_card_system/skeleton_family_definition/0.1",
+      "family_id": "vehicle_flying_v1",
+      "category": "vehicle",
+      "display_name": "vehicle flying v1",
+      "applications": [
+        "Flying vehicle"
+      ],
+      "required_animation_clips": [
+        "idle",
+        "move",
+        "turn",
+        "stop",
+        "board",
+        "alight"
+      ],
+      "optional_animation_clips": [],
+      "aliases": [],
+      "tier3_catalog_ref": null,
+      "bone_graph": {
+        "status": "UNSPECIFIED",
+        "production_bone_count": null,
+        "hierarchy_ref": null,
+        "required_semantic_nodes": [],
+        "contact_markers": []
+      },
+      "entity_kinds": [
+        "VEHICLE"
+      ],
+      "lifecycle_status": "DESIGN_ONLY",
+      "vnext_entry_kind": "SKELETON",
+      "source_doc_section": "§5.7",
+      "accepted": false,
+      "self_accept": false
+    }
+  ],
+  "accepted": false,
+  "self_accept": false
+}

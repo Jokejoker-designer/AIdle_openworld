@@ -1,0 +1,58 @@
+{
+  "agent_step_id": "G8-001-HEADED-H2-core-2026-07-21",
+  "agent_type": "aidle-core",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-HEADED-CORRECTION-001",
+    "directive_id": 21,
+    "wave": "H2_CORE_INTEGRATE",
+    "profile": "core",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "PATCH_DRAFT: Main mounts Starter Realm, Desktop Bridge, playable action bar, companion chat host; HUD responsive + edition; art selector responsive; headed visual smoke harness.",
+    "product_writes": [
+      "game/scripts/main/main.gd",
+      "game/scripts/ui/hud.gd",
+      "game/scenes/ui/hud.tscn",
+      "game/scripts/ui/playable_action_bar.gd",
+      "game/scenes/ui/playable_action_bar.tscn",
+      "game/scripts/ui/art_style_select.gd",
+      "game/scripts/core/headed_visual_smoke.gd"
+    ],
+    "children": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "Camera mode=fixed-angle 2.5D"
+      },
+      {
+        "marker": "AIDLE_HEADED_VISUAL_SMOKE=PASS checks=26"
+      },
+      {
+        "marker": "window=1280x720"
+      },
+      {
+        "marker": "window=868x517"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "residual_risks": []
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-headed-correction-001.log",
+    "orchestration/work_orders/WO-G8-001-HEADED-CORRECTION-001.md",
+    "orchestration/work_orders/G8-001_HEADED_DISPATCH_MAP.md",
+    "orchestration/reviews/G8-001_HEADED_ACCEPTANCE_MATRIX.md",
+    "orchestration/evidence/g8_headed_correction/"
+  ],
+  "next_route": "H3_COMPANION_TEXT"
+}

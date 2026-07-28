@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "GATE_READY_BATCH",
+  "batch_id": "BATCH-TIER1-001-2026-07-23",
+  "directive_id": 99,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "accepted": false,
+  "self_accept": false,
+  "sole_acceptor": "human_product_lead",
+  "waves": [
+    {
+      "id": "C5H1-UX-001",
+      "receipt": "orchestration/receipts/c5h1_ux_001/HUD_E_TO_C_001.json",
+      "machine_verdict": "MACHINE_COMPLETE_HUD_LABEL_FIXED",
+      "asks_human": "Accept label fix residual R-C5H1-01"
+    },
+    {
+      "id": "NORI7-REDESIGN-001",
+      "receipt": "orchestration/receipts/nori7_redesign_001/BLUE_redesign_export_001.json",
+      "machine_verdict": "MACHINE_REDESIGN_EXPORTED_NOT_HUMAN_VISUAL_ACCEPT",
+      "asks_human": "Visual accept redesigned Nori-7 (NORI7-V01) after playtest; machine only proved multi-material GLB + 15 real clips",
+      "glb_sha256": "c165108730c1a10c8417e8235a388add988019a80bfeac7a2a8f111b19a09c29"
+    },
+    {
+      "id": "POST-UCBV-SELFRUN-001",
+      "receipt": "orchestration/receipts/post_ucbv_selfrun_001/SELFRUN_report_001.json",
+      "machine_verdict": "SELFRUN_SMOKES_PASS_HEADLESS",
+      "asks_human": "Note foundation play loop still green after redesign promotion"
+    }
+  ],
+  "tier2_drafts_queued": [
+    "orchestration/control/tier2_queue/DRAFT_DIR_CTRL_1B_BATCH.md",
+    "orchestration/control/tier2_queue/DRAFT_DIR_CHAR_1C_FOUNDRY_BATCH.md",
+    "orchestration/control/tier2_queue/DRAFT_DIR_P1E_ART_WAVES_BATCH.md"
+  ],
+  "tier3_locked_unchanged": [
+    "P2E-002",
+    "character-backbone",
+    "DNA vNext EXECUTION",
+    "H2-H6",
+    "TTS/voxel/neural/Text-to-3D"
+  ],
+  "independent_verify_notes": [
+    "GLB parse: 15 animations incl water/plant_seed/harvest/charge/low_energy; 14 joints exact; 9 material primitives; 1.60MB",
+    "HUD grep: zero press E to chat under game/**",
+    "Headless smokes exit 0: c5h1, h1_flow, ucbv_integration",
+    "No self-accept; Red F01 ship/network untouched"
+  ],
+  "recorded_at": "2026-07-23T15:01:58+07:00"
+}

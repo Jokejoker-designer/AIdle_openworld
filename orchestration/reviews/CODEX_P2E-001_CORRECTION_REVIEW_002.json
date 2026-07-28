@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_P2E-001-CORRECTION-REVIEW-002",
+  "reviewed_at": "2026-07-22T14:04:00+07:00",
+  "reviewed_by": "codex",
+  "task_id": "P2E-001",
+  "directive_id": 71,
+  "state": "CHANGES_REQUESTED",
+  "verdict": "CORRECTION_REQUIRED",
+  "accepted": false,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "child_lineage": {
+    "C0": "019f8883-4c2b-7341-9093-074ac8449a5c",
+    "C1": "019f888c-2ae3-7aa1-9385-f6220f58dbde",
+    "C2": "019f8890-2a0f-7c21-8b3c-82b53cff00cd",
+    "C3": "019f8897-cb4f-75b3-b77c-7a87c589e342"
+  },
+  "independent_checks": {
+    "maf_schema": "PASS: C0 C1 C2 C3 validate with Draft202012Validator against E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "evidence_integrity": "PASS: 14/14 PNGs exist, SHA-256 matches manifest, all hashes distinct, dimensions are 1280x720 or 868x517",
+    "headless_regressions": "PASS per C1 C2 C3 and independently consistent with logs",
+    "headed_gate": "FAIL",
+    "visual_review": "FAIL"
+  },
+  "findings": [
+    {
+      "id": "P2E-CODEX-F02-R2",
+      "severity": "BLOCKER",
+      "finding": "Headed teardown still emits one RendererRD texture RID leak and null RenderingServer ERROR/USER ERROR lines.",
+      "evidence": "orchestration/evidence/p2e_001/002/godot_headed.log",
+      "repeat_count": 2,
+      "route_if_repeated": "NEED_HUMAN on a third identical failure"
+    },
+    {
+      "id": "P2E-CODEX-F03-R2",
+      "severity": "BLOCKER",
+      "finding": "The headed sequence is not fully player-input driven: confirmed_complete records residual confirm_and_commit_direct after key input; acceptance cannot depend on a direct controller fallback.",
+      "evidence": "orchestration/evidence/p2e_001/002/godot_headed.log"
+    },
+    {
+      "id": "P2E-CODEX-F04-R2",
+      "severity": "BLOCKER",
+      "finding": "The 868x517 Build-R witness records preview rotation 0 to 0. Camera yaw is unchanged, but preview rotation itself is not proven at that viewport.",
+      "evidence": "orchestration/evidence/p2e_001/002/evidence_manifest.json"
+    },
+    {
+      "id": "P2E-CODEX-F05-R2",
+      "severity": "BLOCKER",
+      "finding": "Independent image inspection shows bottom HUD overlap/clipping at 868x517, diagnostic/debug text dominating the screen, and a Pause menu open in build_preview_R. This fails responsive, no-overlap and playable-state honesty gates.",
+      "evidence": [
+        "orchestration/evidence/p2e_001/002/build_preview_R_868x517.png",
+        "orchestration/evidence/p2e_001/002/cancelled_preview_868x517.png",
+        "orchestration/evidence/p2e_001/002/confirmed_complete_1280x720.png"
+      ]
+    },
+    {
+      "id": "P2E-CODEX-LEASE-R2",
+      "severity": "BLOCKER",
+      "finding": "C0 wrote game/scripts/camera/cozy_camera.gd outside Directive-71's exact product lease. The change is preserved but is not accepted as authorized evidence.",
+      "evidence": "orchestration/receipts/p2e_001/correction_001/C1_control_audit_002.json"
+    }
+  ],
+  "closed_or_preserved": {
+    "receipt_schema": "closed",
+    "block_dna": "preserved 14/14 valid and 42/42 invalid",
+    "idempotency": "closed by headless evidence",
+    "module_cycle": "working but full real-input headed transaction remains open",
+    "world_commit_authority": "preserved",
+    "network_shipping": "still blocked by Red F01"
+  },
+  "next_route": "DIRECTIVE_72_MINIMAL_PLAYABILITY_AND_TEARDOWN_CORRECTION"
+}

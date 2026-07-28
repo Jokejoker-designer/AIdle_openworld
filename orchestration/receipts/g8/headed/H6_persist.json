@@ -1,0 +1,48 @@
+{
+  "agent_step_id": "G8-001-HEADED-H6-persist-2026-07-21",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-HEADED-CORRECTION-001",
+    "directive_id": 21,
+    "wave": "H6_PERSIST_RESTART_VERIFY",
+    "profile": "persist",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY: G4 persist smoke still 22 checks; g4 evidence only user://; six tracked exports zero-diff vs 60fccdd after reruns. Art/edition remain SettingsManager/user:// world meta — not dirtying tracked evidence.",
+    "product_writes": 0,
+    "children": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22"
+      },
+      {
+        "marker": "isolated user:// only"
+      },
+      {
+        "marker": "SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_product_patch": true,
+    "no_self_accept": true,
+    "residual_risks": []
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-headed-correction-001.log",
+    "orchestration/work_orders/WO-G8-001-HEADED-CORRECTION-001.md",
+    "orchestration/work_orders/G8-001_HEADED_DISPATCH_MAP.md",
+    "orchestration/reviews/G8-001_HEADED_ACCEPTANCE_MATRIX.md",
+    "orchestration/evidence/g8_headed_correction/"
+  ],
+  "next_route": "H7_NETWORK_PURPLE"
+}

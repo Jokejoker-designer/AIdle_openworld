@@ -1,0 +1,138 @@
+{
+  "evidence_id": "G8-UX-002-W3-fence-transform-deltas",
+  "work_order": "WO-G8-UX-002-FENCE-COLLISION-GAP",
+  "wave": "G8_UX002_W3_QA",
+  "child_task_ref": "019f8435-7b25-7870-928f-427a6f61d87a",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_ref": "019f8432-b824-7f91-828f-2145040a13e2",
+  "w1_child_ref": "019f842f-750b-7423-a926-7df0d0f70dd2",
+  "authority_token": "VERIFY_ONLY",
+  "profile": "aidle-worldgen-qa-evidence",
+  "godot": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+  "godot_version": "4.3.stable.official.77dcf97d8",
+  "mode": "headless_scripted_physics_with_timestamps",
+  "headed_equivalence_note": "WO AC5 requires real physics not a mock. Headless CharacterBody3D.move_and_slide against live StarterRealmBuilder fence satisfies that bar. Interactive headed walk-into-fence remains optional for Human Product Lead ACCEPT (R-INFO-01).",
+  "fence_block_numbers": {
+    "gap_world_x": 3.35,
+    "fence_world_z": 0.5,
+    "before": {"x": 3.34999990463257, "y": 0.0466666668653488, "z": 1.89999997615814},
+    "after": {"x": 3.34999990463257, "y": 0.0000911387614905834, "z": 0.880196750164032},
+    "advanced_along_minus_z": 1.01980322599411,
+    "crossed_through": false,
+    "rails_count": 4,
+    "rails_with_static_body": 4,
+    "rail0_layer": 1,
+    "player_mask": 5,
+    "player_layer": 2,
+    "contact_band_note": "after.z≈0.880 matches fence_z=0.5 + rail half-depth 0.03 + capsule radius 0.35"
+  },
+  "runs": [
+    {
+      "run_id": "ux002-primary",
+      "command": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+      "started_at_utc": "2026-07-21T10:28:27.3493452Z",
+      "ended_at_utc": "2026-07-21T10:28:28.8190923Z",
+      "elapsed_ms": 1457,
+      "exit_code": 0,
+      "marker": "AIDLE_G8_UX002_SMOKE=PASS checks=2",
+      "raw_capture": "orchestration/evidence/g8_ux/ux002_w3_fence_smoke_primary_raw.txt",
+      "rails": {"count": 4, "with_static_body": 4},
+      "fence_gap_drive": {
+        "criterion": "AC1_player_blocked_between_posts",
+        "method": "CharacterBody3D.move_and_slide velocity.z=-14 x60 physics frames at Rail0 midline world x=3.35 (Post0/Post1 gap)",
+        "gap_world_x": 3.35,
+        "fence_world_z": 0.5,
+        "before": {"x": 3.34999990463257, "y": 0.0466666668653488, "z": 1.89999997615814},
+        "after": {"x": 3.34999990463257, "y": 0.0000911387614905834, "z": 0.880196750164032},
+        "advanced_along_minus_z": 1.01980322599411,
+        "crossed_through": false,
+        "rail0_layer": 1,
+        "player_mask": 5,
+        "player_layer": 2,
+        "pass": true
+      }
+    },
+    {
+      "run_id": "ux002-confirm",
+      "command": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+      "started_at_utc": "2026-07-21T10:28:28.8683237Z",
+      "ended_at_utc": "2026-07-21T10:28:30.2913172Z",
+      "elapsed_ms": 1422,
+      "exit_code": 0,
+      "marker": "AIDLE_G8_UX002_SMOKE=PASS checks=2",
+      "raw_capture": "orchestration/evidence/g8_ux/ux002_w3_fence_smoke_confirm_raw.txt",
+      "rails": {"count": 4, "with_static_body": 4},
+      "fence_gap_drive": {
+        "before": {"x": 3.34999990463257, "y": 0.0466666668653488, "z": 1.89999997615814},
+        "after": {"x": 3.34999990463257, "y": 0.0000911387614905834, "z": 0.880196750164032},
+        "advanced_along_minus_z": 1.01980322599411,
+        "crossed_through": false,
+        "pass": true
+      },
+      "stable_vs_primary": true
+    }
+  ],
+  "ux001_no_regress": {
+    "run_id": "ux001-regress",
+    "command": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://tests/g8_ux_input_collision_smoke.gd",
+    "started_at_utc": "2026-07-21T10:28:30.2934289Z",
+    "ended_at_utc": "2026-07-21T10:28:32.0130012Z",
+    "elapsed_ms": 1719,
+    "exit_code": 0,
+    "marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+    "raw_capture": "orchestration/evidence/g8_ux/ux002_w3_ux001_smoke_raw.txt",
+    "ac1_transform_delta": {
+      "before": {"x": 0.0, "y": 0.0466666668653488, "z": 0.0},
+      "after": {"x": 0.0, "y": 0.000768569181673229, "z": -0.93888890743256},
+      "delta_xz": 0.938888907432556,
+      "pass": true
+    },
+    "ac4_collision": {
+      "before": {"x": 0.0, "y": 0.0500000007450581, "z": -0.60000002384186},
+      "after": {"x": 0.0, "y": 0.0000471936073154211, "z": -1.64984464645386},
+      "manifestation_layer": 4,
+      "player_mask": 5,
+      "penetrated": false,
+      "pass": true
+    },
+    "supporting": {
+      "action_bar_buttons_focus_none": 6,
+      "arrow_owner": "move_* (WASD+arrows); ui_left/right/up/down events empty",
+      "ac5_preview_stages_non_solid": "PASS"
+    }
+  },
+  "manifestation_no_regress": {
+    "run_id": "manifestation-regress",
+    "command": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
+    "started_at_utc": "2026-07-21T10:28:32.0140008Z",
+    "ended_at_utc": "2026-07-21T10:28:32.5251711Z",
+    "elapsed_ms": 510,
+    "exit_code": 0,
+    "marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
+    "raw_capture": "orchestration/evidence/g8_ux/ux002_w3_manifestation_smoke_raw.txt"
+  },
+  "source_confirmations": {
+    "rails_with_collision": "starter_realm_builder.gd:_build_fence Rail _box(..., p[\"wood\"], true) line ~293",
+    "posts_unchanged": "Post size Vector3(0.12,0.9,0.12) spacing (i-2)*1.1 with_collision=true",
+    "rail_geometry_unchanged": "Rail size Vector3(1.0,0.08,0.06) at y=0.55 pos (i-1.5)*1.1 — only with_collision flipped vs WO root-cause false",
+    "ux001_do_not_touch_mtimes_utc": {
+      "playable_action_bar.gd": "2026-07-21T09:56:48Z",
+      "player_controller.gd": "2026-07-21T09:56:48Z",
+      "player.tscn": "2026-07-21T09:57:53Z",
+      "manifestation_instance.gd": "2026-07-21T00:56:30Z",
+      "g8_ux_input_collision_smoke.gd": "2026-07-21T09:58:07Z",
+      "note": "All predate W1 product mtimes starter_realm_builder 10:20:24Z / g8_ux002 smoke 10:20:32Z"
+    }
+  },
+  "verdict_numbers": {
+    "fence_before_z": 1.89999997615814,
+    "fence_after_z": 0.880196750164032,
+    "fence_advanced_along_minus_z": 1.01980322599411,
+    "fence_crossed_through": false,
+    "rails_with_static_body": 4,
+    "ux001_delta_xz": 0.938888907432556,
+    "ux001_ac4_after_z": -1.64984464645386,
+    "ux001_ac4_penetrated": false,
+    "stable_across_ux002_dual_run": true
+  }
+}

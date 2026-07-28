@@ -1,0 +1,163 @@
+{
+  "schema_version": "block_dna_adapt_001/1.0",
+  "recipe_id": "recipe_cozy_greenhouse_v1",
+  "recipe_type": "MODULE_CLUSTER",
+  "world_profile": "cozy_cyber_pixel",
+  "root_module_id": "cluster_cozy_greenhouse_droplet_A",
+  "idempotency_key": "idem_recipe_cozy_greenhouse_v1",
+  "instances": [
+    {
+      "instance_id": "foundation",
+      "module_id": "arch_floor_round_4m",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "parameters": {
+        "script": "print(1)",
+        "execute": true
+      }
+    },
+    {
+      "instance_id": "wall",
+      "module_id": "arch_wall_door_4m",
+      "transform": {
+        "position": [
+          0.0,
+          -2.0,
+          0.0
+        ],
+        "rotation_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "parameters": {}
+    },
+    {
+      "instance_id": "roof",
+      "module_id": "arch_roof_dome_4m",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          2.5
+        ],
+        "rotation_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "parameters": {}
+    },
+    {
+      "instance_id": "door",
+      "module_id": "arch_door_round",
+      "transform": {
+        "position": [
+          0.0,
+          -2.0,
+          0.0
+        ],
+        "rotation_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "parameters": {
+        "enabled": true
+      }
+    }
+  ],
+  "connections": [
+    {
+      "connection_id": "c_wall_door",
+      "from_instance": "wall",
+      "from_socket": "door_opening",
+      "from_polarity": "output",
+      "to_instance": "door",
+      "to_socket": "door_leaf",
+      "to_polarity": "input"
+    },
+    {
+      "connection_id": "c_wall_roof",
+      "from_instance": "wall",
+      "from_socket": "roof_edge",
+      "from_polarity": "peer",
+      "to_instance": "roof",
+      "to_socket": "roof_edge",
+      "to_polarity": "peer"
+    },
+    {
+      "connection_id": "c_wall_opening_norm",
+      "from_instance": "wall",
+      "from_socket": "wall_edge",
+      "from_polarity": "peer",
+      "to_instance": "door",
+      "to_socket": "door_opening",
+      "to_polarity": "peer",
+      "adapter_normalization_id": "norm_wall_edge_door_opening_v1"
+    }
+  ],
+  "material_overrides": [
+    {
+      "instance_id": "*",
+      "slot": "structure",
+      "p1e_material_id": "MAT_CozyStoneWarm"
+    },
+    {
+      "instance_id": "door",
+      "slot": "door",
+      "p1e_material_id": "MAT_CozyDoor"
+    }
+  ],
+  "behavior_bindings": [
+    {
+      "instance_id": "door",
+      "behavior_id": "behavior_door_v1",
+      "config": {}
+    }
+  ],
+  "validation": {
+    "check_sockets": true,
+    "check_materials": true,
+    "check_occupancy": true
+  },
+  "outputs": {
+    "proposal_only": true,
+    "scene_manifest": true,
+    "asset_request_on_missing": true
+  },
+  "payload_fingerprint": "51ab8abef6ac1555e68b25cbf100919b8fa4aa8c60211ba2f5244534236f6a76"
+}

@@ -1,0 +1,270 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/dna-platform-vnext/schemas/generation_result.schema.json",
+  "title": "AIdle DNA Generation Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "status",
+    "recipe_ref",
+    "claims",
+    "findings",
+    "asset_requests",
+    "compile_outputs",
+    "accepted",
+    "self_accept",
+    "world_mutated",
+    "next_route"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "dna_platform_vnext/generation_result/0.1"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128
+    },
+    "status": {
+      "enum": [
+        "PROPOSAL_READY",
+        "ASSET_REQUEST_REQUIRED",
+        "REJECTED",
+        "HITL_REQUIRED"
+      ]
+    },
+    "recipe_ref": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "recipe_id",
+        "payload_fingerprint"
+      ],
+      "properties": {
+        "recipe_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "payload_fingerprint": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "classification",
+          "statement",
+          "evidence_ref"
+        ],
+        "properties": {
+          "classification": {
+            "enum": [
+              "FACT",
+              "INFERENCE",
+              "UNKNOWN"
+            ]
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "evidence_ref": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 512
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "maxItems": 128,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "severity",
+          "code",
+          "path",
+          "message"
+        ],
+        "properties": {
+          "severity": {
+            "enum": [
+              "INFO",
+              "WARNING",
+              "BLOCKING"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "pattern": "^[A-Z0-9_\\-]+$"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        }
+      }
+    },
+    "asset_requests": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "asset_request_id",
+          "missing_capability",
+          "deliverable_kind"
+        ],
+        "properties": {
+          "asset_request_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "missing_capability": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "deliverable_kind": {
+            "enum": [
+              "MODULE_GLTF",
+              "SKELETON_RIG",
+              "ANIMATION_ACTIONS",
+              "MATERIAL",
+              "BEHAVIOR_IMPLEMENTATION",
+              "GENERATOR_IMPLEMENTATION",
+              "VFX",
+              "AUDIO"
+            ]
+          }
+        }
+      }
+    },
+    "compile_outputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "strict_build_recipe",
+        "strict_build_graph",
+        "physics_extension",
+        "structured_world_prompt"
+      ],
+      "properties": {
+        "strict_build_recipe": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 512
+        },
+        "strict_build_graph": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 512
+        },
+        "physics_extension": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 512
+        },
+        "structured_world_prompt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 512
+        }
+      }
+    },
+    "accepted": {
+      "const": false
+    },
+    "self_accept": {
+      "const": false
+    },
+    "world_mutated": {
+      "const": false
+    },
+    "next_route": {
+      "enum": [
+        "SEMANTIC_VALIDATION",
+        "ASSET_AUTHORING_GATE",
+        "RUNTIME_INTEGRATION_GATE",
+        "HITL",
+        "STOP"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "ASSET_REQUEST_REQUIRED"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "asset_requests": {
+            "minItems": 1
+          },
+          "next_route": {
+            "const": "ASSET_AUTHORING_GATE"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "PROPOSAL_READY"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "recipe_ref": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  ]
+}

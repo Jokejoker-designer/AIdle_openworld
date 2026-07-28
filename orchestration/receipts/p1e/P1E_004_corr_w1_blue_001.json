@@ -1,0 +1,205 @@
+{
+  "step_id": "P1E-004-corr-w1-blue-001",
+  "agent_step_id": "P1E-004-corr-w1-blue-001-2026-07-22",
+  "work_order_id": "WO-P1E-004-DNA-PILOT-AND-WATER-FIX",
+  "work_order": "orchestration/work_orders/WO-P1E-004-DNA-PILOT-AND-WATER-FIX.md",
+  "agent_id": "aidle-worldgen-asset-art",
+  "agent_type": "aidle-worldgen-asset-art",
+  "authority": "PATCH_DRAFT",
+  "authority_token": "PATCH_DRAFT",
+  "status": "REVIEW_REQUESTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "wave": "P1E_004_CORR_W1_BLUE",
+  "child_task_ref": "019f85c3-8de9-7972-8500-40142dfb7b42",
+  "transcript_ref": "019f85c3-8de9-7972-8500-40142dfb7b42",
+  "writer_transcript_ref": "019f85c3-8de9-7972-8500-40142dfb7b42",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "writer_lease": {
+    "holder": "019f85c3-8de9-7972-8500-40142dfb7b42",
+    "scope": [
+      "E:/AIdle_Blender_Bridge_P0/blender_scripts/environment_worker_entry.py",
+      "E:/AIdle_openworld/game/tests/p1e003_density_exposure_smoke.gd",
+      "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_corr_w1_blue_001.json",
+      "E:/AIdle_openworld/orchestration/logs/p1e-004-corr-w1-blue-001.log",
+      "E:/AIdle_openworld/orchestration/evidence/p1e_004/**"
+    ],
+    "one_writer_per_file": true
+  },
+  "next_owner": "P1E_004_CORR_W2_RED",
+  "next_route": "P1E_004_CORR_W2_RED",
+  "handoff_ref": "P1E_004_CORR_W2_RED",
+  "trace_ref": "orchestration/logs/p1e-004-corr-w1-blue-001.log",
+  "package_job_id": "BLD-03CB1AADD475",
+  "package_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475",
+  "verdict": "WATER_HSL_PASS_CONTRACT_HONEST_NO_ACCEPT — pond render HSL PASS (sat>=22, hue~193±28, rb_spread>=25); four-value demo PASS; luma band PASS; ASM/elemental/p1e003 smokes PASS; GAME_GLB_COUNT=0; original P1E-004 W1–W4 had no child refs (parent-inline). self_accept=false accepted=false.",
+  "original_wave_limitation_ref": "orchestration/receipts/p1e/P1E_004_PARENT_INLINE_LIMITATION.md",
+  "governance_note": "Original P1E-004 W1–W4 ran parent-inline with no spawn_subagent. Do NOT invent UUIDs for those waves. This CORRECTION wave is a real spawned child with durable child_task_ref.",
+  "inputs": {
+    "parent_session": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "prior_packages_checked": [
+      "BLD-165D616540AF",
+      "BLD-73CE65C0F1D5",
+      "BLD-B9570B58F4F9"
+    ],
+    "hsl_script": "orchestration/evidence/p1e_004/_material_integrity_hsl.py",
+    "rebuild_script": "orchestration/evidence/p1e_004/_rebuild_p1e004_package.py",
+    "worker": "E:/AIdle_Blender_Bridge_P0/blender_scripts/environment_worker_entry.py",
+    "limitation_doc": "orchestration/receipts/p1e/P1E_004_PARENT_INLINE_LIMITATION.md"
+  },
+  "outputs": {
+    "package_job_id": "BLD-03CB1AADD475",
+    "preview": "orchestration/evidence/p1e_004/starter_realm_preview_p1e004_corr_hsl.png",
+    "luma_metrics": "orchestration/evidence/p1e_004/luma_metrics_corr.json",
+    "material_integrity_hsl": "orchestration/evidence/p1e_004/material_integrity_hsl_corr.json",
+    "four_value_demo": "orchestration/evidence/p1e_004/four_value_hsl_demo.json",
+    "package_meta": "orchestration/evidence/p1e_004/package_meta.json",
+    "artifact_hashes": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/artifact_hashes.json",
+    "receipt": "orchestration/receipts/p1e/P1E_004_corr_w1_blue_001.json",
+    "log": "orchestration/logs/p1e-004-corr-w1-blue-001.log"
+  },
+  "evidence_refs": [
+    "orchestration/evidence/p1e_004/starter_realm_preview_p1e004_corr_hsl.png",
+    "orchestration/evidence/p1e_004/luma_metrics_corr.json",
+    "orchestration/evidence/p1e_004/material_integrity_hsl_corr.json",
+    "orchestration/evidence/p1e_004/four_value_hsl_demo.json",
+    "orchestration/evidence/p1e_004/package_meta.json",
+    "orchestration/receipts/p1e/P1E_004_PARENT_INLINE_LIMITATION.md",
+    "orchestration/logs/_p1e004_corr_asm_smoke.txt",
+    "orchestration/logs/_p1e004_corr_elemental_smoke.txt",
+    "orchestration/logs/_p1e004_corr_p1e003_smoke.txt",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/"
+  ],
+  "character_binding": {
+    "trustlayer": "blue-team-p0-remediator",
+    "role": "Blue Worker PATCH_DRAFT"
+  },
+  "skills_loaded": [
+    {"skill_id": "maf-mandatory-standard", "version": "1.0"},
+    {"skill_id": "trustlayer-x16-crew", "version": "1.0"},
+    {"skill_id": "agentwork-knowledge-loop", "version": "1.0"}
+  ],
+  "files_written": [
+    "E:/AIdle_Blender_Bridge_P0/blender_scripts/environment_worker_entry.py",
+    "E:/AIdle_openworld/game/tests/p1e003_density_exposure_smoke.gd",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/**",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/artifact_hashes.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_004/starter_realm_preview_p1e004_corr_hsl.png",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_004/luma_metrics_corr.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_004/material_integrity_hsl_corr.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_004/four_value_hsl_demo.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_004/package_meta.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_corr_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-004-corr-w1-blue-001.log"
+  ],
+  "allowlist_status": "CONFIRMED — Bridge worker water material only + surgical smoke PACKAGE_PATH retarget; orchestration receipts/evidence/logs. NO codex_directive.json. NO art wave 2. Elemental pilot already landed (not re-authored).",
+  "water_material_fix": {
+    "history": {
+      "beige": [218, 209, 195],
+      "white": [255, 255, 255],
+      "grey_wash": [185, 195, 189],
+      "prior_dark_base_em_1_05_median": [219, 249, 255],
+      "prior_fail": "sat 14.1% near-white under sun*exposure 0.72",
+      "target_bible": [143, 212, 232]
+    },
+    "final_params": {
+      "base_color": [0.02, 0.10, 0.18, 1.0],
+      "emission": [0.18, 0.52, 0.78],
+      "emission_strength": 1.55,
+      "roughness": 0.94,
+      "transmission": 0.0
+    },
+    "strategy": "Near-black cyan base kills diffuse sun wash; mid-low-value high-chroma emission dominates hue/sat without val clip that kept sat under 22%."
+  },
+  "four_value_hsl_demo": {
+    "pass": true,
+    "table": [
+      {"label": "beige_218_209_195", "rgb": [218, 209, 195], "hue": 36.5, "sat": 10.6, "rb_spread": -23, "expected": "FAIL", "actual": "FAIL"},
+      {"label": "white_255_255_255", "rgb": [255, 255, 255], "hue": 0.0, "sat": 0.0, "rb_spread": 0, "expected": "FAIL", "actual": "FAIL"},
+      {"label": "grey_185_195_189", "rgb": [185, 195, 189], "hue": 144.0, "sat": 5.1, "rb_spread": 4, "expected": "FAIL", "actual": "FAIL"},
+      {"label": "bible_143_212_232", "rgb": [143, 212, 232], "hue": 193.5, "sat": 38.4, "rb_spread": 89, "expected": "PASS", "actual": "PASS"}
+    ]
+  },
+  "material_integrity_hsl": {
+    "pass": true,
+    "glb_water_rgb": [5, 26, 46],
+    "glb_eval": "PASS",
+    "pond_median_rgb": [191, 252, 255],
+    "pond_median_hsv": {
+      "hue_deg": 182.8125,
+      "sat": 25.098039215686274,
+      "val": 100.0,
+      "rb_spread": 64
+    },
+    "white_pct": 0.17307692307692307,
+    "gates": {
+      "sat_ge_22": true,
+      "hue_193_pm_28": true,
+      "rb_spread_ge_25": true,
+      "white_pct_low": true
+    }
+  },
+  "luma_metrics": {
+    "mean_luma": 153.96897056741486,
+    "blown_pct": 1.4193216959635417,
+    "shadow_pct": 5.903116861979167,
+    "spatial_shadow": {
+      "largest_cluster_share_pct": 40.961571600896086,
+      "bbox_xyxy": [425, 312, 696, 371],
+      "centroid_xy": [557.1744846445099, 347.0309213294068],
+      "n_clusters": 77,
+      "distributed": true
+    },
+    "pass_band": {
+      "mean_150_185": true,
+      "blown_lt_3": true,
+      "shadow_5_15": true
+    }
+  },
+  "result": {
+    "status": "REVIEW_REQUESTED",
+    "summary": "P1E-004 CORRECTION W1 Blue: retuned MAT_CozyWater (dark base + chromatic emission) so pond preview passes HSL hue/sat gates; package BLD-03CB1AADD475 with artifact_hashes files[]; luma band + spatial distributed; ASM + elemental pilot + p1e003 smokes PASS; GAME_GLB_COUNT=0. Documented original parent-inline limitation. self_accept=false accepted=false.",
+    "package_job_id": "BLD-03CB1AADD475",
+    "material_integrity_hsl": "PASS",
+    "four_value_demo": "PASS",
+    "mean_luma": 153.969,
+    "blown_pct": 1.419,
+    "shadow_pct": 5.903
+  },
+  "smoke_test": {
+    "asm": {
+      "line": "AIDLE_P1E004_ASM_SMOKE=PASS checks=6",
+      "extra": "SCRIPT_ERROR_ART_STYLE=0",
+      "exit": 0,
+      "log": "orchestration/logs/_p1e004_corr_asm_smoke.txt"
+    },
+    "elemental_pilot": {
+      "line": "AIDLE_P1E004_ELEMENTAL_SMOKE=PASS checks=5",
+      "exit": 0,
+      "log": "orchestration/logs/_p1e004_corr_elemental_smoke.txt"
+    },
+    "p1e003": {
+      "line": "AIDLE_P1E003_SMOKE=PASS checks=9",
+      "extra": ["GODOT_RUNTIME_LOAD=OK", "GAME_GLB_COUNT=0"],
+      "package": "BLD-03CB1AADD475",
+      "hash_ok_count": 47,
+      "hash_total": 47,
+      "exit": 0,
+      "log": "orchestration/logs/_p1e004_corr_p1e003_smoke.txt"
+    }
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "self_accept": false,
+    "accepted": false,
+    "no_grandchildren": true,
+    "allowlist_only": true,
+    "no_invented_prior_wave_uuids": true,
+    "contract_honesty": "Original W1–W4 child_task_ref must not be fabricated; see P1E_004_PARENT_INLINE_LIMITATION.md",
+    "no_codex_directive": true,
+    "no_art_wave_2": true
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/schemas/conductor_handoff.schema.json",
+  "title": "AIdle conductor handoff",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "handoff_id",
+    "handoff_state",
+    "activation_authorized",
+    "activation_threshold_percent",
+    "usage_remaining_percent",
+    "usage_evidence",
+    "trigger_source",
+    "target_parent_session_ref",
+    "new_top_level_session_allowed",
+    "grok_cli_allowed",
+    "self_accept_allowed",
+    "human_acceptance_required_when_codex_unavailable",
+    "capsule",
+    "last_safe_directive_id"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "handoff_id": {"type": "string", "pattern": "^AIDLE-CONTINUITY-[0-9]{3,}$"},
+    "handoff_state": {"enum": ["ARMED", "TRIGGERED", "ACTIVE", "RELEASED", "CANCELLED"]},
+    "activation_authorized": {"type": "boolean"},
+    "activation_threshold_percent": {"const": 5},
+    "usage_remaining_percent": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+    "usage_evidence": {"type": ["string", "null"], "minLength": 1},
+    "trigger_source": {"type": ["string", "null"], "enum": [null, "CODEX_VERIFIED_USAGE", "HUMAN_PRODUCT_LEAD"]},
+    "armed_at": {"type": "string", "format": "date-time"},
+    "triggered_at": {"type": ["string", "null"], "format": "date-time"},
+    "armed_by": {"type": "string", "minLength": 1},
+    "authorized_by": {"type": ["string", "null"], "minLength": 1},
+    "target_parent_session_ref": {"const": "019f7ffd-3995-71c0-aca1-51078e24a852"},
+    "new_top_level_session_allowed": {"const": false},
+    "grok_cli_allowed": {"const": false},
+    "self_accept_allowed": {"const": false},
+    "human_acceptance_required_when_codex_unavailable": {"const": true},
+    "capsule": {"const": "orchestration/control/GROK_CONTINUITY_CAPSULE.md"},
+    "last_safe_directive_id": {"type": "integer", "minimum": 44},
+    "notes": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"handoff_state": {"const": "ARMED"}}},
+      "then": {
+        "properties": {
+          "activation_authorized": {"const": false},
+          "usage_remaining_percent": {"type": "null"},
+          "usage_evidence": {"type": "null"},
+          "trigger_source": {"type": "null"},
+          "triggered_at": {"type": "null"},
+          "authorized_by": {"type": "null"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"handoff_state": {"enum": ["TRIGGERED", "ACTIVE"]}}},
+      "then": {
+        "required": ["triggered_at", "authorized_by"],
+        "properties": {
+          "activation_authorized": {"const": true},
+          "triggered_at": {"type": "string"},
+          "authorized_by": {"type": "string"},
+          "trigger_source": {"enum": ["CODEX_VERIFIED_USAGE", "HUMAN_PRODUCT_LEAD"]}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"trigger_source": {"const": "CODEX_VERIFIED_USAGE"}}, "required": ["trigger_source"]},
+      "then": {
+        "properties": {
+          "usage_remaining_percent": {"type": "number", "maximum": 5},
+          "usage_evidence": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  ]
+}

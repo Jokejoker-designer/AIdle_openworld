@@ -1,0 +1,313 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-p0-purple-scope-correction-005-2026-07-22",
+  "step_id": "CTRL-1B-002-p0-purple-scope-correction-005",
+  "work_order_id": "WO-CTRL-1B-002-R-CAMERA-PURPLE-SCOPE-CORRECTION-004",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-R-CAMERA-PURPLE-SCOPE-CORRECTION-004.md",
+  "work_order_sha256": "ce59e4905add7e3cec4bf26b8587ea7852676c13dd957400e261c33265cf680c",
+  "directive_id": 62,
+  "directive_scope": "provenance-only Purple re-verify; exact two-file lease; no product/test/contract/fixture/prior receipt edits; E0 accepted; rejected E1 out-of-lease helper",
+  "review_id": "CODEX_CTRL-1B-002-R-CAMERA-RECEIPT-SCOPE-REVIEW-004",
+  "prior_review": "orchestration/reviews/CODEX_CTRL-1B-002_R_CAMERA_RECEIPT_SCOPE_REVIEW_004.json",
+  "prior_review_sha256": "cfdc935554cdc7a5f3463e456e722d34c172630d6f6e03a815875151e7a67761",
+  "milestone": "Control 1B P0 Purple scope correction — VERIFY_ONLY fresh re-run with exclusive two-file write discipline",
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "profile_name": "aidle-worldgen-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_sha256": "9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "leased receipt/log only; never patch product; never ACCEPTED; no helper/temp/scratch scripts; no shell redirect writes; no delete/move/rename",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:a85203a8c19ce64a5d6f1c93f617febf375f1d4ec0ab371fc9846eea07f367f0",
+  "input_context_hash_16": "a85203a8c19ce64a",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002-R-CAMERA-PURPLE-SCOPE-CORRECTION-004.md + CODEX_CTRL-1B-002_R_CAMERA_RECEIPT_SCOPE_REVIEW_004.json + aidle-worldgen-purple-acceptance.md + agent_step_contract.schema.json + CTRL_1B_002_e0_r1_receipt_correction_004.json",
+  "status": "WAITING_CODEX",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "P0_PURPLE_SCOPE_CORRECTION_VERIFIED_NO_ACCEPT",
+  "purple_verdict": "VERIFIED",
+  "verdict_detail": "Directive 62 P0 Purple independently re-ran fixture validator (HARNESS_RESULT=PASS, invalid 12/12), control_1b_context_router_smoke (PASS checks=16 exit 0 ERROR=0), control_1b_integration_smoke (PASS checks=28 exit 0 ERROR=0), confirmed r_camera_yaw_witness.json sha256 matches 513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f, and validated accepted E0 receipt against agent_step_contract.schema.json (ERROR_COUNT=0). Write discipline: exactly two Grok write tool calls to leased paths only; no helpers, redirects, or deletes. Prior E1 transcript 019f8749-4aaf-7bc2-86ca-8d76aa278fd8 rejected for out-of-lease _e1_write_receipt.py. product_writes=[]. accepted=false; self_accept=false; next_route=WAITING_CODEX.",
+  "child_task_ref": "019f8776-b30e-7ab3-b981-eb01ae1dacd0",
+  "transcript_ref": "019f8776-b30e-7ab3-b981-eb01ae1dacd0",
+  "writer_transcript_ref": "019f8776-b30e-7ab3-b981-eb01ae1dacd0",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8776-b30e-7ab3-b981-eb01ae1dacd0/meta.json",
+  "durable_meta_sha256_at_start": "65026c8dbdd3c161280ea04cd938ff6309f9e0102ebaace7d4fc9a03fb95f7b1",
+  "durable_session_note": "subagent_id=019f8776-b30e-7ab3-b981-eb01ae1dacd0 description='P0 Purple exact two writes' status=running at start",
+  "next_owner": "CODEX",
+  "next_route": "WAITING_CODEX",
+  "character_binding": {
+    "trustlayer": "purple-team-release-gate",
+    "trustlayer_wo_required": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "ui": "ui-visual-critic",
+    "ui_wo_required": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "role": "P0 Purple VERIFY_ONLY scope correction — release gate; never patch; never ACCEPTED"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile aidle-worldgen-purple-acceptance.md, WO-CTRL-1B-002-R-CAMERA-PURPLE-SCOPE-CORRECTION-004, CODEX receipt scope review 004, accepted E0 receipt, agent_step_contract.schema.json, character cards, and skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "loaded_full_eof": true,
+      "bytes": 34306,
+      "lines": 1124
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ROUTED",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_p0_purple_scope_correction_005.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-p0-purple-scope-correction-005.log"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-p0-purple-scope-correction-005.log",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_p0_purple_scope_correction_005.json"
+  ],
+  "write_discipline": {
+    "exclusive_lease_only": true,
+    "write_tool_calls": 2,
+    "write_tool_paths_only_leased": true,
+    "helper_scripts_created": [],
+    "temp_cache_scratch_created": [],
+    "shell_redirects": false,
+    "delete_move_rename": false,
+    "out_of_lease_writes": [],
+    "method": "Grok write tool directly; log first then receipt; no python helper writer"
+  },
+  "product_writes": [],
+  "test_writes": [],
+  "contract_writes": [],
+  "fixture_writes": [],
+  "no_product_patch": true,
+  "no_test_patch": true,
+  "no_contract_patch": true,
+  "no_fixture_patch": true,
+  "no_prior_receipt_rewrite": true,
+  "no_e0_rewrite": true,
+  "no_rejected_e1_rewrite": true,
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-p0-purple-scope-correction-005.log",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_p0_purple_scope_correction_005.json"
+  ],
+  "e0_receipt": {
+    "path": "orchestration/receipts/control/CTRL_1B_002_e0_r1_receipt_correction_004.json",
+    "absolute_path": "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_e0_r1_receipt_correction_004.json",
+    "sha256": "a45666ab8bfeb9281c768d73927037a9f69adb0e004811f0b1d1a7372010c650",
+    "bytes": 12960,
+    "child_task_ref": "019f8746-e7b9-7bb1-8fe2-dabf46421a22",
+    "status": "accepted_correction_evidence",
+    "rerun_as_child": false,
+    "schema_validation": {
+      "schema": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+      "validator": "jsonschema.Draft202012Validator",
+      "error_count": 0,
+      "valid": true
+    }
+  },
+  "rejected_e1": {
+    "transcript_ref": "019f8749-4aaf-7bc2-86ca-8d76aa278fd8",
+    "rejected_e1_transcript_ref": "019f8749-4aaf-7bc2-86ca-8d76aa278fd8",
+    "acceptance_evidence": false,
+    "signature": "CTRL1B_E1_PURPLE_TEMP_HELPER_OUT_OF_LEASE",
+    "out_of_lease_finding": {
+      "unauthorized_path": "orchestration/logs/_e1_write_receipt.py",
+      "action": "created by write tool then deleted by run_terminal_command",
+      "reason": "WO granted exactly two exclusive output files. A deleted temporary file is still a real out-of-lease write; exclusive_lease_only=true in that receipt was false.",
+      "source_review": "orchestration/reviews/CODEX_CTRL-1B-002_R_CAMERA_RECEIPT_SCOPE_REVIEW_004.json",
+      "tool_call_line_review": 44
+    }
+  },
+  "commands": [
+    "python E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_context_router_smoke.gd",
+    "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_integration_smoke.gd",
+    "Get-FileHash -Algorithm SHA256 E:/AIdle_openworld/orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json",
+    "python -c jsonschema Draft202012Validator validate E0 receipt vs agent_step_contract.schema.json"
+  ],
+  "exit_codes": [0, 0, 0, 0, 0],
+  "evidence_refs": [
+    "orchestration/logs/ctrl-1b-002-p0-purple-scope-correction-005.log",
+    "orchestration/receipts/control/CTRL_1B_002_e0_r1_receipt_correction_004.json",
+    "orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json",
+    "orchestration/reviews/CODEX_CTRL-1B-002_R_CAMERA_RECEIPT_SCOPE_REVIEW_004.json",
+    "orchestration/work_orders/WO-CTRL-1B-002-R-CAMERA-PURPLE-SCOPE-CORRECTION-004.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "smoke_test": {
+    "pass": true,
+    "error_line_count": 0,
+    "commands": [
+      "python E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_context_router_smoke.gd",
+      "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_integration_smoke.gd",
+      "Get-FileHash -Algorithm SHA256 E:/AIdle_openworld/orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json",
+      "python -c jsonschema Draft202012Validator validate E0 receipt vs agent_step_contract.schema.json"
+    ],
+    "exit_codes": [0, 0, 0, 0, 0],
+    "markers": [
+      "HARNESS_RESULT=PASS",
+      "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=28",
+      "WITNESS_SHA256_MATCH=True",
+      "E0_SCHEMA_VALID=true"
+    ],
+    "validator": {
+      "cmd": "python E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "exit": 0,
+      "marker": "HARNESS_RESULT=PASS",
+      "valid": "PASS",
+      "invalid_rejected": "12/12",
+      "valid_fixture_sha256": "211605f46db73a4308252d7f10867260b5f8a8dd9f8d5fefc970f3c65f2d719f",
+      "error_line_count": 0
+    },
+    "godot": "tools/Godot_v4.3-stable_win64_console.exe",
+    "router": {
+      "script": "res://tests/control_1b_context_router_smoke.gd",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "checks": 16,
+      "error_line_count": 0,
+      "pass": true,
+      "exploration_r_camera_yaw_delta_abs": 0.7854,
+      "real_path_assertions": [
+        "exploration_allows_rotate_camera_right",
+        "exploration_r_camera_yaw_real_inputmap_router_path delta≈0.7854",
+        "build_r_preview_only_camera_unchanged",
+        "rotate_camera_right_remap_still_works",
+        "r_no_multi_context_dual_fire"
+      ]
+    },
+    "integration": {
+      "script": "res://tests/control_1b_integration_smoke.gd",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=28",
+      "checks": 28,
+      "error_line_count": 0,
+      "pass": true,
+      "exploration_r_camera_yaw_delta_abs": 0.7854,
+      "real_path_assertions": [
+        "H-10_exploration_r_camera_yaw_real_inputmap_path",
+        "build_r_preview_only_camera_unchanged",
+        "rotate_camera_right_remap_still_works",
+        "r_exploration_no_hologram_rotate",
+        "r_build_rotates_preview_no_dual_fire"
+      ]
+    },
+    "witness": {
+      "path": "orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json",
+      "expected_sha256": "513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f",
+      "actual_sha256": "513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f",
+      "match": true,
+      "exit_code": 0
+    },
+    "e0_schema": {
+      "path": "orchestration/receipts/control/CTRL_1B_002_e0_r1_receipt_correction_004.json",
+      "schema": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+      "error_count": 0,
+      "valid": true,
+      "exit_code": 0
+    },
+    "all_pass": true,
+    "zero_error_lines": true
+  },
+  "result": {
+    "status": "WAITING_CODEX",
+    "verdict": "P0_PURPLE_SCOPE_CORRECTION_VERIFIED_NO_ACCEPT",
+    "purple_verdict": "VERIFIED",
+    "smoke_test_present": true,
+    "validator_pass": true,
+    "invalid_rejected": "12/12",
+    "router_smoke_pass": true,
+    "integration_smoke_pass": true,
+    "witness_sha256_match": true,
+    "e0_schema_valid": true,
+    "e0_sha256": "a45666ab8bfeb9281c768d73927037a9f69adb0e004811f0b1d1a7372010c650",
+    "zero_error_lines": true,
+    "product_writes_empty": true,
+    "write_discipline_two_files_only": true,
+    "rejected_e1_not_used_as_acceptance": true,
+    "self_accept": false,
+    "accepted": false,
+    "next_owner": "CODEX",
+    "summary": "Directive 62 P0 Purple VERIFIED: fixture+router+integration+witness+E0 schema all PASS with exclusive two-file write discipline; E1 rejected for out-of-lease helper; accepted=false; handoff WAITING_CODEX."
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "verify_only_no_product_edits": true,
+    "verify_only_no_test_edits": true,
+    "verify_only_no_contract_edits": true,
+    "verify_only_no_fixture_edits": true,
+    "no_prior_receipt_rewrite": true,
+    "no_e0_rewrite": true,
+    "no_rejected_e1_rewrite": true,
+    "exclusive_lease_only": true,
+    "writer_lease_two_paths_only": true,
+    "write_tool_calls_exactly_two": true,
+    "no_helper_temp_script": true,
+    "no_shell_redirect_file_write": true,
+    "no_delete_move_rename": true,
+    "one_writer_per_file": true,
+    "no_grandchild": true,
+    "self_accept": false,
+    "accepted": false,
+    "smoke_test_top_level_present": true,
+    "maf_required_fields_present": true,
+    "child_task_ref_real_durable": true,
+    "product_writes_empty": true,
+    "e1_out_of_lease_recorded": true,
+    "purple_never_patches": true,
+    "purple_never_accepted": true
+  }
+}

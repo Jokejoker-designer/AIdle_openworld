@@ -1,0 +1,117 @@
+{
+  "phase": 8,
+  "phase_id": "TOWN_PHASE_08",
+  "district_id": "barn_yard",
+  "district_role_vi": "Sân kho",
+  "status": "BLOCKED_UNTIL_PREV_PARITY_100",
+  "mockup_ssot": "MOCKUP_SSOT_V2",
+  "parity_gate": "MOCKUP_PARITY_100",
+  "character": {
+    "character_id": "TD-CT-028",
+    "slug": "patch",
+    "name": "Patch Gấu Nút",
+    "class": "CREATURE_TAMEABLE",
+    "form": "quad",
+    "clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "motion": "breathe",
+    "signature": "stitch_wiggle",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_08_patch.jpg",
+    "mockup_video": null,
+    "prod_hint": "runtime_glb",
+    "spawn": {
+      "x": 1.4,
+      "y": 0,
+      "z": -9.4,
+      "rotation_deg": 0
+    }
+  },
+  "building": {
+    "module_id": "cozy_barn_small_A",
+    "name": "Nhà kho",
+    "cat": "farm",
+    "anim": "idle_static",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/buildings/bld_03_barn.jpg",
+    "spawn": {
+      "x": 0,
+      "y": 0,
+      "z": -11,
+      "rotation_deg": 0
+    }
+  },
+  "props": [
+    {
+      "module_id": "cozy_tree_fruit_A",
+      "name": "Cây quả",
+      "cat": "nature",
+      "anim": "sway",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_tree_fruit.jpg",
+      "spawn": {
+        "x": -1.7,
+        "y": 0,
+        "z": -9.8,
+        "rotation_deg": -12
+      }
+    },
+    {
+      "module_id": "cozy_rock_small_A",
+      "name": "Đá nhỏ",
+      "cat": "nature",
+      "anim": "idle_static",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_rock_small.jpg",
+      "spawn": {
+        "x": 1.6,
+        "y": 0,
+        "z": -12.4,
+        "rotation_deg": 0
+      }
+    },
+    {
+      "module_id": "cozy_rock_stacked_A",
+      "name": "Đá xếp",
+      "cat": "nature",
+      "anim": "idle_static",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_rock_stacked.jpg",
+      "spawn": {
+        "x": -0.9,
+        "y": 0,
+        "z": -12.6,
+        "rotation_deg": 12
+      }
+    }
+  ],
+  "acceptance": {
+    "rule": "Do NOT mark complete until MOCKUP_PARITY_100 passes for this phase",
+    "mockup_delta_max": 0.0,
+    "require_idle_play": true,
+    "require_clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "require_building_load": true,
+    "require_props_load": 3,
+    "require_town_no_overlap": true,
+    "require_district_role_readable": true,
+    "self_accept": false,
+    "human_accept_required": true
+  },
+  "subagent_pipeline": [
+    "town-orchestrator",
+    "mockup-parity-guardian",
+    "character-animation-designer",
+    "building-module-designer",
+    "prop-set-designer",
+    "town-layout-planner",
+    "godot-runtime-integrator",
+    "red-mockup-delta-reviewer",
+    "purple-parity-gate"
+  ]
+}

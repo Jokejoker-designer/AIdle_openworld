@@ -1,0 +1,360 @@
+{
+  "agent_step_id": "G8-UX-002-W2-red-001-2026-07-21",
+  "agent_type": "aidle-worldgen-red-scope",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "READ_ONLY_AUDIT",
+  "input_context_hash": "sha256:048c91836d3e3c20b737dafa1931fb22ebbfd53f5b5f5cdf0c8e5d5967918a98",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8432-b824-7f91-828f-2145040a13e2",
+  "transcript_ref": "019f8432-b824-7f91-828f-2145040a13e2",
+  "writer_transcript_ref": "019f8432-b824-7f91-828f-2145040a13e2",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_ref": "019f842f-750b-7423-a926-7df0d0f70dd2",
+  "prior_wave_receipt": "orchestration/receipts/g8_ux/G8_UX002_w1_blue_001.json",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/g8-ux002-w2-red-001.log",
+  "handoff_ref": "G8_UX002_W3_QA",
+  "start_time": "2026-07-21T10:22:24Z",
+  "end_time": "2026-07-21T10:24:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-red-scope; trustlayer_character=red-team-source-auditor; ui_character=ui-visual-critic; authority_token=READ_ONLY_AUDIT; required_skills include adversarial-review + architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; findings only never patch; one_writer_per_file=true.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "adversarial-review",
+      "architecture-lock"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, profile aidle-worldgen-red-scope, WO-G8-UX-002, W1 blue receipt/log, starter_realm_builder.gd, g8_ux002 smoke, agent_step_contract schema, grok_status.json manually. No bootstrap loop.",
+  "authorization_note": "READ_ONLY_AUDIT only. Did not patch product/tests/harness/contracts. Human Product Lead Dir50 override applies to Blue product surface only; Red never uses that override to write product. Control-1B still BLOCKED; P1E blocked; G8-001 HITL_REQUIRED. codex_directive.json and Blender/ENV0 untouched. UX-001 do-not-touch files audited not modified by W1.",
+  "child_task_ref_source": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f8432-b824-7f91-828f-2145040a13e2/summary.json session_kind=subagent title=G8-UX002 Wave2 Worldgen Red Audit; newest durable after W1 019f842f-…",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-UX-002-FENCE-COLLISION-GAP.md",
+    "E:/AIdle_openworld/orchestration/receipts/g8_ux/G8_UX002_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-ux002-w1-blue-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/g8_ux/G8_UX_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+    "E:/AIdle_openworld/game/tests/g8_ux002_fence_rail_collision_smoke.gd",
+    "E:/AIdle_openworld/game/tests/g8_ux_input_collision_smoke.gd",
+    "E:/AIdle_openworld/game/scenes/player/player.tscn",
+    "E:/AIdle_openworld/game/scripts/ui/playable_action_bar.gd",
+    "E:/AIdle_openworld/game/scripts/player/player_controller.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f8432-b824-7f91-828f-2145040a13e2/summary.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/g8_ux/G8_UX002_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-ux002-w2-red-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "G8-UX-002",
+    "work_order": "orchestration/work_orders/WO-G8-UX-002-FENCE-COLLISION-GAP.md",
+    "wave": "G8_UX002_W2_RED",
+    "profile": "aidle-worldgen-red-scope",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "authority_token": "READ_ONLY_AUDIT",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "FINDINGS_REPORTED",
+    "summary": "READ_ONLY_AUDIT of W1 Blue 019f842f fence-rail collision patch. Source+independent Godot re-verify: rails with_collision=true (4/4 StaticBody layer=1); posts/spacing/mesh sizes unchanged; UX-001 do-not-touch files mtimes predate W1 and content still FOCUS_NONE/jump; real-physics gap drive blocked (crossed_through=false, after.z≈0.88 vs fence_z=0.5); multi-piece audit stones/lamps/farm not same defect class; allowlist only starter_realm_builder.gd + g8_ux002 smoke. UX-001 + manifestation smokes still PASS. product_writes=[]. Residual info only (headed human retest; single-gap sample; loose fail threshold). Handoff G8_UX002_W3_QA. accepted=false.",
+    "character_binding": {
+      "trustlayer_character_id": "red-team-source-auditor",
+      "trustlayer_card": "E:/agents/characters/05-red-team-source-auditor.md",
+      "ui_character_id": "ui-visual-critic",
+      "ui_card": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+      "maf_role": "agent",
+      "authority_token": "READ_ONLY_AUDIT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; READ_ONLY_AUDIT findings only; no self-accept; no inventing evidence"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: Red finds only; Blue patches; Purple verifies; handoff W3 QA; no grandchildren"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: exclusive receipt+log writes; evidence-backed claims only"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: parent_spawn_only; one_writer_per_file; no product writes"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: measured post gap 0.98m vs player Ø0.70m; rail contact band z≈0.88 matches capsule r=0.35 + rail half-thickness"
+      },
+      {
+        "skill_id": "adversarial-review",
+        "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: challenged Blue claims vs source + independent Godot re-run; UX-001 mtime separation; multi-piece re-audit"
+      },
+      {
+        "skill_id": "architecture-lock",
+        "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: Offline Private Reality starter prop geometry only; no World Commit/camera/companion/core; no Blender Bridge; manifestation system untouched"
+      }
+    ],
+    "audit_checklist": [
+      {
+        "id": "A1",
+        "title": "Rails with_collision true; posts/spacing/mesh unchanged",
+        "verdict": "PASS",
+        "evidence": [
+          "starter_realm_builder.gd:_build_fence Rail _box(..., p[\"wood\"], true) at line ~293",
+          "Posts still Vector3(0.12,0.9,0.12) spacing (i-2)*1.1 with with_collision=true",
+          "Rails still Vector3(1.0,0.08,0.06) at y=0.55 pos (i-1.5)*1.1 — only flag flipped vs WO root-cause false",
+          "Independent smoke rails.count=4 rails.with_static_body=4 layer=1"
+        ]
+      },
+      {
+        "id": "A2",
+        "title": "UX-001 files NOT modified by W1",
+        "verdict": "PASS",
+        "evidence": [
+          "UTC mtimes: playable_action_bar.gd / player_controller.gd 09:56:48Z; player.tscn 09:57:53Z; g8_ux_input_collision_smoke.gd 09:58:07Z",
+          "W1 product mtimes: starter_realm_builder.gd 10:20:24Z; g8_ux002 smoke 10:20:32Z — later exclusive window",
+          "manifestation_instance.gd mtime 00:56:30Z (prior G8 visual work; not in W1 product_writes)",
+          "Content still UX-001-correct: FOCUS_NONE on action-bar; jump via is_action_just_pressed(\"jump\"); player collision_mask=5"
+        ]
+      },
+      {
+        "id": "A3",
+        "title": "Regression real physics between posts; blocked=true",
+        "verdict": "PASS",
+        "evidence": [
+          "game/tests/g8_ux002_fence_rail_collision_smoke.gd uses CharacterBody3D.move_and_slide against StarterRealmBuilder (not mock)",
+          "Drive aimed at Rail0 midline world x=3.35 (between Post0/Post1)",
+          "Red independent re-run EXIT=0 AIDLE_G8_UX002_SMOKE=PASS checks=2",
+          "fence_gap_drive: before.z≈1.90 after.z≈0.880 advanced≈1.02 crossed_through=false rail0_layer=1 player_mask=5",
+          "Contact z≈0.88 matches physics expectation: fence_z=0.5 + rail half-depth 0.03 + capsule radius 0.35"
+        ]
+      },
+      {
+        "id": "A4",
+        "title": "No other multi-piece gap needing change",
+        "verdict": "PASS",
+        "evidence": [
+          "Stones/Rock*: isolated single solid boxes far apart — not linear barrier gaps",
+          "Lamps/*/Pole solid; Bulb visual sphere only — poles isolated landmarks",
+          "FarmPlots Soil_*/Crop_*: with_collision=false intentional navigable decoration",
+          "House Body solid; Roof/Door/Win/Chimney visual — no post-to-post connector class",
+          "Trees Trunk solid; Canopy visual overhead sphere — not horizontal walk-gap",
+          "Pond Water/Rim, Path Seg*, Flowers Stem/Bloom non-solid by design",
+          "second_product_edit_required=false — only Fence/Rail* was the multi-piece solid-with-visual-connector defect"
+        ]
+      },
+      {
+        "id": "A5",
+        "title": "Allowlist only starter_realm_builder + test",
+        "verdict": "PASS",
+        "evidence": [
+          "W1 product_writes: starter_realm_builder.gd + g8_ux002_fence_rail_collision_smoke.gd only",
+          "WO allowlist matches; UX-001 do-not-touch list not in product_writes",
+          "Red product_writes=[] (this wave)"
+        ]
+      }
+    ],
+    "finding_counts": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 1,
+      "info": 3,
+      "blocking_reopen": 0,
+      "audit_pass": 5,
+      "audit_fail": 0
+    },
+    "findings": [
+      {
+        "id": "R-INFO-01",
+        "severity": "info",
+        "title": "Headed human retest still recommended for WO close",
+        "detail": "AC5 requires real physics not a mock — headless CharacterBody3D.move_and_slide against live starter geometry satisfies that bar. Full human headed walk-into-fence remain for W3/Purple/Human Product Lead. Not a W1 reopen.",
+        "blocking": false,
+        "handoff": "G8_UX002_W3_QA"
+      },
+      {
+        "id": "R-LOW-02",
+        "severity": "low",
+        "title": "Smoke crossed_through threshold is loose relative to contact band",
+        "detail": "g8_ux002_fence_rail_collision_smoke.gd fails only if after.z < fence_z-0.25 (z<0.25). Observed contact stops at z≈0.88 (correct). A future partial tunnel to e.g. z=0.4 would still PASS the threshold while overshooting the fence plane. Product fix is correct; residual is test tightness for W3 optional harden.",
+        "blocking": false
+      },
+      {
+        "id": "R-INFO-03",
+        "severity": "info",
+        "title": "Physics drive samples only Rail0 gap",
+        "detail": "All four rails share identical _box construction (size/y/with_collision). StaticBody count asserts 4/4; drive only aims Post0/Post1 midline. Acceptable given single construction site; W3 may sample a second gap if desired.",
+        "blocking": false
+      },
+      {
+        "id": "R-INFO-04",
+        "severity": "info",
+        "title": "Pre-existing ArtStyleManager cozy_cyber_pixel Dictionary key noise",
+        "detail": "Headless Godot stderr reports invalid key cozy_cyber_pixel on Dictionary from art_style_manager.gd — non-fatal, EXIT=0 on all three smokes. Unrelated to fence rails; do not expand UX-002 scope.",
+        "blocking": false
+      }
+    ],
+    "geometry_measurement": {
+      "fence_world_origin": {"x": 5.0, "y": 0.0, "z": 0.5},
+      "post_size": [0.12, 0.9, 0.12],
+      "post_spacing_center_m": 1.1,
+      "gap_between_post_surfaces_m": 0.98,
+      "player_capsule_radius_m": 0.35,
+      "player_diameter_m": 0.7,
+      "gap_exceeds_player": true,
+      "rail_size": [1.0, 0.08, 0.06],
+      "rail_local_y": 0.55,
+      "rail_vertical_band": [0.51, 0.59],
+      "rail0_local_x": -1.65,
+      "rail0_world_x": 3.35,
+      "posts_with_collision": true,
+      "rails_with_collision": true
+    },
+    "solidity_delta_starter_realm": {
+      "moved_to_solid_collision_layer_1": ["Fence/Rail0", "Fence/Rail1", "Fence/Rail2", "Fence/Rail3"],
+      "unchanged_solid": [
+        "House/Body",
+        "Trees/*/Trunk",
+        "Fence/Post*",
+        "Stones/Rock*",
+        "Lamps/*/Pole"
+      ],
+      "still_non_solid_visual_only": [
+        "House/Roof",
+        "House/Door",
+        "House/WinL",
+        "House/WinR",
+        "House/Chimney",
+        "Path/Seg*",
+        "FarmPlots/Soil_*",
+        "FarmPlots/Crop_*",
+        "Pond/Water",
+        "Pond/Rim",
+        "Flowers/Stem*",
+        "Flowers/Bloom*",
+        "GroundVariation/Patch*",
+        "Trees/*/Canopy",
+        "Lamps/*/Bulb"
+      ],
+      "note": "UX-001 W2 solidity table listed Fence/Rail* as non-solid; UX-002 intentionally moves rails to solid. Posts and all other groups unchanged."
+    },
+    "w1_product_writes_audited": [
+      "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+      "E:/AIdle_openworld/game/tests/g8_ux002_fence_rail_collision_smoke.gd"
+    ],
+    "ux001_do_not_touch_verified": [
+      "E:/AIdle_openworld/game/scripts/ui/playable_action_bar.gd",
+      "E:/AIdle_openworld/game/scripts/player/player_controller.gd",
+      "E:/AIdle_openworld/game/scenes/player/player.tscn",
+      "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd"
+    ],
+    "handoff_ref": "G8_UX002_W3_QA",
+    "next_wave": "G8_UX002_W3_QA",
+    "next_profile": "aidle-worldgen-qa-evidence",
+    "next_authority": "VERIFY_ONLY",
+    "product_writes": []
+  },
+  "smoke_test": {
+    "ran": true,
+    "authority": "READ_ONLY_AUDIT independent re-verify (no product mutation)",
+    "commands": [
+      {
+        "cmd": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_G8_UX002_SMOKE=PASS checks=2",
+        "evidence": {
+          "rails": {"count": 4, "with_static_body": 4},
+          "fence_gap_drive": {
+            "gap_world_x": 3.35,
+            "fence_world_z": 0.5,
+            "before": {"x": 3.35, "y": 0.0466666668653488, "z": 1.89999997615814},
+            "after": {"x": 3.35, "y": 0.0000911387614905834, "z": 0.880196750164032},
+            "advanced_along_minus_z": 1.01980322599411,
+            "crossed_through": false,
+            "rail0_layer": 1,
+            "player_mask": 5,
+            "player_layer": 2
+          }
+        },
+        "note": "Independent Red re-run; matches W1 Blue evidence magnitudes."
+      },
+      {
+        "cmd": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://tests/g8_ux_input_collision_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+        "note": "UX-001 regression; product files not modified by UX-002 W1"
+      },
+      {
+        "cmd": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
+        "note": "pre-existing manifestation regression; no fail after fence rail fix"
+      }
+    ],
+    "acceptance_criteria_map_red": {
+      "AC1_player_blocked_between_posts": "PASS_SOURCE+HEADLESS (crossed_through=false; contact z≈0.88)",
+      "AC2_rail_visual_unchanged": "PASS (mesh/size/pos unchanged; with_collision flag only; headless skips mesh path)",
+      "AC3_ux001_untouched": "PASS (mtimes+content; UX-001 smoke PASS checks=6)",
+      "AC4_no_preexisting_test_regress": "PASS (UX-001 + manifestation)",
+      "AC5_real_physics_regression": "PASS (independent re-run real move_and_slide)",
+      "AC6_allowlist_only": "PASS (W1 product_writes set)"
+    }
+  },
+  "self_audit": {
+    "allowlist_respected": true,
+    "product_writes_empty": true,
+    "self_accept": false,
+    "accepted": false,
+    "codex_directive_untouched": true,
+    "blender_bridge_untouched": true,
+    "env0_untouched": true,
+    "control_1b_not_claimed": true,
+    "g8_001_still_hitl_required": true,
+    "one_writer_per_file": true,
+    "no_grandchildren": true,
+    "findings_only_no_patch": true,
+    "ux001_do_not_touch_respected": true,
+    "child_task_ref_durable": "019f8432-b824-7f91-828f-2145040a13e2",
+    "child_task_ref_source": "Grok Desktop subagent session summary.json; newest after W1 019f842f",
+    "issues": []
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ux002-w2-red-001.log",
+    "orchestration/receipts/g8_ux/G8_UX002_w1_blue_001.json",
+    "orchestration/logs/g8-ux002-w1-blue-001.log",
+    "orchestration/work_orders/WO-G8-UX-002-FENCE-COLLISION-GAP.md",
+    "game/tests/g8_ux002_fence_rail_collision_smoke.gd",
+    "game/scripts/modules/asset/starter_realm_builder.gd"
+  ],
+  "next_route": "G8_UX002_W3_QA"
+}

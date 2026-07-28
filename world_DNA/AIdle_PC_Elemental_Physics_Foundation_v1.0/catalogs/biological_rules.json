@@ -1,0 +1,90 @@
+{
+  "catalog_version": "1.0",
+  "rules": [
+    {
+      "rule_id": "bio_crop_growth_v1",
+      "method": "RESOURCE_LIMITED_GROWTH",
+      "inputs": [
+        "water",
+        "light",
+        "fertility",
+        "temperature",
+        "season"
+      ],
+      "outputs": [
+        "growth_delta",
+        "health_delta"
+      ]
+    },
+    {
+      "rule_id": "bio_tree_growth_v1",
+      "method": "LONG_TERM_GROWTH",
+      "inputs": [
+        "water",
+        "light",
+        "soil",
+        "time_delta"
+      ],
+      "outputs": [
+        "growth_stage",
+        "canopy_scale"
+      ]
+    },
+    {
+      "rule_id": "bio_restoration_v1",
+      "method": "THRESHOLD_STATE",
+      "inputs": [
+        "cleanliness",
+        "plant_density",
+        "spirit_level",
+        "player_actions"
+      ],
+      "outputs": [
+        "restoration_state",
+        "visual_variant"
+      ]
+    },
+    {
+      "rule_id": "bio_coral_health_v1",
+      "method": "WATER_QUALITY_RESPONSE",
+      "inputs": [
+        "cleanliness",
+        "temperature",
+        "pollution",
+        "light"
+      ],
+      "outputs": [
+        "health_delta",
+        "biolume_delta"
+      ]
+    },
+    {
+      "rule_id": "bio_npc_need_v1",
+      "method": "SCHEDULED_NEEDS",
+      "inputs": [
+        "food",
+        "rest",
+        "social",
+        "safety"
+      ],
+      "outputs": [
+        "need_priorities",
+        "schedule_bias"
+      ]
+    },
+    {
+      "rule_id": "bio_ecosystem_aggregate_v1",
+      "method": "CHUNK_AGGREGATE",
+      "inputs": [
+        "plant_count",
+        "water_quality",
+        "pollution",
+        "habitat"
+      ],
+      "outputs": [
+        "biodiversity",
+        "ecosystem_health"
+      ]
+    }
+  ]
+}

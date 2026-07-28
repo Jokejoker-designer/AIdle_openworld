@@ -1,0 +1,320 @@
+{
+  "agent_step_id": "G8-001-D2-manifestation-remediation-004-2026-07-21",
+  "agent_type": "aidle-manifestation",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:ed634103048c70fcb45dad02acd4a874924576ba237a3d0ce5ed09be6ddf07b0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8277-f857-7330-8007-93113b8e17e0",
+  "transcript_ref": "019f8277-f857-7330-8007-93113b8e17e0",
+  "writer_transcript_ref": "019f8277-f857-7330-8007-93113b8e17e0",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "trace_ref": "orchestration/logs/g8-d2-manifestation-child.log",
+  "handoff_ref": "D3_NETWORK",
+  "start_time": "2026-07-21T02:19:14.2426400Z",
+  "end_time": "2026-07-21T02:21:11.3541920Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/manifestation.md",
+  "profile_binding_evidence": "FULL read: name=aidle-manifestation; trustlayer_character=blue-team-p0-remediator; ui_character=ui-component-craftsman; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop, game-asset-core, game-ui-icons. WO-004 authority for manifestation child = VERIFY_ONLY (adopt Dir24; no product patch).",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/manifestation.md",
+    "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+    "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+    "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/DESIGN.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004.md",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D0_schema.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/ui_visual_correction_003/C4_manifestation.json",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_stages.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_module.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_smoke.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/g3_preview_bridge.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_manifestation.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-manifestation-child.log",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-manifestation-smoke.log",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-manifestation-hash-result.txt"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004",
+    "directive_id": 25,
+    "wave": "D2_MANIFESTATION",
+    "profile": "manifestation",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/manifestation.md",
+    "self_accept": false,
+    "verdict": "PASS",
+    "adoption_status": "ADOPTED_WITHOUT_PATCH",
+    "summary": "D2 manifestation VERIFY_ONLY: adopted preserved Directive 24 draft without product rewrite. Real child 019f8277-f857-7330-8007-93113b8e17e0 re-verified ordered stages wireframe→hologram→materializing→complete; preview stages deny durable collision; cancel free_cleanup leaves no orphan collision; AIDLE_MANIFESTATION_SMOKE=PASS checks=8; headed stage captures unique; cancel_proof entity_absent=true; wide cancel crop 77210. G8 not ACCEPTED. handoff D3_NETWORK.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "trustlayer_character_source": "E:/agents/characters/09-blue-team-p0-remediator.md",
+      "ui_character_id": "ui-component-craftsman",
+      "ui_character_source": "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: Load COMPLIANCE.md + registry; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no inventing evidence / no exceed authority"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: registry E:\\agents\\characters\\registry.yaml; slot 09 blue-team-p0-remediator; Red finds never fixes; Blue fixes only from approved WOs; Purple never patches; this WO overrides profile PATCH_DRAFT to VERIFY_ONLY"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: Canonical hub E:\\; Always MASTER_PLAN + JOURNAL_LATEST; journal-entry after milestones; Do not skip handoff when switching agents"
+      },
+      {
+        "skill_id": "game-asset-core",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: Engine-ready defaults; UI panels scale-survivable states geometry-identical; verify by blind describe+diff; escalate representation then strategy"
+      },
+      {
+        "skill_id": "game-ui-icons",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: Interaction states geometry-identical normal/hover/pressed; icon sets style contract; panels/bars 9-slice safe; no text on buttons/icons unless requested"
+      }
+    ],
+    "character_card_evidence": {
+      "blue-team-p0-remediator": "E:/agents/characters/09-blue-team-p0-remediator.md — approved WO minimal fix only; this wave VERIFY_ONLY so no product patch",
+      "ui-component-craftsman": "E:/agents/ui-design/characters/10-ui-component-craftsman.md — component states; bind DESIGN.md; object-level stage language not banner-only"
+    },
+    "input_context_hash": "sha256:ed634103048c70fcb45dad02acd4a874924576ba237a3d0ce5ed09be6ddf07b0",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004.md",
+        "E:/AIdle_openworld/DESIGN.md",
+        "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+        "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_stages.gd",
+        "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_module.gd"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "ed634103048c70fcb45dad02acd4a874924576ba237a3d0ce5ed09be6ddf07b0",
+      "BYTE_LEN": 42479,
+      "result_file": "orchestration/logs/g8-d2-manifestation-hash-result.txt"
+    },
+    "adoption_status": "ADOPTED_WITHOUT_PATCH",
+    "adoption_rationale": "Preserved Directive 24 manifestation draft already implements ordered stages, preview collision gate, cancel free_cleanup, object-distinct stage visuals, and headed stage captures. This-run executable smoke + re-verified headed evidence passed without requiring product rewrite. product_writes=[].",
+    "product_writes": [],
+    "writer_lease": [],
+    "writer_lease_note": "VERIFY_ONLY — manifestation product files are read-only for this correction; core/executor hold the only PATCH_DRAFT leases.",
+    "trace_ref": "orchestration/logs/g8-d2-manifestation-child.log",
+    "handoff_ref": "D3_NETWORK",
+    "handoff_note": "D2 manifestation verification complete. Parent collates after all D2 peers finish; D3 network Purple gate alone. G8 remains non-ACCEPTED.",
+    "child_task_ref": "019f8277-f857-7330-8007-93113b8e17e0",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "start_time": "2026-07-21T02:19:14.2426400Z",
+    "end_time": "2026-07-21T02:21:11.3541920Z",
+    "gates": {
+      "ordered_stages_wireframe_hologram_materializing_complete": "PASS",
+      "preview_no_durable_collision": "PASS",
+      "complete_allows_durable_collision": "PASS",
+      "cancel_clears_preview_entity": "PASS",
+      "cancel_no_orphan_collision": "PASS",
+      "manifestation_smoke_checks_8": "PASS",
+      "headed_four_stage_captures_unique": "PASS",
+      "headed_cancel_entity_absent": "PASS",
+      "headed_cancel_wide_crop_changed": "PASS",
+      "G8_accepted": false
+    },
+    "stage_machine_verification": {
+      "ORDERED_STAGES": ["wireframe", "hologram", "materializing", "complete"],
+      "source": "game/scripts/modules/manifestation/manifestation_stages.gd",
+      "allows_durable_collision": {
+        "wireframe": false,
+        "hologram": false,
+        "materializing": false,
+        "complete": true
+      },
+      "monotonic_enforcement": true,
+      "visual_opacity_distinct": {
+        "wireframe": 0.18,
+        "hologram": 0.5,
+        "materializing": 0.82,
+        "complete": 1.0
+      },
+      "instance_set_stage_gates_collision": true,
+      "instance_free_cleanup": "mark_cancelled + collision_layer=0 + queue_free",
+      "module_cancel_preview": "cancel_manifestation erases _active; has_durable_collision=false; durable_mutation_applied=false"
+    },
+    "headed_evidence": {
+      "evidence_dir": "orchestration/evidence/g8_ui_visual_correction_003/",
+      "evidence_manifest": "orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+      "stage_captures": {
+        "stage_wireframe.png": {"runtime_state": "wireframe", "width": 1280, "height": 720, "sha256_prefix": "ab9de225d8f94acd"},
+        "stage_hologram.png": {"runtime_state": "hologram", "width": 1280, "height": 720, "sha256_prefix": "80a35df6631d1016"},
+        "stage_materializing.png": {"runtime_state": "materializing", "width": 1280, "height": 720, "sha256_prefix": "2ade3ec0421217e6"},
+        "stage_complete_confirmed.png": {"runtime_state": "complete", "width": 1280, "height": 720, "sha256_prefix": "8cc169fd93d7783a"}
+      },
+      "four_stage_hashes_unique": true,
+      "cancel_proof": {
+        "cancel_ok": true,
+        "entity_absent": true,
+        "preview_count_before": 2,
+        "preview_count_after": 1,
+        "prompt_id": "headed-demo-6138",
+        "note": "prior_confirmed_objects_may_remain",
+        "CANCEL_CROP_NARROW_CHANGED": "0/52500",
+        "CANCEL_CROP_WIDE_CHANGED": "77210/320000",
+        "crop_gate": "CANCEL_CROP_WIDE_PASS"
+      },
+      "source_runner_log": "orchestration/logs/g8_headed_smoke_godot.log",
+      "d1_core_reverify": "D1 core re-ran canonical headed runner; this D2 child re-read manifest + stage PNGs + re-ran manifestation_smoke"
+    },
+    "assertion_mapping": [
+      {
+        "id": "C-A1",
+        "codex_blocker": "CANCEL_VISUAL_NOT_PROVEN",
+        "manifestation_contribution": "cancel free_cleanup + entity_absent for cancel-mode prompt; object stages not banner-only",
+        "this_run_evidence": {
+          "entity_absent": true,
+          "CANCEL_CROP_WIDE_CHANGED": 77210,
+          "AIDLE_MANIFESTATION_SMOKE": "PASS checks=8"
+        },
+        "verdict": "PASS",
+        "honest_note": "Narrow crop (550,100)-(900,250) still 0 changed pixels; wide crop is the executable pass path. preview_count_after=1 because prior confirmed complete object may remain."
+      }
+    ],
+    "commands": [
+      {
+        "id": "input_context_hash",
+        "command": "python sha256(WO-004 + DESIGN.md + manifestation_instance.gd + manifestation_stages.gd + manifestation_module.gd)",
+        "exit_code": 0,
+        "INPUT_CONTEXT_HASH": "sha256:ed634103048c70fcb45dad02acd4a874924576ba237a3d0ce5ed09be6ddf07b0",
+        "log": "orchestration/logs/g8-d2-manifestation-hash-result.txt"
+      },
+      {
+        "id": "manifestation_smoke",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
+        "log": "orchestration/logs/g8-d2-manifestation-smoke.log"
+      },
+      {
+        "id": "headed_stage_and_cancel_verify",
+        "command": "python Pillow re-hash stage PNGs + cancel crop compare against evidence_manifest.json",
+        "exit_code": 0,
+        "markers": [
+          "four_stage_hashes_unique=true",
+          "CANCEL_CROP_WIDE_CHANGED=77210",
+          "entity_absent=true"
+        ]
+      }
+    ],
+    "children": [],
+    "no_grandchildren": true,
+    "findings": [],
+    "residual_risks": [
+      "Narrow cancel crop (550,100)-(900,250) remains 0 changed pixels; gate relies on wide crop fallback (400,50)-(1200,450).",
+      "preview_count_after=1 (not 0) after cancel because prior confirmed demo object remains; entity_absent is the executable cancel gate.",
+      "G8-001 remains non-ACCEPTED; self_accept=false; parent collate after D3 only.",
+      "C003 prior receipts lacked child_task_ref; this remediation receipt supplies real child provenance and does not claim G8 ACCEPTED from C003 alone."
+    ],
+    "preserved_draft_refs": [
+      "game/scripts/modules/manifestation/manifestation_stages.gd",
+      "game/scripts/modules/manifestation/manifestation_instance.gd",
+      "game/scripts/modules/manifestation/manifestation_module.gd",
+      "game/scripts/modules/manifestation/g3_preview_bridge.gd",
+      "orchestration/receipts/g8/ui_visual_correction_003/C4_manifestation.json",
+      "orchestration/evidence/g8_ui_visual_correction_003/"
+    ]
+  },
+  "smoke_test": {
+    "passed": true,
+    "executable_smoke_run": true,
+    "attributed_to_child_task_ref": "019f8277-f857-7330-8007-93113b8e17e0",
+    "commands": [
+      {
+        "id": "manifestation_smoke",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --headless --path game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
+        "checks": [
+          "ordered_stages_const",
+          "progress_mapping",
+          "monotonic_enforcement",
+          "collision_gate",
+          "instance_cancel_no_collision",
+          "instance_complete_has_collision",
+          "module_pipeline",
+          "interface_surface"
+        ]
+      },
+      {
+        "id": "headed_evidence_reverify",
+        "exit_code": 0,
+        "markers": [
+          "four_stage_hashes_unique",
+          "entity_absent=true",
+          "CANCEL_CROP_WIDE_CHANGED=77210"
+        ]
+      },
+      {
+        "id": "input_context_hash",
+        "exit_code": 0,
+        "INPUT_CONTEXT_HASH": "sha256:ed634103048c70fcb45dad02acd4a874924576ba237a3d0ce5ed09be6ddf07b0"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "VERIFY_ONLY",
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_product_patch": true,
+    "no_grandchildren": true,
+    "no_nested_grandchildren": true,
+    "character_skill_trace_present": true,
+    "no_catalog_false_claim": true,
+    "control_foundation_not_implemented": true,
+    "no_credentials_install_push_deploy": true,
+    "adoption_first": true,
+    "product_patch_required": false,
+    "evidence_not_invented": true,
+    "g8_not_accepted": true,
+    "parent_product_patch": false
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-d2-manifestation-child.log",
+    "orchestration/logs/g8-d2-manifestation-smoke.log",
+    "orchestration/logs/g8-d2-manifestation-hash-result.txt",
+    "orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "orchestration/evidence/g8_ui_visual_correction_003/stage_wireframe.png",
+    "orchestration/evidence/g8_ui_visual_correction_003/stage_hologram.png",
+    "orchestration/evidence/g8_ui_visual_correction_003/stage_materializing.png",
+    "orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png",
+    "orchestration/evidence/g8_ui_visual_correction_003/stage_cancel_preview.png",
+    "orchestration/evidence/g8_ui_visual_correction_003/after_cancel.png",
+    "orchestration/receipts/g8/ui_visual_correction_003/C4_manifestation.json",
+    "orchestration/logs/g8_headed_smoke_godot.log",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "D3_NETWORK"
+}

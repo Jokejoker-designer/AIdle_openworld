@@ -1,0 +1,87 @@
+{
+    "schema_version":  "ucbv_meshdesc_v1",
+    "format":  "godot_meshinstance_descriptor",
+    "module_id":  "arch_window_frame_simple",
+    "module_role":  "window",
+    "asset_id":  "ucbv_001_arch_window_frame_simple_mesh_v1",
+    "engine_target":  "Godot 4.x",
+    "units":  "meters",
+    "coordinate_space":  "y_up_godot",
+    "style_lock_id":  "ucbv_001_style_lock_v1",
+    "world_profile_id":  "cozy_cyber_pixel",
+    "author_wave":  "U3_BLOCK_FAMILY_ART",
+    "primary_primitive":  "BoxMesh",
+    "overall_size_m":  {
+                           "y":  1.2,
+                           "z":  0.14,
+                           "x":  1.4
+                       },
+    "origin":  "center",
+    "bevel_face_fraction":  0.05,
+    "hard_90_outer_corners":  false,
+    "triangle_budget_soft":  48,
+    "material_slots":  [
+                           {
+                               "mat":  "MAT_CozyWood",
+                               "name":  "frame"
+                           },
+                           {
+                               "mat":  "MAT_CozyGlass",
+                               "name":  "pane"
+                           }
+                       ],
+    "parts":  [
+                  {
+                      "frame_thickness":  0.12,
+                      "part_id":  "frame",
+                      "primitive":  "BoxFrame",
+                      "material_slot":  "frame",
+                      "offset":  [
+                                     0,
+                                     0,
+                                     0
+                                 ],
+                      "size":  [
+                                   1.4,
+                                   1.2,
+                                   0.14
+                               ]
+                  },
+                  {
+                      "offset":  [
+                                     0,
+                                     0,
+                                     0
+                                 ],
+                      "size":  [
+                                   1.1,
+                                   0.9,
+                                   0.02
+                               ],
+                      "primitive":  "BoxMesh",
+                      "part_id":  "pane",
+                      "material_slot":  "pane"
+                  }
+              ],
+    "lod":  {
+                "LOD1":  "merge secondary trim",
+                "LOD0":  "full parts list",
+                "LOD2":  "single primary mass primitive"
+            },
+    "manifestation":  {
+                          "stages":  [
+                                         "wireframe",
+                                         "hologram",
+                                         "materializing",
+                                         "complete"
+                                     ],
+                          "collision_active_from":  "complete"
+                      },
+    "u5_integration_hints":  {
+                                 "node_type":  "MeshInstance3D",
+                                 "csg_fallback":  "CSGBox3D / CSGSphere3D acceptable for offline placeholders",
+                                 "material_override_from":  "material_bindings.json",
+                                 "glb_path_when_available":  null
+                             },
+    "world_truth":  "not_mesh_authority"
+}

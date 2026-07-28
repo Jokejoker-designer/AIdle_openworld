@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_BLOCK-DNA-ADAPT-001_MACHINE_REVIEW_001",
+  "task_id": "BLOCK-DNA-ADAPT-001",
+  "directive_reviewed": 68,
+  "reviewed_at": "2026-07-22T11:46:15+07:00",
+  "reviewed_by": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_product_patch": false,
+  "independent_checks": {
+    "unique_grok_desktop_parent": "PASS_1_OF_1",
+    "sequential_child_lineage": {
+      "B0": "019f8800-17d3-7b00-87c6-73a6153b990f",
+      "B1": "019f8804-7915-71d2-b3b1-573b701a202e",
+      "B2": "019f880d-303a-7243-b540-1d0cf699918c",
+      "B3": "019f8811-dce9-7aa3-998e-b9c2026fa87b",
+      "B4": "019f8817-4a1a-7463-9a69-7949fb7726d7"
+    },
+    "maf_schema": "PASS_5_OF_5_ZERO_ERRORS",
+    "accepted_false_and_self_accept_false": "PASS_5_OF_5",
+    "canonical_validator_exit_code": 0,
+    "valid_fixtures": "12/12 PASS",
+    "invalid_fixtures": "30/30 REJECT",
+    "dna_key_file_baselines": "PASS",
+    "world_dna_product_writes": "NONE",
+    "p2e_runtime_started": false
+  },
+  "durable_transcript_bindings": {
+    "B0": {
+      "chat_sha256": "ab7e08099c4b58d04ca0b7c3fb52c3bf7594a00481143ed928569f3e67e8b2e9",
+      "meta_sha256": "c5ae8cb3d4e3d47bb2efe8758684f2f7d7d3dfefb844628c486bd55211180619",
+      "started_at": "2026-07-22T04:05:35.319392100Z",
+      "completed_at": "2026-07-22T04:10:04.649273800Z"
+    },
+    "B1": {
+      "chat_sha256": "cc155a715e9ac22d2a4cdb6b1980a49d1ece5f852811d5998c32dd7946a75b1f",
+      "meta_sha256": "0a2149189b420f5361d57ac01570db8977bd0a2fc02b0233d4e25fed2f43fdce",
+      "started_at": "2026-07-22T04:10:22.360844Z",
+      "completed_at": "2026-07-22T04:19:45.408795700Z"
+    },
+    "B2": {
+      "chat_sha256": "2a19f2eb2a0bc6a46cafd00c399e9876251ad67fbfe8731e19d8ec37933281da",
+      "meta_sha256": "5b609643b43dc31ab652187275abb1b8d208194bf3d5ce094903ed4c559b472a",
+      "started_at": "2026-07-22T04:19:53.534069700Z",
+      "completed_at": "2026-07-22T04:24:48.643297100Z"
+    },
+    "B3": {
+      "chat_sha256": "00527a0afd278d882aeda398d18d47e8c6cd2535f64353de3baa0b9d4db82597",
+      "meta_sha256": "e1cfbdf3b293b66b60b0910aaea54297a32906035e14726719ac876bd9239601",
+      "started_at": "2026-07-22T04:24:59.884823800Z",
+      "completed_at": "2026-07-22T04:30:46.218331700Z"
+    },
+    "B4": {
+      "chat_sha256": "1d0e231c5afa7d9b3936b4cbe2ee6aba3fcd3d03cfdc93ef83c719758e858699",
+      "meta_sha256": "1dbe5108a86194876e0107f6f3e107985ce1c95fbd77156c04bf691fa99a47fa",
+      "started_at": "2026-07-22T04:30:55.517412800Z",
+      "completed_at": "2026-07-22T04:36:12.829399900Z"
+    }
+  },
+  "blocking_findings": [
+    {
+      "finding_id": "F-B2-01",
+      "severity": "BLOCKING",
+      "fact": "payload_fingerprint is illegal under both schemas and two documents with the same idempotency_key but changed request payload independently validate with zero errors",
+      "codex_probe": "BOTH_PASS; legal fingerprint field REJECTED as additionalProperties"
+    },
+    {
+      "finding_id": "F-B2-02",
+      "severity": "BLOCKING",
+      "fact": "declared edge polarity is not bound to catalog defaults or an explicit pair-bound normalization polarity mapping",
+      "codex_probe": "directed terrain_surface/prop_base rewritten as peer/peer PASS"
+    },
+    {
+      "finding_id": "F-B2-03",
+      "severity": "BLOCKING",
+      "fact": "adapter_normalization_id is checked for existence but not for the socket pair it normalizes",
+      "codex_probe": "wall_edge/window_opening with terrain_surface/prop_base normalization PASS"
+    }
+  ],
+  "additional_correction_requirements": [
+    "material_slot and p1e_material_id must be co-required and mapped to the live P1E-006 material ID",
+    "recipe parameter keys must be allowlisted or code-shaped keys must fail closed",
+    "validation policy switches must be const true or absent; callers cannot disable enforcement",
+    "DNA baseline verification must recompute the recorded immutable tree aggregates, not only selected key files"
+  ],
+  "not_a_blocker_for_this_contract_gate": [
+    "full executable Structured World Prompt emission belongs to the later adapter/runtime gate and remains blocked"
+  ],
+  "next_route": "WO-BLOCK-DNA-ADAPT-001-CORRECTION-001",
+  "self_accept": false
+}

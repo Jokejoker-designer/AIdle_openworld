@@ -1,0 +1,347 @@
+{
+  "schema_version": "1.0.0",
+  "package_id": "ucbv_001_nori7_visual_package_v1",
+  "wave": "U2_VISUAL_SILHOUETTE",
+  "directive_id": 81,
+  "work_order_id": "WO-UCBV-001-UNIFIED-CHARACTER-BLOCK-VISUAL-FOUNDATION",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "author_wave": "U2_VISUAL_SILHOUETTE",
+  "authority_token": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "visual_spec": {
+    "identity": {
+      "display_name": "Nori-7",
+      "character_id": "CCP-RH-001",
+      "world_profile_id": "cozy_cyber_pixel",
+      "character_class": "ROBOT_HELPER",
+      "recipe_id": "recipe_nori7_v1",
+      "root_module_id": "char_nori7_base",
+      "attachment_modules": [
+        "attach_water_tank_small",
+        "attach_watering_nozzle_A",
+        "attach_mechanical_sprout_A"
+      ]
+    },
+    "body_proportions": {
+      "system": "head_units",
+      "proportion_label": "2_heads_tall_chibi",
+      "base_height_hu": 2.0,
+      "sprout_tip_height_hu": 2.4,
+      "head_radius_hu": 0.5,
+      "max_body_width_hu": [
+        1.0,
+        1.1
+      ],
+      "leg_length_hu": 0.35,
+      "body_depth_hu": [
+        0.85,
+        0.95
+      ],
+      "tank_depth_add_hu": [
+        0.35,
+        0.4
+      ],
+      "tank_height_hu": [
+        0.55,
+        0.65
+      ],
+      "eye_height_hu": [
+        0.2,
+        0.24
+      ],
+      "guide_path": "orchestration/design/ucbv_001/character/nori7/proportion_guide.md"
+    },
+    "silhouette_family": "ucbv_cozy_rounded_readable_v1",
+    "shape_language": "rounded_readable_teardrop_robot_helper",
+    "front_view": {
+      "summary": "Soft inverted-egg teardrop; fused head/body; large dual eyes; short biped legs; stowed nozzle thickens right forearm; sprout centered on apex.",
+      "must_show": [
+        "teardrop_mass",
+        "eyes",
+        "sprout",
+        "short_legs",
+        "joint_green_bands"
+      ],
+      "fail_if": [
+        "thin_limbs",
+        "separate_neck",
+        "cyan_body",
+        "human_jaw"
+      ]
+    },
+    "side_view": {
+      "summary": "Body depth ~0.9 HU; rear tank +0.35–0.40 HU; slight face forward bias; sprout clears tank; nozzle along forearm.",
+      "must_show": [
+        "teardrop_depth",
+        "tank_bulk",
+        "sprout",
+        "leg_plant"
+      ],
+      "fail_if": [
+        "missing_tank",
+        "hard_90_backpack",
+        "flat_cardboard_body"
+      ]
+    },
+    "back_view": {
+      "summary": "Centered water tank with wood strap arcs; sprout fully visible; no face detail; same teardrop width as front.",
+      "must_show": [
+        "mechanical_sprout_crown",
+        "water_tank_backpack"
+      ],
+      "rear_view_features_mandatory": true,
+      "fail_if": [
+        "no_tank",
+        "no_sprout",
+        "rear_feature_below_lod2_budget"
+      ]
+    },
+    "three_quarter_view": {
+      "summary": "Primary 2.5D game camera pose: high three-quarter warm key; teardrop + eyes + sprout + partial tank + legs; body cream slightly lighter than wall cream.",
+      "camera": "fixed_three_quarter",
+      "free_orbit_allowed": false,
+      "primary_production_pose": true
+    },
+    "head_feature": "Mechanical sprout crown (attach_mechanical_sprout_A) rooted at head apex with 1–2 soft leaf lobes.",
+    "rear_view_feature": [
+      "mechanical_sprout_crown",
+      "water_tank_backpack"
+    ],
+    "signature_prop": {
+      "primary": "attach_water_tank_small",
+      "secondary": "attach_watering_nozzle_A",
+      "status_prop": "attach_mechanical_sprout_A"
+    },
+    "material_callouts": {
+      "definition_path": "orchestration/design/ucbv_001/character/nori7/modular_body_outfit_definition.json",
+      "package_map_path": "game_character/ucbv_001/nori7/visual_package/material_slot_map.json",
+      "vocabulary": [
+        "body",
+        "cloth",
+        "wood",
+        "stone",
+        "metal",
+        "glass",
+        "emissive",
+        "interactive_highlight",
+        "leaf"
+      ],
+      "mat_examples": {
+        "body": "MAT_CozyCeramic",
+        "leaf": "MAT_CozyLeaf",
+        "wood": "MAT_CozyWood",
+        "glass": "MAT_CozyGlass",
+        "metal": "MAT_CozyMetal",
+        "stone": "MAT_CozyStoneWarm",
+        "emissive": "MAT_CozyLampWarm"
+      },
+      "dna_theme_status": "NON_AUTHORITATIVE_ALIAS_ONLY"
+    },
+    "palette_application": {
+      "max_dominant_groups": 3,
+      "groups": [
+        {
+          "id": "G1_warm_cream_ceramic",
+          "bible_hex": [
+            "#fdf3e2",
+            "#efe0c8"
+          ],
+          "mat_ids": [
+            "MAT_CozyCeramic"
+          ]
+        },
+        {
+          "id": "G2_leaf_life_green",
+          "bible_hex": [
+            "#7fc98f",
+            "#95d9a3"
+          ],
+          "mat_ids": [
+            "MAT_CozyLeaf",
+            "MAT_CozyStem"
+          ]
+        },
+        {
+          "id": "G3_warm_wood_sky_glass",
+          "bible_hex": [
+            "#c98a5e",
+            "#a8dced"
+          ],
+          "mat_ids": [
+            "MAT_CozyWood",
+            "MAT_CozyGlass",
+            "MAT_CozyMetal"
+          ]
+        }
+      ],
+      "face": {
+        "eye_socket": "#3d3226",
+        "iris": "#a8dced",
+        "blush": "#f4a09a",
+        "blush_opacity": 0.55,
+        "specular": "white_up_left"
+      },
+      "manifestation_cyan_on_complete_body": false,
+      "reserved_cyan": [
+        "#3fd0e0",
+        "#8ff0ff"
+      ]
+    },
+    "neutral_pose": {
+      "name": "idle_happy_neutral",
+      "feet": "planted_short_stance",
+      "nozzle": "stowed",
+      "sprout": "upright",
+      "tank": "readable_from_back_and_three_quarter"
+    },
+    "action_pose": {
+      "name": "active_build_or_water",
+      "weight_shift": true,
+      "nozzle": "extended_forward_down",
+      "sprout_tilt_deg": [
+        10,
+        15
+      ],
+      "eyes": "slightly_wider_or_scanning"
+    },
+    "expressions": [
+      {
+        "id": "idle_happy",
+        "cues": [
+          "open_soft_eyes",
+          "upright_sprout",
+          "stowed_nozzle"
+        ]
+      },
+      {
+        "id": "active_build",
+        "cues": [
+          "wider_eyes",
+          "extended_nozzle",
+          "lean_in"
+        ]
+      },
+      {
+        "id": "caution_needs_confirm",
+        "cues": [
+          "narrower_eyes",
+          "lean_back",
+          "dashed_outline",
+          "icon_label"
+        ]
+      },
+      {
+        "id": "low_energy_rest",
+        "cues": [
+          "half_lid_eyes",
+          "sprout_droop_15_25",
+          "lower_com"
+        ]
+      }
+    ],
+    "scale_against_player": {
+      "note": "Nori-7 is the selected first-slice character helper; player may share framing. Relative to nominal wall module height ~0.45–0.55. Screen height target 10–15% min when interactive.",
+      "vs_architecture_wall_height_fraction": [
+        0.45,
+        0.55
+      ],
+      "interactive_screen_height_fraction_min": 0.1,
+      "interactive_screen_height_fraction_target": 0.15
+    },
+    "readability_test": {
+      "black_mass_required": true,
+      "screen_height_fraction_min": 0.1,
+      "dual_viewports": [
+        "1280x720",
+        "868x517"
+      ],
+      "rear_features_required": true,
+      "neighbors_for_distinction": [
+        {
+          "id": "CCP-NS-002",
+          "name": "Mây Mạch"
+        },
+        {
+          "id": "CCP-NW-003",
+          "name": "Bác Bắp",
+          "produced_in_u2": false
+        },
+        {
+          "id": "CCP-CT-004",
+          "name": "Bụi Mơ"
+        }
+      ],
+      "states_doc": "orchestration/design/ucbv_001/character/nori7/visual_states_readability.md"
+    },
+    "five_dimension_difference": {
+      "dimensions": [
+        "species_form",
+        "silhouette_family",
+        "signature_prop",
+        "movement_type",
+        "material_family"
+      ],
+      "nori7": {
+        "species_form": "teardrop_robot",
+        "silhouette_family": "fused_head_body_teardrop",
+        "signature_prop": "water_tank_nozzle_sprout",
+        "movement_type": "short_biped_robot_step",
+        "material_family": "cream_ceramic_leaf_joints"
+      }
+    },
+    "concept_art_instructions": {
+      "positive": "Create Nori-7, small friendly gardening robot, rounded teardrop ceramic body, short stable legs, oversized readable eyes, mechanical sprout on crown, compact water tank backpack, retractable watering nozzle. Matte cream ceramic, leaf green joints, soft sky-glass eyes. Gentle household helper, not industrial machinery. Front, side, back, three-quarter turnaround; neutral and action poses; four state icons; material callouts; rear-view readability; 2-head proportion grid.",
+      "negative": "photorealistic, realistic human anatomy, dense neon, military armor, firearms, copyrighted character, logo watermark, thin unreadable limbs, tiny face, cluttered silhouette, more than three dominant color families, manifestation cyan on complete body, adult fashion proportions, free 3D orbit hero shot as MVP language",
+      "sheets": [
+        "orchestration/design/ucbv_001/character/nori7/sheets/nori7_silhouette_turnaround.svg",
+        "orchestration/design/ucbv_001/character/nori7/sheets/nori7_proportion_grid.svg",
+        "game_character/ucbv_001/nori7/visual_package/sheets/nori7_silhouette_turnaround.svg",
+        "game_character/ucbv_001/nori7/visual_package/sheets/nori7_proportion_grid.svg"
+      ]
+    },
+    "lod_policy": {
+      "LOD0": "full_readable_sprout_tank_nozzle_eye",
+      "LOD1": "soften_small_joints_keep_silhouette_rear_features",
+      "LOD2_or_billboard": "teardrop_silhouette_plus_sprout_tip"
+    },
+    "non_scope": [
+      "production_mesh",
+      "production_rig_hierarchy",
+      "animation_timing_table",
+      "glb_export",
+      "block_family_modules",
+      "bac_bap_or_other_foundry_characters",
+      "dna_v1_2",
+      "tier3_physics",
+      "p2e_002"
+    ]
+  },
+  "provenance": {
+    "asset_id": "ucbv_001_nori7_visual_package_v1",
+    "character_id": "CCP-RH-001",
+    "world_profile_id": "cozy_cyber_pixel",
+    "style_lock_id": "ucbv_001_style_lock_v1",
+    "author_wave": "U2_VISUAL_SILHOUETTE",
+    "source_refs": [
+      "orchestration/design/ucbv_001/style_lock/U1_unified_style_lock.md",
+      "game/resources/art_styles/tokens/ucbv_001_shared_character_block_tokens.json",
+      "game_character/AIdle_Character_Foundry_MD/01_cozy_cyber_pixel/01_nori_7.md",
+      "world_DNA/.../examples/01_nori7_character_recipe.json"
+    ]
+  },
+  "redesign_wave": {
+    "id": "NORI7_REDESIGN_V01",
+    "directive_id": 99,
+    "work_order": "WO-NORI7-REDESIGN-001-VISUAL-KICKOFF",
+    "goal": "Resolve NORI7-V01 white/low-detail residual with multi-material readable mesh; author gardener clips with real keys",
+    "palette_ssot": "#fdf3e2 cream",
+    "machine_export_job": "BLD-UCBV-NORI7-REDESIGN-V01",
+    "glb_sha256": "c165108730c1a10c8417e8235a388add988019a80bfeac7a2a8f111b19a09c29",
+    "triangle_count": 13160,
+    "clip_count": 15,
+    "human_visual_accept": false,
+    "accepted": false,
+    "self_accept": false
+  }
+}

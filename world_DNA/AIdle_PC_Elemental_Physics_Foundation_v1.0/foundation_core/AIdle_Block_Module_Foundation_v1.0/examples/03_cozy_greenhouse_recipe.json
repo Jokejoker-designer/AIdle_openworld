@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0",
+  "recipe_id": "recipe_cozy_greenhouse_v1",
+  "recipe_type": "MODULE_CLUSTER",
+  "world_profile": "cozy_cyber_pixel",
+  "root_module_id": "cluster_cozy_greenhouse_droplet_A",
+  "instances": [
+    {
+      "instance_id": "foundation",
+      "module_id": "arch_floor_round_4m",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1.5,
+          1.5,
+          1.5
+        ]
+      },
+      "parameters": {}
+    },
+    {
+      "instance_id": "wall",
+      "module_id": "arch_wall_door_4m",
+      "transform": {
+        "position": [
+          0,
+          -2,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parameters": {}
+    },
+    {
+      "instance_id": "roof",
+      "module_id": "arch_roof_dome_4m",
+      "transform": {
+        "position": [
+          0,
+          0,
+          2.7
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1.5,
+          1.5,
+          1.5
+        ]
+      },
+      "parameters": {}
+    },
+    {
+      "instance_id": "door",
+      "module_id": "arch_door_round",
+      "transform": {
+        "position": [
+          0,
+          -2,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parameters": {}
+    }
+  ],
+  "connections": [
+    {
+      "from_instance": "foundation",
+      "from_socket": "wall_edge",
+      "to_instance": "wall",
+      "to_socket": "wall_edge"
+    },
+    {
+      "from_instance": "wall",
+      "from_socket": "door_opening",
+      "to_instance": "door",
+      "to_socket": "door_leaf"
+    },
+    {
+      "from_instance": "wall",
+      "from_socket": "roof_edge",
+      "to_instance": "roof",
+      "to_socket": "roof_edge"
+    }
+  ],
+  "material_overrides": [
+    {
+      "instance_id": "*",
+      "theme_id": "mat_cozy_cream_leaf_v1",
+      "slot": "structure",
+      "color": "#F7E9C6"
+    }
+  ],
+  "animation_bindings": [],
+  "behavior_bindings": [
+    {
+      "instance_id": "door",
+      "behavior_id": "behavior_door_v1",
+      "config": {}
+    }
+  ],
+  "validation": {
+    "check_all": true
+  },
+  "outputs": {
+    "glb": true,
+    "scene_manifest": true,
+    "godot_import": true
+  }
+}

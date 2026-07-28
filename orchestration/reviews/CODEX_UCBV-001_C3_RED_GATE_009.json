@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_UCBV-001_C3_RED_GATE_009",
+  "task_id": "UCBV-001",
+  "directive_reviewed": 89,
+  "reviewed_at": "2026-07-23T07:38:48+07:00",
+  "reviewed_by": "codex",
+  "verdict": "C3_ACCEPTED_AS_FINDINGS_C3F01_BLUE_CORRECTION_REQUIRED",
+  "accepted": false,
+  "self_accept": false,
+  "scope_acceptance": "C3_READ_ONLY_AUDIT_ONLY",
+  "lineage": {
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "child_task_ref": "019f8c5f-a476-7633-a814-f6d1f112c412",
+    "durable_started_at": "2026-07-23T00:28:26.105666600Z",
+    "durable_completed_at": "2026-07-23T00:33:21.980652800Z",
+    "receipt": "orchestration/receipts/ucbv_001/correction_002/C3_red_scope_002.json",
+    "receipt_sha256": "86D987F2934F240EED51F35BD74BC678C4F1FADD0B822EB89A6BA75FD7B91C24",
+    "log": "orchestration/logs/ucbv_001/correction_002/C3_red_scope_002.log",
+    "log_sha256": "8A7CE7C859BBD9B2901C727ED0BCFCE0F38FDEEFABC045A56B9B48B4CB387584"
+  },
+  "independent_validation": {
+    "receipt_schema_errors": 0,
+    "profile": "aidle-worldgen-red-scope",
+    "trustlayer_character": "red-team-source-auditor",
+    "ui_character": "ui-visual-critic",
+    "authority_token": "READ_ONLY_AUDIT",
+    "product_writes": [],
+    "active_children_at_review": 0,
+    "normal_main_inputmap_e2e_exit": 0,
+    "normal_main_inputmap_e2e_marker": "AIDLE_UCBV001_INPUTMAP_E2E_SMOKE=PASS checks=17 inputs=34",
+    "submitted_navigation_warning_count": 3,
+    "root_cause_source": "game/scripts/modules/asset/glb_intake_runtime_builder.gd:bake_navigation",
+    "root_cause_confirmed": true
+  },
+  "findings": [
+    {
+      "id": "C3-F01",
+      "severity": "HIGH",
+      "status": "OPEN_BLOCKS_C4",
+      "finding": "Normal Main runtime bake uses a RenderingServer PlaneMesh source and non-voxel-aligned agent dimensions, reproducing three submitted navigation warnings.",
+      "required_route": "One narrow Blue PATCH_DRAFT correction, then independent zero-warning InputMap E2E validation before C4."
+    },
+    {
+      "id": "C3-F02",
+      "severity": "MEDIUM",
+      "status": "OPEN_NON_BLOCKING_HYGIENE",
+      "finding": "Adapter top-level provenance still references C1 while the accepted GLB is C1R.",
+      "required_route": "Do not expand the C3-F01 lease; retain for later exact provenance hygiene."
+    },
+    {
+      "id": "C3-F03",
+      "severity": "LOW",
+      "status": "DEFERRED_TO_C4",
+      "finding": "Headed cream contrast proof remains C4 ownership."
+    },
+    {
+      "id": "C3-F04",
+      "severity": "LOW",
+      "status": "NON_BLOCKING_SLICE_NOTE",
+      "finding": "Block kit presentation remains procedural meshdesc; this does not negate the real character GLB."
+    }
+  ],
+  "architecture_lock": {
+    "runtime_stack": "Godot 4.3-stable fixed-angle 2.5D Private Reality",
+    "source_root": "E:/AIdle_openworld/game",
+    "main_entrypoint": "game/scripts/main/main.gd",
+    "navigation_owner": "game/scripts/modules/asset/glb_intake_runtime_builder.gd",
+    "canonical_mutator": "World Commit service only",
+    "deployment_target": "offline vertical slice; no network or shipping",
+    "forbidden": ["deprecated blueprint v1.0 authority", "P2E-002", "dependency install", "Godot version change", "network", "shipping"]
+  },
+  "decision": {
+    "c3_result": "ACCEPTED_AS_FINDINGS_ONLY",
+    "c3f01_blue_correction_authorized": true,
+    "c4_c5_authorized": false,
+    "overall_ucbv_accepted": false,
+    "human_gate_open": false,
+    "red_f01_hard_stop": true
+  },
+  "next_route": "C3F01_NAVIGATION_WARNING_BLUE_CORRECTION"
+}

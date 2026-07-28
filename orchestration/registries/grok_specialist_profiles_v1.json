@@ -1,0 +1,704 @@
+{
+  "registry_id": "grok_specialist_profiles_v1",
+  "version": "1.0.0",
+  "created_for": "WO-OPS-001 / Directive 41",
+  "authority_token_onboarding": "PATCH_DRAFT",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "onboarding_child_task_ref": "019f8347-f5fa-7aa3-b5ce-d24170e1aeb3",
+  "profile_count": 21,
+  "specialists_spawned_on_onboarding": 0,
+  "top_level_orchestrator_profiles_created": 0,
+  "parent_routing_packs": [
+    {
+      "pack": "character",
+      "role": "parent_routing_pack_only",
+      "path": "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/01_GROK_ORCHESTRATOR.md",
+      "note": "Not a top-level Grok parent profile; Desktop parent routes Character WOs using this pack."
+    },
+    {
+      "pack": "worldgen",
+      "role": "parent_routing_pack_only",
+      "path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/01_MASTER_ORCHESTRATOR.md",
+      "note": "Not a top-level Grok parent profile; Desktop parent routes World Genesis WOs using this pack."
+    }
+  ],
+  "trustlayer_ui_mapping_policy": {
+    "blue_workers": "blue-team-p0-remediator (or blue-team-auth-session-hardener for gateway auth surfaces)",
+    "red_reviewers": "red-team-source-auditor (findings-only affinity)",
+    "purple_reviewers": "purple-team-release-gate",
+    "sequence_verify": "devil-advocate",
+    "qa_verify": "purple-team-finding-triage",
+    "tracker_steward": "blue-team-test-writer",
+    "ui_design_affinity": "ui-brief-writer | ui-brand-system-architect | ui-creative-director | ui-ux-researcher | ui-component-craftsman | ui-frontend-handoff | ui-color-type-specialist | ui-a11y-auditor | ui-app-dashboard | ui-visual-critic | ui-memory-curator",
+    "always_skills": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ]
+  },
+  "profiles": [
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-character-architect.md",
+      "name": "aidle-character-architect",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/agents/01_CHARACTER_ARCHITECT.md",
+      "source_sha256": "de65aadf159b415eb11134815861a479e14eda00875691c4194bd88978690523",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-brief-writer",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "architecture-lock"
+      ],
+      "allowed_writer_set": "character_brief_only",
+      "scope": "Character Brief YAML/docs under leased character WO; no production prompts or originality verdict",
+      "pack": "character",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-character-style-guardian.md",
+      "name": "aidle-character-style-guardian",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/agents/02_WORLD_STYLE_GUARDIAN.md",
+      "source_sha256": "93bcdf9e94821126087f4cfe3b007172b5846a6340671db386bcbdc14679632b",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-brand-system-architect",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "od-reference-design-contract",
+        "od-design-md"
+      ],
+      "allowed_writer_set": "world_style_constraints_only",
+      "scope": "style_lock packages under leased character WO",
+      "pack": "character",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-character-visual-silhouette.md",
+      "name": "aidle-character-visual-silhouette",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/agents/03_VISUAL_SILHOUETTE_DESIGNER.md",
+      "source_sha256": "db30eab972148a887b7c88a196c750bfec564efe208af2d677350b3bd78a1f6f",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-creative-director",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "od-reference-design-contract",
+        "od-design-md"
+      ],
+      "allowed_writer_set": "visual_spec_only",
+      "scope": "visual_spec / silhouette packages under leased character WO",
+      "pack": "character",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-character-gameplay-narrative.md",
+      "name": "aidle-character-gameplay-narrative",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/agents/04_GAMEPLAY_NARRATIVE_DESIGNER.md",
+      "source_sha256": "8c82fbf658d1f897e575825defc7adf85919871534cec5cf133e93ef9d7c673c",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-ux-researcher",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "architecture-lock"
+      ],
+      "allowed_writer_set": "gameplay_behavior_dialogue_only",
+      "scope": "gameplay_spec packages under leased character WO",
+      "pack": "character",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-character-rig-animation.md",
+      "name": "aidle-character-rig-animation",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/agents/05_RIG_ANIMATION_TECHNICAL_DESIGNER.md",
+      "source_sha256": "150bcc68675b5197b6790f2c7c6bb357de96c78f46ab6bc60e61f44076c4f2ec",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-component-craftsman",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "architecture-lock"
+      ],
+      "allowed_writer_set": "technical_production_spec_only",
+      "scope": "technical_spec for rig/animation/export under leased character WO",
+      "pack": "character",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-character-prompt-factory.md",
+      "name": "aidle-character-prompt-factory",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/agents/06_PROMPT_FACTORY_VARIATION_ENGINEER.md",
+      "source_sha256": "99ae1a84e8e8805deadff2f5ce93998ed524c9f4f39aaa8cb3f99198a0b9fe72",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-frontend-handoff",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "od-reference-design-contract"
+      ],
+      "allowed_writer_set": "production_prompts_only",
+      "scope": "prompt_package / variation matrices under leased character WO",
+      "pack": "character",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-character-red-originality.md",
+      "name": "aidle-character-red-originality",
+      "authority_token": "READ_ONLY_AUDIT",
+      "source_agent_path": "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/agents/07_RED_ORIGINALITY_REVIEWER.md",
+      "source_sha256": "514bf9dcacbdfc9219041cacbcbf2125b3e2cc122fd52e1418d0de9fd384b0f0",
+      "trustlayer_character": "red-team-source-auditor",
+      "ui_character": "ui-visual-critic",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "adversarial-review"
+      ],
+      "allowed_writer_set": "findings_only",
+      "scope": "red_review findings under leased review/receipt paths; never patch",
+      "pack": "character",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-character-purple-acceptance.md",
+      "name": "aidle-character-purple-acceptance",
+      "authority_token": "VERIFY_ONLY",
+      "source_agent_path": "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/agents/08_PURPLE_ACCEPTANCE_REVIEWER.md",
+      "source_sha256": "9b74268a607cb55676efa97ff8b4b77a4e22af9a1dbf9ef7d95af6e43ad1388d",
+      "trustlayer_character": "purple-team-release-gate",
+      "ui_character": "ui-visual-critic",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "evidence-memory-ledger",
+        "adversarial-review"
+      ],
+      "allowed_writer_set": "purple_verification_only",
+      "scope": "purple_verification receipts; never patch; never ACCEPTED",
+      "pack": "character",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-ssot-sequence.md",
+      "name": "aidle-worldgen-ssot-sequence",
+      "authority_token": "VERIFY_ONLY",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/01_SSOT_SEQUENCE_GUARDIAN.md",
+      "source_sha256": "1d7195361fc23c2a41f6839f81e557c301607472fda243cf35d9a6c626c091e4",
+      "trustlayer_character": "devil-advocate",
+      "ui_character": "ui-ux-researcher",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "architecture-lock",
+        "evidence-memory-ledger"
+      ],
+      "allowed_writer_set": "evidence_and_preflight_only",
+      "scope": "preflight_verdict receipts only; no product patch",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-concept-gameplay.md",
+      "name": "aidle-worldgen-concept-gameplay",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/02_WORLD_CONCEPT_GAMEPLAY_DESIGNER.md",
+      "source_sha256": "da3cde7af7183f5ed0b3d2d6f935b808303a747e360ff91ce81a7b487c0a95a5",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-brief-writer",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "architecture-lock"
+      ],
+      "allowed_writer_set": "world_design_specs_only",
+      "scope": "world_design_package under leased design paths",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-ux-camera.md",
+      "name": "aidle-worldgen-ux-camera",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/03_UX_CAMERA_GENESIS_FLOW_DESIGNER.md",
+      "source_sha256": "0089f0747d90afced1c164a4019d1c5ddcc8b469b5f2abd0a32f36da94f39b4a",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-ux-researcher",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "od-reference-design-contract",
+        "od-design-md"
+      ],
+      "allowed_writer_set": "ux_specs_only",
+      "scope": "ux_scene_spec under leased UX paths",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+      "name": "aidle-worldgen-control-input",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/04_CONTROL_INPUT_ARCHITECT.md",
+      "source_sha256": "a047a604a0aaf1ede53da7ac7489f4100f044e361ecec8f8b1a6bb75b11e13b5",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-a11y-auditor",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "architecture-lock"
+      ],
+      "allowed_writer_set": "control_and_input_files_only",
+      "scope": "control_spec and leased InputMap/context HUD paths",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-character-foundry.md",
+      "name": "aidle-worldgen-character-foundry",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/05_CHARACTER_FOUNDRY_INTEGRATION_AGENT.md",
+      "source_sha256": "93af4826ecbd63c742634ad423e42874e8f1f06514c05ca75bc6bcfcbe7dc1cd",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-component-craftsman",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "architecture-lock"
+      ],
+      "allowed_writer_set": "character_runtime_and_character_specs_only",
+      "scope": "character_integration_package and leased game/characters/**",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-godot-runtime.md",
+      "name": "aidle-worldgen-godot-runtime",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/06_GODOT_SCENE_RUNTIME_ARCHITECT.md",
+      "source_sha256": "9e4d9fa1172fe8b83ce88e658facd627301fb2c2fc9e086a6d3a03e60141d1cb",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-app-dashboard",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "architecture-lock"
+      ],
+      "allowed_writer_set": "approved_godot_scene_and_runtime_files",
+      "scope": "godot_implementation_plan and leased Godot scene/runtime files",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-world-commit.md",
+      "name": "aidle-worldgen-world-commit",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/07_STRUCTURED_PROMPT_WORLD_COMMIT_ENGINEER.md",
+      "source_sha256": "098ea49db0d54b1824de0258c6c76cf401c415efe82a1191db4624fcca55c526",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-brief-writer",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "architecture-lock",
+        "securing-agentic-ai-tool-invocation"
+      ],
+      "allowed_writer_set": "schema_validator_commit_service_only",
+      "scope": "world_contract_package; schema/validator/commit service under lease",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+      "name": "aidle-worldgen-asset-art",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/08_ASSET_ART_BLENDER_PIPELINE_ENGINEER.md",
+      "source_sha256": "c5ecaf036637326d54869e0abd22344dae8c0d255a8c94759cb346780d61dfc9",
+      "trustlayer_character": "blue-team-p0-remediator",
+      "ui_character": "ui-color-type-specialist",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "od-reference-design-contract"
+      ],
+      "allowed_writer_set": "asset_pipeline_and_art_specs_only",
+      "scope": "asset_pipeline_package under leased asset paths",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-ai-gateway.md",
+      "name": "aidle-worldgen-ai-gateway",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/09_AI_GATEWAY_REALTIME_INTEGRATION_ENGINEER.md",
+      "source_sha256": "2e0691681589e76a1e84e56a1b95ec499121db2ceac6163638dee674ce36fcc0",
+      "trustlayer_character": "blue-team-auth-session-hardener",
+      "ui_character": "ui-frontend-handoff",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "architecture-lock",
+        "securing-agentic-ai-tool-invocation"
+      ],
+      "allowed_writer_set": "backend_gateway_and_client_transport_only",
+      "scope": "ai_integration_package under leased gateway/transport paths",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+      "name": "aidle-worldgen-qa-evidence",
+      "authority_token": "VERIFY_ONLY",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/10_QA_PLAYABILITY_EVIDENCE_AGENT.md",
+      "source_sha256": "04a2dcce25521d9147c3712242958e7292c6b5f7ed5b36c22ffab4fe8e9494ca",
+      "trustlayer_character": "purple-team-finding-triage",
+      "ui_character": "ui-a11y-auditor",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "evidence-memory-ledger"
+      ],
+      "allowed_writer_set": "tests_logs_screenshots_receipts_only",
+      "scope": "evidence_bundle only; no product patch; no self-ACCEPT",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-tracker-steward.md",
+      "name": "aidle-worldgen-tracker-steward",
+      "authority_token": "PATCH_DRAFT",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/11_TRACKER_REGISTRY_WORKLOG_STEWARD.md",
+      "source_sha256": "82c58910ec35b3c5a7bf41f5566d1018201190d80ffaf9f727e16ee114fd12fd",
+      "trustlayer_character": "blue-team-test-writer",
+      "ui_character": "ui-memory-curator",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "evidence-memory-ledger"
+      ],
+      "allowed_writer_set": "tracker_registry_worklog_only",
+      "scope": "state_update_proposal against leased tracker/registry/worklog",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+      "name": "aidle-worldgen-red-scope",
+      "authority_token": "READ_ONLY_AUDIT",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/12_RED_TEAM_ARCHITECTURE_SCOPE_REVIEWER.md",
+      "source_sha256": "de2a9b3533132537d88da068fd04185638e591da5c2fd2a95a130870c42f566c",
+      "trustlayer_character": "red-team-source-auditor",
+      "ui_character": "ui-visual-critic",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "adversarial-review",
+        "architecture-lock"
+      ],
+      "allowed_writer_set": "review_findings_only",
+      "scope": "red_review findings; never patch",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    },
+    {
+      "profile_file": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+      "name": "aidle-worldgen-purple-acceptance",
+      "authority_token": "VERIFY_ONLY",
+      "source_agent_path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/agents/13_PURPLE_INDEPENDENT_ACCEPTANCE_REVIEWER.md",
+      "source_sha256": "df0e3ae13fe6b36f31f55509cd7103aaa80fd5c0d3fb69ec35d48d120a142006",
+      "trustlayer_character": "purple-team-release-gate",
+      "ui_character": "ui-visual-critic",
+      "skills": [
+        "maf-mandatory-standard",
+        "trustlayer-x16-crew",
+        "agentwork-knowledge-loop",
+        "project-room-collab",
+        "curiosity-engine",
+        "evidence-memory-ledger",
+        "adversarial-review"
+      ],
+      "allowed_writer_set": "purple_review_only",
+      "scope": "purple_verification only; never patch; never ACCEPTED",
+      "pack": "worldgen",
+      "parent_spawn_only": true,
+      "no_grandchildren": true,
+      "self_accept": false
+    }
+  ],
+  "dry_run_routing_matrix": {
+    "note": "Planning only. spawn_count must remain 0 during OPS-001. No specialist was or may be spawned by onboarding.",
+    "spawn_count": 0,
+    "scenarios": [
+      {
+        "scenario_id": "cozy_character_1c",
+        "work_order_example": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/examples/02_WO_COZY_CHARACTER_1C.yaml",
+        "work_order_id": "WO-WG01C-CHARACTER-001",
+        "world_profile": "cozy_cyber_pixel",
+        "phase_slice": "1C Cozy Character Foundation",
+        "parent_routing_pack": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/01_MASTER_ORCHESTRATOR.md",
+        "character_pack_routing_pack": "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/01_GROK_ORCHESTRATOR.md",
+        "profiles_that_would_be_used": [
+          {
+            "order": 1,
+            "name": "aidle-worldgen-ssot-sequence",
+            "reason": "Preflight World1 sequence, lease and dependency ACCEPTED gates"
+          },
+          {
+            "order": 2,
+            "name": "aidle-worldgen-character-foundry",
+            "reason": "Primary integrator for Nori-7, Mây Mạch, Bác Bắp, Bụi Mơ without replacing AIda"
+          },
+          {
+            "order": 3,
+            "name": "aidle-character-architect",
+            "reason": "Only if Foundry intake needs new brief deltas (optional / lease-gated)"
+          },
+          {
+            "order": 4,
+            "name": "aidle-character-style-guardian",
+            "reason": "Style lock coherence with cozy_cyber_pixel (optional / lease-gated)"
+          },
+          {
+            "order": 5,
+            "name": "aidle-character-visual-silhouette",
+            "reason": "Silhouette/rear-view readiness for headed evidence (optional)"
+          },
+          {
+            "order": 6,
+            "name": "aidle-character-gameplay-narrative",
+            "reason": "Behavior allowlist/denylist and local FSM (optional)"
+          },
+          {
+            "order": 7,
+            "name": "aidle-character-rig-animation",
+            "reason": "Rig/animation mapping specs (optional)"
+          },
+          {
+            "order": 8,
+            "name": "aidle-character-prompt-factory",
+            "reason": "Only if concept art prompt package required (optional)"
+          },
+          {
+            "order": 9,
+            "name": "aidle-character-red-originality",
+            "reason": "Originality/IP findings if new visual package produced"
+          },
+          {
+            "order": 10,
+            "name": "aidle-worldgen-red-scope",
+            "reason": "Architecture/scope findings on character integration package"
+          },
+          {
+            "order": 11,
+            "name": "aidle-worldgen-qa-evidence",
+            "reason": "Runtime smoke, authority rejection, headed silhouette evidence"
+          },
+          {
+            "order": 12,
+            "name": "aidle-character-purple-acceptance",
+            "reason": "If character package path used; verify after Red P0/P1 closed"
+          },
+          {
+            "order": 13,
+            "name": "aidle-worldgen-purple-acceptance",
+            "reason": "Independent package verification for 1C slice"
+          },
+          {
+            "order": 14,
+            "name": "aidle-worldgen-tracker-steward",
+            "reason": "Append worklog and propose tracker coverage after evidence"
+          }
+        ],
+        "profiles_explicitly_not_used": [
+          "aidle-worldgen-control-input",
+          "aidle-worldgen-ai-gateway",
+          "aidle-worldgen-godot-runtime"
+        ],
+        "spawn_count": 0,
+        "spawned": []
+      },
+      {
+        "scenario_id": "cozy_control_scene",
+        "work_order_example": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/examples/01_WO_COZY_CONTROL_1B.yaml",
+        "work_order_id": "WO-WG01B-CONTROL-001",
+        "world_profile": "cozy_cyber_pixel",
+        "phase_slice": "1B Control Foundation + Cozy controls / related scene runtime",
+        "parent_routing_pack": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/01_MASTER_ORCHESTRATOR.md",
+        "profiles_that_would_be_used": [
+          {
+            "order": 1,
+            "name": "aidle-worldgen-ssot-sequence",
+            "reason": "Preflight WG-01A ACCEPTED and lease conflicts"
+          },
+          {
+            "order": 2,
+            "name": "aidle-worldgen-control-input",
+            "reason": "Primary writer for InputMap, context HUD, V/B, safe delete/undo"
+          },
+          {
+            "order": 3,
+            "name": "aidle-worldgen-ux-camera",
+            "reason": "HUD/prompt composer UX and accessibility affordances for controls"
+          },
+          {
+            "order": 4,
+            "name": "aidle-worldgen-godot-runtime",
+            "reason": "When Control binds into scene runtime / prompt form / hologram surfaces"
+          },
+          {
+            "order": 5,
+            "name": "aidle-worldgen-world-commit",
+            "reason": "If delete/undo/proposal path touches commit contracts"
+          },
+          {
+            "order": 6,
+            "name": "aidle-worldgen-concept-gameplay",
+            "reason": "Only if V/B world-specific action semantics need design lock"
+          },
+          {
+            "order": 7,
+            "name": "aidle-worldgen-red-scope",
+            "reason": "Control conflict and authority findings"
+          },
+          {
+            "order": 8,
+            "name": "aidle-worldgen-qa-evidence",
+            "reason": "Input smoke, headed context HUD screenshots, clean logs"
+          },
+          {
+            "order": 9,
+            "name": "aidle-worldgen-purple-acceptance",
+            "reason": "Independent verify after Red P0/P1 closed"
+          },
+          {
+            "order": 10,
+            "name": "aidle-worldgen-tracker-steward",
+            "reason": "Tracker/worklog update proposal after evidence"
+          }
+        ],
+        "profiles_explicitly_not_used": [
+          "aidle-worldgen-character-foundry",
+          "aidle-character-architect",
+          "aidle-character-prompt-factory",
+          "aidle-worldgen-ai-gateway"
+        ],
+        "spawn_count": 0,
+        "spawned": []
+      }
+    ]
+  },
+  "forbidden_during_ops001": [
+    "spawn any of the 21 specialists",
+    "start Character Foundry / Scene / Control / AI Gateway implementation",
+    "overwrite existing .grok/agents profiles",
+    "product/test/evidence patch outside lease",
+    "accept OPS-001 or G8-001"
+  ]
+}

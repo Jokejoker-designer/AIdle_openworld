@@ -1,0 +1,58 @@
+{
+  "case_id": "VALID-02-cinder04-character-spec",
+  "description": "CONSTRUCT with prose forbidding commit; machine authority still false",
+  "payload": {
+    "schema_version": "character_spec/1.0",
+    "character_id": "AC-CO-015",
+    "display_name": "Cinder-04",
+    "world_profile_id": "arcane_clockwork",
+    "world_profile_display": "Arcane Clockwork",
+    "character_class": "CONSTRUCT",
+    "species_form": "Golem xây dựng",
+    "gameplay_role": "Vận chuyển và hỗ trợ manifestation",
+    "world_ability": "Vận chuyển module, diễn hoạt xây dựng và gắn module nâng/sửa/đo.",
+    "limitation": "Không chọn vị trí, không commit công trình và không tự suy diễn nhiệm vụ.",
+    "behavior_allowlist": [
+      "Vận chuyển module",
+      "diễn hoạt xây dựng",
+      "gắn module nâng/sửa/đo"
+    ],
+    "behavior_denylist": [
+      "Không chọn vị trí",
+      "không commit công trình",
+      "không tự suy diễn nhiệm vụ",
+      "direct_world_commit",
+      "mutate_canonical_inventory",
+      "mutate_ownership",
+      "mutate_economy",
+      "execute_arbitrary_code",
+      "trustlayer_tool_invocation",
+      "replace_or_merge_aida",
+      "provider_credential_access"
+    ],
+    "authority": {
+      "can_world_commit": false,
+      "tool_authority": false,
+      "trustlayer_worker": false,
+      "is_system_companion": false,
+      "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+    },
+    "identity_boundary": {
+      "is_aida": false,
+      "aida_merge_or_replace": false,
+      "replaces_system_companion": false
+    },
+    "provenance": {
+      "package": "AIdle Character Foundry MD",
+      "pack_version": "1.0",
+      "source_path": "04_arcane_clockwork/03_cinder_04.md",
+      "source_sha256": "04f239c39090be9bf7b8058e792620b631a77ffa38cbc468371c8120c4398aa8",
+      "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+    },
+    "cozy_cast": false,
+    "spawn_location": "Xưởng xây dựng, kho vật liệu hoặc công trường.",
+    "relationship_hooks": "Được Brassel bảo trì; nhận lịch từ Oria; Quillix theo ghi lại cấu hình.",
+    "source_status": "Concept / Production-ready specification",
+    "rig_family": "Golem-construction-01; hands IK; chest-core socket."
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "agent_step_id": "P1E-001-w2-red-001-2026-07-21",
+  "agent_type": "aidle-worldgen-red-scope",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "READ_ONLY_AUDIT",
+  "input_context_hash": "sha256:c4ca477b2421ce28644b7e5b09a72bba769b6bc353442b6080627288a81f2f76",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f84e2-53d1-7910-b044-d2e9fbb978cb",
+  "transcript_ref": "019f84e2-53d1-7910-b044-d2e9fbb978cb",
+  "writer_transcript_ref": "019f84e2-53d1-7910-b044-d2e9fbb978cb",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f84d9-ad4c-7f50-8dd5-7fb7b24b03b2",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/p1e-001-w2-red-001.log",
+  "handoff_ref": "P1E_001_W3_QA",
+  "start_time": "2026-07-21T13:34:12Z",
+  "end_time": "2026-07-21T13:37:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-red-scope; trustlayer_character=red-team-source-auditor; ui_character=ui-visual-critic; authority_token=READ_ONLY_AUDIT; required_skills include adversarial-review + architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; findings only never patch; one_writer_per_file=true.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "adversarial-review",
+      "architecture-lock"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded Agents.md + aidle-worldgen-red-scope profile + WO-P1E-001 + W1 blue receipt + evidence/p1e + Bridge registry/worker/security + agent_step_contract schema manually. No bootstrap loop.",
+  "character_binding": {
+    "trustlayer": "red-team-source-auditor",
+    "ui": "ui-visual-critic"
+  },
+  "skills_loaded": [
+    {"skill_id": "maf-mandatory-standard", "version": "1.0"},
+    {"skill_id": "trustlayer-x16-crew", "version": "1.0"},
+    {"skill_id": "agentwork-knowledge-loop", "version": "1.0"},
+    {"skill_id": "project-room-collab", "version": "1.0"},
+    {"skill_id": "curiosity-engine", "version": "1.0"},
+    {"skill_id": "adversarial-review", "version": "1.0"},
+    {"skill_id": "architecture-lock", "version": "1.0"}
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-001-COZY-STARTER-REALM-KIT.md",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_001_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-001-w1-blue-001.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/p1e_scene_manifest.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/p1e_validation.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/p1e_library_hashes.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/lighting_before_after.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/lighting_before_p0e_BLD-BADA873442E7.png",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/lighting_after_p1e_BLD-E6BCC14D117E.png",
+    "E:/AIdle_openworld/orchestration/evidence/p1e/p1e_starter_realm_preview.png",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_Blender_Bridge_P0/config/environment_modules.yaml",
+    "E:/AIdle_Blender_Bridge_P0/config/environment_operation_allowlist.yaml",
+    "E:/AIdle_Blender_Bridge_P0/libraries/environments/cozy_cyber_pixel/*.yaml",
+    "E:/AIdle_Blender_Bridge_P0/libraries/environments/shared/shared_light_brush_station_A.yaml",
+    "E:/AIdle_Blender_Bridge_P0/blender_scripts/environment_worker_entry.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-E6BCC14D117E/",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_001_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-001-w2-red-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "P1E-001",
+    "work_order": "orchestration/work_orders/WO-P1E-001-COZY-STARTER-REALM-KIT.md",
+    "wave": "P1E_001_W2_RED",
+    "profile": "aidle-worldgen-red-scope",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "authority_token": "READ_ONLY_AUDIT",
+    "self_accept": false,
+    "accepted": false,
+    "status": "REVIEW_REQUESTED",
+    "verdict": "FINDINGS_REPORTED",
+    "summary": "READ_ONLY_AUDIT of P1E W1 Blue 019f84d9 (probe BLD-E6BCC14D117E). Independent re-verify: (1) lighting debt closed before final material judgment (before max 99/255 → after 255/255); (2) 7 modules present; all 14 library blend+glb SHA-256 match registry; (3) schema extended fields present on all 7 YAML records; (4) 0 cyan-ish pixels / warm lamp only; (5) scene_manifest output_class=STARTER_REALM + blender_version=5.2.0 LTS non-null; (6) no game/** Godot writes, Control-1B/Foundry not started; (7) runner --background --factory-startup --disable-autoexec; no open_unregistered_blend; (8) headed PNGs present for readability. Non-blocking residuals: high avg_luma washout, PREVIEW→SHELTER content_phase map, library sidecar dual-hash vs job instance GLBs, LOD policy-only. product_writes=[]. Handoff P1E_001_W3_QA. accepted=false.",
+    "real_blender_job_id": "BLD-E6BCC14D117E",
+    "prior_wave": {
+      "child_task_ref": "019f84d9-ad4c-7f50-8dd5-7fb7b24b03b2",
+      "receipt": "orchestration/receipts/p1e/P1E_001_w1_blue_001.json",
+      "probe": "BLD-E6BCC14D117E"
+    },
+    "audit_gates": [
+      {
+        "id": "A1_lighting_before_materials",
+        "verdict": "PASS",
+        "detail": "WO required ENV0-BACKLOG-PREVIEW-UNDEREXPOSURE fixed before final materials judgment. Independent pixel stats: before BLD-BADA873442E7 max_channel=99 avg_luma=56.88; after BLD-E6BCC14D117E max_channel=255 avg_luma=219.35. Worker docstring + Blue sequence record lighting retune path (BLD-CE4928295B5F overexpose → v1.1 mid-range). Per-run code constructs materials then _setup_render then render judgment — judgment occurs under fixed rig. Honesty: process order satisfies WO intent."
+      },
+      {
+        "id": "A2_seven_modules_sha256_registry",
+        "verdict": "PASS",
+        "detail": "Exactly 7 module_ids in environment_modules.yaml + p1e_library_hashes.json. Independent SHA-256 of all 14 library files (7 .blend + 7 .glb) MATCH registry. Job quarantine module GLBs (9 placements) MATCH scene_manifest artifact_sha256. FAIL_COUNT=0 / JOB_FAIL_COUNT=0."
+      },
+      {
+        "id": "A3_schema_extended_fields",
+        "verdict": "PASS",
+        "detail": "All 7 library YAML records include lods[] with hlod_proxy, collider_profile, navigation_profile, lighting_profile, instancing_profile. Architecture/interactive/landmark/greenhouse prefer multiple_convex; path+pond correctly use mode=none (walkable surface / non-solid nature). Occlusion large_blocker only on house."
+      },
+      {
+        "id": "A4_no_cyan_bleed",
+        "verdict": "PASS",
+        "detail": "Pixel scan of after/preview PNGs: cyan_ish_px=0 (0.000%). Worker materials: lamp_warm emission (1.0,0.82,0.45); preview_marker warm yellow; explicit comment forbidding manifestation cyan (0.05,0.75,0.85). Glass/greenhouse are soft mint/blue glass, not cyan neon language."
+      },
+      {
+        "id": "A5_manifest_provenance_fields",
+        "verdict": "PASS",
+        "detail": "scene_manifest + validation: output_class=STARTER_REALM, blender_version=5.2.0 LTS (non-null). Evidence copies byte-identical to quarantine BLD-E6BCC14D117E."
+      },
+      {
+        "id": "A6_allowlist_no_godot_no_control_foundry",
+        "verdict": "PASS",
+        "detail": "W1 product_writes contain zero game/** paths; no game files mtime after W1 window. Control-1B / Character-Foundry-1C receipts absent. codex_directive.json / tasks.json mtimes 2026-07-21T08:48Z (pre-W1, not rewritten). GODOT_OVERRIDE_REQUIRED correctly left AC6/AC7 blocked."
+      },
+      {
+        "id": "A7_link_append_security_no_autoexec",
+        "verdict": "PASS",
+        "detail": "environment_job_service._build_real_command uses --background --factory-startup --disable-autoexec --python-exit-code 20. operation allowlist forbids open_unregistered_blend / execute_arbitrary_python / network_access / mutate_godot_world_state. Worker builds from registered module_id builders only; never bpy.ops.wm.open on library blends. append_registered_module required in allowed_operations set."
+      },
+      {
+        "id": "A8_headed_evidence_readability",
+        "verdict": "PASS_WITH_NOTES",
+        "detail": "Headed PNGs present: lighting_before, lighting_after, p1e_starter_realm_preview (after==preview byte-identical). AC1 isometric readability improved vs P0E underexposure. Build plot yellow square visible. Path continuity: 3 path stones in row. Greenhouse translucent mint shell distinct from solid house (AC8). AC2 player/Companion silhouettes not in Blender env preview — deferred Godot wave. High avg_luma washout noted as residual R-MED-01."
+      }
+    ],
+    "finding_counts": {
+      "critical": 0,
+      "high": 0,
+      "medium": 2,
+      "low": 2,
+      "info": 3,
+      "blocking_reopen": 0,
+      "gates_pass": 8,
+      "gates_fail": 0,
+      "total_actionable": 4
+    },
+    "findings": [
+      {
+        "id": "R-MED-01",
+        "severity": "medium",
+        "title": "Preview still high-key; pond/house materials partially washed",
+        "detail": "Independent avg_luma_255=219.35 with max_channel=255 and whiteish_px≈0.15%. Visually: pond nearly white, house body desaturated toward blue-gray, path slabs near-white. ENV0 underexposure debt is closed and silhouettes remain readable, but final material judgment is still compromised on water/wood midtones. Blue residual on pond washout CONFIRMED. Not a W1 reopen — recommend W3 measure + optional Blue exposure/material micro-retune before Godot intake beauty pass.",
+        "blocking": false,
+        "handoff": "P1E_001_W3_QA"
+      },
+      {
+        "id": "R-MED-02",
+        "severity": "medium",
+        "title": "Greenhouse class PREVIEW maps content_phase=SHELTER",
+        "detail": "Registry class=PREVIEW but content_phase=SHELTER (API ContentPhase enum has no PREVIEW). scene_manifest greenhouse_preview_01 inherits content_phase SHELTER. Visual distinctness OK in headed preview, but Godot intake/manifestation ordering may treat preview anchor as complete shelter unless consumers key on class or module_id. Track through W3 import contract.",
+        "blocking": false,
+        "handoff": "P1E_001_W3_QA"
+      },
+      {
+        "id": "R-LOW-03",
+        "severity": "low",
+        "title": "Library blend/glb are sidecar; assembly does not link library files",
+        "detail": "Worker procedurally rebuilds proxies from module_id (security-correct, no open_unregistered_blend). Consequently job instance GLB SHA ≠ library GLB SHA (e.g. house job d1ec09… vs library 4f2250…; path instances same byte size but different hashes due to baked world transform). Library files remain valid registry provenance. Godot intake must decide library-hash vs job-instance-hash as source of truth.",
+        "blocking": false,
+        "handoff": "P1E_001_W3_QA"
+      },
+      {
+        "id": "R-LOW-04",
+        "severity": "low",
+        "title": "lods[] are policy records only; no separate LOD mesh artifacts",
+        "detail": "All 7 YAML declare lod0/lod1/lod2/hlod_proxy triangle_count fields, satisfying schema extension. No discrete LOD mesh files or multi-LOD GLB exports observed in quarantine (single proxy GLB per instance; scene triangle_count=4364). Acceptable for P1E kit skeleton; W3/later should not treat lods[] as proven mesh assets.",
+        "blocking": false,
+        "handoff": "P1E_001_W3_QA"
+      },
+      {
+        "id": "R-INFO-05",
+        "severity": "info",
+        "title": "AC6/AC7/AC9/AC11/AC12 correctly blocked on GODOT_OVERRIDE_REQUIRED",
+        "detail": "Directive 50 still forbids game/**. W1 correctly stopped without Godot intake/nav bake/save-reload. Not a Red reopen of W1 product surface.",
+        "blocking": false
+      },
+      {
+        "id": "R-INFO-06",
+        "severity": "info",
+        "title": "AC2 player/Companion silhouette not in Blender env preview",
+        "detail": "Headed evidence covers environment modules only. Player/Companion occlusion readability requires Godot harness headed capture in W3+ after override.",
+        "blocking": false
+      },
+      {
+        "id": "R-INFO-07",
+        "severity": "info",
+        "title": "Control-1B and Character-Foundry-1C remain unstarted (in scope for other WOs only)",
+        "detail": "WO-P1E-001 explicitly out-of-scopes Control-1B and Foundry-1C. No receipts or product starts observed. Scope fence held.",
+        "blocking": false
+      }
+    ],
+    "independent_measurements": {
+      "library_sha256_fail_count": 0,
+      "job_module_sha256_fail_count": 0,
+      "module_count": 7,
+      "lighting": {
+        "before_job": "BLD-BADA873442E7",
+        "before_max_channel_255": 99,
+        "before_avg_luma_255": 56.88,
+        "after_job": "BLD-E6BCC14D117E",
+        "after_max_channel_255": 255,
+        "after_avg_luma_255": 219.35,
+        "cyan_ish_px_after": 0,
+        "whiteish_px_after": 589
+      },
+      "manifest": {
+        "job_id": "BLD-E6BCC14D117E",
+        "output_class": "STARTER_REALM",
+        "blender_version": "5.2.0 LTS",
+        "placements": 9,
+        "triangle_count": 4364,
+        "object_count": 44
+      },
+      "quarantine_evidence_byte_match": {
+        "scene_manifest.json": true,
+        "validation.json": true,
+        "starter_realm_preview.png_vs_lighting_after": true
+      }
+    },
+    "character_binding_detail": {
+      "trustlayer_character_id": "red-team-source-auditor",
+      "ui_character_id": "ui-visual-critic",
+      "maf_role": "agent",
+      "authority_token": "READ_ONLY_AUDIT"
+    },
+    "handoff_ref": "P1E_001_W3_QA",
+    "next_wave": "P1E_001_W3_QA",
+    "next_profile": "aidle-worldgen-qa-evidence",
+    "next_authority": "VERIFY_ONLY",
+    "product_writes": []
+  },
+  "smoke_test": {
+    "ran": true,
+    "authority": "READ_ONLY_AUDIT independent re-verify (no product mutation)",
+    "commands": [
+      {
+        "cmd": "PowerShell Get-FileHash SHA256 on 14 library blend+glb vs environment_modules.yaml / p1e_library_hashes.json",
+        "result": "FAIL_COUNT=0 ALL_MATCH"
+      },
+      {
+        "cmd": "PowerShell Get-FileHash SHA256 on 9 evidence/p1e/modules/*.glb vs scene_manifest artifact_sha256",
+        "result": "JOB_FAIL_COUNT=0 ALL_MATCH"
+      },
+      {
+        "cmd": "Python PIL independent luma/cyan scan of before/after/preview PNGs",
+        "result": "before max=99 avg=56.88; after max=255 avg=219.35 cyan_ish=0; preview byte-identical to after"
+      },
+      {
+        "cmd": "Byte-compare quarantine BLD-E6BCC14D117E scene_manifest/validation/preview vs orchestration/evidence/p1e copies",
+        "result": "MATCH"
+      }
+    ],
+    "passed": true,
+    "notes": "No Godot smoke (GODOT_OVERRIDE_REQUIRED). No product pytest re-run required for Red findings wave; Blue claimed 44 passed — W3 QA will re-verify."
+  },
+  "self_audit": {
+    "allowlist_respected": true,
+    "product_writes_empty": true,
+    "self_accept": false,
+    "accepted": false,
+    "findings_only_no_patch": true,
+    "no_godot_writes": true,
+    "control_1b_not_started": true,
+    "character_foundry_1c_not_started": true,
+    "codex_directive_untouched": true,
+    "tasks_json_untouched": true,
+    "one_writer_per_file": true,
+    "no_grandchildren": true,
+    "parent_spawn_only": true,
+    "child_task_ref_durable": "019f84e2-53d1-7910-b044-d2e9fbb978cb",
+    "child_task_ref_source": "Grok Desktop subagent session under parent 019f7ffd; newest after W1 019f84d9; summary title P1E W2 Red Audit Worldgen Modules Lighting",
+    "exclusive_writes_only": [
+      "orchestration/receipts/p1e/P1E_001_w2_red_001.json",
+      "orchestration/logs/p1e-001-w2-red-001.log"
+    ],
+    "issues": []
+  },
+  "evidence_refs": [
+    "orchestration/logs/p1e-001-w2-red-001.log",
+    "orchestration/receipts/p1e/P1E_001_w1_blue_001.json",
+    "orchestration/logs/p1e-001-w1-blue-001.log",
+    "orchestration/work_orders/WO-P1E-001-COZY-STARTER-REALM-KIT.md",
+    "orchestration/evidence/p1e/lighting_before_p0e_BLD-BADA873442E7.png",
+    "orchestration/evidence/p1e/lighting_after_p1e_BLD-E6BCC14D117E.png",
+    "orchestration/evidence/p1e/lighting_before_after.json",
+    "orchestration/evidence/p1e/p1e_starter_realm_preview.png",
+    "orchestration/evidence/p1e/p1e_scene_manifest.json",
+    "orchestration/evidence/p1e/p1e_validation.json",
+    "orchestration/evidence/p1e/p1e_library_hashes.json",
+    "orchestration/evidence/p1e/modules/",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-E6BCC14D117E/"
+  ],
+  "next_route": "P1E_001_W3_QA"
+}

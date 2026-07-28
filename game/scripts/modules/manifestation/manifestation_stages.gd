@@ -89,31 +89,75 @@ static func allows_durable_collision(stage: String) -> bool:
 
 
 static func visual_opacity(stage: String) -> float:
+	## Headed stages must be object-distinct (U4 UI skill correction).
 	match stage:
 		"wireframe":
-			return 0.22
+			return 0.18
 		"hologram":
-			return 0.45
+			return 0.5
 		"materializing":
-			return 0.75
+			return 0.82
 		"complete":
 			return 1.0
 		_:
-			return 0.22
+			return 0.18
 
 
 static func visual_emission_energy(stage: String) -> float:
 	match stage:
 		"wireframe":
-			return 0.35
+			return 0.7
 		"hologram":
-			return 1.4
+			return 1.8
 		"materializing":
-			return 0.6
+			return 0.55
 		"complete":
 			return 0.0
 		_:
-			return 0.35
+			return 0.7
+
+
+static func stage_display_label(stage: String) -> String:
+	## Plain-language stage name + non-color pattern cue (never color alone).
+	match stage:
+		"wireframe":
+			return "Wireframe · outline"
+		"hologram":
+			return "Hologram · glow"
+		"materializing":
+			return "Materializing · solidifying"
+		"complete":
+			return "Complete · solid"
+		_:
+			return "Building · %s" % stage
+
+
+static func stage_pattern_glyph(stage: String) -> String:
+	## Distinct glyph per stage so state is readable without color.
+	match stage:
+		"wireframe":
+			return "▢"
+		"hologram":
+			return "◈"
+		"materializing":
+			return "▣"
+		"complete":
+			return "■"
+		_:
+			return "·"
+
+
+static func is_ordered_sequence(stages: PackedStringArray) -> bool:
+	## True when stages appear in monotonic ORDERED_STAGES order (subset allowed).
+	var last_i := -1
+	for s in stages:
+		var i := stage_index(str(s))
+		if i < 0:
+			return false
+		if i < last_i:
+			return false
+		last_i = i
+	return stages.size() > 0
 
 
 static func enforce_monotonic(current: String, requested: String) -> String:

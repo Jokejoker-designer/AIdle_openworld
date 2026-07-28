@@ -1,0 +1,117 @@
+{
+  "phase": 3,
+  "phase_id": "TOWN_PHASE_03",
+  "district_id": "workshop_row",
+  "district_role_vi": "Xưởng sửa chữa",
+  "status": "BLOCKED_UNTIL_PREV_PARITY_100",
+  "mockup_ssot": "MOCKUP_SSOT_V2",
+  "parity_gate": "MOCKUP_PARITY_100",
+  "character": {
+    "character_id": "CCP-NW-003",
+    "slug": "bac_bap",
+    "name": "Bác Bắp",
+    "class": "NPC_WORKER",
+    "form": "humanoid",
+    "clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "motion": "bob",
+    "signature": "tool_tap",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_03_bacbap.jpg",
+    "mockup_video": "orchestration/control/visual_reference/mockup_ssot_v2/anim/anim_bacbap_idle.mp4",
+    "prod_hint": "runtime_glb",
+    "spawn": {
+      "x": 7.4,
+      "y": 0,
+      "z": 9.2,
+      "rotation_deg": -90
+    }
+  },
+  "building": {
+    "module_id": "cozy_workshop_A",
+    "name": "Xưởng",
+    "cat": "craft",
+    "anim": "steam_rise",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/buildings/bld_04_workshop.jpg",
+    "spawn": {
+      "x": 9,
+      "y": 0,
+      "z": 9,
+      "rotation_deg": -90
+    }
+  },
+  "props": [
+    {
+      "module_id": "cozy_tool_rack_A",
+      "name": "Giá dụng cụ",
+      "cat": "craft",
+      "anim": "idle_static",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_tool_rack.jpg",
+      "spawn": {
+        "x": 10.6,
+        "y": 0,
+        "z": 7.8,
+        "rotation_deg": -102
+      }
+    },
+    {
+      "module_id": "cozy_crate_small_A",
+      "name": "Thùng gỗ",
+      "cat": "furn",
+      "anim": "idle_static",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_crate.jpg",
+      "spawn": {
+        "x": 11.0,
+        "y": 0,
+        "z": 9.8,
+        "rotation_deg": -90
+      }
+    },
+    {
+      "module_id": "cozy_barrel_A",
+      "name": "Thùng tròn",
+      "cat": "furn",
+      "anim": "idle_static",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_barrel.jpg",
+      "spawn": {
+        "x": 7.6,
+        "y": 0,
+        "z": 10.6,
+        "rotation_deg": -78
+      }
+    }
+  ],
+  "acceptance": {
+    "rule": "Do NOT mark complete until MOCKUP_PARITY_100 passes for this phase",
+    "mockup_delta_max": 0.0,
+    "require_idle_play": true,
+    "require_clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "require_building_load": true,
+    "require_props_load": 3,
+    "require_town_no_overlap": true,
+    "require_district_role_readable": true,
+    "self_accept": false,
+    "human_accept_required": true
+  },
+  "subagent_pipeline": [
+    "town-orchestrator",
+    "mockup-parity-guardian",
+    "character-animation-designer",
+    "building-module-designer",
+    "prop-set-designer",
+    "town-layout-planner",
+    "godot-runtime-integrator",
+    "red-mockup-delta-reviewer",
+    "purple-parity-gate"
+  ]
+}

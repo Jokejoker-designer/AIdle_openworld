@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_arch_roof_dome_4m_v1",
+  "module_id": "arch_roof_dome_4m",
+  "module_role": "roof",
+  "display_name": "Roof Dome 4M",
+  "world_profile_id": "cozy_cyber_pixel",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "author_wave": "U3_BLOCK_FAMILY_ART",
+  "allowlist_verified": true,
+  "dna_catalog_present": true,
+  "domain": "ARCHITECTURE",
+  "category": "STRUCTURE",
+  "geometry_family": "arch_roof_dome_4m",
+  "bounds_m": {
+    "width": 4.2,
+    "depth": 4.2,
+    "height": 1.6,
+    "origin": "center_bottom",
+    "source": "4m span + slight eave overhang; dome silhouette for ¾ camera"
+  },
+  "sockets_from_dna": {
+    "socket_inputs": ["roof_edge"],
+    "socket_outputs": ["wall_edge", "roof_edge", "door_opening", "window_opening", "path_endpoint", "prop_surface"],
+    "source": "module_catalog.json"
+  },
+  "socket_types_contract_ref": "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json",
+  "material_slots_dna": ["structure", "trim", "glass"],
+  "material_slots_production": {
+    "structure": {"semantic_slot": "roof", "mat_id": "MAT_CozyRoof", "bible_hex": "#e88b6f"},
+    "shade": {"semantic_slot": "roof", "mat_id": "MAT_CozyRoofShade", "bible_hex": "#d4785e"},
+    "trim": {"semantic_slot": "wood", "mat_id": "MAT_CozyWood", "bible_hex": "#c98a5e"},
+    "glass": {"semantic_slot": "glass", "mat_id": "MAT_CozyGlass", "usage": "optional_skylight_none_default"}
+  },
+  "silhouette": {
+    "family": "ucbv_cozy_rounded_readable_v1",
+    "form": "soft_dome_cap",
+    "bevel_face_fraction": 0.05,
+    "hard_90_outer_corners": false,
+    "lod2_mass": "dome_or_wedge_mass_roof_pitch"
+  },
+  "lod": {
+    "LOD0": "dome_shade_band_eave_trim",
+    "LOD1": "dome_mass",
+    "LOD2_or_billboard": "dome_or_wedge"
+  },
+  "performance_class_dna": "M",
+  "collision_policy_dna_hint": "STATIC_MESH",
+  "mesh_descriptor": "mesh_descriptors/arch_roof_dome_4m.meshdesc.json",
+  "visual_states_ref": "visual_states.json"
+}

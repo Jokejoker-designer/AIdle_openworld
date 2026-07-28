@@ -1,0 +1,479 @@
+{
+  "agent_step_id": "G8-001-E1-core-workflow-correction-007-2026-07-21",
+  "agent_type": "aidle-core",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "input_context_hash": "sha256:81294ddaeb349bd570e39ea5f7830238c174783d25b0ee44923bcf9f0660e4ec",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8273-9fad-7ed2-9e8c-792f59e6f583",
+  "original_child_task_ref": "019f8273-9fad-7ed2-9e8c-792f59e6f583",
+  "resumed_from": "019f827d-02f8-7763-9c7f-d7399d55222d",
+  "prior_correction_ref": "019f827d-02f8-7763-9c7f-d7399d55222d",
+  "correction_task_ref": "019f828d-83a0-7691-ada9-d767d90ba841",
+  "e1_correction_task_ref": "019f828d-83a0-7691-ada9-d767d90ba841",
+  "transcript_ref": "019f828d-83a0-7691-ada9-d767d90ba841",
+  "writer_transcript_ref": "019f828d-83a0-7691-ada9-d767d90ba841",
+  "e0_executor_correction_ref": "019f828a-5064-7c12-ac2c-69c5d8155d3a",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "trace_ref": "orchestration/logs/g8-d1-core-child.log",
+  "handoff_ref": "D2_BLOCKED_PENDING_CODEX",
+  "original_start_time": "2026-07-21T02:14:50.8212525Z",
+  "original_end_time": "2026-07-21T02:16:36.307464Z",
+  "prior_correction_start_time": "2026-07-21T02:24:18.718689700Z",
+  "prior_correction_end_time": "2026-07-21T02:27:21.813816500Z",
+  "start_time": "2026-07-21T02:42:20.258506100Z",
+  "end_time": "2026-07-21T02:44:41.775646100Z",
+  "lineage": {
+    "original_child_task_ref": "019f8273-9fad-7ed2-9e8c-792f59e6f583",
+    "prior_correction_ref": "019f827d-02f8-7763-9c7f-d7399d55222d",
+    "e1_correction_task_ref": "019f828d-83a0-7691-ada9-d767d90ba841",
+    "correction_task_ref": "019f828d-83a0-7691-ada9-d767d90ba841",
+    "writer_transcript_ref": "019f828d-83a0-7691-ada9-d767d90ba841",
+    "e0_executor_correction_ref": "019f828a-5064-7c12-ac2c-69c5d8155d3a",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "session_kind": "subagent_resume",
+    "session_created_at": "2026-07-21T02:42:20.258506100Z",
+    "session_parent_session_id": "019f827d-02f8-7763-9c7f-d7399d55222d",
+    "correction_work_order": "orchestration/work_orders/WO-G8-001-D1-WORKFLOW-CORRECTION-007.md",
+    "receipt_finalizer_transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+    "execution_vs_finalization": "execution_lineage_preserved; finalizer is distinct role"
+  },
+  "profile_source": "E:/AIdle_openworld/.grok/agents/core.md",
+  "profile_binding_evidence": "FULL E1 re-read core.md: name=aidle-core; trustlayer_character=blue-team-p0-remediator; ui_character=ui-component-craftsman; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop, game-ui-icons, game-asset-core. Authority PATCH_DRAFT; sole headed evidence owner this wave; product_writes must stay empty.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "wo_routed_full": [
+      "game-ui-icons",
+      "game-asset-core"
+    ]
+  },
+  "writer_lease": [
+    "scripts/run_g8_headed_visual_c003.py",
+    "game/scripts/core/headed_visual_smoke.gd",
+    "game/scripts/main/main.gd",
+    "game/autoload/art_style_manager.gd",
+    "orchestration/logs/g8-ui-visual-correction-003-runner.log",
+    "orchestration/logs/g8_headed_smoke_godot.log",
+    "orchestration/evidence/g8_ui_visual_correction_003/"
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/core.md",
+    "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+    "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+    "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D1-WORKFLOW-CORRECTION-007.md",
+    "E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md",
+    "E:/AIdle_openworld/DESIGN.md",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json",
+    "E:/AIdle_openworld/scripts/run_g8_headed_visual_c003.py",
+    "E:/AIdle_openworld/game/scripts/core/headed_visual_smoke.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/orchestration/logs/_d1_core_input_hash.py",
+    "E:/AIdle_openworld/orchestration/logs/_d1_core_schema_validate.py"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-d1-core-child.log",
+    "E:/AIdle_openworld/orchestration/logs/g8-ui-visual-correction-003-runner.log",
+    "E:/AIdle_openworld/orchestration/logs/g8_headed_smoke_godot.log",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/responsive_868x517.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/companion_open_868x517.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/bridge_manual_state.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_wireframe.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_hologram.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_materializing.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_cancel_preview.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/after_cancel.png",
+    "E:/AIdle_openworld/orchestration/logs/_d1_core_e1_set_end.py"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-D1-WORKFLOW-CORRECTION-007",
+    "directive_id": 27,
+    "wave": "E1_CORE",
+    "profile": "core",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/core.md",
+    "self_accept": false,
+    "verdict": "PASS",
+    "adoption_status": "ADOPTED_WITHOUT_PATCH",
+    "summary": "E1 core sole headed-evidence owner after E0 executor. Resumed lineage original 019f8273-9fad-7ed2-9e8c-792f59e6f583 / Dir26 019f827d-02f8-7763-9c7f-d7399d55222d / E1 019f828d-83a0-7691-ada9-d767d90ba841. Re-ran headed runner (exit 0) rewriting core-owned logs+PNGs+manifest; G3=76 G4=22; six-export zero-diff; skills always(5)+routed(2)=7 FULL; wall-clock start/end for this E1 pass; product_writes=[]. D2 blocked pending Codex. G8 not ACCEPTED.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "trustlayer_character_source": "E:/agents/characters/09-blue-team-p0-remediator.md",
+      "ui_character_id": "ui-component-craftsman",
+      "ui_character_source": "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+      "maf_role": "agent",
+      "authority_token": "PATCH_DRAFT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL E1 re-read: Load immediately COMPLIANCE.md + registry.yaml; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no inventing evidence / no exceed authority"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL E1 re-read: registry E:\\agents\\characters\\registry.yaml; slot 09 blue-team-p0-remediator PATCH_DRAFT; Red finds never fixes; Blue fixes only from approved WOs; Purple never patches product"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL E1 re-read: Canonical hub E:\\; Always MASTER_PLAN.md + JOURNAL_LATEST.md; journal-entry after milestones; Do not skip handoff when switching agents"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL E1 re-read: Sessions share project room on E:\\agents\\projects\\; sync knowledge/errors/handoffs; Respect authority tokens Red does not patch; Blue after triage; Purple verifies"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL E1 re-read: Do not claim command/test/file inspection occurred unless observed; classify FACT vs INFERENCE; verify with local tools; do not invent evidence"
+      },
+      {
+        "skill_id": "game-ui-icons",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL E1 re-read: Interaction states geometry-identical normal/hover/pressed; icon set style contract; panels 9-slice safe; no text on buttons/icons unless requested"
+      },
+      {
+        "skill_id": "game-asset-core",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL E1 re-read: Engine-ready defaults; UI panels scale-survivable state variants geometry-identical; verify by blind describe+diff"
+      }
+    ],
+    "skills_loaded_count": 7,
+    "input_context_hash_inputs": [
+      "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004.md",
+      "E:/AIdle_openworld/DESIGN.md",
+      "E:/AIdle_openworld/scripts/run_g8_headed_visual_c003.py",
+      "E:/AIdle_openworld/game/scripts/core/headed_visual_smoke.gd"
+    ],
+    "input_context_hash_method": "sha256(raw_bytes_concat) via E:\\standards\\maf\\.venv\\Scripts\\python.exe E:\\AIdle_openworld\\orchestration\\logs\\_d1_core_input_hash.py",
+    "product_writes": [],
+    "gates": {
+      "canonical_runner_rejects_unexpected_error": "PASS",
+      "ten_screenshots_and_manifest": "PASS",
+      "cancel_crop_proof": "PASS_WIDE_CROP",
+      "G3_checks": 76,
+      "G3_result": "PASS",
+      "G4_checks": 22,
+      "G4_result": "PASS",
+      "six_tracked_export_zero_diff": "PASS",
+      "headed_runner_exit": 0
+    },
+    "timestamp_provenance": {
+      "original_start_time": "2026-07-21T02:14:50.8212525Z",
+      "original_end_time": "2026-07-21T02:16:36.307464Z",
+      "prior_correction_ref": "019f827d-02f8-7763-9c7f-d7399d55222d",
+      "prior_correction_start_time": "2026-07-21T02:24:18.718689700Z",
+      "prior_correction_end_time": "2026-07-21T02:27:21.813816500Z",
+      "e1_start_time_source": "durable_meta.started_at for 019f828d-83a0-7691-ada9-d767d90ba841 (Dir28 finalizer binding)",
+      "e1_end_time_source": "durable_meta.completed_at for 019f828d-83a0-7691-ada9-d767d90ba841 (Dir28 finalizer binding)",
+      "durable_started_at": "2026-07-21T02:42:20.258506100Z",
+      "durable_completed_at": "2026-07-21T02:44:41.775646100Z",
+      "receipt_finalizer_transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661"
+    },
+    "children": [],
+    "no_grandchildren": true,
+    "findings": [],
+    "residual_risks": [
+      "D2 remains blocked until Codex independent semantic review of E0+E1 receipts.",
+      "G8-001 remains non-ACCEPTED.",
+      "E1 legacy encoding defect on g8-d1-core-child.log remains historical; finalizer log is clean UTF-8 only.",
+      "D2 remains blocked until Codex independent semantic review of finalized E0+E1+finalizer receipts.",
+      "G8-001 remains non-ACCEPTED."
+    ],
+    "receipt_finalizer_transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+    "role_separation": {
+      "execution_role_vs_receipt_finalization": "DISTINCT",
+      "statement": "Execution children (E0 executor / E1 core) performed product-safe verification and headed evidence ownership. This schema finalizer only rewrites receipt timestamps/provenance under VERIFY_ONLY; it did not re-execute G3/G4/headed product commands.",
+      "receipt_finalizer_transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+      "receipt_finalizer_profile": "aidle-schema",
+      "receipt_finalizer_authority": "VERIFY_ONLY"
+    },
+    "quarantine": {
+      "quarantined_refs": [
+        {
+          "ref": "019f8289-5794-72d2-88fc-26f1e04faff8",
+          "kind": "accidental_top_level_session",
+          "status": "QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE",
+          "note": "Unauthorized top-level task; must never be used as execution or acceptance evidence."
+        },
+        {
+          "ref": "019f828b-57c0-72c2-99ee-fcf2d7d9866a",
+          "kind": "cancelled_child_of_accidental_top_level",
+          "status": "QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE",
+          "note": "Cancelled child of accidental top-level; outputs non-evidence even where later authorized children overwrote same log paths."
+        },
+        {
+          "ref": "019f7c5f-04b5-7902-9a0b-e1159294bb1d",
+          "kind": "directive_quarantine_ref",
+          "status": "QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE",
+          "note": "Listed in codex_directive.json Dir28 quarantined_refs; not accepted execution lineage."
+        }
+      ],
+      "d2_premature_outputs_non_evidence": true,
+      "quarantine_statement": "Quarantined refs are NOT accepted execution lineage. Premature D2 outputs remain non-evidence."
+    },
+    "durable_meta_binding": {
+      "execution_child_ref": "019f828d-83a0-7691-ada9-d767d90ba841",
+      "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828d-83a0-7691-ada9-d767d90ba841/meta.json",
+      "started_at": "2026-07-21T02:42:20.258506100Z",
+      "completed_at": "2026-07-21T02:44:41.775646100Z",
+      "binding_rule": "top-level start_time/end_time must equal durable meta started_at/completed_at exactly",
+      "prior_receipt_wall_clock_start_time": "2026-07-21T02:42:33.7020974Z",
+      "prior_receipt_wall_clock_end_time": "2026-07-21T02:44:32.385100Z",
+      "note": "Prior receipt times were wall-clock estimates written before durable completion; Dir28 finalizer binds durable meta strings."
+    },
+    "legacy_trace_defect": {
+      "path": "orchestration/logs/g8-d1-core-child.log",
+      "classification": "FACT",
+      "defect": "E1 append used incompatible encoding; new child ref is not normally searchable in that historical file",
+      "action": "DISCLOSED_NOT_ERASED_NOT_SILENTLY_NORMALIZED",
+      "finalizer_log_policy": "orchestration/logs/g8-d1-receipt-finalizer.log written clean UTF-8 only"
+    }
+  },
+  "smoke_test": {
+    "passed": true,
+    "cwd": "E:\\AIdle_openworld",
+    "commands": [
+      {
+        "name": "canonical_headed_runner",
+        "command": "E:\\standards\\maf\\.venv\\Scripts\\python.exe E:\\AIdle_openworld\\scripts\\run_g8_headed_visual_c003.py",
+        "exit_code": 0,
+        "markers": [
+          "CANONICAL_RUNNER=PASS",
+          "CANCEL_CROP_WIDE_PASS",
+          "SAVED_CHOICE_RUNNER_PASS"
+        ]
+      },
+      {
+        "name": "g3_e2e",
+        "command": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --path E:\\AIdle_openworld\\game --headless -s res://scripts/modules/executor/g3_e2e_smoke.gd",
+        "exit_code": 0,
+        "markers": [
+          "G3_E2E_SMOKE=PASS checks=76"
+        ]
+      },
+      {
+        "name": "g4_persist",
+        "command": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --path E:\\AIdle_openworld\\game --headless -s res://scripts/modules/persist/g4_persist_smoke.gd",
+        "exit_code": 0,
+        "markers": [
+          "G4_PERSIST_SMOKE=PASS checks=22"
+        ]
+      },
+      {
+        "name": "git_hash_object_commit_request_handoff_stub",
+        "command": "git -C E:\\AIdle_openworld hash-object game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+        "exit_code": 0,
+        "stdout": "4da2fcde3678c28deebefb1f9392817696eb5cd3"
+      },
+      {
+        "name": "git_rev_parse_baseline_commit_request_handoff_stub",
+        "command": "git -C E:\\AIdle_openworld rev-parse 60fccdd792d6d8f682441bbfe9ff6e7d67a27226:game/scripts/modules/executor/exports/commit_request_handoff_stub.json",
+        "exit_code": 0,
+        "stdout": "4da2fcde3678c28deebefb1f9392817696eb5cd3"
+      },
+      {
+        "name": "git_hash_object_g3_cancel_receipt",
+        "command": "git -C E:\\AIdle_openworld hash-object game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+        "exit_code": 0,
+        "stdout": "6509d045dda64865a5cd446f8a231cebd48a1afe"
+      },
+      {
+        "name": "git_rev_parse_baseline_g3_cancel_receipt",
+        "command": "git -C E:\\AIdle_openworld rev-parse 60fccdd792d6d8f682441bbfe9ff6e7d67a27226:game/scripts/modules/executor/exports/g3_cancel_receipt.json",
+        "exit_code": 0,
+        "stdout": "6509d045dda64865a5cd446f8a231cebd48a1afe"
+      },
+      {
+        "name": "git_hash_object_g3_complete_receipt",
+        "command": "git -C E:\\AIdle_openworld hash-object game/scripts/modules/executor/exports/g3_complete_receipt.json",
+        "exit_code": 0,
+        "stdout": "241e1a8f747db2e6cae93f6924736780d96d9a8a"
+      },
+      {
+        "name": "git_rev_parse_baseline_g3_complete_receipt",
+        "command": "git -C E:\\AIdle_openworld rev-parse 60fccdd792d6d8f682441bbfe9ff6e7d67a27226:game/scripts/modules/executor/exports/g3_complete_receipt.json",
+        "exit_code": 0,
+        "stdout": "241e1a8f747db2e6cae93f6924736780d96d9a8a"
+      },
+      {
+        "name": "git_hash_object_g3_undo_receipt",
+        "command": "git -C E:\\AIdle_openworld hash-object game/scripts/modules/executor/exports/g3_undo_receipt.json",
+        "exit_code": 0,
+        "stdout": "a5dc41be613f3d5693cbde70fa1dae0749515621"
+      },
+      {
+        "name": "git_rev_parse_baseline_g3_undo_receipt",
+        "command": "git -C E:\\AIdle_openworld rev-parse 60fccdd792d6d8f682441bbfe9ff6e7d67a27226:game/scripts/modules/executor/exports/g3_undo_receipt.json",
+        "exit_code": 0,
+        "stdout": "a5dc41be613f3d5693cbde70fa1dae0749515621"
+      },
+      {
+        "name": "git_hash_object_world_prompt_from_build",
+        "command": "git -C E:\\AIdle_openworld hash-object game/scripts/modules/executor/exports/world_prompt_from_build.json",
+        "exit_code": 0,
+        "stdout": "5a595df14394bfff6d21d2f051023e942fd8dfe5"
+      },
+      {
+        "name": "git_rev_parse_baseline_world_prompt_from_build",
+        "command": "git -C E:\\AIdle_openworld rev-parse 60fccdd792d6d8f682441bbfe9ff6e7d67a27226:game/scripts/modules/executor/exports/world_prompt_from_build.json",
+        "exit_code": 0,
+        "stdout": "5a595df14394bfff6d21d2f051023e942fd8dfe5"
+      },
+      {
+        "name": "git_hash_object_g4_persist_smoke_evidence",
+        "command": "git -C E:\\AIdle_openworld hash-object game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+        "exit_code": 0,
+        "stdout": "febf4c781badafb3cd3ca7bf407f9d5ebef7e39a"
+      },
+      {
+        "name": "git_rev_parse_baseline_g4_persist_smoke_evidence",
+        "command": "git -C E:\\AIdle_openworld rev-parse 60fccdd792d6d8f682441bbfe9ff6e7d67a27226:game/scripts/modules/persist/exports/g4_persist_smoke_evidence.json",
+        "exit_code": 0,
+        "stdout": "febf4c781badafb3cd3ca7bf407f9d5ebef7e39a"
+      },
+      {
+        "name": "input_context_hash",
+        "command": "E:\\standards\\maf\\.venv\\Scripts\\python.exe E:\\AIdle_openworld\\orchestration\\logs\\_d1_core_input_hash.py",
+        "exit_code": 0,
+        "markers": [
+          "input_context_hash=sha256:81294ddaeb349bd570e39ea5f7830238c174783d25b0ee44923bcf9f0660e4ec"
+        ]
+      },
+      {
+        "name": "jsonschema_validate_receipt",
+        "command": "E:\\standards\\maf\\.venv\\Scripts\\python.exe E:\\AIdle_openworld\\orchestration\\logs\\_d1_core_schema_validate.py",
+        "exit_code": 0,
+        "markers": [
+          "JSONSCHEMA_VALIDATE=PASS"
+        ]
+      }
+    ],
+    "pseudo_commands_excluded": [
+      {
+        "name": "six_tracked_zero_diff_aggregate",
+        "command": "twelve literal git -C E:\\AIdle_openworld hash-object / rev-parse pairs above; all MATCH",
+        "exit_code": 0,
+        "markers": [
+          "SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS"
+        ],
+        "baseline_commit": "60fccdd792d6d8f682441bbfe9ff6e7d67a27226"
+      }
+    ],
+    "command_notes": {
+      "six_tracked_zero_diff": "Zero-diff established by the twelve literal git hash-object/rev-parse pairs already listed as individual smoke_test.commands entries (not a pseudo aggregate command).",
+      "pseudo_commands_policy": "No abbreviated aggregate command entries remain in smoke_test.commands; each entry is a literal executed command with exit_code."
+    }
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "self_accept": false,
+    "character_skill_trace_present": true,
+    "character_sources_present": true,
+    "skills_manifest_always_complete": true,
+    "skills_loaded_count": 7,
+    "commands_are_literal_full_strings": true,
+    "core_sole_headed_evidence_owner": true,
+    "product_writes_empty": true,
+    "no_grandchildren": true,
+    "d2_not_spawned": true,
+    "parent_product_patch": false,
+    "e0_completed_before_e1": true,
+    "durable_times_bound_by_finalizer": true,
+    "execution_lineage_preserved": true,
+    "pseudo_aggregate_command_removed": true,
+    "legacy_trace_defect_disclosed": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-d1-core-child.log",
+    "orchestration/logs/g8-ui-visual-correction-003-runner.log",
+    "orchestration/evidence/g8_ui_visual_correction_003/",
+    "orchestration/work_orders/WO-G8-001-D1-WORKFLOW-CORRECTION-007.md",
+    "orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json"
+  ],
+  "next_route": "D2_BLOCKED_PENDING_CODEX",
+  "receipt_finalizer_transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+  "role_separation": {
+    "execution_role_vs_receipt_finalization": "DISTINCT",
+    "statement": "Execution children (E0 executor / E1 core) performed product-safe verification and headed evidence ownership. This schema finalizer only rewrites receipt timestamps/provenance under VERIFY_ONLY; it did not re-execute G3/G4/headed product commands.",
+    "receipt_finalizer_transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+    "receipt_finalizer_profile": "aidle-schema",
+    "receipt_finalizer_authority": "VERIFY_ONLY"
+  },
+  "quarantine": {
+    "quarantined_refs": [
+      {
+        "ref": "019f8289-5794-72d2-88fc-26f1e04faff8",
+        "kind": "accidental_top_level_session",
+        "status": "QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE",
+        "note": "Unauthorized top-level task; must never be used as execution or acceptance evidence."
+      },
+      {
+        "ref": "019f828b-57c0-72c2-99ee-fcf2d7d9866a",
+        "kind": "cancelled_child_of_accidental_top_level",
+        "status": "QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE",
+        "note": "Cancelled child of accidental top-level; outputs non-evidence even where later authorized children overwrote same log paths."
+      },
+      {
+        "ref": "019f7c5f-04b5-7902-9a0b-e1159294bb1d",
+        "kind": "directive_quarantine_ref",
+        "status": "QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE",
+        "note": "Listed in codex_directive.json Dir28 quarantined_refs; not accepted execution lineage."
+      }
+    ],
+    "d2_premature_outputs_non_evidence": true,
+    "quarantine_statement": "Quarantined refs are NOT accepted execution lineage. Premature D2 outputs remain non-evidence."
+  },
+  "durable_meta_binding": {
+    "execution_child_ref": "019f828d-83a0-7691-ada9-d767d90ba841",
+    "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828d-83a0-7691-ada9-d767d90ba841/meta.json",
+    "started_at": "2026-07-21T02:42:20.258506100Z",
+    "completed_at": "2026-07-21T02:44:41.775646100Z",
+    "binding_rule": "top-level start_time/end_time must equal durable meta started_at/completed_at exactly",
+    "prior_receipt_wall_clock_start_time": "2026-07-21T02:42:33.7020974Z",
+    "prior_receipt_wall_clock_end_time": "2026-07-21T02:44:32.385100Z",
+    "note": "Prior receipt times were wall-clock estimates written before durable completion; Dir28 finalizer binds durable meta strings."
+  },
+  "legacy_trace_defect": {
+    "path": "orchestration/logs/g8-d1-core-child.log",
+    "classification": "FACT",
+    "defect": "E1 append used incompatible encoding; new child ref is not normally searchable in that historical file",
+    "action": "DISCLOSED_NOT_ERASED_NOT_SILENTLY_NORMALIZED",
+    "finalizer_log_policy": "orchestration/logs/g8-d1-receipt-finalizer.log written clean UTF-8 only"
+  }
+}

@@ -1,0 +1,549 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-p4-purple-001-2026-07-22",
+  "step_id": "CTRL-1B-002-p4-purple-001",
+  "work_order_id": "WO-CTRL-1B-002-CONTROL-FOUNDATION-IMPLEMENTATION",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-CONTROL-FOUNDATION-IMPLEMENTATION.md",
+  "directive_id": 58,
+  "directive_supersedes": 57,
+  "milestone": "Control 1B foundation P4 purple independent acceptance (VERIFY_ONLY)",
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "profile_name": "aidle-worldgen-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_sha256": "9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; required_skills always×5 + evidence-memory-ledger + adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches; never ACCEPTED; verdicts VERIFIED|CHANGES_REQUESTED|NEED_HUMAN only.",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "independent acceptance verification of B0/B1/Q2/A3 lineage + H-01..H-33 + regressions; exclusive writes receipt+log only; NEVER product/contract/test/scene/evidence patch; never ACCEPTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:18beadf702b6146fc9d41a4c022ccda3bedccf2a3e7685f877283b87825e4deb",
+  "input_context_hash_16": "18beadf702b6146f",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002 + CONTROL_1B_ACCEPTANCE_CONTRACT.md + aidle-worldgen-purple-acceptance.md",
+  "status": "WAITING_CODEX",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "CHANGES_REQUESTED",
+  "purple_verdict": "CHANGES_REQUESTED",
+  "verdict_detail": "Independent Purple VERIFY_ONLY of Control 1B-002 B0→B1→Q2→A3 lineage. Re-ran validator HARNESS_RESULT=PASS exit 0; control suite router/a11y/integration/headed dry-run all PASS exit 0; G8 UX collision PASS; clean boot exit 0 with ERROR_LINES=0. Headed PNG authenticity sample 5/5 sha256 match + PNG magic 89 50 4E 47; visual sample H-01 shows live exploration HUD with ≤4 non-color cues. H-matrix honesty reconfirmed 25 PASS / 8 FAIL (H-03,H-07,H-12,H-17,H-19,H-20,H-26,H-28). A3 residual 10 OPEN findings (A3-F01..F10) not closed. Writer leases exclusive per child; product_writes empty on VERIFY/AUDIT children. Dual child_task_ref provenance noted for B1 and Q2. Purple NEVER patches and does NOT ACCEPT. VERIFIED requires all 33 H-rows PASS with evidence + closed A3 blockers — not met. next_owner=CODEX.",
+  "child_task_ref": "019f86e1-343c-7d00-9f41-6784b41c02c5",
+  "transcript_ref": "019f86e1-343c-7d00-9f41-6784b41c02c5",
+  "writer_transcript_ref": "019f86e1-343c-7d00-9f41-6784b41c02c5",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "next_owner": "CODEX",
+  "next_route": "CODEX",
+  "chain_id_note": "Durable spawn ids: B0 019f86c1-854c-76a3-a36b-004cc8e39216; B1 spawn 019f86ca-008a-7bd2-ba32-3c5ec9858e51 (receipt alt e85e1802-24f4-41a1-9968-8371bd39317d); Q2 spawn 019f86d6-91f6-7091-9456-0c3da2173af7 (receipt alt 2b857b73-3622-49ef-8747-4974b05b6ce6); A3 019f86dd-5eba-7db3-bb7a-f9437c720100; P4 019f86e1-343c-7d00-9f41-6784b41c02c5. Parent 019f7ffd-3995-71c0-aca1-51078e24a852.",
+  "provenance_notes": [
+    {
+      "wave": "B1",
+      "durable_spawn_id": "019f86ca-008a-7bd2-ba32-3c5ec9858e51",
+      "receipt_child_task_ref": "e85e1802-24f4-41a1-9968-8371bd39317d",
+      "status": "DUAL_ID_RECORDED_NOT_BLOCKING",
+      "note": "Parent directive durable spawn id differs from B1 receipt embedded writer id; both retained for lineage honesty."
+    },
+    {
+      "wave": "Q2",
+      "durable_spawn_id": "019f86d6-91f6-7091-9456-0c3da2173af7",
+      "receipt_child_task_ref": "2b857b73-3622-49ef-8747-4974b05b6ce6",
+      "status": "DUAL_ID_RECORDED_NOT_BLOCKING",
+      "note": "Parent directive durable spawn id differs from Q2 receipt embedded writer id; both retained."
+    }
+  ],
+  "character_binding": {
+    "trustlayer": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "ui": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "role": "P4 VERIFY_ONLY independent acceptance; never patch; never ACCEPTED"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, purple profile, WO, directive 58, acceptance contract, B0/B1/Q2/A3 receipts, evidence pack, character cards, skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ROUTED_PROFILE",
+      "source": "required by purple profile; ledger applied via receipt + H-matrix + PNG authenticity + re-run exits",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED_PROFILE",
+      "source": "required by purple profile; re-challenged H-row honesty, dual-id provenance, lease exclusivity, no false VERIFIED",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_p4_purple_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-p4-purple-001.log"
+  ],
+  "product_writes": [],
+  "contract_writes": [],
+  "test_writes": [],
+  "scene_writes": [],
+  "evidence_writes": [],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_p4_purple_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-p4-purple-001.log"
+  ],
+  "no_product_patch": true,
+  "no_contract_patch": true,
+  "no_test_patch": true,
+  "no_scene_patch": true,
+  "no_evidence_patch": true,
+  "child_meta": {
+    "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f86e1-343c-7d00-9f41-6784b41c02c5/meta.json",
+    "meta_sha256": "77ff1309c182d516c6f6edeb30a29b222e6ea7036a7ca52030fba8135705f9c4",
+    "description": "P4 Purple control 1B gate",
+    "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "started_at": "2026-07-21T22:52:13.759431400Z",
+    "effective_model_id": "grok-4.5"
+  },
+  "lineage": {
+    "parent": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "children_reviewed": [
+      {
+        "wave": "B0",
+        "receipt": "orchestration/receipts/control/CTRL_1B_002_b0_control_001.json",
+        "child_task_ref": "019f86c1-854c-76a3-a36b-004cc8e39216",
+        "authority": "PATCH_DRAFT",
+        "verdict": "B0_CONTROL_KERNEL_COMPLETE_NO_ACCEPT",
+        "writer_lease_ok": true,
+        "accepted_false": true,
+        "self_accept_false": true,
+        "status": "LINEAGE_OK"
+      },
+      {
+        "wave": "B1",
+        "receipt": "orchestration/receipts/control/CTRL_1B_002_b1_runtime_001.json",
+        "durable_spawn_id": "019f86ca-008a-7bd2-ba32-3c5ec9858e51",
+        "receipt_child_task_ref": "e85e1802-24f4-41a1-9968-8371bd39317d",
+        "authority": "PATCH_DRAFT",
+        "verdict": "B1_RUNTIME_INTEGRATION_COMPLETE_NO_ACCEPT",
+        "writer_lease_ok": true,
+        "accepted_false": true,
+        "self_accept_false": true,
+        "status": "LINEAGE_OK_DUAL_ID"
+      },
+      {
+        "wave": "Q2",
+        "receipt": "orchestration/receipts/control/CTRL_1B_002_q2_qa_001.json",
+        "durable_spawn_id": "019f86d6-91f6-7091-9456-0c3da2173af7",
+        "receipt_child_task_ref": "2b857b73-3622-49ef-8747-4974b05b6ce6",
+        "authority": "VERIFY_ONLY",
+        "verdict": "CHANGES_REQUESTED",
+        "h_pass": 25,
+        "h_fail": 8,
+        "writer_lease_ok": true,
+        "product_writes_empty": true,
+        "accepted_false": true,
+        "self_accept_false": true,
+        "status": "LINEAGE_OK_DUAL_ID"
+      },
+      {
+        "wave": "A3",
+        "receipt": "orchestration/receipts/control/CTRL_1B_002_a3_a11y_001.json",
+        "child_task_ref": "019f86dd-5eba-7db3-bb7a-f9437c720100",
+        "authority": "READ_ONLY_AUDIT",
+        "verdict": "CHANGES_REQUESTED",
+        "open_findings": 10,
+        "writer_lease_ok": true,
+        "product_writes_empty": true,
+        "accepted_false": true,
+        "self_accept_false": true,
+        "status": "LINEAGE_OK"
+      }
+    ],
+    "sequential_chain_intact": true,
+    "no_grandchildren_observed": true
+  },
+  "result": {
+    "verdict": "CHANGES_REQUESTED",
+    "purple_verdict": "CHANGES_REQUESTED",
+    "h_matrix_pass": 25,
+    "h_matrix_fail": 8,
+    "h_matrix_total": 33,
+    "a3_open_findings": 10,
+    "regressions_clean": true,
+    "image_authenticity_sample": "PASS",
+    "lineage_ok": true,
+    "accepted": false,
+    "self_accept": false,
+    "verdict_rule": "VERIFIED only if ALL 33 H-rows PASS with evidence AND regressions clean AND no open blockers. Condition not met → CHANGES_REQUESTED."
+  },
+  "findings_closure": {
+    "closed": [],
+    "open": [
+      {
+        "id": "A3-F01",
+        "severity": "medium",
+        "h_rows": ["H-03"],
+        "status": "OPEN",
+        "summary": "No executable smoke that Ctrl+Enter (prompt_send) sends and Shift+Enter (prompt_newline) does not send."
+      },
+      {
+        "id": "A3-F02",
+        "severity": "medium",
+        "h_rows": ["H-07"],
+        "status": "OPEN",
+        "summary": "Inspect context enter works; no inspect provenance panel UI evidence without durable mutation."
+      },
+      {
+        "id": "A3-F03",
+        "severity": "low",
+        "h_rows": ["H-12"],
+        "status": "OPEN",
+        "summary": "build_rotate_left (Q) wiring present; only R/build_rotate_right smoke-rotated."
+      },
+      {
+        "id": "A3-F04",
+        "severity": "high",
+        "h_rows": ["H-17"],
+        "status": "OPEN",
+        "summary": "No headed/headless proof of Companion understanding + Proposal Card after prompt send."
+      },
+      {
+        "id": "A3-F05",
+        "severity": "high",
+        "h_rows": ["H-19"],
+        "status": "OPEN",
+        "summary": "confirmation_hold settable; significant confirm hold UX not end-to-end smoked (demo_flow-gated)."
+      },
+      {
+        "id": "A3-F06",
+        "severity": "high",
+        "h_rows": ["H-20"],
+        "status": "OPEN",
+        "summary": "Stage complete-only collision gate PASS; control-suite does not close post-confirm durable commit path."
+      },
+      {
+        "id": "A3-F07",
+        "severity": "low",
+        "h_rows": ["H-26"],
+        "status": "OPEN",
+        "summary": "mouse_sensitivity stored + consumed; no observational smoke that change is player-visible."
+      },
+      {
+        "id": "A3-F08",
+        "severity": "medium",
+        "h_rows": ["H-28"],
+        "status": "OPEN",
+        "summary": "cursor_size_scale clamps/persists but never applied to DisplayServer cursor; large cursor not visual-proven."
+      },
+      {
+        "id": "A3-F09",
+        "severity": "medium",
+        "h_rows": ["H-22"],
+        "status": "OPEN",
+        "summary": "Remap API PASS; settings remap UI exposes catalog subset only (C1B-A11Y-01 partial)."
+      },
+      {
+        "id": "A3-F10",
+        "severity": "low",
+        "h_rows": [],
+        "status": "OPEN",
+        "summary": "action_label_near_cursor setting persists; no runtime renderer draws label near cursor."
+      }
+    ],
+    "q2_h_fails_reconfirmed": ["H-03", "H-07", "H-12", "H-17", "H-19", "H-20", "H-26", "H-28"],
+    "closure_gate": "FAIL_OPEN_BLOCKERS",
+    "note": "No A3 finding closed by P4. Purple does not upgrade FAIL H-rows to PASS."
+  },
+  "blockers": [
+    {
+      "id": "BLK-H-03",
+      "severity": "medium",
+      "h_row": "H-03",
+      "finding": "A3-F01",
+      "summary": "Missing executable assertion for prompt_send vs prompt_newline behavior."
+    },
+    {
+      "id": "BLK-H-07",
+      "severity": "medium",
+      "h_row": "H-07",
+      "finding": "A3-F02",
+      "summary": "Inspect provenance UI not evidenced."
+    },
+    {
+      "id": "BLK-H-12",
+      "severity": "low",
+      "h_row": "H-12",
+      "finding": "A3-F03",
+      "summary": "Q/build_rotate_left not smoke-rotated."
+    },
+    {
+      "id": "BLK-H-17",
+      "severity": "high",
+      "h_row": "H-17",
+      "finding": "A3-F04",
+      "summary": "Proposal Card / Companion understanding path not captured."
+    },
+    {
+      "id": "BLK-H-19",
+      "severity": "high",
+      "h_row": "H-19",
+      "finding": "A3-F05",
+      "summary": "Confirm-hold UX not end-to-end; demo_flow-gated path only."
+    },
+    {
+      "id": "BLK-H-20",
+      "severity": "high",
+      "h_row": "H-20",
+      "finding": "A3-F06",
+      "summary": "Post-confirm durable commit path not control-smoke closed."
+    },
+    {
+      "id": "BLK-H-26",
+      "severity": "low",
+      "h_row": "H-26",
+      "finding": "A3-F07",
+      "summary": "Sensitivity change not observationally proven."
+    },
+    {
+      "id": "BLK-H-28",
+      "severity": "medium",
+      "h_row": "H-28",
+      "finding": "A3-F08",
+      "summary": "Large cursor not applied/readability not visual-proven."
+    },
+    {
+      "id": "BLK-A3-F09",
+      "severity": "medium",
+      "h_row": "H-22",
+      "finding": "A3-F09",
+      "summary": "Remap UI catalog subset only (C1B-A11Y-01 partial residual)."
+    },
+    {
+      "id": "BLK-A3-F10",
+      "severity": "low",
+      "h_row": null,
+      "finding": "A3-F10",
+      "summary": "action_label_near_cursor unwired at runtime."
+    }
+  ],
+  "h_matrix": {
+    "path": "orchestration/evidence/control_1b_002/h_matrix_status.json",
+    "source": "Q2 honest matrix + A3 reconfirm + P4 independent read",
+    "PASS": ["H-01", "H-02", "H-04", "H-05", "H-06", "H-08", "H-09", "H-10", "H-11", "H-13", "H-14", "H-15", "H-16", "H-18", "H-21", "H-22", "H-23", "H-24", "H-25", "H-27", "H-29", "H-30", "H-31", "H-32", "H-33"],
+    "FAIL": ["H-03", "H-07", "H-12", "H-17", "H-19", "H-20", "H-26", "H-28"],
+    "summary": {
+      "total": 33,
+      "PASS": 25,
+      "FAIL": 8
+    },
+    "honesty_rule": "Missing H-row evidence is NOT PASS. Scaffold-only IDs without executable assertion or headed witness do not pass. Purple does not invent evidence."
+  },
+  "smoke_test": {
+    "validator": {
+      "cmd": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "exit": 0,
+      "marker": "HARNESS_RESULT=PASS",
+      "valid": "PASS",
+      "invalid_rejected": "12/12",
+      "error_line_count": 0,
+      "p4_rerun": true
+    },
+    "control_suite": [
+      {
+        "test": "res://tests/control_1b_context_router_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS",
+        "checks": 12,
+        "error_line_count": 0,
+        "p4_rerun": true
+      },
+      {
+        "test": "res://tests/control_1b_accessibility_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS",
+        "checks": 11,
+        "error_line_count": 0,
+        "p4_rerun": true
+      },
+      {
+        "test": "res://tests/control_1b_integration_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS",
+        "checks": 15,
+        "error_line_count": 0,
+        "p4_rerun": true
+      },
+      {
+        "test": "res://tests/control_1b_headed_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_CTRL_1B_HEADED_SMOKE=PASS",
+        "mode": "dry_run",
+        "checks": 19,
+        "states": 17,
+        "error_line_count": 0,
+        "p4_rerun": true
+      }
+    ],
+    "regression_sample": [
+      {
+        "test": "res://tests/g8_ux_input_collision_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_G8_UX_SMOKE=PASS",
+        "checks": 6,
+        "error_line_count": 0,
+        "p4_rerun": true
+      }
+    ],
+    "clean_boot": {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game --quit-after 3",
+      "exit": 0,
+      "error_line_count": 0,
+      "control_1b_ui_mounted": true,
+      "note": "Navigation mesh WARNINGs only; zero ERROR/SCRIPT ERROR. Control 1B UI mounted message present.",
+      "p4_rerun": true
+    }
+  },
+  "image_authenticity": {
+    "method": "sha256 rehash vs png_sha256.json + PNG magic 89 50 4E 47 0D 0A 1A 0A + visual multimodal sample",
+    "sample_count": 5,
+    "sample_pass": 5,
+    "samples": [
+      {
+        "file": "H-01_exploration_1280x720.png",
+        "sha256": "d7a6113890b8823a75f5e13d5176eae51f0d70703f41af2378b0bddc9f1c979a",
+        "bytes": 114132,
+        "match": true,
+        "png_magic_ok": true,
+        "visual": "PASS — live exploration 3D shell, CTX·exploration, ≤4 non-color HUD cues (glyph+text), art_style cozy_cyber_pixel visible in chrome"
+      },
+      {
+        "file": "H-02_composer_focused_1280x720.png",
+        "sha256": "ff3de39da30ab2c3d33cf47c8537aea784549dfbb2c4bcc6c6ac95d188b8df20",
+        "bytes": 143775,
+        "match": true,
+        "png_magic_ok": true
+      },
+      {
+        "file": "H-11_build_preview_rotate_1280x720.png",
+        "sha256": "35ffde45d2513f9d127797d37afdfe85be964ed7a3c38a90fdfb9bc7e7f755e4",
+        "bytes": 107442,
+        "match": true,
+        "png_magic_ok": true
+      },
+      {
+        "file": "H-22_control_settings_868x517.png",
+        "sha256": "ce9dab73237079f253e64cc1379d383cd74746c1fbb464907b0fb80583d7f882",
+        "bytes": 97670,
+        "match": true,
+        "png_magic_ok": true
+      },
+      {
+        "file": "H-09_homestead_panel_1280x720.png",
+        "sha256": "0a6a70354b41a5b071c81e51adadb5c0c6c1ef47eec6afd3e3d6a595daf5ce4d",
+        "bytes": 133679,
+        "match": true,
+        "png_magic_ok": true
+      }
+    ],
+    "capture_meta": {
+      "art_style_id_active": "cozy_cyber_pixel",
+      "capture_source": "godot_headed",
+      "viewports": ["1280x720", "868x517"],
+      "png_count_on_disk": 14,
+      "source_claim": "visual_claim_meta.json live_parity=true"
+    },
+    "verdict": "PASS_SAMPLE"
+  },
+  "authority_and_scope": {
+    "purple_authority": "VERIFY_ONLY",
+    "never_patch": true,
+    "never_accepted": true,
+    "contract_readonly": true,
+    "no_network": true,
+    "no_character_foundry": true,
+    "no_world2": true,
+    "no_world_commit_bypass": true,
+    "godot_version_locked": "4.3-stable",
+    "hard_fail_checklist_not_observed": {
+      "direct_durable_delete_on_delete_key": "NOT_OBSERVED",
+      "preview_owns_collision_ownership": "NOT_OBSERVED",
+      "unknown_action_context_accepted": "NOT_OBSERVED",
+      "multi_context_dual_fire_one_key": "NOT_OBSERVED",
+      "hud_over_four_primary_actions": "NOT_OBSERVED"
+    }
+  },
+  "evidence_refs": [
+    "orchestration/receipts/control/CTRL_1B_002_b0_control_001.json",
+    "orchestration/receipts/control/CTRL_1B_002_b1_runtime_001.json",
+    "orchestration/receipts/control/CTRL_1B_002_q2_qa_001.json",
+    "orchestration/receipts/control/CTRL_1B_002_a3_a11y_001.json",
+    "orchestration/evidence/control_1b_002/h_matrix_status.json",
+    "orchestration/evidence/control_1b_002/visual_claim_meta.json",
+    "orchestration/evidence/control_1b_002/png_sha256.json",
+    "orchestration/evidence/control_1b_002/headed_runner_summary.json",
+    "orchestration/logs/ctrl-1b-002-q2-qa-001.log",
+    "orchestration/logs/ctrl-1b-002-a3-a11y-001.log",
+    "orchestration/logs/ctrl-1b-002-p4-purple-001.log",
+    "Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "orchestration/work_orders/WO-CTRL-1B-002-CONTROL-FOUNDATION-IMPLEMENTATION.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "self_audit": {
+    "authority_respected": true,
+    "authority_token": "VERIFY_ONLY",
+    "no_product_patches": true,
+    "no_contract_edits": true,
+    "no_test_patches": true,
+    "no_scene_patches": true,
+    "no_evidence_patches": true,
+    "product_writes_empty": true,
+    "no_self_accept": true,
+    "accepted_false": true,
+    "purple_never_patches": true,
+    "never_accepted": true,
+    "q2_fails_not_upgraded_to_pass": true,
+    "a3_findings_not_closed_without_evidence": true,
+    "completion_honesty": "H 25/33 PASS; 8 FAIL + 10 A3 OPEN → purple_verdict=CHANGES_REQUESTED; regressions clean is necessary but not sufficient for VERIFIED",
+    "exclusive_writes_only": true,
+    "schema_required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ]
+  },
+  "handoff_note": "P4 Purple VERIFY_ONLY complete. purple_verdict=CHANGES_REQUESTED. accepted=false; self_accept=false. Does NOT ACCEPT WO-CTRL-1B-002. Blockers: 8 H-row FAILs + A3-F09/F10 residuals (10 open findings total). Handoff CODEX for remediation routing (Blue PATCH_DRAFT on approved WO only). No grandchildren. product_writes=[].",
+  "timestamp_utc": "2026-07-21T22:54:00Z"
+}

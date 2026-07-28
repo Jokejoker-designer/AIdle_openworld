@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/object-dna-card-system/contracts/semantic_node_id_convention.schema.json",
+  "title": "AIdle Semantic Node-ID Convention (Object DNA §4)",
+  "description": "Display markers (A,B,C…) are for stickman/UI only. Machine data MUST use semantic_id. Additive extension for DNA Platform vNext L1 skeleton content — does not replace universal_entity_recipe.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "convention_id",
+    "rules",
+    "nodes",
+    "accepted",
+    "self_accept"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "object_dna_card_system/semantic_node_id/0.1"
+    },
+    "convention_id": {
+      "type": "string",
+      "const": "semantic_node_id_v1"
+    },
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "marker_for_display_only",
+        "semantic_id_for_data",
+        "semantic_id_pattern",
+        "no_abc_as_primary_key"
+      ],
+      "properties": {
+        "marker_for_display_only": {
+          "const": true,
+          "description": "Letters A–Z (or short labels) may appear on diagrams only."
+        },
+        "semantic_id_for_data": {
+          "const": true,
+          "description": "All parent links, constraints, sockets, and animations reference semantic_id."
+        },
+        "semantic_id_pattern": {
+          "type": "string",
+          "const": "^[a-z][a-z0-9_]*$"
+        },
+        "no_abc_as_primary_key": {
+          "const": true
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 256,
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    },
+    "contact_markers": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*$"
+      }
+    },
+    "examples_from_source_doc": {
+      "type": "array",
+      "description": "Illustrative pairs from SOURCE §4 — not a full humanoid skeleton.",
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    },
+    "accepted": {
+      "const": false
+    },
+    "self_accept": {
+      "const": false
+    }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["marker", "semantic_id", "parent", "required"],
+      "properties": {
+        "marker": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8,
+          "description": "Display-only label (e.g. A, B, C)."
+        },
+        "semantic_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "description": "Stable data ID (e.g. root, pelvis, hand_L)."
+        },
+        "parent": {
+          "type": ["string", "null"],
+          "description": "Parent semantic_id, or null for root."
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "role": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 500
+        }
+      }
+    }
+  }
+}

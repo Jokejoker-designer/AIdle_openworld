@@ -1,0 +1,269 @@
+{
+  "schema_version": "object_dna_card_system/family_instance_validation/0.1",
+  "entry_id": "nori7_under_robot_biped_small_v1",
+  "work_order": "WO-OBJECT-DNA-CARD-SYSTEM-001",
+  "directive_id": 99,
+  "purpose": "Map real Nori-7 production asset to Object DNA family robot_biped_small_v1 without rebuilding mesh/rig/animations. Honest gap report vs taxonomy + SOURCE §5.5 clip list.",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+
+  "family_binding": {
+    "family_id": "robot_biped_small_v1",
+    "category": "robot_mechanism",
+    "source_doc_section": "§5.5 (Nori-7 named application)",
+    "registry_ref": "orchestration/control/object_dna_card_system/registries/skeleton_family_categories_v1.json",
+    "production_alias": "skel_small_biped_robot_v1",
+    "alias_evidence": "game/assets/ucbv_001/character/nori7/skeleton/skel_small_biped_robot_v1.hierarchy.json field skeleton_id"
+  },
+
+  "identity": {
+    "display_name": "Nori-7",
+    "character_id": "CCP-RH-001",
+    "recipe_id": "recipe_nori7_v1",
+    "character_class": "ROBOT_HELPER",
+    "world_profile_id": "cozy_cyber_pixel",
+    "package_id": "ucbv_001_nori7_character_rig_anim_v1",
+    "evidence": "game/assets/ucbv_001/character/nori7/package_manifest.json fields identity.*"
+  },
+
+  "artifacts_present": {
+    "glb": {
+      "path": "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+      "mockup_parity_receipt": "game/assets/ucbv_001/character/nori7/export/nori7_mockup_parity_v1_receipt.json",
+      "sha256_in_receipt": "3f2e1c2e86d4ab53f950a8962b45c4a79567859d31701a393b3f47b6fbe3c766",
+      "note": "package_manifest.bridge.glb_sha256 differs (c1651087…) — two hashes recorded across waves; do not invent a single canonical hash here without re-hashing the file"
+    },
+    "hierarchy": "game/assets/ucbv_001/character/nori7/skeleton/skel_small_biped_robot_v1.hierarchy.json",
+    "sockets": "game/assets/ucbv_001/character/nori7/sockets/attachment_sockets.json",
+    "timing_table": "game/assets/ucbv_001/character/nori7/animations/anim_robot_gardener_v1.timing_table.json",
+    "state_machine": "game/assets/ucbv_001/character/nori7/animations/animation_state_machine.json",
+    "mesh_descriptor": "game/assets/ucbv_001/character/nori7/mesh/nori7_mesh_descriptor.json",
+    "package_manifest": "game/assets/ucbv_001/character/nori7/package_manifest.json"
+  },
+
+  "bone_graph_actual": {
+    "bone_count_production": 14,
+    "evidence_field": "skel_small_biped_robot_v1.hierarchy.json bone_count_production",
+    "bones_in_order": [
+      "root",
+      "pelvis",
+      "spine",
+      "chest",
+      "head",
+      "arm_L",
+      "hand_L",
+      "arm_R",
+      "hand_R",
+      "leg_L",
+      "foot_L",
+      "leg_R",
+      "foot_R",
+      "sprout_ctrl"
+    ],
+    "semantic_id_style": "PASS — production bone names are semantic (not A/B/C primary keys). hierarchy.json uses name field as data ID.",
+    "display_marker_map": "NOT_PRESENT — no marker A/B/C table on production hierarchy (optional for data; SOURCE §4 allows display markers only on diagrams)",
+    "dna_catalog_residual": {
+      "evidence": "hierarchy.json dna_catalog_residual",
+      "dna_required_bones_placeholder": ["root", "body", "head"],
+      "status": "PLACEHOLDER_RESIDUAL_NOT_PRODUCTION",
+      "note": "Tier3 DNA catalog three-bone placeholder superseded by 14-bone production hierarchy"
+    }
+  },
+
+  "sockets_actual": {
+    "socket_ids": [
+      "character_back",
+      "character_hand",
+      "character_head",
+      "vfx_anchor"
+    ],
+    "evidence": "attachment_sockets.json sockets[].socket_id",
+    "recipe_bound_modules": [
+      "attach_water_tank_small",
+      "attach_watering_nozzle_A",
+      "attach_mechanical_sprout_A"
+    ],
+    "evidence_modules": "package_manifest.json identity.attachment_modules"
+  },
+
+  "animation_actual": {
+    "animation_set_id": "anim_robot_gardener_v1",
+    "evidence_set": "package_manifest.json identity.animation_set_id",
+    "glb_clips_from_mockup_parity_receipt": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel",
+      "turn_left",
+      "turn_right",
+      "build_place",
+      "build_place_hold",
+      "confirm"
+    ],
+    "glb_clip_count": 10,
+    "evidence_clips": "nori7_mockup_parity_v1_receipt.json clips[].action_name",
+    "state_machine_states": [
+      "idle",
+      "walk",
+      "turn_left",
+      "turn_right",
+      "build_place",
+      "build_place_hold",
+      "confirm",
+      "cancel"
+    ],
+    "state_machine_state_count": 8,
+    "evidence_sm": "animation_state_machine.json states[].id",
+    "production_required_clips_timing_table": [
+      "idle",
+      "walk",
+      "turn_left",
+      "turn_right",
+      "build_place",
+      "confirm",
+      "cancel"
+    ],
+    "evidence_required": "anim_robot_gardener_v1.timing_table.json production_required_clips",
+    "package_deliverable_layer_a": ["idle", "walk", "scan", "happy", "cancel"],
+    "package_deliverable_layer_b": ["turn_left", "turn_right", "build_place", "build_place_hold", "confirm"],
+    "evidence_layers": "package_manifest.json deliverables.layer_a_actions / layer_b_ucbv_extension"
+  },
+
+  "family_required_clips_from_taxonomy": {
+    "source": "skeleton_family_categories_v1.json robot_mechanism required_animation_clips (SOURCE §5.5 list)",
+    "required": [
+      "idle",
+      "walk",
+      "rotate",
+      "open",
+      "close",
+      "activate",
+      "shutdown",
+      "repair",
+      "jammed",
+      "broken",
+      "charge",
+      "discharge"
+    ],
+    "count": 12
+  },
+
+  "gap_report": {
+    "overall_compliance": "PARTIAL — real production proof case for robot_biped_small_v1 class, but does NOT satisfy full SOURCE §5.5 robot/mechanism clip taxonomy nor full Object DNA L0–L7 package layout",
+    "gaps": [
+      {
+        "id": "GAP-CLIP-TAXONOMY",
+        "severity": "BLOCKING_FOR_FAMILY_FULL_COMPLIANCE",
+        "claim": "Nori GLB does not implement the full robot_mechanism required clip list from SOURCE §5.5",
+        "present_intersection": ["idle", "walk"],
+        "missing_vs_taxonomy": [
+          "rotate",
+          "open",
+          "close",
+          "activate",
+          "shutdown",
+          "repair",
+          "jammed",
+          "broken",
+          "charge",
+          "discharge"
+        ],
+        "extra_production_clips_not_in_taxonomy_list": [
+          "scan",
+          "happy",
+          "cancel",
+          "turn_left",
+          "turn_right",
+          "build_place",
+          "build_place_hold",
+          "confirm"
+        ],
+        "note": "Taxonomy §5.5 list is shared across robot biped/door/wheel — several clips (open/close) are mechanism-oriented and not expected for a gardener biped. Gap is still real vs the shared list as written; a future family-specific clip profile should split biped vs door vs wheel."
+      },
+      {
+        "id": "GAP-CONTACT-MARKERS",
+        "severity": "MEDIUM",
+        "claim": "SOURCE §7 / L3 contact markers (foot_contact_L/R, hand_grip_L/R, seat_contact) are not declared as contact_markers array on production hierarchy",
+        "evidence": "hierarchy.json has no contact_markers key; feet exist as foot_L/foot_R bones; hand grips via character_hand socket on hand_R only"
+      },
+      {
+        "id": "GAP-JOINT-CONSTRAINTS",
+        "severity": "MEDIUM",
+        "claim": "No joint_constraints.json / Pose DNA package as SOURCE §6 layout",
+        "evidence": "package_manifest files map has hierarchy, skin policy, sockets, timings — not rest_pose.json / joint_constraints.json / node_markers.json"
+      },
+      {
+        "id": "GAP-DISPLAY-MARKERS",
+        "severity": "LOW",
+        "claim": "No A/B/C display marker map (optional per §4 if semantic names used)",
+        "status": "ACCEPTABLE_IF_SEMANTIC_ONLY"
+      },
+      {
+        "id": "GAP-PRODUCT-ACCEPT",
+        "severity": "BLOCKING_FOR_SHIP",
+        "claim": "Asset not product-accepted",
+        "evidence": "package_manifest.json accepted=false; hierarchy accepted=false; vision lock §13 Nori-7 not product-accepted; visual redesign queued"
+      },
+      {
+        "id": "GAP-ID-DUAL-NAME",
+        "severity": "LOW",
+        "claim": "Family ID robot_biped_small_v1 vs production skeleton_id skel_small_biped_robot_v1",
+        "mitigation": "aliases on family registry; do not treat as two skeletons"
+      },
+      {
+        "id": "GAP-VNEXT-UER",
+        "severity": "INFO",
+        "claim": "Staging UniversalEntityRecipe example exists separately and is not runtime authority",
+        "evidence": "dna_platform_vnext/examples/nori7_universal_recipe.json schema_version dna_platform_vnext/universal_entity_recipe/0.1"
+      },
+      {
+        "id": "GAP-GARDENING-CLIPS",
+        "severity": "KNOWN_DEFERRED",
+        "claim": "Vision lock §13 states 5 gardening clips honestly deferred — not faked",
+        "evidence": "AIDLE_GAME_VISION_LOCK_001.md §13 bullet on Nori-7"
+      }
+    ],
+    "passes": [
+      {
+        "id": "PASS-BONE-COUNT-14",
+        "evidence": "hierarchy.json bone_count_production=14; bone_count_matches_dna_target=true"
+      },
+      {
+        "id": "PASS-SEMANTIC-BONE-NAMES",
+        "evidence": "bones[].name semantic strings in hierarchy.json"
+      },
+      {
+        "id": "PASS-KEYED-GLB-CLIPS-10",
+        "evidence": "nori7_mockup_parity_v1_receipt.json clips length 10 with duration_s and fcurve_count"
+      },
+      {
+        "id": "PASS-SOCKETS-RECIPE-BOUND",
+        "evidence": "attachment_sockets.json recipe_binding for tank/nozzle/sprout"
+      },
+      {
+        "id": "PASS-NOT-PLACEHOLDER-ONLY",
+        "evidence": "dna_catalog_residual status PLACEHOLDER_RESIDUAL_NOT_PRODUCTION; production hierarchy supersedes"
+      }
+    ]
+  },
+
+  "compliance_matrix": {
+    "family_id_named_for_nori_in_source": true,
+    "production_hierarchy_exists": true,
+    "full_section_5_5_clip_list": false,
+    "pose_dna_package_layout": false,
+    "semantic_node_convention_data_ids": true,
+    "display_markers_optional": "not_used",
+    "product_accepted": false,
+    "mockup_parity_claimed_in_receipt": false,
+    "receipt_self_accept": false
+  },
+
+  "recommendation": {
+    "do_not_rebuild_nori_for_this_wo": true,
+    "use_as": "First real validation case proving taxonomy must allow family-specific clip profiles (biped robot ≠ door mechanism) and alias maps",
+    "next_authorized_work": "Separate Human directive for Nori visual redesign / clip expansion / product accept — not this WO"
+  }
+}

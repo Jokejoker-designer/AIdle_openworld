@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "entity_id",
+    "module_id",
+    "elements",
+    "physical_profile_id",
+    "temperature",
+    "wetness",
+    "integrity",
+    "charge",
+    "pressure",
+    "states",
+    "simulation_lod_tier",
+    "growth",
+    "health"
+  ],
+  "properties": {
+    "entity_id": {
+      "type": "string"
+    },
+    "module_id": {
+      "type": "string"
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "physical_profile_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "temperature": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "wetness": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "integrity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "charge": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "pressure": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "simulation_lod_tier": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "growth": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "health": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  },
+  "additionalProperties": false
+}

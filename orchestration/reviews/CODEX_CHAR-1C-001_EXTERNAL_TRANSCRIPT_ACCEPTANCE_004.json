@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_CHAR-1C-001_EXTERNAL_TRANSCRIPT_ACCEPTANCE_004",
+  "task_id": "CHAR-1C-001",
+  "directive_reviewed": 67,
+  "reviewed_at": "2026-07-22T11:01:37+07:00",
+  "reviewed_by": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "human_decision": {
+    "decision": "CODEX_EXTERNAL_TRANSCRIPT_BINDING",
+    "decided_by": "human_product_lead",
+    "decided_at": "2026-07-22T11:01:37+07:00",
+    "effect": "Reject the semantically false U0 and U2 receipts as acceptance evidence, bind immutable child transcripts and final meta.json directly, and let Codex decide CHAR-1C-001 from independent technical evidence without another Grok retry."
+  },
+  "verdict": "ACCEPTED",
+  "accepted": true,
+  "acceptance_scope": "Character Foundry 1C machine schema and 28-record provenance intake only",
+  "not_accepted": [
+    "character mesh or rig production",
+    "animation or behavior runtime",
+    "Godot or Blender Character Foundry implementation",
+    "Scene 2 or P2E Block Assembly runtime",
+    "network, shipping, economy, ownership or World Commit expansion"
+  ],
+  "canonical_evidence_policy": {
+    "worker_receipt_role": "U1 receipt remains provenance evidence; U0 and U2 receipts remain immutable but are rejected as acceptance evidence",
+    "canonical_completion_source": "immutable Grok child chat_history.jsonl, final parent-owned subagent meta.json, current filesystem hashes, Codex-run validator and Draft 2020-12 MAF validation",
+    "receipt_rewrite_required": false,
+    "reason": "The full-EOF claim failure repeated after its one allowed retry. Human-authorized external binding closes the finite evidence set without fabricating reads or repeating the same failed governance loop."
+  },
+  "external_transcript_bindings": {
+    "u0_schema": {
+      "child_task_ref": "019f87c7-5788-7761-8ee1-4b969bd0861e",
+      "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "status": "completed",
+      "started_at": "2026-07-22T03:03:36.076211800Z",
+      "completed_at": "2026-07-22T03:07:53.750914Z",
+      "chat_history_bytes": 315372,
+      "chat_history_sha256": "69f54e93a78b2bd33024958bebaf221e79e33508eb2440eb96a5bc49c2790b4a",
+      "meta_sha256": "c314a6fe4a411adb73664b3fdc653f7482d62f9c271dd7f001c148a35db133e9",
+      "receipt": "orchestration/receipts/character_1c/CHAR_1C_001_u0_unicode_correction_003.json",
+      "receipt_sha256": "fec3ef0d148095644f6c98f745daa8842bbcf82c89fda5ad9d4d96ab41e13472",
+      "receipt_status": "REJECTED_AS_ACCEPTANCE_EVIDENCE",
+      "binding_limit": "Transcript proves the product edits and commands but not the claimed curiosity-engine EOF ranges."
+    },
+    "u1_red": {
+      "child_task_ref": "019f87cb-63f5-7a72-b05b-27808614b8ae",
+      "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "status": "completed",
+      "started_at": "2026-07-22T03:08:01.400891400Z",
+      "completed_at": "2026-07-22T03:12:59.708201400Z",
+      "chat_history_bytes": 366808,
+      "chat_history_sha256": "b69445185a0e3a8d658f5806da449760c97069c30bb3bcc70e074073dc1177be",
+      "meta_sha256": "028b6b42aee77b913cc2a12f25d77caee98952db97894b676ba10ca033b4eed9",
+      "receipt": "orchestration/receipts/character_1c/CHAR_1C_001_u1_red_unicode_003.json",
+      "receipt_sha256": "d36d09f99f6e00a19134613ffa99d3ef32c8d356a357adf9c57aa17be9ba5735",
+      "receipt_status": "PROVENANCE_PASS"
+    },
+    "u2_purple": {
+      "child_task_ref": "019f87d0-7034-7ff2-9c11-dd9ed4911559",
+      "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "status": "completed",
+      "started_at": "2026-07-22T03:13:32.218012900Z",
+      "completed_at": "2026-07-22T03:17:27.594849100Z",
+      "chat_history_bytes": 256943,
+      "chat_history_sha256": "4501853aec10d604c965209a4d5a82d16de5a43afb70d35eed02d46bae450ce5",
+      "meta_sha256": "82c7f7945b083e91685fec400c7f507c19a8b960f3fdad36b6386f6fa373c2ae",
+      "receipt": "orchestration/receipts/character_1c/CHAR_1C_001_u2_purple_unicode_003.json",
+      "receipt_sha256": "833d25f8af80e462c5be9db5476c9025925f09292046b7e666b8b92ba97e153f",
+      "receipt_status": "REJECTED_AS_ACCEPTANCE_EVIDENCE",
+      "binding_limit": "Transcript proves the verification commands and exact two evidence writes but not the claimed semantic skill or character-card reads."
+    }
+  },
+  "independent_checks": {
+    "unique_grok_desktop_parent": "PASS_1_OF_1",
+    "running_children": 0,
+    "validator_exit_code": 0,
+    "source_records_valid": "28/28",
+    "valid_fixtures_passed": "3/3",
+    "invalid_fixtures_rejected": "21/21",
+    "source_manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+    "source_hash_identity": "PASS",
+    "unicode_and_directive_65_probes": "PASS_EXPECTED_REJECT",
+    "maf_schema": "PASS_3_OF_3_ZERO_ERRORS",
+    "accepted_false_and_self_accept_false": "PASS_3_OF_3",
+    "rejected_pycache_preserved": "PASS",
+    "foundry_source_mutation": "NONE"
+  },
+  "accepted_product_hashes": {
+    "orchestration/contracts/character_foundry_1c/validate_character_foundry_1c.py": "674ebacf3b0e3840159bd7fe77dc1cf6c5e7ed72951d90ddd76712acd36a552c",
+    "orchestration/contracts/character_foundry_1c/source_manifest.lock.json": "39bf23c452ac8749335008932cf226f6831665b3347bc8d70d93d73d3359f0f0",
+    "orchestration/contracts/character_foundry_1c/fixtures/invalid/INV-20-aida-fullwidth-identity-collision.json": "5143a74d6cb1b05f962fa46ffa41af4935b9e20127c2a3d874bdbbb06e62a280",
+    "orchestration/contracts/character_foundry_1c/fixtures/invalid/INV-21-aida-mixed-script-identity-collision.json": "da53a7a64b67bf87be7ec6365be89e5a1a8caba089c82073d7b4f73587b4eb8c"
+  },
+  "residual_risks": [
+    "The confusable fold is deliberately small and does not claim universal Unicode confusable protection.",
+    "Natural-language allowlist prose remains outside the token-based authority deny gate.",
+    "This gate accepts the machine contract and provenance intake, not character runtime behavior or art."
+  ],
+  "next_route": "BLOCK-DNA-ADAPT-001_STRICT_CONTRACT_GATE",
+  "self_accept": false
+}

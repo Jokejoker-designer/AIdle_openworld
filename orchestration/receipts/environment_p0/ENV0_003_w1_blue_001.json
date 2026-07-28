@@ -1,0 +1,230 @@
+{
+  "agent_step_id": "ENV0-003-w1-blue-001-2026-07-21",
+  "agent_type": "aidle-worldgen-asset-art",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "input_context_hash": "sha256:9a188b519c3c8964a540c4dd7bb5f5c4e5c67035f05561073828363aa5c11043",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f84b6-e544-79d2-9b17-2ca923813668",
+  "transcript_ref": "019f84b6-e544-79d2-9b17-2ca923813668",
+  "writer_transcript_ref": "019f84b6-e544-79d2-9b17-2ca923813668",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/env0-003-w1-blue-001.log",
+  "handoff_ref": "ENV0_003_W2_RED",
+  "start_time": "2026-07-21T12:46:46Z",
+  "end_time": "2026-07-21T12:48:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+  "profile_binding_evidence": "FULL: profile=aidle-worldgen-asset-art; trustlayer_character=blue-team-p0-remediator; ui_character=ui-color-type-specialist; authority_token=PATCH_DRAFT; parent_spawn_only=true; no_grandchildren=true; self_accept=false; one_writer_per_file=true.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "od-reference-design-contract"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE concepts via Agents.md + WO-ENV0-003 + environment_jobs.py pattern manually. No bootstrap loop.",
+  "files_read": [
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-003-CHARACTER-BUSY-409.md",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c2_red_002.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_d50_w1_blue_003.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_d50_w4_purple_003.json",
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/blender_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/dependencies.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_api.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_bridge_lease.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/conftest.py",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_003_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/logs/env0-003-w1-blue-001.log"
+  ],
+  "product_writes": [
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_api.py"
+  ],
+  "result": {
+    "task_id": "ENV0-003",
+    "directive_id": 50,
+    "work_order": "orchestration/work_orders/WO-ENV0-003-CHARACTER-BUSY-409.md",
+    "wave": "ENV0_003_W1_BLUE",
+    "profile": "aidle-worldgen-asset-art",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+    "authority_token": "PATCH_DRAFT",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "REVIEW_REQUESTED",
+    "summary": "Dir50 WO-ENV0-003 W1 PATCH_DRAFT closed residual ENV0-C2-R01. create_job in app/api/jobs.py now imports BridgeBusyError from app.services.blender_runner and maps except BridgeBusyError → HTTP 409 detail {message, reason: worker_lease_busy}, matching environment_jobs.py EnvironmentBusyError shape. EnvironmentBusyError path and lease/busy logic untouched. New regression test_character_create_returns_409_when_bridge_lease_held holds public worker_lease and asserts character POST returns 409 not 500. Named test 1 passed; full suite 44 passed (was 43 +1). Handoff ENV0_003_W2_RED. accepted=false.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "trustlayer_card": "E:/agents/characters/09-blue-team-p0-remediator.md",
+      "ui_character_id": "ui-color-type-specialist",
+      "ui_card": "E:/agents/ui-design/characters/06-ui-color-type-specialist.md",
+      "maf_role": "agent",
+      "authority_token": "PATCH_DRAFT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; authority-bound PATCH_DRAFT; no inventing evidence"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: slot 09 blue patches only approved WO; Red finds never fixes; Purple never patches; one writer per file"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: hub E:/; handoff ENV0_003_W2_RED after W1; no skip"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: exclusive ENV0-003 W1 product lease on jobs.py + test_api.py only; no grandchildren; parent 019f7ffd only"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: FACT from pytest 44 passed; R01 closed in draft with HTTP regression"
+      },
+      {
+        "skill_id": "od-reference-design-contract",
+        "source": "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL profile-routed: keep EnvironmentBusyError path; change only character BridgeBusyError HTTP mapping under leased paths"
+      }
+    ],
+    "finding_status": [
+      {
+        "finding_id": "ENV0-C2-R01",
+        "status": "CLOSED_IN_DRAFT",
+        "title": "Character API jobs.py maps BridgeBusyError to HTTP 409 worker_lease_busy",
+        "evidence": "app/api/jobs.py create_job: import BridgeBusyError; except BridgeBusyError → HTTP 409 detail message+reason=worker_lease_busy (matches environment_jobs.py). test_character_create_returns_409_when_bridge_lease_held holds runner.worker_lease and asserts 409 not 500. Full suite 44 passed."
+      }
+    ],
+    "acceptance_criteria": [
+      {
+        "id": "AC1",
+        "claim": "Character job create returns 409 (not 500) when Bridge-wide lease held, detail shaped like environment API",
+        "status": "CLOSED_IN_DRAFT",
+        "evidence": "except BridgeBusyError → 409 {message, reason: worker_lease_busy}; test asserts status 409 + reason + message"
+      },
+      {
+        "id": "AC2",
+        "claim": "Environment API busy handling unchanged",
+        "status": "CLOSED_IN_DRAFT",
+        "evidence": "No edit to environment_jobs.py; EnvironmentBusyError path not modified; lease tests still green"
+      },
+      {
+        "id": "AC3",
+        "claim": "Pre-existing tests remain green",
+        "status": "CLOSED_IN_DRAFT",
+        "evidence": "pytest tests/ → 44 passed (prior 43 + 1 new)"
+      },
+      {
+        "id": "AC4",
+        "claim": "New regression test proves the fix",
+        "status": "CLOSED_IN_DRAFT",
+        "evidence": "tests/test_api.py::test_character_create_returns_409_when_bridge_lease_held passed"
+      },
+      {
+        "id": "AC5",
+        "claim": "No file outside writer allowlist touched",
+        "status": "CLOSED_IN_DRAFT",
+        "evidence": "product_writes only jobs.py + test_api.py; exclusive receipt/log only under environment_p0 / logs allowlist"
+      }
+    ],
+    "allowlist_note": "Writer allowlist ONLY: app/api/jobs.py, tests/test_api.py, exclusive ENV0_003_w1_blue_001 receipt + env0-003-w1-blue-001.log. No lease logic, no EnvironmentBusyError path, no Godot, no codex_directive.json.",
+    "residual_out_of_lease": [
+      "F01 auth, F07 secondary registry ids, F08 output toggles, F10 network deny hardening still out of scope",
+      "ENV0-001 product acceptance remains WAITING_HUMAN / not accepted by this wave"
+    ],
+    "input_context_hash": "sha256:9a188b519c3c8964a540c4dd7bb5f5c4e5c67035f05561073828363aa5c11043",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-003-CHARACTER-BUSY-409.md",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c2_red_002.json",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_d50_w4_purple_003.json"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "9a188b519c3c8964a540c4dd7bb5f5c4e5c67035f05561073828363aa5c11043",
+      "BYTE_LEN": 50943
+    },
+    "child_task_ref": "019f84b6-e544-79d2-9b17-2ca923813668",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "trace_ref": "orchestration/logs/env0-003-w1-blue-001.log",
+    "handoff_ref": "ENV0_003_W2_RED",
+    "handoff_note": "W1 product fix complete for ENV0-C2-R01. Handoff ENV0_003_W2_RED aidle-worldgen-red-scope READ_ONLY_AUDIT: confirm jobs.py BridgeBusyError→409 mapping present and asymmetric gap closed; environment path unchanged; suite 44 green; no allowlist breach. Then QA/Purple as ENV0-003 graph. No grandchildren. G8 HITL_REQUIRED; P1E blocked. accepted=false.",
+    "g8_hitl_note": "G8 stays HITL_REQUIRED. This wave does not imply G8 or ENV0-001 acceptance. No Godot/Scene/Control/Foundry/P1E edits.",
+    "product_writes": [
+      "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+      "E:/AIdle_Blender_Bridge_P0/tests/test_api.py"
+    ],
+    "pytest": {
+      "named": {
+        "command": "python -m pytest tests/test_api.py::test_character_create_returns_409_when_bridge_lease_held -v",
+        "result": "1 passed"
+      },
+      "full_suite": {
+        "command": "python -m pytest tests/ -v",
+        "result": "44 passed",
+        "breakdown": "test_api 8; test_bridge_lease 10; test_environment_api 17; test_environment_runner 5; test_runner 2; test_security 2"
+      }
+    },
+    "diff_summary": {
+      "jobs.py": "import BridgeBusyError; add except BridgeBusyError → HTTP 409 {message, reason: worker_lease_busy} after DuplicateRequestError; no other create_job changes",
+      "test_api.py": "add test_character_create_returns_409_when_bridge_lease_held using public runner.worker_lease hold"
+    }
+  },
+  "smoke_test": {
+    "command": "python -m pytest tests/test_api.py::test_character_create_returns_409_when_bridge_lease_held tests/ -q",
+    "exit_code": 0,
+    "summary": "named 1 passed; full suite 44 passed",
+    "evidence_ref": "orchestration/logs/env0-003-w1-blue-001.log"
+  },
+  "self_audit": {
+    "allowlist_respected": true,
+    "environment_busy_path_untouched": true,
+    "lease_logic_untouched": true,
+    "self_accept": false,
+    "accepted": false,
+    "no_godot": true,
+    "no_codex_directive": true,
+    "child_task_ref_is_durable_019f": true,
+    "notes": [
+      "Durable child_task_ref/transcript_ref = 019f84b6-e544-79d2-9b17-2ca923813668 (subagent under parent 019f7ffd)",
+      "No invent acceptance; handoff Red only"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/receipts/environment_p0/ENV0_003_w1_blue_001.json",
+    "orchestration/logs/env0-003-w1-blue-001.log",
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_api.py"
+  ],
+  "next_route": "ENV0_003_W2_RED"
+}

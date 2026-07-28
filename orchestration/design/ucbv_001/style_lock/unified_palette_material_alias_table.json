@@ -1,0 +1,340 @@
+{
+  "schema_version": "ucbv_001_palette_material_alias/1.0",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "wave": "U1",
+  "c0_amendment": {
+    "wave": "C0_VISUAL_PRODUCTION_PREFLIGHT",
+    "directive_id": 83,
+    "work_order_id": "WO-UCBV-001-STRICT-CORRECTION-002",
+    "cream_reconciliation_path": "orchestration/design/ucbv_001/style_lock/C0_cream_reconciliation.json",
+    "preflight_path": "orchestration/design/ucbv_001/style_lock/C0_visual_production_preflight.md",
+    "decision": "canonical_art_cream_hex=#fdf3e2; dna_#F7E9C6=NON_AUTHORITATIVE_ALIAS_ONLY; multi_value_body_required_against_nearly_white"
+  },
+  "work_order_id": "WO-UCBV-001-UNIFIED-CHARACTER-BLOCK-VISUAL-FOUNDATION",
+  "directive_id": 81,
+  "world_profile_id": "cozy_cyber_pixel",
+  "selected_character_id": "CCP-RH-001",
+  "selected_character_display": "Nori-7",
+  "authority": {
+    "art_direction_ssot": {
+      "path": "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/world_profiles/COZY_ART_BIBLE_001.md",
+      "role": "canonical_hex_roles",
+      "note": "Human-approved art bible governing P1E; UCBV production color callouts use these roles."
+    },
+    "runtime_material_ssot": {
+      "path": "orchestration/contracts/block_dna_adapt_001/material_slot_mapping.contract.json",
+      "role": "semantic_slot_to_MAT_star_only",
+      "parallel_style_variant_system": "FORBIDDEN"
+    },
+    "state_variants_ssot": {
+      "path": "game/resources/world_profiles/state_visual_variants.json",
+      "cozy_mode": "identity_register",
+      "note": "Cozy applies verified MAT_* as identity; no third recolor system."
+    },
+    "dna_material_theme": {
+      "theme_id": "mat_cozy_cream_leaf_v1",
+      "authority": "NON_AUTHORITATIVE_ALIAS_ONLY",
+      "cream_hex": "#F7E9C6",
+      "leaf_hex": "#78B65B",
+      "note": "Referenced by recipe_nori7_v1 material_overrides; do not use as production art SSOT or invent DNA v1.2 rewrite.",
+      "c0_reconciliation": {
+        "both_definitions_documented": true,
+        "canonical_production_cream_hex": "#fdf3e2",
+        "canonical_production_cream_shade_hex": "#efe0c8",
+        "canonical_production_leaf_hex": "#7fc98f",
+        "rationale": "COZY_ART_BIBLE is Human-approved live P1E art SSOT; DNA hex remains recipe alias only; nearly-white uncanny fixed via multi-value body treatment not DNA swap"
+      }
+    },
+    "nearly_white_uncanny_remediation": {
+      "forbidden_body_fills": ["#FFFFFF", "flat_near_white_monochrome_without_shade_or_joints"],
+      "required": {
+        "body_lit": "#fdf3e2",
+        "body_shade": "#efe0c8",
+        "joints_panels_sprout": "#7fc98f",
+        "face_socket": "#3d3226",
+        "iris_sky_glass": "#a8dced",
+        "manifestation_cyan_restrained_only": ["#3fd0e0", "#8ff0ff"]
+      }
+    },
+    "live_style_profile_tokens": {
+      "path": "game/resources/art_styles/cozy_cyber_pixel_2_5d.json",
+      "note": "Profile inherits shared_2_5d_tokens; palette fields are profile UI/mood anchors, not replacement for art-bible roles."
+    }
+  },
+  "palette_groups_max": 3,
+  "palette_groups": [
+    {
+      "group_id": "G1_warm_cream_ceramic",
+      "label": "Warm cream ceramic",
+      "bible_roles": ["wall_cream", "wall_cream_shade", "chimney_neutral_trim"],
+      "bible_hex": ["#fdf3e2", "#efe0c8", "#e0d5c4"],
+      "runtime_materials": ["MAT_CozyCeramic", "MAT_CozyStoneWarm"],
+      "character_use": "Nori-7 body shell",
+      "block_use": "foundation/wall primary planes, chimney trim"
+    },
+    {
+      "group_id": "G2_leaf_life_green",
+      "label": "Leaf / life green",
+      "bible_roles": ["foliage_mid", "foliage_dark", "foliage_light"],
+      "bible_hex": ["#7fc98f", "#6bb87f", "#95d9a3"],
+      "runtime_materials": ["MAT_CozyLeaf", "MAT_CozyStem"],
+      "character_use": "joints, mechanical sprout",
+      "block_use": "planter/prop foliage accents only"
+    },
+    {
+      "group_id": "G3_warm_wood_sky_glass",
+      "label": "Warm wood + soft sky-glass + roof terracotta",
+      "bible_roles": ["door_wood_warm", "window_glass", "roof_terracotta", "roof_shade", "warm_light_point"],
+      "bible_hex": ["#c98a5e", "#a8dced", "#e88b6f", "#d4785e", "#f5c451"],
+      "runtime_materials": ["MAT_CozyWood", "MAT_CozyDoor", "MAT_CozyGlass", "MAT_CozyRoof", "MAT_CozyRoofShade", "MAT_CozyLampWarm", "MAT_CozyFencePost", "MAT_CozyFenceRail"],
+      "character_use": "eye iris (sky-glass, NOT manifestation cyan), tool grip wood, soft warm UI blink via lamp-warm family if needed",
+      "block_use": "door, window glass, roof, fence, warm habitation light"
+    }
+  ],
+  "manifestation_reserved": {
+    "not_a_body_palette_group": true,
+    "bible_roles": ["cyan_primary", "cyan_highlight"],
+    "bible_hex": ["#3fd0e0", "#8ff0ff"],
+    "rule": "Cyan is manifestation language only. Forbidden on complete base-kit character materials and complete architecture materials.",
+    "live_profile_manifestation_anchor": "#62E6FF",
+    "note": "cozy_cyber_pixel_2_5d.json manifestation #62E6FF is a profile mood anchor; stage chrome production follows art-bible #3fd0e0/#8ff0ff and live stage visuals."
+  },
+  "face_accents": {
+    "eye_socket": "#3d3226",
+    "blush": "#f4a09a",
+    "blush_opacity": 0.55,
+    "specular_dot": "white_up_left",
+    "source": "COZY_ART_BIBLE_001.md §3"
+  },
+  "bible_role_to_runtime": [
+    {
+      "bible_role": "wall_cream",
+      "bible_hex": "#fdf3e2",
+      "semantic_slot": "body",
+      "mat_id": "MAT_CozyCeramic",
+      "dna_alias": {
+        "theme_id": "mat_cozy_cream_leaf_v1",
+        "dna_hex": "#F7E9C6",
+        "status": "NON_AUTHORITATIVE_ALIAS_ONLY"
+      }
+    },
+    {
+      "bible_role": "wall_cream_shade",
+      "bible_hex": "#efe0c8",
+      "semantic_slot": "structure",
+      "mat_id": "MAT_CozyStoneWarm",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "roof_terracotta",
+      "bible_hex": "#e88b6f",
+      "semantic_slot": "roof",
+      "mat_id": "MAT_CozyRoof",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "roof_shade",
+      "bible_hex": "#d4785e",
+      "semantic_slot": "roof",
+      "mat_id": "MAT_CozyRoofShade",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "door_wood_warm",
+      "bible_hex": "#c98a5e",
+      "semantic_slot": "door",
+      "mat_id": "MAT_CozyDoor",
+      "also_wood_slot": "MAT_CozyWood",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "window_glass",
+      "bible_hex": "#a8dced",
+      "semantic_slot": "glass",
+      "mat_id": "MAT_CozyGlass",
+      "character_eye_iris_allowed": true,
+      "dna_alias": null
+    },
+    {
+      "bible_role": "chimney_neutral_trim",
+      "bible_hex": "#e0d5c4",
+      "semantic_slot": "trim",
+      "mat_id": "MAT_CozyWood",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "warm_light_point",
+      "bible_hex": "#f5c451",
+      "semantic_slot": "emission",
+      "mat_id": "MAT_CozyLampWarm",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "foliage_mid",
+      "bible_hex": "#7fc98f",
+      "semantic_slot": "leaf",
+      "mat_id": "MAT_CozyLeaf",
+      "dna_alias": {
+        "theme_id": "mat_cozy_cream_leaf_v1",
+        "dna_hex": "#78B65B",
+        "status": "NON_AUTHORITATIVE_ALIAS_ONLY"
+      }
+    },
+    {
+      "bible_role": "foliage_light",
+      "bible_hex": "#95d9a3",
+      "semantic_slot": "leaf",
+      "mat_id": "MAT_CozyLeaf",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "foliage_dark",
+      "bible_hex": "#6bb87f",
+      "semantic_slot": "leaf",
+      "mat_id": "MAT_CozyLeaf",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "trunk",
+      "bible_hex": "#a87d52",
+      "semantic_slot": "wood",
+      "mat_id": "MAT_CozyBark",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "stem_grass",
+      "bible_hex": "#5aa06e",
+      "semantic_slot": "leaf",
+      "mat_id": "MAT_CozyStem",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "rock_mid",
+      "bible_hex": "#a8a094",
+      "semantic_slot": "stone",
+      "mat_id": "MAT_CozyStone",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "rock_light",
+      "bible_hex": "#bdb5a8",
+      "semantic_slot": "stone",
+      "mat_id": "MAT_CozyStone",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "farm_soil",
+      "bible_hex": "#9c7550",
+      "semantic_slot": "soil",
+      "mat_id": "MAT_CozySoil",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "fence_post",
+      "bible_hex": "#b08560",
+      "semantic_slot": "wood",
+      "mat_id": "MAT_CozyFencePost",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "fence_rail",
+      "bible_hex": "#c99a72",
+      "semantic_slot": "wood",
+      "mat_id": "MAT_CozyFenceRail",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "path_stone",
+      "bible_hex": "#ded4c2",
+      "semantic_slot": "ground",
+      "mat_id": "MAT_CozyGround",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "water_surface",
+      "bible_hex": "#8fd4e8",
+      "semantic_slot": "water",
+      "mat_id": "MAT_CozyWater",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "cyan_primary_manifestation",
+      "bible_hex": "#3fd0e0",
+      "semantic_slot": null,
+      "mat_id": null,
+      "runtime_note": "Manifestation stage chrome only; not a body MAT_*",
+      "dna_alias": null
+    },
+    {
+      "bible_role": "cyan_highlight_manifestation",
+      "bible_hex": "#8ff0ff",
+      "semantic_slot": null,
+      "mat_id": null,
+      "runtime_note": "Manifestation highlight only",
+      "dna_alias": null
+    }
+  ],
+  "shared_material_vocabulary": {
+    "body": {"semantic_slot": "body", "mat_id": "MAT_CozyCeramic"},
+    "cloth": {"semantic_slot": "trim", "mat_id": "MAT_CozyWood", "alt_accent": "MAT_CozyFlowerPink", "note": "Soft pads/straps; no fabric simulation"},
+    "wood": {"semantic_slot": "wood", "mat_id": "MAT_CozyWood"},
+    "stone": {"semantic_slot": "stone", "mat_id": "MAT_CozyStone"},
+    "metal": {"semantic_slot": "metal", "mat_id": "MAT_CozyMetal", "budget_max_surface_fraction": 0.15},
+    "glass": {"semantic_slot": "glass", "mat_id": "MAT_CozyGlass"},
+    "emissive": {"semantic_slot": "emission", "mat_id": "MAT_CozyLampWarm"},
+    "interactive_highlight": {
+      "semantic_slot": null,
+      "mat_ids_allowed": ["MAT_CozyPreviewMarker", "MAT_CozyGlassPreview"],
+      "must_include_non_color_signals": ["outline", "opacity", "icon", "stage_label"]
+    },
+    "leaf": {"semantic_slot": "leaf", "mat_id": "MAT_CozyLeaf"},
+    "roof": {"semantic_slot": "roof", "mat_id": "MAT_CozyRoof"},
+    "door": {"semantic_slot": "door", "mat_id": "MAT_CozyDoor"}
+  },
+  "character_recipe_remap": {
+    "recipe_id": "recipe_nori7_v1",
+    "material_overrides": [
+      {
+        "instance_id": "root",
+        "recipe_slot": "body",
+        "recipe_theme_id": "mat_cozy_cream_leaf_v1",
+        "recipe_color_hex": "#F7E9C6",
+        "production_bible_role": "wall_cream",
+        "production_bible_hex": "#fdf3e2",
+        "production_semantic_slot": "body",
+        "production_mat_id": "MAT_CozyCeramic",
+        "dna_theme_status": "NON_AUTHORITATIVE_ALIAS_ONLY"
+      }
+    ],
+    "attachment_modules": [
+      "attach_water_tank_small",
+      "attach_watering_nozzle_A",
+      "attach_mechanical_sprout_A"
+    ],
+    "joint_and_sprout_production": {
+      "bible_role": "foliage_mid",
+      "bible_hex": "#7fc98f",
+      "mat_id": "MAT_CozyLeaf"
+    }
+  },
+  "block_family_role_default_slots": {
+    "foundation": ["structure", "stone", "trim"],
+    "floor": ["structure", "wood", "trim"],
+    "wall": ["body", "trim", "structure"],
+    "corner": ["body", "structure", "trim"],
+    "door": ["door", "wood", "metal"],
+    "window": ["wood", "glass", "trim"],
+    "roof": ["roof", "trim", "structure"],
+    "fence": ["wood", "trim"],
+    "prop": ["wood", "metal", "emission", "leaf"]
+  },
+  "forbidden": [
+    "dna_theme_id_as_runtime_material",
+    "third_palette_system",
+    "manifestation_cyan_on_complete_base_kit",
+    "color_only_critical_state",
+    "invented_MAT_ids",
+    "invented_recipes",
+    "silent_bac_bap_resolve"
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": "buildings_fidelity/1.0",
+  "receipt_id": "BUILDINGS_FIDELITY_V5",
+  "job": "BUILDINGS_FIDELITY_V5",
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "authority": "PATCH_DRAFT",
+  "human_authorization": "continuous_iteration_authorization 2026-07-24T12:30",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "matching_100_pct_count": 0,
+  "matching_100_pct": [],
+  "modules": [
+    {
+      "module_id": "cozy_market_stall_A",
+      "glb_sha256": "62d744557ad8462888df3f1fa9f03e963d0961e161bc8232163bf091583a5c35",
+      "bytes": 228108,
+      "source": "BUILDINGS_FIDELITY_V5",
+      "visual": "mockup_cozy_market_stall_A_v5",
+      "mockup_ssot": "cozy_market_stall_A"
+    },
+    {
+      "module_id": "cozy_gazebo_A",
+      "glb_sha256": "d8edb1da1ce4f0d3eadc0680741e5dbeed3616904db7a436ad23f45eaa4ca2cb",
+      "bytes": 410044,
+      "source": "BUILDINGS_FIDELITY_V5",
+      "visual": "mockup_cozy_gazebo_A_v5",
+      "mockup_ssot": "cozy_gazebo_A"
+    },
+    {
+      "module_id": "cozy_well_house_A",
+      "glb_sha256": "301acafec630e0ddeb9f4b894a7661b875a1594a4f3638ef668a2c07be9f28aa",
+      "bytes": 344224,
+      "source": "BUILDINGS_FIDELITY_V5",
+      "visual": "mockup_cozy_well_house_A_v5",
+      "mockup_ssot": "cozy_well_house_A"
+    },
+    {
+      "module_id": "cozy_windmill_A",
+      "glb_sha256": "b3b5ea4930b574071180f46c4a9ce4e9aeb7ffbd5d9b5accb781dcd63f0c4e8c",
+      "bytes": 130464,
+      "source": "BUILDINGS_FIDELITY_V5",
+      "visual": "mockup_cozy_windmill_A_v5",
+      "mockup_ssot": "cozy_windmill_A"
+    },
+    {
+      "module_id": "cozy_bridge_arch_A",
+      "glb_sha256": "80d695313bfee54ba74419c5c98e2b9a0ffdfe82a805db57e26bf4d3e207aa12",
+      "bytes": 98308,
+      "source": "BUILDINGS_FIDELITY_V5",
+      "visual": "mockup_cozy_bridge_arch_A_v5",
+      "mockup_ssot": "cozy_bridge_arch_A"
+    },
+    {
+      "module_id": "cozy_watchtower_A",
+      "glb_sha256": "047738b23e43235387c41b1eb08100db064bb5c0a201e634471d795bdde95abf",
+      "bytes": 64048,
+      "source": "BUILDINGS_FIDELITY_V5",
+      "visual": "mockup_cozy_watchtower_A_v5",
+      "mockup_ssot": "cozy_watchtower_A"
+    }
+  ],
+  "approaches": {
+    "cozy_market_stall_A": "front_apron_oversized_produce",
+    "cozy_gazebo_A": "v4_density_kept_plus_v5_run",
+    "cozy_well_house_A": "v4_form_kept_plus_v5_run",
+    "cozy_windmill_A": "v4_sails_kept_plus_v5_run",
+    "cozy_bridge_arch_A": "box_voussoir_masonry",
+    "cozy_watchtower_A": "brown_thatch_cone_layers"
+  },
+  "home_bld": "UNTOUCHED_CLOSED_PERMANENTLY",
+  "note": "GLBs rewritten; fidelity score after headed QA \u2014 not auto-claimed 100%.",
+  "objects": [
+    {
+      "plot_id": "MARKET.BLD",
+      "object_id": "cozy_market_stall_A",
+      "v5_action": "front_apron_oversized_produce",
+      "prior_signature": "market_awning_ok_fruit_still_partial_under_awning_read",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "post_v5_signature": "market_front_produce_readable_still_not_ssot_crate_fidelity",
+      "note": "Fruit now visible on front apron under freecam; still soft-clay not full SSOT crate art",
+      "same_sig_streak": 1
+    },
+    {
+      "plot_id": "GARDEN.BLD",
+      "object_id": "cozy_gazebo_A",
+      "v5_action": "reexport_v4_density_base",
+      "prior_signature": "gazebo_dense_dome_improved_still_not_ssot_100",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "post_v5_signature": "gazebo_dense_dome_improved_still_not_ssot_100",
+      "note": "V5 did not change dome approach enough \u2014 SAME residual as V4 (streak 1 under continuous auth)",
+      "same_sig_streak": 1
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "object_id": "cozy_well_house_A",
+      "v5_action": "reexport_v4_form_base",
+      "prior_signature": "well_form_improved_still_high_partial",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "post_v5_signature": "well_form_improved_still_high_partial",
+      "note": "Form clearer but same high-partial residual (streak 1)",
+      "same_sig_streak": 1
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "object_id": "cozy_windmill_A",
+      "v5_action": "reexport_v4_sails",
+      "prior_signature": "windmill_tiers_blades_improved_still_simplified_vs_ssot",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "post_v5_signature": "windmill_tiers_blades_improved_still_simplified_vs_ssot",
+      "note": "Sails present; soft-clay multi-window SSOT still partial (streak 1)",
+      "same_sig_streak": 1
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "object_id": "cozy_bridge_arch_A",
+      "v5_action": "box_voussoir_masonry",
+      "prior_signature": "bridge_arch_clearer_still_soft_sphere_masonry",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "post_v5_signature": "bridge_box_voussoir_clearer_still_not_ssot_100",
+      "note": "Arch reads as hard blocks now (not soft pile); proportions/detail still short of SSOT",
+      "same_sig_streak": 0
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "object_id": "cozy_watchtower_A",
+      "v5_action": "brown_thatch_cone_layers",
+      "prior_signature": "watchtower_roof_denser_still_partial_vs_ssot_thatch",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "post_v5_signature": "watchtower_brown_thatch_layers_still_partial_vs_ssot",
+      "note": "Hue fixed to brown thatch; layered cones \u2014 still not full SSOT petal density",
+      "same_sig_streak": 0
+    }
+  ],
+  "headed_log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_v5_props21.log",
+  "structural": {
+    "real_glb": 49,
+    "placeholders": 1,
+    "props_real": 21,
+    "only_placeholder": "HOME.CHAR glb_sha256_mismatch"
+  },
+  "timestamp_utc": "2026-07-24T05:51:59Z",
+  "next": [
+    "V6 different mesh strategy for GARDEN/WELL/WINDMILL if streak approaches 3",
+    "MARKET/BRIDGE/LOOKOUT continue iteration",
+    "HOME.CHAR sha mismatch separate (cast character, not prop)",
+    "Human play-test Nori walk realism V2"
+  ]
+}

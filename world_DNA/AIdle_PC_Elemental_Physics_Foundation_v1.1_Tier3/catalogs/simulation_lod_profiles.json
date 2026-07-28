@@ -1,0 +1,239 @@
+{
+  "catalog_version": "1.0",
+  "profiles": [
+    {
+      "profile_id": "sim_lod_pc_low_v1",
+      "tiers": [
+        {
+          "tier": 0,
+          "distance_m": [
+            0,
+            24
+          ],
+          "update_hz": 30,
+          "rigid_body": "FULL",
+          "reactions": "FULL",
+          "visual_fx": "LOW"
+        },
+        {
+          "tier": 1,
+          "distance_m": [
+            24,
+            64
+          ],
+          "update_hz": 10,
+          "rigid_body": "SLEEP_PREFERRED",
+          "reactions": "AGGREGATED",
+          "visual_fx": "VERY_LOW"
+        },
+        {
+          "tier": 2,
+          "distance_m": [
+            64,
+            160
+          ],
+          "update_hz": 1,
+          "rigid_body": "OFF",
+          "reactions": "STATISTICAL",
+          "visual_fx": "OFF"
+        },
+        {
+          "tier": 3,
+          "distance_m": [
+            160,
+            999999
+          ],
+          "update_hz": 0.1,
+          "rigid_body": "OFF",
+          "reactions": "TIME_DELTA_ONLY",
+          "visual_fx": "OFF"
+        }
+      ]
+    },
+    {
+      "profile_id": "sim_lod_pc_balanced_v1",
+      "tiers": [
+        {
+          "tier": 0,
+          "distance_m": [
+            0,
+            32
+          ],
+          "update_hz": 60,
+          "rigid_body": "FULL",
+          "reactions": "FULL",
+          "visual_fx": "MEDIUM"
+        },
+        {
+          "tier": 1,
+          "distance_m": [
+            32,
+            96
+          ],
+          "update_hz": 15,
+          "rigid_body": "FULL_LIMITED",
+          "reactions": "AGGREGATED",
+          "visual_fx": "LOW"
+        },
+        {
+          "tier": 2,
+          "distance_m": [
+            96,
+            256
+          ],
+          "update_hz": 2,
+          "rigid_body": "OFF",
+          "reactions": "STATISTICAL",
+          "visual_fx": "OFF"
+        },
+        {
+          "tier": 3,
+          "distance_m": [
+            256,
+            999999
+          ],
+          "update_hz": 0.2,
+          "rigid_body": "OFF",
+          "reactions": "TIME_DELTA_ONLY",
+          "visual_fx": "OFF"
+        }
+      ]
+    },
+    {
+      "profile_id": "sim_lod_pc_high_v1",
+      "tiers": [
+        {
+          "tier": 0,
+          "distance_m": [
+            0,
+            48
+          ],
+          "update_hz": 60,
+          "rigid_body": "FULL",
+          "reactions": "FULL",
+          "visual_fx": "HIGH"
+        },
+        {
+          "tier": 1,
+          "distance_m": [
+            48,
+            144
+          ],
+          "update_hz": 20,
+          "rigid_body": "FULL_LIMITED",
+          "reactions": "FULL_LOW_RATE",
+          "visual_fx": "MEDIUM"
+        },
+        {
+          "tier": 2,
+          "distance_m": [
+            144,
+            384
+          ],
+          "update_hz": 4,
+          "rigid_body": "OFF",
+          "reactions": "AGGREGATED",
+          "visual_fx": "LOW"
+        },
+        {
+          "tier": 3,
+          "distance_m": [
+            384,
+            999999
+          ],
+          "update_hz": 0.5,
+          "rigid_body": "OFF",
+          "reactions": "STATISTICAL",
+          "visual_fx": "OFF"
+        }
+      ]
+    },
+    {
+      "profile_id": "sim_lod_pc_ultra_v1",
+      "tiers": [
+        {
+          "tier": 0,
+          "distance_m": [
+            0,
+            64
+          ],
+          "update_hz": 90,
+          "rigid_body": "FULL",
+          "reactions": "FULL",
+          "visual_fx": "ULTRA"
+        },
+        {
+          "tier": 1,
+          "distance_m": [
+            64,
+            192
+          ],
+          "update_hz": 30,
+          "rigid_body": "FULL_LIMITED",
+          "reactions": "FULL_LOW_RATE",
+          "visual_fx": "HIGH"
+        },
+        {
+          "tier": 2,
+          "distance_m": [
+            192,
+            512
+          ],
+          "update_hz": 8,
+          "rigid_body": "SLEEP_PREFERRED",
+          "reactions": "AGGREGATED",
+          "visual_fx": "MEDIUM"
+        },
+        {
+          "tier": 3,
+          "distance_m": [
+            512,
+            999999
+          ],
+          "update_hz": 1,
+          "rigid_body": "OFF",
+          "reactions": "STATISTICAL",
+          "visual_fx": "OFF"
+        }
+      ]
+    },
+    {
+      "profile_id": "sim_lod_server_v1",
+      "tiers": [
+        {
+          "tier": 0,
+          "distance_m": [
+            0,
+            96
+          ],
+          "update_hz": 60,
+          "rigid_body": "RULE_BASED",
+          "reactions": "FULL_DETERMINISTIC",
+          "visual_fx": "OFF"
+        },
+        {
+          "tier": 1,
+          "distance_m": [
+            96,
+            384
+          ],
+          "update_hz": 10,
+          "rigid_body": "RULE_BASED",
+          "reactions": "AGGREGATED",
+          "visual_fx": "OFF"
+        },
+        {
+          "tier": 2,
+          "distance_m": [
+            384,
+            999999
+          ],
+          "update_hz": 1,
+          "rigid_body": "OFF",
+          "reactions": "STATISTICAL",
+          "visual_fx": "OFF"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,452 @@
+{
+  "agent_step_id": "G8-001-D1-receipt-finalizer-008-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:ed857047bd2ecac56ac4ce2513baa05f45df3358f9da6b8d41025d081a637d67",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+  "transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+  "writer_transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+  "receipt_finalizer_transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "trace_ref": "orchestration/logs/g8-d1-receipt-finalizer.log",
+  "handoff_ref": "D2_BLOCKED_PENDING_CODEX",
+  "start_time": "2026-07-21T03:44:08.319420400Z",
+  "end_time": "2026-07-21T03:48:58.803743900Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+  "profile_binding_evidence": "FULL finalizer re-read schema.md: name=aidle-schema; trustlayer_character=devil-advocate; ui_character=ui-brief-writer; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop, od-design-brief, od-reference-design-contract. WO-008 authority VERIFY_ONLY.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "wo_routed_full": [
+      "od-design-brief",
+      "od-reference-design-contract",
+      "evidence-memory-ledger"
+    ]
+  },
+  "writer_lease": [
+    "orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json",
+    "orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+    "orchestration/receipts/g8/subagent_workflow_remediation_004/D1_finalizer.json",
+    "orchestration/logs/g8-d1-receipt-finalizer.log"
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/schema.md",
+    "E:/agents/characters/14-devil-advocate.md",
+    "E:/agents/ui-design/characters/02-ui-brief-writer.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/od-design-brief/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/od-reference-design-contract/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/evidence-memory-ledger/SKILL.md",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D1-RECEIPT-FINALIZER-008.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D1-WORKFLOW-CORRECTION-007.md",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D0_schema.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "C:/Users/phant/.grok/active_sessions.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828a-5064-7c12-ac2c-69c5d8155d3a/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828d-83a0-7691-ada9-d767d90ba841/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f82c6-187a-7932-81ed-9011410b6661/meta.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_finalizer.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-d1-receipt-finalizer.log"
+  ],
+  "product_writes": [],
+  "role_separation": {
+    "execution_role_vs_receipt_finalization": "DISTINCT",
+    "statement": "Execution children (E0 executor / E1 core) performed product-safe verification and headed evidence ownership. This schema finalizer only rewrites receipt timestamps/provenance under VERIFY_ONLY; it did not re-execute G3/G4/headed product commands.",
+    "execution_children": {
+      "E0_executor": "019f828a-5064-7c12-ac2c-69c5d8155d3a",
+      "E1_core": "019f828d-83a0-7691-ada9-d767d90ba841"
+    },
+    "receipt_finalizer_transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661"
+  },
+  "quarantine": {
+    "quarantined_refs": [
+      {
+        "ref": "019f8289-5794-72d2-88fc-26f1e04faff8",
+        "kind": "accidental_top_level_session",
+        "status": "QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE",
+        "note": "Unauthorized top-level task; must never be used as execution or acceptance evidence."
+      },
+      {
+        "ref": "019f828b-57c0-72c2-99ee-fcf2d7d9866a",
+        "kind": "cancelled_child_of_accidental_top_level",
+        "status": "QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE",
+        "note": "Cancelled child of accidental top-level; outputs non-evidence even where later authorized children overwrote same log paths."
+      },
+      {
+        "ref": "019f7c5f-04b5-7902-9a0b-e1159294bb1d",
+        "kind": "directive_quarantine_ref",
+        "status": "QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE",
+        "note": "Listed in codex_directive.json Dir28 quarantined_refs; not accepted execution lineage."
+      }
+    ],
+    "d2_premature_outputs_non_evidence": true,
+    "quarantine_statement": "Quarantined refs are NOT accepted execution lineage. Premature D2 outputs remain non-evidence."
+  },
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-D1-RECEIPT-FINALIZER-008",
+    "directive_id": 28,
+    "wave": "D1_RECEIPT_FINALIZER_008",
+    "profile": "schema",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS",
+    "adoption_status": "RECEIPT_COMMAND_PROVENANCE_CORRECTED_WAITING_CODEX",
+    "summary": "Dir28 finalizer child 019f82c6... completed duties; Dir30 provenance correction replaced smoke_test.commands with all 11 literal transcript terminal commands including exit_code=1 provisional D1_finalizer write failure; end_time bound to durable completed_at 2026-07-21T03:48:58.803743900Z; receipt_writer_end_time preserved; product_writes=[]; self_accept=false; D2 blocked; G8 not ACCEPTED.",
+    "character_binding": {
+      "trustlayer_character_id": "devil-advocate",
+      "trustlayer_character_source": "E:/agents/characters/14-devil-advocate.md",
+      "ui_character_id": "ui-brief-writer",
+      "ui_character_source": "E:/agents/ui-design/characters/02-ui-brief-writer.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL finalizer re-read: Load COMPLIANCE.md + registry.yaml; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no inventing evidence / no exceed authority"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL finalizer re-read: registry E:\\agents\\characters\\registry.yaml; slot 14 devil-advocate VERIFY_ONLY; Red finds never fixes; Blue fixes only from approved WOs; Purple never patches product; Devil Advocate assumes FP until evidence"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL finalizer re-read: Canonical hub E:\\; Always MASTER_PLAN.md + JOURNAL_LATEST.md; journal-entry after milestones; Do not skip handoff when switching agents"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL finalizer re-read: Sessions share project room on E:\\agents\\projects\\; sync knowledge/errors/handoffs; Respect authority tokens Red does not patch; Blue after triage; Purple verifies"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL finalizer re-read: Do not claim command/test/file inspection occurred unless observed; classify FACT vs INFERENCE; verify with local tools; do not invent evidence"
+      },
+      {
+        "skill_id": "od-design-brief",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/od-design-brief/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL finalizer re-read: Parse structured design brief into DESIGN.md; 8 dimensions palette/accent/typography/display/layout/mood/density/exclude; no invent tokens outside resolution table"
+      },
+      {
+        "skill_id": "od-reference-design-contract",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/od-reference-design-contract/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL finalizer re-read: Turn references into DESIGN.md + design-contract.md + implementation-handoff.md; keep/change/do-not-copy; evidence-traceable claims only"
+      },
+      {
+        "skill_id": "evidence-memory-ledger",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/evidence-memory-ledger/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL finalizer re-read routed.evidence: Preserve source metadata and claim-to-source mappings; FACT/INFERENCE classification; no invent evidence; selective durable records only"
+      }
+    ],
+    "skills_loaded_count": 8,
+    "input_context_hash": "sha256:ed857047bd2ecac56ac4ce2513baa05f45df3358f9da6b8d41025d081a637d67",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D1-RECEIPT-FINALIZER-008.md",
+        "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D1-WORKFLOW-CORRECTION-007.md",
+        "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+        "E:/AIdle_openworld/.grok/agents/schema.md"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "BYTE_LEN": 12313
+    },
+    "product_writes": [],
+    "parent_product_patch": false,
+    "d2_spawn_allowed": false,
+    "d3_spawn_allowed": false,
+    "active_parent_session_only": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "active_sessions_count": 1,
+    "active_sessions_observed": [
+      {
+        "session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+        "pid": 22568,
+        "cwd": "C:\\Users\\phant\\.grok\\downloads",
+        "opened_at": "2026-07-21T03:42:45.752600200Z"
+      }
+    ],
+    "durable_times_bound": {
+      "E0_executor": {
+        "execution_child_ref": "019f828a-5064-7c12-ac2c-69c5d8155d3a",
+        "start_time": "2026-07-21T02:38:50.514725600Z",
+        "end_time": "2026-07-21T02:42:06.058939300Z",
+        "matches_meta": true
+      },
+      "E1_core": {
+        "execution_child_ref": "019f828d-83a0-7691-ada9-d767d90ba841",
+        "start_time": "2026-07-21T02:42:20.258506100Z",
+        "end_time": "2026-07-21T02:44:41.775646100Z",
+        "matches_meta": true
+      }
+    },
+    "execution_lineage_preserved": {
+      "D1_executor": {
+        "child_task_ref": "019f8273-9fae-7a93-ae0c-b06e05d2ff6b",
+        "original_child_task_ref": "019f8273-9fae-7a93-ae0c-b06e05d2ff6b",
+        "prior_correction_ref": "019f827d-02f9-7192-bf77-1315725acaa4",
+        "correction_task_ref": "019f828a-5064-7c12-ac2c-69c5d8155d3a"
+      },
+      "D1_core": {
+        "child_task_ref": "019f8273-9fad-7ed2-9e8c-792f59e6f583",
+        "original_child_task_ref": "019f8273-9fad-7ed2-9e8c-792f59e6f583",
+        "prior_correction_ref": "019f827d-02f8-7763-9c7f-d7399d55222d",
+        "correction_task_ref": "019f828d-83a0-7691-ada9-d767d90ba841"
+      }
+    },
+    "core_provenance_fixes": {
+      "files_written_added": [
+        "E:/AIdle_openworld/orchestration/logs/_d1_core_e1_set_end.py"
+      ],
+      "files_read_added": [
+        "E:/AIdle_openworld/orchestration/logs/_d1_core_input_hash.py",
+        "E:/AIdle_openworld/orchestration/logs/_d1_core_schema_validate.py"
+      ],
+      "pseudo_command_removed_from_smoke_test_commands": true,
+      "legacy_encoding_defect_disclosed": true,
+      "historical_g8_d1_core_child_log_not_erased": true
+    },
+    "jsonschema_validation": {
+      "schema": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+      "receipts": [
+        "D1_executor.json",
+        "D1_core.json",
+        "D1_finalizer.json"
+      ],
+      "result": "PASS"
+    },
+    "no_product_g3_g4_headed_commands": true,
+    "children": [],
+    "no_grandchildren": true,
+    "findings": [],
+    "residual_risks": [
+      "D2 remains blocked until Codex independent semantic review of finalized E0+E1+finalizer receipts.",
+      "G8-001 remains non-ACCEPTED.",
+      "E1 legacy encoding defect on g8-d1-core-child.log remains historical and was not normalized.",
+      "Premature D2 outputs under subagent_workflow_remediation_004 remain non-evidence."
+    ],
+    "correction_directive_id": 30,
+    "receipt_correction_child_ref": "019f82d1-ce77-7b63-9ccd-19595307939f",
+    "prior_finalizer_child_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+    "durable_started_at": "2026-07-21T03:44:08.319420400Z",
+    "durable_completed_at": "2026-07-21T03:48:58.803743900Z",
+    "receipt_writer_end_time": "2026-07-21T03:48:32.3706120Z",
+    "reconstructed_terminal_command_count": 11,
+    "exit_code_1_disclosed": true
+  },
+  "smoke_test": {
+    "passed": true,
+    "cwd": "E:\\AIdle_openworld",
+    "command_count": 11,
+    "commands": [
+      {
+        "seq": 1,
+        "name": "locate_wo008_directive_skills_manifest",
+        "tool_call_id": "call-2c214543-e7d7-4909-819a-bf4d5eb1dee1-9",
+        "description": "Locate WO-008, directive, skills_manifest",
+        "command": "Get-ChildItem -Path \"E:\\AIdle_openworld\" -Recurse -Filter \"*WO*008*\" -ErrorAction SilentlyContinue | Select-Object -First 30 FullName; Get-ChildItem -Path \"E:\\AIdle_openworld\" -Recurse -Filter \"*codex_directive*\" -ErrorAction SilentlyContinue | Select-Object -First 20 FullName; Get-ChildItem -Path \"E:\\AIdle_openworld\" -Recurse -Filter \"*skills_manifest*\" -ErrorAction SilentlyContinue | Select-Object -First 10 FullName; Get-ChildItem -Path \"E:\\AIdle_openworld\\orchestration\" -Recurse -Filter \"*WO*\" -ErrorAction SilentlyContinue | Select-Object -First 40 FullName",
+        "exit_code": 0,
+        "transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+        "terminal_log_hint": "terminal/call-2c214543-e7d7-4909-819a-bf4d5eb1dee1-9.log"
+      },
+      {
+        "seq": 2,
+        "name": "find_grok_session_dirs_and_active_sessions",
+        "tool_call_id": "call-2105ba01-445d-4039-a451-4a45bc70d6c1-14",
+        "description": "Find Grok session dirs and active_sessions",
+        "command": "$ids = @('019f828a-5064-7c12-ac2c-69c5d8155d3a','019f828d-83a0-7691-ada9-d767d90ba841','019f82c6-187a-7932-81ed-9011410b6661','019f7ffd-3995-71c0-aca1-51078e24a852'); $base = 'C:\\Users\\phant\\.grok\\sessions'; Get-ChildItem -Path $base -Recurse -Directory -ErrorAction SilentlyContinue | Where-Object { $ids -contains $_.Name } | ForEach-Object { $_.FullName }; Get-ChildItem -Path \"C:\\Users\\phant\\.grok\" -Recurse -Filter \"active_sessions.json\" -ErrorAction SilentlyContinue | Select-Object -First 10 FullName",
+        "exit_code": 0,
+        "transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+        "terminal_log_hint": "terminal/call-2105ba01-445d-4039-a451-4a45bc70d6c1-14.log"
+      },
+      {
+        "seq": 3,
+        "name": "list_session_meta_files_e0_e1_finalizer",
+        "tool_call_id": "call-31c99681-e9e4-44c1-ac82-6e699f664d39-15",
+        "description": "List session meta files for E0/E1/finalizer",
+        "command": "$paths = @(\n  'C:\\Users\\phant\\.grok\\sessions\\C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads\\019f7ffd-3995-71c0-aca1-51078e24a852\\subagents\\019f828a-5064-7c12-ac2c-69c5d8155d3a',\n  'C:\\Users\\phant\\.grok\\sessions\\C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads\\019f7ffd-3995-71c0-aca1-51078e24a852\\subagents\\019f828d-83a0-7691-ada9-d767d90ba841',\n  'C:\\Users\\phant\\.grok\\sessions\\C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads\\019f7ffd-3995-71c0-aca1-51078e24a852\\subagents\\019f82c6-187a-7932-81ed-9011410b6661',\n  'C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f828a-5064-7c12-ac2c-69c5d8155d3a',\n  'C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f828d-83a0-7691-ada9-d767d90ba841',\n  'C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f82c6-187a-7932-81ed-9011410b6661'\n); foreach ($p in $paths) { Write-Output \"=== $p ===\"; if (Test-Path $p) { Get-ChildItem $p -Force | Select-Object Name,Length,LastWriteTime | Format-Table -AutoSize | Out-String } }",
+        "exit_code": 0,
+        "transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+        "terminal_log_hint": "terminal/call-31c99681-e9e4-44c1-ac82-6e699f664d39-15.log"
+      },
+      {
+        "seq": 4,
+        "name": "read_active_sessions_parent_check",
+        "tool_call_id": "call-324e2145-6d98-4923-99b4-c6f7bf718352-23",
+        "description": "Read active_sessions.json for parent check",
+        "command": "Get-Content \"C:\\Users\\phant\\.grok\\active_sessions.json\" -Raw | Select-Object -First 1; python -c \"import json; d=json.load(open(r'C:\\Users\\phant\\.grok\\active_sessions.json',encoding='utf-8')); print(json.dumps(d, indent=2)[:4000])\"",
+        "exit_code": 0,
+        "transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+        "terminal_log_hint": "terminal/call-324e2145-6d98-4923-99b4-c6f7bf718352-23.log"
+      },
+      {
+        "seq": 5,
+        "name": "verify_skill_skill_md_paths_exist",
+        "tool_call_id": "call-324e2145-6d98-4923-99b4-c6f7bf718352-24",
+        "description": "Verify skill SKILL.md paths exist",
+        "command": "@(\n  'C:/Users/phant/.grok/skills/_agentwork-library/od-design-brief/SKILL.md',\n  'C:/Users/phant/.grok/skills/_agentwork-library/od-reference-design-contract/SKILL.md',\n  'C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md',\n  'C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md',\n  'C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md',\n  'C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md'\n) | ForEach-Object { \"$_ : $(Test-Path $_)\" }",
+        "exit_code": 0,
+        "transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+        "terminal_log_hint": "terminal/call-324e2145-6d98-4923-99b4-c6f7bf718352-24.log"
+      },
+      {
+        "seq": 6,
+        "name": "patch_d1_executor_and_d1_core_durable_times",
+        "tool_call_id": "call-b0a81c55-21e9-4e51-a897-4dd31bfe4449-25",
+        "description": "Patch D1_executor and D1_core with durable times",
+        "command": "$start = (Get-Date).ToUniversalTime().ToString(\"o\"); Write-Output \"FINALIZER_WALL_START_CHECK=$start\"; python -c \"\nimport json\nfrom pathlib import Path\nfrom datetime import datetime, timezone\n\nFINALIZER_ID = '019f82c6-187a-7932-81ed-9011410b6661'\nPARENT = '019f7ffd-3995-71c0-aca1-51078e24a852'\nE0_ID = '019f828a-5064-7c12-ac2c-69c5d8155d3a'\nE1_ID = '019f828d-83a0-7691-ada9-d767d90ba841'\nE0_START = '2026-07-21T02:38:50.514725600Z'\nE0_END = '2026-07-21T02:42:06.058939300Z'\nE1_START = '2026-07-21T02:42:20.258506100Z'\nE1_END = '2026-07-21T02:44:41.775646100Z'\nFIN_START = '2026-07-21T03:44:08.319420400Z'\n\nROOT = Path(r'E:/AIdle_openworld')\nREC = ROOT / 'orchestration/receipts/g8/subagent_workflow_remediation_004'\nLOG = ROOT / 'orchestration/logs/g8-d1-receipt-finalizer.log'\nSCHEMA = Path(r'E:/standards/maf/schemas/agent_step_contract.schema.json')\n\nQUAR = {\n    'quarantined_refs': [\n        {\n            'ref': '019f8289-5794-72d2-88fc-26f1e04faff8',\n            'kind': 'accidental_top_level_session',\n            'status': 'QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE',\n            'note': 'Unauthorized top-level task; must never be used as execution or acceptance evidence.'\n        },\n        {\n            'ref': '019f828b-57c0-72c2-99ee-fcf2d7d9866a',\n            'kind': 'cancelled_child_of_accidental_top_level',\n            'status': 'QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE',\n            'note': 'Cancelled child of accidental top-level; outputs non-evidence even where later authorized children overwrote same log paths.'\n        },\n        {\n            'ref': '019f7c5f-04b5-7902-9a0b-e1159294bb1d',\n            'kind': 'directive_quarantine_ref',\n            'status': 'QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE',\n            'note': 'Listed in codex_directive.json Dir28 quarantined_refs; not accepted execution lineage.'\n        }\n    ],\n    'd2_premature_outputs_non_evidence': True,\n    'quarantine_statement': 'Quarantined refs are NOT accepted execution lineage. Premature D2 outputs remain non-evidence.'\n}\n\nROLE_SEP = {\n    'execution_role_vs_receipt_finalization': 'DISTINCT',\n    'statement': 'Execution children (E0 executor / E1 core) performed product-safe verification and headed evidence ownership. This schema finalizer only rewrites receipt timestamps/provenance under VERIFY_ONLY; it did not re-execute G3/G4/headed product commands.',\n    'receipt_finalizer_transcript_ref': FINALIZER_ID,\n    'receipt_finalizer_profile': 'aidle-schema',\n    'receipt_finalizer_authority': 'VERIFY_ONLY'\n}\n\n# --- D1_executor ---\nex = json.loads((REC / 'D1_executor.json').read_text(encoding='utf-8'))\nex['start_time'] = E0_START\nex['end_time'] = E0_END\nex['receipt_finalizer_transcript_ref'] = FINALIZER_ID\nex['role_separation'] = ROLE_SEP\nex['quarantine'] = QUAR\nex['durable_meta_binding'] = {\n    'execution_child_ref': E0_ID,\n    'meta_path': r'C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828a-5064-7c12-ac2c-69c5d8155d3a/meta.json',\n    'started_at': E0_START,\n    'completed_at': E0_END,\n    'binding_rule': 'top-level start_time/end_time must equal durable meta started_at/completed_at exactly',\n    'prior_receipt_wall_clock_start_time': '2026-07-21T02:38:50.492651700Z',\n    'prior_receipt_wall_clock_end_time': '2026-07-21T02:41:40.515253Z',\n    'note': 'Prior receipt times were wall-clock estimates written before durable completion; Dir28 finalizer binds durable meta strings.'\n}\nif 'lineage' in ex:\n    ex['lineage']['session_created_at'] = E0_START\n    ex['lineage']['receipt_finalizer_transcript_ref'] = FINALIZER_ID\n    ex['lineage']['execution_vs_finalization'] = 'execution_lineage_preserved; finalizer is distinct role'\nif isinstance(ex.get('result'), dict):\n    ex['result']['start_time'] = E0_START\n    ex['result']['end_time'] = E0_END\n    ex['result']['receipt_finalizer_transcript_ref'] = FINALIZER_ID\n    ex['result']['role_separation'] = ROLE_SEP\n    ex['result']['quarantine'] = QUAR\n    ex['result']['durable_meta_binding'] = ex['durable_meta_binding']\nex['self_accept'] = False\nex['product_writes'] = []\nif 'result' in ex:\n    ex['result']['self_accept'] = False\n    ex['result']['product_writes'] = []\nif 'self_audit' in ex:\n    ex['self_audit']['no_self_accept'] = True\n    ex['self_audit']['product_writes_empty'] = True\n    ex['self_audit']['durable_times_bound_by_finalizer'] = True\n    ex['self_audit']['execution_lineage_preserved'] = True\n\n# Preserve lineage keys\nassert ex['child_task_ref'] == '019f8273-9fae-7a93-ae0c-b06e05d2ff6b'\nassert ex['original_child_task_ref'] == '019f8273-9fae-7a93-ae0c-b06e05d2ff6b'\nassert ex['prior_correction_ref'] == '019f827d-02f9-7192-bf77-1315725acaa4'\nassert ex['correction_task_ref'] == E0_ID\n\n(REC / 'D1_executor.json').write_text(json.dumps(ex, indent=2, ensure_ascii=False) + '\\n', encoding='utf-8')\nprint('WROTE D1_executor.json')\n\n# --- D1_core ---\ncore = json.loads((REC / 'D1_core.json').read_text(encoding='utf-8'))\ncore['start_time'] = E1_START\ncore['end_time'] = E1_END\ncore['receipt_finalizer_transcript_ref'] = FINALIZER_ID\ncore['role_separation'] = ROLE_SEP\ncore['quarantine'] = QUAR\ncore['durable_meta_binding'] = {\n    'execution_child_ref': E1_ID,\n    'meta_path': r'C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828d-83a0-7691-ada9-d767d90ba841/meta.json',\n    'started_at': E1_START,\n    'completed_at': E1_END,\n    'binding_rule': 'top-level start_time/end_time must equal durable meta started_at/completed_at exactly',\n    'prior_receipt_wall_clock_start_time': '2026-07-21T02:42:33.7020974Z',\n    'prior_receipt_wall_clock_end_time': '2026-07-21T02:44:32.385100Z',\n    'note': 'Prior receipt times were wall-clock estimates written before durable completion; Dir28 finalizer binds durable meta strings.'\n}\ncore['legacy_trace_defect'] = {\n    'path': 'orchestration/logs/g8-d1-core-child.log',\n    'classification': 'FACT',\n    'defect': 'E1 append used incompatible encoding; new child ref is not normally searchable in that historical file',\n    'action': 'DISCLOSED_NOT_ERASED_NOT_SILENTLY_NORMALIZED',\n    'finalizer_log_policy': 'orchestration/logs/g8-d1-receipt-finalizer.log written clean UTF-8 only'\n}\n\n# files_written / files_read provenance fixes\nfw = list(core.get('files_written') or [])\nneed_w = 'E:/AIdle_openworld/orchestration/logs/_d1_core_e1_set_end.py'\nif need_w not in fw and 'orchestration/logs/_d1_core_e1_set_end.py' not in fw:\n    fw.append(need_w)\ncore['files_written'] = fw\n\nfr = list(core.get('files_read') or [])\nfor p in [\n    'E:/AIdle_openworld/orchestration/logs/_d1_core_input_hash.py',\n    'E:/AIdle_openworld/orchestration/logs/_d1_core_schema_validate.py',\n]:\n    if p not in fr:\n        fr.append(p)\ncore['files_read'] = fr\n\n# smoke_test: remove pseudo-command\nst = core.get('smoke_test') or {}\ncmds = st.get('commands') or []\nkept = []\nexcluded = []\nfor c in cmds:\n    cmd = c.get('command') if isinstance(c, dict) else None\n    name = c.get('name') if isinstance(c, dict) else None\n    is_pseudo = False\n    if isinstance(cmd, str) and ('pairs above' in cmd or 'twelve literal' in cmd.lower() or 'aggregate' in cmd.lower() and 'git' in cmd.lower()):\n        is_pseudo = True\n    if name == 'six_tracked_zero_diff_aggregate':\n        is_pseudo = True\n    if is_pseudo:\n        excluded.append(c)\n    else:\n        # ensure literal command + exit_code\n        if isinstance(c, dict) and 'command' in c and 'exit_code' in c:\n            kept.append(c)\n        else:\n            # nested structure without top-level command string — keep only if has command\n            if isinstance(c, dict) and c.get('command'):\n                kept.append(c)\n            else:\n                excluded.append(c)\n\nst['commands'] = kept\nst['pseudo_commands_excluded'] = excluded\nst['command_notes'] = {\n    'six_tracked_zero_diff': 'Zero-diff established by the twelve literal git hash-object/rev-parse pairs already listed as individual smoke_test.commands entries (not a pseudo aggregate command).',\n    'pseudo_commands_policy': 'No abbreviated aggregate command entries remain in smoke_test.commands; each entry is a literal executed command with exit_code.'\n}\ncore['smoke_test'] = st\n\nif 'lineage' in core:\n    core['lineage']['session_created_at'] = E1_START\n    core['lineage']['receipt_finalizer_transcript_ref'] = FINALIZER_ID\n    core['lineage']['execution_vs_finalization'] = 'execution_lineage_preserved; finalizer is distinct role'\n\nif isinstance(core.get('result'), dict):\n    r = core['result']\n    r['receipt_finalizer_transcript_ref'] = FINALIZER_ID\n    r['role_separation'] = ROLE_SEP\n    r['quarantine'] = QUAR\n    r['durable_meta_binding'] = core['durable_meta_binding']\n    r['legacy_trace_defect'] = core['legacy_trace_defect']\n    r['self_accept'] = False\n    r['product_writes'] = []\n    if 'timestamp_provenance' in r:\n        r['timestamp_provenance']['e1_start_time_source'] = 'durable_meta.started_at for 019f828d-83a0-7691-ada9-d767d90ba841 (Dir28 finalizer binding)'\n        r['timestamp_provenance']['e1_end_time_source'] = 'durable_meta.completed_at for 019f828d-83a0-7691-ada9-d767d90ba841 (Dir28 finalizer binding)'\n        r['timestamp_provenance']['durable_started_at'] = E1_START\n        r['timestamp_provenance']['durable_completed_at'] = E1_END\n        r['timestamp_provenance']['receipt_finalizer_transcript_ref'] = FINALIZER_ID\n    # residual risk update about durable times\n    risks = list(r.get('residual_risks') or [])\n    risks = [x for x in risks if 'durable Grok Desktop transcript metadata' not in x]\n    risks.append('E1 legacy encoding defect on g8-d1-core-child.log remains historical; finalizer log is clean UTF-8 only.')\n    risks.append('D2 remains blocked until Codex independent semantic review of finalized E0+E1+finalizer receipts.')\n    risks.append('G8-001 remains non-ACCEPTED.')\n    r['residual_risks'] = risks\n\ncore['self_accept'] = False\ncore['product_writes'] = []\nif 'self_audit' in core:\n    core['self_audit']['no_self_accept'] = True\n    core['self_audit']['self_accept'] = False\n    core['self_audit']['product_writes_empty'] = True\n    core['self_audit']['durable_times_bound_by_finalizer'] = True\n    core['self_audit']['execution_lineage_preserved'] = True\n    core['self_audit']['pseudo_aggregate_command_removed'] = True\n    core['self_audit']['legacy_trace_defect_disclosed'] = True\n    core['self_audit']['commands_are_literal_full_strings'] = True\n\nassert core['child_task_ref'] == '019f8273-9fad-7ed2-9e8c-792f59e6f583'\nassert core['original_child_task_ref'] == '019f8273-9fad-7ed2-9e8c-792f59e6f583'\nassert core['prior_correction_ref'] == '019f827d-02f8-7763-9c7f-d7399d55222d'\nassert core['correction_task_ref'] == E1_ID\n\n# Verify no pseudo remains\nfor c in core['smoke_test']['commands']:\n    assert 'command' in c and isinstance(c['command'], str) and c['command'].strip()\n    assert 'exit_code' in c\n    assert 'pairs above' not in c['command']\n    assert 'twelve literal' not in c['command'].lower()\n\n(REC / 'D1_core.json').write_text(json.dumps(core, indent=2, ensure_ascii=False) + '\\n', encoding='utf-8')\nprint('WROTE D1_core.json')\nprint('E0 times', ex['start_time'], ex['end_time'])\nprint('E1 times', core['start_time'], core['end_time'])\nprint('core commands count', len(core['smoke_test']['commands']))\nprint('excluded', len(core['smoke_test']['pseudo_commands_excluded']))\n\"\n",
+        "exit_code": 0,
+        "transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+        "terminal_log_hint": "terminal/call-b0a81c55-21e9-4e51-a897-4dd31bfe4449-25.log"
+      },
+      {
+        "seq": 7,
+        "name": "write_d1_finalizer_json_provisional_FAILED",
+        "tool_call_id": "call-3ec5cc01-a9c8-443d-a780-172b05144a61-32",
+        "description": "Write D1_finalizer.json provisional content",
+        "command": "python -c \"\nimport json\nfrom pathlib import Path\nfrom datetime import datetime, timezone\n\nFINALIZER_ID = '019f82c6-187a-7932-81ed-9011410b6661'\nPARENT = '019f7ffd-3995-71c0-aca1-51078e24a852'\nE0_ID = '019f828a-5064-7c12-ac2c-69c5d8155d3a'\nE1_ID = '019f828d-83a0-7691-ada9-d767d90ba841'\nE0_START = '2026-07-21T02:38:50.514725600Z'\nE0_END = '2026-07-21T02:42:06.058939300Z'\nE1_START = '2026-07-21T02:42:20.258506100Z'\nE1_END = '2026-07-21T02:44:41.775646100Z'\nFIN_START = '2026-07-21T03:44:08.319420400Z'\n\nROOT = Path(r'E:/AIdle_openworld')\nREC = ROOT / 'orchestration/receipts/g8/subagent_workflow_remediation_004'\nLOG = ROOT / 'orchestration/logs/g8-d1-receipt-finalizer.log'\nSCHEMA = Path(r'E:/standards/maf/schemas/agent_step_contract.schema.json')\n\n# Verify active_sessions\nactive = json.loads(Path(r'C:/Users/phant/.grok/active_sessions.json').read_text(encoding='utf-8'))\nassert len(active) == 1 and active[0]['session_id'] == PARENT\n\n# Verify meta times\ne0_meta = json.loads(Path(r'C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828a-5064-7c12-ac2c-69c5d8155d3a/meta.json').read_text(encoding='utf-8'))\ne1_meta = json.loads(Path(r'C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828d-83a0-7691-ada9-d767d90ba841/meta.json').read_text(encoding='utf-8'))\nassert e0_meta['started_at'] == E0_START and e0_meta['completed_at'] == E0_END\nassert e1_meta['started_at'] == E1_START and e1_meta['completed_at'] == E1_END\n\n# Read finalized receipts\nex = json.loads((REC / 'D1_executor.json').read_text(encoding='utf-8'))\ncore = json.loads((REC / 'D1_core.json').read_text(encoding='utf-8'))\nassert ex['start_time'] == E0_START and ex['end_time'] == E0_END\nassert core['start_time'] == E1_START and core['end_time'] == E1_END\nassert ex['receipt_finalizer_transcript_ref'] == FINALIZER_ID\nassert core['receipt_finalizer_transcript_ref'] == FINALIZER_ID\nassert 'pairs above' not in json.dumps(core['smoke_test']['commands'])\nassert any('_d1_core_e1_set_end.py' in p for p in core['files_written'])\nassert any('_d1_core_input_hash.py' in p for p in core['files_read'])\nassert any('_d1_core_schema_validate.py' in p for p in core['files_read'])\n\n# Write finalizer receipt with provisional end_time, then re-stamp after validation\nfin_end_provisional = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%f') + '0Z'  # will fix after\n\nfin = {\n  'agent_step_id': 'G8-001-D1-receipt-finalizer-008-2026-07-21',\n  'agent_type': 'aidle-schema',\n  'skill_id': 'maf-mandatory-standard',\n  'skill_version': '1.0',\n  'authority_token': 'VERIFY_ONLY',\n  'input_context_hash': 'sha256:dir28-finalizer-receipt-only-no-product-hash',\n  'output_schema_version': 'agent_step_contract/1.0',\n  'child_task_ref': FINALIZER_ID,\n  'transcript_ref': FINALIZER_ID,\n  'writer_transcript_ref': FINALIZER_ID,\n  'receipt_finalizer_transcript_ref': FINALIZER_ID,\n  'spawned_by_parent_ref': PARENT,\n  'self_accept': False,\n  'trace_ref': 'orchestration/logs/g8-d1-receipt-finalizer.log',\n  'handoff_ref': 'D2_BLOCKED_PENDING_CODEX',\n  'start_time': FIN_START,\n  'end_time': fin_end_provisional,\n  'profile_source': 'E:/AIdle_openworld/.grok/agents/schema.md',\n  'profile_binding_evidence': 'FULL finalizer re-read schema.md: name=aidle-schema; trustlayer_character=devil-advocate; ui_character=ui-brief-writer; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop, od-design-brief, od-reference-design-contract. WO-008 authority VERIFY_ONLY.',\n  'skills_manifest_ref': 'E:/AIdle_openworld/orchestration/skills_manifest.yaml',\n  'skills_manifest_binding': {\n    'manifest_version': '1.0.0',\n    'always': [\n      'maf-mandatory-standard',\n      'trustlayer-x16-crew',\n      'agentwork-knowledge-loop',\n      'project-room-collab',\n      'curiosity-engine'\n    ],\n    'wo_routed_full': [\n      'od-design-brief',\n      'od-reference-design-contract',\n      'evidence-memory-ledger'\n    ]\n  },\n  'writer_lease': [\n    'orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json',\n    'orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json',\n    'orchestration/receipts/g8/subagent_workflow_remediation_004/D1_finalizer.json',\n    'orchestration/logs/g8-d1-receipt-finalizer.log'\n  ],\n  'files_read': [\n    'E:/AIdle_openworld/.grok/agents/schema.md',\n    'E:/agents/characters/14-devil-advocate.md',\n    'E:/agents/ui-design/characters/02-ui-brief-writer.md',\n    'C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md',\n    'C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md',\n    'C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md',\n    'C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md',\n    'C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md',\n    'C:/Users/phant/.grok/skills/_agentwork-library/od-design-brief/SKILL.md',\n    'C:/Users/phant/.grok/skills/_agentwork-library/od-reference-design-contract/SKILL.md',\n    'C:/Users/phant/.grok/skills/_agentwork-library/evidence-memory-ledger/SKILL.md',\n    'E:/AIdle_openworld/orchestration/skills_manifest.yaml',\n    'E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D1-RECEIPT-FINALIZER-008.md',\n    'E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D1-WORKFLOW-CORRECTION-007.md',\n    'E:/AIdle_openworld/orchestration/control/codex_directive.json',\n    'E:/AIdle_openworld/orchestration/control/grok_status.json',\n    'E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json',\n    'E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json',\n    'E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D0_schema.json',\n    'E:/standards/maf/schemas/agent_step_contract.schema.json',\n    'C:/Users/phant/.grok/active_sessions.json',\n    r'C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828a-5064-7c12-ac2c-69c5d8155d3a/meta.json',\n    r'C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828d-83a0-7691-ada9-d767d90ba841/meta.json',\n    r'C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f82c6-187a-7932-81ed-9011410b6661/meta.json'\n  ],\n  'files_written': [\n    'E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json',\n    'E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json',\n    'E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_finalizer.json',\n    'E:/AIdle_openworld/orchestration/logs/g8-d1-receipt-finalizer.log'\n  ],\n  'product_writes': [],\n  'role_separation': {\n    'execution_role_vs_receipt_finalization': 'DISTINCT',\n    'statement': 'Execution children (E0 executor / E1 core) performed product-safe verification and headed evidence ownership. This schema finalizer only rewrites receipt timestamps/provenance under VERIFY_ONLY; it did not re-execute G3/G4/headed product commands.',\n    'execution_children': {\n      'E0_executor': E0_ID,\n      'E1_core': E1_ID\n    },\n    'receipt_finalizer_transcript_ref': FINALIZER_ID\n  },\n  'quarantine': {\n    'quarantined_refs': [\n      {\n        'ref': '019f8289-5794-72d2-88fc-26f1e04faff8',\n        'kind': 'accidental_top_level_session',\n        'status': 'QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE',\n        'note': 'Unauthorized top-level task; must never be used as execution or acceptance evidence.'\n      },\n      {\n        'ref': '019f828b-57c0-72c2-99ee-fcf2d7d9866a',\n        'kind': 'cancelled_child_of_accidental_top_level',\n        'status': 'QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE',\n        'note': 'Cancelled child of accidental top-level; outputs non-evidence even where later authorized children overwrote same log paths.'\n      },\n      {\n        'ref': '019f7c5f-04b5-7902-9a0b-e1159294bb1d',\n        'kind': 'directive_quarantine_ref',\n        'status': 'QUARANTINED_NOT_ACCEPTED_EXECUTION_LINEAGE',\n        'note': 'Listed in codex_directive.json Dir28 quarantined_refs; not accepted execution lineage.'\n      }\n    ],\n    'd2_premature_outputs_non_evidence': True,\n    'quarantine_statement': 'Quarantined refs are NOT accepted execution lineage. Premature D2 outputs remain non-evidence.'\n  },\n  'result': {\n    'task_id': 'G8-001',\n    'correction_id': 'G8-001-D1-RECEIPT-FINALIZER-008',\n    'directive_id': 28,\n    'wave': 'D1_RECEIPT_FINALIZER_008',\n    'profile': 'schema',\n    'profile_source': 'E:/AIdle_openworld/.grok/agents/schema.md',\n    'self_accept': False,\n    'accepted': False,\n    'verdict': 'PASS',\n    'adoption_status': 'RECEIPT_FINALIZED_WAITING_CODEX',\n    'summary': 'Dir28 VERIFY_ONLY schema finalizer bound E0/E1 start_time/end_time to durable meta; preserved execution lineage; added receipt_finalizer_transcript_ref; core provenance fixes (e1_set_end written, hash/validate scripts in files_read, pseudo aggregate command excluded); disclosed E1 legacy encoding defect; quarantined accidental top-level and cancelled child; validated three receipts with jsonschema; no product/G3/G4/headed commands; D2 blocked; G8 not ACCEPTED.',\n    'character_binding': {\n      'trustlayer_character_id': 'devil-advocate',\n      'trustlayer_character_source': 'E:/agents/characters/14-devil-advocate.md',\n      'ui_character_id': 'ui-brief-writer',\n      'ui_character_source': 'E:/agents/ui-design/characters/02-ui-brief-writer.md',\n      'maf_role': 'agent',\n      'authority_token': 'VERIFY_ONLY'\n    },\n    'skills_loaded': [\n      {\n        'skill_id': 'maf-mandatory-standard',\n        'source': 'C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md',\n        'mode': 'full',\n        'load_evidence': 'FULL finalizer re-read: Load COMPLIANCE.md + registry.yaml; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no inventing evidence / no exceed authority'\n      },\n      {\n        'skill_id': 'trustlayer-x16-crew',\n        'source': 'C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md',\n        'mode': 'full',\n        'load_evidence': 'FULL finalizer re-read: registry E:\\\\\\\\agents\\\\\\\\characters\\\\\\\\registry.yaml; slot 14 devil-advocate VERIFY_ONLY; Red finds never fixes; Blue fixes only from approved WOs; Purple never patches product; Devil Advocate assumes FP until evidence'\n      },\n      {\n        'skill_id': 'agentwork-knowledge-loop',\n        'source': 'C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md',\n        'mode': 'full',\n        'load_evidence': 'FULL finalizer re-read: Canonical hub E:\\\\\\\\; Always MASTER_PLAN.md + JOURNAL_LATEST.md; journal-entry after milestones; Do not skip handoff when switching agents'\n      },\n      {\n        'skill_id': 'project-room-collab',\n        'source': 'C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md',\n        'mode': 'full',\n        'load_evidence': 'FULL finalizer re-read: Sessions share project room on E:\\\\\\\\agents\\\\\\\\projects\\\\\\\\; sync knowledge/errors/handoffs; Respect authority tokens Red does not patch; Blue after triage; Purple verifies'\n      },\n      {\n        'skill_id': 'curiosity-engine',\n        'source': 'C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md',\n        'mode': 'full',\n        'load_evidence': 'FULL finalizer re-read: Do not claim command/test/file inspection occurred unless observed; classify FACT vs INFERENCE; verify with local tools; do not invent evidence'\n      },\n      {\n        'skill_id': 'od-design-brief',\n        'source': 'C:/Users/phant/.grok/skills/_agentwork-library/od-design-brief/SKILL.md',\n        'mode': 'full',\n        'load_evidence': 'FULL finalizer re-read: Parse structured design brief into DESIGN.md; 8 dimensions palette/accent/typography/display/layout/mood/density/exclude; no invent tokens outside resolution table'\n      },\n      {\n        'skill_id': 'od-reference-design-contract',\n        'source': 'C:/Users/phant/.grok/skills/_agentwork-library/od-reference-design-contract/SKILL.md',\n        'mode': 'full',\n        'load_evidence': 'FULL finalizer re-read: Turn references into DESIGN.md + design-contract.md + implementation-handoff.md; keep/change/do-not-copy; evidence-traceable claims only'\n      },\n      {\n        'skill_id': 'evidence-memory-ledger',\n        'source': 'C:/Users/phant/.grok/skills/_agentwork-library/evidence-memory-ledger/SKILL.md',\n        'mode': 'full',\n        'load_evidence': 'FULL finalizer re-read routed.evidence: Preserve source metadata and claim-to-source mappings; FACT/INFERENCE classification; no invent evidence; selective durable records only'\n      }\n    ],\n    'skills_loaded_count': 8,\n    'product_writes': [],\n    'parent_product_patch': False,\n    'd2_spawn_allowed': False,\n    'd3_spawn_allowed': False,\n    'active_parent_session_only': PARENT,\n    'active_sessions_count': 1,\n    'active_sessions_observed': active,\n    'durable_times_bound': {\n      'E0_executor': {\n        'execution_child_ref': E0_ID,\n        'start_time': E0_START,\n        'end_time': E0_END,\n        'matches_meta': True\n      },\n      'E1_core': {\n        'execution_child_ref': E1_ID,\n        'start_time': E1_START,\n        'end_time': E1_END,\n        'matches_meta': True\n      }\n    },\n    'execution_lineage_preserved': {\n      'D1_executor': {\n        'child_task_ref': ex['child_task_ref'],\n        'original_child_task_ref': ex['original_child_task_ref'],\n        'prior_correction_ref': ex['prior_correction_ref'],\n        'correction_task_ref': ex['correction_task_ref']\n      },\n      'D1_core': {\n        'child_task_ref': core['child_task_ref'],\n        'original_child_task_ref': core['original_child_task_ref'],\n        'prior_correction_ref': core['prior_correction_ref'],\n        'correction_task_ref': core['correction_task_ref']\n      }\n    },\n    'core_provenance_fixes': {\n      'files_written_added': ['E:/AIdle_openworld/orchestration/logs/_d1_core_e1_set_end.py'],\n      'files_read_added': [\n        'E:/AIdle_openworld/orchestration/logs/_d1_core_input_hash.py',\n        'E:/AIdle_openworld/orchestration/logs/_d1_core_schema_validate.py'\n      ],\n      'pseudo_command_removed_from_smoke_test_commands': True,\n      'legacy_encoding_defect_disclosed': True,\n      'historical_g8_d1_core_child_log_not_erased': True\n    },\n    'jsonschema_validation': {\n      'schema': 'E:/standards/maf/schemas/agent_step_contract.schema.json',\n      'receipts': [\n        'D1_executor.json',\n        'D1_core.json',\n        'D1_finalizer.json'\n      ],\n      'result': 'PASS'\n    },\n    'no_product_g3_g4_headed_commands': True,\n    'children': [],\n    'no_grandchildren': True,\n    'findings': [],\n    'residual_risks': [\n      'D2 remains blocked until Codex independent semantic review of finalized E0+E1+finalizer receipts.',\n      'G8-001 remains non-ACCEPTED.',\n      'E1 legacy encoding defect on g8-d1-core-child.log remains historical and was not normalized.',\n      'Premature D2 outputs under subagent_workflow_remediation_004 remain non-evidence.'\n    ]\n  },\n  'smoke_test': {\n    'passed': True,\n    'cwd': 'E:\\\\\\\\AIdle_openworld',\n    'commands': [\n      {\n        'name': 'read_e0_durable_meta',\n        'command': r\\\"python -c \\\"import json; from pathlib import Path; p=Path(r'C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828a-5064-7c12-ac2c-69c5d8155d3a/meta.json'); m=json.loads(p.read_text(encoding='utf-8')); print(m['started_at']); print(m['completed_at'])\\\"\\\",\n        'exit_code': 0,\n        'markers': [E0_START, E0_END]\n      },\n      {\n        'name': 'read_e1_durable_meta',\n        'command': r\\\"python -c \\\"import json; from pathlib import Path; p=Path(r'C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828d-83a0-7691-ada9-d767d90ba841/meta.json'); m=json.loads(p.read_text(encoding='utf-8')); print(m['started_at']); print(m['completed_at'])\\\"\\\",\n        'exit_code': 0,\n        'markers': [E1_START, E1_END]\n      },\n      {\n        'name': 'test_path_active_sessions',\n        'command': 'powershell -NoProfile -Command \\\"Test-Path C:\\\\\\\\Users\\\\\\\\phant\\\\\\\\.grok\\\\\\\\active_sessions.json\\\"',\n        'exit_code': 0,\n        'markers': ['True']\n      },\n      {\n        'name': 'jsonschema_validate_three_receipts',\n        'command': r\\\"E:\\\\standards\\\\maf\\\\.venv\\\\Scripts\\\\python.exe -c \\\"import json,jsonschema; from pathlib import Path; s=json.loads(Path(r'E:/standards/maf/schemas/agent_step_contract.schema.json').read_text(encoding='utf-8')); root=Path(r'E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004');\nfor name in ['D1_executor.json','D1_core.json','D1_finalizer.json']:\n jsonschema.validate(instance=json.loads((root/name).read_text(encoding='utf-8')), schema=s); print(name+'=PASS')\\\"\\\",\n        'exit_code': 0,\n        'markers': [\n          'D1_executor.json=PASS',\n          'D1_core.json=PASS',\n          'D1_finalizer.json=PASS'\n        ]\n      }\n    ],\n    'product_g3_g4_headed_commands_included': False\n  },\n  'self_audit': {\n    'authority_honored': True,\n    'authority_token': 'VERIFY_ONLY',\n    'no_self_accept': True,\n    'self_accept': False,\n    'product_writes_empty': True,\n    'parent_product_patch': False,\n    'no_grandchildren': True,\n    'd2_not_spawned': True,\n    'd3_not_spawned': True,\n    'no_product_g3_g4_headed_commands': True,\n    'character_skill_trace_present': True,\n    'skills_manifest_always_complete': True,\n    'skills_loaded_count': 8,\n    'durable_times_bound': True,\n    'execution_lineage_preserved': True,\n    'role_separation_stated': True,\n    'quarantine_present': True,\n    'one_active_parent_session': True,\n    'active_parent_session_only': PARENT,\n    'png_evidence_not_mutated': True,\n    'g8_not_accepted': True\n  },\n  'evidence_refs': [\n    'orchestration/logs/g8-d1-receipt-finalizer.log',\n    'orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json',\n    'orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json',\n    'orchestration/receipts/g8/subagent_workflow_remediation_004/D1_finalizer.json',\n    'orchestration/work_orders/WO-G8-001-D1-RECEIPT-FINALIZER-008.md',\n    'orchestration/control/codex_directive.json'\n  ],\n  'next_route': 'D2_BLOCKED_PENDING_CODEX'\n}\n\n# Fix input_context_hash properly: sha256 of WO-008 + WO-007 + directive + schema.md bytes\nimport hashlib\nhash_files = [\n  ROOT/'orchestration/work_orders/WO-G8-001-D1-RECEIPT-FINALIZER-008.md',\n  ROOT/'orchestration/work_orders/WO-G8-001-D1-WORKFLOW-CORRECTION-007.md',\n  ROOT/'orchestration/control/codex_directive.json',\n  ROOT/'.grok/agents/schema.md',\n]\nblob = b''.join(p.read_bytes() for p in hash_files)\nh = hashlib.sha256(blob).hexdigest()\nfin['input_context_hash'] = 'sha256:' + h\nfin['result']['input_context_hash'] = 'sha256:' + h\nfin['result']['input_context_hash_method'] = {\n  'algorithm': 'sha256',\n  'inputs_in_order': [p.as_posix() for p in hash_files],\n  'concat': 'raw file bytes joined with no separator',\n  'BYTE_LEN': len(blob)\n}\n\n# Write finalizer first so validation can load it\n(REC / 'D1_finalizer.json').write_text(json.dumps(fin, indent=2, ensure_ascii=False) + '\\n', encoding='utf-8')\nprint('WROTE provisional D1_finalizer.json')\nprint('input_context_hash', fin['input_context_hash'])\n\"\n",
+        "exit_code": 1,
+        "transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+        "terminal_log_hint": "terminal/call-3ec5cc01-a9c8-443d-a780-172b05144a61-32.log",
+        "failure_disclosed": true,
+        "failure_note": "SyntaxError while attempting to write provisional D1_finalizer.json; command exit_code=1; later successful writes used file/python tools",
+        "stderr_head": "exit: 1\n  File \"<string>\", line 296\n    'command': r\" python -c \\import\n               ^\nSyntaxError: unterminated string literal (detected at line 296)\n"
+      },
+      {
+        "seq": 8,
+        "name": "compute_finalizer_input_context_hash_and_utc_now",
+        "tool_call_id": "call-a8a606d0-bf68-41e8-8c96-f5587ef7439e-33",
+        "description": "Compute finalizer input_context_hash and UTC now",
+        "command": "E:\\standards\\maf\\.venv\\Scripts\\python.exe -c \"import hashlib; from pathlib import Path; ROOT=Path(r'E:/AIdle_openworld'); files=[ROOT/'orchestration/work_orders/WO-G8-001-D1-RECEIPT-FINALIZER-008.md', ROOT/'orchestration/work_orders/WO-G8-001-D1-WORKFLOW-CORRECTION-007.md', ROOT/'orchestration/control/codex_directive.json', ROOT/'.grok/agents/schema.md']; blob=b''.join(p.read_bytes() for p in files); d=hashlib.sha256(blob).hexdigest(); print('FULL_SHA256='+d); print('BYTE_LEN='+str(len(blob))); print('UTC_NOW='+__import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat())\"",
+        "exit_code": 0,
+        "transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+        "terminal_log_hint": "terminal/call-a8a606d0-bf68-41e8-8c96-f5587ef7439e-33.log"
+      },
+      {
+        "seq": 9,
+        "name": "verify_patched_e0_e1_receipt_fields",
+        "tool_call_id": "call-a8a606d0-bf68-41e8-8c96-f5587ef7439e-34",
+        "description": "Verify patched E0/E1 receipt fields",
+        "command": "E:\\standards\\maf\\.venv\\Scripts\\python.exe -c \"import json; from pathlib import Path; ex=json.loads(Path(r'E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json').read_text(encoding='utf-8')); core=json.loads(Path(r'E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json').read_text(encoding='utf-8')); print('E0', ex['start_time'], ex['end_time'], ex['receipt_finalizer_transcript_ref']); print('E1', core['start_time'], core['end_time'], core['receipt_finalizer_transcript_ref']); print('E0 lineage', ex['child_task_ref'], ex['correction_task_ref']); print('E1 lineage', core['child_task_ref'], core['correction_task_ref']); print('pseudo excluded', len(core.get('smoke_test',{}).get('pseudo_commands_excluded',[]))); print('cmd count', len(core['smoke_test']['commands'])); print('has set_end', any('e1_set_end' in p for p in core['files_written'])); print('has hash py', any('input_hash' in p for p in core['files_read'])); print('has schema py', any('schema_validate' in p for p in core['files_read'])); print('legacy defect', 'legacy_trace_defect' in core)\"",
+        "exit_code": 0,
+        "transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+        "terminal_log_hint": "terminal/call-a8a606d0-bf68-41e8-8c96-f5587ef7439e-34.log"
+      },
+      {
+        "seq": 10,
+        "name": "validate_receipts_stamp_end_time_write_utf8_log",
+        "tool_call_id": "call-b290f327-aa25-4789-9bcb-994e5496ed43-36",
+        "description": "Validate receipts, stamp end_time, write UTF-8 log",
+        "command": "$py = 'E:\\standards\\maf\\.venv\\Scripts\\python.exe'\n# Validate three receipts\n& $py -c \"import json,jsonschema; from pathlib import Path; s=json.loads(Path(r'E:/standards/maf/schemas/agent_step_contract.schema.json').read_text(encoding='utf-8')); root=Path(r'E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004');\nfor n in ['D1_executor.json','D1_core.json','D1_finalizer.json']:\n  jsonschema.validate(instance=json.loads((root/n).read_text(encoding='utf-8')), schema=s)\n  print(n+'=PASS')\nprint('ALL_THREE_JSONSCHEMA=PASS')\"\n\n# Meta reads\n& $py -c \"import json; from pathlib import Path; m=json.loads(Path(r'C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828a-5064-7c12-ac2c-69c5d8155d3a/meta.json').read_text(encoding='utf-8')); print(m['started_at']); print(m['completed_at'])\"\n& $py -c \"import json; from pathlib import Path; m=json.loads(Path(r'C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f828d-83a0-7691-ada9-d767d90ba841/meta.json').read_text(encoding='utf-8')); print(m['started_at']); print(m['completed_at'])\"\npowershell -NoProfile -Command \"Test-Path 'C:\\Users\\phant\\.grok\\active_sessions.json'\"\n\n# Stamp real end_time on finalizer and write clean UTF-8 log\n& $py -c @\"\nimport json\nfrom pathlib import Path\nfrom datetime import datetime, timezone\n\nREC = Path(r'E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004')\nLOG = Path(r'E:/AIdle_openworld/orchestration/logs/g8-d1-receipt-finalizer.log')\nfin = json.loads((REC / 'D1_finalizer.json').read_text(encoding='utf-8'))\nex = json.loads((REC / 'D1_executor.json').read_text(encoding='utf-8'))\ncore = json.loads((REC / 'D1_core.json').read_text(encoding='utf-8'))\n\n# real end now (7-digit fractional like platform)\nnow = datetime.now(timezone.utc)\n# format with 7 fractional digits: microseconds + 0\nend = now.strftime('%Y-%m-%dT%H:%M:%S.') + f'{now.microsecond:06d}' + '0Z'\nfin['end_time'] = end\n(REC / 'D1_finalizer.json').write_text(json.dumps(fin, indent=2, ensure_ascii=False) + '\\n', encoding='utf-8')\n\nlines = []\nlines.append('=== G8 D1 RECEIPT FINALIZER LOG (Dir28 / WO-008) ===')\nlines.append('encoding=utf-8')\nlines.append(f'finalizer_child_task_ref={fin[\\\"child_task_ref\\\"]}')\nlines.append(f'spawned_by_parent_ref={fin[\\\"spawned_by_parent_ref\\\"]}')\nlines.append(f'authority_token=VERIFY_ONLY')\nlines.append(f'start_time={fin[\\\"start_time\\\"]}')\nlines.append(f'end_time={fin[\\\"end_time\\\"]}')\nlines.append('self_accept=false')\nlines.append('accepted=false')\nlines.append('product_writes=[]')\nlines.append('parent_product_patch=false')\nlines.append('d2_spawn_allowed=false')\nlines.append('d3_spawn_allowed=false')\nlines.append('handoff=D2_BLOCKED_PENDING_CODEX')\nlines.append('g8_accepted=false')\nlines.append('')\nlines.append('--- ACTIVE PARENT ---')\nlines.append('active_sessions_count=1')\nlines.append('active_parent_session_only=019f7ffd-3995-71c0-aca1-51078e24a852')\nlines.append('')\nlines.append('--- ROLE SEPARATION ---')\nlines.append('execution_vs_receipt_finalization=DISTINCT')\nlines.append('execution_E0=019f828a-5064-7c12-ac2c-69c5d8155d3a')\nlines.append('execution_E1=019f828d-83a0-7691-ada9-d767d90ba841')\nlines.append(f'receipt_finalizer_transcript_ref={fin[\\\"child_task_ref\\\"]}')\nlines.append('statement=Execution children performed verification/evidence; finalizer only rewrote receipts under VERIFY_ONLY with no product/G3/G4/headed commands.')\nlines.append('')\nlines.append('--- DURABLE TIMES BOUND ---')\nlines.append(f'E0_start={ex[\\\"start_time\\\"]}')\nlines.append(f'E0_end={ex[\\\"end_time\\\"]}')\nlines.append(f'E1_start={core[\\\"start_time\\\"]}')\nlines.append(f'E1_end={core[\\\"end_time\\\"]}')\nlines.append('E0_matches_meta=true')\nlines.append('E1_matches_meta=true')\nlines.append('')\nlines.append('--- LINEAGE PRESERVED ---')\nlines.append(f'E0_child_task_ref={ex[\\\"child_task_ref\\\"]}')\nlines.append(f'E0_original_child_task_ref={ex[\\\"original_child_task_ref\\\"]}')\nlines.append(f'E0_prior_correction_ref={ex[\\\"prior_correction_ref\\\"]}')\nlines.append(f'E0_correction_task_ref={ex[\\\"correction_task_ref\\\"]}')\nlines.append(f'E1_child_task_ref={core[\\\"child_task_ref\\\"]}')\nlines.append(f'E1_original_child_task_ref={core[\\\"original_child_task_ref\\\"]}')\nlines.append(f'E1_prior_correction_ref={core[\\\"prior_correction_ref\\\"]}')\nlines.append(f'E1_correction_task_ref={core[\\\"correction_task_ref\\\"]}')\nlines.append(f'E0_receipt_finalizer_transcript_ref={ex[\\\"receipt_finalizer_transcript_ref\\\"]}')\nlines.append(f'E1_receipt_finalizer_transcript_ref={core[\\\"receipt_finalizer_transcript_ref\\\"]}')\nlines.append('')\nlines.append('--- CORE PROVENANCE FIXES ---')\nlines.append('files_written_added=orchestration/logs/_d1_core_e1_set_end.py')\nlines.append('files_read_added=_d1_core_input_hash.py,_d1_core_schema_validate.py')\nlines.append('pseudo_command_removed=six_tracked_zero_diff_aggregate')\nlines.append(f'smoke_test_commands_remaining={len(core[\\\"smoke_test\\\"][\\\"commands\\\"])}')\nlines.append('legacy_trace_defect=DISCLOSED_NOT_ERASED')\nlines.append('legacy_path=orchestration/logs/g8-d1-core-child.log')\nlines.append('legacy_note=E1 append used incompatible encoding; child ref not normally searchable; historical file not erased or silently normalized')\nlines.append('')\nlines.append('--- QUARANTINE ---')\nlines.append('019f8289-5794-72d2-88fc-26f1e04faff8=accidental_top_level_QUARANTINED')\nlines.append('019f828b-57c0-72c2-99ee-fcf2d7d9866a=cancelled_child_QUARANTINED')\nlines.append('019f7c5f-04b5-7902-9a0b-e1159294bb1d=directive_quarantine_ref')\nlines.append('not_accepted_execution_lineage=true')\nlines.append('d2_premature_outputs_non_evidence=true')\nlines.append('')\nlines.append('--- COMMANDS (finalizer-safe only) ---')\nlines.append('no_product_g3_g4_headed=true')\nlines.append('jsonschema_D1_executor=PASS')\nlines.append('jsonschema_D1_core=PASS')\nlines.append('jsonschema_D1_finalizer=PASS')\nlines.append('ALL_THREE_JSONSCHEMA=PASS')\nlines.append('')\nlines.append('--- CHARACTER / SKILLS ---')\nlines.append('trustlayer=devil-advocate')\nlines.append('ui=ui-brief-writer')\nlines.append('skills_loaded_count=8')\nlines.append('skills=maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,od-design-brief,od-reference-design-contract,evidence-memory-ledger')\nlines.append('')\nlines.append('--- COMPLETION ---')\nlines.append('state=CHANGES_REQUESTED')\nlines.append('completion_state=WAITING_CODEX')\nlines.append('next_route=D2_BLOCKED_PENDING_CODEX')\nlines.append('verdict=PASS (finalizer receipt duties only; G8 not ACCEPTED)')\nlines.append('=== END ===')\n\ntext = '\\n'.join(lines) + '\\n'\nLOG.write_text(text, encoding='utf-8', newline='\\n')\n# verify clean utf-8 roundtrip\nraw = LOG.read_bytes()\nassert raw.decode('utf-8') == text\nprint('LOG_UTF8_OK bytes=' + str(len(raw)))\nprint('FINALIZER_END=' + end)\n\n# re-validate all three after end_time stamp\nimport jsonschema\ns=json.loads(Path(r'E:/standards/maf/schemas/agent_step_contract.schema.json').read_text(encoding='utf-8'))\nfor n in ['D1_executor.json','D1_core.json','D1_finalizer.json']:\n  jsonschema.validate(instance=json.loads((REC/n).read_text(encoding='utf-8')), schema=s)\n  print(n+'=PASS')\nprint('FINAL_ALL_THREE=PASS')\n\"@\n",
+        "exit_code": 0,
+        "transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+        "terminal_log_hint": "terminal/call-b290f327-aa25-4789-9bcb-994e5496ed43-36.log"
+      },
+      {
+        "seq": 11,
+        "name": "final_sanity_assertions_three_receipts",
+        "tool_call_id": "call-b0bd5950-e5cb-4334-a56e-4d17984105a7-37",
+        "description": "Final sanity assertions on three receipts",
+        "command": "E:\\standards\\maf\\.venv\\Scripts\\python.exe -c \"\nimport json\nfrom pathlib import Path\nREC=Path(r'E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004')\nex=json.loads((REC/'D1_executor.json').read_text(encoding='utf-8'))\ncore=json.loads((REC/'D1_core.json').read_text(encoding='utf-8'))\nfin=json.loads((REC/'D1_finalizer.json').read_text(encoding='utf-8'))\nassert ex['start_time']=='2026-07-21T02:38:50.514725600Z'\nassert ex['end_time']=='2026-07-21T02:42:06.058939300Z'\nassert core['start_time']=='2026-07-21T02:42:20.258506100Z'\nassert core['end_time']=='2026-07-21T02:44:41.775646100Z'\nassert ex['product_writes']==[] and core['product_writes']==[] and fin['product_writes']==[]\nassert ex['self_accept'] is False and core['self_accept'] is False and fin['self_accept'] is False\nassert fin['authority_token']=='VERIFY_ONLY'\nassert fin['next_route']=='D2_BLOCKED_PENDING_CODEX'\nassert fin['result']['directive_id']==28\nassert fin['result']['accepted'] is False\nassert fin['result']['d2_spawn_allowed'] is False\nassert fin['result']['d3_spawn_allowed'] is False\n# no pseudo\nfor c in core['smoke_test']['commands']:\n  assert 'pairs above' not in c.get('command','')\n  assert 'exit_code' in c and 'command' in c\n# quarantine on all three\nfor r in (ex,core,fin):\n  assert 'quarantine' in r\n  refs=[x['ref'] for x in r['quarantine']['quarantined_refs']]\n  assert '019f8289-5794-72d2-88fc-26f1e04faff8' in refs\n  assert '019f828b-57c0-72c2-99ee-fcf2d7d9866a' in refs\nprint('SANITY_OK')\nprint('finalizer_ref', fin['child_task_ref'])\nprint('finalizer_start', fin['start_time'])\nprint('finalizer_end', fin['end_time'])\nprint('skills', fin['result']['skills_loaded_count'])\nprint('log_exists', Path(r'E:/AIdle_openworld/orchestration/logs/g8-d1-receipt-finalizer.log').exists())\n\"\n",
+        "exit_code": 0,
+        "transcript_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+        "terminal_log_hint": "terminal/call-b0bd5950-e5cb-4334-a56e-4d17984105a7-37.log"
+      }
+    ],
+    "exit_code_1_included": true,
+    "failed_command_name": "write_d1_finalizer_json_provisional_FAILED",
+    "product_g3_g4_headed_commands_included": false,
+    "note": "Full ledger reconstructed from durable chat_history.jsonl tool_calls named run_terminal_command for child 019f82c6-187a-7932-81ed-9011410b6661. Prior receipt listed only 4 non-literal substitute commands; those are superseded."
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "VERIFY_ONLY",
+    "no_self_accept": true,
+    "self_accept": false,
+    "product_writes_empty": true,
+    "parent_product_patch": false,
+    "no_grandchildren": true,
+    "d2_not_spawned": true,
+    "d3_not_spawned": true,
+    "no_product_g3_g4_headed_commands": true,
+    "character_skill_trace_present": true,
+    "skills_manifest_always_complete": true,
+    "skills_loaded_count": 8,
+    "durable_times_bound": true,
+    "execution_lineage_preserved": true,
+    "role_separation_stated": true,
+    "quarantine_present": true,
+    "one_active_parent_session": true,
+    "active_parent_session_only": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "png_evidence_not_mutated": true,
+    "g8_not_accepted": true,
+    "command_ledger_count": 11,
+    "exit_code_1_disclosed": true,
+    "end_time_equals_durable_completed_at": true,
+    "receipt_writer_end_time_preserved": true,
+    "receipt_correction_child_ref_present": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-d1-receipt-finalizer.log",
+    "orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json",
+    "orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+    "orchestration/receipts/g8/subagent_workflow_remediation_004/D1_finalizer.json",
+    "orchestration/work_orders/WO-G8-001-D1-RECEIPT-FINALIZER-008.md",
+    "orchestration/control/codex_directive.json"
+  ],
+  "next_route": "D2_BLOCKED_PENDING_CODEX",
+  "receipt_correction_child_ref": "019f82d1-ce77-7b63-9ccd-19595307939f",
+  "durable_started_at": "2026-07-21T03:44:08.319420400Z",
+  "durable_completed_at": "2026-07-21T03:48:58.803743900Z",
+  "receipt_writer_end_time": "2026-07-21T03:48:32.3706120Z",
+  "command_provenance_correction": {
+    "directive_id": 30,
+    "work_order": "orchestration/work_orders/WO-G8-001-D1-FINALIZER-PROVENANCE-CORRECTION-010.md",
+    "receipt_correction_child_ref": "019f82d1-ce77-7b63-9ccd-19595307939f",
+    "prior_finalizer_child_ref": "019f82c6-187a-7932-81ed-9011410b6661",
+    "reconstructed_command_count": 11,
+    "exit_code_1_disclosed": true,
+    "failed_command_seq": 7,
+    "failed_tool_call_id": "call-3ec5cc01-a9c8-443d-a780-172b05144a61-32",
+    "end_time_bound_to_durable_completed_at": true,
+    "receipt_writer_end_time_preserved": "2026-07-21T03:48:32.3706120Z",
+    "source_transcript_dir": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f82c6-187a-7932-81ed-9011410b6661/"
+  }
+}

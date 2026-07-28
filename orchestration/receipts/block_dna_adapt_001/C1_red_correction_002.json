@@ -1,0 +1,405 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "BLOCK-DNA-ADAPT-001-c1-red-correction-002-2026-07-22",
+  "step_id": "BLOCK-DNA-ADAPT-001-c1-red-correction-002",
+  "work_order_id": "WO-BLOCK-DNA-ADAPT-001-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-BLOCK-DNA-ADAPT-001-CORRECTION-001.md",
+  "work_order_sha256": "920603504f97c8a2b4a5741d64108724b3c9352c0303e99064fa1f2564830737",
+  "review_ref": "orchestration/reviews/CODEX_BLOCK-DNA-ADAPT-001_MACHINE_REVIEW_001.json",
+  "directive_id": 69,
+  "milestone": "Block-DNA contract gate — C1 red independent residual re-probe (F-B2-01..03)",
+  "agent_id": "aidle-worldgen-red-scope",
+  "agent_type": "aidle-worldgen-red-scope",
+  "profile_name": "aidle-worldgen-red-scope",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "profile_sha256": "7faf2b2b6bc07d18a1de109ccffd29279e7c7e060a24545e0fa2ee2bed1bebe5",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-red-scope; trustlayer_character=red-team-source-auditor; ui_character=ui-visual-critic; authority_token=READ_ONLY_AUDIT; findings only never patch; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set review_findings_only.",
+  "authority_token": "READ_ONLY_AUDIT",
+  "authority": "READ_ONLY_AUDIT",
+  "authority_scope": "findings-only exclusive C1 log+receipt; product_writes=[]; never patch contracts/DNA/game; never rewrite D68 B0-B4 evidence; never ACCEPTED; no grandchildren",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:178187eb24bcfd652a30fbc124bafe667df0a2d8d87f03e15ea50d5834b817a3",
+  "input_context_hash_16": "178187eb24bcfd65",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-BLOCK-DNA-ADAPT-001-CORRECTION-001.md + C0_schema_correction_002.json + aidle-worldgen-red-scope.md + ARCHITECTURE_LOCK.md + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C1_COMPLETE_ROUTE_C2_QA",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "PASS",
+  "child_task_ref": "019f8835-182e-7392-9f3f-49d9619cb285",
+  "transcript_ref": "019f8835-182e-7392-9f3f-49d9619cb285",
+  "writer_transcript_ref": "019f8835-182e-7392-9f3f-49d9619cb285",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_c0_ref": "019f882b-e07d-7aa3-bb81-386e36ead70f",
+  "prior_b1_ref": "019f8804-7915-71d2-b3b1-573b701a202e",
+  "prior_b2_ref": "019f880d-303a-7243-b540-1d0cf699918c",
+  "durable_session_path": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f8835-182e-7392-9f3f-49d9619cb285",
+  "started_at": "2026-07-22T04:51:04.2031380Z",
+  "completed_at_utc": "2026-07-22T05:06:30Z",
+  "next_owner": "C2_QA",
+  "next_route": "C2_QA",
+  "character_binding": {
+    "trustlayer_character_id": "red-team-source-auditor",
+    "trustlayer_file": "E:/agents/characters/05-red-team-source-auditor.md",
+    "trustlayer_sha256": "6d809c350b34e4512e886e582d555235bf85361884c05c8e4e2f7c6e5f838951",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_eof",
+    "role": "C1 READ_ONLY_AUDIT red independent residual re-probe of C0 correction; findings only; never patch; never self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded profile, TrustLayer/UI, WO CORRECTION-001, C0 receipt, ARCHITECTURE_LOCK, skills, contracts, and agent_step_contract schema manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "chunked_full_eof",
+      "transcript_ranges": [
+        {"offset": 1, "limit": 400},
+        {"offset": 401, "limit": 400},
+        {"offset": 801, "limit": 400}
+      ],
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "bytes": 1766,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "bytes": 828,
+      "line_count": 26,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "architecture_lock_project": {
+    "path": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+    "sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027",
+    "read": "full_eof",
+    "status": "ACTIVE"
+  },
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/block-dna-adapt-001-c1-red-correction-002.log",
+    "E:/AIdle_openworld/orchestration/receipts/block_dna_adapt_001/C1_red_correction_002.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/logs/block-dna-adapt-001-c1-red-correction-002.log",
+    "E:/AIdle_openworld/orchestration/receipts/block_dna_adapt_001/C1_red_correction_002.json"
+  ],
+  "immutable_not_rewritten": [
+    "orchestration/logs/block-dna-adapt-001-b0-ssot-001.log",
+    "orchestration/logs/block-dna-adapt-001-b1-schema-001.log",
+    "orchestration/logs/block-dna-adapt-001-b2-red-001.log",
+    "orchestration/logs/block-dna-adapt-001-b3-qa-001.log",
+    "orchestration/logs/block-dna-adapt-001-b4-purple-001.log",
+    "orchestration/receipts/block_dna_adapt_001/B0_ssot_preflight_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B1_schema_contract_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B2_red_audit_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B3_qa_evidence_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B4_purple_gate_001.json",
+    "orchestration/logs/block-dna-adapt-001-c0-schema-correction-002.log",
+    "orchestration/receipts/block_dna_adapt_001/C0_schema_correction_002.json",
+    "orchestration/contracts/block_dna_adapt_001/**"
+  ],
+  "forbidden_paths_not_written": [
+    "world_DNA/**",
+    "game/**",
+    "Scene/**",
+    "Control/**",
+    "game_character/**",
+    "PersistModule/**",
+    "contracts/world_prompt.schema.json"
+  ],
+  "c0_product_hash_recheck": {
+    "all_match": true,
+    "hashes": {
+      "build_recipe.schema.json": "55eabacc0791fbee2da5565bee3d78d9c6492fd7d2ca5467d6cbc5f04b3173af",
+      "build_graph.schema.json": "dc4152fce582181169483895c1ac4e96ac2eb927a0cdb738cd8321958681c806",
+      "socket_catalog.contract.json": "cc7cc19fd0b23d229c1ff93148366d5419988fd9afb03ddc9b6adc111c9b1a5c",
+      "material_slot_mapping.contract.json": "cdbbe48d5cfd0e24430283797c8ef5a0379682748bb014cb4cebe889daeab753",
+      "validate_block_dna_adapt_001.py": "5b75c271c1fdf7a9b4f9526877c7b979238d0033b01dd647cefe3a6e68110a1e",
+      "source_baseline.lock.json": "ddeaf8ec93bf001a30164876e82afcc1a680f780556d5f0a328aa6344a793cda"
+    }
+  },
+  "result": {
+    "verdict": "PASS",
+    "summary": "C1 READ_ONLY_AUDIT independently re-ran the C0 fixture matrix (valid 14/14 PASS, invalid 42/42 REJECT, baseline key-file + BOTH DNA tree aggregates PASS) and independently re-probed F-B2-01..03 in-memory. All three prior BLOCKING residuals now REJECT on the adversarial cases that previously passed; fingerprint is schema-legal and required; same-key changed payload conflicts; peer laundering of directed sockets rejects; wrong known normalization ID rejects; four asymmetric norms covered by VALID-14. Hardening co-require material, code-shaped params, validation const true, and live tree aggregates PASS. product_writes=[]; accepted=false; self_accept=false; next_owner=C2_QA.",
+    "blocking_findings_count": 0,
+    "non_blocking_notes_count": 2,
+    "fixture_gate_re_run": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit_code": 0,
+      "valid_n": 14,
+      "valid_pass": 14,
+      "invalid_m": 42,
+      "invalid_rejected": 42,
+      "ledger_valid_stable_replays": 1,
+      "ledger_valid_conflicts": 0,
+      "ledger_inv_stable_replays": 0,
+      "ledger_inv_conflicts": 1,
+      "baseline_key_files_and_trees": "PASS"
+    },
+    "findings_status": {
+      "F-B2-01": {
+        "prior_severity": "BLOCKING",
+        "status": "CLOSED",
+        "classification": "FACT",
+        "title": "Canonical idempotency binding via required payload_fingerprint + ReplayLedger",
+        "independent_probes": [
+          {
+            "id": "P1a_MISSING_FP",
+            "result": "REJECT",
+            "detail": "schema required + missing_payload_fingerprint"
+          },
+          {
+            "id": "P1b_MALFORMED_FP",
+            "result": "REJECT",
+            "detail": "pattern ^[a-f0-9]{64}$ + malformed_payload_fingerprint"
+          },
+          {
+            "id": "P1c_WRONG_FP",
+            "result": "REJECT",
+            "detail": "payload_fingerprint_mismatch vs canonical projection"
+          },
+          {
+            "id": "P1d_SAME_KEY_CHANGED_REQUEST_ID",
+            "result": "REJECT",
+            "detail": "idempotency_replay_conflict:same_key_changed_payload after correct recompute of fingerprint"
+          },
+          {
+            "id": "P1e_STABLE_REPLAY",
+            "result": "PASS",
+            "detail": "identical key+payload → stable_replays=1 conflicts=0"
+          },
+          {
+            "id": "P1f_SAME_KEY_PAYLOAD_X_CHANGED",
+            "result": "REJECT",
+            "detail": "transform.x mutated + recomputed fingerprint → ledger conflict"
+          },
+          {
+            "id": "P1_SCHEMA_LEGAL_REQUIRED",
+            "result": "PASS",
+            "detail": "graph+recipe property+required; pattern ^[a-f0-9]{64}$"
+          },
+          {
+            "id": "P1_PROJECTION_EXCLUDES_ONLY_FP",
+            "result": "PASS",
+            "detail": "canonical_payload_projection drops only payload_fingerprint"
+          }
+        ]
+      },
+      "F-B2-02": {
+        "prior_severity": "BLOCKING",
+        "status": "CLOSED",
+        "classification": "FACT",
+        "title": "Catalog-bound polarity; peer laundering of directed sockets rejected",
+        "independent_probes": [
+          {
+            "id": "P2a_PEER_LAUNDER_NO_NORM",
+            "result": "REJECT",
+            "detail": "peer/peer on terrain_surface/prop_base → catalog_polarity_mismatch + peer_launder_directed_sockets + asymmetric_source_without_normalization"
+          },
+          {
+            "id": "P2b_PEER_LAUNDER_WITH_NORM",
+            "result": "REJECT",
+            "detail": "peer/peer with norm present → normalization_orientation_or_polarity_mismatch"
+          },
+          {
+            "id": "P2c_CATALOG_POLARITY_MISMATCH",
+            "result": "REJECT",
+            "detail": "declared input/output != catalog peer/peer defaults"
+          },
+          {
+            "id": "P2_CONTROL_VALID01",
+            "result": "PASS",
+            "detail": "unmutated VALID-01 still validates"
+          }
+        ]
+      },
+      "F-B2-03": {
+        "prior_severity": "BLOCKING",
+        "status": "CLOSED",
+        "classification": "FACT",
+        "title": "adapter_normalization_id pair-bound; wrong known ID rejects",
+        "independent_probes": [
+          {
+            "id": "P3a_WRONG_KNOWN_NORM",
+            "result": "REJECT",
+            "detail": "wall_edge/window_opening + norm_terrain_surface_prop_base_v1 → adapter_normalization_pair_mismatch"
+          },
+          {
+            "id": "P3b_UNKNOWN_NORM",
+            "result": "REJECT",
+            "detail": "unknown_normalization_id:norm_does_not_exist_v9"
+          },
+          {
+            "id": "P3c_FOUR_ASYMMETRIC_NORMS",
+            "result": "PASS",
+            "detail": "VALID-14 covers all four asymmetric source pairs with matching norm IDs and validates"
+          }
+        ]
+      }
+    },
+    "hardening_probes": {
+      "material_co_require_slot_without_p1e": "REJECT",
+      "material_co_require_p1e_without_slot": "REJECT",
+      "bidirectional_material_reverse_mismatch": "REJECT",
+      "code_shaped_parameter_keys": "REJECT",
+      "validation_flags_false": "REJECT",
+      "validation_schema_const_true": "PASS",
+      "dna_tree_aggregates_verify_baseline": "PASS",
+      "tree_aggregates_observed": {
+        "v1.0_package_tree_aggregate_sha256": "44a0e19402d50b42361077e2435e44a8d0dcb4ac2b158d156b60935c4bd8a3c7",
+        "v1.0_package_tree_file_count_ex_pycache": 153,
+        "v1.1_Tier3_package_tree_aggregate_sha256": "5edd562312b6b8b1411afbefbea1625d74e0cb2a5ee8105b0a4e585c321d6c28",
+        "v1.1_Tier3_package_tree_file_count_ex_pycache": 183
+      }
+    },
+    "non_blocking_notes": [
+      {
+        "note_id": "N-C1-01",
+        "severity": "INFO",
+        "statement": "ReplayLedger is harness-scoped (bounded in-memory). Production must still bind idempotency_key→payload_fingerprint server-side outside this offline gate. Does not reopen F-B2-01 relative to CORRECTION-001 WO text."
+      },
+      {
+        "note_id": "N-C1-02",
+        "severity": "INFO",
+        "statement": "Adapter remains proposal-only (pending+preview). No executable Structured World Prompt emission check in this gate — out of C1 residual scope; C0 residual_risk already recorded."
+      }
+    ]
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "python_validator_fixture_gate_plus_in_memory_residual_reprobes",
+    "command": "PYTHONDONTWRITEBYTECODE=1 python -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+    "exit_code": 0,
+    "pass": true,
+    "valid_n": 14,
+    "invalid_m": 42,
+    "valid_pass": 14,
+    "invalid_rejected": 42,
+    "residual_probes_performed": true,
+    "blocking_count": 0,
+    "f_b2_01": "CLOSED",
+    "f_b2_02": "CLOSED",
+    "f_b2_03": "CLOSED",
+    "hardening": "PASS",
+    "log": "orchestration/logs/block-dna-adapt-001-c1-red-correction-002.log"
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "directive_68_evidence_not_rewritten": true,
+    "c0_evidence_not_rewritten": true,
+    "dna_not_modified": true,
+    "game_not_modified": true,
+    "world_prompt_schema_not_modified": true,
+    "p2e_not_started": true,
+    "findings_only_no_patch": true,
+    "maf_required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "residual_risks": [
+      "Harness-scoped idempotency ledger is not a production store.",
+      "No executable SWP emission — adapter contract only."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-BLOCK-DNA-ADAPT-001-CORRECTION-001.md",
+    "orchestration/receipts/block_dna_adapt_001/C0_schema_correction_002.json",
+    "orchestration/receipts/block_dna_adapt_001/B2_red_audit_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B4_purple_gate_001.json",
+    "orchestration/logs/block-dna-adapt-001-c1-red-correction-002.log",
+    "orchestration/receipts/block_dna_adapt_001/C1_red_correction_002.json",
+    "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py"
+  ],
+  "trace": {
+    "handoff_from": "C0_019f882b-e07d-7aa3-bb81-386e36ead70f",
+    "handoff_to": "C2_QA",
+    "wave": "C1",
+    "task_id": "BLOCK-DNA-ADAPT-001"
+  },
+  "commands": [
+    {
+      "cmd": "PYTHONDONTWRITEBYTECODE=1 python -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit_code": 0,
+      "summary": "valid 14/14; invalid 42/42; trees PASS; ledger valid_stable_replays=1 inv_conflicts=1"
+    },
+    {
+      "cmd": "python -B stdin independent residual re-probes (import validate_block_dna_adapt_001; no writes)",
+      "exit_code": 0,
+      "summary": "F-B2-01..03 CLOSED; hardening PASS; blocking_count=0"
+    }
+  ]
+}

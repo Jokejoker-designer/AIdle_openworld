@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.0.0",
+  "package_id": "ucbv_001_nori7_modular_body_outfit_v1",
+  "wave": "U2",
+  "c0_amendment": {
+    "wave": "C0_VISUAL_PRODUCTION_PREFLIGHT",
+    "directive_id": 83,
+    "work_order_id": "WO-UCBV-001-STRICT-CORRECTION-002",
+    "cream_reconciliation": "canonical_bible_#fdf3e2_shade_#efe0c8; dna_#F7E9C6_alias_only",
+    "nearly_white_remediation": "multi_value_body_plus_darker_joints_panels_face_required",
+    "animation_contract": "character/nori7/C0_animation_contract_lock.md"
+  },
+  "directive_id": 81,
+  "work_order_id": "WO-UCBV-001-UNIFIED-CHARACTER-BLOCK-VISUAL-FOUNDATION",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "author_wave": "U2_VISUAL_SILHOUETTE",
+  "accepted": false,
+  "self_accept": false,
+  "identity": {
+    "display_name": "Nori-7",
+    "character_id": "CCP-RH-001",
+    "world_profile_id": "cozy_cyber_pixel",
+    "character_class": "ROBOT_HELPER",
+    "recipe_id": "recipe_nori7_v1",
+    "root_module_id": "char_nori7_base",
+    "skeleton_id_label": "skel_small_biped_robot_v1",
+    "animation_set_id": "anim_robot_gardener_v1"
+  },
+  "authority": {
+    "art_direction_ssot": "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/world_profiles/COZY_ART_BIBLE_001.md",
+    "runtime_material_ssot": "orchestration/contracts/block_dna_adapt_001/material_slot_mapping.contract.json",
+    "u1_alias_table": "orchestration/design/ucbv_001/style_lock/unified_palette_material_alias_table.json",
+    "u1_tokens": "game/resources/art_styles/tokens/ucbv_001_shared_character_block_tokens.json",
+    "dna_material_theme_status": "NON_AUTHORITATIVE_ALIAS_ONLY",
+    "dna_material_theme_id": "mat_cozy_cream_leaf_v1",
+    "dna_theme_hex_not_paint_truth": ["#F7E9C6", "#78B65B"]
+  },
+  "modules": [
+    {
+      "instance_id": "root",
+      "module_id": "char_nori7_base",
+      "role": "body_shell",
+      "sockets_out": ["character_back", "character_hand", "character_head"],
+      "material_slots": [
+        {
+          "slot_name": "body",
+          "region": "primary_ceramic_shell",
+          "shared_vocabulary": "body",
+          "bible_hex": "#fdf3e2",
+          "bible_shade_hex": "#efe0c8",
+          "semantic_slot": "body",
+          "mat_id": "MAT_CozyCeramic",
+          "surface": "matte_tactile",
+          "c0_production_notes": {
+            "canonical_vs_dna": "Paint from bible #fdf3e2/#efe0c8 only; DNA #F7E9C6 is NON_AUTHORITATIVE_ALIAS_ONLY",
+            "nearly_white_rule": "Must use lit cream + shade bands; forbid pure white #FFFFFF and flat monochrome near-white body",
+            "value_separation": "Body may sit slightly lighter than architecture wall cream but must remain warm readable cream, not blown white"
+          }
+        },
+        {
+          "slot_name": "leaf_joints",
+          "region": "joint_rings_limb_bands",
+          "shared_vocabulary": "leaf",
+          "bible_hex": "#7fc98f",
+          "semantic_slot": "leaf",
+          "mat_id": "MAT_CozyLeaf",
+          "surface": "matte_tactile",
+          "c0_production_notes": {
+            "contrast_required": true,
+            "must_read_darker_than_body": true,
+            "dna_leaf_#78B65B": "alias only; production uses bible foliage_mid #7fc98f"
+          }
+        },
+        {
+          "slot_name": "glass_eyes",
+          "region": "eye_lenses",
+          "shared_vocabulary": "glass",
+          "bible_hex": "#a8dced",
+          "socket_hex": "#3d3226",
+          "semantic_slot": "glass",
+          "mat_id": "MAT_CozyGlass",
+          "surface": "soft_glass",
+          "specular_exception": true
+        },
+        {
+          "slot_name": "stone_foot_pads",
+          "region": "foot_pads",
+          "shared_vocabulary": "stone",
+          "bible_role": "warm_stone",
+          "semantic_slot": "stone",
+          "mat_id": "MAT_CozyStoneWarm",
+          "surface": "matte_tactile"
+        },
+        {
+          "slot_name": "cloth_pads",
+          "region": "optional_soft_pad_accents",
+          "shared_vocabulary": "cloth",
+          "semantic_slot": "trim",
+          "mat_id": "MAT_CozyWood",
+          "alt_mat_id": "MAT_CozyFlowerPink",
+          "note": "No fabric simulation; secondary material planes only"
+        },
+        {
+          "slot_name": "emissive_face_ui",
+          "region": "soft_face_blink_only",
+          "shared_vocabulary": "emissive",
+          "semantic_slot": "emission",
+          "mat_id": "MAT_CozyLampWarm",
+          "forbidden_hex": ["#3fd0e0", "#8ff0ff"],
+          "note": "Warm non-cyan only; optional"
+        },
+        {
+          "slot_name": "interactive_highlight",
+          "region": "selection_focus_outline",
+          "shared_vocabulary": "interactive_highlight",
+          "mat_ids_allowed": ["MAT_CozyPreviewMarker", "MAT_CozyGlassPreview"],
+          "non_color_signals_required": ["outline", "opacity", "icon", "stage_label"]
+        }
+      ]
+    },
+    {
+      "instance_id": "tank",
+      "module_id": "attach_water_tank_small",
+      "role": "rear_water_tank",
+      "socket": {
+        "from_instance": "root",
+        "from_socket": "character_back",
+        "to_socket": "back_attachment"
+      },
+      "material_slots": [
+        {
+          "slot_name": "body",
+          "region": "tank_shell",
+          "shared_vocabulary": "body",
+          "bible_hex": "#efe0c8",
+          "semantic_slot": "body",
+          "mat_id": "MAT_CozyCeramic"
+        },
+        {
+          "slot_name": "wood",
+          "region": "shoulder_strap_bands",
+          "shared_vocabulary": "wood",
+          "bible_hex": "#c98a5e",
+          "semantic_slot": "wood",
+          "mat_id": "MAT_CozyWood"
+        },
+        {
+          "slot_name": "glass",
+          "region": "optional_fill_window",
+          "shared_vocabulary": "glass",
+          "bible_hex": "#a8dced",
+          "semantic_slot": "glass",
+          "mat_id": "MAT_CozyGlass",
+          "optional": true
+        },
+        {
+          "slot_name": "metal",
+          "region": "cap_ring_budgeted",
+          "shared_vocabulary": "metal",
+          "semantic_slot": "metal",
+          "mat_id": "MAT_CozyMetal",
+          "surface_fraction_max_global": 0.15
+        }
+      ]
+    },
+    {
+      "instance_id": "nozzle",
+      "module_id": "attach_watering_nozzle_A",
+      "role": "watering_tool",
+      "socket": {
+        "from_instance": "root",
+        "from_socket": "character_hand",
+        "to_socket": "tool_grip"
+      },
+      "material_slots": [
+        {
+          "slot_name": "metal",
+          "region": "nozzle_barrel_tip",
+          "shared_vocabulary": "metal",
+          "semantic_slot": "metal",
+          "mat_id": "MAT_CozyMetal",
+          "surface_fraction_max_global": 0.15
+        },
+        {
+          "slot_name": "wood",
+          "region": "grip_band",
+          "shared_vocabulary": "wood",
+          "bible_hex": "#c98a5e",
+          "semantic_slot": "wood",
+          "mat_id": "MAT_CozyWood"
+        },
+        {
+          "slot_name": "leaf",
+          "region": "joint_to_arm",
+          "shared_vocabulary": "leaf",
+          "bible_hex": "#7fc98f",
+          "semantic_slot": "leaf",
+          "mat_id": "MAT_CozyLeaf"
+        }
+      ],
+      "states": {
+        "stowed": "flush_along_forearm",
+        "extended": "forward_down_for_water_or_build_point"
+      }
+    },
+    {
+      "instance_id": "sprout",
+      "module_id": "attach_mechanical_sprout_A",
+      "role": "crown_status_feature",
+      "socket": {
+        "from_instance": "root",
+        "from_socket": "character_head",
+        "to_socket": "head_attachment"
+      },
+      "material_slots": [
+        {
+          "slot_name": "leaf",
+          "region": "stem_and_leaves",
+          "shared_vocabulary": "leaf",
+          "bible_hex": "#7fc98f",
+          "bible_light_hex": "#95d9a3",
+          "semantic_slot": "leaf",
+          "mat_id": "MAT_CozyLeaf",
+          "alt_mat_id": "MAT_CozyStem"
+        },
+        {
+          "slot_name": "metal",
+          "region": "mechanical_collar_at_root",
+          "shared_vocabulary": "metal",
+          "semantic_slot": "metal",
+          "mat_id": "MAT_CozyMetal",
+          "surface_fraction_max_global": 0.15
+        }
+      ],
+      "readability": {
+        "rear_view_mandatory": true,
+        "lod2_keep_tip": true
+      }
+    }
+  ],
+  "outfit_policy": {
+    "wardrobe_system": false,
+    "description": "Base kit only: ceramic body + recipe attachments. Soft pads/straps are material-plane accents, not a clothing inventory.",
+    "max_dominant_palette_groups": 3,
+    "palette_groups": [
+      {
+        "id": "G1_warm_cream_ceramic",
+        "bible_hex": ["#fdf3e2", "#efe0c8", "#e0d5c4"],
+        "mat_ids": ["MAT_CozyCeramic", "MAT_CozyStoneWarm"]
+      },
+      {
+        "id": "G2_leaf_life_green",
+        "bible_hex": ["#7fc98f", "#6bb87f", "#95d9a3"],
+        "mat_ids": ["MAT_CozyLeaf", "MAT_CozyStem"]
+      },
+      {
+        "id": "G3_warm_wood_sky_glass",
+        "bible_hex": ["#c98a5e", "#a8dced"],
+        "mat_ids": ["MAT_CozyWood", "MAT_CozyGlass", "MAT_CozyMetal"]
+      }
+    ],
+    "manifestation_cyan_on_complete_body": false
+  },
+  "recipe_material_override_remap": {
+    "recipe_slot": "body",
+    "recipe_theme_id": "mat_cozy_cream_leaf_v1",
+    "recipe_color_hex": "#F7E9C6",
+    "production_bible_hex": "#fdf3e2",
+    "production_mat_id": "MAT_CozyCeramic",
+    "status": "NON_AUTHORITATIVE_ALIAS_ONLY"
+  },
+  "forbidden": [
+    "invented_attachment_modules",
+    "invented_MAT_ids",
+    "dna_theme_as_paint_ssot",
+    "manifestation_cyan_on_complete_base_kit",
+    "fabric_simulation",
+    "bac_bap_or_other_foundry_ids",
+    "production_mesh_glb_in_u2"
+  ],
+  "provenance": {
+    "asset_id": "ucbv_001_nori7_modular_body_outfit_v1",
+    "character_id": "CCP-RH-001",
+    "world_profile_id": "cozy_cyber_pixel",
+    "style_lock_id": "ucbv_001_style_lock_v1",
+    "author_wave": "U2_VISUAL_SILHOUETTE"
+  }
+}

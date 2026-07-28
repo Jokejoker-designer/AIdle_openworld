@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "request_id": "ocean_0001",
+  "build_graph_id": "graph_ocean_bubble_district_v1",
+  "world_profile": "oceanpunk_abyss",
+  "expected_world_revision": 0,
+  "bounds": {
+    "center": [
+      0,
+      0,
+      0
+    ],
+    "size_m": [
+      128,
+      128,
+      64
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "home",
+      "module_id": "cluster_ocean_bubble_home_A",
+      "position": [
+        0,
+        0,
+        -30
+      ]
+    },
+    {
+      "node_id": "library",
+      "module_id": "cluster_ocean_coral_library_A",
+      "position": [
+        24,
+        10,
+        -38
+      ]
+    },
+    {
+      "node_id": "station",
+      "module_id": "cluster_ocean_submarine_station_A",
+      "position": [
+        -18,
+        8,
+        -32
+      ]
+    }
+  ],
+  "edges": [],
+  "generators": [
+    {
+      "generator_id": "gen_terrain_ocean_depth_tiers_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    },
+    {
+      "generator_id": "gen_bubble_base_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    },
+    {
+      "generator_id": "gen_coral_reef_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    },
+    {
+      "generator_id": "gen_kelp_forest_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    }
+  ],
+  "world_rules": [
+    {
+      "rule_id": "rule_depth_pressure_v1",
+      "config": {}
+    },
+    {
+      "rule_id": "rule_biolume_response_v1",
+      "config": {}
+    }
+  ],
+  "manifestation": {
+    "stages": [
+      "WIREFRAME",
+      "HOLOGRAM",
+      "MATERIALIZING",
+      "COMMITTING",
+      "COMPLETE"
+    ],
+    "requires_confirmation": true
+  },
+  "validation": {
+    "collision": true,
+    "navigation": true,
+    "style": true,
+    "performance": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": "block_dna_adapt_001/1.0",
+  "request_id": "req_cozy_village_001",
+  "build_graph_id": "graph_cozy_village_v1",
+  "world_profile": "cozy_cyber_pixel",
+  "expected_world_revision": 0,
+  "current_world_revision": 0,
+  "idempotency_key": "idem_graph_cozy_village_v1",
+  "bounds": {
+    "min": {
+      "x": -32,
+      "y": -32,
+      "z": 0
+    },
+    "max": {
+      "x": 32,
+      "y": 32,
+      "z": 16
+    }
+  },
+  "nodes": [
+    {
+      "node_id": "terrain",
+      "module_id": "terrain_flat_8m",
+      "transform": {
+        "x": 0.0,
+        "y": 0.0,
+        "elevation": 0.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": 0,
+        "cy": 0,
+        "cz": 0
+      },
+      "material_slot": "ground",
+      "p1e_material_id": "MAT_CozyGround"
+    },
+    {
+      "node_id": "crate",
+      "module_id": "prop_crate_small",
+      "transform": {
+        "x": 0.5,
+        "y": 0.5,
+        "elevation": 0.25,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": 1,
+        "cy": 1,
+        "cz": 1
+      },
+      "material_slot": "wood",
+      "p1e_material_id": "MAT_CozyWood"
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "e_launder",
+      "from_node": "terrain",
+      "from_socket": "terrain_surface",
+      "from_polarity": "peer",
+      "to_node": "crate",
+      "to_socket": "prop_base",
+      "to_polarity": "peer",
+      "adapter_normalization_id": "norm_terrain_surface_prop_base_v1"
+    }
+  ],
+  "generators": [
+    {
+      "generator_id": "gen_terrain_gentle_hills_v1",
+      "seed": 123,
+      "parameters": {
+        "bounds_width": 64,
+        "bounds_depth": 64
+      }
+    },
+    {
+      "generator_id": "gen_village_layout_v1",
+      "seed": 123
+    }
+  ],
+  "world_rules": [
+    {
+      "rule_id": "rule_day_night_v1",
+      "config": {}
+    },
+    {
+      "rule_id": "rule_crop_growth_v1",
+      "config": {}
+    }
+  ],
+  "manifestation": {
+    "stages": [
+      "wireframe",
+      "hologram",
+      "materializing",
+      "complete"
+    ],
+    "requires_confirmation": true,
+    "presentation_duration_seconds": 4
+  },
+  "validation": {
+    "collision": true,
+    "occupancy": true,
+    "sockets": true,
+    "cycle": true,
+    "snap": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  },
+  "adapter_proposal": {
+    "kind": "structured_world_prompt_proposal",
+    "confirmation_state": "pending",
+    "preview_required": true
+  },
+  "payload_fingerprint": "f73738b04188c0f740b4d92ca20a2c82ab278b01f0dfe2bb8bd1971c568d75b5"
+}

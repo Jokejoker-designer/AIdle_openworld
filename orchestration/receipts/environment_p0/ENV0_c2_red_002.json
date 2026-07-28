@@ -1,0 +1,367 @@
+{
+  "agent_step_id": "ENV0-002-c2-red-002-2026-07-21",
+  "agent_type": "aidle-worldgen-red-scope",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "READ_ONLY_AUDIT",
+  "input_context_hash": "sha256:e4ca81311757bae0346474cf79a56b6da2ef33a580701546794bd38f005524bd",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f83db-f186-7e12-af36-f2fb8bfd142c",
+  "transcript_ref": "019f83db-f186-7e12-af36-f2fb8bfd142c",
+  "writer_transcript_ref": "019f83db-f186-7e12-af36-f2fb8bfd142c",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/environment-p0-c2-red-002.log",
+  "handoff_ref": "ENV0_C3_QA",
+  "start_time": "2026-07-21T08:47:37Z",
+  "end_time": "2026-07-21T08:55:00Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-red-scope; trustlayer_character=red-team-source-auditor; ui_character=ui-visual-critic; authority_token=READ_ONLY_AUDIT; required_skills include adversarial-review + architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; findings only never patch.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "adversarial-review",
+      "architecture-lock"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE concepts via skills + profile + WO-ENV0-002 + C1 receipt + product sources manually. No bootstrap loop.",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-002-LEASE-IDEMPOTENCY-CORRECTION.md",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c1_blue_002.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_red_001.json",
+    "E:/AIdle_openworld/orchestration/logs/environment-p0-c1-blue-002.log",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_Blender_Bridge_P0/app/services/job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/blender_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/app/dependencies.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/environment_models.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_bridge_lease.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_environment_api.py",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/shared/skills/library/adversarial-review/SKILL.md"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c2_red_002.json",
+    "E:/AIdle_openworld/orchestration/logs/environment-p0-c2-red-002.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "ENV0-002",
+    "directive_id": 49,
+    "work_order": "orchestration/work_orders/WO-ENV0-002-LEASE-IDEMPOTENCY-CORRECTION.md",
+    "wave": "ENV0_C2_RED",
+    "profile": "aidle-worldgen-red-scope",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "authority_token": "READ_ONLY_AUDIT",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "FINDINGS_REPORTED",
+    "summary": "READ_ONLY_AUDIT after C1 lease/idempotency fix. Character create path refuses when env QUEUED/RUNNING via shared bridge_create_lock + is_bridge_busy; no public create bypass found. Fingerprint excludes only request_id+idempotency_key; same key + changed body still conflicts (HTTP 409). Public is_worker_busy/worker_lease/is_bridge_busy; _worker_gate confined to blender_runner. Lease tests are create-time only. Residual CONFIRMED: jobs.py still lacks BridgeBusyError→409 (character HTTP busy → 500). BLK-ENV0-01/02/03 NOT reopened. product_writes=[]. Handoff ENV0_C3_QA. accepted=false.",
+    "finding_counts": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 3,
+      "info_controls": 5,
+      "total_actionable": 4,
+      "blocking_reopen": 0
+    },
+    "character_binding": {
+      "trustlayer_character_id": "red-team-source-auditor",
+      "trustlayer_card": "E:/agents/characters/05-red-team-source-auditor.md",
+      "ui_character_id": "ui-visual-critic",
+      "ui_card": "E:/agents/ui-design/characters (ui-visual-critic binding per profile; no UI product audit this wave)",
+      "maf_role": "agent",
+      "authority_token": "READ_ONLY_AUDIT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; authority-bound READ_ONLY_AUDIT; no inventing evidence; no self-accept"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: slot 05 red finds only never fixes; Blue already patched C1; Purple never patches; one writer per file"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: hub E:/; handoff ENV0_C3_QA after C2 findings; no skip purple chain"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: exclusive receipt/log lease only; product_writes empty; parent 019f7ffd only; no grandchildren"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: FACT from source + pytest 8 passed lease/idempotency; residual jobs.py mapping labeled residual not invent PASS"
+      },
+      {
+        "skill_id": "adversarial-review",
+        "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL profile-routed: authority bypass, lease, idempotency conflict, private reach-in frames applied to C1 claims"
+      },
+      {
+        "skill_id": "architecture-lock",
+        "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL profile-routed: max_active_jobs=1 Bridge-wide; no World Commit/Godot mutation; quarantine path untouched this audit"
+      }
+    ],
+    "prior_c1_ref": {
+      "receipt": "orchestration/receipts/environment_p0/ENV0_c1_blue_002.json",
+      "child_task_ref": "019f83d6-994d-75c2-947f-6a8f4574c927",
+      "authority_token": "PATCH_DRAFT"
+    },
+    "scope_assertions": [
+      {
+        "id": "S1",
+        "claim": "Character-side refusal when env active cannot be bypassed",
+        "verdict": "PASS",
+        "severity_if_fail": "high",
+        "evidence": [
+          "job_service.py create → bridge_create_lock → is_bridge_busy → BridgeBusyError before job allocation",
+          "blender_runner.is_bridge_busy scans environment_job_receipt.json + job_receipt.json for QUEUED/RUNNING",
+          "app/api/jobs.py sole create path is service.create",
+          "dependencies share get_blender_runner between character and environment services",
+          "test_env_queued_refuses_character_create + test_env_running_refuses_character_create"
+        ],
+        "bypass_hunt": [
+          "No alternate character create endpoint",
+          "Private _create_locked still checks is_bridge_busy (only skips lock)",
+          "HTTP 500 on busy is status defect not create bypass (R01)",
+          "Unreadable receipt fail-open is LOW residual (R02) not demonstrated dual-queue path under valid receipts"
+        ]
+      },
+      {
+        "id": "S2",
+        "claim": "Fingerprint change does not weaken conflict detection",
+        "verdict": "PASS",
+        "severity_if_fail": "high",
+        "evidence": [
+          "canonical_request_fingerprint pops only request_id and idempotency_key",
+          "StrictModel EnvironmentJobRequest — no extra-field fingerprint dilution",
+          "Same key + changed seed → IdempotencyConflictError / HTTP 409 idempotency_payload_conflict",
+          "Same key + same body + rotated request_id → stable prior receipt (intended; not conflict weaken)",
+          "Same request_id + different fingerprint → DuplicateEnvironmentRequestError"
+        ]
+      },
+      {
+        "id": "S3",
+        "claim": "Shared lock + public is_bridge_busy/is_worker_busy; no private _worker_gate reach-in from services",
+        "verdict": "PASS",
+        "severity_if_fail": "medium",
+        "evidence": [
+          "bridge_create_lock on BlenderRunner used by both services",
+          "Public worker_lease / is_worker_busy / is_bridge_busy",
+          "grep _worker_gate only in blender_runner.py (internal) + test docstring",
+          "environment_job_service uses runner.worker_lease() not runner._worker_gate"
+        ]
+      },
+      {
+        "id": "S4",
+        "claim": "Lease tests are create-time only (no dual Blender)",
+        "verdict": "PASS",
+        "severity_if_fail": "medium",
+        "evidence": [
+          "test_bridge_lease.py leaves env/character QUEUED without execute",
+          "RUNNING forced via store.update, not execute",
+          "test_public_worker_gate holds worker_lease without dual execute",
+          "Module docstring states create-time mutual exclusion without two Blender processes"
+        ]
+      },
+      {
+        "id": "S5",
+        "claim": "jobs.py BridgeBusyError HTTP mapping residual still missing",
+        "verdict": "CONFIRMED_RESIDUAL",
+        "severity_if_fail": "medium",
+        "evidence": [
+          "app/api/jobs.py has no BridgeBusyError import or except branch",
+          "environment_jobs.py maps EnvironmentBusyError → 409 reason=worker_lease_busy",
+          "C1 residual_out_of_lease correctly noted jobs.py outside C1 write lease"
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "id": "ENV0-C2-R01",
+        "severity": "medium",
+        "title": "Character API jobs.py does not map BridgeBusyError to HTTP 409",
+        "status": "OPEN_RESIDUAL",
+        "blocks_ac": false,
+        "blocks_notes": "Does not bypass create-time refusal (AC3 service-level still holds). Breaks clean busy HTTP contract vs environment path.",
+        "location": "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+        "detail": "create_job catches DuplicateRequestError/KeyError/IncompatibleTemplateProfileError only. BridgeBusyError(ValueError) raised from CharacterJobService.create propagates as unhandled → FastAPI 500. Environment path correctly returns 409.",
+        "recommendation": "Authorized PATCH_DRAFT with write lease on jobs.py: except BridgeBusyError → HTTP 409 reason=worker_lease_busy. Out of C2 authority."
+      },
+      {
+        "id": "ENV0-C2-R02",
+        "severity": "low",
+        "title": "is_bridge_busy fail-open on unreadable receipt files",
+        "status": "OPEN_RESIDUAL",
+        "blocks_ac": false,
+        "location": "E:/AIdle_Blender_Bridge_P0/app/services/blender_runner.py:is_bridge_busy",
+        "detail": "JSON/parse Exception continues without treating the path as busy. A corrupt active receipt could hide occupancy until worker gate or another valid receipt is seen.",
+        "recommendation": "Optional fail-closed on unreadable active-looking job dirs if Human extends scope."
+      },
+      {
+        "id": "ENV0-C2-R03",
+        "severity": "low",
+        "title": "is_worker_busy retains non-blocking probe TOCTOU pattern",
+        "status": "OPEN_INFO",
+        "blocks_ac": false,
+        "location": "E:/AIdle_Blender_Bridge_P0/app/services/blender_runner.py:is_worker_busy",
+        "detail": "Public accessor still acquire(blocking=False)/release. Acceptable for create-path after C1 because busy check + QUEUED receipt write occur under bridge_create_lock; dual QUEUED across kinds is closed.",
+        "recommendation": "No change required for WO-ENV0-002 close; note only."
+      },
+      {
+        "id": "ENV0-C2-R04",
+        "severity": "low",
+        "title": "Mutual lease tests are service-level; character HTTP busy path untested",
+        "status": "OPEN_EVIDENCE_GAP",
+        "blocks_ac": false,
+        "location": "E:/AIdle_Blender_Bridge_P0/tests/test_bridge_lease.py",
+        "detail": "Create-time mutual exclusion proven via CharacterJobService/EnvironmentJobService directly. No TestClient assertion that POST /v1/character-jobs returns 409 while env active (would currently expect 500 given R01).",
+        "recommendation": "C3 may add HTTP matrix after R01 fixed, or document 500 residual."
+      }
+    ],
+    "controls_observed": [
+      "Single Bridge-wide bridge_create_lock shared by character and environment create",
+      "Shared is_bridge_busy predicate over both receipt kinds + worker gate",
+      "Public worker_lease / is_worker_busy; no service private _worker_gate reach-in",
+      "canonical_request_fingerprint excludes identity fields only; body conflict retained",
+      "Create-order documented: request_id → idempotency_key → validate → busy → allocate"
+    ],
+    "blk_reopen_decision": [
+      {
+        "id": "BLK-ENV0-01",
+        "reopen": false,
+        "rationale": "Asymmetry closed: character create consults shared busy; shared create lock; private gate probe removed from env service"
+      },
+      {
+        "id": "BLK-ENV0-02",
+        "reopen": false,
+        "rationale": "Mutual create-time tests both directions present and green (8-pass subset includes all lease tests)"
+      },
+      {
+        "id": "BLK-ENV0-03",
+        "reopen": false,
+        "rationale": "Identity fields excluded from fingerprint; rotated request_id stable-replays; changed body still conflicts"
+      }
+    ],
+    "adversarial_review_summary": {
+      "review_id": "ENV0-C2-ADV-001",
+      "reviewer_role": "red-team-source-auditor",
+      "claim_under_review": "C1 closed BLK-ENV0-01/02/03: character cannot create while env active; fingerprint fix preserves conflict detection",
+      "what_i_accept": "Service-level mutual create refusal; shared lock/busy; fingerprint identity exclusion without body-conflict weaken; create-time-only lease tests; public worker API",
+      "what_i_challenge": "HTTP character busy contract incomplete (500 vs 409); evidence gap for HTTP-level character refusal; fail-open on corrupt receipts",
+      "strongest_counter_argument": "If HTTP 500 were treated as 'not refused', clients might retry into a window after env completes — but server never dual-QUEUEs under valid receipts; 500 is contract noise not lease hole",
+      "missing_evidence": "No production multi-process Bridge deployment review (in-process lock only — pre-existing P0 scope)",
+      "scope_drift_risk": "low — residuals do not expand into F01/F04–F10 or P1E",
+      "final_verdict": "C1 primary claims hold; residuals non-blocking for BLK reopen; handoff C3 with R01 noted"
+    },
+    "input_context_hash": "sha256:e4ca81311757bae0346474cf79a56b6da2ef33a580701546794bd38f005524bd",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-002-LEASE-IDEMPOTENCY-CORRECTION.md",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c1_blue_002.json",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_red_001.json"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "e4ca81311757bae0346474cf79a56b6da2ef33a580701546794bd38f005524bd",
+      "BYTE_LEN": 55774
+    },
+    "child_task_ref": "019f83db-f186-7e12-af36-f2fb8bfd142c",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "trace_ref": "orchestration/logs/environment-p0-c2-red-002.log",
+    "handoff_ref": "ENV0_C3_QA",
+    "handoff_note": "C2 Red complete. Handoff ENV0_C3_QA aidle-worldgen-qa-evidence VERIFY_ONLY: full character regression + env suite + lease tests + compileall + server-mediated real Blender probe via HTTP end-to-end (or documented RCA). Then C4 Purple re-verify AC4/AC5. No grandchildren. G8 HITL_REQUIRED; P1E blocked. R01 jobs.py mapping remains residual unless write lease expanded.",
+    "g8_hitl_note": "G8 stays HITL_REQUIRED. ENV0-002 C2 does not imply G8 acceptance. No Godot/Scene/Control/Foundry/P1E edits.",
+    "product_writes": [],
+    "out_of_scope_this_child": [
+      "Product patches",
+      "jobs.py BridgeBusyError mapping fix",
+      "Full QA package + real HTTP probe ownership C3",
+      "Purple acceptance C4",
+      "F01 auth, F04 revision, F05 re-verify, F06 reaper, F07-F10",
+      "P1E / Godot / Scene / World Commit",
+      "codex_directive.json",
+      "Grandchildren"
+    ],
+    "children": [],
+    "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded manually."
+  },
+  "smoke_test": {
+    "passed": true,
+    "attributed_to_transcript_ref": "019f83db-f186-7e12-af36-f2fb8bfd142c",
+    "commands": [
+      {
+        "command": "python -m pytest tests/test_bridge_lease.py tests/test_environment_api.py::test_idempotency_stable_replay -q --tb=line",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "8 passed (7 lease + 1 HTTP idempotency stable/conflict)",
+        "mutating": false
+      }
+    ],
+    "note": "READ_ONLY_AUDIT smoke is evidence confirmation only; not acceptance. No product mutation."
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "READ_ONLY_AUDIT",
+    "no_self_accept": true,
+    "accepted": false,
+    "self_accept": false,
+    "findings_only_never_patch": true,
+    "product_writes_empty": true,
+    "no_nested_grandchildren": true,
+    "character_skill_trace_present": true,
+    "no_invented_gate_pass": true,
+    "codex_directive_untouched": true,
+    "no_install_no_credentials_no_public_network_no_push_deploy": true,
+    "child_task_ref_is_durable_grok_desktop_id": true,
+    "child_task_ref_value": "019f83db-f186-7e12-af36-f2fb8bfd142c",
+    "child_task_ref_source": "C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f83db-f186-7e12-af36-f2fb8bfd142c\\summary.json session_kind=subagent title=C2 Red Audit Character Refusal Lease Fingerprint",
+    "exclusive_orchestration_writes_only": [
+      "orchestration/receipts/environment_p0/ENV0_c2_red_002.json",
+      "orchestration/logs/environment-p0-c2-red-002.log"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/environment-p0-c2-red-002.log",
+    "orchestration/receipts/environment_p0/ENV0_c1_blue_002.json",
+    "orchestration/work_orders/WO-ENV0-002-LEASE-IDEMPOTENCY-CORRECTION.md",
+    "E:/AIdle_Blender_Bridge_P0/app/services/job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/blender_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_bridge_lease.py",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "ENV0_C3_QA"
+}

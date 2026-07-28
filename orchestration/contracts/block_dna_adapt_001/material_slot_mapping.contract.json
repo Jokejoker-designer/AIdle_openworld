@@ -1,0 +1,86 @@
+{
+  "schema_version": "block_dna_adapt_001_material_slot_mapping/1.0",
+  "note": "Semantic material slots map ONLY to live P1E-006 imported material resource IDs. No parallel style-variant system may be invented. DNA material_themes remain design vocabulary; product materials are MAT_* from the accepted P1E kit / state_visual_variants table.",
+  "p1e006_variants_path": "game/resources/world_profiles/state_visual_variants.json",
+  "p1e006_variants_sha256": "595699ea6f23650a9fb790489099045f98c7d859bf343da6250ccd05dbff06c2",
+  "parallel_style_variant_system": "FORBIDDEN",
+  "live_p1e_material_ids": [
+    "MAT_CozyWater",
+    "MAT_CozyWaterLight",
+    "MAT_CozyWood",
+    "MAT_CozyRoof",
+    "MAT_CozyRoofShade",
+    "MAT_CozyDoor",
+    "MAT_CozyStone",
+    "MAT_CozyStoneWarm",
+    "MAT_CozyCeramic",
+    "MAT_CozyBark",
+    "MAT_CozyLeaf",
+    "MAT_CozyMetal",
+    "MAT_CozyGlass",
+    "MAT_CozyGlassPreview",
+    "MAT_CozyLampWarm",
+    "MAT_CozyPreviewMarker",
+    "MAT_CozySoil",
+    "MAT_CozyStem",
+    "MAT_CozyFlowerPink",
+    "MAT_CozyFlowerYellow",
+    "MAT_CozyFlowerPurple",
+    "MAT_CozyFencePost",
+    "MAT_CozyFenceRail",
+    "MAT_BuildPlot",
+    "MAT_CozyGround"
+  ],
+  "slot_to_material": {
+    "body": "MAT_CozyCeramic",
+    "secondary": "MAT_CozyStone",
+    "accent": "MAT_CozyFlowerPink",
+    "structure": "MAT_CozyStoneWarm",
+    "trim": "MAT_CozyWood",
+    "glass": "MAT_CozyGlass",
+    "ground": "MAT_CozyGround",
+    "emission": "MAT_CozyLampWarm",
+    "roof": "MAT_CozyRoof",
+    "wood": "MAT_CozyWood",
+    "stone": "MAT_CozyStone",
+    "water": "MAT_CozyWater",
+    "leaf": "MAT_CozyLeaf",
+    "metal": "MAT_CozyMetal",
+    "soil": "MAT_CozySoil",
+    "door": "MAT_CozyDoor"
+  },
+  "world_profile_application": {
+    "cozy_cyber_pixel": {
+      "mode": "identity_register",
+      "description": "Current verified kit materials — mapping resolves to MAT_* IDs; recolor is no-op identity."
+    },
+    "surrealism_canvas": {
+      "mode": "material_table",
+      "description": "P1E-006 material_table overrides apply to the same MAT_* IDs; no new material system."
+    }
+  },
+  "forbidden": [
+    "invented_style_variant_ids",
+    "dna_theme_id_as_runtime_material",
+    "shader_code_payloads",
+    "arbitrary_color_without_slot"
+  ],
+  "bidirectional": true,
+  "co_require_slot_and_p1e_material_id": true,
+  "material_to_slot": {
+    "MAT_CozyCeramic": "body",
+    "MAT_CozyStone": "stone",
+    "MAT_CozyFlowerPink": "accent",
+    "MAT_CozyStoneWarm": "structure",
+    "MAT_CozyWood": "wood",
+    "MAT_CozyGlass": "glass",
+    "MAT_CozyGround": "ground",
+    "MAT_CozyLampWarm": "emission",
+    "MAT_CozyRoof": "roof",
+    "MAT_CozyWater": "water",
+    "MAT_CozyLeaf": "leaf",
+    "MAT_CozyMetal": "metal",
+    "MAT_CozySoil": "soil",
+    "MAT_CozyDoor": "door"
+  }
+}

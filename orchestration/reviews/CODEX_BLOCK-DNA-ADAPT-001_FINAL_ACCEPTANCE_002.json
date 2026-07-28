@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_BLOCK-DNA-ADAPT-001_FINAL_ACCEPTANCE_002",
+  "task_id": "BLOCK-DNA-ADAPT-001",
+  "reviewed_at": "2026-07-22T12:34:17+07:00",
+  "reviewer": "codex",
+  "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "verdict": "ACCEPTED",
+  "accepted": true,
+  "accepted_scope": "Project-local offline Block-DNA Build Recipe, Build Graph, socket, material and Structured World Prompt proposal-adapter contract gate only.",
+  "not_accepted": [
+    "P2E runtime implementation",
+    "world_DNA package canonicalization or rewrite",
+    "Tier 3 persistence integration",
+    "public network, live provider, shipping or deployment"
+  ],
+  "source_directives": [68, 69],
+  "work_orders": [
+    "orchestration/work_orders/WO-BLOCK-DNA-ADAPT-001-STRICT-CONTRACT-GATE.md",
+    "orchestration/work_orders/WO-BLOCK-DNA-ADAPT-001-CORRECTION-001.md"
+  ],
+  "independent_execution": {
+    "command": "E:/standards/maf/.venv/Scripts/python.exe -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+    "exit_code": 0,
+    "valid": "14/14",
+    "invalid_rejected": "42/42",
+    "ledger": "valid_stable_replays=1; changed-payload conflicts=1",
+    "dna_tree_baselines": "PASS for both immutable package trees"
+  },
+  "independent_adversarial_probes": {
+    "F-B2-01": "PASS: identical replay is stable; same idempotency key with changed payload and recomputed valid fingerprint rejects; missing, malformed and incorrect fingerprints reject",
+    "F-B2-02": "PASS: directed sockets relabeled peer/peer with a recomputed valid fingerprint reject; non-normalized catalog mismatch and peer laundering reject",
+    "F-B2-03": "PASS: a known normalization ID used on the wrong exact socket pair rejects after fingerprint recomputation",
+    "material_pairing": "PASS: material_slot and p1e_material_id are co-required and the live P1E mapping is bidirectional",
+    "code_shaped_parameters": "PASS: script-shaped and non-allowlisted recipe parameters reject",
+    "validation_flags": "PASS: false collision/occupancy/socket/cycle/snap policy rejects",
+    "baseline_verification": "PASS: key files and both full DNA tree aggregate hashes recompute"
+  },
+  "maf_validation": {
+    "schema": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "method": "Draft202012Validator direct validation",
+    "result": "4/4 correction receipts, zero schema errors",
+    "runtime_cli_limitation": "E:/standards/maf/.venv lacks importable agentwork_runtime; no dependency was installed",
+    "accepted_false_on_workers": true,
+    "self_accept_false_on_workers": true
+  },
+  "external_transcript_binding": {
+    "decision": "CODEX_EXTERNAL_TRANSCRIPT_BINDING",
+    "authority": "Human Product Lead previously selected this route; Codex binds immutable chat_history.jsonl and parent-owned meta.json directly and does not rewrite worker receipts.",
+    "receipt_timestamp_policy": "Worker-authored started/completed fields are excluded as canonical timing evidence. Parent-owned meta.json timestamps below are canonical.",
+    "children": [
+      {
+        "wave": "C0",
+        "child_task_ref": "019f882b-e07d-7aa3-bb81-386e36ead70f",
+        "resumed_from": "019f8804-7915-71d2-b3b1-573b701a202e",
+        "started_at": "2026-07-22T04:53:24.775006700Z",
+        "completed_at": "2026-07-22T05:03:20.618772500Z",
+        "transcript_sha256": "c552ab2d5d2ed5297be816b475d0ab8e571b2adebbf1bc6ec09b24cbfaf81de5"
+      },
+      {
+        "wave": "C1",
+        "child_task_ref": "019f8835-182e-7392-9f3f-49d9619cb285",
+        "started_at": "2026-07-22T05:03:28.817941800Z",
+        "completed_at": "2026-07-22T05:08:11.415365100Z",
+        "transcript_sha256": "ea34548fc4127b221255b9d7b2127b0acde1dd5b1d45aa8e12725e7a71578c09",
+        "excluded_receipt_claim": "C1 receipt started_at=2026-07-22T04:51:04.2031380Z is not canonical and is not used"
+      },
+      {
+        "wave": "C2",
+        "child_task_ref": "019f883a-409f-7393-a0c6-61e76572b5dc",
+        "started_at": "2026-07-22T05:09:06.850700500Z",
+        "completed_at": "2026-07-22T05:14:39.145867100Z",
+        "transcript_sha256": "8432fa39158c541b75c9c7fa4d53ea41d5661d0f90847d33ef69571d96e12086"
+      },
+      {
+        "wave": "C3",
+        "child_task_ref": "019f883f-6a28-7d62-b5d3-af84d6f825b2",
+        "started_at": "2026-07-22T05:14:45.164126200Z",
+        "completed_at": "2026-07-22T05:19:18.435484600Z",
+        "transcript_sha256": "9cc5d290b63801c33938597c1fbfe9b04b2463a9c6958e259196277787c74ab2"
+      }
+    ],
+    "skill_and_character_result": "PASS: all five mandatory skills, routed skills, TrustLayer cards and UI cards have transcript-backed semantic read_file output through EOF; no false full-EOF claim was used"
+  },
+  "correction_receipts": {
+    "C0": "ec1509fff75d12e19f78dfde6703a53d36d766e61648969d327a6c230f956f64",
+    "C1": "45f55ccd209a2f94ddfa1f872b639d5716be1d4ee8ecc5cc3acbc1e9890669b0",
+    "C2": "c0be141b4ef9942df64d893937cf2e8d4174d9dcb3b03d80f38732428dc87370",
+    "C3": "25b845e204e2e9eeacb3a1a6ec980745fe2aadbd144887bcdd53bdfaa700136a"
+  },
+  "scope_and_lease_review": {
+    "parent_product_patch": false,
+    "single_contract_writer": "C0 only",
+    "reviewers_product_writes_empty": true,
+    "wave_file_window": "Only contract-tree files and the four exclusive correction log/receipt pairs changed during the child execution window",
+    "directive_68_evidence_immutable": "PASS: all ten B0-B4 receipt/log hashes match the pre-correction review",
+    "world_dna_written": false,
+    "game_scene_control_character_persist_written": false,
+    "p2e_started_before_acceptance": false
+  },
+  "contract_artifact_hashes": {
+    "build_graph.schema.json": "dc4152fce582181169483895c1ac4e96ac2eb927a0cdb738cd8321958681c806",
+    "build_recipe.schema.json": "55eabacc0791fbee2da5565bee3d78d9c6492fd7d2ca5467d6cbc5f04b3173af",
+    "socket_catalog.contract.json": "cc7cc19fd0b23d229c1ff93148366d5419988fd9afb03ddc9b6adc111c9b1a5c",
+    "material_slot_mapping.contract.json": "cdbbe48d5cfd0e24430283797c8ef5a0379682748bb014cb4cebe889daeab753",
+    "source_baseline.lock.json": "ddeaf8ec93bf001a30164876e82afcc1a680f780556d5f0a328aa6344a793cda",
+    "validate_block_dna_adapt_001.py": "5b75c271c1fdf7a9b4f9526877c7b979238d0033b01dd647cefe3a6e68110a1e",
+    "world_prompt_adapter.contract.json": "4fe3618b2a6d0b690921ccf990d450a777356f1240143589f0cae232cea5cddf"
+  },
+  "next_route": "P2E-001_BLOCK_ASSEMBLY_PREVIEW_SLICE"
+}

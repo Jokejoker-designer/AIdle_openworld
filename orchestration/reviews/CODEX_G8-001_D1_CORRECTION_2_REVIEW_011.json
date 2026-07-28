@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_G8-001-D1-CORRECTION-2-REVIEW-011",
+  "reviewed_at": "2026-07-21T11:14:00+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "G8-001",
+  "wave": "D1_FINALIZER_PROVENANCE_CORRECTION_011",
+  "verdict": "NEED_HUMAN",
+  "accepted": false,
+  "g8_accepted": false,
+  "d2_spawn_allowed": false,
+  "d3_spawn_allowed": false,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "correction_child_ref": "019f82da-85dd-76e0-ae0b-6c3c08098d79",
+  "independent_checks": {
+    "active_top_level_parent_count": "PASS count=1",
+    "real_child_and_parent_binding": "PASS",
+    "no_grandchildren": "PASS",
+    "maf_jsonschema": "PASS",
+    "prior_correction_terminal_ledger": "PASS transcript=17 receipt=17 exact strings and exits; two exit_code=1",
+    "prior_material_editor_calls": "PASS count=5 with refs and purposes",
+    "bounded_cleanup": "PASS six exact temporary files removed; remaining _tmp count=0",
+    "write_lease_after_cleanup": "PASS only correction_2 receipt and trace created",
+    "no_terminal_after_final_writes": "PASS",
+    "product_writes": "PASS none observed",
+    "self_accept": "PASS false",
+    "correction_child_command_strings_and_exits": "PASS four transcript commands equal four receipt commands when command and exit are compared",
+    "correction_child_command_refs": "FAIL receipt omits all four actual terminal tool_call_id values",
+    "receipt_writer_end_time": "FAIL receipt claims 2026-07-21T04:08:50Z; receipt file mtime is 2026-07-21T04:10:12.0020124Z and trace mtime is 2026-07-21T04:10:43.7099776Z",
+    "durable_child_completion": "OBSERVED 2026-07-21T04:11:35.913522700Z"
+  },
+  "repeated_failure_signature": {
+    "signature": "worker receipt predicts or misstates final write/completion provenance",
+    "occurrences": "at least three across D1 correction/finalizer chain",
+    "workflow_route": "NEED_HUMAN"
+  },
+  "recommended_human_resolution": "Authorize filesystem mtimes plus durable Grok child metadata as the canonical timing evidence for this completed child, allow Codex to record that external binding in an acceptance review without rewriting the worker receipt, then release D2.",
+  "alternative_human_resolution": "Keep the worker-receipt timestamp field strict and redesign the receipt protocol before D2; no more automatic correction children.",
+  "self_accept": false
+}

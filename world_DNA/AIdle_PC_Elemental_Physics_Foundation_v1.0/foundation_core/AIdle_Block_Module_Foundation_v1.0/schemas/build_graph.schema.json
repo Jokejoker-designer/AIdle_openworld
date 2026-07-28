@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "request_id",
+    "build_graph_id",
+    "world_profile",
+    "expected_world_revision",
+    "bounds",
+    "nodes",
+    "edges",
+    "generators",
+    "world_rules",
+    "manifestation",
+    "validation",
+    "rollback"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "build_graph_id": {
+      "type": "string"
+    },
+    "world_profile": {
+      "type": "string"
+    },
+    "expected_world_revision": {
+      "type": "integer"
+    },
+    "bounds": {
+      "type": "object"
+    },
+    "nodes": {
+      "type": "array"
+    },
+    "edges": {
+      "type": "array"
+    },
+    "generators": {
+      "type": "array"
+    },
+    "world_rules": {
+      "type": "array"
+    },
+    "manifestation": {
+      "type": "object"
+    },
+    "validation": {
+      "type": "object"
+    },
+    "rollback": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

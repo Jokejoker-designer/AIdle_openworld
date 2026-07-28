@@ -1,0 +1,115 @@
+{
+  "schema_version": "town_alignment/1.0",
+  "receipt_id": "TOWN_ALIGNMENT_V1",
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "authority": "PATCH_DRAFT",
+  "agent": "grok",
+  "timestamp_utc": "2026-07-24T04:50:36Z",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "scope": {
+    "mode": "reposition_and_overlay_only",
+    "remesh": false,
+    "buildings_remesh_forbidden": [
+      "HOME.BLD",
+      "MARKET.BLD",
+      "GARDEN.BLD",
+      "WELL.BLD",
+      "WINDMILL.BLD",
+      "BRIDGE.BLD",
+      "LOOKOUT.BLD"
+    ],
+    "note": "HOME closed permanently; 6 V4 buildings paused NEED_HUMAN — not remeshed this pass"
+  },
+  "position_ssot": "game/resources/town/town_grid_plan_v1.json transform fields",
+  "overlay_ssot": "TOWN_FAIRY_STREET_PLAN_V1 stone_path_network + wood_platforms",
+  "audit": {
+    "plots_total": 50,
+    "loader_places_from_plan_transform": true,
+    "loader_jitter_found": false,
+    "building_pair_collisions_dist_lt_4_5m": 0,
+    "far_offset_gt_2_5m_from_cell_center": 0,
+    "mid_offsets_0_5_to_2_5m": 39,
+    "mid_offset_note": "Intentional plan sub-cell placement (props/chars), not loader drift — left as plan SSOT",
+    "origin_model_note": "grid_cell centers vs plan transform differ by ~1.4m systematically for buildings; plan transform is SSOT, not re-snapped to pure cell centers"
+  },
+  "presentation_fixes": [
+    {
+      "id": "axis_aligned_pads_labels",
+      "file": "game/scripts/modules/town/town_grid_loader.gd",
+      "change": "Plot root axis-aligned; plan yaw applies only to Content child. Footprints/labels no longer rotate with buildings (neat grid read).",
+      "remesh": false
+    },
+    {
+      "id": "wood_platform_overlay",
+      "file": "game/scripts/modules/town/town_street_loader.gd",
+      "change": "12 wood_platforms placed as labeled primitive plank decks from fairy-street rects. Not cozy_wood_deck_A GLB identity.",
+      "placed": "12/12",
+      "remesh": false
+    },
+    {
+      "id": "stone_path_overlay",
+      "status": "already_present STREET_V2c MultiMesh 13/13 segments 1634 tiles"
+    }
+  ],
+  "design_flags_for_human": [
+    {
+      "id": "CONFLICT_WD_GAZEBO_VS_HOME_BLD",
+      "status": "RESOLVED",
+      "severity": true,
+      "decision": "HUMAN_RULED_MOVE_DECK",
+      "decided_at": "2026-07-24T12:07:00+07:00",
+      "decided_by": "human_product_lead",
+      "patch_receipt": "TOWN_ALIGNMENT_V1_PATCH.json",
+      "wood_platform": {
+        "id": "WD-GAZEBO",
+        "serves_plan": "cozy_gazebo_A",
+        "old_center_xz": [0.0, 0.0],
+        "old_rect_xz": [-1.6, 1.6, -1.6, 1.6],
+        "new_center_xz": [2.0, 10.0],
+        "new_rect_xz": [0.4, 3.6, 8.4, 11.6],
+        "rect_size": [3.2, 3.2],
+        "aligned_to_plot": "GARDEN.BLD",
+        "grid_cell": "H12"
+      },
+      "no_longer_conflicts_with": {
+        "plot_id": "HOME.BLD",
+        "object_id": "cozy_house_small_A",
+        "transform_xz": [0.0, 0.0],
+        "grid_cell": "G7"
+      },
+      "aligned_to_building": {
+        "plot_id": "GARDEN.BLD",
+        "object_id": "cozy_gazebo_A",
+        "transform_xz": [2.0, 10.0],
+        "grid_cell": "H12"
+      },
+      "note": "RESOLVED: WD-GAZEBO deck recentered on cadastre GARDEN.BLD (2,10) H12 per Human ruling. HOME.BLD/GARDEN.BLD meshes and all other plots untouched."
+    }
+  ],
+  "wd_gazebo_patch": {
+    "applied": true,
+    "only_moved": "WD-GAZEBO",
+    "other_plots_moved": false
+  },
+  "headed_evidence": {
+    "log_alignment_v1": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_alignment_v1.log",
+    "log_wd_gazebo_h12": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_wd_gazebo_h12.log",
+    "topdown": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\town_alignment_topdown_v1_1600x900.png",
+    "overview": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\town_cadastre_overview_50_1600x900.png",
+    "close_gazebo_post_move": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\close_gazebo_bld_1280x720.png",
+    "close_home_post_move": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\close_home_1280x720.png"
+  },
+  "runtime_report_excerpt": {
+    "stone_segments": "13/13",
+    "stone_tiles": 1634,
+    "wood_platforms": "12/12",
+    "plots": 50
+  },
+  "matching_100_pct_count": 0,
+  "next": [
+    "Human decision on 6 NEED_HUMAN_AGAIN buildings (V4 residuals)",
+    "21 missing props when authorized"
+  ]
+}

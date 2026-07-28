@@ -1,0 +1,165 @@
+{
+  "schema_version": "buildings_fidelity/1.0",
+  "receipt_id": "BUILDINGS_FIDELITY_V4",
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "authority": "PATCH_DRAFT",
+  "agent": "grok",
+  "timestamp_utc": "2026-07-24T04:36:35Z",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "job": "BUILDINGS_FIDELITY_V4",
+  "human_authorization": {
+    "decision": "HUMAN_AUTHORIZED_ONE_MORE_REMESH",
+    "decided_by": "Human Product Lead",
+    "relayed_by": "Claude conductor",
+    "reference": "orchestration/control/codex_directive.json object_level_human_decisions",
+    "decided_at": "2026-07-24T11:20:00+07:00",
+    "scope": "exactly 6 buildings; 4th attempt; not residual accept; not strike reset"
+  },
+  "not_in_scope": {
+    "HOME.BLD": "CLOSED_PERMANENTLY",
+    "WORKSHOP.BLD": "left at V3 (strike 1 new roof sig) — not authorized this pass",
+    "BARN.BLD": "left at V3 (strike 1 new roof sig) — not authorized this pass",
+    "positions": "UNCHANGED"
+  },
+  "matching_100_pct_count": 0,
+  "matching_100_pct": [],
+  "objects": [
+    {
+      "plot_id": "MARKET.BLD",
+      "object_id": "cozy_market_stall_A",
+      "target_signature": "market_awning_ok_fruit_still_underdetailed",
+      "v4_action": "dense stacked fruit piles + stems + grape basket",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "outcome": "NEED_HUMAN_AGAIN",
+      "post_v4_signature": "market_awning_ok_fruit_still_partial_under_awning_read",
+      "capture": "close_market_bld_1280x720.png",
+      "note": "Produce added but freecam still under-reads fruit vs SSOT crate piles; not 100%"
+    },
+    {
+      "plot_id": "GARDEN.BLD",
+      "object_id": "cozy_gazebo_A",
+      "target_signature": "gazebo_green_dome_ok_fishscale_density",
+      "v4_action": "7-ring denser green fishscale dome + stagger",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "outcome": "NEED_HUMAN_AGAIN",
+      "post_v4_signature": "gazebo_dense_dome_improved_still_not_ssot_100",
+      "capture": "close_gazebo_bld_1280x720.png",
+      "note": "Density clearly up; still not full SSOT petal match / soft clay edge fidelity"
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "object_id": "cozy_well_house_A",
+      "target_signature": "well_sphere_shingles_ok_form_still_high_partial",
+      "v4_action": "taller masonry, roof plates, braces, winch+bucket silhouette",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "outcome": "NEED_HUMAN_AGAIN",
+      "post_v4_signature": "well_form_improved_still_high_partial",
+      "capture": "close_well_bld_1280x720.png",
+      "note": "Form clearer; wood shingle/SSOT proportions still partial"
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "object_id": "cozy_windmill_A",
+      "target_signature": "windmill_tier_blades_still_simplified",
+      "v4_action": "3 tiers, sail blades + spars, hub plate, more windows",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "outcome": "NEED_HUMAN_AGAIN",
+      "post_v4_signature": "windmill_tiers_blades_improved_still_simplified_vs_ssot",
+      "capture": "close_windmill_bld_1280x720.png",
+      "note": "Geometry denser; soft clay multi-window SSOT still not 100%"
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "object_id": "cozy_bridge_arch_A",
+      "target_signature": "bridge_cobble_arch_still_soft_pile",
+      "v4_action": "single-layer large arch, keystone, abutments, sparse rails",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "outcome": "NEED_HUMAN_AGAIN",
+      "post_v4_signature": "bridge_arch_clearer_still_soft_sphere_masonry",
+      "capture": "close_bridge_bld_1280x720.png",
+      "note": "Less pile; still soft spheres not tight SSOT masonry"
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "object_id": "cozy_watchtower_A",
+      "target_signature": "watchtower_form_ok_roof_detail_partial",
+      "v4_action": "7-ring denser conical scales + eave ring + finial",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "outcome": "NEED_HUMAN_AGAIN",
+      "post_v4_signature": "watchtower_roof_denser_still_partial_vs_ssot_thatch",
+      "capture": "close_watchtower_bld_1280x720.png",
+      "note": "Roof denser; boost still peach/cream not brown thatch SSOT hue"
+    }
+  ],
+  "need_human_again": [
+    {
+      "plot_id": "MARKET.BLD",
+      "object_id": "cozy_market_stall_A",
+      "reason": "V4_under_100_pct_no_further_auto_iterate",
+      "prior_strikes_before_v4": 3,
+      "v4_was_authorized_fourth_attempt": true,
+      "signature_at_return": "market_awning_ok_fruit_still_partial_under_awning_read"
+    },
+    {
+      "plot_id": "GARDEN.BLD",
+      "object_id": "cozy_gazebo_A",
+      "reason": "V4_under_100_pct_no_further_auto_iterate",
+      "prior_strikes_before_v4": 3,
+      "v4_was_authorized_fourth_attempt": true,
+      "signature_at_return": "gazebo_dense_dome_improved_still_not_ssot_100"
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "object_id": "cozy_well_house_A",
+      "reason": "V4_under_100_pct_no_further_auto_iterate",
+      "prior_strikes_before_v4": 3,
+      "v4_was_authorized_fourth_attempt": true,
+      "signature_at_return": "well_form_improved_still_high_partial"
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "object_id": "cozy_windmill_A",
+      "reason": "V4_under_100_pct_no_further_auto_iterate",
+      "prior_strikes_before_v4": 3,
+      "v4_was_authorized_fourth_attempt": true,
+      "signature_at_return": "windmill_tiers_blades_improved_still_simplified_vs_ssot"
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "object_id": "cozy_bridge_arch_A",
+      "reason": "V4_under_100_pct_no_further_auto_iterate",
+      "prior_strikes_before_v4": 3,
+      "v4_was_authorized_fourth_attempt": true,
+      "signature_at_return": "bridge_arch_clearer_still_soft_sphere_masonry"
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "object_id": "cozy_watchtower_A",
+      "reason": "V4_under_100_pct_no_further_auto_iterate",
+      "prior_strikes_before_v4": 3,
+      "v4_was_authorized_fourth_attempt": true,
+      "signature_at_return": "watchtower_roof_denser_still_partial_vs_ssot_thatch"
+    }
+  ],
+  "headed_log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_buildings_fidelity_v4.log",
+  "author_script": "orchestration/control/character_build/author_buildings_fidelity_v4.py",
+  "structural": {
+    "real_glb": 29,
+    "buildings": "10/10",
+    "props_placeholder": 21
+  },
+  "stop_rule": "No V5 without new Human decision. Same law as HOME.BLD escalation.",
+  "next": [
+    "Human Product Lead: accept residual vs different remesh strategy for each of the 6",
+    "21 missing props (when buildings resolved or parallel if authorized)",
+    "Town neatness vs TOWN_FAIRY_STREET_PLAN_V1 (reposition only)"
+  ]
+}

@@ -1,0 +1,1143 @@
+{
+  "agent_step_id": "G8-001-D2-asset-017-directive-38-2026-07-21",
+  "agent_type": "aidle-asset",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "accepted": false,
+  "self_accept": false,
+  "product_writes": [],
+  "input_context_hash": "sha256:a66bffe7ee6a68bbb10ebb3ee6bac29e34dd61b36f6584deeee321062862995a",
+  "output_schema_version": "agent_step_contract/1.0",
+  "original_d2_016_child_ref": "019f830a-e078-7291-868d-63dadf2dccd2",
+  "correction_child_ref": "019f8322-0e29-7832-947c-35c50405b5c6",
+  "child_task_ref": "019f8322-0e29-7832-947c-35c50405b5c6",
+  "transcript_ref": "019f8322-0e29-7832-947c-35c50405b5c6",
+  "writer_transcript_ref": "019f8322-0e29-7832-947c-35c50405b5c6",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "trace_ref": "orchestration/logs/g8-d2-asset-017.log",
+  "handoff_ref": "D3_BLOCKED",
+  "directive_id": 38,
+  "work_order": "orchestration/work_orders/WO-G8-001-D2-EXACT-PROVENANCE-CORRECTION-017.md",
+  "guard_report": "orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_CORRECTION_REVIEW_017.json",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/asset.md",
+  "profile_binding_evidence": "FULL re-read asset.md; VERIFY_ONLY this WO; trustlayer blue-team-p0-remediator; ui-color-type-specialist; required skills maf+trustlayer+agentwork+game-asset-core",
+  "start_time": "2026-07-21T05:27:16Z",
+  "end_time": "2026-07-21T05:27:16Z",
+  "writer_time_informational": true,
+  "durable_completed_at": null,
+  "durable_completed_at_note": "Worker does not predict durable completion. Codex binds completed_at from immutable child metadata and artifact LastWriteTimeUtc + SHA-256.",
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/g8/d2_exact_provenance_correction_017/D2_asset_017.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-asset-017.log"
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/asset.md",
+    "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "E:/agents/ui-design/characters/06-ui-color-type-specialist.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-EXACT-PROVENANCE-CORRECTION-017.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_CORRECTION_REVIEW_017.json",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md",
+    "E:/AIdle_openworld/DESIGN.md",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+    "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f830a-e078-7291-868d-63dadf2dccd2/chat_history.jsonl",
+    "E:/AIdle_openworld/orchestration/receipts/g8/d2_provenance_correction_016/D2_asset_016.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "original_d2_016_exact_provenance": {
+    "child_task_ref": "019f830a-e078-7291-868d-63dadf2dccd2",
+    "chat_history_path": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f830a-e078-7291-868d-63dadf2dccd2/chat_history.jsonl",
+    "ordinal_scheme": "kind-local one-based per tool_kind from durable chat_history.jsonl; transcript://<orig>/<tool_kind>/<kind_local_ordinal>",
+    "arguments_json_rule": "arguments_json is the exact transcript tool_call.arguments string (type str) without parse/reserialize/normalize; no inserted nulls; no paraphrased fields",
+    "call_count": 65,
+    "by_kind": {
+      "todo_write": 3,
+      "read_file": 38,
+      "list_dir": 2,
+      "grep": 6,
+      "run_terminal_command": 15,
+      "write": 1
+    },
+    "failed_terminal_count": 1,
+    "failed_terminals": [
+      {
+        "tool_call_id": "call-c04790f9-9cfb-4d9c-88ae-1dd3a0b965dc-56",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 10,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/10",
+        "exit_code": 1,
+        "arguments_json": "{\"command\":\"E:\\\\standards\\\\maf\\\\.venv\\\\Scripts\\\\python.exe -c \\\"\\nimport json\\nfrom pathlib import Path\\np = Path(r'C:\\\\Users\\\\phant\\\\.grok\\\\sessions\\\\E%3A%5CAIdle_openworld\\\\019f830a-e078-7291-868d-63dadf2dccd2\\\\chat_history.jsonl')\\nlines = p.read_text(encoding='utf-8').splitlines()\\ncalls = []\\nresults = {}\\nfor line in lines:\\n    if not line.strip():\\n        continue\\n    o = json.loads(line)\\n    t = o.get('type') or o.get('role')\\n    if o.get('tool_calls'):\\n        for tc in o['tool_calls']:\\n            args = tc.get('arguments')\\n            if isinstance(args, str):\\n                try:\\n                    args = json.loads(args)\\n                except Exception:\\n                    pass\\n            calls.append({\\n                'id': tc.get('id'),\\n                'name': tc.get('name'),\\n                'args': args if isinstance(args, dict) else {'raw': args},\\n            })\\n    # alternate structure\\n    if o.get('type') == 'tool_result' or o.get('role') == 'tool':\\n        tid = o.get('tool_call_id') or o.get('id')\\n        content = o.get('content') or o.get('result') or ''\\n        if isinstance(content, list):\\n            content = json.dumps(content)[:500]\\n        content = str(content)\\n        exit_code = None\\n        if content.startswith('exit:'):\\n            try:\\n                exit_code = int(content.splitlines()[0].split(':',1)[1].strip().split()[0])\\n            except Exception:\\n                pass\\n        results[tid] = {'exit_code': exit_code, 'len': len(content), 'head': content[:160].replace(chr(10),' | ')}\\nprint('TOTAL_TOOL_CALLS', len(calls))\\n# counts by name\\nfrom collections import Counter\\nc = Counter([x['name'] for x in calls])\\nprint('BY_NAME', dict(c))\\n# material + terminal ledger with ordinals\\nordinal = 0\\nfor i, tc in enumerate(calls, 1):\\n    ordinal = i\\n    r = results.get(tc['id'], {})\\n    name = tc['name']\\n    args = tc['args'] or {}\\n    summary = ''\\n    if name == 'run_terminal_command':\\n        summary = (args.get('command') or '')[:120].replace(chr(10),'\\\\\\\\n')\\n        print(f'#{i} term id={tc[\\\\\\\"id\\\\\\\"]} exit={r.get(\\\\\\\"exit_code\\\\\\\")} desc={args.get(\\\\\\\"description\\\\\\\")} cmd={summary!r}')\\n    elif name == 'read_file':\\n        print(f'#{i} read id={tc[\\\\\\\"id\\\\\\\"]} path={args.get(\\\\\\\"target_file\\\\\\\")} off={args.get(\\\\\\\"offset\\\\\\\")} lim={args.get(\\\\\\\"limit\\\\\\\")}')\\n    elif name in ('write','search_replace'):\\n        print(f'#{i} {name} id={tc[\\\\\\\"id\\\\\\\"]} path={args.get(\\\\\\\"file_path\\\\\\\") or args.get(\\\\\\\"path\\\\\\\")}')\\n    elif name == 'grep':\\n        print(f'#{i} grep id={tc[\\\\\\\"id\\\\\\\"]} pat={str(args.get(\\\\\\\"pattern\\\\\\\"))[:60]} path={args.get(\\\\\\\"path\\\\\\\")}')\\n    elif name == 'list_dir':\\n        print(f'#{i} list_dir id={tc[\\\\\\\"id\\\\\\\"]} path={args.get(\\\\\\\"target_directory\\\\\\\")}')\\n    elif name == 'todo_write':\\n        print(f'#{i} todo_write id={tc[\\\\\\\"id\\\\\\\"]}')\\n    else:\\n        print(f'#{i} {name} id={tc[\\\\\\\"id\\\\\\\"]} keys={list(args.keys())[:8]}')\\nprint('RESULTS_KEYS', len(results))\\n\\\"\\n\",\"description\":\"Extract all tool calls from child transcript\"}",
+        "result_head": "exit: 1\n  File \"<string>\", line 55\n    print(f'#{i} term id={tc[\" id\\]}\n          ^\nSyntaxError: unterminated string literal (detected at line 55)\n"
+      }
+    ],
+    "calls": [
+      {
+        "tool_call_id": "call-3fe8c3ca-7828-4508-89d7-a1bfdc6160b7-0",
+        "tool_kind": "todo_write",
+        "kind_local_ordinal": 1,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/todo_write/1",
+        "arguments_json": "{\"todos\":[{\"id\":\"1\",\"content\":\"Load profile, characters, AGENTS, blueprint, arch lock, workflow/tasks\",\"status\":\"in_progress\"},{\"id\":\"2\",\"content\":\"Read Dir37, WO-016, review 015, skills_manifest, UI dispatch map, DESIGN\",\"status\":\"pending\"},{\"id\":\"3\",\"content\":\"FULL EOF always-skills + game-asset-core (sha256, lines, chunks)\",\"status\":\"pending\"},{\"id\":\"4\",\"content\":\"Verify Cozy/Dreamy Low-Poly Starter Realm gates (read-only evidence)\",\"status\":\"pending\"},{\"id\":\"5\",\"content\":\"Write D2_asset_016.json receipt + g8-d2-asset-016.log\",\"status\":\"pending\"}],\"merge\":false}",
+        "exit_code": null,
+        "result_content_len": 411,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-3fe8c3ca-7828-4508-89d7-a1bfdc6160b7-1",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 1,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/1",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/.grok/agents/asset.md\"}",
+        "exit_code": null,
+        "result_content_len": 810,
+        "files_read": [
+          "E:/AIdle_openworld/.grok/agents/asset.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-3fe8c3ca-7828-4508-89d7-a1bfdc6160b7-2",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 2,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/2",
+        "arguments_json": "{\"target_file\":\"E:/agents/characters/09-blue-team-p0-remediator.md\"}",
+        "exit_code": null,
+        "result_content_len": 806,
+        "files_read": [
+          "E:/agents/characters/09-blue-team-p0-remediator.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-3fe8c3ca-7828-4508-89d7-a1bfdc6160b7-3",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 3,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/3",
+        "arguments_json": "{\"target_file\":\"E:/agents/ui-design/characters/06-ui-color-type-specialist.md\"}",
+        "exit_code": null,
+        "result_content_len": 1964,
+        "files_read": [
+          "E:/agents/ui-design/characters/06-ui-color-type-specialist.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-3fe8c3ca-7828-4508-89d7-a1bfdc6160b7-4",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 4,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/4",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/Agents.md\"}",
+        "exit_code": null,
+        "result_content_len": 2289,
+        "files_read": [
+          "E:/AIdle_openworld/Agents.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-3fe8c3ca-7828-4508-89d7-a1bfdc6160b7-5",
+        "tool_kind": "list_dir",
+        "kind_local_ordinal": 1,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/list_dir/1",
+        "arguments_json": "{\"target_directory\":\"E:/AIdle_openworld/orchestration/receipts/g8\"}",
+        "exit_code": null,
+        "result_content_len": 1586,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/receipts/g8"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-3fe8c3ca-7828-4508-89d7-a1bfdc6160b7-6",
+        "tool_kind": "grep",
+        "kind_local_ordinal": 1,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/grep/1",
+        "arguments_json": "{\"pattern\":\"D2-PROVENANCE-CORRECTION-016|Dir37|Directive 37|WO-G8-001-D2\",\"path\":\"E:/AIdle_openworld\",\"glob\":\"*.{md,json,yml,yaml}\",\"head_limit\":80}",
+        "exit_code": null,
+        "result_content_len": 4076,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-0efbd59d-d75b-47ba-96d8-e1dea5476a2c-7",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 5,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/5",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md\"}",
+        "exit_code": null,
+        "result_content_len": 6195,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-0efbd59d-d75b-47ba-96d8-e1dea5476a2c-8",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 6,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/6",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json\"}",
+        "exit_code": null,
+        "result_content_len": 5689,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-0efbd59d-d75b-47ba-96d8-e1dea5476a2c-9",
+        "tool_kind": "list_dir",
+        "kind_local_ordinal": 2,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/list_dir/2",
+        "arguments_json": "{\"target_directory\":\"E:/AIdle_openworld/orchestration/receipts/g8/d2_provenance_correction_016\"}",
+        "exit_code": null,
+        "result_content_len": 77,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/receipts/g8/d2_provenance_correction_016"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-0efbd59d-d75b-47ba-96d8-e1dea5476a2c-10",
+        "tool_kind": "grep",
+        "kind_local_ordinal": 2,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/grep/2",
+        "arguments_json": "{\"pattern\":\"Directive 37|DIR-37|directive.?37|G8-001-D2\",\"path\":\"E:/AIdle_openworld/orchestration\",\"glob\":\"*.{md,json}\",\"head_limit\":40}",
+        "exit_code": null,
+        "result_content_len": 2622,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-0efbd59d-d75b-47ba-96d8-e1dea5476a2c-11",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 7,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/7",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_asset_012.json\",\"limit\":200}",
+        "exit_code": null,
+        "result_content_len": 12153,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_asset_012.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-0efbd59d-d75b-47ba-96d8-e1dea5476a2c-12",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 1,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/1",
+        "arguments_json": "{\"command\":\"Get-ChildItem -Path \\\"E:\\\\AIdle_openworld\\\\orchestration\\\" -Recurse -Filter \\\"*37*\\\" -ErrorAction SilentlyContinue | Select-Object FullName; Get-ChildItem -Path \\\"E:\\\\AIdle_openworld\\\\orchestration\\\\work_orders\\\" -ErrorAction SilentlyContinue | Select-Object Name; Get-ChildItem -Path \\\"E:\\\\AIdle_openworld\\\\orchestration\\\\directives\\\" -ErrorAction SilentlyContinue | Select-Object Name; Get-ChildItem -Path \\\"E:\\\\AIdle_openworld\\\\orchestration\\\\control\\\" -ErrorAction SilentlyContinue | Select-Object Name\",\"description\":\"Find Directive 37 and related control files\"}",
+        "exit_code": 0,
+        "result_content_len": 2923,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-267ebab0-800e-470e-879e-87bfd1d7de2f-13",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 8,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/8",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/control/codex_directive.json\"}",
+        "exit_code": null,
+        "result_content_len": 2299,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/control/codex_directive.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-267ebab0-800e-470e-879e-87bfd1d7de2f-14",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 9,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/9",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/control/grok_status.json\"}",
+        "exit_code": null,
+        "result_content_len": 2292,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/control/grok_status.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-267ebab0-800e-470e-879e-87bfd1d7de2f-15",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 10,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/10",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md\",\"limit\":200}",
+        "exit_code": null,
+        "result_content_len": 3333,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-267ebab0-800e-470e-879e-87bfd1d7de2f-16",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 11,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/11",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/AIdle_Openworld_Blueprint_v1.1/00_README.md\",\"limit\":150}",
+        "exit_code": null,
+        "result_content_len": 1129,
+        "files_read": [
+          "E:/AIdle_openworld/AIdle_Openworld_Blueprint_v1.1/00_README.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-267ebab0-800e-470e-879e-87bfd1d7de2f-17",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 12,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/12",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/workflow.json\",\"limit\":100}",
+        "exit_code": null,
+        "result_content_len": 981,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/workflow.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-267ebab0-800e-470e-879e-87bfd1d7de2f-18",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 13,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/13",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/tasks.json\"}",
+        "exit_code": null,
+        "result_content_len": 7930,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/tasks.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-267ebab0-800e-470e-879e-87bfd1d7de2f-19",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 14,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/14",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/skills_manifest.yaml\"}",
+        "exit_code": null,
+        "result_content_len": 566,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/skills_manifest.yaml"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-267ebab0-800e-470e-879e-87bfd1d7de2f-20",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 15,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/15",
+        "arguments_json": "{\"target_file\":\"E:/standards/maf/schemas/agent_step_contract.schema.json\",\"limit\":200}",
+        "exit_code": null,
+        "result_content_len": 883,
+        "files_read": [
+          "E:/standards/maf/schemas/agent_step_contract.schema.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-82dd7d8a-dcc8-4bda-9de3-9b012344c978-21",
+        "tool_kind": "todo_write",
+        "kind_local_ordinal": 2,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/todo_write/2",
+        "arguments_json": "{\"todos\":[{\"id\":\"1\",\"status\":\"completed\"},{\"id\":\"2\",\"status\":\"in_progress\"}],\"merge\":true}",
+        "exit_code": null,
+        "result_content_len": 413,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-82dd7d8a-dcc8-4bda-9de3-9b012344c978-22",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 2,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/2",
+        "arguments_json": "{\"command\":\"$files = @(\\n  'E:\\\\shared\\\\skills\\\\library\\\\maf-mandatory-standard\\\\SKILL.md',\\n  'E:\\\\shared\\\\skills\\\\library\\\\trustlayer-x16-crew\\\\SKILL.md',\\n  'E:\\\\shared\\\\skills\\\\library\\\\agentwork-knowledge-loop\\\\SKILL.md',\\n  'E:\\\\shared\\\\skills\\\\library\\\\project-room-collab\\\\SKILL.md',\\n  'E:\\\\shared\\\\skills\\\\library\\\\curiosity-engine\\\\SKILL.md',\\n  'C:\\\\Users\\\\phant\\\\.grok\\\\bundled\\\\skills\\\\game-asset-core\\\\SKILL.md'\\n);\\nforeach ($f in $files) {\\n  if (Test-Path $f) {\\n    $hash = (Get-FileHash -Path $f -Algorithm SHA256).Hash.ToLower()\\n    $lines = (Get-Content -Path $f | Measure-Object -Line).Lines\\n    $raw = [System.IO.File]::ReadAllBytes($f)\\n    $textLines = [System.IO.File]::ReadAllLines($f).Length\\n    Write-Output \\\"PATH=$f\\\"\\n    Write-Output \\\"SHA256=$hash\\\"\\n    Write-Output \\\"BYTES=$($raw.Length)\\\"\\n    Write-Output \\\"LINES_CONTENT=$lines\\\"\\n    Write-Output \\\"LINES_ALL=$textLines\\\"\\n    Write-Output \\\"---\\\"\\n  } else {\\n    Write-Output \\\"MISSING=$f\\\"\\n  }\\n}\",\"description\":\"SHA256 and line counts for all skills\"}",
+        "exit_code": 0,
+        "result_content_len": 1079,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-82dd7d8a-dcc8-4bda-9de3-9b012344c978-23",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 16,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/16",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/DESIGN.md\",\"limit\":250}",
+        "exit_code": null,
+        "result_content_len": 2042,
+        "files_read": [
+          "E:/AIdle_openworld/DESIGN.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-82dd7d8a-dcc8-4bda-9de3-9b012344c978-24",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 17,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/17",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md\"}",
+        "exit_code": null,
+        "result_content_len": 1891,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-82dd7d8a-dcc8-4bda-9de3-9b012344c978-25",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 18,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/18",
+        "arguments_json": "{\"target_file\":\"E:/shared/skills/library/maf-mandatory-standard/SKILL.md\"}",
+        "exit_code": null,
+        "result_content_len": 1739,
+        "files_read": [
+          "E:/shared/skills/library/maf-mandatory-standard/SKILL.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-82dd7d8a-dcc8-4bda-9de3-9b012344c978-26",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 19,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/19",
+        "arguments_json": "{\"target_file\":\"E:/shared/skills/library/trustlayer-x16-crew/SKILL.md\"}",
+        "exit_code": null,
+        "result_content_len": 1947,
+        "files_read": [
+          "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-82dd7d8a-dcc8-4bda-9de3-9b012344c978-27",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 20,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/20",
+        "arguments_json": "{\"target_file\":\"E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md\"}",
+        "exit_code": null,
+        "result_content_len": 990,
+        "files_read": [
+          "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-82dd7d8a-dcc8-4bda-9de3-9b012344c978-28",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 21,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/21",
+        "arguments_json": "{\"target_file\":\"E:/shared/skills/library/project-room-collab/SKILL.md\"}",
+        "exit_code": null,
+        "result_content_len": 1699,
+        "files_read": [
+          "E:/shared/skills/library/project-room-collab/SKILL.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-a661150d-6581-4e8e-9f9a-6e0ee2af736e-29",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 22,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/22",
+        "arguments_json": "{\"target_file\":\"E:/shared/skills/library/curiosity-engine/SKILL.md\",\"offset\":1,\"limit\":200}",
+        "exit_code": null,
+        "result_content_len": 34448,
+        "files_read": [
+          "E:/shared/skills/library/curiosity-engine/SKILL.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-a661150d-6581-4e8e-9f9a-6e0ee2af736e-30",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 23,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/23",
+        "arguments_json": "{\"target_file\":\"E:/shared/skills/library/curiosity-engine/SKILL.md\",\"offset\":201,\"limit\":200}",
+        "exit_code": null,
+        "result_content_len": 34448,
+        "files_read": [
+          "E:/shared/skills/library/curiosity-engine/SKILL.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-a661150d-6581-4e8e-9f9a-6e0ee2af736e-31",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 24,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/24",
+        "arguments_json": "{\"target_file\":\"E:/shared/skills/library/curiosity-engine/SKILL.md\",\"offset\":401,\"limit\":200}",
+        "exit_code": null,
+        "result_content_len": 34448,
+        "files_read": [
+          "E:/shared/skills/library/curiosity-engine/SKILL.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-a661150d-6581-4e8e-9f9a-6e0ee2af736e-32",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 25,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/25",
+        "arguments_json": "{\"target_file\":\"E:/shared/skills/library/curiosity-engine/SKILL.md\",\"offset\":601,\"limit\":200}",
+        "exit_code": null,
+        "result_content_len": 34448,
+        "files_read": [
+          "E:/shared/skills/library/curiosity-engine/SKILL.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-a661150d-6581-4e8e-9f9a-6e0ee2af736e-33",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 26,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/26",
+        "arguments_json": "{\"target_file\":\"E:/shared/skills/library/curiosity-engine/SKILL.md\",\"offset\":801,\"limit\":200}",
+        "exit_code": null,
+        "result_content_len": 34448,
+        "files_read": [
+          "E:/shared/skills/library/curiosity-engine/SKILL.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-a661150d-6581-4e8e-9f9a-6e0ee2af736e-34",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 27,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/27",
+        "arguments_json": "{\"target_file\":\"E:/shared/skills/library/curiosity-engine/SKILL.md\",\"offset\":1001,\"limit\":150}",
+        "exit_code": null,
+        "result_content_len": 34448,
+        "files_read": [
+          "E:/shared/skills/library/curiosity-engine/SKILL.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-a661150d-6581-4e8e-9f9a-6e0ee2af736e-35",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 28,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/28",
+        "arguments_json": "{\"target_file\":\"C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md\"}",
+        "exit_code": null,
+        "result_content_len": 3325,
+        "files_read": [
+          "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-a661150d-6581-4e8e-9f9a-6e0ee2af736e-36",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 29,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/29",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_asset_012.json\",\"offset\":170,\"limit\":250}",
+        "exit_code": null,
+        "result_content_len": 9117,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_asset_012.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-59bff249-d22f-4f6a-979b-52c7608b5b5a-37",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 3,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/3",
+        "arguments_json": "{\"command\":\"$ErrorActionPreference = 'Continue'\\n$paths = @(\\n  'E:\\\\AIdle_openworld\\\\orchestration\\\\work_orders\\\\WO-G8-001-D2-PROVENANCE-CORRECTION-016.md',\\n  'E:\\\\AIdle_openworld\\\\orchestration\\\\reviews\\\\CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json',\\n  'E:\\\\AIdle_openworld\\\\DESIGN.md',\\n  'E:\\\\AIdle_openworld\\\\game\\\\scripts\\\\modules\\\\asset\\\\starter_realm_builder.gd',\\n  'E:\\\\AIdle_openworld\\\\game\\\\resources\\\\art_styles\\\\cozy_cyber_pixel_2_5d.json',\\n  'E:\\\\AIdle_openworld\\\\game\\\\autoload\\\\art_style_manager.gd'\\n)\\n$ms = New-Object System.IO.MemoryStream\\nforeach ($p in $paths) {\\n  $b = [System.IO.File]::ReadAllBytes($p)\\n  $ms.Write($b, 0, $b.Length)\\n  Write-Output (\\\"FILE={0} BYTES={1}\\\" -f $p, $b.Length)\\n}\\n$sha = [System.Security.Cryptography.SHA256]::Create()\\n$hash = [BitConverter]::ToString($sha.ComputeHash($ms.ToArray())).Replace('-','').ToLower()\\nWrite-Output (\\\"BYTE_LEN={0}\\\" -f $ms.Length)\\nWrite-Output (\\\"FULL_SHA256={0}\\\" -f $hash)\\nWrite-Output (\\\"input_context_hash=sha256:{0}\\\" -f $hash)\",\"description\":\"Compute input_context_hash for WO-016 inputs\"}",
+        "exit_code": 0,
+        "result_content_len": 688,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-59bff249-d22f-4f6a-979b-52c7608b5b5a-38",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 4,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/4",
+        "arguments_json": "{\"command\":\"$ErrorActionPreference = 'Continue'\\n# Read-only static color/type + cozy default + provenance markers (no product mutation)\\n$checks = @()\\nfunction Add-Check($name, $ok, $detail) {\\n  $script:checks += [pscustomobject]@{name=$name; ok=$ok; detail=$detail}\\n  if ($ok) { Write-Output \\\"PASS $name :: $detail\\\" } else { Write-Output \\\"FAIL $name :: $detail\\\" }\\n}\\n$design = Get-Content -Raw 'E:\\\\AIdle_openworld\\\\DESIGN.md'\\n$cozy = Get-Content -Raw 'E:\\\\AIdle_openworld\\\\game\\\\resources\\\\art_styles\\\\cozy_cyber_pixel_2_5d.json'\\n$shared = Get-Content -Raw 'E:\\\\AIdle_openworld\\\\game\\\\resources\\\\art_styles\\\\tokens\\\\shared_2_5d_tokens.json'\\n$builder = Get-Content -Raw 'E:\\\\AIdle_openworld\\\\game\\\\scripts\\\\modules\\\\asset\\\\starter_realm_builder.gd'\\n$manager = Get-Content -Raw 'E:\\\\AIdle_openworld\\\\game\\\\autoload\\\\art_style_manager.gd'\\n$constants = Get-Content -Raw 'E:\\\\AIdle_openworld\\\\game\\\\scripts\\\\core\\\\constants.gd'\\n$prov = Get-Content -Raw 'E:\\\\AIdle_openworld\\\\contracts\\\\assets\\\\provenance_manifest.json'\\n$manifest = Get-Content -Raw 'E:\\\\AIdle_openworld\\\\orchestration\\\\evidence\\\\g8_ui_visual_correction_003\\\\evidence_manifest.json'\\n\\nAdd-Check 'design_sky' ($design -match '#9ED7E5') 'DESIGN sky token'\\nAdd-Check 'design_ground' ($design -match '#C9B98A') 'DESIGN ground token'\\nAdd-Check 'design_leaf' ($design -match '#72A96B') 'DESIGN leaf token'\\nAdd-Check 'design_ink' ($design -match '#263238') 'DESIGN ink'\\nAdd-Check 'design_cream' ($design -match '#FFF1C7') 'DESIGN cream'\\nAdd-Check 'design_cyan' ($design -match '#62E6FF') 'DESIGN manifestation cyan'\\nAdd-Check 'design_anti_purple' ($design -match 'purple gradients') 'anti purple gradients'\\nAdd-Check 'design_dreamy' ($design -match 'Dreamy Low-Poly') 'Dreamy Low-Poly theme'\\nAdd-Check 'design_cozy' ($design -match 'Cozy Cyber-Pixel') 'Cozy Cyber-Pixel theme'\\nAdd-Check 'cozy_matte' ($cozy -match 'matte_tactile') 'cozy final surface matte_tactile'\\nAdd-Check 'shared_matte' ($shared -match 'matte_tactile') 'shared final surface matte_tactile'\\nAdd-Check 'builder_roughness' ($builder -match '0\\\\.85') 'builder roughness 0.85'\\nAdd-Check 'builder_house' ($builder -match 'House') 'landmark House'\\nAdd-Check 'builder_path' ($builder -match 'Path') 'landmark Path'\\nAdd-Check 'builder_farm' ($builder -match 'FarmPlots') 'landmark FarmPlots'\\nAdd-Check 'builder_trees' ($builder -match 'Trees') 'landmark Trees'\\nAdd-Check 'builder_fence' ($builder -match 'Fence') 'landmark Fence'\\nAdd-Check 'builder_pond' ($builder -match 'Pond') 'landmark Pond'\\nAdd-Check 'builder_stones' ($builder -match 'Stones') 'landmark Stones'\\nAdd-Check 'builder_lamps' ($builder -match 'Lamps') 'landmark Lamps'\\nAdd-Check 'builder_flowers' ($builder -match 'Flowers') 'landmark Flowers'\\nAdd-Check 'default_style' ($constants -match 'cozy_cyber_pixel') 'DEFAULT_ART_STYLE cozy_cyber_pixel'\\nAdd-Check 'prov_style' ($prov -match 'style:cozy_cyber_pixel_2_5d') 'provenance style id'\\nAdd-Check 'prov_recipe' ($prov -match 'recipe:cozy_house_small') 'provenance recipe id'\\nAdd-Check 'prov_handauthored' ($prov -match 'original_handauthored|hand.?authored|handauthored') 'handauthored style/source'\\nAdd-Check 'manifest_verdict' ($manifest -match '\\\"final_verdict\\\"\\\\s*:\\\\s*\\\"PASS\\\"') 'evidence_manifest final_verdict PASS'\\nAdd-Check 'manager_cozy' ($manager -match 'cozy_cyber_pixel') 'art_style_manager cozy'\\nAdd-Check 'cozy_sky' ($cozy -match '9ED7E5|9ed7e5') 'cozy profile sky hex'\\nAdd-Check 'cozy_ground' ($cozy -match 'C9B98A|c9b98a') 'cozy profile ground hex'\\nAdd-Check 'cozy_leaf' ($cozy -match '72A96B|72a96b') 'cozy profile leaf hex'\\n\\n$pass = ($checks | Where-Object { $_.ok }).Count\\n$fail = ($checks | Where-Object { -not $_.ok }).Count\\nWrite-Output \\\"STATIC_COLOR_TYPE_COMPLIANCE=$(if ($fail -eq 0) {'PASS'} else {'FAIL'})\\\"\\nWrite-Output \\\"CHECKS_PASS $pass\\\"\\nWrite-Output \\\"CHECKS_FAIL $fail\\\"\\nWrite-Output \\\"CHECKS_TOTAL $($checks.Count)\\\"\",\"description\":\"Read-only static cozy/design/provenance checks\"}",
+        "exit_code": 0,
+        "result_content_len": 1361,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-59bff249-d22f-4f6a-979b-52c7608b5b5a-39",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 5,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/5",
+        "arguments_json": "{\"command\":\"$ErrorActionPreference = 'Continue'\\n# Observe-only existing smoke logs (no Godot, no export mutation)\\n$assetLog = 'E:\\\\AIdle_openworld\\\\orchestration\\\\logs\\\\g3-w1-asset-smoke.log'\\n$matrix = 'E:\\\\AIdle_openworld\\\\orchestration\\\\logs\\\\g8-correction-001-matrix.log'\\n$d1 = 'E:\\\\AIdle_openworld\\\\orchestration\\\\logs\\\\g8-d1-core-child.log'\\nforeach ($p in @($assetLog,$matrix,$d1)) {\\n  if (Test-Path $p) { Write-Output \\\"EXISTS $p size=$((Get-Item $p).Length)\\\" } else { Write-Output \\\"MISSING $p\\\" }\\n}\\nWrite-Output '--- asset smoke ---'\\nSelect-String -Path $assetLog -Pattern 'PASS|FAIL|checks=' -SimpleMatch:$false | Select-Object -First 30 | ForEach-Object { $_.Line }\\nWrite-Output '--- matrix g3/g4 ---'\\nSelect-String -Path $matrix -Pattern 'G3_E2E|G4_PERSIST|G3_W1_ASSET|PASS|FAIL' | Select-Object -First 40 | ForEach-Object { $_.Line }\\nWrite-Output '--- zero diff ---'\\nSelect-String -Path $d1 -Pattern 'MATCH|ZERO DIFF|ZERO_DIFF' | Select-Object -First 30 | ForEach-Object { $_.Line }\",\"description\":\"Observe existing asset/G3/G4 smoke logs\"}",
+        "exit_code": 0,
+        "result_content_len": 3143,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-59bff249-d22f-4f6a-979b-52c7608b5b5a-40",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 30,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/30",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/game/resources/art_styles/cozy_cyber_pixel_2_5d.json\",\"limit\":120}",
+        "exit_code": null,
+        "result_content_len": 1421,
+        "files_read": [
+          "E:/AIdle_openworld/game/resources/art_styles/cozy_cyber_pixel_2_5d.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-59bff249-d22f-4f6a-979b-52c7608b5b5a-41",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 31,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/31",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/contracts/assets/provenance_manifest.json\",\"limit\":100}",
+        "exit_code": null,
+        "result_content_len": 3785,
+        "files_read": [
+          "E:/AIdle_openworld/contracts/assets/provenance_manifest.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-59bff249-d22f-4f6a-979b-52c7608b5b5a-42",
+        "tool_kind": "grep",
+        "kind_local_ordinal": 3,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/grep/3",
+        "arguments_json": "{\"pattern\":\"DEFAULT_ART_STYLE|cozy_cyber_pixel|roughness|FarmPlots|matte_tactile|surrealism\",\"path\":\"E:/AIdle_openworld/game\",\"glob\":\"*.{gd,json}\",\"head_limit\":60}",
+        "exit_code": null,
+        "result_content_len": 3242,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-59bff249-d22f-4f6a-979b-52c7608b5b5a-43",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 32,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/32",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json\",\"limit\":80}",
+        "exit_code": null,
+        "result_content_len": 2610,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-499a6c0b-3e15-45a8-b657-5fbb54b4ecbb-44",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 33,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/33",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png\"}",
+        "exit_code": null,
+        "result_content_len": 108,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-499a6c0b-3e15-45a8-b657-5fbb54b4ecbb-45",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 34,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/34",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png\"}",
+        "exit_code": null,
+        "result_content_len": 115,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-499a6c0b-3e15-45a8-b657-5fbb54b4ecbb-46",
+        "tool_kind": "grep",
+        "kind_local_ordinal": 4,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/grep/4",
+        "arguments_json": "{\"pattern\":\"final_verdict|product_clean|error_lines|cozy_cyber\",\"path\":\"E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json\"}",
+        "exit_code": null,
+        "result_content_len": 370,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-499a6c0b-3e15-45a8-b657-5fbb54b4ecbb-47",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 35,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/35",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd\",\"offset\":1,\"limit\":100}",
+        "exit_code": null,
+        "result_content_len": 3708,
+        "files_read": [
+          "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-499a6c0b-3e15-45a8-b657-5fbb54b4ecbb-48",
+        "tool_kind": "grep",
+        "kind_local_ordinal": 5,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/grep/5",
+        "arguments_json": "{\"pattern\":\"style:cozy_cyber_pixel_2_5d|source_type\",\"path\":\"E:/AIdle_openworld/contracts/assets/provenance_manifest.json\"}",
+        "exit_code": null,
+        "result_content_len": 1307,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-499a6c0b-3e15-45a8-b657-5fbb54b4ecbb-49",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 6,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/6",
+        "arguments_json": "{\"command\":\"# Skill line verification - exact total_lines via ReadAllLines; also list ordinals helper\\n$skills = @(\\n  @{id='maf-mandatory-standard'; path='E:\\\\shared\\\\skills\\\\library\\\\maf-mandatory-standard\\\\SKILL.md'},\\n  @{id='trustlayer-x16-crew'; path='E:\\\\shared\\\\skills\\\\library\\\\trustlayer-x16-crew\\\\SKILL.md'},\\n  @{id='agentwork-knowledge-loop'; path='E:\\\\shared\\\\skills\\\\library\\\\agentwork-knowledge-loop\\\\SKILL.md'},\\n  @{id='project-room-collab'; path='E:\\\\shared\\\\skills\\\\library\\\\project-room-collab\\\\SKILL.md'},\\n  @{id='curiosity-engine'; path='E:\\\\shared\\\\skills\\\\library\\\\curiosity-engine\\\\SKILL.md'},\\n  @{id='game-asset-core'; path='C:\\\\Users\\\\phant\\\\.grok\\\\bundled\\\\skills\\\\game-asset-core\\\\SKILL.md'}\\n)\\nforeach ($s in $skills) {\\n  $lines = [System.IO.File]::ReadAllLines($s.path)\\n  $hash = (Get-FileHash -Path $s.path -Algorithm SHA256).Hash.ToLower()\\n  Write-Output (\\\"{0}|lines={1}|sha256={2}|eof_last30={3}\\\" -f $s.id, $lines.Length, $hash, ($lines[$lines.Length-1].Substring(0, [Math]::Min(80, $lines[$lines.Length-1].Length))))\\n}\\n# curiosity non-overlapping chunk plan verification\\n$ce = [System.IO.File]::ReadAllLines('E:\\\\shared\\\\skills\\\\library\\\\curiosity-engine\\\\SKILL.md')\\n$ranges = @(@(1,200),@(201,400),@(401,600),@(601,800),@(801,1000),@(1001,1123))\\nforeach ($r in $ranges) {\\n  $a=$r[0]; $b=$r[1]\\n  Write-Output (\\\"chunk lines {0}-{1} first='{2}' last='{3}'\\\" -f $a,$b, $ce[$a-1].Substring(0,[Math]::Min(40,$ce[$a-1].Length)), $ce[$b-1].Substring(0,[Math]::Min(60,$ce[$b-1].Length)))\\n}\\nGet-Date -Format o\\nWrite-Output \\\"child_task_ref=019f830a-e078-7291-868d-63dadf2dccd2\\\"\",\"description\":\"Verify skill line counts and chunk endpoints\"}",
+        "exit_code": 0,
+        "result_content_len": 1529,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-25ba060d-3306-49df-861b-5e735fdc3257-50",
+        "tool_kind": "grep",
+        "kind_local_ordinal": 6,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/grep/6",
+        "arguments_json": "{\"pattern\":\"tool_call|transcript://|command_exact|failed_commands\",\"path\":\"E:/AIdle_openworld/orchestration/receipts/g8\",\"glob\":\"*01*.json\",\"head_limit\":40}",
+        "exit_code": null,
+        "result_content_len": 91,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-25ba060d-3306-49df-861b-5e735fdc3257-51",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 36,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/36",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_finalizer_correction_2.json\",\"limit\":150}",
+        "exit_code": null,
+        "result_content_len": 9086,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_finalizer_correction_2.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-25ba060d-3306-49df-861b-5e735fdc3257-52",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 7,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/7",
+        "arguments_json": "{\"command\":\"# Capture exact start timestamp for receipt; no mutations\\n$start = Get-Date\\nWrite-Output (\\\"start_time_local={0:o}\\\" -f $start)\\nWrite-Output (\\\"start_time_utc={0:yyyy-MM-ddTHH:mm:ssZ}\\\" -f $start.ToUniversalTime())\\n# Confirm lease paths empty/writable\\n$receipt = 'E:\\\\AIdle_openworld\\\\orchestration\\\\receipts\\\\g8\\\\d2_provenance_correction_016\\\\D2_asset_016.json'\\n$trace = 'E:\\\\AIdle_openworld\\\\orchestration\\\\logs\\\\g8-d2-asset-016.log'\\nWrite-Output (\\\"receipt_exists={0}\\\" -f (Test-Path $receipt))\\nWrite-Output (\\\"trace_exists={0}\\\" -f (Test-Path $trace))\\nWrite-Output (\\\"receipt_dir={0}\\\" -f (Test-Path (Split-Path $receipt)))\\nWrite-Output (\\\"logs_dir={0}\\\" -f (Test-Path (Split-Path $trace)))\\n# Count MATCH lines only in zero-diff section for honesty\\n$matches = Select-String -Path 'E:\\\\AIdle_openworld\\\\orchestration\\\\logs\\\\g8-d1-core-child.log' -Pattern '^MATCH ' | Measure-Object\\nWrite-Output (\\\"MATCH_lines={0}\\\" -f $matches.Count)\",\"description\":\"Timestamp and lease path preflight\"}",
+        "exit_code": 0,
+        "result_content_len": 181,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-407866d3-2ab9-48be-a8df-8a7666353a60-53",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 37,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/37",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_finalizer_correction_2.json\",\"offset\":150,\"limit\":250}",
+        "exit_code": null,
+        "result_content_len": 19488,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_finalizer_correction_2.json"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-407866d3-2ab9-48be-a8df-8a7666353a60-54",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 8,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/8",
+        "arguments_json": "{\"command\":\"# Attempt to locate durable child transcript metadata for asset child\\n$refs = @(\\n  '019f830a-e078-7291-868d-63dadf2dccd2',\\n  '019f7ffd-3995-71c0-aca1-51078e24a852'\\n)\\n$roots = @(\\n  'C:\\\\Users\\\\phant\\\\.grok\\\\sessions',\\n  'C:\\\\Users\\\\phant\\\\.grok\\\\downloads'\\n)\\nforeach ($root in $roots) {\\n  if (Test-Path $root) {\\n    Get-ChildItem -Path $root -Recurse -Directory -ErrorAction SilentlyContinue |\\n      Where-Object { $_.Name -eq '019f830a-e078-7291-868d-63dadf2dccd2' } |\\n      Select-Object -First 5 FullName\\n  }\\n}\\n# also direct known patterns\\n$candidates = @(\\n  \\\"C:\\\\Users\\\\phant\\\\.grok\\\\sessions\\\\E%3A%5CAIdle_openworld\\\\019f830a-e078-7291-868d-63dadf2dccd2\\\",\\n  \\\"C:\\\\Users\\\\phant\\\\.grok\\\\sessions\\\\C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads\\\\019f7ffd-3995-71c0-aca1-51078e24a852\\\\subagents\\\\019f830a-e078-7291-868d-63dadf2dccd2\\\"\\n)\\nforeach ($c in $candidates) {\\n  Write-Output (\\\"candidate_exists={0} path={1}\\\" -f (Test-Path $c), $c)\\n  if (Test-Path $c) { Get-ChildItem $c | Select-Object Name, Length }\\n}\",\"description\":\"Locate durable child transcript metadata path\"}",
+        "exit_code": 0,
+        "result_content_len": 2230,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-60b97778-5eaf-4893-8f96-4c00899a1899-55",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 9,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/9",
+        "arguments_json": "{\"command\":\"$session = 'C:\\\\Users\\\\phant\\\\.grok\\\\sessions\\\\E%3A%5CAIdle_openworld\\\\019f830a-e078-7291-868d-63dadf2dccd2'\\nGet-ChildItem $session | Format-Table Name, Length, LastWriteTime -AutoSize\\nif (Test-Path \\\"$session\\\\terminal\\\") { Get-ChildItem \\\"$session\\\\terminal\\\" | Format-Table Name, Length -AutoSize }\\nif (Test-Path \\\"$session\\\\meta.json\\\") { Get-Content \\\"$session\\\\meta.json\\\" -Raw | Select-Object -First 1 }\\nWrite-Output '--- files ---'\\nGet-ChildItem $session -Recurse -File | Select-Object FullName, Length | Format-Table -AutoSize\",\"description\":\"List asset child session transcript files\"}",
+        "exit_code": 0,
+        "result_content_len": 3869,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-c04790f9-9cfb-4d9c-88ae-1dd3a0b965dc-56",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 10,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/10",
+        "arguments_json": "{\"command\":\"E:\\\\standards\\\\maf\\\\.venv\\\\Scripts\\\\python.exe -c \\\"\\nimport json\\nfrom pathlib import Path\\np = Path(r'C:\\\\Users\\\\phant\\\\.grok\\\\sessions\\\\E%3A%5CAIdle_openworld\\\\019f830a-e078-7291-868d-63dadf2dccd2\\\\chat_history.jsonl')\\nlines = p.read_text(encoding='utf-8').splitlines()\\ncalls = []\\nresults = {}\\nfor line in lines:\\n    if not line.strip():\\n        continue\\n    o = json.loads(line)\\n    t = o.get('type') or o.get('role')\\n    if o.get('tool_calls'):\\n        for tc in o['tool_calls']:\\n            args = tc.get('arguments')\\n            if isinstance(args, str):\\n                try:\\n                    args = json.loads(args)\\n                except Exception:\\n                    pass\\n            calls.append({\\n                'id': tc.get('id'),\\n                'name': tc.get('name'),\\n                'args': args if isinstance(args, dict) else {'raw': args},\\n            })\\n    # alternate structure\\n    if o.get('type') == 'tool_result' or o.get('role') == 'tool':\\n        tid = o.get('tool_call_id') or o.get('id')\\n        content = o.get('content') or o.get('result') or ''\\n        if isinstance(content, list):\\n            content = json.dumps(content)[:500]\\n        content = str(content)\\n        exit_code = None\\n        if content.startswith('exit:'):\\n            try:\\n                exit_code = int(content.splitlines()[0].split(':',1)[1].strip().split()[0])\\n            except Exception:\\n                pass\\n        results[tid] = {'exit_code': exit_code, 'len': len(content), 'head': content[:160].replace(chr(10),' | ')}\\nprint('TOTAL_TOOL_CALLS', len(calls))\\n# counts by name\\nfrom collections import Counter\\nc = Counter([x['name'] for x in calls])\\nprint('BY_NAME', dict(c))\\n# material + terminal ledger with ordinals\\nordinal = 0\\nfor i, tc in enumerate(calls, 1):\\n    ordinal = i\\n    r = results.get(tc['id'], {})\\n    name = tc['name']\\n    args = tc['args'] or {}\\n    summary = ''\\n    if name == 'run_terminal_command':\\n        summary = (args.get('command') or '')[:120].replace(chr(10),'\\\\\\\\n')\\n        print(f'#{i} term id={tc[\\\\\\\"id\\\\\\\"]} exit={r.get(\\\\\\\"exit_code\\\\\\\")} desc={args.get(\\\\\\\"description\\\\\\\")} cmd={summary!r}')\\n    elif name == 'read_file':\\n        print(f'#{i} read id={tc[\\\\\\\"id\\\\\\\"]} path={args.get(\\\\\\\"target_file\\\\\\\")} off={args.get(\\\\\\\"offset\\\\\\\")} lim={args.get(\\\\\\\"limit\\\\\\\")}')\\n    elif name in ('write','search_replace'):\\n        print(f'#{i} {name} id={tc[\\\\\\\"id\\\\\\\"]} path={args.get(\\\\\\\"file_path\\\\\\\") or args.get(\\\\\\\"path\\\\\\\")}')\\n    elif name == 'grep':\\n        print(f'#{i} grep id={tc[\\\\\\\"id\\\\\\\"]} pat={str(args.get(\\\\\\\"pattern\\\\\\\"))[:60]} path={args.get(\\\\\\\"path\\\\\\\")}')\\n    elif name == 'list_dir':\\n        print(f'#{i} list_dir id={tc[\\\\\\\"id\\\\\\\"]} path={args.get(\\\\\\\"target_directory\\\\\\\")}')\\n    elif name == 'todo_write':\\n        print(f'#{i} todo_write id={tc[\\\\\\\"id\\\\\\\"]}')\\n    else:\\n        print(f'#{i} {name} id={tc[\\\\\\\"id\\\\\\\"]} keys={list(args.keys())[:8]}')\\nprint('RESULTS_KEYS', len(results))\\n\\\"\\n\",\"description\":\"Extract all tool calls from child transcript\"}",
+        "exit_code": 1,
+        "result_content_len": 147,
+        "files_read": [],
+        "files_written": [],
+        "failed": true,
+        "result_head": "exit: 1\n  File \"<string>\", line 55\n    print(f'#{i} term id={tc[\" id\\]}\n          ^\nSyntaxError: unterminated string literal (detected at line 55)\n"
+      },
+      {
+        "tool_call_id": "call-64cd8ce1-8ed6-4c95-a8ad-d73537678c8c-57",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 11,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/11",
+        "arguments_json": "{\"command\":\"$code = @'\\nimport json\\nfrom pathlib import Path\\nfrom collections import Counter\\np = Path(r\\\"C:\\\\Users\\\\phant\\\\.grok\\\\sessions\\\\E%3A%5CAIdle_openworld\\\\019f830a-e078-7291-868d-63dadf2dccd2\\\\chat_history.jsonl\\\")\\nlines = p.read_text(encoding=\\\"utf-8\\\").splitlines()\\ncalls = []\\nresults = {}\\nfor line in lines:\\n    if not line.strip():\\n        continue\\n    o = json.loads(line)\\n    if o.get(\\\"tool_calls\\\"):\\n        for tc in o[\\\"tool_calls\\\"]:\\n            args = tc.get(\\\"arguments\\\")\\n            if isinstance(args, str):\\n                try:\\n                    args = json.loads(args)\\n                except Exception:\\n                    pass\\n            calls.append({\\n                \\\"id\\\": tc.get(\\\"id\\\"),\\n                \\\"name\\\": tc.get(\\\"name\\\"),\\n                \\\"args\\\": args if isinstance(args, dict) else {\\\"raw\\\": args},\\n            })\\n    if o.get(\\\"type\\\") == \\\"tool_result\\\" or o.get(\\\"role\\\") == \\\"tool\\\":\\n        tid = o.get(\\\"tool_call_id\\\") or o.get(\\\"id\\\")\\n        content = o.get(\\\"content\\\") or o.get(\\\"result\\\") or \\\"\\\"\\n        if isinstance(content, list):\\n            content = json.dumps(content)[:500]\\n        content = str(content)\\n        exit_code = None\\n        if content.startswith(\\\"exit:\\\"):\\n            try:\\n                exit_code = int(content.splitlines()[0].split(\\\":\\\",1)[1].strip().split()[0])\\n            except Exception:\\n                pass\\n        results[tid] = {\\\"exit_code\\\": exit_code, \\\"len\\\": len(content), \\\"head\\\": content[:120].replace(\\\"\\\\n\\\",\\\" | \\\")}\\nprint(\\\"TOTAL_TOOL_CALLS\\\", len(calls))\\nprint(\\\"BY_NAME\\\", dict(Counter([x[\\\"name\\\"] for x in calls])))\\nfor i, tc in enumerate(calls, 1):\\n    r = results.get(tc[\\\"id\\\"], {})\\n    name = tc[\\\"name\\\"]\\n    args = tc[\\\"args\\\"] or {}\\n    if name == \\\"run_terminal_command\\\":\\n        cmd = (args.get(\\\"command\\\") or \\\"\\\").replace(\\\"\\\\n\\\", \\\"\\\\\\\\n\\\")\\n        print(\\\"ORD\\\", i, \\\"TERM\\\", tc[\\\"id\\\"], \\\"exit\\\", r.get(\\\"exit_code\\\"), \\\"desc\\\", args.get(\\\"description\\\"))\\n        print(\\\"CMD_START\\\")\\n        print(args.get(\\\"command\\\") or \\\"\\\")\\n        print(\\\"CMD_END\\\")\\n    elif name == \\\"read_file\\\":\\n        print(\\\"ORD\\\", i, \\\"READ\\\", tc[\\\"id\\\"], \\\"path\\\", args.get(\\\"target_file\\\"), \\\"off\\\", args.get(\\\"offset\\\"), \\\"lim\\\", args.get(\\\"limit\\\"))\\n    elif name in (\\\"write\\\", \\\"search_replace\\\"):\\n        print(\\\"ORD\\\", i, name.upper(), tc[\\\"id\\\"], \\\"path\\\", args.get(\\\"file_path\\\") or args.get(\\\"path\\\"))\\n    elif name == \\\"grep\\\":\\n        print(\\\"ORD\\\", i, \\\"GREP\\\", tc[\\\"id\\\"], \\\"pat\\\", str(args.get(\\\"pattern\\\"))[:80], \\\"path\\\", args.get(\\\"path\\\"))\\n    elif name == \\\"list_dir\\\":\\n        print(\\\"ORD\\\", i, \\\"LIST\\\", tc[\\\"id\\\"], \\\"path\\\", args.get(\\\"target_directory\\\"))\\n    elif name == \\\"todo_write\\\":\\n        print(\\\"ORD\\\", i, \\\"TODO\\\", tc[\\\"id\\\"])\\n    else:\\n        print(\\\"ORD\\\", i, name, tc[\\\"id\\\"], \\\"keys\\\", list(args.keys())[:8])\\nprint(\\\"RESULTS\\\", len(results))\\nfailed = [ (i+1, tc[\\\"id\\\"], results.get(tc[\\\"id\\\"],{}).get(\\\"exit_code\\\")) for i,tc in enumerate(calls) if tc[\\\"name\\\"]==\\\"run_terminal_command\\\" and results.get(tc[\\\"id\\\"],{}).get(\\\"exit_code\\\") not in (0, None) ]\\nprint(\\\"FAILED_TERMS\\\", failed)\\n'@\\n$code | E:\\\\standards\\\\maf\\\\.venv\\\\Scripts\\\\python.exe -\",\"description\":\"Parse transcript tool-call ledger via stdin python\"}",
+        "exit_code": 0,
+        "result_content_len": 19922,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-1d272178-5d9d-4de9-b419-7abccdf93f3d-58",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 12,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/12",
+        "arguments_json": "{\"command\":\"$code = @'\\nimport json\\nfrom pathlib import Path\\np = Path(r\\\"C:\\\\Users\\\\phant\\\\.grok\\\\sessions\\\\E%3A%5CAIdle_openworld\\\\019f830a-e078-7291-868d-63dadf2dccd2\\\\chat_history.jsonl\\\")\\nterm_dir = Path(r\\\"C:\\\\Users\\\\phant\\\\.grok\\\\sessions\\\\E%3A%5CAIdle_openworld\\\\019f830a-e078-7291-868d-63dadf2dccd2\\\\terminal\\\")\\nlines = p.read_text(encoding=\\\"utf-8\\\").splitlines()\\ncalls = []\\nresults = {}\\nfor line in lines:\\n    if not line.strip():\\n        continue\\n    o = json.loads(line)\\n    if o.get(\\\"tool_calls\\\"):\\n        for tc in o[\\\"tool_calls\\\"]:\\n            args = tc.get(\\\"arguments\\\")\\n            if isinstance(args, str):\\n                try:\\n                    args = json.loads(args)\\n                except Exception:\\n                    pass\\n            calls.append({\\\"id\\\": tc.get(\\\"id\\\"), \\\"name\\\": tc.get(\\\"name\\\"), \\\"args\\\": args if isinstance(args, dict) else {\\\"raw\\\": args}})\\n    if o.get(\\\"type\\\") == \\\"tool_result\\\" or o.get(\\\"role\\\") == \\\"tool\\\":\\n        tid = o.get(\\\"tool_call_id\\\") or o.get(\\\"id\\\")\\n        content = o.get(\\\"content\\\") or o.get(\\\"result\\\") or \\\"\\\"\\n        if isinstance(content, list):\\n            content = json.dumps(content)\\n        content = str(content)\\n        exit_code = None\\n        if content.startswith(\\\"exit:\\\"):\\n            try:\\n                exit_code = int(content.splitlines()[0].split(\\\":\\\",1)[1].strip().split()[0])\\n            except Exception:\\n                pass\\n        results[tid] = {\\\"exit_code\\\": exit_code, \\\"content_len\\\": len(content)}\\n# enrich terminal logs for exit if missing\\nledger = []\\nfor i, tc in enumerate(calls, 1):\\n    args = tc[\\\"args\\\"] or {}\\n    r = results.get(tc[\\\"id\\\"], {})\\n    entry = {\\n        \\\"ordinal\\\": i,\\n        \\\"tool_kind\\\": tc[\\\"name\\\"],\\n        \\\"tool_call_id\\\": tc[\\\"id\\\"],\\n        \\\"transcript_ref\\\": f\\\"transcript://019f830a-e078-7291-868d-63dadf2dccd2/{tc['name']}/{i}\\\",\\n        \\\"exit_code\\\": r.get(\\\"exit_code\\\"),\\n        \\\"files_read\\\": [],\\n        \\\"files_written\\\": [],\\n    }\\n    if tc[\\\"name\\\"] == \\\"run_terminal_command\\\":\\n        entry[\\\"command\\\"] = args.get(\\\"command\\\")\\n        entry[\\\"description\\\"] = args.get(\\\"description\\\")\\n        entry[\\\"exact_tool_input\\\"] = {\\\"command\\\": args.get(\\\"command\\\"), \\\"description\\\": args.get(\\\"description\\\")}\\n        # try terminal log for exit\\n        logp = term_dir / f\\\"{tc['id']}.log\\\"\\n        if logp.exists():\\n            entry[\\\"terminal_log\\\"] = str(logp)\\n            if entry[\\\"exit_code\\\"] is None:\\n                # leave as observed None if result not yet bound\\n                pass\\n    elif tc[\\\"name\\\"] == \\\"read_file\\\":\\n        entry[\\\"exact_tool_input\\\"] = {\\\"target_file\\\": args.get(\\\"target_file\\\"), \\\"offset\\\": args.get(\\\"offset\\\"), \\\"limit\\\": args.get(\\\"limit\\\")}\\n        if args.get(\\\"target_file\\\"):\\n            entry[\\\"files_read\\\"] = [args.get(\\\"target_file\\\")]\\n    elif tc[\\\"name\\\"] == \\\"list_dir\\\":\\n        entry[\\\"exact_tool_input\\\"] = {\\\"target_directory\\\": args.get(\\\"target_directory\\\")}\\n    elif tc[\\\"name\\\"] == \\\"grep\\\":\\n        entry[\\\"exact_tool_input\\\"] = {\\\"pattern\\\": args.get(\\\"pattern\\\"), \\\"path\\\": args.get(\\\"path\\\"), \\\"glob\\\": args.get(\\\"glob\\\"), \\\"head_limit\\\": args.get(\\\"head_limit\\\")}\\n    elif tc[\\\"name\\\"] == \\\"todo_write\\\":\\n        entry[\\\"exact_tool_input\\\"] = {\\\"merge\\\": args.get(\\\"merge\\\"), \\\"todos_count\\\": len(args.get(\\\"todos\\\") or [])}\\n    else:\\n        entry[\\\"exact_tool_input\\\"] = args\\n    ledger.append(entry)\\nprint(\\\"TOTAL\\\", len(ledger))\\nprint(\\\"TERMINALS\\\", sum(1 for e in ledger if e[\\\"tool_kind\\\"]==\\\"run_terminal_command\\\"))\\nprint(\\\"FAILED\\\", [(e[\\\"ordinal\\\"], e[\\\"tool_call_id\\\"], e[\\\"exit_code\\\"]) for e in ledger if e[\\\"tool_kind\\\"]==\\\"run_terminal_command\\\" and e[\\\"exit_code\\\"] not in (0, None)])\\n# print compact non-terminal summary\\nfor e in ledger:\\n    if e[\\\"tool_kind\\\"] != \\\"run_terminal_command\\\":\\n        print(f\\\"{e['ordinal']}|{e['tool_kind']}|{e['tool_call_id']}|{json.dumps(e['exact_tool_input'], ensure_ascii=False)[:200]}\\\")\\n# print full terminal entries as JSON lines for receipt embedding\\nprint(\\\"===TERMINAL_JSON===\\\")\\nfor e in ledger:\\n    if e[\\\"tool_kind\\\"] == \\\"run_terminal_command\\\":\\n        print(json.dumps(e, ensure_ascii=False))\\nprint(\\\"===END===\\\")\\n'@\\n$code | E:\\\\standards\\\\maf\\\\.venv\\\\Scripts\\\\python.exe -\",\"description\":\"Build full transcript provenance ledger JSON\"}",
+        "exit_code": 0,
+        "result_content_len": 20202,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-10d38191-a28b-46e6-9b4c-e24c333586b9-59",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 13,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/13",
+        "arguments_json": "{\"command\":\"$code = @'\\nimport json\\nfrom pathlib import Path\\nfrom datetime import datetime, timezone\\nfrom collections import Counter\\n\\nCHILD = \\\"019f830a-e078-7291-868d-63dadf2dccd2\\\"\\nPARENT = \\\"019f7ffd-3995-71c0-aca1-51078e24a852\\\"\\nSESSION = Path(r\\\"C:\\\\Users\\\\phant\\\\.grok\\\\sessions\\\\E%3A%5CAIdle_openworld\\\\019f830a-e078-7291-868d-63dadf2dccd2\\\")\\nRECEIPT = Path(r\\\"E:\\\\AIdle_openworld\\\\orchestration\\\\receipts\\\\g8\\\\d2_provenance_correction_016\\\\D2_asset_016.json\\\")\\nTRACE = Path(r\\\"E:\\\\AIdle_openworld\\\\orchestration\\\\logs\\\\g8-d2-asset-016.log\\\")\\n\\nlines = (SESSION / \\\"chat_history.jsonl\\\").read_text(encoding=\\\"utf-8\\\").splitlines()\\ncalls = []\\nresults = {}\\nfor line in lines:\\n    if not line.strip():\\n        continue\\n    o = json.loads(line)\\n    if o.get(\\\"tool_calls\\\"):\\n        for tc in o[\\\"tool_calls\\\"]:\\n            args = tc.get(\\\"arguments\\\")\\n            if isinstance(args, str):\\n                try:\\n                    args = json.loads(args)\\n                except Exception:\\n                    pass\\n            calls.append({\\\"id\\\": tc.get(\\\"id\\\"), \\\"name\\\": tc.get(\\\"name\\\"), \\\"args\\\": args if isinstance(args, dict) else {\\\"raw\\\": args}})\\n    if o.get(\\\"type\\\") == \\\"tool_result\\\" or o.get(\\\"role\\\") == \\\"tool\\\":\\n        tid = o.get(\\\"tool_call_id\\\") or o.get(\\\"id\\\")\\n        content = o.get(\\\"content\\\") or o.get(\\\"result\\\") or \\\"\\\"\\n        if isinstance(content, list):\\n            content = json.dumps(content)\\n        content = str(content)\\n        exit_code = None\\n        if content.startswith(\\\"exit:\\\"):\\n            try:\\n                exit_code = int(content.splitlines()[0].split(\\\":\\\",1)[1].strip().split()[0])\\n            except Exception:\\n                pass\\n        results[tid] = {\\\"exit_code\\\": exit_code, \\\"content_len\\\": len(content), \\\"head\\\": content[:240]}\\n\\n# Pre-final ledger: all calls currently in transcript (this builder call is the last terminal before receipt write and will be included when completed; exclude nothing yet — final receipt write is separate write tool/path and not yet present)\\nledger = []\\nfor i, tc in enumerate(calls, 1):\\n    args = tc[\\\"args\\\"] or {}\\n    r = results.get(tc[\\\"id\\\"], {})\\n    entry = {\\n        \\\"ordinal\\\": i,\\n        \\\"tool_kind\\\": tc[\\\"name\\\"],\\n        \\\"tool_call_id\\\": tc[\\\"id\\\"],\\n        \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/{tc['name']}/{i}\\\",\\n        \\\"exit_code_or_result\\\": r.get(\\\"exit_code\\\") if tc[\\\"name\\\"] == \\\"run_terminal_command\\\" else \\\"ok_or_observed\\\",\\n        \\\"result_content_len\\\": r.get(\\\"content_len\\\"),\\n        \\\"files_read\\\": [],\\n        \\\"files_written\\\": [],\\n    }\\n    if tc[\\\"name\\\"] == \\\"run_terminal_command\\\":\\n        entry[\\\"command\\\"] = args.get(\\\"command\\\")\\n        entry[\\\"description\\\"] = args.get(\\\"description\\\")\\n        entry[\\\"exact_tool_input\\\"] = {\\\"command\\\": args.get(\\\"command\\\"), \\\"description\\\": args.get(\\\"description\\\")}\\n        entry[\\\"exit_code\\\"] = r.get(\\\"exit_code\\\")\\n        if r.get(\\\"exit_code\\\") not in (0, None):\\n            entry[\\\"failed\\\"] = True\\n            entry[\\\"result_head\\\"] = r.get(\\\"head\\\")\\n    elif tc[\\\"name\\\"] == \\\"read_file\\\":\\n        entry[\\\"exact_tool_input\\\"] = {\\\"target_file\\\": args.get(\\\"target_file\\\"), \\\"offset\\\": args.get(\\\"offset\\\"), \\\"limit\\\": args.get(\\\"limit\\\")}\\n        if args.get(\\\"target_file\\\"):\\n            entry[\\\"files_read\\\"] = [args.get(\\\"target_file\\\")]\\n    elif tc[\\\"name\\\"] == \\\"list_dir\\\":\\n        entry[\\\"exact_tool_input\\\"] = {\\\"target_directory\\\": args.get(\\\"target_directory\\\")}\\n    elif tc[\\\"name\\\"] == \\\"grep\\\":\\n        entry[\\\"exact_tool_input\\\"] = {\\\"pattern\\\": args.get(\\\"pattern\\\"), \\\"path\\\": args.get(\\\"path\\\"), \\\"glob\\\": args.get(\\\"glob\\\"), \\\"head_limit\\\": args.get(\\\"head_limit\\\")}\\n    elif tc[\\\"name\\\"] == \\\"todo_write\\\":\\n        entry[\\\"exact_tool_input\\\"] = {\\\"merge\\\": args.get(\\\"merge\\\"), \\\"todos_count\\\": len(args.get(\\\"todos\\\") or [])}\\n    else:\\n        entry[\\\"exact_tool_input\\\"] = args\\n    ledger.append(entry)\\n\\nby_name = dict(Counter([e[\\\"tool_kind\\\"] for e in ledger]))\\nterminals = [e for e in ledger if e[\\\"tool_kind\\\"] == \\\"run_terminal_command\\\"]\\nfailed_terms = [e for e in terminals if e.get(\\\"exit_code\\\") not in (0, None)]\\n\\n# skills evidence\\nskills = [\\n    {\\n        \\\"skill_id\\\": \\\"maf-mandatory-standard\\\",\\n        \\\"source\\\": \\\"E:/shared/skills/library/maf-mandatory-standard/SKILL.md\\\",\\n        \\\"mode\\\": \\\"full\\\",\\n        \\\"sha256\\\": \\\"6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281\\\",\\n        \\\"total_lines\\\": 46,\\n        \\\"chunk_ranges\\\": [{\\\"start_line\\\": 1, \\\"end_line\\\": 46, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/26\\\"}],\\n        \\\"load_evidence\\\": \\\"FULL EOF read via read_file ORD26; hard stops no invent evidence / no exceed authority; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL\\\",\\n    },\\n    {\\n        \\\"skill_id\\\": \\\"trustlayer-x16-crew\\\",\\n        \\\"source\\\": \\\"E:/shared/skills/library/trustlayer-x16-crew/SKILL.md\\\",\\n        \\\"mode\\\": \\\"full\\\",\\n        \\\"sha256\\\": \\\"66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf\\\",\\n        \\\"total_lines\\\": 53,\\n        \\\"chunk_ranges\\\": [{\\\"start_line\\\": 1, \\\"end_line\\\": 53, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/27\\\"}],\\n        \\\"load_evidence\\\": \\\"FULL EOF read ORD27; slot 09 blue-team-p0-remediator; WO-016 forces VERIFY_ONLY; Red finds; Blue patches only approved WOs; Purple never patches\\\",\\n    },\\n    {\\n        \\\"skill_id\\\": \\\"agentwork-knowledge-loop\\\",\\n        \\\"source\\\": \\\"E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md\\\",\\n        \\\"mode\\\": \\\"full\\\",\\n        \\\"sha256\\\": \\\"94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9\\\",\\n        \\\"total_lines\\\": 36,\\n        \\\"chunk_ranges\\\": [{\\\"start_line\\\": 1, \\\"end_line\\\": 36, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/28\\\"}],\\n        \\\"load_evidence\\\": \\\"FULL EOF read ORD28; hub E:\\\\\\\\; MASTER_PLAN + JOURNAL_LATEST; do not skip handoff\\\",\\n    },\\n    {\\n        \\\"skill_id\\\": \\\"project-room-collab\\\",\\n        \\\"source\\\": \\\"E:/shared/skills/library/project-room-collab/SKILL.md\\\",\\n        \\\"mode\\\": \\\"full\\\",\\n        \\\"sha256\\\": \\\"9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897\\\",\\n        \\\"total_lines\\\": 65,\\n        \\\"chunk_ranges\\\": [{\\\"start_line\\\": 1, \\\"end_line\\\": 65, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/29\\\"}],\\n        \\\"load_evidence\\\": \\\"FULL EOF 65/65 lines ORD29; project room sync knowledge/errors/handoffs; multi-role authority; skills_manifest always #4\\\",\\n    },\\n    {\\n        \\\"skill_id\\\": \\\"curiosity-engine\\\",\\n        \\\"source\\\": \\\"E:/shared/skills/library/curiosity-engine/SKILL.md\\\",\\n        \\\"mode\\\": \\\"full\\\",\\n        \\\"sha256\\\": \\\"f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b\\\",\\n        \\\"total_lines\\\": 1123,\\n        \\\"chunk_ranges\\\": [\\n            {\\\"start_line\\\": 1, \\\"end_line\\\": 200, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/30\\\", \\\"requested_offset\\\": 1, \\\"requested_limit\\\": 200},\\n            {\\\"start_line\\\": 201, \\\"end_line\\\": 400, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/31\\\", \\\"requested_offset\\\": 201, \\\"requested_limit\\\": 200},\\n            {\\\"start_line\\\": 401, \\\"end_line\\\": 600, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/32\\\", \\\"requested_offset\\\": 401, \\\"requested_limit\\\": 200},\\n            {\\\"start_line\\\": 601, \\\"end_line\\\": 800, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/33\\\", \\\"requested_offset\\\": 601, \\\"requested_limit\\\": 200},\\n            {\\\"start_line\\\": 801, \\\"end_line\\\": 1000, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/34\\\", \\\"requested_offset\\\": 801, \\\"requested_limit\\\": 200},\\n            {\\\"start_line\\\": 1001, \\\"end_line\\\": 1123, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/35\\\", \\\"requested_offset\\\": 1001, \\\"requested_limit\\\": 150},\\n        ],\\n        \\\"chunk_note\\\": \\\"Six non-overlapping read_file requests through EOF (1123). Tool surface returned full-file content on each offset request; coverage proven by (1) six ORD30-35 reads observing Prime Directive EOF and (2) ORD50 ReadAllLines total_lines=1123 + sha256 match.\\\",\\n        \\\"load_evidence\\\": \\\"FULL 1123/1123 lines via ORD30-35 chunked reads + ORD23/50 sha256/line count; FACT/INFERENCE/HYPOTHESIS; no invent facts; verify by repository primary sources\\\",\\n    },\\n    {\\n        \\\"skill_id\\\": \\\"game-asset-core\\\",\\n        \\\"source\\\": \\\"C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md\\\",\\n        \\\"mode\\\": \\\"full\\\",\\n        \\\"sha256\\\": \\\"7b7ab3024067a0eb239ba75fc414b312d007022d897d1a0b519a09e9c1225f37\\\",\\n        \\\"total_lines\\\": 57,\\n        \\\"chunk_ranges\\\": [{\\\"start_line\\\": 1, \\\"end_line\\\": 57, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/36\\\"}],\\n        \\\"load_evidence\\\": \\\"FULL EOF routed skill ORD36; engine-ready defaults; style anchoring; verify by blind describe+diff; escalate representation then strategy\\\",\\n    },\\n]\\n\\nnow_utc = datetime.now(timezone.utc).strftime(\\\"%Y-%m-%dT%H:%M:%SZ\\\")\\nstart_time = \\\"2026-07-21T04:59:20Z\\\"  # approximate from session start ~11:59 local +07\\n\\nreceipt = {\\n  \\\"agent_step_id\\\": \\\"G8-001-D2-asset-016-directive-37-2026-07-21\\\",\\n  \\\"agent_type\\\": \\\"aidle-asset\\\",\\n  \\\"skill_id\\\": \\\"maf-mandatory-standard\\\",\\n  \\\"skill_version\\\": \\\"1.0\\\",\\n  \\\"authority_token\\\": \\\"VERIFY_ONLY\\\",\\n  \\\"accepted\\\": False,\\n  \\\"input_context_hash\\\": \\\"sha256:a66bffe7ee6a68bbb10ebb3ee6bac29e34dd61b36f6584deeee321062862995a\\\",\\n  \\\"output_schema_version\\\": \\\"agent_step_contract/1.0\\\",\\n  \\\"child_task_ref\\\": CHILD,\\n  \\\"transcript_ref\\\": CHILD,\\n  \\\"writer_transcript_ref\\\": CHILD,\\n  \\\"spawned_by_parent_ref\\\": PARENT,\\n  \\\"self_accept\\\": False,\\n  \\\"trace_ref\\\": \\\"orchestration/logs/g8-d2-asset-016.log\\\",\\n  \\\"handoff_ref\\\": \\\"D3_BLOCKED\\\",\\n  \\\"start_time\\\": start_time,\\n  \\\"end_time\\\": now_utc,\\n  \\\"writer_time_informational\\\": True,\\n  \\\"durable_completed_at\\\": None,\\n  \\\"durable_completed_at_note\\\": \\\"Worker does not predict durable completion. Codex binds completed_at from immutable child metadata and artifact LastWriteTimeUtc + SHA-256.\\\",\\n  \\\"profile_source\\\": \\\"E:/AIdle_openworld/.grok/agents/asset.md\\\",\\n  \\\"profile_binding_evidence\\\": \\\"FULL read ORD2: name=aidle-asset; trustlayer_character=blue-team-p0-remediator; ui_character=ui-color-type-specialist; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop, game-asset-core; profile card default PATCH_DRAFT overridden by WO-G8-001-D2-PROVENANCE-CORRECTION-016 + Directive 37 to VERIFY_ONLY; bind DESIGN.md warm natural base, matte Dreamy Low-Poly, restrained cyan manifestation accent, anti-purple-slop.\\\",\\n  \\\"directive_id\\\": 37,\\n  \\\"work_order\\\": \\\"orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md\\\",\\n  \\\"guard_report\\\": \\\"orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json\\\",\\n  \\\"files_read\\\": sorted({f for e in ledger for f in e.get(\\\"files_read\\\", [])} | {\\n      \\\"E:/AIdle_openworld/.grok/agents/asset.md\\\",\\n      \\\"E:/agents/characters/09-blue-team-p0-remediator.md\\\",\\n      \\\"E:/agents/ui-design/characters/06-ui-color-type-specialist.md\\\",\\n      \\\"E:/AIdle_openworld/Agents.md\\\",\\n      \\\"E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md\\\",\\n      \\\"E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json\\\",\\n      \\\"E:/AIdle_openworld/orchestration/control/codex_directive.json\\\",\\n      \\\"E:/AIdle_openworld/orchestration/control/grok_status.json\\\",\\n      \\\"E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md\\\",\\n      \\\"E:/AIdle_openworld/AIdle_Openworld_Blueprint_v1.1/00_README.md\\\",\\n      \\\"E:/AIdle_openworld/orchestration/workflow.json\\\",\\n      \\\"E:/AIdle_openworld/orchestration/tasks.json\\\",\\n      \\\"E:/AIdle_openworld/orchestration/skills_manifest.yaml\\\",\\n      \\\"E:/standards/maf/schemas/agent_step_contract.schema.json\\\",\\n      \\\"E:/AIdle_openworld/DESIGN.md\\\",\\n      \\\"E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md\\\",\\n      \\\"E:/shared/skills/library/maf-mandatory-standard/SKILL.md\\\",\\n      \\\"E:/shared/skills/library/trustlayer-x16-crew/SKILL.md\\\",\\n      \\\"E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md\\\",\\n      \\\"E:/shared/skills/library/project-room-collab/SKILL.md\\\",\\n      \\\"E:/shared/skills/library/curiosity-engine/SKILL.md\\\",\\n      \\\"C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md\\\",\\n      \\\"E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd\\\",\\n      \\\"E:/AIdle_openworld/game/resources/art_styles/cozy_cyber_pixel_2_5d.json\\\",\\n      \\\"E:/AIdle_openworld/game/autoload/art_style_manager.gd\\\",\\n      \\\"E:/AIdle_openworld/contracts/assets/provenance_manifest.json\\\",\\n      \\\"E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png\\\",\\n      \\\"E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png\\\",\\n      \\\"E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json\\\",\\n  }),\\n  \\\"files_written\\\": [\\n    str(RECEIPT).replace(\\\"\\\\\\\\\\\", \\\"/\\\"),\\n    str(TRACE).replace(\\\"\\\\\\\\\\\", \\\"/\\\"),\\n  ],\\n  \\\"product_writes\\\": [],\\n  \\\"adoption_status\\\": \\\"ADOPTED_WITHOUT_PATCH\\\",\\n  \\\"tool_call_provenance\\\": {\\n    \\\"child_task_ref\\\": CHILD,\\n    \\\"ordinal_scheme\\\": \\\"one-based order of tool_calls as recorded in durable chat_history.jsonl for this child; no gaps; no invented calls\\\",\\n    \\\"pre_final_tool_call_count\\\": len(ledger),\\n    \\\"by_name\\\": by_name,\\n    \\\"terminal_count\\\": len(terminals),\\n    \\\"failed_terminal_count\\\": len(failed_terms),\\n    \\\"failed_terminals\\\": [\\n      {\\n        \\\"ordinal\\\": e[\\\"ordinal\\\"],\\n        \\\"tool_call_id\\\": e[\\\"tool_call_id\\\"],\\n        \\\"transcript_ref\\\": e[\\\"transcript_ref\\\"],\\n        \\\"exit_code\\\": e.get(\\\"exit_code\\\"),\\n        \\\"description\\\": e.get(\\\"description\\\"),\\n        \\\"command\\\": e.get(\\\"command\\\"),\\n        \\\"result_head\\\": e.get(\\\"result_head\\\"),\\n        \\\"failure\\\": \\\"python -c SyntaxError: unterminated string literal (PowerShell escaping of nested f-string quotes)\\\",\\n      }\\n      for e in failed_terms\\n    ],\\n    \\\"calls\\\": ledger,\\n    \\\"final_receipt_trace_write_note\\\": \\\"Final write of D2_asset_016.json + g8-d2-asset-016.log is intentionally NOT self-referenced; Codex binds those final calls from immutable child metadata, artifact LastWriteTimeUtc, SHA-256, and durable Desktop transcript.\\\",\\n  },\\n  \\\"result\\\": {\\n    \\\"task_id\\\": \\\"G8-001\\\",\\n    \\\"correction_id\\\": \\\"G8-001-D2-PROVENANCE-CORRECTION-016\\\",\\n    \\\"directive_id\\\": 37,\\n    \\\"wave\\\": \\\"D2_ASSET_016\\\",\\n    \\\"profile\\\": \\\"asset\\\",\\n    \\\"profile_source\\\": \\\"E:/AIdle_openworld/.grok/agents/asset.md\\\",\\n    \\\"self_accept\\\": False,\\n    \\\"accepted\\\": False,\\n    \\\"verdict\\\": \\\"PASS\\\",\\n    \\\"summary\\\": \\\"Directive 37 D2 asset VERIFY_ONLY (fresh child 019f830a-e078-7291-868d-63dadf2dccd2): Cozy/Dreamy Low-Poly Starter Realm default + style + provenance PASS via existing evidence only. Full always×5 skills from E:/shared/skills/library with sha256+total_lines+chunk_ranges+transcript refs (curiosity 1123/1123 via 6 chunks ORD30-35). Routed game-asset-core 57/57. Transcript-exact provenance for all pre-final tool calls (including failed ORD57 exit=1). product_writes=[]; accepted=false; self_accept=false; handoff D3_BLOCKED; G8 not ACCEPTED; no product/screenshot/prior-receipt mutation.\\\",\\n    \\\"character_binding\\\": {\\n      \\\"trustlayer_character_id\\\": \\\"blue-team-p0-remediator\\\",\\n      \\\"trustlayer_character_source\\\": \\\"E:/agents/characters/09-blue-team-p0-remediator.md\\\",\\n      \\\"ui_character_id\\\": \\\"ui-color-type-specialist\\\",\\n      \\\"ui_character_source\\\": \\\"E:/agents/ui-design/characters/06-ui-color-type-specialist.md\\\",\\n      \\\"maf_role\\\": \\\"agent\\\",\\n      \\\"authority_token\\\": \\\"VERIFY_ONLY\\\"\\n    },\\n    \\\"skills_loaded\\\": skills,\\n    \\\"skills_loaded_count\\\": 6,\\n    \\\"always_skills_coverage\\\": {\\n      \\\"maf-mandatory-standard\\\": \\\"46_of_46\\\",\\n      \\\"trustlayer-x16-crew\\\": \\\"53_of_53\\\",\\n      \\\"agentwork-knowledge-loop\\\": \\\"36_of_36\\\",\\n      \\\"project-room-collab\\\": \\\"65_of_65\\\",\\n      \\\"curiosity-engine\\\": \\\"1123_of_1123\\\"\\n    },\\n    \\\"routed_skills_coverage\\\": {\\n      \\\"game-asset-core\\\": \\\"57_of_57\\\"\\n    },\\n    \\\"character_card_evidence\\\": {\\n      \\\"blue-team-p0-remediator\\\": \\\"E:/agents/characters/09-blue-team-p0-remediator.md — PATCH_DRAFT card; this WO binds VERIFY_ONLY; no invent evidence; step contract required (ORD3)\\\",\\n      \\\"ui-color-type-specialist\\\": \\\"E:/agents/ui-design/characters/06-ui-color-type-specialist.md — tokens/contrast/type; bind DESIGN.md; avoid AI purple-slop gradients (ORD4)\\\"\\n    },\\n    \\\"input_context_hash\\\": \\\"sha256:a66bffe7ee6a68bbb10ebb3ee6bac29e34dd61b36f6584deeee321062862995a\\\",\\n    \\\"input_context_hash_method\\\": {\\n      \\\"algorithm\\\": \\\"sha256\\\",\\n      \\\"inputs_in_order\\\": [\\n        \\\"E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md\\\",\\n        \\\"E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json\\\",\\n        \\\"E:/AIdle_openworld/DESIGN.md\\\",\\n        \\\"E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd\\\",\\n        \\\"E:/AIdle_openworld/game/resources/art_styles/cozy_cyber_pixel_2_5d.json\\\",\\n        \\\"E:/AIdle_openworld/game/autoload/art_style_manager.gd\\\"\\n      ],\\n      \\\"concat\\\": \\\"raw file bytes joined with no separator\\\",\\n      \\\"format\\\": \\\"sha256: + full 64-char lowercase hex\\\",\\n      \\\"FULL_SHA256\\\": \\\"a66bffe7ee6a68bbb10ebb3ee6bac29e34dd61b36f6584deeee321062862995a\\\",\\n      \\\"BYTE_LEN\\\": 32924,\\n      \\\"computed_by_transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/38\\\"\\n    },\\n    \\\"adoption_status\\\": \\\"ADOPTED_WITHOUT_PATCH\\\",\\n    \\\"adoption_rationale\\\": \\\"Preserved starter_realm_builder + cozy style profile already implement DESIGN.md warm landmark palette, matte_tactile Dreamy Low-Poly, surrealism non-void rescue, 9 landmark groups, Cozy MVP default. Static checks 30/30 PASS; headed captures warm natural low-poly without purple-slop void. VERIFY_ONLY — no product rewrite.\\\",\\n    \\\"product_writes\\\": [],\\n    \\\"writer_lease\\\": [\\n      \\\"E:/AIdle_openworld/orchestration/receipts/g8/d2_provenance_correction_016/D2_asset_016.json\\\",\\n      \\\"E:/AIdle_openworld/orchestration/logs/g8-d2-asset-016.log\\\"\\n    ],\\n    \\\"forbidden_writes_honored\\\": [\\n      \\\"orchestration/receipts/g8/subagent_workflow_remediation_004/D2_asset_012.json\\\",\\n      \\\"orchestration/receipts/g8/subagent_workflow_remediation_004/D2_asset.json\\\",\\n      \\\"game/scripts/modules/asset/starter_realm_builder.gd\\\",\\n      \\\"game/autoload/art_style_manager.gd\\\",\\n      \\\"game/resources/art_styles/**\\\",\\n      \\\"orchestration/evidence/**\\\",\\n      \\\"game/scripts/modules/executor/exports/**\\\",\\n      \\\"game/scripts/modules/persist/exports/**\\\"\\n    ],\\n    \\\"no_children_spawned\\\": True,\\n    \\\"no_grandchildren\\\": True,\\n    \\\"no_helper_temps\\\": True,\\n    \\\"trace_ref\\\": \\\"orchestration/logs/g8-d2-asset-016.log\\\",\\n    \\\"handoff_ref\\\": \\\"D3_BLOCKED\\\",\\n    \\\"handoff_note\\\": \\\"Directive 37: D3 spawn blocked until Codex accepts D2 provenance correction. Concurrent peers companion/manifestation/persist. d3_spawn_allowed=false. Quarantined D3_network_013 / D2 acceptance 013 are NOT acceptance evidence.\\\",\\n    \\\"child_task_ref\\\": CHILD,\\n    \\\"spawned_by_parent_ref\\\": PARENT,\\n    \\\"gates\\\": {\\n      \\\"cozy_dreamy_low_poly_starter_realm_default\\\": \\\"PASS\\\",\\n      \\\"style_consistency\\\": \\\"PASS\\\",\\n      \\\"provenance_consistency\\\": \\\"PASS\\\",\\n      \\\"design_md_color_type_compliance\\\": \\\"PASS\\\",\\n      \\\"warm_natural_palette\\\": \\\"PASS\\\",\\n      \\\"matte_dreamy_low_poly\\\": \\\"PASS\\\",\\n      \\\"anti_purple_slop\\\": \\\"PASS\\\",\\n      \\\"starter_realm_builder_landmarks\\\": \\\"PASS\\\",\\n      \\\"cozy_clean_world_default\\\": \\\"PASS\\\",\\n      \\\"headed_visual_inspect_existing\\\": \\\"PASS\\\",\\n      \\\"no_export_mutating_smoke_rerun\\\": \\\"PASS\\\",\\n      \\\"G3_E2E_observed_checks\\\": 76,\\n      \\\"G4_PERSIST_observed_checks\\\": 22,\\n      \\\"G3_W1_ASSET_SMOKE_observed_checks\\\": 16,\\n      \\\"six_export_zero_diff_observed_matches\\\": 6\\n    },\\n    \\\"design_compliance_detail\\\": {\\n      \\\"design_tokens_verified_in_cozy_profile\\\": {\\n        \\\"sky\\\": \\\"#9ED7E5\\\",\\n        \\\"ground\\\": \\\"#C9B98A\\\",\\n        \\\"leaf\\\": \\\"#72A96B\\\",\\n        \\\"ink\\\": \\\"#263238\\\",\\n        \\\"cream_light\\\": \\\"#FFF1C7\\\",\\n        \\\"manifestation_cyan\\\": \\\"#62E6FF\\\",\\n        \\\"warm_primary\\\": \\\"#F7B267\\\"\\n      },\\n      \\\"material\\\": {\\n        \\\"cozy_final_surface\\\": \\\"matte_tactile\\\",\\n        \\\"shared_final_surface\\\": \\\"matte_tactile\\\",\\n        \\\"no_photoreal_mix\\\": True,\\n        \\\"builder_default_roughness\\\": 0.85\\n      },\\n      \\\"static_checks\\\": {\\n        \\\"total\\\": 30,\\n        \\\"pass\\\": 30,\\n        \\\"fail\\\": 0,\\n        \\\"marker\\\": \\\"STATIC_COLOR_TYPE_COMPLIANCE=PASS\\\",\\n        \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/39\\\"\\n      }\\n    },\\n    \\\"starter_realm_builder_audit\\\": {\\n      \\\"path\\\": \\\"game/scripts/modules/asset/starter_realm_builder.gd\\\",\\n      \\\"landmark_names\\\": [\\\"House\\\", \\\"Path\\\", \\\"FarmPlots\\\", \\\"Trees\\\", \\\"Fence\\\", \\\"Pond\\\", \\\"Stones\\\", \\\"Lamps\\\", \\\"Flowers\\\"],\\n      \\\"surrealism_warm_rescue\\\": True,\\n      \\\"product_patch_this_wave\\\": False,\\n      \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/48\\\"\\n    },\\n    \\\"cozy_default_and_style\\\": {\\n      \\\"product_default_constant\\\": \\\"cozy_cyber_pixel (AIdleConstants.DEFAULT_ART_STYLE)\\\",\\n      \\\"cozy_profile_mvp_default\\\": True,\\n      \\\"evidence_manifest_product_clean_world_default\\\": \\\"cozy_cyber_pixel\\\",\\n      \\\"headed_banner_observed\\\": \\\"Art: Cozy Cyber-Pixel / Dreamy Low-Poly\\\",\\n      \\\"headed_style_chip_observed\\\": \\\"cozy_cyber_pixel\\\",\\n      \\\"honesty_note\\\": \\\"Asset VERIFY_ONLY observes existing headed evidence + constants + style profile; does not re-own art_style_manager writer lease or re-run headed runner.\\\"\\n    },\\n    \\\"provenance_consistency\\\": {\\n      \\\"style_asset_id\\\": \\\"style:cozy_cyber_pixel_2_5d\\\",\\n      \\\"style_source_type\\\": \\\"original_handauthored_json\\\",\\n      \\\"recipe_asset_id\\\": \\\"recipe:cozy_house_small\\\",\\n      \\\"generator_on_style\\\": \\\"none\\\",\\n      \\\"neural_mesh_as_world_truth\\\": False,\\n      \\\"policy_paid_generation_apis\\\": False,\\n      \\\"policy_neural_world_model\\\": False,\\n      \\\"note\\\": \\\"Provenance manifest lists hand-authored style/recipe entries; untrusted generated meshes remain non-canonical per product invariants.\\\"\\n    },\\n    \\\"headed_visual_critique\\\": {\\n      \\\"captures_inspected\\\": [\\n        \\\"orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png\\\",\\n        \\\"orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png\\\"\\n      ],\\n      \\\"transcript_refs\\\": [\\n        f\\\"transcript://{CHILD}/read_file/45\\\",\\n        f\\\"transcript://{CHILD}/read_file/46\\\"\\n      ],\\n      \\\"blind_describe_summary\\\": \\\"Warm cream house, tan paths, soft green ground patches, teal pond, rounded low-poly trees/lamps/farm plots; cyan companion orb; stage_complete shows Building: complete with warm orange/cream house; no purple void field; matte non-photoreal materials. Banner Art: Cozy Cyber-Pixel / Dreamy Low-Poly; chip cozy_cyber_pixel.\\\",\\n      \\\"anti_purple_slop\\\": \\\"PASS\\\",\\n      \\\"warm_natural\\\": \\\"PASS\\\",\\n      \\\"dreamy_low_poly\\\": \\\"PASS\\\",\\n      \\\"capture_count_manifest\\\": 10,\\n      \\\"error_lines_count\\\": 0,\\n      \\\"manifest_final_verdict\\\": \\\"PASS\\\",\\n      \\\"reran_headed_capture\\\": False\\n    },\\n    \\\"observed_non_mutating_evidence\\\": {\\n      \\\"G3_E2E_SMOKE\\\": \\\"PASS checks=76 (orchestration/logs/g8-correction-001-matrix.log; not re-run)\\\",\\n      \\\"G4_PERSIST_SMOKE\\\": \\\"PASS checks=22 (same matrix; not re-run)\\\",\\n      \\\"G3_W1_ASSET_SMOKE\\\": \\\"PASS checks=16 (orchestration/logs/g3-w1-asset-smoke.log; NOT re-run — avoids export mutation)\\\",\\n      \\\"six_export_zero_diff\\\": \\\"SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS with 6 MATCH export paths under g8-d1-core-child.log (observe-only; ORD40)\\\",\\n      \\\"observe_transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/40\\\"\\n    },\\n    \\\"review_015_blockers_addressed_for_asset\\\": {\\n      \\\"D2-PROV-001\\\": \\\"This receipt embeds durable transcript:// refs + exact commands for every pre-final tool call from child chat_history.jsonl\\\",\\n      \\\"D2-PROV-002\\\": \\\"Failed terminal ORD57 exit_code=1 fully disclosed with exact command and SyntaxError head\\\",\\n      \\\"D2-SKILL-001\\\": \\\"project-room-collab 65/65; curiosity-engine 1123/1123 with six chunk transcript refs; sha256 recorded\\\",\\n      \\\"D2-CONTEXT-001\\\": \\\"G8-001_UI_SKILL_DISPATCH_MAP.md fully read ORD25\\\",\\n      \\\"D2-CONTRACT-001\\\": \\\"top-level accepted=false present\\\"\\n    },\\n    \\\"children\\\": [],\\n    \\\"findings\\\": [\\n      {\\n        \\\"id\\\": \\\"F-ASSET-016-01\\\",\\n        \\\"severity\\\": \\\"info\\\",\\n        \\\"classification\\\": \\\"FACT\\\",\\n        \\\"statement\\\": \\\"One terminal command failed (ORD57) due to PowerShell mangling of nested python -c f-string quotes; remediated by stdin python ORD58; failure disclosed.\\\",\\n        \\\"evidence\\\": [f\\\"transcript://{CHILD}/run_terminal_command/57\\\"]\\n      },\\n      {\\n        \\\"id\\\": \\\"F-ASSET-016-02\\\",\\n        \\\"severity\\\": \\\"info\\\",\\n        \\\"classification\\\": \\\"FACT\\\",\\n        \\\"statement\\\": \\\"read_file offset/limit on curiosity-engine returned full-file body on each chunk request; requested ranges still non-overlapping and EOF coverage confirmed by ReadAllLines=1123.\\\",\\n        \\\"evidence\\\": [\\n          f\\\"transcript://{CHILD}/read_file/30\\\",\\n          f\\\"transcript://{CHILD}/read_file/35\\\",\\n          f\\\"transcript://{CHILD}/run_terminal_command/50\\\"\\n        ]\\n      }\\n    ],\\n    \\\"residual_risks\\\": [\\n      \\\"G8-001 remains non-ACCEPTED; D3 blocked pending Codex external transcript/schema/timing review of all four 016 children.\\\",\\n      \\\"Quarantined concurrent D3 progression is not acceptance evidence.\\\",\\n      \\\"Pixel-level status/quest readability remains persist/network/ui-visual territory.\\\"\\n    ]\\n  },\\n  \\\"smoke_test\\\": {\\n    \\\"passed\\\": True,\\n    \\\"commands\\\": [\\n      {\\n        \\\"name\\\": \\\"input_context_hash\\\",\\n        \\\"ordinal\\\": 38,\\n        \\\"tool_call_id\\\": \\\"call-59bff249-d22f-4f6a-979b-52c7608b5b5a-37\\\",\\n        \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/38\\\",\\n        \\\"command\\\": \\\"PowerShell SHA256 concat raw bytes of WO-016+review015+DESIGN+starter_realm_builder+cozy_cyber_pixel_2_5d+art_style_manager\\\",\\n        \\\"exit_code\\\": 0,\\n        \\\"FULL_SHA256\\\": \\\"a66bffe7ee6a68bbb10ebb3ee6bac29e34dd61b36f6584deeee321062862995a\\\",\\n        \\\"BYTE_LEN\\\": 32924\\n      },\\n      {\\n        \\\"name\\\": \\\"static_color_type_compliance\\\",\\n        \\\"ordinal\\\": 39,\\n        \\\"tool_call_id\\\": \\\"call-59bff249-d22f-4f6a-979b-52c7608b5b5a-38\\\",\\n        \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/39\\\",\\n        \\\"command\\\": \\\"PowerShell read-only DESIGN/cozy/shared/builder/manager/constants/provenance/manifest checks\\\",\\n        \\\"exit_code\\\": 0,\\n        \\\"markers\\\": [\\\"STATIC_COLOR_TYPE_COMPLIANCE=PASS\\\", \\\"CHECKS_PASS 30\\\", \\\"CHECKS_FAIL 0\\\"]\\n      },\\n      {\\n        \\\"name\\\": \\\"observe_existing_g3_g4_asset_smokes\\\",\\n        \\\"ordinal\\\": 40,\\n        \\\"tool_call_id\\\": \\\"call-59bff249-d22f-4f6a-979b-52c7608b5b5a-39\\\",\\n        \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/40\\\",\\n        \\\"command\\\": \\\"Select-String existing logs only (no Godot re-run; no export mutation)\\\",\\n        \\\"exit_code\\\": 0,\\n        \\\"markers\\\": [\\n          \\\"G3_W1_ASSET_SMOKE=PASS checks=16\\\",\\n          \\\"G3_E2E_SMOKE=PASS checks=76\\\",\\n          \\\"G4_PERSIST_SMOKE=PASS checks=22\\\",\\n          \\\"SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS\\\"\\n        ]\\n      },\\n      {\\n        \\\"name\\\": \\\"skill_sha256_linecounts\\\",\\n        \\\"ordinal\\\": 23,\\n        \\\"tool_call_id\\\": \\\"call-82dd7d8a-dcc8-4bda-9de3-9b012344c978-22\\\",\\n        \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/23\\\",\\n        \\\"exit_code\\\": 0,\\n        \\\"markers\\\": [\\\"curiosity-engine lines=1123\\\", \\\"project-room-collab lines=65\\\"]\\n      },\\n      {\\n        \\\"name\\\": \\\"headed_screenshot_inspect\\\",\\n        \\\"ordinals\\\": [45, 46],\\n        \\\"transcript_refs\\\": [\\n          f\\\"transcript://{CHILD}/read_file/45\\\",\\n          f\\\"transcript://{CHILD}/read_file/46\\\"\\n        ],\\n        \\\"command\\\": \\\"read_file multimodal inspect overview_1280x720.png + stage_complete_confirmed.png + evidence_manifest\\\",\\n        \\\"exit_code\\\": 0,\\n        \\\"markers\\\": [\\n          \\\"banner Art: Cozy Cyber-Pixel / Dreamy Low-Poly\\\",\\n          \\\"chip cozy_cyber_pixel\\\",\\n          \\\"warm natural no purple void\\\",\\n          \\\"manifest final_verdict=PASS capture_count=10 error_lines_count=0\\\"\\n        ],\\n        \\\"reran_capture\\\": False\\n      },\\n      {\\n        \\\"name\\\": \\\"transcript_ledger_extract_failed_then_recovered\\\",\\n        \\\"failed_ordinal\\\": 57,\\n        \\\"failed_tool_call_id\\\": \\\"call-c04790f9-9cfb-4d9c-88ae-1dd3a0b965dc-56\\\",\\n        \\\"failed_exit_code\\\": 1,\\n        \\\"recovered_ordinal\\\": 58,\\n        \\\"recovered_exit_code\\\": 0,\\n        \\\"note\\\": \\\"Disclosed failure then stdin-python recovery; both exact commands present in tool_call_provenance.calls\\\"\\n      }\\n    ]\\n  },\\n  \\\"self_audit\\\": {\\n    \\\"authority_honored\\\": True,\\n    \\\"authority_token\\\": \\\"VERIFY_ONLY\\\",\\n    \\\"no_self_accept\\\": True,\\n    \\\"self_accept\\\": False,\\n    \\\"accepted_false_toplevel\\\": True,\\n    \\\"no_product_patch\\\": True,\\n    \\\"product_writes_empty\\\": True,\\n    \\\"no_nested_grandchildren\\\": True,\\n    \\\"no_helper_temps\\\": True,\\n    \\\"character_skill_trace_present\\\": True,\\n    \\\"always_skills_all_five_loaded_full_eof\\\": True,\\n    \\\"routed_game_asset_core_loaded\\\": True,\\n    \\\"ui_skill_dispatch_map_read\\\": True,\\n    \\\"transcript_exact_provenance_present\\\": True,\\n    \\\"failed_exits_disclosed\\\": True,\\n    \\\"no_invented_gate_pass\\\": True,\\n    \\\"no_invented_hash\\\": True,\\n    \\\"raw_file_byte_hash_finalized\\\": True,\\n    \\\"no_durable_completed_at_prediction\\\": True,\\n    \\\"no_export_mutating_smoke\\\": True,\\n    \\\"g8_not_accepted\\\": True,\\n    \\\"d3_blocked\\\": True,\\n    \\\"prior_012_not_overwritten\\\": True\\n  },\\n  \\\"evidence_refs\\\": [\\n    \\\"orchestration/logs/g8-d2-asset-016.log\\\",\\n    \\\"orchestration/logs/g3-w1-asset-smoke.log\\\",\\n    \\\"orchestration/logs/g8-correction-001-matrix.log\\\",\\n    \\\"orchestration/logs/g8-d1-core-child.log\\\",\\n    \\\"orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json\\\",\\n    \\\"orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png\\\",\\n    \\\"orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png\\\",\\n    \\\"game/scripts/modules/asset/starter_realm_builder.gd\\\",\\n    \\\"game/resources/art_styles/cozy_cyber_pixel_2_5d.json\\\",\\n    \\\"game/autoload/art_style_manager.gd\\\",\\n    \\\"contracts/assets/provenance_manifest.json\\\",\\n    \\\"DESIGN.md\\\",\\n    \\\"orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md\\\",\\n    \\\"orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md\\\",\\n    \\\"orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json\\\",\\n    \\\"E:/standards/maf/schemas/agent_step_contract.schema.json\\\",\\n    f\\\"transcript://{CHILD}\\\"\\n  ],\\n  \\\"next_route\\\": \\\"D3_BLOCKED\\\"\\n}\\n\\nRECEIPT.parent.mkdir(parents=True, exist_ok=True)\\nRECEIPT.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + \\\"\\\\n\\\", encoding=\\\"utf-8\\\")\\n\\ntrace_lines = []\\ntrace_lines.append(f\\\"G8-001 D2 asset 016 VERIFY_ONLY provenance correction log\\\")\\ntrace_lines.append(f\\\"child_task_ref={CHILD}\\\")\\ntrace_lines.append(f\\\"parent={PARENT}\\\")\\ntrace_lines.append(f\\\"directive=37 work_order=WO-G8-001-D2-PROVENANCE-CORRECTION-016\\\")\\ntrace_lines.append(f\\\"authority=VERIFY_ONLY accepted=false self_accept=false product_writes=[]\\\")\\ntrace_lines.append(f\\\"handoff=D3_BLOCKED\\\")\\ntrace_lines.append(f\\\"input_context_hash=sha256:a66bffe7ee6a68bbb10ebb3ee6bac29e34dd61b36f6584deeee321062862995a BYTE_LEN=32924\\\")\\ntrace_lines.append(f\\\"pre_final_tool_calls={len(ledger)} terminals={len(terminals)} failed_terminals={len(failed_terms)}\\\")\\ntrace_lines.append(f\\\"by_name={by_name}\\\")\\nfor e in failed_terms:\\n    trace_lines.append(f\\\"FAILED ordinal={e['ordinal']} id={e['tool_call_id']} exit={e.get('exit_code')} desc={e.get('description')}\\\")\\ntrace_lines.append(\\\"SKILLS:\\\")\\nfor s in skills:\\n    trace_lines.append(f\\\"  {s['skill_id']} lines={s['total_lines']} sha256={s['sha256']} chunks={len(s['chunk_ranges'])}\\\")\\ntrace_lines.append(\\\"GATES: cozy/dreamy/default/style/provenance PASS; static 30/30; G3_W1 16; G3_E2E 76; G4 22; zero-diff 6 MATCH\\\")\\ntrace_lines.append(\\\"NO product/screenshot/prior-receipt writes; no grandchildren; no helper temps\\\")\\ntrace_lines.append(f\\\"receipt={RECEIPT}\\\")\\ntrace_lines.append(f\\\"written_at_utc={now_utc}\\\")\\nTRACE.write_text(\\\"\\\\n\\\".join(trace_lines) + \\\"\\\\n\\\", encoding=\\\"utf-8\\\")\\n\\n# schema-required keys quick check\\nrequired = [\\\"agent_step_id\\\", \\\"agent_type\\\", \\\"authority_token\\\", \\\"result\\\", \\\"smoke_test\\\", \\\"self_audit\\\", \\\"next_route\\\"]\\nmissing = [k for k in required if k not in receipt]\\nprint(\\\"RECEIPT_PATH\\\", RECEIPT)\\nprint(\\\"TRACE_PATH\\\", TRACE)\\nprint(\\\"RECEIPT_BYTES\\\", RECEIPT.stat().st_size)\\nprint(\\\"TRACE_BYTES\\\", TRACE.stat().st_size)\\nprint(\\\"MISSING_REQUIRED\\\", missing)\\nprint(\\\"ACCEPTED\\\", receipt[\\\"accepted\\\"])\\nprint(\\\"SELF_ACCEPT\\\", receipt[\\\"self_accept\\\"])\\nprint(\\\"PRODUCT_WRITES\\\", receipt[\\\"product_writes\\\"])\\nprint(\\\"PRE_FINAL_CALLS\\\", len(ledger))\\nprint(\\\"FAILED_TERMS\\\", len(failed_terms))\\nprint(\\\"VERDICT\\\", receipt[\\\"result\\\"][\\\"verdict\\\"])\\nprint(\\\"CHILD\\\", CHILD)\\nprint(\\\"HASH\\\", receipt[\\\"input_context_hash\\\"])\\n'@\\n$code | E:\\\\standards\\\\maf\\\\.venv\\\\Scripts\\\\python.exe -\",\"description\":\"Write D2_asset_016 receipt and trace log\"}",
+        "exit_code": null,
+        "result_content_len": 115,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-02e32b21-16ca-4f42-a9ec-cc593ff7f85e-60",
+        "tool_kind": "write",
+        "kind_local_ordinal": 1,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/write/1",
+        "arguments_json": "{\"file_path\":\"E:/AIdle_openworld/orchestration/logs/g8-d2-asset-016.log\",\"content\":\"# TEMP BUILDER — will be overwritten by final trace after success\\nimport json\\nfrom pathlib import Path\\nfrom datetime import datetime, timezone\\nfrom collections import Counter\\n\\nCHILD = \\\"019f830a-e078-7291-868d-63dadf2dccd2\\\"\\nPARENT = \\\"019f7ffd-3995-71c0-aca1-51078e24a852\\\"\\nSESSION = Path(r\\\"C:\\\\Users\\\\phant\\\\.grok\\\\sessions\\\\E%3A%5CAIdle_openworld\\\\019f830a-e078-7291-868d-63dadf2dccd2\\\")\\nRECEIPT = Path(r\\\"E:\\\\AIdle_openworld\\\\orchestration\\\\receipts\\\\g8\\\\d2_provenance_correction_016\\\\D2_asset_016.json\\\")\\nTRACE = Path(r\\\"E:\\\\AIdle_openworld\\\\orchestration\\\\logs\\\\g8-d2-asset-016.log\\\")\\n\\nlines = (SESSION / \\\"chat_history.jsonl\\\").read_text(encoding=\\\"utf-8\\\").splitlines()\\ncalls = []\\nresults = {}\\nfor line in lines:\\n    if not line.strip():\\n        continue\\n    o = json.loads(line)\\n    if o.get(\\\"tool_calls\\\"):\\n        for tc in o[\\\"tool_calls\\\"]:\\n            args = tc.get(\\\"arguments\\\")\\n            if isinstance(args, str):\\n                try:\\n                    args = json.loads(args)\\n                except Exception:\\n                    pass\\n            calls.append({\\\"id\\\": tc.get(\\\"id\\\"), \\\"name\\\": tc.get(\\\"name\\\"), \\\"args\\\": args if isinstance(args, dict) else {\\\"raw\\\": args}})\\n    if o.get(\\\"type\\\") == \\\"tool_result\\\" or o.get(\\\"role\\\") == \\\"tool\\\":\\n        tid = o.get(\\\"tool_call_id\\\") or o.get(\\\"id\\\")\\n        content = o.get(\\\"content\\\") or o.get(\\\"result\\\") or \\\"\\\"\\n        if isinstance(content, list):\\n            content = json.dumps(content)\\n        content = str(content)\\n        exit_code = None\\n        if content.startswith(\\\"exit:\\\"):\\n            try:\\n                exit_code = int(content.splitlines()[0].split(\\\":\\\", 1)[1].strip().split()[0])\\n            except Exception:\\n                pass\\n        results[tid] = {\\\"exit_code\\\": exit_code, \\\"content_len\\\": len(content), \\\"head\\\": content[:300]}\\n\\nledger = []\\nfor i, tc in enumerate(calls, 1):\\n    args = tc[\\\"args\\\"] or {}\\n    r = results.get(tc[\\\"id\\\"], {})\\n    entry = {\\n        \\\"ordinal\\\": i,\\n        \\\"tool_kind\\\": tc[\\\"name\\\"],\\n        \\\"tool_call_id\\\": tc[\\\"id\\\"],\\n        \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/{tc['name']}/{i}\\\",\\n        \\\"files_read\\\": [],\\n        \\\"files_written\\\": [],\\n    }\\n    if tc[\\\"name\\\"] == \\\"run_terminal_command\\\":\\n        entry[\\\"command\\\"] = args.get(\\\"command\\\")\\n        entry[\\\"description\\\"] = args.get(\\\"description\\\")\\n        entry[\\\"exact_tool_input\\\"] = {\\\"command\\\": args.get(\\\"command\\\"), \\\"description\\\": args.get(\\\"description\\\")}\\n        entry[\\\"exit_code\\\"] = r.get(\\\"exit_code\\\")\\n        entry[\\\"result_content_len\\\"] = r.get(\\\"content_len\\\")\\n        if r.get(\\\"exit_code\\\") not in (0, None):\\n            entry[\\\"failed\\\"] = True\\n            entry[\\\"result_head\\\"] = r.get(\\\"head\\\")\\n    elif tc[\\\"name\\\"] == \\\"read_file\\\":\\n        entry[\\\"exact_tool_input\\\"] = {\\n            \\\"target_file\\\": args.get(\\\"target_file\\\"),\\n            \\\"offset\\\": args.get(\\\"offset\\\"),\\n            \\\"limit\\\": args.get(\\\"limit\\\"),\\n        }\\n        if args.get(\\\"target_file\\\"):\\n            entry[\\\"files_read\\\"] = [args.get(\\\"target_file\\\")]\\n    elif tc[\\\"name\\\"] == \\\"list_dir\\\":\\n        entry[\\\"exact_tool_input\\\"] = {\\\"target_directory\\\": args.get(\\\"target_directory\\\")}\\n    elif tc[\\\"name\\\"] == \\\"grep\\\":\\n        entry[\\\"exact_tool_input\\\"] = {\\n            \\\"pattern\\\": args.get(\\\"pattern\\\"),\\n            \\\"path\\\": args.get(\\\"path\\\"),\\n            \\\"glob\\\": args.get(\\\"glob\\\"),\\n            \\\"head_limit\\\": args.get(\\\"head_limit\\\"),\\n        }\\n    elif tc[\\\"name\\\"] == \\\"todo_write\\\":\\n        entry[\\\"exact_tool_input\\\"] = {\\\"merge\\\": args.get(\\\"merge\\\"), \\\"todos_count\\\": len(args.get(\\\"todos\\\") or [])}\\n    elif tc[\\\"name\\\"] == \\\"write\\\":\\n        # If any write appears before final, capture it\\n        entry[\\\"exact_tool_input\\\"] = {\\\"file_path\\\": args.get(\\\"file_path\\\") or args.get(\\\"path\\\")}\\n        fp = args.get(\\\"file_path\\\") or args.get(\\\"path\\\")\\n        if fp:\\n            entry[\\\"files_written\\\"] = [fp]\\n    else:\\n        entry[\\\"exact_tool_input\\\"] = args\\n    ledger.append(entry)\\n\\nby_name = dict(Counter([e[\\\"tool_kind\\\"] for e in ledger]))\\nterminals = [e for e in ledger if e[\\\"tool_kind\\\"] == \\\"run_terminal_command\\\"]\\nfailed_terms = [e for e in terminals if e.get(\\\"exit_code\\\") not in (0, None)]\\n\\nskills = [\\n    {\\n        \\\"skill_id\\\": \\\"maf-mandatory-standard\\\",\\n        \\\"source\\\": \\\"E:/shared/skills/library/maf-mandatory-standard/SKILL.md\\\",\\n        \\\"mode\\\": \\\"full\\\",\\n        \\\"sha256\\\": \\\"6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281\\\",\\n        \\\"total_lines\\\": 46,\\n        \\\"chunk_ranges\\\": [{\\\"start_line\\\": 1, \\\"end_line\\\": 46, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/26\\\"}],\\n        \\\"load_evidence\\\": \\\"FULL EOF ORD26; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no invent evidence / no exceed authority\\\",\\n    },\\n    {\\n        \\\"skill_id\\\": \\\"trustlayer-x16-crew\\\",\\n        \\\"source\\\": \\\"E:/shared/skills/library/trustlayer-x16-crew/SKILL.md\\\",\\n        \\\"mode\\\": \\\"full\\\",\\n        \\\"sha256\\\": \\\"66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf\\\",\\n        \\\"total_lines\\\": 53,\\n        \\\"chunk_ranges\\\": [{\\\"start_line\\\": 1, \\\"end_line\\\": 53, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/27\\\"}],\\n        \\\"load_evidence\\\": \\\"FULL EOF ORD27; slot 09 blue-team-p0-remediator; WO-016 VERIFY_ONLY; Red finds; Blue WO-only; Purple never patches\\\",\\n    },\\n    {\\n        \\\"skill_id\\\": \\\"agentwork-knowledge-loop\\\",\\n        \\\"source\\\": \\\"E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md\\\",\\n        \\\"mode\\\": \\\"full\\\",\\n        \\\"sha256\\\": \\\"94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9\\\",\\n        \\\"total_lines\\\": 36,\\n        \\\"chunk_ranges\\\": [{\\\"start_line\\\": 1, \\\"end_line\\\": 36, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/28\\\"}],\\n        \\\"load_evidence\\\": \\\"FULL EOF ORD28; hub E:\\\\\\\\; MASTER_PLAN + JOURNAL_LATEST; do not skip handoff\\\",\\n    },\\n    {\\n        \\\"skill_id\\\": \\\"project-room-collab\\\",\\n        \\\"source\\\": \\\"E:/shared/skills/library/project-room-collab/SKILL.md\\\",\\n        \\\"mode\\\": \\\"full\\\",\\n        \\\"sha256\\\": \\\"9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897\\\",\\n        \\\"total_lines\\\": 65,\\n        \\\"chunk_ranges\\\": [{\\\"start_line\\\": 1, \\\"end_line\\\": 65, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/29\\\"}],\\n        \\\"load_evidence\\\": \\\"FULL EOF 65/65 ORD29; project room sync; multi-role authority; skills_manifest always #4\\\",\\n    },\\n    {\\n        \\\"skill_id\\\": \\\"curiosity-engine\\\",\\n        \\\"source\\\": \\\"E:/shared/skills/library/curiosity-engine/SKILL.md\\\",\\n        \\\"mode\\\": \\\"full\\\",\\n        \\\"sha256\\\": \\\"f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b\\\",\\n        \\\"total_lines\\\": 1123,\\n        \\\"chunk_ranges\\\": [\\n            {\\\"start_line\\\": 1, \\\"end_line\\\": 200, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/30\\\", \\\"requested_offset\\\": 1, \\\"requested_limit\\\": 200},\\n            {\\\"start_line\\\": 201, \\\"end_line\\\": 400, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/31\\\", \\\"requested_offset\\\": 201, \\\"requested_limit\\\": 200},\\n            {\\\"start_line\\\": 401, \\\"end_line\\\": 600, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/32\\\", \\\"requested_offset\\\": 401, \\\"requested_limit\\\": 200},\\n            {\\\"start_line\\\": 601, \\\"end_line\\\": 800, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/33\\\", \\\"requested_offset\\\": 601, \\\"requested_limit\\\": 200},\\n            {\\\"start_line\\\": 801, \\\"end_line\\\": 1000, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/34\\\", \\\"requested_offset\\\": 801, \\\"requested_limit\\\": 200},\\n            {\\\"start_line\\\": 1001, \\\"end_line\\\": 1123, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/35\\\", \\\"requested_offset\\\": 1001, \\\"requested_limit\\\": 150},\\n        ],\\n        \\\"chunk_note\\\": \\\"Six non-overlapping read_file requests through EOF (1123). Tool surface returned full-file content on each offset request; coverage proven by ORD30-35 observing EOF Prime Directive and ORD50 ReadAllLines total_lines=1123 + sha256 match.\\\",\\n        \\\"load_evidence\\\": \\\"FULL 1123/1123 via ORD30-35 + ORD23/50 sha256/linecount; FACT/INFERENCE/HYPOTHESIS; no invent facts\\\",\\n    },\\n    {\\n        \\\"skill_id\\\": \\\"game-asset-core\\\",\\n        \\\"source\\\": \\\"C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md\\\",\\n        \\\"mode\\\": \\\"full\\\",\\n        \\\"sha256\\\": \\\"7b7ab3024067a0eb239ba75fc414b312d007022d897d1a0b519a09e9c1225f37\\\",\\n        \\\"total_lines\\\": 57,\\n        \\\"chunk_ranges\\\": [{\\\"start_line\\\": 1, \\\"end_line\\\": 57, \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/36\\\"}],\\n        \\\"load_evidence\\\": \\\"FULL EOF routed skill ORD36; engine-ready defaults; style anchoring; blind describe+diff\\\",\\n    },\\n]\\n\\nnow_utc = datetime.now(timezone.utc).strftime(\\\"%Y-%m-%dT%H:%M:%SZ\\\")\\nstart_time = \\\"2026-07-21T04:59:20Z\\\"\\n\\nfiles_read = sorted(\\n    {\\n        f\\n        for e in ledger\\n        for f in e.get(\\\"files_read\\\", [])\\n    }\\n    | {\\n        \\\"E:/AIdle_openworld/.grok/agents/asset.md\\\",\\n        \\\"E:/agents/characters/09-blue-team-p0-remediator.md\\\",\\n        \\\"E:/agents/ui-design/characters/06-ui-color-type-specialist.md\\\",\\n        \\\"E:/AIdle_openworld/Agents.md\\\",\\n        \\\"E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md\\\",\\n        \\\"E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json\\\",\\n        \\\"E:/AIdle_openworld/orchestration/control/codex_directive.json\\\",\\n        \\\"E:/AIdle_openworld/orchestration/control/grok_status.json\\\",\\n        \\\"E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md\\\",\\n        \\\"E:/AIdle_openworld/AIdle_Openworld_Blueprint_v1.1/00_README.md\\\",\\n        \\\"E:/AIdle_openworld/orchestration/workflow.json\\\",\\n        \\\"E:/AIdle_openworld/orchestration/tasks.json\\\",\\n        \\\"E:/AIdle_openworld/orchestration/skills_manifest.yaml\\\",\\n        \\\"E:/standards/maf/schemas/agent_step_contract.schema.json\\\",\\n        \\\"E:/AIdle_openworld/DESIGN.md\\\",\\n        \\\"E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md\\\",\\n        \\\"E:/shared/skills/library/maf-mandatory-standard/SKILL.md\\\",\\n        \\\"E:/shared/skills/library/trustlayer-x16-crew/SKILL.md\\\",\\n        \\\"E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md\\\",\\n        \\\"E:/shared/skills/library/project-room-collab/SKILL.md\\\",\\n        \\\"E:/shared/skills/library/curiosity-engine/SKILL.md\\\",\\n        \\\"C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md\\\",\\n        \\\"E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd\\\",\\n        \\\"E:/AIdle_openworld/game/resources/art_styles/cozy_cyber_pixel_2_5d.json\\\",\\n        \\\"E:/AIdle_openworld/game/autoload/art_style_manager.gd\\\",\\n        \\\"E:/AIdle_openworld/contracts/assets/provenance_manifest.json\\\",\\n        \\\"E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png\\\",\\n        \\\"E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png\\\",\\n        \\\"E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json\\\",\\n    }\\n)\\n\\nreceipt = {\\n    \\\"agent_step_id\\\": \\\"G8-001-D2-asset-016-directive-37-2026-07-21\\\",\\n    \\\"agent_type\\\": \\\"aidle-asset\\\",\\n    \\\"skill_id\\\": \\\"maf-mandatory-standard\\\",\\n    \\\"skill_version\\\": \\\"1.0\\\",\\n    \\\"authority_token\\\": \\\"VERIFY_ONLY\\\",\\n    \\\"accepted\\\": False,\\n    \\\"input_context_hash\\\": \\\"sha256:a66bffe7ee6a68bbb10ebb3ee6bac29e34dd61b36f6584deeee321062862995a\\\",\\n    \\\"output_schema_version\\\": \\\"agent_step_contract/1.0\\\",\\n    \\\"child_task_ref\\\": CHILD,\\n    \\\"transcript_ref\\\": CHILD,\\n    \\\"writer_transcript_ref\\\": CHILD,\\n    \\\"spawned_by_parent_ref\\\": PARENT,\\n    \\\"self_accept\\\": False,\\n    \\\"trace_ref\\\": \\\"orchestration/logs/g8-d2-asset-016.log\\\",\\n    \\\"handoff_ref\\\": \\\"D3_BLOCKED\\\",\\n    \\\"start_time\\\": start_time,\\n    \\\"end_time\\\": now_utc,\\n    \\\"writer_time_informational\\\": True,\\n    \\\"durable_completed_at\\\": None,\\n    \\\"durable_completed_at_note\\\": \\\"Worker does not predict durable completion. Codex binds completed_at from immutable child metadata and artifact LastWriteTimeUtc + SHA-256.\\\",\\n    \\\"profile_source\\\": \\\"E:/AIdle_openworld/.grok/agents/asset.md\\\",\\n    \\\"profile_binding_evidence\\\": \\\"FULL read ORD2: name=aidle-asset; trustlayer_character=blue-team-p0-remediator; ui_character=ui-color-type-specialist; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop, game-asset-core; profile PATCH_DRAFT overridden by WO-016 + Directive 37 to VERIFY_ONLY; bind DESIGN.md warm natural base, matte Dreamy Low-Poly, restrained cyan manifestation accent, anti-purple-slop.\\\",\\n    \\\"directive_id\\\": 37,\\n    \\\"work_order\\\": \\\"orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md\\\",\\n    \\\"guard_report\\\": \\\"orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json\\\",\\n    \\\"files_read\\\": files_read,\\n    \\\"files_written\\\": [\\n        \\\"E:/AIdle_openworld/orchestration/receipts/g8/d2_provenance_correction_016/D2_asset_016.json\\\",\\n        \\\"E:/AIdle_openworld/orchestration/logs/g8-d2-asset-016.log\\\",\\n    ],\\n    \\\"product_writes\\\": [],\\n    \\\"adoption_status\\\": \\\"ADOPTED_WITHOUT_PATCH\\\",\\n    \\\"tool_call_provenance\\\": {\\n        \\\"child_task_ref\\\": CHILD,\\n        \\\"ordinal_scheme\\\": \\\"one-based order of tool_calls as recorded in durable chat_history.jsonl for this child; no gaps; no invented calls\\\",\\n        \\\"pre_final_tool_call_count\\\": len(ledger),\\n        \\\"by_name\\\": by_name,\\n        \\\"terminal_count\\\": len(terminals),\\n        \\\"failed_terminal_count\\\": len(failed_terms),\\n        \\\"failed_terminals\\\": [\\n            {\\n                \\\"ordinal\\\": e[\\\"ordinal\\\"],\\n                \\\"tool_call_id\\\": e[\\\"tool_call_id\\\"],\\n                \\\"transcript_ref\\\": e[\\\"transcript_ref\\\"],\\n                \\\"exit_code\\\": e.get(\\\"exit_code\\\"),\\n                \\\"description\\\": e.get(\\\"description\\\"),\\n                \\\"command\\\": e.get(\\\"command\\\"),\\n                \\\"result_head\\\": e.get(\\\"result_head\\\"),\\n                \\\"failure\\\": \\\"python -c SyntaxError: unterminated string literal (PowerShell escaping of nested f-string quotes)\\\",\\n            }\\n            for e in failed_terms\\n        ],\\n        \\\"calls\\\": ledger,\\n        \\\"final_receipt_trace_write_note\\\": \\\"Final write of D2_asset_016.json + g8-d2-asset-016.log is intentionally NOT self-referenced as a completed tool_call in this ledger snapshot; Codex binds those final calls from immutable child metadata, artifact LastWriteTimeUtc, SHA-256, and durable Desktop transcript. Intermediate lease write of this builder body is overwritten by final trace text.\\\",\\n    },\\n    \\\"result\\\": {\\n        \\\"task_id\\\": \\\"G8-001\\\",\\n        \\\"correction_id\\\": \\\"G8-001-D2-PROVENANCE-CORRECTION-016\\\",\\n        \\\"directive_id\\\": 37,\\n        \\\"wave\\\": \\\"D2_ASSET_016\\\",\\n        \\\"profile\\\": \\\"asset\\\",\\n        \\\"profile_source\\\": \\\"E:/AIdle_openworld/.grok/agents/asset.md\\\",\\n        \\\"self_accept\\\": False,\\n        \\\"accepted\\\": False,\\n        \\\"verdict\\\": \\\"PASS\\\",\\n        \\\"summary\\\": \\\"Directive 37 D2 asset VERIFY_ONLY (fresh child 019f830a-e078-7291-868d-63dadf2dccd2): Cozy/Dreamy Low-Poly Starter Realm default + style + provenance PASS via existing evidence only. Full always×5 skills from E:/shared/skills/library with sha256+total_lines+chunk_ranges+transcript refs (curiosity 1123/1123 via 6 chunks ORD30-35). Routed game-asset-core 57/57. Transcript-exact provenance for all pre-final tool calls (including failed ORD57 exit=1). product_writes=[]; accepted=false; self_accept=false; handoff D3_BLOCKED; G8 not ACCEPTED; no product/screenshot/prior-receipt mutation.\\\",\\n        \\\"character_binding\\\": {\\n            \\\"trustlayer_character_id\\\": \\\"blue-team-p0-remediator\\\",\\n            \\\"trustlayer_character_source\\\": \\\"E:/agents/characters/09-blue-team-p0-remediator.md\\\",\\n            \\\"ui_character_id\\\": \\\"ui-color-type-specialist\\\",\\n            \\\"ui_character_source\\\": \\\"E:/agents/ui-design/characters/06-ui-color-type-specialist.md\\\",\\n            \\\"maf_role\\\": \\\"agent\\\",\\n            \\\"authority_token\\\": \\\"VERIFY_ONLY\\\",\\n        },\\n        \\\"skills_loaded\\\": skills,\\n        \\\"skills_loaded_count\\\": 6,\\n        \\\"always_skills_coverage\\\": {\\n            \\\"maf-mandatory-standard\\\": \\\"46_of_46\\\",\\n            \\\"trustlayer-x16-crew\\\": \\\"53_of_53\\\",\\n            \\\"agentwork-knowledge-loop\\\": \\\"36_of_36\\\",\\n            \\\"project-room-collab\\\": \\\"65_of_65\\\",\\n            \\\"curiosity-engine\\\": \\\"1123_of_1123\\\",\\n        },\\n        \\\"routed_skills_coverage\\\": {\\\"game-asset-core\\\": \\\"57_of_57\\\"},\\n        \\\"character_card_evidence\\\": {\\n            \\\"blue-team-p0-remediator\\\": \\\"E:/agents/characters/09-blue-team-p0-remediator.md — PATCH_DRAFT card; this WO binds VERIFY_ONLY; no invent evidence; step contract required (ORD3)\\\",\\n            \\\"ui-color-type-specialist\\\": \\\"E:/agents/ui-design/characters/06-ui-color-type-specialist.md — tokens/contrast/type; bind DESIGN.md; avoid AI purple-slop gradients (ORD4)\\\",\\n        },\\n        \\\"input_context_hash\\\": \\\"sha256:a66bffe7ee6a68bbb10ebb3ee6bac29e34dd61b36f6584deeee321062862995a\\\",\\n        \\\"input_context_hash_method\\\": {\\n            \\\"algorithm\\\": \\\"sha256\\\",\\n            \\\"inputs_in_order\\\": [\\n                \\\"E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md\\\",\\n                \\\"E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json\\\",\\n                \\\"E:/AIdle_openworld/DESIGN.md\\\",\\n                \\\"E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd\\\",\\n                \\\"E:/AIdle_openworld/game/resources/art_styles/cozy_cyber_pixel_2_5d.json\\\",\\n                \\\"E:/AIdle_openworld/game/autoload/art_style_manager.gd\\\",\\n            ],\\n            \\\"concat\\\": \\\"raw file bytes joined with no separator\\\",\\n            \\\"format\\\": \\\"sha256: + full 64-char lowercase hex\\\",\\n            \\\"FULL_SHA256\\\": \\\"a66bffe7ee6a68bbb10ebb3ee6bac29e34dd61b36f6584deeee321062862995a\\\",\\n            \\\"BYTE_LEN\\\": 32924,\\n            \\\"computed_by_transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/38\\\",\\n        },\\n        \\\"adoption_status\\\": \\\"ADOPTED_WITHOUT_PATCH\\\",\\n        \\\"adoption_rationale\\\": \\\"Preserved starter_realm_builder + cozy style profile already implement DESIGN.md warm landmark palette, matte_tactile Dreamy Low-Poly, surrealism non-void rescue, 9 landmark groups, Cozy MVP default. Static checks 30/30 PASS; headed captures warm natural low-poly without purple-slop void. VERIFY_ONLY — no product rewrite.\\\",\\n        \\\"product_writes\\\": [],\\n        \\\"writer_lease\\\": [\\n            \\\"E:/AIdle_openworld/orchestration/receipts/g8/d2_provenance_correction_016/D2_asset_016.json\\\",\\n            \\\"E:/AIdle_openworld/orchestration/logs/g8-d2-asset-016.log\\\",\\n        ],\\n        \\\"forbidden_writes_honored\\\": [\\n            \\\"orchestration/receipts/g8/subagent_workflow_remediation_004/D2_asset_012.json\\\",\\n            \\\"orchestration/receipts/g8/subagent_workflow_remediation_004/D2_asset.json\\\",\\n            \\\"game/scripts/modules/asset/starter_realm_builder.gd\\\",\\n            \\\"game/autoload/art_style_manager.gd\\\",\\n            \\\"game/resources/art_styles/**\\\",\\n            \\\"orchestration/evidence/**\\\",\\n            \\\"game/scripts/modules/executor/exports/**\\\",\\n            \\\"game/scripts/modules/persist/exports/**\\\",\\n        ],\\n        \\\"no_children_spawned\\\": True,\\n        \\\"no_grandchildren\\\": True,\\n        \\\"no_helper_temps\\\": True,\\n        \\\"trace_ref\\\": \\\"orchestration/logs/g8-d2-asset-016.log\\\",\\n        \\\"handoff_ref\\\": \\\"D3_BLOCKED\\\",\\n        \\\"handoff_note\\\": \\\"Directive 37: D3 spawn blocked until Codex accepts D2 provenance correction. Concurrent peers companion/manifestation/persist. d3_spawn_allowed=false. Quarantined D3_network_013 / D2 acceptance 013 are NOT acceptance evidence.\\\",\\n        \\\"child_task_ref\\\": CHILD,\\n        \\\"spawned_by_parent_ref\\\": PARENT,\\n        \\\"gates\\\": {\\n            \\\"cozy_dreamy_low_poly_starter_realm_default\\\": \\\"PASS\\\",\\n            \\\"style_consistency\\\": \\\"PASS\\\",\\n            \\\"provenance_consistency\\\": \\\"PASS\\\",\\n            \\\"design_md_color_type_compliance\\\": \\\"PASS\\\",\\n            \\\"warm_natural_palette\\\": \\\"PASS\\\",\\n            \\\"matte_dreamy_low_poly\\\": \\\"PASS\\\",\\n            \\\"anti_purple_slop\\\": \\\"PASS\\\",\\n            \\\"starter_realm_builder_landmarks\\\": \\\"PASS\\\",\\n            \\\"cozy_clean_world_default\\\": \\\"PASS\\\",\\n            \\\"headed_visual_inspect_existing\\\": \\\"PASS\\\",\\n            \\\"no_export_mutating_smoke_rerun\\\": \\\"PASS\\\",\\n            \\\"G3_E2E_observed_checks\\\": 76,\\n            \\\"G4_PERSIST_observed_checks\\\": 22,\\n            \\\"G3_W1_ASSET_SMOKE_observed_checks\\\": 16,\\n            \\\"six_export_zero_diff_observed_matches\\\": 6,\\n        },\\n        \\\"design_compliance_detail\\\": {\\n            \\\"design_tokens_verified_in_cozy_profile\\\": {\\n                \\\"sky\\\": \\\"#9ED7E5\\\",\\n                \\\"ground\\\": \\\"#C9B98A\\\",\\n                \\\"leaf\\\": \\\"#72A96B\\\",\\n                \\\"ink\\\": \\\"#263238\\\",\\n                \\\"cream_light\\\": \\\"#FFF1C7\\\",\\n                \\\"manifestation_cyan\\\": \\\"#62E6FF\\\",\\n                \\\"warm_primary\\\": \\\"#F7B267\\\",\\n            },\\n            \\\"material\\\": {\\n                \\\"cozy_final_surface\\\": \\\"matte_tactile\\\",\\n                \\\"shared_final_surface\\\": \\\"matte_tactile\\\",\\n                \\\"no_photoreal_mix\\\": True,\\n                \\\"builder_default_roughness\\\": 0.85,\\n            },\\n            \\\"static_checks\\\": {\\n                \\\"total\\\": 30,\\n                \\\"pass\\\": 30,\\n                \\\"fail\\\": 0,\\n                \\\"marker\\\": \\\"STATIC_COLOR_TYPE_COMPLIANCE=PASS\\\",\\n                \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/39\\\",\\n            },\\n        },\\n        \\\"starter_realm_builder_audit\\\": {\\n            \\\"path\\\": \\\"game/scripts/modules/asset/starter_realm_builder.gd\\\",\\n            \\\"landmark_names\\\": [\\n                \\\"House\\\",\\n                \\\"Path\\\",\\n                \\\"FarmPlots\\\",\\n                \\\"Trees\\\",\\n                \\\"Fence\\\",\\n                \\\"Pond\\\",\\n                \\\"Stones\\\",\\n                \\\"Lamps\\\",\\n                \\\"Flowers\\\",\\n            ],\\n            \\\"surrealism_warm_rescue\\\": True,\\n            \\\"product_patch_this_wave\\\": False,\\n            \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/read_file/48\\\",\\n        },\\n        \\\"cozy_default_and_style\\\": {\\n            \\\"product_default_constant\\\": \\\"cozy_cyber_pixel (AIdleConstants.DEFAULT_ART_STYLE)\\\",\\n            \\\"cozy_profile_mvp_default\\\": True,\\n            \\\"evidence_manifest_product_clean_world_default\\\": \\\"cozy_cyber_pixel\\\",\\n            \\\"headed_banner_observed\\\": \\\"Art: Cozy Cyber-Pixel / Dreamy Low-Poly\\\",\\n            \\\"headed_style_chip_observed\\\": \\\"cozy_cyber_pixel\\\",\\n            \\\"honesty_note\\\": \\\"Asset VERIFY_ONLY observes existing headed evidence + constants + style profile; does not re-own art_style_manager writer lease or re-run headed runner.\\\",\\n        },\\n        \\\"provenance_consistency\\\": {\\n            \\\"style_asset_id\\\": \\\"style:cozy_cyber_pixel_2_5d\\\",\\n            \\\"style_source_type\\\": \\\"original_handauthored_json\\\",\\n            \\\"recipe_asset_id\\\": \\\"recipe:cozy_house_small\\\",\\n            \\\"generator_on_style\\\": \\\"none\\\",\\n            \\\"neural_mesh_as_world_truth\\\": False,\\n            \\\"policy_paid_generation_apis\\\": False,\\n            \\\"policy_neural_world_model\\\": False,\\n            \\\"note\\\": \\\"Provenance manifest lists hand-authored style/recipe entries; untrusted generated meshes remain non-canonical per product invariants.\\\",\\n        },\\n        \\\"headed_visual_critique\\\": {\\n            \\\"captures_inspected\\\": [\\n                \\\"orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png\\\",\\n                \\\"orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png\\\",\\n            ],\\n            \\\"transcript_refs\\\": [\\n                f\\\"transcript://{CHILD}/read_file/45\\\",\\n                f\\\"transcript://{CHILD}/read_file/46\\\",\\n            ],\\n            \\\"blind_describe_summary\\\": \\\"Warm cream house, tan paths, soft green ground patches, teal pond, rounded low-poly trees/lamps/farm plots; cyan companion orb; stage_complete shows Building: complete with warm orange/cream house; no purple void field; matte non-photoreal materials. Banner Art: Cozy Cyber-Pixel / Dreamy Low-Poly; chip cozy_cyber_pixel.\\\",\\n            \\\"anti_purple_slop\\\": \\\"PASS\\\",\\n            \\\"warm_natural\\\": \\\"PASS\\\",\\n            \\\"dreamy_low_poly\\\": \\\"PASS\\\",\\n            \\\"capture_count_manifest\\\": 10,\\n            \\\"error_lines_count\\\": 0,\\n            \\\"manifest_final_verdict\\\": \\\"PASS\\\",\\n            \\\"reran_headed_capture\\\": False,\\n        },\\n        \\\"observed_non_mutating_evidence\\\": {\\n            \\\"G3_E2E_SMOKE\\\": \\\"PASS checks=76 (orchestration/logs/g8-correction-001-matrix.log; not re-run)\\\",\\n            \\\"G4_PERSIST_SMOKE\\\": \\\"PASS checks=22 (same matrix; not re-run)\\\",\\n            \\\"G3_W1_ASSET_SMOKE\\\": \\\"PASS checks=16 (orchestration/logs/g3-w1-asset-smoke.log; NOT re-run)\\\",\\n            \\\"six_export_zero_diff\\\": \\\"SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS with 6 MATCH export paths under g8-d1-core-child.log (observe-only; ORD40)\\\",\\n            \\\"observe_transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/40\\\",\\n        },\\n        \\\"review_015_blockers_addressed_for_asset\\\": {\\n            \\\"D2-PROV-001\\\": \\\"Durable transcript:// refs + exact commands for every pre-final tool call from child chat_history.jsonl\\\",\\n            \\\"D2-PROV-002\\\": \\\"Failed terminal ORD57 exit_code=1 fully disclosed with exact command and SyntaxError head\\\",\\n            \\\"D2-SKILL-001\\\": \\\"project-room-collab 65/65; curiosity-engine 1123/1123 with six chunk transcript refs; sha256 recorded\\\",\\n            \\\"D2-CONTEXT-001\\\": \\\"G8-001_UI_SKILL_DISPATCH_MAP.md fully read ORD25\\\",\\n            \\\"D2-CONTRACT-001\\\": \\\"top-level accepted=false present\\\",\\n        },\\n        \\\"children\\\": [],\\n        \\\"findings\\\": [\\n            {\\n                \\\"id\\\": \\\"F-ASSET-016-01\\\",\\n                \\\"severity\\\": \\\"info\\\",\\n                \\\"classification\\\": \\\"FACT\\\",\\n                \\\"statement\\\": \\\"One terminal command failed (ORD57) due to PowerShell mangling of nested python -c f-string quotes; remediated by stdin python ORD58; failure disclosed.\\\",\\n                \\\"evidence\\\": [f\\\"transcript://{CHILD}/run_terminal_command/57\\\"],\\n            },\\n            {\\n                \\\"id\\\": \\\"F-ASSET-016-02\\\",\\n                \\\"severity\\\": \\\"info\\\",\\n                \\\"classification\\\": \\\"FACT\\\",\\n                \\\"statement\\\": \\\"read_file offset/limit on curiosity-engine returned full-file body on each chunk request; requested ranges still non-overlapping and EOF coverage confirmed by ReadAllLines=1123.\\\",\\n                \\\"evidence\\\": [\\n                    f\\\"transcript://{CHILD}/read_file/30\\\",\\n                    f\\\"transcript://{CHILD}/read_file/35\\\",\\n                    f\\\"transcript://{CHILD}/run_terminal_command/50\\\",\\n                ],\\n            },\\n        ],\\n        \\\"residual_risks\\\": [\\n            \\\"G8-001 remains non-ACCEPTED; D3 blocked pending Codex external transcript/schema/timing review of all four 016 children.\\\",\\n            \\\"Quarantined concurrent D3 progression is not acceptance evidence.\\\",\\n            \\\"Pixel-level status/quest readability remains persist/network/ui-visual territory.\\\",\\n        ],\\n    },\\n    \\\"smoke_test\\\": {\\n        \\\"passed\\\": True,\\n        \\\"commands\\\": [\\n            {\\n                \\\"name\\\": \\\"input_context_hash\\\",\\n                \\\"ordinal\\\": 38,\\n                \\\"tool_call_id\\\": \\\"call-59bff249-d22f-4f6a-979b-52c7608b5b5a-37\\\",\\n                \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/38\\\",\\n                \\\"exit_code\\\": 0,\\n                \\\"FULL_SHA256\\\": \\\"a66bffe7ee6a68bbb10ebb3ee6bac29e34dd61b36f6584deeee321062862995a\\\",\\n                \\\"BYTE_LEN\\\": 32924,\\n            },\\n            {\\n                \\\"name\\\": \\\"static_color_type_compliance\\\",\\n                \\\"ordinal\\\": 39,\\n                \\\"tool_call_id\\\": \\\"call-59bff249-d22f-4f6a-979b-52c7608b5b5a-38\\\",\\n                \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/39\\\",\\n                \\\"exit_code\\\": 0,\\n                \\\"markers\\\": [\\\"STATIC_COLOR_TYPE_COMPLIANCE=PASS\\\", \\\"CHECKS_PASS 30\\\", \\\"CHECKS_FAIL 0\\\"],\\n            },\\n            {\\n                \\\"name\\\": \\\"observe_existing_g3_g4_asset_smokes\\\",\\n                \\\"ordinal\\\": 40,\\n                \\\"tool_call_id\\\": \\\"call-59bff249-d22f-4f6a-979b-52c7608b5b5a-39\\\",\\n                \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/40\\\",\\n                \\\"exit_code\\\": 0,\\n                \\\"markers\\\": [\\n                    \\\"G3_W1_ASSET_SMOKE=PASS checks=16\\\",\\n                    \\\"G3_E2E_SMOKE=PASS checks=76\\\",\\n                    \\\"G4_PERSIST_SMOKE=PASS checks=22\\\",\\n                    \\\"SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS\\\",\\n                ],\\n            },\\n            {\\n                \\\"name\\\": \\\"skill_sha256_linecounts\\\",\\n                \\\"ordinal\\\": 23,\\n                \\\"tool_call_id\\\": \\\"call-82dd7d8a-dcc8-4bda-9de3-9b012344c978-22\\\",\\n                \\\"transcript_ref\\\": f\\\"transcript://{CHILD}/run_terminal_command/23\\\",\\n                \\\"exit_code\\\": 0,\\n                \\\"markers\\\": [\\\"curiosity-engine lines=1123\\\", \\\"project-room-collab lines=65\\\"],\\n            },\\n            {\\n                \\\"name\\\": \\\"headed_screenshot_inspect\\\",\\n                \\\"ordinals\\\": [45, 46],\\n                \\\"transcript_refs\\\": [\\n                    f\\\"transcript://{CHILD}/read_file/45\\\",\\n                    f\\\"transcript://{CHILD}/read_file/46\\\",\\n                ],\\n                \\\"exit_code\\\": 0,\\n                \\\"markers\\\": [\\n                    \\\"banner Art: Cozy Cyber-Pixel / Dreamy Low-Poly\\\",\\n                    \\\"chip cozy_cyber_pixel\\\",\\n                    \\\"warm natural no purple void\\\",\\n                    \\\"manifest final_verdict=PASS\\\",\\n                ],\\n                \\\"reran_capture\\\": False,\\n            },\\n            {\\n                \\\"name\\\": \\\"transcript_ledger_extract_failed_then_recovered\\\",\\n                \\\"failed_ordinal\\\": 57,\\n                \\\"failed_tool_call_id\\\": \\\"call-c04790f9-9cfb-4d9c-88ae-1dd3a0b965dc-56\\\",\\n                \\\"failed_exit_code\\\": 1,\\n                \\\"recovered_ordinal\\\": 58,\\n                \\\"recovered_exit_code\\\": 0,\\n            },\\n        ],\\n    },\\n    \\\"self_audit\\\": {\\n        \\\"authority_honored\\\": True,\\n        \\\"authority_token\\\": \\\"VERIFY_ONLY\\\",\\n        \\\"no_self_accept\\\": True,\\n        \\\"self_accept\\\": False,\\n        \\\"accepted_false_toplevel\\\": True,\\n        \\\"no_product_patch\\\": True,\\n        \\\"product_writes_empty\\\": True,\\n        \\\"no_nested_grandchildren\\\": True,\\n        \\\"no_helper_temps\\\": True,\\n        \\\"character_skill_trace_present\\\": True,\\n        \\\"always_skills_all_five_loaded_full_eof\\\": True,\\n        \\\"routed_game_asset_core_loaded\\\": True,\\n        \\\"ui_skill_dispatch_map_read\\\": True,\\n        \\\"transcript_exact_provenance_present\\\": True,\\n        \\\"failed_exits_disclosed\\\": True,\\n        \\\"no_invented_gate_pass\\\": True,\\n        \\\"no_invented_hash\\\": True,\\n        \\\"raw_file_byte_hash_finalized\\\": True,\\n        \\\"no_durable_completed_at_prediction\\\": True,\\n        \\\"no_export_mutating_smoke\\\": True,\\n        \\\"g8_not_accepted\\\": True,\\n        \\\"d3_blocked\\\": True,\\n        \\\"prior_012_not_overwritten\\\": True,\\n    },\\n    \\\"evidence_refs\\\": [\\n        \\\"orchestration/logs/g8-d2-asset-016.log\\\",\\n        \\\"orchestration/logs/g3-w1-asset-smoke.log\\\",\\n        \\\"orchestration/logs/g8-correction-001-matrix.log\\\",\\n        \\\"orchestration/logs/g8-d1-core-child.log\\\",\\n        \\\"orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json\\\",\\n        \\\"orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png\\\",\\n        \\\"orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png\\\",\\n        \\\"game/scripts/modules/asset/starter_realm_builder.gd\\\",\\n        \\\"game/resources/art_styles/cozy_cyber_pixel_2_5d.json\\\",\\n        \\\"game/autoload/art_style_manager.gd\\\",\\n        \\\"contracts/assets/provenance_manifest.json\\\",\\n        \\\"DESIGN.md\\\",\\n        \\\"orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md\\\",\\n        \\\"orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md\\\",\\n        \\\"orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json\\\",\\n        \\\"E:/standards/maf/schemas/agent_step_contract.schema.json\\\",\\n        f\\\"transcript://{CHILD}\\\",\\n    ],\\n    \\\"next_route\\\": \\\"D3_BLOCKED\\\",\\n}\\n\\nRECEIPT.parent.mkdir(parents=True, exist_ok=True)\\nRECEIPT.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + \\\"\\\\n\\\", encoding=\\\"utf-8\\\")\\n\\ntrace = []\\ntrace.append(\\\"G8-001 D2 asset 016 VERIFY_ONLY provenance correction log\\\")\\ntrace.append(f\\\"child_task_ref={CHILD}\\\")\\ntrace.append(f\\\"parent={PARENT}\\\")\\ntrace.append(\\\"directive=37 work_order=WO-G8-001-D2-PROVENANCE-CORRECTION-016\\\")\\ntrace.append(\\\"authority=VERIFY_ONLY accepted=false self_accept=false product_writes=[]\\\")\\ntrace.append(\\\"handoff=D3_BLOCKED\\\")\\ntrace.append(\\\"input_context_hash=sha256:a66bffe7ee6a68bbb10ebb3ee6bac29e34dd61b36f6584deeee321062862995a BYTE_LEN=32924\\\")\\ntrace.append(f\\\"pre_final_tool_calls={len(ledger)} terminals={len(terminals)} failed_terminals={len(failed_terms)}\\\")\\ntrace.append(f\\\"by_name={by_name}\\\")\\nfor e in failed_terms:\\n    trace.append(f\\\"FAILED ordinal={e['ordinal']} id={e['tool_call_id']} exit={e.get('exit_code')} desc={e.get('description')}\\\")\\ntrace.append(\\\"SKILLS:\\\")\\nfor s in skills:\\n    trace.append(f\\\"  {s['skill_id']} lines={s['total_lines']} sha256={s['sha256']} chunks={len(s['chunk_ranges'])}\\\")\\ntrace.append(\\\"GATES: cozy/dreamy/default/style/provenance PASS; static 30/30; G3_W1 16; G3_E2E 76; G4 22; zero-diff 6 MATCH\\\")\\ntrace.append(\\\"NO product/screenshot/prior-receipt writes; no grandchildren; no helper temps outside lease\\\")\\ntrace.append(f\\\"receipt={RECEIPT}\\\")\\ntrace.append(f\\\"written_at_utc={now_utc}\\\")\\nTRACE.write_text(\\\"\\\\n\\\".join(trace) + \\\"\\\\n\\\", encoding=\\\"utf-8\\\")\\n\\nrequired = [\\\"agent_step_id\\\", \\\"agent_type\\\", \\\"authority_token\\\", \\\"result\\\", \\\"smoke_test\\\", \\\"self_audit\\\", \\\"next_route\\\"]\\nmissing = [k for k in required if k not in receipt]\\nprint(\\\"RECEIPT_PATH\\\", RECEIPT)\\nprint(\\\"TRACE_PATH\\\", TRACE)\\nprint(\\\"RECEIPT_BYTES\\\", RECEIPT.stat().st_size)\\nprint(\\\"TRACE_BYTES\\\", TRACE.stat().st_size)\\nprint(\\\"MISSING_REQUIRED\\\", missing)\\nprint(\\\"ACCEPTED\\\", receipt[\\\"accepted\\\"])\\nprint(\\\"SELF_ACCEPT\\\", receipt[\\\"self_accept\\\"])\\nprint(\\\"PRODUCT_WRITES\\\", receipt[\\\"product_writes\\\"])\\nprint(\\\"PRE_FINAL_CALLS\\\", len(ledger))\\nprint(\\\"FAILED_TERMS\\\", len(failed_terms))\\nprint(\\\"VERDICT\\\", receipt[\\\"result\\\"][\\\"verdict\\\"])\\nprint(\\\"CHILD\\\", CHILD)\\nprint(\\\"HASH\\\", receipt[\\\"input_context_hash\\\"])\\nprint(\\\"OK\\\")\\n\"}",
+        "exit_code": null,
+        "result_content_len": 84,
+        "files_read": [],
+        "files_written": [
+          "E:/AIdle_openworld/orchestration/logs/g8-d2-asset-016.log"
+        ]
+      },
+      {
+        "tool_call_id": "call-ca0beb99-0903-4847-8382-03d052c3b170-61",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 14,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/14",
+        "arguments_json": "{\"command\":\"E:\\\\standards\\\\maf\\\\.venv\\\\Scripts\\\\python.exe \\\"E:\\\\AIdle_openworld\\\\orchestration\\\\logs\\\\g8-d2-asset-016.log\\\"\",\"description\":\"Execute lease-path builder to emit receipt\"}",
+        "exit_code": 0,
+        "result_content_len": 461,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-62f976b5-4ad7-42a3-9e46-7678a3494a12-62",
+        "tool_kind": "run_terminal_command",
+        "kind_local_ordinal": 15,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/run_terminal_command/15",
+        "arguments_json": "{\"command\":\"E:\\\\standards\\\\maf\\\\.venv\\\\Scripts\\\\python.exe -c \\\"import json; from pathlib import Path; p=Path(r'E:\\\\AIdle_openworld\\\\orchestration\\\\receipts\\\\g8\\\\d2_provenance_correction_016\\\\D2_asset_016.json'); r=json.loads(p.read_text(encoding='utf-8')); print('accepted', r.get('accepted')); print('self_accept', r.get('self_accept')); print('product_writes', r.get('product_writes')); print('authority', r.get('authority_token')); print('child', r.get('child_task_ref')); print('next', r.get('next_route')); print('verdict', r['result']['verdict']); print('calls', r['tool_call_provenance']['pre_final_tool_call_count']); print('failed', r['tool_call_provenance']['failed_terminal_count']); print('skills', [(s['skill_id'], s['total_lines']) for s in r['result']['skills_loaded']]); print('gates', r['result']['gates']['cozy_dreamy_low_poly_starter_realm_default'], r['result']['gates']['style_consistency'], r['result']['gates']['provenance_consistency']); t=Path(r'E:\\\\AIdle_openworld\\\\orchestration\\\\logs\\\\g8-d2-asset-016.log').read_text(encoding='utf-8'); print('TRACE_HEAD'); print(t[:500]); print('TRACE_is_py', t.lstrip().startswith('import') or t.lstrip().startswith('#'))\\\"\\n\",\"description\":\"Validate receipt JSON and final trace content\"}",
+        "exit_code": 0,
+        "result_content_len": 907,
+        "files_read": [],
+        "files_written": [],
+        "failed": false
+      },
+      {
+        "tool_call_id": "call-62f976b5-4ad7-42a3-9e46-7678a3494a12-63",
+        "tool_kind": "read_file",
+        "kind_local_ordinal": 38,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/read_file/38",
+        "arguments_json": "{\"target_file\":\"E:/AIdle_openworld/orchestration/logs/g8-d2-asset-016.log\"}",
+        "exit_code": null,
+        "result_content_len": 1732,
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/logs/g8-d2-asset-016.log"
+        ],
+        "files_written": []
+      },
+      {
+        "tool_call_id": "call-62f976b5-4ad7-42a3-9e46-7678a3494a12-64",
+        "tool_kind": "todo_write",
+        "kind_local_ordinal": 3,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63dadf2dccd2/todo_write/3",
+        "arguments_json": "{\"todos\":[{\"id\":\"2\",\"status\":\"completed\"},{\"id\":\"3\",\"status\":\"completed\"},{\"id\":\"4\",\"status\":\"completed\"},{\"id\":\"5\",\"status\":\"completed\"}],\"merge\":true}",
+        "exit_code": null,
+        "result_content_len": 735,
+        "files_read": [],
+        "files_written": []
+      }
+    ],
+    "equality_check": {
+      "method": "re-read chat_history.jsonl; for each tool_call compare receipt.arguments_json == transcript.arguments (identity on Python str from json.loads of the line); also compare kind_local_ordinal and transcript_ref",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "status": "PASS"
+    }
+  },
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-D2-EXACT-PROVENANCE-CORRECTION-017",
+    "directive_id": 38,
+    "wave": "D2_ASSET_017",
+    "profile": "asset",
+    "original_d2_016_child_ref": "019f830a-e078-7291-868d-63dadf2dccd2",
+    "correction_child_ref": "019f8322-0e29-7832-947c-35c50405b5c6",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS",
+    "summary": "Directive 38 asset exact-provenance correction: rebuilt original D2-016 tool ledger with kind-local ordinals and byte-exact arguments_json from chat_history.jsonl for 019f830a-e078-7291-868d-63dadf2dccd2. equality_check mismatch_count=0. Failed terminal run_terminal_command kind-local included with exact arguments_json. Skills reloaded full always×5 + game-asset-core. product_writes=[]; accepted=false; self_accept=false; handoff D3_BLOCKED; G8 not ACCEPTED.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "trustlayer_character_source": "E:/agents/characters/09-blue-team-p0-remediator.md",
+      "ui_character_id": "ui-color-type-specialist",
+      "ui_character_source": "E:/agents/ui-design/characters/06-ui-color-type-specialist.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+        "total_lines": 46,
+        "chunk_ranges": [
+          {
+            "start_line": 1,
+            "end_line": 46
+          }
+        ],
+        "load_evidence": "FULL EOF semantic read_file load this correction child; total_lines=46"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+        "total_lines": 53,
+        "chunk_ranges": [
+          {
+            "start_line": 1,
+            "end_line": 53
+          }
+        ],
+        "load_evidence": "FULL EOF semantic read_file load this correction child; total_lines=53"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+        "total_lines": 36,
+        "chunk_ranges": [
+          {
+            "start_line": 1,
+            "end_line": 36
+          }
+        ],
+        "load_evidence": "FULL EOF semantic read_file load this correction child; total_lines=36"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+        "total_lines": 65,
+        "chunk_ranges": [
+          {
+            "start_line": 1,
+            "end_line": 65
+          }
+        ],
+        "load_evidence": "FULL EOF semantic read_file load this correction child; total_lines=65"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+        "total_lines": 1123,
+        "chunk_ranges": [
+          {
+            "start_line": 1,
+            "end_line": 200
+          },
+          {
+            "start_line": 201,
+            "end_line": 400
+          },
+          {
+            "start_line": 401,
+            "end_line": 600
+          },
+          {
+            "start_line": 601,
+            "end_line": 800
+          },
+          {
+            "start_line": 801,
+            "end_line": 1000
+          },
+          {
+            "start_line": 1001,
+            "end_line": 1123
+          }
+        ],
+        "load_evidence": "FULL EOF semantic read_file load this correction child; total_lines=1123"
+      },
+      {
+        "skill_id": "game-asset-core",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+        "mode": "full",
+        "sha256": "7b7ab3024067a0eb239ba75fc414b312d007022d897d1a0b519a09e9c1225f37",
+        "total_lines": 57,
+        "chunk_ranges": [
+          {
+            "start_line": 1,
+            "end_line": 57
+          }
+        ],
+        "load_evidence": "FULL EOF semantic read_file load this correction child; total_lines=57"
+      }
+    ],
+    "skills_loaded_count": 6,
+    "always_skills_coverage": {
+      "maf-mandatory-standard": "46_of_46",
+      "trustlayer-x16-crew": "53_of_53",
+      "agentwork-knowledge-loop": "36_of_36",
+      "project-room-collab": "65_of_65",
+      "curiosity-engine": "1123_of_1123"
+    },
+    "routed_skills_coverage": {
+      "game-asset-core": "57_of_57"
+    },
+    "review_017_blockers_addressed": {
+      "D2-017-EXACT-INPUT": "arguments_json is raw transcript arguments string; kind-local ordinals in transcript_ref; no global ordinals; no inserted nulls; no paraphrased keys; failed terminal exact args included",
+      "equality_check_mismatch_count": 0
+    },
+    "product_writes": [],
+    "writer_lease": [
+      "E:/AIdle_openworld/orchestration/receipts/g8/d2_exact_provenance_correction_017/D2_asset_017.json",
+      "E:/AIdle_openworld/orchestration/logs/g8-d2-asset-017.log"
+    ],
+    "no_children_spawned": true,
+    "no_grandchildren": true,
+    "no_helper_temps": true,
+    "handoff_ref": "D3_BLOCKED",
+    "handoff_note": "Directive 38: D3 blocked until Codex accepts exact provenance 017 for all four profiles. G8 not ACCEPTED.",
+    "prior_016_gate_observation_immutable": {
+      "note": "Product gates were verified under D2-016 VERIFY_ONLY; this 017 step corrects provenance representation only. Prior 016 receipt/trace immutable.",
+      "prior_receipt": "orchestration/receipts/g8/d2_provenance_correction_016/D2_asset_016.json",
+      "prior_verdict_observed": "PASS",
+      "prior_gates_observed": {
+        "cozy_dreamy_low_poly_starter_realm_default": "PASS",
+        "style_consistency": "PASS",
+        "provenance_consistency": "PASS",
+        "design_md_color_type_compliance": "PASS",
+        "warm_natural_palette": "PASS",
+        "matte_dreamy_low_poly": "PASS",
+        "anti_purple_slop": "PASS",
+        "starter_realm_builder_landmarks": "PASS",
+        "cozy_clean_world_default": "PASS",
+        "headed_visual_inspect_existing": "PASS",
+        "no_export_mutating_smoke_rerun": "PASS",
+        "G3_E2E_observed_checks": 76,
+        "G4_PERSIST_observed_checks": 22,
+        "G3_W1_ASSET_SMOKE_observed_checks": 16,
+        "six_export_zero_diff_observed_matches": 6
+      }
+    },
+    "children": [],
+    "findings": [
+      {
+        "id": "F-ASSET-017-01",
+        "severity": "info",
+        "classification": "FACT",
+        "statement": "Original D2-016 asset transcript has 65 tool calls; equality_check mismatch_count=0.",
+        "evidence": [
+          "transcript://019f830a-e078-7291-868d-63dadf2dccd2"
+        ]
+      },
+      {
+        "id": "F-ASSET-017-02",
+        "severity": "info",
+        "classification": "FACT",
+        "statement": "016 defect: used global tool ordinals as kind-local transcript refs and reconstructed/normalized argument objects; corrected here.",
+        "evidence": [
+          "orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_CORRECTION_REVIEW_017.json"
+        ]
+      }
+    ],
+    "residual_risks": [
+      "G8-001 remains non-ACCEPTED; D3 blocked pending Codex review of all four 017 children.",
+      "This correction child does not re-run headed capture or export-mutating smokes."
+    ]
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "name": "original_transcript_exact_arguments_equality",
+        "description": "Re-read original chat_history.jsonl and compare every recorded arguments_json string and kind-local ordinal",
+        "exit_code": 0,
+        "mismatch_count": 0,
+        "call_count": 65,
+        "failed_terminal_count": 1
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "VERIFY_ONLY",
+    "no_self_accept": true,
+    "self_accept": false,
+    "accepted_false_toplevel": true,
+    "product_writes_empty": true,
+    "no_nested_grandchildren": true,
+    "no_helper_temps": true,
+    "kind_local_ordinals": true,
+    "arguments_json_raw_string": true,
+    "no_argument_reserialize": true,
+    "failed_exits_disclosed": true,
+    "equality_check_zero_mismatch": true,
+    "g8_not_accepted": true,
+    "d3_blocked": true,
+    "prior_016_not_overwritten": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-d2-asset-017.log",
+    "orchestration/receipts/g8/d2_provenance_correction_016/D2_asset_016.json",
+    "orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_CORRECTION_REVIEW_017.json",
+    "orchestration/work_orders/WO-G8-001-D2-EXACT-PROVENANCE-CORRECTION-017.md",
+    "transcript://019f830a-e078-7291-868d-63dadf2dccd2",
+    "transcript://019f8322-0e29-7832-947c-35c50405b5c6",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "D3_BLOCKED"
+}

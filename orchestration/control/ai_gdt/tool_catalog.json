@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_id": "aidle_ai_gdt_curated_v1",
+  "source_hub": "https://github.com/Yuan-ManX/ai-game-devtools",
+  "directive_id": 99,
+  "accepted": false,
+  "self_accept": false,
+  "policy": {
+    "network_live_generation": "HITL_REQUIRED",
+    "promote_to_game": "WO_NAMED_LEASE_ONLY",
+    "world_commit": "NEVER_FROM_GENERATOR",
+    "credentials_in_godot": "FORBIDDEN"
+  },
+  "tools": [
+    {
+      "id": "godot_mcp",
+      "name": "Godot-MCP",
+      "url": "https://github.com/IvanMurzak/Godot-MCP",
+      "related": ["https://github.com/IvanMurzak/GameDev-MCP-Server"],
+      "engine": "Godot 4.x",
+      "aidle_jobs": ["editor_inspect", "run_smoke", "scene_place_under_lease", "headed_capture"],
+      "tier": "support_install_opt_in",
+      "network": false,
+      "notes": "Primary agent↔Godot bridge from AI-GDT Godot section"
+    },
+    {
+      "id": "summer_engine",
+      "name": "Summer Engine 0.5.54",
+      "url": "https://summerengine.com",
+      "related": [
+        "https://github.com/SummerEngine/summer-engine-agent",
+        "E:/AIdle_openworld/orchestration/control/SUMMER_ENGINE_USAGE_PLAN_001.md"
+      ],
+      "installer_local": "E:/SummerEngine-0.5.54-Setup.exe",
+      "engine": "Godot-compatible fork (verify vs AIdle 4.3 pin)",
+      "aidle_jobs": [
+        "editor_inspect",
+        "headed_capture",
+        "run_play_verify",
+        "ui_polish_under_lease",
+        "optional_paid_generate_quarantine"
+      ],
+      "tier": "support_install_opt_in",
+      "network": "paid_generate_hitl_only",
+      "notes": "Sidecar only; not World Commit; not cast path of record; MCP ~52 tools localhost:6550; install HITL only"
+    },
+    {
+      "id": "meshy",
+      "name": "Meshy",
+      "url": "https://www.meshy.ai/",
+      "aidle_jobs": ["image_to_3d_prop", "text_to_3d_prop_shell"],
+      "tier": "tier3_staging_hitl",
+      "network": true,
+      "output": "glb_quarantine"
+    },
+    {
+      "id": "hunyuan3d_2",
+      "name": "Hunyuan3D 2.x",
+      "url": "https://github.com/Tencent/Hunyuan3D-2",
+      "aidle_jobs": ["image_to_3d_high_fidelity", "text_to_3d_research"],
+      "tier": "tier3_staging_hitl",
+      "network": "optional_local",
+      "output": "glb_quarantine"
+    },
+    {
+      "id": "triposr",
+      "name": "TripoSR",
+      "url": "https://github.com/VAST-AI-Research/TripoSR",
+      "aidle_jobs": ["image_to_3d_fast_local"],
+      "tier": "tier3_staging_local_preferred",
+      "network": false,
+      "output": "mesh_quarantine"
+    },
+    {
+      "id": "shap_e",
+      "name": "Shap-E",
+      "url": "https://github.com/openai/shap-e",
+      "aidle_jobs": ["text_to_3d_research", "image_to_3d_research"],
+      "tier": "tier3_staging_local",
+      "network": false,
+      "output": "mesh_quarantine"
+    },
+    {
+      "id": "csm",
+      "name": "CSM",
+      "url": "https://www.csm.ai/",
+      "aidle_jobs": ["image_to_3d_world_piece"],
+      "tier": "tier3_staging_hitl",
+      "network": true,
+      "output": "glb_quarantine"
+    },
+    {
+      "id": "luma_ai",
+      "name": "Luma AI",
+      "url": "https://lumalabs.ai/",
+      "aidle_jobs": ["capture_3d_photoreal_filter_before_promote"],
+      "tier": "tier3_staging_hitl",
+      "network": true,
+      "style_note": "Must restyle to cozy low-poly before promote"
+    },
+    {
+      "id": "motiongpt",
+      "name": "MotionGPT",
+      "url": "https://github.com/OpenMotionLab/MotionGPT",
+      "aidle_jobs": ["text_to_motion", "retarget_to_cast_skeleton"],
+      "tier": "animation_research",
+      "network": false,
+      "output": "motion_curves_then_blender_keys"
+    },
+    {
+      "id": "hy_motion_1",
+      "name": "HY-Motion 1.0",
+      "url": "https://github.com/Tencent-Hunyuan/HY-Motion-1.0",
+      "aidle_jobs": ["text_to_motion_scale", "cast_clip_authoring"],
+      "tier": "animation_research",
+      "network": "optional"
+    },
+    {
+      "id": "ready_player_me",
+      "name": "Ready Player Me",
+      "url": "https://readyplayer.me/",
+      "aidle_jobs": ["avatar_shell_research"],
+      "tier": "avatar_research_not_mvp_companion",
+      "notes": "MVP Companion remains text-only AIda; not Foundry merge"
+    },
+    {
+      "id": "blender_offline",
+      "name": "AIdle Blender offline factory",
+      "url": "local:E:/AIdle_Blender_Bridge_P0 + author_cast_batch_001.py",
+      "aidle_jobs": ["production_glb_keys", "cast_batch", "prop_remesh_cozy"],
+      "tier": "production_path_of_record",
+      "network": false
+    },
+    {
+      "id": "maf_trustlayer",
+      "name": "MAF + TrustLayer x16",
+      "url": "local:E:/standards/maf + E:/agents/characters",
+      "aidle_jobs": ["agent_orchestration", "receipts", "leases"],
+      "tier": "operating_system",
+      "notes": "Not replaced by MetaGPT/ChatDev/Auto-GPT from AI-GDT"
+    }
+  ],
+  "job_routing": {
+    "new_prop_module": ["triposr", "meshy", "hunyuan3d_2", "blender_offline"],
+    "new_cast_character": ["blender_offline", "hunyuan3d_2", "meshy", "motiongpt", "hy_motion_1"],
+    "animation_clips": ["blender_offline", "motiongpt", "hy_motion_1"],
+    "godot_ops": ["godot_mcp", "summer_engine", "godot_cli_fallback"],
+    "agent_orchestration": ["maf_trustlayer"]
+  }
+}

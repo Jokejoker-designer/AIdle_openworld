@@ -1,0 +1,221 @@
+{
+  "agent_step_id": "OPS-001-CORRECTION-001-schema-lineage-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "input_context_hash": "sha256:ops001-corr001:review021+wo-corr001+four-orchestrator-reads",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8357-5006-7023-af04-10a9291335d5",
+  "correction_child_ref": "019f8357-5006-7023-af04-10a9291335d5",
+  "original_onboarding_child_ref": "019f8347-f5fa-7aa3-b5ce-d24170e1aeb3",
+  "resumed_from": "019f8347-f5fa-7aa3-b5ce-d24170e1aeb3",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/ops-grok-specialist-profile-correction-001.log",
+  "handoff_ref": "WAITING_CODEX_REVIEW",
+  "start_time": "2026-07-21T06:22:54.0000000Z",
+  "end_time": "2026-07-21T06:28:30.0000000Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+  "work_order": "E:/AIdle_openworld/orchestration/work_orders/WO-OPS-001-CORRECTION-001.md",
+  "directive_id": 42,
+  "task_id": "OPS-001",
+  "correction_id": "OPS-001-CORRECTION-001",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "product_writes": [],
+  "specialists_spawned": 0,
+  "grandchildren_spawned": 0,
+  "ops002_started": false,
+  "lineage": {
+    "original_onboarding_child_ref": "019f8347-f5fa-7aa3-b5ce-d24170e1aeb3",
+    "correction_child_ref": "019f8357-5006-7023-af04-10a9291335d5",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852"
+  },
+  "character_binding": {
+    "trustlayer_character_id": "devil-advocate",
+    "ui_character_id": "ui-brief-writer",
+    "maf_role": "agent",
+    "authority_token": "PATCH_DRAFT"
+  },
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "mode": "full"
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "mode": "full"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "mode": "full"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "mode": "full"
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "mode": "full"
+    }
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/orchestration/work_orders/WO-OPS-001-CORRECTION-001.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_OPS-001_PROFILE_ONBOARDING_REVIEW_021.json",
+    "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/01_GROK_ORCHESTRATOR.md",
+    "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/workflow/CHARACTER_DEVELOPMENT_WORKFLOW.md",
+    "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/01_MASTER_ORCHESTRATOR.md",
+    "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/workflow/MULTI_SESSION_OPERATING_PROCEDURE.md",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-tracker-steward.md",
+    "E:/AIdle_openworld/orchestration/registries/grok_specialist_profiles_v1.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/agents/characters/registry.yaml",
+    "E:/agents/ui-design/registry.yaml",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "required_full_reads": [
+    {
+      "path": "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/01_GROK_ORCHESTRATOR.md",
+      "tool": "read_file",
+      "tool_ref": "read_file:01_GROK_ORCHESTRATOR.md",
+      "chunk_ranges": ["1-114"],
+      "line_count": 114,
+      "splitlines_count": 113,
+      "bytes": 3105,
+      "sha256": "4e48c65f03076856e5dbfcea43c63b93c976d018bac0c9887c725ade87800312",
+      "eof_reached": true
+    },
+    {
+      "path": "E:/AIdle_openworld/game_character/AIdle_Grok_Character_Subagents_v1.0/workflow/CHARACTER_DEVELOPMENT_WORKFLOW.md",
+      "tool": "read_file",
+      "tool_ref": "read_file:CHARACTER_DEVELOPMENT_WORKFLOW.md",
+      "chunk_ranges": ["1-60"],
+      "line_count": 60,
+      "splitlines_count": 59,
+      "bytes": 1597,
+      "sha256": "8450e23755faa024ea628a1ce8149ab37c4cc79d004c3c4e835995035b719693",
+      "eof_reached": true
+    },
+    {
+      "path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/01_MASTER_ORCHESTRATOR.md",
+      "tool": "read_file",
+      "tool_ref": "read_file:01_MASTER_ORCHESTRATOR.md",
+      "chunk_ranges": ["1-125"],
+      "line_count": 125,
+      "splitlines_count": 124,
+      "bytes": 3465,
+      "sha256": "7d96dc5ef7307bbee48e00634682c220662fa414ba18bd6221e4e3ada3a6c2c2",
+      "eof_reached": true
+    },
+    {
+      "path": "E:/AIdle_openworld/Scene/AIdle_Grok_WorldGenesis_Subagents_v1.0/workflow/MULTI_SESSION_OPERATING_PROCEDURE.md",
+      "tool": "read_file",
+      "tool_ref": "read_file:MULTI_SESSION_OPERATING_PROCEDURE.md",
+      "chunk_ranges": ["1-33"],
+      "line_count": 33,
+      "splitlines_count": 32,
+      "bytes": 835,
+      "sha256": "b35051fd6939116d48006fbcbabd031348e94871374e82a850f8866ec4191c0d",
+      "eof_reached": true
+    }
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-tracker-steward.md",
+    "E:/AIdle_openworld/orchestration/registries/grok_specialist_profiles_v1.json",
+    "E:/AIdle_openworld/orchestration/receipts/OPS-001-CORRECTION-001.json",
+    "E:/AIdle_openworld/orchestration/logs/ops-grok-specialist-profile-correction-001.log"
+  ],
+  "result": {
+    "task_id": "OPS-001",
+    "correction_id": "OPS-001-CORRECTION-001",
+    "directive_id": 42,
+    "profile": "schema",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS",
+    "summary": "Closed OPS-021-AUTH-QA, OPS-021-AUTH-TRACKER and OPS-021-REQUIRED-READS. QA TrustLayer inspector->purple-team-finding-triage (VERIFY_ONLY). Tracker TrustLayer memory-curator->blue-team-test-writer (PATCH_DRAFT). Four orchestrator/workflow files fully read with sha256. All 21 profile tokens match TrustLayer character authorities; all UI IDs valid; all 21 source_agent sha256 unchanged. specialists_spawned=0; OPS-002 not started; original OPS-001.json not overwritten.",
+    "blocking_findings_closed": [
+      {
+        "id": "OPS-021-AUTH-QA",
+        "fix": "aidle-worldgen-qa-evidence trustlayer_character=purple-team-finding-triage; authority_token remains VERIFY_ONLY"
+      },
+      {
+        "id": "OPS-021-AUTH-TRACKER",
+        "fix": "aidle-worldgen-tracker-steward trustlayer_character=blue-team-test-writer; authority_token remains PATCH_DRAFT"
+      },
+      {
+        "id": "OPS-021-REQUIRED-READS",
+        "fix": "Four required full reads evidenced in required_full_reads with path/line_count/sha256/chunk_ranges/tool_refs"
+      }
+    ],
+    "trustlayer_fixes": {
+      "aidle-worldgen-qa-evidence": {
+        "from": "inspector",
+        "to": "purple-team-finding-triage",
+        "authority_token": "VERIFY_ONLY",
+        "canonical_trustlayer_authority": "VERIFY_ONLY"
+      },
+      "aidle-worldgen-tracker-steward": {
+        "from": "memory-curator",
+        "to": "blue-team-test-writer",
+        "authority_token": "PATCH_DRAFT",
+        "canonical_trustlayer_authority": "PATCH_DRAFT"
+      }
+    },
+    "acceptance_checks": {
+      "all_21_profile_authority_matches_trustlayer_character": true,
+      "all_21_ui_character_ids_exist": true,
+      "all_21_source_agent_sha256_unchanged": true,
+      "four_required_full_reads_evidenced": true,
+      "specialists_spawned": 0,
+      "product_writes_empty": true,
+      "accepted": false,
+      "self_accept": false,
+      "ops002_started": false,
+      "original_ops001_receipt_preserved": true,
+      "other_19_profiles_untouched": true
+    },
+    "specialists_spawned": 0,
+    "product_writes": [],
+    "profiles_patched": 2,
+    "profiles_untouched": 19
+  },
+  "smoke_test": {
+    "qa_trustlayer": "purple-team-finding-triage",
+    "tracker_trustlayer": "blue-team-test-writer",
+    "auth_alignment_all_21": true,
+    "ui_ids_all_21": true,
+    "source_hashes_all_21": true,
+    "required_reads_4": true,
+    "specialists_spawned": 0,
+    "ops002_started": false,
+    "passed": true
+  },
+  "self_audit": {
+    "lease_respected": true,
+    "only_authorized_files_written": true,
+    "no_product_writes": true,
+    "no_specialist_spawn": true,
+    "no_grandchildren": true,
+    "no_self_accept": true,
+    "did_not_overwrite_ops001_receipt": true,
+    "did_not_start_ops002": true,
+    "notes": "Write lease: 2 profiles + registry + correction receipt + log only."
+  },
+  "evidence_refs": [
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_OPS-001_PROFILE_ONBOARDING_REVIEW_021.json",
+    "E:/AIdle_openworld/orchestration/registries/grok_specialist_profiles_v1.json",
+    "E:/AIdle_openworld/orchestration/logs/ops-grok-specialist-profile-correction-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/OPS-001-CORRECTION-001.json"
+  ],
+  "next_route": "REVIEW_REQUESTED_WAITING_CODEX"
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": "block_dna_adapt_001/1.0",
+  "request_id": "req_nori_001",
+  "build_graph_id": "graph_nori_presence_v1",
+  "world_profile": "cozy_cyber_pixel",
+  "expected_world_revision": 0,
+  "current_world_revision": 0,
+  "idempotency_key": "idem_graph_nori_presence_v1",
+  "bounds": {
+    "min": {
+      "x": -32,
+      "y": -32,
+      "z": 0
+    },
+    "max": {
+      "x": 32,
+      "y": 32,
+      "z": 16
+    }
+  },
+  "nodes": [
+    {
+      "node_id": "nori",
+      "module_id": "char_nori7_base",
+      "transform": {
+        "x": 2.0,
+        "y": -2.0,
+        "elevation": 0.0,
+        "rotation_deg": 180.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": 4,
+        "cy": -4,
+        "cz": 0
+      },
+      "material_slot": "body",
+      "p1e_material_id": "MAT_CozyCeramic"
+    }
+  ],
+  "edges": [],
+  "generators": [],
+  "world_rules": [
+    {
+      "rule_id": "rule_day_night_v1"
+    }
+  ],
+  "manifestation": {
+    "stages": [
+      "wireframe",
+      "hologram",
+      "materializing",
+      "complete"
+    ],
+    "requires_confirmation": true,
+    "presentation_duration_seconds": 4
+  },
+  "validation": {
+    "collision": true,
+    "occupancy": true,
+    "sockets": true,
+    "cycle": true,
+    "snap": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  },
+  "adapter_proposal": {
+    "kind": "structured_world_prompt_proposal",
+    "confirmation_state": "pending",
+    "preview_required": true
+  },
+  "payload_fingerprint": "8741b39084ca341dfa445dd5652c070c5b37955c5831702783ead988dd0a76eb"
+}

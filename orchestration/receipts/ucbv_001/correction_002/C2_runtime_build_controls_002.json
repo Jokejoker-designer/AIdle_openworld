@@ -1,0 +1,281 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "UCBV-001-c2-runtime-build-controls-002-2026-07-23",
+  "step_id": "UCBV-001-c2-runtime-build-controls-002",
+  "work_order_id": "WO-UCBV-001-STRICT-CORRECTION-002",
+  "work_order": "orchestration/work_orders/WO-UCBV-001-STRICT-CORRECTION-002.md",
+  "work_order_addendum": "orchestration/work_orders/WO-UCBV-001-MOTION-KIT-ADDENDUM-003.md",
+  "directive_id": 86,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "animation_integration_map": "orchestration/control/UCBV_ANIMATION_BLOCK_INTEGRATION_MAP_001.md",
+  "milestone": "UCBV-001 C2 Godot build catalog input delete integration",
+  "agent_id": "aidle-worldgen-godot-runtime",
+  "agent_type": "aidle-worldgen-godot-runtime",
+  "profile_name": "aidle-worldgen-godot-runtime",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "status": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C2_RUNTIME_BUILD_CONTROLS_COMPLETE_ROUTE_CODEX_C3_BLOCKED",
+  "need_human": false,
+  "child_task_ref": "019f8c2b-59a3-7642-abe4-c95080fa3a08",
+  "transcript_ref": "019f8c2b-59a3-7642-abe4-c95080fa3a08",
+  "writer_transcript_ref": "019f8c2b-59a3-7642-abe4-c95080fa3a08",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "c1r_input_child_ref": "019f8c18-933b-7d21-9ecd-bcdda4023cf8",
+  "c1r_scope": "ACCEPTED_AS_C2_INPUT_ONLY",
+  "next_owner": "CODEX",
+  "next_route": "WAITING_CODEX_THEN_C3_RED_SCOPE",
+  "c3_c4_c5_spawned": false,
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "ui_character_id": "ui-app-dashboard",
+    "role": "C2 PATCH_DRAFT sole writer for Godot runtime build catalog input delete; no self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Manual load of Agents.md, directive 86, WO, C1R gate, motion-kit addendum, integration map, adapter, lease paths.",
+  "skills_loaded": [
+    {"skill_id": "maf-mandatory-standard", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "trustlayer-x16-crew", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "agentwork-knowledge-loop", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "project-room-collab", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "curiosity-engine", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "architecture-lock", "mode": "ALWAYS", "source": "orchestration/ARCHITECTURE_LOCK.md", "loaded_full_eof": true}
+  ],
+  "result": {
+    "outcomes": {
+      "glb_normal_play": {
+        "ok": true,
+        "mode": "glb_c1r",
+        "procedural_fallback": false,
+        "procedural_presenter_removed": true,
+        "intake": "scripts/modules/asset/glb_intake.gd load_glb_absolute (existing offline contract)",
+        "glb_path": "res://assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+        "glb_sha256": "e16d6af8e121879bc3080f2b64d281ee00975ef195db60b622917c28ca594b7f",
+        "glb_bytes": 629164,
+        "adapter_path": "res://resources/ucbv_001/character/nori7_animation_adapter.json",
+        "skeleton_id": "skel_small_biped_robot_v1",
+        "production_bones": 14,
+        "hierarchy_exact": true,
+        "extra_socket_bones_allowed": ["character_hand", "character_head", "character_back", "vfx_anchor"],
+        "required_actions": [
+          "idle", "walk", "scan", "happy", "cancel",
+          "turn_left", "turn_right", "build_place", "build_place_hold", "confirm"
+        ],
+        "clip_duration_gt_0": true,
+        "non_root_tracks": true,
+        "root_motion": false,
+        "animation_tree_constructed": true,
+        "playback_path": "AnimationPlayer for deterministic BA triggers; AnimationTree states resolve to imported actions",
+        "markers_mutation_free": true,
+        "fail_closed_visible": true
+      },
+      "catalog_28_ui": {
+        "ok": true,
+        "module_count": 28,
+        "categorized_selector": true,
+        "categories": ["Primitive", "Architecture", "Terrain", "Cluster", "Prop", "Character"],
+        "period_only_cycle": false,
+        "single_arch_door_round_only": false,
+        "hud": "block_assembly_hud categorized catalog list with display name + preview meta",
+        "runtime_catalog_meta": "game/resources/block_assembly/runtime_catalog.json module_meta"
+      },
+      "inputmap_path": {
+        "ok": true,
+        "select_module": true,
+        "ground_preview": true,
+        "qr_rotate": true,
+        "qr_no_preview_explains_reason": true,
+        "elevation_label": "Lift (PgUp/PgDn)",
+        "confirm_cancel": true,
+        "tests_use_inputmap_entrypoints": true,
+        "controller_api_fallback_in_tests": false
+      },
+      "delete_red_x": {
+        "ok": true,
+        "cursor": "red_x",
+        "explicit_mode": true,
+        "player_owned_unlocked_only": true,
+        "lmb_select": true,
+        "confirm_world_commit_compensation_delete": true,
+        "esc_rmb_exit_no_mutation": true,
+        "undo_via_authority": true,
+        "direct_queue_free_durable_delete": false
+      },
+      "invariants_preserved": {
+        "exploration_qr_camera_vs_build_preview": true,
+        "esc_single_dispatch": true,
+        "manual_build": true,
+        "h1_p2e_control": true,
+        "world_commit_sole_mutator": true
+      },
+      "navigation": {
+        "rebake_in_slice": false,
+        "collision_as_bake_source": "post-commit StaticBody only; no NavigationRegion rebake in C2",
+        "residual": "NON_BLOCKING: no navigation rebake path in block_assembly this slice; agent radius/height alignment deferred without introducing warnings"
+      }
+    },
+    "lease_note_router": {
+      "wo_path": "game/scripts/input/control_context_router.gd",
+      "actual_path": "game/autoload/control_context_router.gd",
+      "edited": false,
+      "status": "NEED_LEASE_IF_ROUTER_KERNEL_CHANGE_REQUIRED",
+      "workaround": "Delete mode + rotate reason + elevation wired via leased main.gd and block_assembly_controller.gd using existing router signals/actions"
+    }
+  },
+  "smoke_test": {
+    "ok": true,
+    "godot": "tools/Godot_v4.3-stable_win64_console.exe 4.3-stable",
+    "mode": "headless -s",
+    "results": [
+      {
+        "test": "res://tests/ucbv_001_integration_smoke.gd",
+        "marker": "AIDLE_UCBV001_INTEGRATION_SMOKE=PASS",
+        "checks": 10,
+        "exit_code": 0
+      },
+      {
+        "test": "res://tests/p2e001_block_assembly_player_input_smoke.gd",
+        "marker": "AIDLE_P2E001_PLAYER_INPUT_SMOKE=PASS",
+        "checks": 5,
+        "exit_code": 0
+      },
+      {
+        "test": "res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+        "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS",
+        "checks": 8,
+        "exit_code": 0
+      },
+      {
+        "test": "res://tests/h1_human_ux_manual_build_smoke.gd",
+        "marker": "AIDLE_H1_HUMAN_UX_MANUAL_BUILD_SMOKE=PASS",
+        "checks": 13,
+        "exit_code": 0
+      },
+      {
+        "test": "res://tests/p2e001_block_assembly_core_smoke.gd",
+        "marker": "AIDLE_P2E001_CORE_SMOKE=PASS",
+        "checks": 14,
+        "exit_code": 0
+      }
+    ]
+  },
+  "self_audit": {
+    "exclusive_lease": true,
+    "product_lease_only": true,
+    "orchestration_lease_only": true,
+    "out_of_lease_writes": [],
+    "helper_tmp_under_repo": false,
+    "motion_kit_edited": false,
+    "motion_kit_reference_copied_blindly": false,
+    "self_accept": false,
+    "accepted": false,
+    "c3_c4_c5_spawned": false,
+    "grandchildren": false,
+    "p2e002_touched": false,
+    "network_install_godot_change": false,
+    "push_deploy_publish": false,
+    "red_f01_hard_stop_respected": true,
+    "world_commit_sole_mutator": true,
+    "queue_free_durable_delete": false,
+    "procedural_nori_normal_play": false,
+    "router_autoload_need_lease_reported": true
+  },
+  "product_writes": [
+    {
+      "path": "game/scripts/modules/ucbv_001/ucbv_paths.gd",
+      "bytes": 4052,
+      "sha256": "be22c48a82fb5a95a44f2ceee897966e7692e64f75b049872dfabe85e9acdc20"
+    },
+    {
+      "path": "game/scripts/modules/ucbv_001/nori7_presenter.gd",
+      "bytes": 25278,
+      "sha256": "3aa4f5fe04a243393e1ccab68bdb151663a68d8be66b0225a84dba2423d0dc02"
+    },
+    {
+      "path": "game/scripts/modules/ucbv_001/ucbv_block_kit_loader.gd",
+      "bytes": 17241,
+      "sha256": "c1cf1b53d9f8e0d142b0e3c0f1677e5435eca12be1e619e8e9e8db3323437157"
+    },
+    {
+      "path": "game/scripts/modules/ucbv_001/ucbv_ba_anim_bridge.gd",
+      "bytes": 4726,
+      "sha256": "872438e876336c616829dbdf83d057c646f9d844532e4a0e5d6cd313555e52e9"
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+      "bytes": 63954,
+      "sha256": "d94fd501ba6c059efcedfdb13830c521666650277926748706ffca7de93ed4a2"
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_hud.gd",
+      "bytes": 10875,
+      "sha256": "cc82b2b96e6f7e31a6598367a9a0215e61496223f7b9bb6c685eb673702c13b4"
+    },
+    {
+      "path": "game/resources/block_assembly/runtime_catalog.json",
+      "bytes": 5967,
+      "sha256": "136a82b6369acdecb22f321c2f17ccdf3aca903b5be6e8499e6697eed05df21e"
+    },
+    {
+      "path": "game/scripts/main/main.gd",
+      "bytes": 66958,
+      "sha256": "4e39f54e98f5cd078f3d10d6cf1a33b1666381122fd0c3389baae62ea8242c8c"
+    },
+    {
+      "path": "game/tests/ucbv_001_integration_smoke.gd",
+      "bytes": 17230,
+      "sha256": "e232bf7151615b18761f9b6fe2699ca0a2c6487c67e70598563f67f1d76cbba3"
+    },
+    {
+      "path": "game/tests/p2e001_block_assembly_player_input_smoke.gd",
+      "bytes": 8644,
+      "sha256": "b7b0c886ec3a101616317caa88ad0190eda67c3291da7a899ff9280afa0daa85"
+    },
+    {
+      "path": "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "bytes": 9696,
+      "sha256": "74a8fb5c51eb9cf0462a5eba381b5fdebde1c4c5b63296d6237b9d5226b20962"
+    },
+    {
+      "path": "game/tests/h1_human_ux_manual_build_smoke.gd",
+      "bytes": 23816,
+      "sha256": "24b2b8d5b3be17370e020ad4b61f56de0d36e8e4265c350f3d0dad30db08324d"
+    }
+  ],
+  "product_reads_not_written": [
+    "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "game/resources/ucbv_001/character/nori7_animation_adapter.json",
+    "game/scripts/input/control_action_catalog.gd",
+    "game/project.godot",
+    "game/autoload/control_context_router.gd"
+  ],
+  "orchestration_writes": [
+    {
+      "path": "orchestration/receipts/ucbv_001/correction_002/C2_runtime_build_controls_002.json",
+      "role": "receipt"
+    },
+    {
+      "path": "orchestration/logs/ucbv_001/correction_002/C2_runtime_build_controls_002.log",
+      "role": "log"
+    }
+  ],
+  "evidence_refs": [
+    "orchestration/logs/ucbv_001/correction_002/C2_runtime_build_controls_002.log",
+    "orchestration/reviews/CODEX_UCBV-001_C1R_CHARACTER_GATE_005.json",
+    "game/resources/ucbv_001/character/nori7_animation_adapter.json"
+  ],
+  "forbidden_actions_respected": [
+    "no C3/C4/C5 spawn",
+    "no grandchildren",
+    "no motion_kit edit",
+    "no network/install/Godot version change",
+    "no P2E-002",
+    "no self-accept",
+    "no parent product patch outside C2 lease"
+  ]
+}

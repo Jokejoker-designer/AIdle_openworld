@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "request_id": "pc_physics_solarpunk_0001",
+  "world_profile": "solarpunk_haven",
+  "pc_profile_id": "pc_forward_plus_ultra_v1",
+  "expected_world_revision": 0,
+  "build_graph_ref": "graph_solarpunk_energy_water_v1",
+  "elemental_bindings": [
+    {
+      "entity_ref": "solar_array",
+      "elements": [
+        "element_solar",
+        "element_metal",
+        "element_electricity"
+      ],
+      "physical_profile_id": "phys_metal_light_v1"
+    },
+    {
+      "entity_ref": "wind_turbine",
+      "elements": [
+        "element_wind",
+        "element_metal",
+        "element_kinetic"
+      ],
+      "physical_profile_id": "phys_metal_light_v1"
+    },
+    {
+      "entity_ref": "water_tank",
+      "elements": [
+        "element_water",
+        "element_metal"
+      ],
+      "physical_profile_id": "phys_metal_light_v1"
+    },
+    {
+      "entity_ref": "vertical_garden",
+      "elements": [
+        "element_plant",
+        "element_soil",
+        "element_water"
+      ],
+      "physical_profile_id": "phys_plant_soft_v1"
+    }
+  ],
+  "force_fields": [
+    {
+      "force_id": "force_wind_directional_v1",
+      "target_ref": "district",
+      "parameters": {
+        "direction": [
+          0.6,
+          0,
+          0.4
+        ],
+        "strength": 0.5,
+        "gust": 0.2
+      }
+    }
+  ],
+  "reaction_rules": [
+    "react_solar_electricity_v1",
+    "react_wind_turbine_kinetic_v1",
+    "react_kinetic_electricity_generator_v1",
+    "react_light_water_plant_growth_v1"
+  ],
+  "system_networks": [
+    {
+      "network_id": "district_energy",
+      "solver_rule": "energy_network_balance_v1",
+      "nodes": [
+        "solar_array",
+        "wind_turbine",
+        "battery",
+        "homes"
+      ]
+    },
+    {
+      "network_id": "district_water",
+      "solver_rule": "fluid_network_flow_v1",
+      "nodes": [
+        "water_tank",
+        "garden",
+        "homes"
+      ]
+    },
+    {
+      "network_id": "district_ecology",
+      "solver_rule": "bio_ecosystem_aggregate_v1",
+      "nodes": [
+        "vertical_garden",
+        "stream",
+        "bird_habitat"
+      ]
+    }
+  ],
+  "simulation": {
+    "simulation_lod_profile": "sim_lod_pc_ultra_v1",
+    "deterministic_seed": 210726,
+    "preview_only": true,
+    "collision_enabled_after_commit": true
+  },
+  "validation": {
+    "schema": true,
+    "element_compatibility": true,
+    "reaction_allowlist": true,
+    "structural": true,
+    "fluid": true,
+    "thermal": true,
+    "energy": true,
+    "biological": true,
+    "performance": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  }
+}

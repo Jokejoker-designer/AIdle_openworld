@@ -1,0 +1,78 @@
+{
+  "schema": "control_1b_002_r_camera_correction_evidence/1.0",
+  "work_order": "WO-CTRL-1B-002-R-CAMERA-CORRECTION-002",
+  "directive_id": 60,
+  "agent": "aidle-worldgen-qa-evidence",
+  "authority": "VERIFY_ONLY",
+  "child_task_ref": "019f873b-a575-76e0-a153-f6d57cfb3fe9",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_s0_ref": "019f8731-3c78-7ed1-a029-292167b919ba",
+  "prior_r1_ref": "019f8735-2780-7530-8584-1c8711e18a9a",
+  "timestamp_utc": "2026-07-22T00:34:31Z",
+  "verdict_candidate": "REAL_PATH_R_CAMERA_EVIDENCE_PASS",
+  "accepted": false,
+  "self_accept": false,
+  "key_yaw_measurements": {
+    "exploration_physical_R": {
+      "camera_yaw_before": 0.0,
+      "camera_yaw_after": -0.78539816339745,
+      "camera_yaw_delta_abs": 0.785398163397448,
+      "camera_yaw_signed_delta": -0.78539816339745,
+      "note": "rotate_camera_right applies _target_yaw -= step (cozy_camera convention for right); ~45 deg / PI/4 rad",
+      "router_just_pressed": true,
+      "hologram_rotated": false,
+      "dual_fire": false,
+      "fired": ["rotate_camera_right"]
+    },
+    "build_physical_R": {
+      "camera_yaw_before": 0.0,
+      "camera_yaw_after": 0.0,
+      "camera_yaw_delta_abs": 0.0,
+      "preview_rotate_dir": 1,
+      "preview_yaw_changed": true,
+      "camera_action_router_just_pressed": false,
+      "dual_fire": false,
+      "fired": ["build_rotate_right"]
+    },
+    "remap_compatibility": {
+      "physical_rebinding": "KEY_R → KEY_T",
+      "camera_yaw_before": -0.03727499683484,
+      "camera_yaw_after": -1.5707963267949,
+      "camera_yaw_delta_abs": 1.53352132996005,
+      "router_just_pressed": true
+    }
+  },
+  "artifacts": [
+    "validator.log",
+    "router_smoke.log",
+    "a11y_smoke.log",
+    "integration_smoke.log",
+    "headed_dry_run.log",
+    "clean_boot.log",
+    "control_smoke_exits.json",
+    "regression_exits.json",
+    "reg_g8_ux_input_collision_smoke.log",
+    "reg_g8_ux002_fence_rail_collision_smoke.log",
+    "reg_p1e006_world_profile_variants_smoke.log",
+    "reg_p1e003_density_exposure_smoke.log",
+    "reg_p1e004_art_style_manager_smoke.log",
+    "reg_p1e004_elemental_pilot_smoke.log",
+    "reg_p1e002_glb_intake_smoke.log",
+    "capture_r_camera_yaw_witness.gd",
+    "yaw_witness.log",
+    "r_camera_yaw_witness.json",
+    "evidence_sha256.json",
+    "evidence_manifest.json"
+  ],
+  "primary_witness": "r_camera_yaw_witness.json",
+  "smoke_summary": {
+    "validator": "HARNESS_RESULT=PASS invalid_rejected=12/12",
+    "router": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16 ERROR=0",
+    "a11y": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS checks=11 ERROR=0",
+    "integration": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=28 ERROR=0",
+    "headed_dry_run": "AIDLE_CTRL_1B_HEADED_SMOKE=PASS checks=38 mode=dry_run ERROR=0",
+    "clean_boot": "exit=0 ERROR=0 SCRIPT_ERROR=0",
+    "yaw_witness": "AIDLE_CTRL_1B_R_CAMERA_YAW_WITNESS=PASS checks=3 ERROR=0",
+    "regressions": "7/7 PASS ERROR=0"
+  }
+}

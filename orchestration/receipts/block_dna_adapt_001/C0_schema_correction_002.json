@@ -1,0 +1,277 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "BLOCK-DNA-ADAPT-001-c0-schema-correction-002-2026-07-22",
+  "step_id": "BLOCK-DNA-ADAPT-001-c0-schema-correction-002",
+  "work_order_id": "WO-BLOCK-DNA-ADAPT-001-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-BLOCK-DNA-ADAPT-001-CORRECTION-001.md",
+  "review_ref": "orchestration/reviews/CODEX_BLOCK-DNA-ADAPT-001_MACHINE_REVIEW_001.json",
+  "directive_id": 69,
+  "milestone": "Block-DNA contract gate — C0 fail-closed correction (F-B2-01..03)",
+  "agent_id": "aidle-schema",
+  "agent_type": "aidle-schema",
+  "profile_name": "aidle-schema",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "sole writer orchestration/contracts/block_dna_adapt_001/** + C0 log/receipt; resume B1 lineage; never rewrite B0-B4 evidence; no DNA/game/world_prompt/P2E",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C0_COMPLETE_ROUTE_C1_RED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C0_BLOCK_DNA_CORRECTION_COMPLETE_NO_ACCEPT",
+  "child_task_ref": "019f882b-e07d-7aa3-bb81-386e36ead70f",
+  "transcript_ref": "019f882b-e07d-7aa3-bb81-386e36ead70f",
+  "resumed_from": "019f8804-7915-71d2-b3b1-573b701a202e",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "started_at": "2026-07-22T04:53:24.775006700Z",
+  "completed_at_utc": "2026-07-22T05:02:30Z",
+  "next_owner": "C1_RED",
+  "next_route": "C1_RED",
+  "character_binding": {
+    "trustlayer_character_id": "devil-advocate",
+    "trustlayer_file": "E:/agents/characters/14-devil-advocate.md",
+    "trustlayer_sha256": "21b9193731c92a623e5b5837f364d61f24cea1a7cb2189c20cb84e77f89ba125",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-brief-writer",
+    "ui_file": "E:/agents/ui-design/characters/02-ui-brief-writer.md",
+    "ui_sha256": "52ad2986accd81c93fb2630ed07a2f1732edb637df875d1e1884e27769262b5c",
+    "ui_read": "full_eof",
+    "role": "C0 PATCH_DRAFT sole contract writer closing F-B2-01..03; no self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded profile, TrustLayer/UI, WO, review, skills, contracts manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "chunked_three_invocations",
+      "transcript_ranges": [
+        {"offset": 1, "limit": 400},
+        {"offset": 401, "limit": 400},
+        {"offset": 801, "limit": 400}
+      ],
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "securing-agentic-ai-tool-invocation",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/securing-agentic-ai-tool-invocation/SKILL.md",
+      "sha256": "92989526f69a2ce9bab565c322686a3126750a183580db70857149daa66b5bc0",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/contracts/block_dna_adapt_001/**",
+    "E:/AIdle_openworld/orchestration/logs/block-dna-adapt-001-c0-schema-correction-002.log",
+    "E:/AIdle_openworld/orchestration/receipts/block_dna_adapt_001/C0_schema_correction_002.json"
+  ],
+  "product_writes": [
+    "orchestration/contracts/block_dna_adapt_001/build_recipe.schema.json",
+    "orchestration/contracts/block_dna_adapt_001/build_graph.schema.json",
+    "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json",
+    "orchestration/contracts/block_dna_adapt_001/material_slot_mapping.contract.json",
+    "orchestration/contracts/block_dna_adapt_001/source_baseline.lock.json",
+    "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+    "orchestration/contracts/block_dna_adapt_001/fixtures/valid/** (14)",
+    "orchestration/contracts/block_dna_adapt_001/fixtures/invalid/** (42)"
+  ],
+  "product_write_sha256": {
+    "build_recipe.schema.json": "55eabacc0791fbee2da5565bee3d78d9c6492fd7d2ca5467d6cbc5f04b3173af",
+    "build_graph.schema.json": "dc4152fce582181169483895c1ac4e96ac2eb927a0cdb738cd8321958681c806",
+    "socket_catalog.contract.json": "cc7cc19fd0b23d229c1ff93148366d5419988fd9afb03ddc9b6adc111c9b1a5c",
+    "material_slot_mapping.contract.json": "cdbbe48d5cfd0e24430283797c8ef5a0379682748bb014cb4cebe889daeab753",
+    "validate_block_dna_adapt_001.py": "5b75c271c1fdf7a9b4f9526877c7b979238d0033b01dd647cefe3a6e68110a1e",
+    "source_baseline.lock.json": "ddeaf8ec93bf001a30164876e82afcc1a680f780556d5f0a328aa6344a793cda"
+  },
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/logs/block-dna-adapt-001-c0-schema-correction-002.log",
+    "E:/AIdle_openworld/orchestration/receipts/block_dna_adapt_001/C0_schema_correction_002.json"
+  ],
+  "immutable_not_rewritten": [
+    "orchestration/logs/block-dna-adapt-001-b0-ssot-001.log",
+    "orchestration/logs/block-dna-adapt-001-b1-schema-001.log",
+    "orchestration/logs/block-dna-adapt-001-b2-red-001.log",
+    "orchestration/logs/block-dna-adapt-001-b3-qa-001.log",
+    "orchestration/logs/block-dna-adapt-001-b4-purple-001.log",
+    "orchestration/receipts/block_dna_adapt_001/B0_ssot_preflight_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B1_schema_contract_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B2_red_audit_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B3_qa_evidence_001.json",
+    "orchestration/receipts/block_dna_adapt_001/B4_purple_gate_001.json"
+  ],
+  "forbidden_paths_not_written": [
+    "world_DNA/**",
+    "game/**",
+    "Scene/**",
+    "Control/**",
+    "game_character/**",
+    "PersistModule/**",
+    "contracts/world_prompt.schema.json"
+  ],
+  "result": {
+    "verdict": "C0_BLOCK_DNA_CORRECTION_COMPLETE_NO_ACCEPT",
+    "summary": "Closed F-B2-01 (required legal payload_fingerprint + canonical projection excluding only fingerprint + bounded harness replay ledger), F-B2-02 (catalog-default polarity; pair-bound effective polarities via allowed_orientations; no peer laundering of directed sockets), F-B2-03 (normalization ID must match socket pair and orientation). Hardening: co-required material_slot+p1e_material_id with bidirectional map; recipe parameter allowlist + code-shaped key reject; validation switches const true; live recompute of BOTH DNA tree aggregates. Matrix 14 valid / 42 invalid. accepted=false; next_owner=C1_RED.",
+    "findings_closed": {
+      "F-B2-01": {
+        "closed": true,
+        "changes": [
+          "payload_fingerprint required schema field pattern ^[a-f0-9]{64}$ on recipe+graph",
+          "canonical projection excludes only payload_fingerprint (no helper mutation)",
+          "ReplayLedger: same key+fp stable replay; same key+changed fp conflict",
+          "VALID-13 stable replay; INV-31..34 missing/malformed/wrong/changed-payload"
+        ]
+      },
+      "F-B2-02": {
+        "closed": true,
+        "changes": [
+          "non-normalized edges must match catalog default polarities",
+          "normalization allowed_orientations declare explicit effective polarities",
+          "peer laundering of directed sockets rejected",
+          "INV-35 peer launder; INV-36 catalog polarity mismatch"
+        ]
+      },
+      "F-B2-03": {
+        "closed": true,
+        "changes": [
+          "adapter_normalization_id pair must equal edge socket pair",
+          "orientation must match allowed_orientations",
+          "VALID-14 covers all four asymmetric pairs",
+          "INV-37 wrong known normalization ID for pair"
+        ]
+      }
+    },
+    "hardening": {
+      "material_co_require": true,
+      "bidirectional_p1e_mapping": true,
+      "parameter_allowlist": true,
+      "code_shaped_param_reject": true,
+      "validation_policy_const_true": true,
+      "dna_tree_aggregates_recomputed": true
+    },
+    "tree_aggregate_note": "B0-recorded package tree aggregates were not reproducible under the documented path+bytes method despite matching file counts (153/183). C0 recomputed live aggregates, stored them in source_baseline.lock.json, and validates recomputation against the lock. Key-file hashes remain identical to B0. DNA packages not edited.",
+    "matrix": {
+      "valid_n": 14,
+      "invalid_m": 42,
+      "preserved_prior_invalid": 30,
+      "new_invalid": 12
+    }
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "python_validator_fixture_gate",
+    "command": "PYTHONDONTWRITEBYTECODE=1 python -B validate_block_dna_adapt_001.py",
+    "exit_code": 0,
+    "pass": true,
+    "valid_n": 14,
+    "invalid_m": 42,
+    "valid_pass": 14,
+    "invalid_rejected": 42,
+    "ledger_valid_stable_replays": 1,
+    "ledger_inv_conflicts": 1,
+    "baseline_key_files_and_trees": "PASS",
+    "log": "orchestration/logs/block-dna-adapt-001-c0-schema-correction-002.log"
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "sole_product_lease_only": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "directive_68_evidence_not_rewritten": true,
+    "dna_not_modified": true,
+    "game_not_modified": true,
+    "world_prompt_schema_not_modified": true,
+    "p2e_not_started": true,
+    "maf_required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "residual_risks": [
+      "B0 tree aggregate values superseded in lock with documented recomputation method; key-file baselines unchanged.",
+      "Idempotency ledger is harness-scoped; production must bind key→fingerprint server-side.",
+      "No executable SWP emission — adapter remains proposal contract only."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-BLOCK-DNA-ADAPT-001-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_BLOCK-DNA-ADAPT-001_MACHINE_REVIEW_001.json",
+    "orchestration/logs/block-dna-adapt-001-c0-schema-correction-002.log",
+    "orchestration/receipts/block_dna_adapt_001/C0_schema_correction_002.json",
+    "orchestration/receipts/block_dna_adapt_001/B1_schema_contract_001.json",
+    "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py"
+  ],
+  "trace": {
+    "handoff_from": "B1_resumed_019f8804-7915-71d2-b3b1-573b701a202e",
+    "handoff_to": "C1_RED",
+    "wave": "C0",
+    "task_id": "BLOCK-DNA-ADAPT-001"
+  },
+  "commands": [
+    {
+      "cmd": "PYTHONDONTWRITEBYTECODE=1 python -B validate_block_dna_adapt_001.py",
+      "exit_code": 0,
+      "summary": "valid 14/14; invalid 42/42; trees PASS; ledger replays=1 conflicts=1"
+    }
+  ]
+}

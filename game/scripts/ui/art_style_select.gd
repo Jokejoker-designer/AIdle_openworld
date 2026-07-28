@@ -10,11 +10,27 @@ var _style_ids: PackedStringArray = []
 
 func _ready() -> void:
 	_populate()
+	_apply_responsive()
+	get_viewport().size_changed.connect(_apply_responsive)
 	list.item_selected.connect(_on_selected)
 	confirm_btn.pressed.connect(_on_confirm)
 	if list.item_count > 0:
 		list.select(0)
 		_on_selected(0)
+
+
+func _apply_responsive() -> void:
+	## Keep panel fully visible at 868x517 and 1280x720 (Codex headed gate).
+	var panel := get_node_or_null("Center/Panel") as Control
+	if panel == null:
+		return
+	var vp := get_viewport().get_visible_rect().size
+	var max_w: float = minf(520.0, vp.x - 24.0)
+	var max_h: float = minf(420.0, vp.y - 24.0)
+	panel.custom_minimum_size = Vector2(maxf(280.0, max_w), maxf(260.0, max_h))
+	var list_node := get_node_or_null("Center/Panel/VBox/StyleList") as Control
+	if list_node:
+		list_node.custom_minimum_size = Vector2(0, 100.0 if vp.y < 600.0 else 180.0)
 
 
 func _populate() -> void:

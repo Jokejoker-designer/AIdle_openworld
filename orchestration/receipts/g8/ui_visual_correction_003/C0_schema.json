@@ -1,0 +1,72 @@
+{
+  "agent_step_id": "G8-001-C003-C0_ASSERTIONS-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:9f1b36e97d89b944",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-UI-VISUAL-CORRECTION-003",
+    "directive_id": 24,
+    "wave": "C0_ASSERTIONS",
+    "profile": "schema",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY: five Codex blockers mapped to C-A1..C-A5 executable assertions.",
+    "character_binding": {
+      "trustlayer_character_id": "devil-advocate",
+      "ui_character_id": "ui-brief-writer",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full"
+      },
+      {
+        "skill_id": "od-design-brief",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/od-design-brief/SKILL.md",
+        "mode": "full"
+      },
+      {
+        "skill_id": "od-reference-design-contract",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/od-reference-design-contract/SKILL.md",
+        "mode": "full"
+      }
+    ],
+    "trace_ref": "orchestration/logs/g8-ui-visual-correction-003-runner.log#C0_ASSERTIONS",
+    "handoff_ref": "C1_CORE_RUNNER_BRIDGE",
+    "product_writes": [],
+    "children": [],
+    "findings": [],
+    "residual_risks": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "G8-001_UI_VISUAL_ASSERTIONS_C003"
+      },
+      {
+        "marker": "CANONICAL_RUNNER=PASS"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "character_skill_trace_present": true,
+    "no_catalog_false_claim": true,
+    "control_foundation_not_implemented": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ui-visual-correction-003-runner.log",
+    "orchestration/evidence/g8_ui_visual_correction_003/",
+    "orchestration/reviews/CODEX_G8-001_UI_VISUAL_REVIEW_003.json"
+  ],
+  "next_route": "C1_CORE_RUNNER_BRIDGE"
+}

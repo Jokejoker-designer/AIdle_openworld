@@ -1,0 +1,389 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P2E-001-e1-qa-evidence-004-2026-07-22T074600Z",
+  "step_id": "P2E-001-e1-qa-evidence-004",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "agent_id": "aidle-worldgen-qa-evidence",
+  "profile_name": "aidle-worldgen-qa-evidence",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_sha256": "bd9f7f941be811b1d81b35cc58fe06fba8bbd3768c04a49f41af626cc09f890a",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "QA evidence only; exclusive E1 log+receipt+evidence/p2e_001/004/**; product_writes=[]; never patch product/tests; never ACCEPTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:p2e001-e1-d73-qa-evidence",
+  "directive_id": 73,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "907ce11026786377380e6bbc4609a3d8932433f40513d5488c6da996fedcbd3e",
+  "work_order": "orchestration/work_orders/WO-P2E-001-ESC-SINGLE-DISPATCH-CORRECTION-003.md",
+  "work_order_sha256": "73c349bc9e0d9afb41062245900bcff2d97d3e7336351ae06bb665299b8ff302",
+  "review": "orchestration/reviews/CODEX_P2E-001_CORRECTION_REVIEW_003.json",
+  "review_sha256": "237f66916bda3f8c96811beecf7d9bb97c073a39b42c1c1ed0d0a8a145cdec55",
+  "prior_e0_receipt": "orchestration/receipts/p2e_001/correction_003/E0_esc_single_dispatch_004.json",
+  "prior_e0_sha256": "7107477e873945a8427086224c20180f8814b892d3a29e98a6310ea800c975c1",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "E1_COMPLETE_ROUTE_E2",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "E1_QA_ESC_SINGLE_DISPATCH_PASS_NO_ACCEPT",
+  "child_task_ref": "019f88c5-04bc-75d2-bf2d-a65ff3a740fc",
+  "prior_e0_ref": "019f88c0-e98f-7c92-9f21-97554f3bb5ed",
+  "resume_from_d0_ref": "019f88a6-4067-77c3-b2f2-a1de3e11301b",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "transcript_ref": "019f88c5-04bc-75d2-bf2d-a65ff3a740fc",
+  "started_at": "2026-07-22T07:36:30Z",
+  "completed_at_utc": "2026-07-22T07:46:10Z",
+  "next_route": "E2_PURPLE",
+  "next_owner": "E2_PURPLE",
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-finding-triage",
+    "trustlayer_file": "E:/agents/characters/12-purple-team-finding-triage.md",
+    "trustlayer_sha256": "5ee9279e67793b135675725f0d6060b3bb749df6a169bbb43cb071372ea394a8",
+    "ui_character_id": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "role": "E1 VERIFY_ONLY QA/playability evidence after E0 Esc single-dispatch; never patch; never self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE/profile/WO/directive/E0/skills full EOF manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "loaded_full_eof": true,
+      "eof_reached": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "eof_marker": "Prime Directive"
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "loaded_full_eof": true,
+      "eof_reached": true,
+      "eof_marker": "Evidence memory: NO_DURABLE_RECORD"
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/p2e-001-e1-qa-004.log",
+    "E:/AIdle_openworld/orchestration/receipts/p2e_001/correction_003/E1_qa_evidence_004.json",
+    "E:/AIdle_openworld/orchestration/evidence/p2e_001/004/**"
+  ],
+  "product_writes": [],
+  "esc_single_dispatch": {
+    "status": "PASS",
+    "finding_id": "P2E-CODEX-ESC-DOUBLE-01",
+    "physical_esc_sequences": 1,
+    "main_resolve_count": 1,
+    "main_cancel_apply_count": 1,
+    "router_escape_resolve_count": 1,
+    "preview_hologram_log_lines_in_window": 1,
+    "duplicate_markers": 0,
+    "pause_true_count": 0,
+    "pause_menu_count": 0,
+    "idle_build_esc_opens_pause": false,
+    "committed_untouched": true,
+    "log_line": "[Main] Esc resolved → preview_hologram pause=false resolve_n=1 cancel_apply_n=1",
+    "witness_path": "orchestration/evidence/p2e_001/004/esc_single_dispatch_witness.json",
+    "comparison_to_d72_failure": "D72 evidence 003 godot_headed.log had paired duplicate preview_hologram lines per Esc; E1 headed window has exactly one preview_hologram line with counters resolve_n=1 cancel_apply_n=1"
+  },
+  "finding_ids_qa_status": {
+    "P2E-CODEX-ESC-DOUBLE-01": {
+      "closed_headed": true,
+      "closed_headless": true,
+      "qa_view": "Headed fail-closed witness: one KEY_ESCAPE down/up after KEY_P place → Main resolve_count=1 cancel_apply_count=1; one preview_hologram log line; zero pause; idle build Esc → build_esc_no_pause. Headless player_input includes esc_single_dispatch_exactly_one_cancel_zero_pause. product_writes=[]."
+    },
+    "P2E-CODEX-F02-R2": {
+      "closed_headed": true,
+      "f02_zero_error_including_teardown": true,
+      "qa_view": "Focused headed Esc godot_headed.log+runner: 0 ERROR/USER ERROR/SCRIPT ERROR; 0 RID leak; 0 null RenderingServer including teardown. Godot exit 0. Re-proved on E1 run; D72 dual-res full matrix bound to immutable 003."
+    },
+    "P2E-CODEX-F03-R2": {
+      "closed_headed": true,
+      "qa_view": "E1 harness uses KEY_PERIOD/KEY_P/KEY_ESCAPE only; zero select_module/confirm_and_commit calls. main.gd has no direct confirm_and_commit/select_module call sites (comment-only note remains). D72 full real-input path bound via 003 hashes."
+    },
+    "P2E-CODEX-F04-R2": {
+      "preserved_via_003_binding": true,
+      "qa_view": "Not re-shot in focused Esc run; 14/14 PNG sha256 of evidence/p2e_001/003 match immutable binding including build_preview_R both viewports (rot 0→60, camera_yaw_unchanged=true)."
+    },
+    "P2E-CODEX-F05-R2": {
+      "closed_headed_esc_no_pause": true,
+      "preserved_visual_via_003_binding": true,
+      "qa_view": "Build Esc never opens Pause (preview + idle). Dual-res visual matrix bound to 003."
+    }
+  },
+  "result": {
+    "verdict": "E1_QA_ESC_SINGLE_DISPATCH_PASS_NO_ACCEPT",
+    "summary": "E1 VERIFY_ONLY: DNA 14/14+42/42; seven D72 headless smokes PASS ERROR=0; fail-closed Esc witness physical=1 resolve=1 cancel_apply=1 dup=0 pause=0; focused headed Esc PASS zero ERROR including teardown; D72 dual-res axes bound to immutable evidence 003 (14/14 PNG hash match); product fallback scan clean; product_writes=[]; accepted=false. Route E2_PURPLE.",
+    "esc_single_dispatch_pass": true,
+    "headed_pass": true,
+    "f02_zero_error_including_teardown": true,
+    "block_dna_pass": true,
+    "headless_all_pass": true,
+    "evidence_001_002_003_immutable": true,
+    "select_module_api_injection": false,
+    "confirm_and_commit_direct_used": false,
+    "evidence_root": "orchestration/evidence/p2e_001/004/"
+  },
+  "smoke_test": {
+    "status": "PASS",
+    "all_exit_zero": true,
+    "error_lines_total": 0,
+    "script_error_total": 0,
+    "block_dna": {
+      "valid": "14/14",
+      "invalid": "42/42",
+      "exit_code": 0
+    },
+    "commands": [
+      {
+        "cmd": "python orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "valid: 14/14 pass invalid: 42/42 rejected"
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_player_input_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_PLAYER_INPUT_SMOKE=PASS checks=5",
+        "errors": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+        "errors": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+        "errors": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_core_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14",
+        "errors": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+        "errors": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_correction_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_CORRECTION_SMOKE=PASS checks=4",
+        "errors": 0
+      },
+      {
+        "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_playable_select_smoke.gd",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_PLAYABLE_SELECT_SMOKE=PASS checks=5",
+        "errors": 0
+      },
+      {
+        "cmd": "python orchestration/evidence/p2e_001/004/run_esc_capture.py",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "AIDLE_P2E001_E1_ESC_SINGLE=PASS checks=12 RUNNER_VERDICT PASS",
+        "errors": 0,
+        "f02_zero_error_including_teardown": true
+      },
+      {
+        "cmd": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+        "exit_code": 0,
+        "result": "PASS",
+        "marker": "HARNESS_RESULT=PASS"
+      }
+    ]
+  },
+  "self_audit": {
+    "lease_respected": true,
+    "only_leased_paths_written": true,
+    "evidence_001_002_003_untouched": true,
+    "evidence_003_png_hash_match_14_of_14": true,
+    "product_writes_empty": true,
+    "no_product_patch": true,
+    "accepted_false": true,
+    "self_accept_false": true,
+    "no_grandchildren": true,
+    "no_error_filtering": true,
+    "e0_product_hashes_unchanged": true,
+    "notes": [
+      "Mode: focused headed Esc re-proof + immutable hash binding to evidence 003 for preserved D72 dual-res/Q/R/visual axes",
+      "Esc inject uses single parse_input_event path (not parse+push dual-fire) so witness matches one physical sequence",
+      "E0 product sha256 verified unchanged for main.gd, control_context_router.gd, player_input_smoke.gd"
+    ]
+  },
+  "product_hash_verification_readonly": [
+    {
+      "path": "game/scripts/main/main.gd",
+      "sha256": "a7d707e2b71df7ac56d3d79f041d70ff3153238923fea15dd0b16e06d8aa14ae",
+      "matches_e0": true
+    },
+    {
+      "path": "game/autoload/control_context_router.gd",
+      "sha256": "232a5b89bd017bd30ef28ca478eadf2d3792afd969ff8b1d59942e134d67bca1",
+      "matches_e0": true
+    },
+    {
+      "path": "game/tests/p2e001_block_assembly_player_input_smoke.gd",
+      "sha256": "32152a707816d8d0ba6ebee1f0fe378ef00ae630e921f1b54234cc558242c912",
+      "matches_e0": true
+    }
+  ],
+  "product_fallback_scan": {
+    "confirm_and_commit_direct_call_in_main": false,
+    "select_module_direct_call_in_main": false,
+    "harness_select_module_calls": false,
+    "harness_confirm_and_commit_calls": false
+  },
+  "evidence_manifest": {
+    "path": "orchestration/evidence/p2e_001/004/evidence_manifest.json",
+    "runner_verdict": "PASS",
+    "mode": "focused_headed_esc_plus_immutable_003_binding",
+    "error_line_count": 0,
+    "f02_zero_error_including_teardown": true,
+    "esc_single_dispatch_pass": true,
+    "physical_esc_sequences": 1,
+    "main_resolve_count": 1,
+    "main_cancel_apply_count": 1,
+    "duplicate_markers": 0,
+    "pause_true_count": 0,
+    "evidence_003_png_all_match": true,
+    "focused_png": {
+      "file": "esc_cancelled_preview_1280x720.png",
+      "sha256": "da9857ba73f8bec60c3967b0dad8f6fcc0b50467af8b9547d2e1e71d9f208f8a",
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "evidence_refs": [
+    "orchestration/logs/p2e-001-e1-qa-004.log",
+    "orchestration/receipts/p2e_001/correction_003/E1_qa_evidence_004.json",
+    "orchestration/evidence/p2e_001/004/evidence_manifest.json",
+    "orchestration/evidence/p2e_001/004/esc_single_dispatch_witness.json",
+    "orchestration/evidence/p2e_001/004/gate_summary.json",
+    "orchestration/evidence/p2e_001/004/godot_headed.log",
+    "orchestration/evidence/p2e_001/004/runner.log",
+    "orchestration/evidence/p2e_001/004/esc_cancelled_preview_1280x720.png",
+    "orchestration/evidence/p2e_001/004/evidence_003_immutable_binding.json",
+    "orchestration/evidence/p2e_001/004/headless_smoke_summary.json"
+  ],
+  "files_written": [
+    "orchestration/logs/p2e-001-e1-qa-004.log",
+    "orchestration/receipts/p2e_001/correction_003/E1_qa_evidence_004.json",
+    "orchestration/evidence/p2e_001/004/capture_p2e001_e1_esc_single.gd",
+    "orchestration/evidence/p2e_001/004/run_esc_capture.py",
+    "orchestration/evidence/p2e_001/004/evidence_manifest.json",
+    "orchestration/evidence/p2e_001/004/esc_single_dispatch_witness.json",
+    "orchestration/evidence/p2e_001/004/gate_summary.json",
+    "orchestration/evidence/p2e_001/004/godot_headed.log",
+    "orchestration/evidence/p2e_001/004/runner.log",
+    "orchestration/evidence/p2e_001/004/esc_cancelled_preview_1280x720.png",
+    "orchestration/evidence/p2e_001/004/evidence_003_immutable_binding.json",
+    "orchestration/evidence/p2e_001/004/evidence_003_hash_binding.json",
+    "orchestration/evidence/p2e_001/004/evidence_tree_sha256.json",
+    "orchestration/evidence/p2e_001/004/headless_smoke_summary.json",
+    "orchestration/evidence/p2e_001/004/headless_*.log"
+  ],
+  "files_read": [
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-P2E-001-ESC-SINGLE-DISPATCH-CORRECTION-003.md",
+    "orchestration/reviews/CODEX_P2E-001_CORRECTION_REVIEW_003.json",
+    "orchestration/receipts/p2e_001/correction_003/E0_esc_single_dispatch_004.json",
+    "orchestration/receipts/p2e_001/correction_002/D2_qa_evidence_003.json",
+    "orchestration/evidence/p2e_001/003/evidence_manifest.json",
+    "orchestration/evidence/p2e_001/003/png_sha256.json",
+    "orchestration/evidence/p2e_001/003/godot_headed.log",
+    ".grok/agents/aidle-worldgen-qa-evidence.md",
+    "game/scripts/main/main.gd",
+    "game/tests/p2e001_block_assembly_player_input_smoke.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "commands": [
+    {
+      "cmd": "python orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_player_input_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_core_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_correction_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_playable_select_smoke.gd",
+      "exit_code": 0
+    },
+    {
+      "cmd": "python orchestration/evidence/p2e_001/004/run_esc_capture.py",
+      "exit_code": 0
+    }
+  ],
+  "evidence_memory": "NO_DURABLE_RECORD"
+}

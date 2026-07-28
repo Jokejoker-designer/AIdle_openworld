@@ -1,0 +1,548 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-001-a0-a11y-001-2026-07-22",
+  "step_id": "CTRL-1B-001-a0-a11y-001",
+  "work_order_id": "WO-CTRL-1B-001-CONTEXT-A11Y-CONTRACT",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-001-CONTEXT-A11Y-CONTRACT.md",
+  "directive_id": 56,
+  "directive_supersedes": 55,
+  "milestone": "Control 1B context and accessibility contract",
+  "agent_id": "aidle-support-control-a11y",
+  "agent_type": "support-control-a11y",
+  "profile_name": "aidle-support-control-a11y",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/support-control-a11y.md",
+  "profile_sha256": "4f5e52d8a6d3e9558ef1287f31529934546856e5a609102956c8db1433f78440",
+  "authority_token": "READ_ONLY_AUDIT",
+  "authority": "READ_ONLY_AUDIT",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:cfddda52b9d08a5d2a54c68e8ce794efd392a39263565ff1c78cdf0fbba4688b",
+  "input_context_hash_16": "cfddda52b9d08a5d",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-001 + CONTROL_IMPLEMENTATION_MAP + game/project.godot + support-control-a11y.md + agent_step_contract.schema.json + codex_directive.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "A0_CONTROL_A11Y_AUDIT_COMPLETE_NO_ACCEPT",
+  "verdict_detail": "Read-only audit of actual Godot InputMap, player/camera/HUD/Companion/manifestation/proposal-confirm paths vs Control Blueprint + CONTROL_IMPLEMENTATION_MAP. Control foundation is PARTIAL. Five Input Contexts, context router, required hotkeys (/, Ctrl+Enter, Tab, V/B, Delete Proposal, Ctrl+Z), Esc cancel priority, Build-only R, context HUD ≤4, and a11y presets are missing. Proposal→preview→confirm boundary exists for demo/companion proposal path; no product patch performed. Handoff S1 for falsifiable contract. accepted=false.",
+  "child_task_ref": "019f869a-55bb-7210-b2e7-4396cb276a41",
+  "transcript_ref": "019f869a-55bb-7210-b2e7-4396cb276a41",
+  "writer_transcript_ref": "019f869a-55bb-7210-b2e7-4396cb276a41",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "next_owner": "S1_SCHEMA",
+  "next_route": "S1_SCHEMA",
+  "character_binding": {
+    "trustlayer": "code-reader",
+    "trustlayer_file": "E:/agents/characters/03-code-reader.md",
+    "trustlayer_sha256": "db49a9c994f97aa9d5f6b5992c63b4ae0ba7296360cafcbc808751f45442edc2",
+    "ui": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_lines_loaded": 49,
+    "role": "A0 read-only control/input-context/accessibility gap audit (findings only; no product/contract patch)"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE, registry, profile, WO, directive, schema, character cards, skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "lines": 46,
+      "eof_tail": "No production destructive tests, no exfil, no auto-merge, no unredacted public reports, no exceeding authority, no inventing evidence.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "lines": 53,
+      "eof_tail": "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "lines": 36,
+      "eof_tail": "Full protocol: `E:\\shared\\LOOP.md`",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "lines": 65,
+      "eof_tail": "Docs: `E:\\agents\\projects\\README.md`",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "lines": 1123,
+      "eof_tail": "Your goal is to produce a trustworthy, testable result; understand why it is trustworthy; preserve validated learning when authorized; and make the next relevant task better than the last one.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED_PROFILE",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "lines": 26,
+      "eof_tail": "If evidence is insufficient, say `uncertain` and ask for source/docs. Never infer a framework from old filenames alone.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "game-ui-icons",
+      "mode": "ROUTED_PROFILE",
+      "source": "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+      "sha256": "f55828fd6e62640ab2a9ec8d2e72fb5fd8079b529ac21cd5d7b61347654b77b9",
+      "lines": 55,
+      "eof_tail": "Buttons, panels, icons: no lettering unless explicitly requested",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_a0_a11y_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-a0-a11y-001.log"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_a0_a11y_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-a0-a11y-001.log"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_a0_a11y_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-a0-a11y-001.log"
+  ],
+  "no_product_patch": true,
+  "no_contract_patch": true,
+  "no_test_patch": true,
+  "no_scene_patch": true,
+  "p1e006_not_reopened": true,
+  "acceptance_context_read": "orchestration/reviews/CODEX_P1E-006_FINAL_ACCEPTANCE_005.json",
+  "child_meta": {
+    "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f869a-55bb-7210-b2e7-4396cb276a41/meta.json",
+    "meta_sha256": "da5ceea002cc8570d536fe2a78540aa475a6b0163e13d76cfd717221ae963c2f",
+    "description": "A0 control a11y audit",
+    "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "started_at": "2026-07-21T21:34:49.279081800Z",
+    "effective_model_id": "grok-4.5"
+  },
+  "sources_audited": [
+    {
+      "path": "E:/AIdle_openworld/Control/AIdle Keyboard & Mouse Control Blueprint.docx",
+      "sha256": "7985470D14B0CACE25AA4EC46981FB8D5096B27369D6122B57591404AB73B8FF",
+      "readable": true,
+      "method": "docx zip extract word/document.xml text; 877 non-empty lines"
+    },
+    {
+      "path": "E:/AIdle_openworld/Control/CONTROL_IMPLEMENTATION_MAP.md",
+      "sha256": "554b4bff81825ec1c1e751e7b131cd7106140969c61af8483794a25e1d1c4ee9"
+    },
+    {
+      "path": "E:/AIdle_openworld/Scene/SCENE_IMPLEMENTATION_TRACKER.md",
+      "note": "Stage 1 HITL_REQUIRED / CONTROL_PARTIAL; 1B foundation incomplete"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/project.godot",
+      "sha256": "f28af2f7915608e679d885bce921ebed6533b332fb9a3cd6466b4ecdc8362c92",
+      "section": "[input] lines 34-120"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/scripts/player/player_controller.gd"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/scripts/camera/cozy_camera.gd"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/scripts/main/main.gd"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/autoload/game_manager.gd"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/scripts/ui/hud.gd"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/scripts/ui/playable_action_bar.gd"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/scripts/modules/companion/companion_module.gd"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/scripts/modules/companion/companion_chat_panel.gd"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/scripts/modules/executor/headed_demo_flow.gd"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_module.gd"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/autoload/settings_manager.gd"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/scripts/modules/bridge/bridge_consent_dialog.gd"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/tests/g8_ux_input_collision_smoke.gd",
+      "note": "prior runtime regression for jump vs ui_accept and action-bar FOCUS_NONE"
+    }
+  ],
+  "inputmap_inventory_present": [
+    {"action": "move_forward", "bindings": ["W", "Up"], "project_godot_line": 36},
+    {"action": "move_back", "bindings": ["S", "Down"], "project_godot_line": 42},
+    {"action": "move_left", "bindings": ["A", "Left"], "project_godot_line": 48},
+    {"action": "move_right", "bindings": ["D", "Right"], "project_godot_line": 54},
+    {"action": "sprint", "bindings": ["Shift"], "project_godot_line": 60},
+    {"action": "interact", "bindings": ["E"], "project_godot_line": 65},
+    {"action": "pause_menu", "bindings": ["Esc"], "project_godot_line": 70},
+    {"action": "toggle_debug", "bindings": ["F3"], "project_godot_line": 75},
+    {"action": "camera_zoom_in", "bindings": ["WheelUp"], "project_godot_line": 80},
+    {"action": "camera_zoom_out", "bindings": ["WheelDown"], "project_godot_line": 85},
+    {"action": "rotate_camera_left", "bindings": ["Q"], "project_godot_line": 90},
+    {"action": "rotate_camera_right", "bindings": ["R"], "project_godot_line": 95},
+    {"action": "jump", "bindings": ["Space"], "project_godot_line": 100},
+    {"action": "ui_left", "bindings": [], "project_godot_line": 105, "note": "events emptied — G8-UX arrow ownership on move_*"},
+    {"action": "ui_right", "bindings": [], "project_godot_line": 109},
+    {"action": "ui_up", "bindings": [], "project_godot_line": 113},
+    {"action": "ui_down", "bindings": [], "project_godot_line": 117}
+  ],
+  "inputmap_inventory_missing_required_by_blueprint": [
+    "companion_call (C)",
+    "prompt_quick_open (/)",
+    "prompt_send (Ctrl+Enter)",
+    "build_mode_toggle (Tab)",
+    "world_ability / cozy_helper_pulse (V)",
+    "world_panel / cozy_homestead (B)",
+    "inspect_entity (I)",
+    "interact_secondary (F)",
+    "confirm_action (Enter)",
+    "cancel_action (Esc-as-cancel, distinct priority)",
+    "request_undo (Ctrl+Z)",
+    "delete_proposal (Delete)",
+    "build_place",
+    "build_cancel",
+    "build_rotate_left",
+    "build_rotate_right",
+    "build_snap_toggle",
+    "build_grid_toggle"
+  ],
+  "gap_matrix": {
+    "summary": "Control foundation PARTIAL. No five-context router. 13 present InputMap actions (locomotion/camera/pause/debug) vs large missing blueprint set. Esc pauses instead of cancel-priority. R always camera-yaw not Build-only rotate. A11y remap/presets/hold/cursor incomplete. Proposal pipeline authority partially present for demo/companion text proposals. key_gaps_count=22.",
+    "key_gaps_count": 22,
+    "contexts": [
+      {
+        "context_id": "exploration",
+        "required_by": "Control Blueprint §2 Exploration Mode; CONTROL_IMPLEMENTATION_MAP stage 1",
+        "status": "PARTIAL",
+        "evidence": [
+          "player_controller.gd:60-76 WASD+sprint+jump always active in _physics_process",
+          "main.gd:63-66 interact(E) always toggles companion chat",
+          "cozy_camera.gd:48-58 Q/R yaw + wheel zoom always active",
+          "hud.gd:83 static hint 'WASD move · E Companion · Esc pause'"
+        ],
+        "gaps": [
+          "No named Exploration context state or exclusive action set",
+          "E bound to Companion toggle not general interact (interact_primary overloaded)",
+          "No F secondary, I inspect, C companion_call distinct from E"
+        ]
+      },
+      {
+        "context_id": "companion",
+        "required_by": "Blueprint §2 Companion Mode; §4 Companion + Prompt-to-2.5D",
+        "status": "PARTIAL",
+        "evidence": [
+          "main.gd:193-206 CompanionChatPanel hidden until E/button",
+          "companion_chat_panel.gd:17-31 LineEdit text submit; proposal_label pending confirm text",
+          "companion_module.gd:1-6 proposal-only no commit",
+          "companion_module.gd:480-514 /inspect /reset /delete personality commands"
+        ],
+        "gaps": [
+          "No Companion Input Context — locomotion/camera remain live while chat open",
+          "No C action; no / Prompt Composer; no Ctrl+Enter send (uses LineEdit text_submitted/Enter only inside field)",
+          "/delete deletes adaptation history not world Delete Proposal"
+        ]
+      },
+      {
+        "context_id": "build",
+        "required_by": "Blueprint §2 Build Mode; §5 Build controls; map gate 1B",
+        "status": "MISSING_ROUTER_PARTIAL_DEMO",
+        "evidence": [
+          "playable_action_bar.gd Demo Build button mouse-only",
+          "headed_demo_flow.gd:38-81 start_demo_build → submit_prompt → preview_started",
+          "headed_demo_flow.gd:108-127 confirm_pending; 130-180 cancel_pending",
+          "No Tab build_mode_toggle in project.godot",
+          "rotate_camera_right (R) always camera — cozy_camera.gd:53-54"
+        ],
+        "gaps": [
+          "No Build Mode context or Tab toggle",
+          "No build_place/rotate/snap/grid InputMap actions",
+          "R not Build-only hologram rotate",
+          "Confirm/Cancel only action-bar mouse buttons when preview active (no keyboard actions)"
+        ]
+      },
+      {
+        "context_id": "inspect",
+        "required_by": "Blueprint §2 Inspect Mode",
+        "status": "MISSING",
+        "evidence": [
+          "No inspect_entity InputMap action",
+          "Companion chat InspectBtn only personality /inspect (companion_chat_panel.gd:171-174)",
+          "No entity provenance inspect context HUD"
+        ],
+        "gaps": ["Entire Inspect Mode absent"]
+      },
+      {
+        "context_id": "world_tool",
+        "required_by": "Blueprint §2 World Tool Mode; Cozy V Helper Pulse / B Homestead Panel",
+        "status": "MISSING",
+        "evidence": [
+          "No V/B actions in project.godot",
+          "CONTROL_IMPLEMENTATION_MAP.md:32 Cozy V/B TODO",
+          "SCENE_IMPLEMENTATION_TRACKER.md:31 1B incomplete"
+        ],
+        "gaps": ["World Tool Mode and Cozy V/B slice absent"]
+      }
+    ],
+    "conflicts": [
+      {
+        "finding_id": "CTRL1B-A0-F03",
+        "severity": "R / rotate_camera_right",
+        "severity_line": "project.godot:95-98; cozy_camera.gd:53-54",
+        "issue": "R always rotates camera yaw; Blueprint requires R inactive in Exploration and rotate hologram only in Build",
+        "severity_rule_violated": "one physical input must not fire multi-context actions; Build-only R",
+        "severity": true
+      },
+      {
+        "finding_id": "CTRL1B-A0-F04",
+        "severity": "Esc / pause_menu",
+        "severity_line": "project.godot:70-73; game_manager.gd:20-27",
+        "issue": "Esc always toggles pause when IN_WORLD; does not cancel pending preview first",
+        "severity_rule_violated": "Esc cancel priority over pause",
+        "severity": true
+      },
+      {
+        "finding_id": "CTRL1B-A0-F19",
+        "severity": "E / interact",
+        "severity_line": "project.godot:65-68; main.gd:63-66; playable_action_bar.gd:153 Companion (E)",
+        "issue": "E exclusively toggles Companion chat in main shell; Blueprint separates E interact vs C companion_call",
+        "severity_rule_violated": "stable distinct actions; context exclusivity",
+        "severity": true
+      },
+      {
+        "finding_id": "CTRL1B-A0-F20",
+        "severity": "Space / jump vs future UI accept",
+        "severity_line": "project.godot:100-103; player_controller.gd:74-76; g8_ux_input_collision_smoke.gd",
+        "issue": "jump dedicated (good); ui_* arrows cleared (good). Residual: no context router for Space secondary meanings",
+        "severity": false,
+        "note": "G8-UX partial mitigation present; not a full context router"
+      }
+    ],
+    "focus_and_discoverability": [
+      {
+        "finding_id": "CTRL1B-A0-F18",
+        "status": "GAP",
+        "evidence": "playable_action_bar.gd:100-106 focus_mode=FOCUS_NONE on all action buttons; comment defers keyboard a11y",
+        "issue": "Confirm/Cancel/Demo/Companion not keyboard-focusable or Tab-orderable"
+      },
+      {
+        "finding_id": "CTRL1B-A0-F22",
+        "status": "GAP",
+        "evidence": "companion_chat_panel LineEdit focusable when open; no focus trap; no Esc-to-close companion documented in code",
+        "issue": "No modal focus trap; Esc pauses game instead of closing chat/cancelling preview"
+      },
+      {
+        "finding_id": "CTRL1B-A0-F11",
+        "status": "GAP",
+        "evidence": "hud.gd:83 static three-action hint; action bar has 6 mouse buttons (not ≤4 context actions)",
+        "issue": "Context HUD max-4 missing; no context-reactive icon/text/pattern strip"
+      }
+    ],
+    "accessibility": [
+      {
+        "finding_id": "CTRL1B-A0-F12",
+        "item": "remapping UI / stable InputMap-only policy",
+        "status": "GAP",
+        "evidence": "No remapper scene/settings keys; gameplay scripts use InputMap action names (good practice) but incomplete action set"
+      },
+      {
+        "finding_id": "CTRL1B-A0-F13",
+        "item": "left-hand / one-hand presets",
+        "status": "MISSING",
+        "evidence": "settings_manager.gd defaults have no preset keys"
+      },
+      {
+        "finding_id": "CTRL1B-A0-F14",
+        "item": "hold/toggle options",
+        "status": "MISSING",
+        "evidence": "sprint is hold-only via is_action_pressed; no toggle option"
+      },
+      {
+        "finding_id": "CTRL1B-A0-F21",
+        "item": "mouse_sensitivity",
+        "status": "PARTIAL",
+        "evidence": "settings_manager.gd:68 default 1.0 stored; cozy_camera has no mouse-look and no sensitivity consumer found"
+      },
+      {
+        "finding_id": "CTRL1B-A0-F15",
+        "item": "reduced_motion",
+        "status": "PARTIAL_FLAG_READY",
+        "evidence": "manifestation_module.gd:464-471 reads gameplay/reduced_motion and skip_manifestation_animation; settings_manager._apply_defaults does not create these keys"
+      },
+      {
+        "finding_id": "CTRL1B-A0-F16",
+        "item": "cursor size",
+        "status": "MISSING",
+        "evidence": "no cursor size setting or context cursor swap"
+      },
+      {
+        "finding_id": "CTRL1B-A0-F17",
+        "item": "confirmation hold",
+        "status": "MISSING",
+        "evidence": "confirm is instantaneous button press on action bar / demo flow"
+      },
+      {
+        "finding_id": "CTRL1B-A0-F-NONCOLOR",
+        "item": "non-color cues",
+        "status": "PARTIAL",
+        "evidence": "HUD uses text+outline (hud.gd:39-49); action bar primary vs disabled via style+disabled state not color-only; companion chat roles use color tags but also bold role names (companion_chat_panel.gd:166-168)"
+      }
+    ],
+    "safety_and_authority": [
+      {
+        "finding_id": "CTRL1B-A0-SAFE-OK-1",
+        "item": "Companion proposal-only",
+        "status": "PASS_SOURCE",
+        "evidence": "companion_module.gd header: NO commit / NO durable world mutation; tools list no commit"
+      },
+      {
+        "finding_id": "CTRL1B-A0-SAFE-OK-2",
+        "item": "Demo proposal→preview→confirm handoff",
+        "status": "PASS_SOURCE",
+        "evidence": "headed_demo_flow.gd confirm_pending uses executor.confirm_prompt; cancel clears manifestation; world_commit_invoked false in G3 receipts pattern"
+      },
+      {
+        "finding_id": "CTRL1B-A0-SAFE-OK-3",
+        "item": "Bridge import consent",
+        "status": "PASS_SOURCE",
+        "evidence": "bridge_consent_dialog.gd:34-38 explicit Accept/Reject; no auto-apply"
+      },
+      {
+        "finding_id": "CTRL1B-A0-F09",
+        "item": "Delete Proposal",
+        "status": "GAP",
+        "evidence": "companion_module.gd:510-514 /delete → delete_adaptation_history only; no delete_proposal InputMap or world Delete Proposal flow"
+      },
+      {
+        "finding_id": "CTRL1B-A0-F10",
+        "item": "Ctrl+Z compensating request",
+        "status": "GAP",
+        "evidence": "No request_undo action; G3 e2e has undo path in executor tests only — not player InputMap/UI"
+      },
+      {
+        "finding_id": "CTRL1B-A0-F04",
+        "item": "Esc cancel priority",
+        "status": "GAP",
+        "severity": true,
+        "evidence": "game_manager.gd:20-27 pause only"
+      }
+    ],
+    "required_hotkeys_checklist": [
+      {"key": "/", "required": "open Prompt Composer", "status": "MISSING", "finding_id": "CTRL1B-A0-F05"},
+      {"key": "Ctrl+Enter", "required": "send prompt", "status": "MISSING", "finding_id": "CTRL1B-A0-F06"},
+      {"key": "Tab", "required": "Build Mode toggle", "status": "MISSING", "finding_id": "CTRL1B-A0-F07"},
+      {"key": "V", "required": "Cozy Helper Pulse / world ability", "status": "MISSING", "finding_id": "CTRL1B-A0-F08"},
+      {"key": "B", "required": "Cozy Homestead Panel / world panel", "status": "MISSING", "finding_id": "CTRL1B-A0-F08"},
+      {"key": "Delete", "required": "Delete Proposal only", "status": "MISSING", "finding_id": "CTRL1B-A0-F09"},
+      {"key": "Ctrl+Z", "required": "compensation/rollback request not history erase", "status": "MISSING", "finding_id": "CTRL1B-A0-F10"},
+      {"key": "Esc", "required": "cancel preview/dialogue before pause", "status": "FAIL_PRIORITY", "finding_id": "CTRL1B-A0-F04"},
+      {"key": "R", "required": "Build-only hologram rotate", "status": "FAIL_ALWAYS_CAMERA", "finding_id": "CTRL1B-A0-F03"}
+    ]
+  },
+  "result": {
+    "status": "REVIEW_REQUESTED",
+    "verdict": "A0_CONTROL_A11Y_AUDIT_COMPLETE_NO_ACCEPT",
+    "control_foundation_state": "PARTIAL",
+    "matches_control_implementation_map": true,
+    "key_gaps_count": 22,
+    "gap_matrix_embedded": true,
+    "findings_for_s1_contract": [
+      "CTRL1B-A0-F01 five contexts + router required fail-closed",
+      "CTRL1B-A0-F02 stable action ID catalog from blueprint §15",
+      "CTRL1B-A0-F03 Build-only R / no multi-context physical input",
+      "CTRL1B-A0-F04 Esc cancel priority over pause",
+      "CTRL1B-A0-F05..F10 hotkey suite",
+      "CTRL1B-A0-F11 context HUD ≤4 non-color",
+      "CTRL1B-A0-F12..F17 a11y settings gates",
+      "CTRL1B-A0-F18 keyboard focus/discoverability",
+      "CTRL1B-A0-SAFE delete/undo are proposal/compensation only"
+    ],
+    "s1_must_not_claim_implementation": true,
+    "product_implementation_blocked_until": "CTRL-1B-002 after Codex acceptance of 1B contract"
+  },
+  "smoke_test": {
+    "executed": false,
+    "reason": "READ_ONLY_AUDIT — no Godot product/test execution required for A0 discovery; static source inventory + prior G8-UX smoke path referenced",
+    "static_checks": {
+      "project_godot_input_section_present": true,
+      "action_count_declared": 17,
+      "ui_arrow_events_empty": true,
+      "five_contexts_code_present": false,
+      "prompt_slash_action_present": false,
+      "build_tab_action_present": false
+    },
+    "prior_runtime_refs": [
+      "game/tests/g8_ux_input_collision_smoke.gd (action_bar FOCUS_NONE + jump vs ui_accept)",
+      "game/scripts/modules/executor/g3_e2e_smoke.gd (confirm/cancel/undo authority flags)"
+    ],
+    "exit_code": null,
+    "pass": true
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "contract_writes_empty": true,
+    "exclusive_lease_only": true,
+    "files_written_count": 2,
+    "undeclared_temps": false,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_p1e006_reopen": true,
+    "no_ctrl_1b_002": true,
+    "no_network_install_push_deploy": true,
+    "child_task_ref_is_real_uuid": true,
+    "findings_only": true,
+    "bootstrap_manual": true
+  },
+  "evidence_refs": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_a0_a11y_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-a0-a11y-001.log",
+    "E:/AIdle_openworld/Control/CONTROL_IMPLEMENTATION_MAP.md",
+    "E:/AIdle_openworld/Control/AIdle Keyboard & Mouse Control Blueprint.docx",
+    "E:/AIdle_openworld/game/project.godot",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f869a-55bb-7210-b2e7-4396cb276a41/meta.json"
+  ],
+  "contract_validation": {
+    "schema_path": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "schema_sha256": "7956f32a7ffe9173c226e60857cfb9dc3d9d5de4810369fe2ae7f571abd4d2e7",
+    "required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "authority_token_enum_ok": true,
+    "method": "manual required-field + type + authority_token enum check"
+  }
+}

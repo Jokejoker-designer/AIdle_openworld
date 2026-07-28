@@ -1,0 +1,110 @@
+{
+  "schema_version": "ucbv_001_cream_reconciliation/1.0",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "wave": "C0_VISUAL_PRODUCTION_PREFLIGHT",
+  "directive_id": 83,
+  "work_order_id": "WO-UCBV-001-STRICT-CORRECTION-002",
+  "human_decision": "AUTHORIZE_STRICT_UCBV_CORRECTION",
+  "waiver": false,
+  "accepted": false,
+  "self_accept": false,
+  "character_binding": {
+    "display_name": "Nori-7",
+    "character_id": "CCP-RH-001",
+    "recipe_id": "recipe_nori7_v1"
+  },
+  "problem_statement": "Two accepted-ish cozy cream definitions existed without a single production gate: COZY_ART_BIBLE wall cream vs DNA mat_cozy_cream_leaf_v1. Human playtest also rejected a nearly-white uncanny body treatment.",
+  "sources_observed": [
+    {
+      "source_id": "COZY_ART_BIBLE_001",
+      "path": "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/world_profiles/COZY_ART_BIBLE_001.md",
+      "section": "§2 Palette — Architecture / Nature",
+      "cream_role": "wall_cream",
+      "cream_hex": "#fdf3e2",
+      "cream_shade_role": "wall_cream_shade",
+      "cream_shade_hex": "#efe0c8",
+      "leaf_role": "foliage_mid",
+      "leaf_hex": "#7fc98f",
+      "leaf_dark_hex": "#6bb87f",
+      "leaf_light_hex": "#95d9a3",
+      "authority_claim": "Human-approved art bible; governs live P1E architecture materials"
+    },
+    {
+      "source_id": "DNA_mat_cozy_cream_leaf_v1",
+      "theme_id": "mat_cozy_cream_leaf_v1",
+      "path_hint": "world_DNA/.../catalogs/material_themes.json + recipe_nori7_v1 material_overrides",
+      "cream_hex": "#F7E9C6",
+      "leaf_hex": "#78B65B",
+      "authority_claim": "Recipe design theme referenced by real character recipes; not live P1E paint SSOT"
+    }
+  ],
+  "comparison": {
+    "cream_delta": "Bible #fdf3e2 is lighter/pinker-warm wall cream; DNA #F7E9C6 is slightly darker yellower paper cream",
+    "leaf_delta": "Bible #7fc98f mid foliage; DNA #78B65B slightly darker/olive",
+    "prior_silent_risk": "Asset authors could paint from either source and both would look 'cozy' but mismatch architecture kit and prior U1 lock"
+  },
+  "decision": {
+    "canonical_art_cream_hex": "#fdf3e2",
+    "canonical_art_cream_shade_hex": "#efe0c8",
+    "canonical_art_leaf_hex": "#7fc98f",
+    "canonical_runtime_body_mat": "MAT_CozyCeramic",
+    "canonical_runtime_leaf_mat": "MAT_CozyLeaf",
+    "dna_theme_status": "NON_AUTHORITATIVE_ALIAS_ONLY",
+    "dna_cream_hex_status": "DOCUMENT_ONLY_DO_NOT_PAINT_AS_SSOT",
+    "dna_leaf_hex_status": "DOCUMENT_ONLY_DO_NOT_PAINT_AS_SSOT",
+    "rationale": [
+      "COZY_ART_BIBLE already Human-approved and live for P1E materials",
+      "U1 style lock and U2 Nori package already bound body to bible cream + MAT_CozyCeramic",
+      "Character and block kit must share one world palette; architecture cream is bible",
+      "Rewriting DNA themes is out of scope (no DNA v1.2 / package rewrite this correction)",
+      "Nearly-white uncanny risk is addressed by multi-value cream treatment + darker joints/face, not by silently switching SSOT to DNA"
+    ],
+    "rejected_alternatives": [
+      {
+        "option": "Adopt DNA #F7E9C6 as production body SSOT",
+        "rejected_because": "Would desync from live architecture wall cream and require DNA/theme rewrite authority not granted"
+      },
+      {
+        "option": "Average/blend both hexes into a third cream",
+        "rejected_because": "Creates a third parallel palette system forbidden by style lock"
+      },
+      {
+        "option": "Leave both live without gate",
+        "rejected_because": "Human AUTHORIZE_STRICT_UCBV_CORRECTION requires explicit reconciliation"
+      }
+    ]
+  },
+  "nearly_white_uncanny_remediation": {
+    "finding": "Nearly pure-white / featureless body reads uncanny under fixed 2.5D game lighting",
+    "required_production_treatment": {
+      "body_lit": "#fdf3e2",
+      "body_shade_bands": "#efe0c8",
+      "joints_panels_sprout": "#7fc98f",
+      "face_socket": "#3d3226",
+      "iris": "#a8dced",
+      "wood_straps_tank_bands": "#c98a5e",
+      "manifestation_cyan_only": ["#3fd0e0", "#8ff0ff"]
+    },
+    "forbidden": [
+      "#FFFFFF pure white body fill",
+      "single flat near-white body without shade or joint contrast",
+      "manifestation cyan on complete base body materials",
+      "painting production mesh from DNA #F7E9C6 as SSOT"
+    ],
+    "dual_resolution_proof": ["1280x720", "868x517"]
+  },
+  "remap_recipe": {
+    "from_theme_id": "mat_cozy_cream_leaf_v1",
+    "from_cream_hex": "#F7E9C6",
+    "to_bible_role": "wall_cream",
+    "to_bible_hex": "#fdf3e2",
+    "to_semantic_slot": "body",
+    "to_mat_id": "MAT_CozyCeramic"
+  },
+  "references": [
+    "orchestration/control/CHARACTER_SKELETON_PRACTICAL_FINDINGS_FOR_CODEX_001.md",
+    "orchestration/control/visual_reference/UCBV_VISUAL_MOCKUP_SPEC_002.md",
+    "orchestration/design/ucbv_001/style_lock/unified_palette_material_alias_table.json",
+    "orchestration/design/ucbv_001/style_lock/U1_unified_style_lock.md"
+  ]
+}

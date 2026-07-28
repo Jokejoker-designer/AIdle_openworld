@@ -1,0 +1,31 @@
+work_order_id: WO-WG01B-CONTROL-001
+world_number: 1
+world_profile: cozy_cyber_pixel
+phase_slice: "1B Control Foundation + Cozy controls"
+objective: "Xây Input Context, C, /, Tab, V/B, safe delete/undo, context HUD và accessibility."
+state: BLOCKED
+coverage: PARTIAL
+authority: PATCH_DRAFT
+dependencies:
+  - "WG-01A ACCEPTED"
+allowed_files:
+  - "game/project.godot"
+  - "game/scripts/input/**"
+  - "game/ui/context_hud/**"
+forbidden_files:
+  - "world commit canonical state"
+  - "character runtime"
+acceptance_tests:
+  - "InputMap action smoke"
+  - "Context priority test"
+  - "Delete creates proposal, not direct deletion"
+  - "Undo creates compensating request"
+  - "Headed context HUD screenshots"
+required_evidence:
+  - "child receipt"
+  - "commands and exits"
+  - "clean logs"
+  - "headed screenshot manifest"
+human_gates: []
+max_children: 5
+grandchildren_forbidden: true

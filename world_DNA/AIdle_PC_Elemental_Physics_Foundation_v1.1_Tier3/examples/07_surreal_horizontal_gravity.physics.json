@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "request_id": "pc_physics_gravity_island_0001",
+  "world_profile": "surrealism_canvas",
+  "pc_profile_id": "pc_forward_plus_ultra_v1",
+  "expected_world_revision": 0,
+  "build_graph_ref": "graph_horizontal_gravity_island_v1",
+  "elemental_bindings": [
+    {
+      "entity_ref": "island",
+      "elements": [
+        "element_stone",
+        "element_void",
+        "element_gravity"
+      ],
+      "physical_profile_id": "phys_stone_hard_v1"
+    }
+  ],
+  "force_fields": [
+    {
+      "force_id": "force_gravity_region_v1",
+      "target_ref": "anomaly_region",
+      "parameters": {
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "strength": 0.7,
+        "bounds_required": true
+      }
+    }
+  ],
+  "reaction_rules": [
+    "react_void_gravity_anomaly_v1"
+  ],
+  "system_networks": [
+    {
+      "network_id": "anomaly_structure",
+      "solver_rule": "struct_support_graph_v1",
+      "nodes": [
+        "island",
+        "side_buildings"
+      ]
+    }
+  ],
+  "simulation": {
+    "simulation_lod_profile": "sim_lod_pc_ultra_v1",
+    "deterministic_seed": 210726,
+    "preview_only": true,
+    "collision_enabled_after_commit": true
+  },
+  "validation": {
+    "schema": true,
+    "element_compatibility": true,
+    "reaction_allowlist": true,
+    "structural": true,
+    "fluid": true,
+    "thermal": true,
+    "energy": true,
+    "biological": true,
+    "performance": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  }
+}

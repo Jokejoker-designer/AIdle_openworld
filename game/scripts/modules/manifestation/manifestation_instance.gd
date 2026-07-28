@@ -32,12 +32,19 @@ var _cancelled: bool = false
 var _stages_observed: PackedStringArray = PackedStringArray()
 ## When true, skip Mesh/Material (presentation-only) under headless/dummy renderer.
 var _presentation_enabled: bool = true
+## Optional runtime-loaded GLB (or other) visual; preview stages stay non-solid.
+var _external_visual: Node3D = null
 
 
 func _ready() -> void:
+	add_to_group("manifestation_instances")
 	set_meta(META_PREVIEW, true)
 	set_meta(META_PROMPT_ID, prompt_id)
 	set_meta(META_STAGE, _stage)
+	# Explicit non-authority flags for preview (C1B-SAFE-04).
+	set_meta("preview_owns_ownership", false)
+	set_meta("preview_owns_collision", false)
+	set_meta("durable_mutation_applied", false)
 	_record_stage(_stage)
 	_build_visuals_if_needed()
 	_apply_stage_visuals()
@@ -122,14 +129,21 @@ func set_progress(progress: float) -> void:
 func finalize_complete() -> void:
 	if _cancelled:
 		return
-	# Ensure intermediate stages are recorded when skip-animation jumps to complete.
+	# Ordered stage history for complete path (monotonic wireframe→…→complete).
+	# Rebuild so jump-to-complete never records stages out of order.
+	_stages_observed = PackedStringArray()
 	for s in _Stages.ORDERED_STAGES:
-		_record_stage(s)
+		_stages_observed.append(s)
 	_stage = "complete"
 	_progress = 1.0
 	_finalized = true
 	set_meta(META_STAGE, _stage)
 	set_meta(META_PREVIEW, false)
+	# Local solid presentation only — not client World Commit (H-20).
+	set_meta("preview_owns_ownership", false)
+	set_meta("preview_owns_collision", true)  # local complete collision body
+	set_meta("durable_mutation_applied", false)
+	set_meta("client_world_commit", false)
 	_apply_stage_visuals()
 	_set_collision_enabled(true)
 
@@ -155,7 +169,83 @@ func free_cleanup() -> void:
 		_static_body.collision_mask = 0
 	if is_instance_valid(_collision_shape):
 		_collision_shape.disabled = true
+	if is_instance_valid(_external_visual):
+		# Ensure no leftover solid bodies under external visual on cancel.
+		_zero_collision_recursive(_external_visual)
 	queue_free()
+
+
+func rotate_preview(degrees: float) -> bool:
+	## Build-context hologram rotate only. No-op when finalized/cancelled.
+	## Preview remains non-authoritative (no ownership / no official collision).
+	if _cancelled or _finalized:
+		return false
+	if _Stages.allows_durable_collision(_stage):
+		return false
+	rotate_y(deg_to_rad(degrees))
+	set_meta(META_PREVIEW, true)
+	set_meta("preview_owns_ownership", false)
+	set_meta("preview_owns_collision", false)
+	return true
+
+
+func get_preview_authority_flags() -> Dictionary:
+	return {
+		"preview": bool(get_meta(META_PREVIEW, true)),
+		"preview_owns_ownership": false,
+		"preview_owns_collision": bool(get_meta("preview_owns_collision", false)),
+		"has_durable_collision": has_durable_collision(),
+		"stage": _stage,
+		"finalized": _finalized,
+		"cancelled": _cancelled,
+		"durable_mutation_applied": bool(get_meta("durable_mutation_applied", false)),
+		"client_world_commit": bool(get_meta("client_world_commit", false)),
+		"collision_only_at_complete": _Stages.allows_durable_collision(_stage) == has_durable_collision()
+			or not has_durable_collision(),
+	}
+
+
+## Attach a runtime-loaded visual (e.g. quarantine GLB root). Does NOT enable
+## collision. Preview stages keep collision_layer=0 (WO-G8-UX-001 invariant).
+## Hides the default box mesh when an external visual is present.
+func attach_external_visual(visual: Node3D) -> bool:
+	if visual == null or _cancelled:
+		return false
+	if _external_visual != null and is_instance_valid(_external_visual):
+		remove_child(_external_visual)
+		_external_visual.free()
+		_external_visual = null
+	if visual.get_parent():
+		visual.get_parent().remove_child(visual)
+	visual.name = "ExternalVisual"
+	add_child(visual)
+	_external_visual = visual
+	_zero_collision_recursive(visual)
+	# Prefer external mesh for presentation; keep stage collision gate on box body.
+	if is_instance_valid(_mesh_instance):
+		_mesh_instance.visible = false
+	set_meta("has_external_visual", true)
+	# Re-apply stage visuals / collision gate (still non-solid until complete).
+	_apply_stage_visuals()
+	_set_collision_enabled(_Stages.allows_durable_collision(_stage) and not _cancelled)
+	return true
+
+
+func has_external_visual() -> bool:
+	return _external_visual != null and is_instance_valid(_external_visual)
+
+
+func _zero_collision_recursive(n: Node) -> void:
+	if n is StaticBody3D:
+		(n as StaticBody3D).collision_layer = 0
+		(n as StaticBody3D).collision_mask = 0
+	if n is CollisionShape3D:
+		(n as CollisionShape3D).disabled = true
+	if n is AnimatableBody3D:
+		(n as AnimatableBody3D).collision_layer = 0
+		(n as AnimatableBody3D).collision_mask = 0
+	for c in n.get_children():
+		_zero_collision_recursive(c)
 
 
 func _presentation_allowed() -> bool:
@@ -201,6 +291,12 @@ func _build_visuals_if_needed() -> void:
 	_mesh_instance = MeshInstance3D.new()
 	_mesh_instance.name = "Visual"
 	var box := BoxMesh.new()
+	# Minimum readable volume at game distance (Directive 23).
+	var sz := entity_size
+	sz.x = maxf(sz.x, 2.4)
+	sz.y = maxf(sz.y, 2.2)
+	sz.z = maxf(sz.z, 2.4)
+	entity_size = sz
 	box.size = entity_size
 	_mesh_instance.mesh = box
 	_mesh_instance.position = Vector3(0.0, entity_size.y * 0.5, 0.0)
@@ -225,50 +321,98 @@ func _update_mesh_size() -> void:
 		_collision_shape.position = Vector3(0.0, entity_size.y * 0.5, 0.0)
 
 
+func _autoload_node(node_name: String) -> Node:
+	## SceneTree-root relative lookup — never absolute "/root/..." (H1-CODEX-F01).
+	if not is_inside_tree():
+		return null
+	var tree := get_tree()
+	if tree == null:
+		return null
+	var r := tree.root
+	if r == null:
+		return null
+	var direct := r.get_node_or_null(node_name)
+	if direct != null:
+		return direct
+	for c in r.get_children():
+		if str(c.name) == node_name:
+			return c
+	return null
+
+
+func _reduced_motion_active() -> bool:
+	var a11y := _autoload_node("ControlAccessibilitySettings")
+	if a11y != null and "reduced_motion" in a11y:
+		return bool(a11y.reduced_motion)
+	var sm := _autoload_node("SettingsManager")
+	if sm != null and sm.has_method("get_value"):
+		return bool(sm.call("get_value", "gameplay", "reduced_motion", false))
+	return false
+
+
 func _apply_stage_visuals() -> void:
-	# Stage state always updates via set_stage / meta; material tint is presentation-only.
-	if not _presentation_enabled or _material == null:
+	# Object-level stage language (DESIGN.md): cyan light construction, not banner-only.
+	if not _presentation_enabled or _material == null or _mesh_instance == null:
 		return
 	var opacity: float = _Stages.visual_opacity(_stage)
 	var emission_e: float = _Stages.visual_emission_energy(_stage)
 	var base := _style_tint()
+	var reduced := _reduced_motion_active()
+	# Distinct scale/opacity so stages read at a glance (geometry-stable collision box).
+	# Reduced motion: skip non-essential scale pops (C1B-A11Y-07).
 	match _stage:
 		"wireframe":
-			_material.albedo_color = Color(base.r, base.g, base.b, opacity)
+			_mesh_instance.scale = Vector3.ONE if reduced else Vector3(1.08, 1.08, 1.08)
+			_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+			_material.albedo_color = Color(base.r, base.g, base.b, maxf(0.12, opacity * 0.55))
+			_material.emission_enabled = true
 			_material.emission = base
-			_material.emission_energy_multiplier = emission_e
+			_material.emission_energy_multiplier = maxf(0.55, emission_e)
+			# Hollow-read: no depth write so it feels like construction lines.
 		"hologram":
-			_material.albedo_color = Color(base.r, base.g, base.b, opacity)
-			_material.emission = base.lightened(0.15)
-			_material.emission_energy_multiplier = emission_e
+			_mesh_instance.scale = Vector3.ONE if reduced else Vector3(1.02, 1.02, 1.02)
+			_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+			_material.albedo_color = Color(base.r, base.g, base.b, maxf(0.35, opacity))
+			_material.emission_enabled = true
+			_material.emission = base.lightened(0.2)
+			_material.emission_energy_multiplier = maxf(1.2, emission_e)
 		"materializing":
-			_material.albedo_color = Color(base.r * 0.9, base.g * 0.85, base.b * 0.75, opacity)
-			_material.emission = base.darkened(0.2)
-			_material.emission_energy_multiplier = emission_e
+			_mesh_instance.scale = Vector3.ONE
+			_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			_material.shading_mode = BaseMaterial3D.SHADING_MODE_PER_PIXEL
+			# Mix cyan construction into cream surface (readable progress).
+			var cream := Color("FFF1C7")
+			var mixed := base.lerp(cream, 0.45)
+			_material.albedo_color = Color(mixed.r, mixed.g, mixed.b, maxf(0.65, opacity))
+			_material.emission_enabled = true
+			_material.emission = base.darkened(0.1)
+			_material.emission_energy_multiplier = 0.45
 		"complete":
+			_mesh_instance.scale = Vector3.ONE
 			_material.transparency = BaseMaterial3D.TRANSPARENCY_DISABLED
-			_material.albedo_color = Color(base.r * 0.85, base.g * 0.75, base.b * 0.65, 1.0)
+			_material.shading_mode = BaseMaterial3D.SHADING_MODE_PER_PIXEL
+			_material.albedo_color = Color("F7B267")  # cozy surface_primary
 			_material.emission_enabled = false
 			_material.emission_energy_multiplier = 0.0
-			_material.shading_mode = BaseMaterial3D.SHADING_MODE_PER_PIXEL
+			_material.roughness = 0.82
 		_:
 			pass
-	if _stage != "complete":
-		_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		_material.emission_enabled = true
-		_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 
 
 func _style_tint() -> Color:
+	## Manifestation cyan is the construction light (DESIGN.md #62E6FF), not world purple.
 	match art_style:
 		"cyberpunk_dense":
-			return Color(0.35, 0.95, 1.0)
+			return Color(0.2, 0.95, 0.9)
 		"pastoral_fantasy":
-			return Color(0.55, 0.9, 0.55)
+			return Color(0.45, 0.9, 0.65)
 		"surrealism_canvas":
-			return Color(0.85, 0.55, 0.95)
+			return Color(0.55, 0.85, 1.0)  # keep cyan construction even on surreal worlds
 		_:
-			return Color(0.45, 0.85, 1.0)
+			return Color("62E6FF")
+
 
 
 func _set_collision_enabled(enabled: bool) -> void:

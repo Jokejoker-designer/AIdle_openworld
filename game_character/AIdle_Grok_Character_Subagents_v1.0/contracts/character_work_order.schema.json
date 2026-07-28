@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIdle Character Work Order",
+  "type": "object",
+  "required": [
+    "work_order_id",
+    "world_profile",
+    "target_count",
+    "gameplay_gap",
+    "output_scope",
+    "requested_by"
+  ],
+  "properties": {
+    "work_order_id": {
+      "type": "string"
+    },
+    "world_profile": {
+      "type": "string",
+      "enum": [
+        "cozy_cyber_pixel",
+        "surrealism_canvas",
+        "solarpunk_haven",
+        "arcane_clockwork",
+        "spirit_valley",
+        "oceanpunk_abyss",
+        "tiny_diorama"
+      ]
+    },
+    "target_count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 12
+    },
+    "gameplay_gap": {
+      "type": "string",
+      "minLength": 3
+    },
+    "desired_classes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tone": {
+      "type": "string"
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reuse_preferences": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_similarity": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "output_scope": {
+      "type": "string",
+      "enum": [
+        "concept_only",
+        "production_spec",
+        "full_package"
+      ]
+    },
+    "requested_by": {
+      "type": "string"
+    },
+    "human_decisions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

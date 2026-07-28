@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "package_id": "ucbv_001_cozy_architecture_kit_v1",
+  "wave": "U3_BLOCK_FAMILY_ART",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "state_variants_reuse": "game/resources/world_profiles/state_visual_variants.json",
+  "parallel_state_system": "FORBIDDEN",
+  "live_manifestation_stages": {
+    "stages": ["wireframe", "hologram", "materializing", "complete"],
+    "stage_count": 4,
+    "committing_stage": "FORBIDDEN_PACKAGE_DRIFT",
+    "collision_active_from": "complete",
+    "requires_confirm_and_world_commit_for_collision": true,
+    "duration_seconds_range": [8, 15],
+    "source": "ucbv_001_shared_character_block_tokens.manifestation + live constants.gd"
+  },
+  "manifestation_visuals": {
+    "wireframe": {
+      "edges_only": true,
+      "cyan_primary": "#3fd0e0",
+      "pulse": true,
+      "dashed_centre_line": true,
+      "solid": false,
+      "materials": [],
+      "opacity": 1.0,
+      "outline": "cyan_dashed",
+      "non_color_signals": ["stage_label:wireframe", "dashed_outline", "pulse_or_static_chrome"]
+    },
+    "hologram": {
+      "fill_opacity_range": [0.22, 0.30],
+      "solid_edges": true,
+      "horizontal_scan_line": true,
+      "solid": false,
+      "cyan_primary": "#3fd0e0",
+      "cyan_soft": "#8ff0ff",
+      "non_color_signals": ["stage_label:hologram", "scan_line", "translucent_fill"]
+    },
+    "materializing": {
+      "real_material_bottom_up": true,
+      "cyan_above_fill_line": true,
+      "rising_sparks": true,
+      "solid": false,
+      "fill_line_progress_0_to_1": true,
+      "non_color_signals": ["stage_label:materializing", "fill_line", "sparks_or_static_marker"]
+    },
+    "complete": {
+      "full_warm_palette": true,
+      "shadow": true,
+      "warm_light_allowed": true,
+      "solid": true,
+      "cyan_forbidden_on_base_kit": true,
+      "materials_from": "material_bindings.json role_default_slots",
+      "non_color_signals": ["stage_label:complete", "solid_mass", "cast_shadow"]
+    }
+  },
+  "build_interaction_states": {
+    "preview": {
+      "description": "Ghost placement before validity check",
+      "aligns_to_stage": "hologram",
+      "opacity_range": [0.22, 0.35],
+      "outline": "soft_cyan_or_preview_marker",
+      "mat_hint": "MAT_CozyPreviewMarker",
+      "icon": "place_ghost",
+      "stage_label": "preview",
+      "color_only_forbidden": true
+    },
+    "valid": {
+      "description": "Snap-valid placement ready for confirm",
+      "aligns_to_stage": "hologram",
+      "outline": "solid_soft_edge",
+      "tint": "warm_accept_bias_non_exclusive",
+      "icon": "check",
+      "stage_label": "valid",
+      "pattern": "solid_edge",
+      "color_only_forbidden": true
+    },
+    "invalid": {
+      "description": "Socket/occupancy/snap failure",
+      "aligns_to_stage": "wireframe",
+      "outline": "dashed_reject",
+      "icon": "block",
+      "stage_label": "invalid",
+      "pattern": "hash_or_x",
+      "pulse": true,
+      "reduced_motion_static_chrome": true,
+      "color_only_forbidden": true
+    },
+    "selected": {
+      "description": "Focused module in build UI",
+      "outline": "thicker_readable_edge",
+      "icon": "focus",
+      "stage_label": "selected",
+      "opacity_boost": 0.05,
+      "color_only_forbidden": true
+    },
+    "materializing": {
+      "description": "Post-confirm manifestation in progress",
+      "aligns_to_stage": "materializing",
+      "collision": false,
+      "stage_label": "materializing"
+    },
+    "complete": {
+      "description": "World-committed solid module",
+      "aligns_to_stage": "complete",
+      "collision": true,
+      "stage_label": "complete"
+    }
+  },
+  "accessibility": {
+    "color_never_only_critical_info": true,
+    "state_signals": ["stage_label", "opacity", "outline", "icon", "pattern"],
+    "reduced_motion_supported": true,
+    "reduced_motion_behavior": "static_stage_chrome_preserve_order",
+    "dual_resolution_viewports": ["1280x720", "868x517"],
+    "readable_mass_next_to_nori": {
+      "fence_post_min_width_m": 0.12,
+      "prop_min_edge_m": 0.5,
+      "wall_thickness_m": 0.25,
+      "note": "Chunky enough to read beside Nori-7 2HU short legs (U2 handoff)."
+    }
+  },
+  "camera": {
+    "mode": "fixed_three_quarter",
+    "free_orbit_allowed": false
+  }
+}

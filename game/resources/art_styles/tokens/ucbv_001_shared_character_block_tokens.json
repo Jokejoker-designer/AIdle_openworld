@@ -1,0 +1,296 @@
+{
+  "schema_version": "1.0.0",
+  "token_set_id": "ucbv_001_shared_character_block_tokens",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "version": "1.0.0",
+  "wave": "U1",
+  "work_order_id": "WO-UCBV-001-UNIFIED-CHARACTER-BLOCK-VISUAL-FOUNDATION",
+  "directive_id": 81,
+  "description": "Shared visual DNA tokens binding Nori-7 (CCP-RH-001) and the first UCBV construction block family. Design/metadata only — not mesh authority.",
+  "inherits": [
+    "tokens/shared_2_5d_tokens.json",
+    "../cozy_cyber_pixel_2_5d.json"
+  ],
+  "world_profile_id": "cozy_cyber_pixel",
+  "base_concept": "cozy_cyber_pixel_2_5d",
+  "authority": {
+    "art_direction_ssot": "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/world_profiles/COZY_ART_BIBLE_001.md",
+    "runtime_material_ssot": "orchestration/contracts/block_dna_adapt_001/material_slot_mapping.contract.json",
+    "state_variants_ssot": "game/resources/world_profiles/state_visual_variants.json",
+    "dna_material_theme_status": "NON_AUTHORITATIVE_ALIAS_ONLY",
+    "dna_material_theme_id": "mat_cozy_cream_leaf_v1"
+  },
+  "selected_pair": {
+    "character": {
+      "display_name": "Nori-7",
+      "character_id": "CCP-RH-001",
+      "character_class": "ROBOT_HELPER",
+      "recipe_id": "recipe_nori7_v1",
+      "root_module_id": "char_nori7_base",
+      "attachment_modules": [
+        "attach_water_tank_small",
+        "attach_watering_nozzle_A",
+        "attach_mechanical_sprout_A"
+      ],
+      "skeleton_id_label": "skel_small_biped_robot_v1",
+      "animation_set_id": "anim_robot_gardener_v1",
+      "silhouette_family": "ucbv_cozy_rounded_readable_v1",
+      "proportion": "2_heads_tall_chibi",
+      "rear_view_features": ["mechanical_sprout_crown", "water_tank_backpack"],
+      "palette_groups_max": 3
+    },
+    "block_family": {
+      "family_id": "ucbv_001_cozy_architecture_kit_v1",
+      "roles": [
+        "foundation",
+        "floor",
+        "wall",
+        "corner",
+        "door",
+        "window",
+        "roof",
+        "fence",
+        "prop"
+      ],
+      "module_id_policy": "select_from_accepted_block_dna_or_runtime_allowlist_at_U3_only",
+      "preferred_accepted_ids_when_present": {
+        "foundation": ["arch_foundation_square"],
+        "floor": ["arch_floor_square_4m", "arch_floor_round_4m"],
+        "wall": ["arch_wall_solid_4m"],
+        "corner": [],
+        "door": ["arch_door_round", "arch_wall_door_4m"],
+        "window": ["arch_window_round", "arch_window_frame_simple", "arch_wall_window_4m"],
+        "roof": ["arch_roof_gable_4m", "arch_roof_dome_4m"],
+        "fence": ["cozy_fence_section_A"],
+        "prop": ["prop_bench_simple", "prop_crate_small", "prop_lamp_post"]
+      },
+      "note": "Empty preferred list means role is locked but concrete id must be chosen from accepted catalogs without inventing recipes."
+    }
+  },
+  "silhouette": {
+    "family": "ucbv_cozy_rounded_readable_v1",
+    "shape_language": "rounded_readable",
+    "hard_90_outer_corners": false,
+    "character_joints_inherit_world_grid_snap": false,
+    "readable_at_screen_height_fraction_min": 0.10,
+    "readable_at_screen_height_fraction_target": 0.15
+  },
+  "edge_bevel": {
+    "profile": "soft_continuous",
+    "architecture_bevel_face_fraction_range": [0.03, 0.06],
+    "character_roundness": "higher_than_architecture_primary_mass",
+    "max_local_detail_density": 0.55,
+    "detail_priority": [
+      "secondary_material_slot_planes",
+      "asymmetry",
+      "small_attached_props",
+      "single_warm_light_point"
+    ]
+  },
+  "value_hierarchy": {
+    "order_light_to_dark": [
+      "warm_emissive_lamp",
+      "top_faces_light_planes",
+      "primary_mid",
+      "shade_bands",
+      "structure_ground_darks"
+    ],
+    "lighting_targets": {
+      "mean_luma_range": [150, 185],
+      "blown_pixel_pct_max": 3.0,
+      "shadow_content_pct_range": [5, 15],
+      "key": "high_three_quarter_warm",
+      "shadows": "soft_present_directional"
+    }
+  },
+  "canonical_palette": {
+    "groups": [
+      {
+        "id": "G1_warm_cream_ceramic",
+        "bible_hex": ["#fdf3e2", "#efe0c8", "#e0d5c4"],
+        "mat_ids": ["MAT_CozyCeramic", "MAT_CozyStoneWarm"]
+      },
+      {
+        "id": "G2_leaf_life_green",
+        "bible_hex": ["#7fc98f", "#6bb87f", "#95d9a3"],
+        "mat_ids": ["MAT_CozyLeaf", "MAT_CozyStem"]
+      },
+      {
+        "id": "G3_warm_wood_sky_glass_roof",
+        "bible_hex": ["#c98a5e", "#a8dced", "#e88b6f", "#d4785e", "#f5c451"],
+        "mat_ids": [
+          "MAT_CozyWood",
+          "MAT_CozyDoor",
+          "MAT_CozyGlass",
+          "MAT_CozyRoof",
+          "MAT_CozyRoofShade",
+          "MAT_CozyLampWarm",
+          "MAT_CozyFencePost",
+          "MAT_CozyFenceRail"
+        ]
+      }
+    ],
+    "manifestation_reserved": {
+      "hex": ["#3fd0e0", "#8ff0ff"],
+      "allowed_on_complete_base_kit": false
+    },
+    "face": {
+      "eye_socket": "#3d3226",
+      "blush": "#f4a09a",
+      "blush_opacity": 0.55
+    },
+    "dna_alias_only": {
+      "theme_id": "mat_cozy_cream_leaf_v1",
+      "cream": "#F7E9C6",
+      "leaf": "#78B65B",
+      "status": "NON_AUTHORITATIVE_ALIAS_ONLY"
+    }
+  },
+  "shared_material_vocabulary": {
+    "body": {"semantic_slot": "body", "mat_id": "MAT_CozyCeramic"},
+    "cloth": {"semantic_slot": "trim", "mat_id": "MAT_CozyWood", "alt_mat_id": "MAT_CozyFlowerPink"},
+    "wood": {"semantic_slot": "wood", "mat_id": "MAT_CozyWood"},
+    "stone": {"semantic_slot": "stone", "mat_id": "MAT_CozyStone"},
+    "metal": {"semantic_slot": "metal", "mat_id": "MAT_CozyMetal", "surface_fraction_max": 0.15},
+    "glass": {"semantic_slot": "glass", "mat_id": "MAT_CozyGlass"},
+    "emissive": {"semantic_slot": "emission", "mat_id": "MAT_CozyLampWarm"},
+    "interactive_highlight": {
+      "mat_ids_allowed": ["MAT_CozyPreviewMarker", "MAT_CozyGlassPreview"],
+      "non_color_signals_required": ["outline", "opacity", "icon", "stage_label"]
+    },
+    "leaf": {"semantic_slot": "leaf", "mat_id": "MAT_CozyLeaf"},
+    "roof": {"semantic_slot": "roof", "mat_id": "MAT_CozyRoof"},
+    "door": {"semantic_slot": "door", "mat_id": "MAT_CozyDoor"}
+  },
+  "modular_id_policy": {
+    "character_identity_immutable": true,
+    "invent_recipes": false,
+    "silent_bac_bap_resolve": false,
+    "block_module_ids_from_accepted_catalogs_only": true,
+    "required_provenance_fields": [
+      "asset_id",
+      "character_id_or_module_role",
+      "world_profile_id",
+      "style_lock_id",
+      "source_hashes",
+      "author_wave"
+    ],
+    "style_lock_id": "ucbv_001_style_lock_v1"
+  },
+  "lod_policy": {
+    "character": {
+      "LOD0": "full_readable_sprout_tank_nozzle_eye",
+      "LOD1": "soften_small_joints_keep_silhouette_rear_features",
+      "LOD2_or_billboard": "teardrop_silhouette_plus_sprout_tip"
+    },
+    "block": {
+      "LOD0": "full_bevels_secondary_planes_openings",
+      "LOD1": "massing_primary_openings",
+      "LOD2_or_billboard": "box_wedge_mass_roof_pitch"
+    },
+    "triangle_soft_caps": {
+      "starter_part": 96,
+      "starter_entity": 1200
+    },
+    "interactive_not_permanently_hlod_fused": true
+  },
+  "state_variants": {
+    "reuse_path": "game/resources/world_profiles/state_visual_variants.json",
+    "parallel_system": "FORBIDDEN",
+    "cozy_cyber_pixel_mode": "identity_register",
+    "build_interaction_states": [
+      "preview",
+      "valid",
+      "invalid",
+      "selected",
+      "materializing",
+      "complete"
+    ],
+    "character_readable_visual_states_min": [
+      "idle_happy",
+      "active_build",
+      "caution_needs_confirm",
+      "low_energy_rest"
+    ]
+  },
+  "manifestation": {
+    "stages": ["wireframe", "hologram", "materializing", "complete"],
+    "stage_count": 4,
+    "committing_stage": "FORBIDDEN_PACKAGE_DRIFT",
+    "collision_active_from": "complete",
+    "requires_confirm_and_world_commit_for_collision": true,
+    "wireframe": {
+      "edges_only": true,
+      "cyan_primary": "#3fd0e0",
+      "pulse": true,
+      "dashed_centre_line": true,
+      "solid": false
+    },
+    "hologram": {
+      "fill_opacity_range": [0.22, 0.30],
+      "solid_edges": true,
+      "horizontal_scan_line": true,
+      "solid": false
+    },
+    "materializing": {
+      "real_material_bottom_up": true,
+      "cyan_above_fill_line": true,
+      "rising_sparks": true,
+      "solid": false
+    },
+    "complete": {
+      "full_warm_palette": true,
+      "shadow": true,
+      "warm_light_allowed": true,
+      "solid": true
+    },
+    "duration_seconds_range": [8, 15]
+  },
+  "accessibility": {
+    "color_never_only_critical_info": true,
+    "state_signals": ["stage_label", "opacity", "outline", "icon", "pattern"],
+    "reduced_motion_supported": true,
+    "reduced_motion_behavior": "static_stage_chrome_preserve_order",
+    "dual_resolution_viewports": ["1280x720", "868x517"],
+    "contrast": {
+      "eye_socket_on_cream": true,
+      "silhouette_edge_priority": true
+    }
+  },
+  "material_surface": {
+    "final_surface": "matte_tactile",
+    "construction_surface": "translucent_luminous",
+    "no_photoreal_mix": true,
+    "specular_exceptions": ["water", "glass", "lamp"],
+    "metal_accent_max": 0.15
+  },
+  "camera": {
+    "mode": "fixed_three_quarter",
+    "free_orbit_allowed": false,
+    "readable_silhouette_priority": true
+  },
+  "anti_patterns": [
+    "dense_neon_soup",
+    "photoreal_beside_toy_low_poly",
+    "instant_pop_in",
+    "free_3d_camera_mvp",
+    "neural_mesh_as_world_truth",
+    "color_only_critical_state",
+    "manifestation_cyan_on_complete_base_kit",
+    "more_than_three_dominant_color_families",
+    "invented_recipes",
+    "silent_bac_bap_rig_resolve",
+    "dna_five_stage_committing",
+    "shared_skeleton_placeholder_as_production_bones",
+    "parallel_style_variant_system"
+  ],
+  "forbidden_scope": {
+    "p2e_002": false,
+    "dna_v1_2": false,
+    "tier3_physics_invention": false,
+    "full_28_character_wave": false,
+    "meshes_glbs_this_wave": false
+  },
+  "next_wave": "U2_VISUAL_SILHOUETTE",
+  "provenance_ref": "style:ucbv_001_shared_character_block_tokens"
+}

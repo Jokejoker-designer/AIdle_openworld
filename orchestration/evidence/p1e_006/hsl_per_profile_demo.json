@@ -1,0 +1,142 @@
+{
+  "demo": "p1e006_per_profile_hsl",
+  "results": [
+    {
+      "label": "cozy_bible",
+      "expected_pass": true,
+      "actual_pass": true,
+      "match": true,
+      "profile": "cozy_cyber_pixel",
+      "pass": true,
+      "hsv": {
+        "rgb": [
+          143,
+          212,
+          232
+        ],
+        "hue_deg": 193.48314606741573,
+        "sat": 38.36206896551724,
+        "val": 90.98039215686275,
+        "rb_spread": 89
+      },
+      "fail_reasons": []
+    },
+    {
+      "label": "surreal_target",
+      "expected_pass": true,
+      "actual_pass": true,
+      "match": true,
+      "profile": "surrealism_canvas",
+      "pass": true,
+      "hsv": {
+        "rgb": [
+          89,
+          82,
+          158
+        ],
+        "hue_deg": 245.52631578947367,
+        "sat": 48.101265822784804,
+        "val": 61.96078431372549,
+        "rb_spread": 69
+      },
+      "fail_reasons": []
+    },
+    {
+      "label": "washed_surreal_deliberate",
+      "expected_pass": false,
+      "actual_pass": false,
+      "match": true,
+      "profile": "surrealism_canvas",
+      "pass": false,
+      "hsv": {
+        "rgb": [
+          200,
+          190,
+          210
+        ],
+        "hue_deg": 270.0,
+        "sat": 9.523809523809518,
+        "val": 82.35294117647058,
+        "rb_spread": 10
+      },
+      "fail_reasons": [
+        "sat_too_low 9.5 (washed)",
+        "lavender_wash"
+      ]
+    },
+    {
+      "label": "beige",
+      "expected_pass": false,
+      "actual_pass": false,
+      "match": true,
+      "profile": "cozy_cyber_pixel",
+      "pass": false,
+      "hsv": {
+        "rgb": [
+          218,
+          209,
+          195
+        ],
+        "hue_deg": 36.5217391304348,
+        "sat": 10.550458715596331,
+        "val": 85.49019607843137,
+        "rb_spread": -23
+      },
+      "fail_reasons": [
+        "hue 36.5",
+        "sat 10.6",
+        "rb -23"
+      ]
+    },
+    {
+      "label": "white",
+      "expected_pass": false,
+      "actual_pass": false,
+      "match": true,
+      "profile": "cozy_cyber_pixel",
+      "pass": false,
+      "hsv": {
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "hue_deg": 0.0,
+        "sat": 0.0,
+        "val": 100.0,
+        "rb_spread": 0
+      },
+      "fail_reasons": [
+        "hue 0.0",
+        "sat 0.0",
+        "rb 0",
+        "white"
+      ]
+    },
+    {
+      "label": "grey",
+      "expected_pass": false,
+      "actual_pass": false,
+      "match": true,
+      "profile": "cozy_cyber_pixel",
+      "pass": false,
+      "hsv": {
+        "rgb": [
+          185,
+          195,
+          189
+        ],
+        "hue_deg": 144.0000000000001,
+        "sat": 5.128205128205124,
+        "val": 76.47058823529412,
+        "rb_spread": 4
+      },
+      "fail_reasons": [
+        "hue 144.0",
+        "sat 5.1",
+        "rb 4"
+      ]
+    }
+  ],
+  "pass": true
+}

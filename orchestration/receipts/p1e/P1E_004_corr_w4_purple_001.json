@@ -1,0 +1,434 @@
+{
+  "step_id": "P1E-004-corr-w4-purple-001",
+  "agent_step_id": "P1E-004-corr-w4-purple-001-2026-07-22",
+  "work_order_id": "WO-P1E-004-DNA-PILOT-AND-WATER-FIX",
+  "work_order": "orchestration/work_orders/WO-P1E-004-DNA-PILOT-AND-WATER-FIX.md",
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "authority": "VERIFY_ONLY",
+  "authority_token": "VERIFY_ONLY",
+  "status": "WAITING_HUMAN",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "wave": "P1E_004_CORR_W4_PURPLE",
+  "child_task_ref": "019f85d1-c4f9-7303-bf26-7e69dd791ce9",
+  "transcript_ref": "019f85d1-c4f9-7303-bf26-7e69dd791ce9",
+  "writer_transcript_ref": "019f85d1-c4f9-7303-bf26-7e69dd791ce9",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f85cd-ed03-7053-8689-122ea7e4e160",
+  "prior_package_job_id": "BLD-03CB1AADD475",
+  "self_accept": false,
+  "accepted": false,
+  "purple_verdict": "VERIFIED",
+  "verdict": "VERIFIED",
+  "completion_signal": "WAITING_HUMAN",
+  "next_owner": "HUMAN_PRODUCT_LEAD",
+  "next_route": "HUMAN_PRODUCT_LEAD",
+  "handoff_ref": "HUMAN_PRODUCT_LEAD",
+  "trace_ref": "orchestration/logs/p1e-004-corr-w4-purple-001.log",
+  "package_job_id": "BLD-03CB1AADD475",
+  "package_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475",
+  "product_writes": [],
+  "start_time": "2026-07-22T00:55:45Z",
+  "end_time": "2026-07-22T00:58:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "character_binding": {
+    "trustlayer": "purple-team-release-gate",
+    "ui": "ui-visual-critic",
+    "role": "Purple Acceptance VERIFY_ONLY"
+  },
+  "skills_loaded": [
+    {"skill_id": "maf-mandatory-standard", "version": "1.0"},
+    {"skill_id": "trustlayer-x16-crew", "version": "1.0"},
+    {"skill_id": "agentwork-knowledge-loop", "version": "1.0"},
+    {"skill_id": "evidence-memory-ledger", "version": "1.0"},
+    {"skill_id": "adversarial-review", "version": "1.0"}
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_corr_w4_purple_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-004-corr-w4-purple-001.log"
+  ],
+  "inputs": [
+    "orchestration/receipts/p1e/P1E_004_corr_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_004_corr_w2_red_001.json",
+    "orchestration/receipts/p1e/P1E_004_corr_w3_qa_001.json",
+    "orchestration/receipts/p1e/P1E_004_PARENT_INLINE_LIMITATION.md",
+    "orchestration/evidence/p1e_004/_material_integrity_hsl.py",
+    "orchestration/evidence/p1e_004/starter_realm_preview_p1e004_corr_hsl.png",
+    "orchestration/evidence/p1e_004/luma_metrics_corr.json",
+    "orchestration/evidence/p1e_004/four_value_hsl_demo.json",
+    "orchestration/evidence/p1e_004/material_integrity_hsl_corr.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/modules/pond_01.glb"
+  ],
+  "outputs": [
+    "orchestration/receipts/p1e/P1E_004_corr_w4_purple_001.json",
+    "orchestration/logs/p1e-004-corr-w4-purple-001.log"
+  ],
+  "commands": [
+    "python orchestration/evidence/p1e_004/_material_integrity_hsl.py --four-value-demo",
+    "python orchestration/evidence/p1e_004/_material_integrity_hsl.py --png E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/starter_realm_preview.png --pond-glb E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/modules/pond_01.glb --pond-bbox 640,250,760,380",
+    "Pillow Rec.709 full-frame + 4-connected spatial shadow independent remeasure",
+    "ref cross-check parent/blue/red/qa/purple session ids + self_accept flags"
+  ],
+  "exit_codes": [0, 0, 0, 0],
+  "evidence_refs": [
+    "orchestration/receipts/p1e/P1E_004_corr_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_004_corr_w2_red_001.json",
+    "orchestration/receipts/p1e/P1E_004_corr_w3_qa_001.json",
+    "orchestration/receipts/p1e/P1E_004_PARENT_INLINE_LIMITATION.md",
+    "orchestration/evidence/p1e_004/starter_realm_preview_p1e004_corr_hsl.png",
+    "orchestration/evidence/p1e_004/luma_metrics_corr.json",
+    "orchestration/evidence/p1e_004/four_value_hsl_demo.json",
+    "orchestration/evidence/p1e_004/material_integrity_hsl_corr.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/modules/pond_01.glb",
+    "orchestration/logs/p1e-004-corr-w4-purple-001.log"
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_corr_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_corr_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_corr_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_PARENT_INLINE_LIMITATION.md",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_003_corr_w4_purple_001.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_004/_material_integrity_hsl.py",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_004/luma_metrics_corr.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_004/package_meta.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/modules/pond_01.glb",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/validation.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f85d1-c4f9-7303-bf26-7e69dd791ce9/summary.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_004_corr_w4_purple_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-004-corr-w4-purple-001.log"
+  ],
+  "ref_crosscheck": {
+    "pass": true,
+    "parent": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "corr_w1_blue": "019f85c3-8de9-7972-8500-40142dfb7b42",
+    "corr_w2_red": "019f85c9-d4bf-76c3-a1e6-a424f2cf9f34",
+    "corr_w3_qa": "019f85cd-ed03-7053-8689-122ea7e4e160",
+    "corr_w4_purple": "019f85d1-c4f9-7303-bf26-7e69dd791ce9",
+    "package": "BLD-03CB1AADD475",
+    "all_five_distinct": true,
+    "none_of_corr_waves_equals_parent": true,
+    "detail": "Parent + CORR W1 Blue + CORR W2 Red + CORR W3 QA + this Purple are five pairwise-distinct durable Grok Desktop session UUIDs. Wave chain order: Blue→Red→QA→Purple; each prior_wave_child_task_ref points to previous CORR wave. Original P1E-004 W1–W4 child_task_ref=null (parent-inline limitation honest; no invented UUIDs)."
+  },
+  "four_value_numeric_table": [
+    {
+      "label": "beige_218_209_195",
+      "rgb": [218, 209, 195],
+      "hue_deg": 36.5217391304348,
+      "sat": 10.550458715596331,
+      "val": 85.49019607843137,
+      "rb_spread": -23,
+      "expected": "FAIL",
+      "actual": "FAIL"
+    },
+    {
+      "label": "white_255_255_255",
+      "rgb": [255, 255, 255],
+      "hue_deg": 0.0,
+      "sat": 0.0,
+      "val": 100.0,
+      "rb_spread": 0,
+      "expected": "FAIL",
+      "actual": "FAIL"
+    },
+    {
+      "label": "grey_185_195_189",
+      "rgb": [185, 195, 189],
+      "hue_deg": 144.0000000000001,
+      "sat": 5.128205128205124,
+      "val": 76.47058823529412,
+      "rb_spread": 4,
+      "expected": "FAIL",
+      "actual": "FAIL"
+    },
+    {
+      "label": "bible_143_212_232",
+      "rgb": [143, 212, 232],
+      "hue_deg": 193.48314606741573,
+      "sat": 38.36206896551724,
+      "val": 90.98039215686275,
+      "rb_spread": 89,
+      "expected": "PASS",
+      "actual": "PASS"
+    }
+  ],
+  "measured_pond_hsv": {
+    "package": "BLD-03CB1AADD475",
+    "preview_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/starter_realm_preview.png",
+    "evidence_copy_path": "orchestration/evidence/p1e_004/starter_realm_preview_p1e004_corr_hsl.png",
+    "pond_glb": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/modules/pond_01.glb",
+    "pond_bbox": [640, 250, 760, 380],
+    "preview_sha256": "ab411651816e30b156387f100e663d0c70b6c2b1f66d6d283985b28abb1ea985",
+    "preview_bytes": 456475,
+    "evidence_byte_identical_to_quarantine": true,
+    "median_rgb": [191, 252, 255],
+    "hue_deg": 182.8125,
+    "sat": 25.098039215686274,
+    "val": 100.0,
+    "rb_spread": 64,
+    "white_pct": 0.17307692307692307,
+    "glb_water_rgb": [5, 26, 46],
+    "glb_hsv": {
+      "hue_deg": 209.26829268292687,
+      "sat": 89.13043478260869,
+      "val": 18.03921568627451,
+      "rb_spread": 41
+    },
+    "gates": {
+      "sat_ge_22": true,
+      "hue_193_pm_28": true,
+      "rb_spread_ge_25": true
+    },
+    "material_integrity_hsl": "PASS"
+  },
+  "result": {
+    "task_id": "P1E-004-CORRECTION-W4-PURPLE",
+    "work_order": "orchestration/work_orders/WO-P1E-004-DNA-PILOT-AND-WATER-FIX.md",
+    "wave": "P1E_004_CORR_W4_PURPLE",
+    "profile": "aidle-worldgen-purple-acceptance",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "status": "WAITING_HUMAN",
+    "purple_verdict": "VERIFIED",
+    "verdict": "VERIFIED",
+    "completion_signal": "WAITING_HUMAN",
+    "next_owner": "HUMAN_PRODUCT_LEAD",
+    "summary": "VERIFY_ONLY CORRECTION Wave 4 Purple independent acceptance for package BLD-03CB1AADD475 after CORR W1 Blue 019f85c3 / CORR W2 Red 019f85c9 / CORR W3 QA 019f85cd. Ref cross-check PASS (four CORR wave ids + purple + parent all distinct; none of CORR waves equals parent). Independent four-value HSL: beige/white/grey FAIL, bible PASS. Independent pond HSL: median RGB[191,252,255] hue=182.8125 sat=25.098 val=100 rb=64 gates PASS. Independent Rec.709 exposure: mean=153.969 blown_L>=250=1.837% (channel-all 1.419%) shadow=5.903% spatial largest_share=40.962% distributed=true. Preview non-sim (quarantine Eevee package, evidence byte-identical sha256 ab411651…). DNA thin residual R-DNA-05 honest (pilot-acceptable). No self-accept on any CORR wave. purple_verdict=VERIFIED; accepted=false; self_accept=false. product_writes=[]. Handoff WAITING_HUMAN / HUMAN_PRODUCT_LEAD.",
+    "package_job_id": "BLD-03CB1AADD475",
+    "package_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475",
+    "reviewed_children": [
+      {
+        "wave": "CORR_W1_BLUE",
+        "receipt": "orchestration/receipts/p1e/P1E_004_corr_w1_blue_001.json",
+        "child_task_ref": "019f85c3-8de9-7972-8500-40142dfb7b42",
+        "package": "BLD-03CB1AADD475",
+        "authority": "PATCH_DRAFT",
+        "self_accept": false,
+        "accepted": false,
+        "status": "REVIEWED_PRODUCT_PRESENT",
+        "note": "MAT_CozyWater dark-base + chromatic emission retune; pond HSL PASS; four-value demo PASS; luma band PASS; smokes PASS; original parent-inline limitation documented."
+      },
+      {
+        "wave": "CORR_W2_RED",
+        "receipt": "orchestration/receipts/p1e/P1E_004_corr_w2_red_001.json",
+        "child_task_ref": "019f85c9-d4bf-76c3-a1e6-a424f2cf9f34",
+        "authority": "READ_ONLY_AUDIT",
+        "self_accept": false,
+        "accepted": false,
+        "verdict": "PASS_WITH_NOTES",
+        "service_diff_clean": true,
+        "blocking_reopen": 0,
+        "status": "REVIEWED_FINDINGS_SUBSTANTIVE",
+        "note": "Independent four-value + pond remeasure PASS; DNA thin first-execution audit; service_diff_clean; parent-inline honesty confirmed."
+      },
+      {
+        "wave": "CORR_W3_QA",
+        "receipt": "orchestration/receipts/p1e/P1E_004_corr_w3_qa_001.json",
+        "child_task_ref": "019f85cd-ed03-7053-8689-122ea7e4e160",
+        "authority": "VERIFY_ONLY",
+        "self_accept": false,
+        "accepted": false,
+        "verdict": "PASS_WITH_NOTES",
+        "status": "REVIEWED_EVIDENCE_RECONFIRMED",
+        "note": "Independent four-value + pond + Rec.709/spatial + three Godot smokes reconfirmed PASS; handoff CORR W4 Purple."
+      }
+    ],
+    "independent_remeasure": {
+      "four_value_hsl": {
+        "method": "python orchestration/evidence/p1e_004/_material_integrity_hsl.py --four-value-demo",
+        "exit": 0,
+        "line": "FOUR_VALUE_DEMO=PASS",
+        "pass": true,
+        "table": [
+          {"label": "beige_218_209_195", "rgb": [218, 209, 195], "hue_deg": 36.5217391304348, "sat": 10.550458715596331, "val": 85.49019607843137, "rb_spread": -23, "expected": "FAIL", "actual": "FAIL"},
+          {"label": "white_255_255_255", "rgb": [255, 255, 255], "hue_deg": 0.0, "sat": 0.0, "val": 100.0, "rb_spread": 0, "expected": "FAIL", "actual": "FAIL"},
+          {"label": "grey_185_195_189", "rgb": [185, 195, 189], "hue_deg": 144.0000000000001, "sat": 5.128205128205124, "val": 76.47058823529412, "rb_spread": 4, "expected": "FAIL", "actual": "FAIL"},
+          {"label": "bible_143_212_232", "rgb": [143, 212, 232], "hue_deg": 193.48314606741573, "sat": 38.36206896551724, "val": 90.98039215686275, "rb_spread": 89, "expected": "PASS", "actual": "PASS"}
+        ],
+        "matches_blue_claim": true,
+        "matches_red_remeasure": true,
+        "matches_qa_remeasure": true
+      },
+      "pond_hsl": {
+        "method": "python _material_integrity_hsl.py --png quarantine starter_realm_preview.png --pond-glb modules/pond_01.glb --pond-bbox 640,250,760,380",
+        "exit": 0,
+        "line": "MATERIAL_INTEGRITY_HSL=PASS",
+        "pass": true,
+        "median_rgb": [191, 252, 255],
+        "hue_deg": 182.8125,
+        "sat": 25.098039215686274,
+        "val": 100.0,
+        "rb_spread": 64,
+        "gates": {
+          "sat_ge_22": true,
+          "hue_193_pm_28": true,
+          "rb_spread_ge_25": true
+        },
+        "glb_water_rgb": [5, 26, 46],
+        "glb_eval_pass": true,
+        "matches_blue_claim": true,
+        "matches_red_remeasure": true,
+        "matches_qa_remeasure": true,
+        "residual_note": "sat margin +3.1pp over 22% floor; val=100 under sun*exposure 0.72 — R-LOW carried, non-blocking"
+      },
+      "rec709_luma_spatial": {
+        "preview_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-03CB1AADD475/starter_realm_preview.png",
+        "method": "Pillow RGB Rec.709 luma L=0.2126R+0.7152G+0.0722B full-frame 768x512; blown=L>=250; shadow=L<40; 4-connected shadow clusters",
+        "preview_sha256": "ab411651816e30b156387f100e663d0c70b6c2b1f66d6d283985b28abb1ea985",
+        "preview_bytes": 456475,
+        "evidence_byte_identical_to_quarantine": true,
+        "mean_luma": 153.96897056741486,
+        "blown_pct": 1.8374125162760417,
+        "blown_definition": "Rec.709 L >= 250",
+        "blown_pct_channel_all_ge_250": 1.4193216959635417,
+        "blown_note": "Blue luma_metrics_corr.json used RGB-all-channels>=250 (=1.419%); Purple primary metric is Rec.709 L>=250 (=1.837%). Both <3% PASS.",
+        "shadow_pct": 5.903116861979167,
+        "min_luma": 2.4304,
+        "max_luma": 254.99999999999997,
+        "targets_art_bible_s8": {
+          "mean_luma": [150, 185],
+          "blown_pct_max": 3.0,
+          "shadow_pct": [5.0, 15.0]
+        },
+        "pass": {
+          "mean": true,
+          "blown": true,
+          "shadow": true
+        },
+        "spatial_shadow": {
+          "total_shadow_pixels": 23212,
+          "largest_cluster_pixel_count": 9508,
+          "largest_cluster_share_pct": 40.961571600896086,
+          "n_clusters": 77,
+          "bbox_xyxy": [425, 312, 696, 371],
+          "centroid_xy": [557.1744846445099, 347.0309213294068],
+          "distributed": true,
+          "concentration_fail_threshold_pct": 55.0
+        },
+        "matches_blue_mean_shadow_spatial": true,
+        "matches_qa_remeasure": true
+      }
+    },
+    "acceptance_criteria_matrix": [
+      {
+        "id": "AC1_CONTRACT_REFS_REAL_CORR_WAVES",
+        "criterion": "CORR W1/W2/W3 child_task_ref real, pairwise distinct, none equals parent",
+        "verdict": "PASS",
+        "evidence": "Blue 019f85c3-8de9-7972-8500-40142dfb7b42; Red 019f85c9-d4bf-76c3-a1e6-a424f2cf9f34; QA 019f85cd-ed03-7053-8689-122ea7e4e160; Purple 019f85d1-c4f9-7303-bf26-7e69dd791ce9; parent 019f7ffd-3995-71c0-aca1-51078e24a852. All five distinct. Original W1–W4 child_task_ref=null (honest parent-inline limitation)."
+      },
+      {
+        "id": "AC2_FOUR_VALUE_HSL",
+        "criterion": "beige/white/grey FAIL; bible PASS",
+        "verdict": "PASS",
+        "evidence": "Independent --four-value-demo exit 0 FOUR_VALUE_DEMO=PASS. beige sat=10.55 FAIL; white sat=0 FAIL; grey sat=5.13 FAIL; bible hue=193.48 sat=38.36 rb=89 PASS. Numeric table in four_value_numeric_table."
+      },
+      {
+        "id": "AC3_POND_HSL",
+        "criterion": "pond median sat>=22 and hue within 193±28 band; rb_spread>=25",
+        "verdict": "PASS",
+        "evidence": "Independent pond remeasure MATERIAL_INTEGRITY_HSL=PASS. median RGB[191,252,255] hue=182.8125 (Δ=10.19) sat=25.098 (>=22) rb=64 (>=25). glb MAT_CozyWater base [5,26,46] PASS."
+      },
+      {
+        "id": "AC4_EXPOSURE_BAND",
+        "criterion": "mean_luma 150–185; blown <3%; shadow 5–15%; spatial distributed",
+        "verdict": "PASS",
+        "evidence": "Independent Rec.709 mean=153.969 blown_L>=250=1.837% (channel-all 1.419%) shadow=5.903%; spatial largest_cluster_share=40.962% n=77 distributed=true. Matches Blue/QA."
+      },
+      {
+        "id": "AC5_PREVIEW_NON_SIM_DNA_THIN_HONEST",
+        "criterion": "preview is real package render (non-sim); DNA thin residual documented honestly",
+        "verdict": "PASS",
+        "evidence": "Preview is quarantine BLD-03CB1AADD475 starter_realm_preview.png (Eevee package render, 456475 bytes, sha256 ab411651…); evidence copy byte-identical. DNA residual R-DNA-05 interaction_tags encoding carried from Red as pilot-acceptable (no collision/nav, no autoload, 5-module map, PersistModule path only) — honest, non-blocking."
+      },
+      {
+        "id": "AC6_NO_SELF_ACCEPT",
+        "criterion": "self_accept=false accepted=false on all CORR waves and this Purple",
+        "verdict": "PASS",
+        "evidence": "Blue/Red/QA/Purple all self_accept=false accepted=false. Purple never ACCEPTED; handoff HUMAN_PRODUCT_LEAD only."
+      }
+    ],
+    "red_findings_carried": [
+      {
+        "id": "R-LOW-01",
+        "severity": "low",
+        "title": "Pond sat margin thin under exposure",
+        "detail": "Independent pond median sat=25.098% (floor 22%); val=100 under sun+exposure. Residual margin risk if lighting drifts.",
+        "blocking": false
+      },
+      {
+        "id": "R-DNA-05",
+        "severity": "low",
+        "title": "interaction_tags encoding residual",
+        "detail": "Elemental pilot state encoded via interaction_tags; acceptable for DNA thin pilot. Not a dedicated elemental_state field in hasher.",
+        "blocking": false
+      },
+      {
+        "id": "R-INFO-01",
+        "severity": "info",
+        "title": "Blue receipt type-shape vs strict schema arrays",
+        "detail": "Blue uses object inputs/outputs/writer_lease; required keys present; non-blocking convention debt.",
+        "blocking": false
+      },
+      {
+        "id": "R-INFO-02",
+        "severity": "info",
+        "title": "service kit_wave-only framing slightly narrow",
+        "detail": "Uncommitted service diff also sets lighting_rig + output_class/blender_version in mock manifest. Still surgical; lease/F04/F05 clean per Red.",
+        "blocking": false
+      },
+      {
+        "id": "R-NOTE-BLOWN-DEF",
+        "severity": "info",
+        "title": "Blown metric dual definition",
+        "detail": "Blue channel-all>=250 =1.419%; Rec.709 L>=250 =1.837%. Both <3% PASS.",
+        "blocking": false
+      }
+    ],
+    "finding_counts": {
+      "blocking_reopen": 0,
+      "gates_fail": 0,
+      "acceptance_pass": 6,
+      "acceptance_pass_with_notes": 0,
+      "red_findings_carried": 5
+    },
+    "verdict_rationale": {
+      "purple_verdict": "VERIFIED",
+      "not_accepted": true,
+      "why_verified": "All six AC gates independently re-confirmed PASS: real CORR contract refs, four-value demo, pond HSL, exposure band, non-sim preview + honest DNA residual, no self-accept. Independent measurements match Blue/Red/QA claims for package BLD-03CB1AADD475.",
+      "why_not_changes_requested": "No blocking reopen; residuals are low/info only and carried honestly from Red/QA.",
+      "why_never_accept": "Purple never ACCEPTED; worker cannot accept own lineage; ACCEPTED is Human Product Lead / Codex only. self_accept=false accepted=false."
+    },
+    "parent_inline_limitation": {
+      "doc": "orchestration/receipts/p1e/P1E_004_PARENT_INLINE_LIMITATION.md",
+      "honest": true,
+      "original_w1_w4_child_task_ref": null,
+      "correction_path_used": true
+    }
+  },
+  "self_audit": {
+    "authority_verify_only": true,
+    "no_product_patch": true,
+    "product_writes_empty": true,
+    "self_accept": false,
+    "accepted": false,
+    "never_accept": true,
+    "exclusive_writes_receipt_log_only": true,
+    "durable_child_task_ref": "019f85d1-c4f9-7303-bf26-7e69dd791ce9",
+    "child_task_ref_source": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f85d1-c4f9-7303-bf26-7e69dd791ce9/summary.json session_kind=subagent title=P1E-004 CORR W4 Purple Verify HSL",
+    "prior_wave_crosscheck": "019f85cd-ed03-7053-8689-122ea7e4e160",
+    "blue_wave_crosscheck": "019f85c3-8de9-7972-8500-40142dfb7b42",
+    "red_wave_crosscheck": "019f85c9-d4bf-76c3-a1e6-a424f2cf9f34",
+    "parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "ref_crosscheck_pass": true,
+    "no_grandchildren": true,
+    "handoff": "HUMAN_PRODUCT_LEAD",
+    "purple_verdict": "VERIFIED"
+  }
+}

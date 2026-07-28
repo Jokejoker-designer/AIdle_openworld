@@ -1,0 +1,123 @@
+{
+  "work_order_id": "WO-P1E-005-TIER3-OFFLINE-SIMULATION",
+  "verdict": "PASS_WITH_WARNINGS",
+  "state": "PATCH_DRAFT",
+  "tier3_did_not_exist_in_source_package": true,
+  "implemented_here": true,
+  "test_result": ".............                                                            [100%]\n13 passed in 2.56s",
+  "determinism": {
+    "one_step": {
+      "wetness": 0.814,
+      "growth": 0.15760000000000002
+    },
+    "sixty_steps": {
+      "wetness": 0.8139999999999973,
+      "growth": 0.15759999999999968
+    },
+    "absolute_difference": {
+      "wetness": 2.6645352591003757e-15,
+      "growth": 3.3306690738754696e-16
+    },
+    "tolerance": 1e-09,
+    "one_step_segments": 1,
+    "max_segments_per_minute_step": 1,
+    "passed": true
+  },
+  "bounded_cost": {
+    "input_elapsed_days": 30,
+    "observed_elapsed_seconds": 2592000.0,
+    "used_elapsed_seconds": 28800.0,
+    "time_decision": "MAX_OFFLINE_CLAMPED",
+    "runtime_milliseconds_reference_python": 0.5455230002553435,
+    "closed_form_segments": 2,
+    "max_segments_contract": 4,
+    "elapsed_proportional_loop": false
+  },
+  "clock_hostility": {
+    "backward": {
+      "observed_elapsed_seconds": -120.0,
+      "used_elapsed_seconds": 0.0,
+      "decision": "CLOCK_BACKWARD_REJECTED"
+    },
+    "forward_jump": {
+      "observed_elapsed_seconds": 2592000.0,
+      "used_elapsed_seconds": 28800.0,
+      "decision": "MAX_OFFLINE_CLAMPED",
+      "cap_seconds": 28800.0
+    }
+  },
+  "authority": {
+    "original_entity_ids": [
+      "farm_01",
+      "fence_01",
+      "path_01",
+      "pond_01",
+      "preview_farm",
+      "rock_01"
+    ],
+    "final_entity_ids": [
+      "farm_01",
+      "fence_01",
+      "path_01",
+      "pond_01",
+      "preview_farm",
+      "rock_01"
+    ],
+    "entity_count_unchanged": true,
+    "transforms_unchanged": true,
+    "only_canonical_entities_updated": true,
+    "persistence_gateway": "ValidatedPersistenceStore.update_existing_state"
+  },
+  "receipt_example": "evidence/tier3/sample_offline_advance_receipt.json",
+  "static_control": {
+    "rock_01": {
+      "byte_identical": true,
+      "before_sha256": "ab4f80bb3bc0a0e662123f5c159c87ad8470aa9f1d4f9e65e36952f7b6be6d06",
+      "after_sha256": "ab4f80bb3bc0a0e662123f5c159c87ad8470aa9f1d4f9e65e36952f7b6be6d06"
+    },
+    "path_01": {
+      "byte_identical": true,
+      "before_sha256": "80706dec965610d3c6c60d5ed6114ca327b4b2f947bb24da4af569ba8659bd8f",
+      "after_sha256": "80706dec965610d3c6c60d5ed6114ca327b4b2f947bb24da4af569ba8659bd8f"
+    },
+    "fence_01": {
+      "byte_identical": true,
+      "before_sha256": "6b0f2511fe27d02eb128295e10ff11489d54231daa6cbb4b36a2604e98f49612",
+      "after_sha256": "6b0f2511fe27d02eb128295e10ff11489d54231daa6cbb4b36a2604e98f49612"
+    }
+  },
+  "residency": {
+    "event_trace": [
+      "interaction_disabled",
+      "records_loaded",
+      "deterministic_advance_started",
+      "deterministic_advance_complete",
+      "persist:farm_01",
+      "persistence_complete",
+      "visual_variants_selected",
+      "interaction_enabled"
+    ],
+    "persistence_before_variant": true,
+    "variant_before_interaction": true,
+    "residency_zero_distance_unloaded_tier": 3,
+    "residency_zero_distance_loaded_tier": 0
+  },
+  "visual_evidence": {
+    "reference_image": "evidence/tier3/tier3_visual_reconciliation_reference.png",
+    "selected_variant": "wet",
+    "godot_headed_capture": false,
+    "blocker": "Godot 4.3 executable is not installed in this environment."
+  },
+  "newly_executed_package_parts": [
+    "Tier 3 clock validator",
+    "closed-form farm solver",
+    "validated existing-record persistence gateway",
+    "offline advance receipt",
+    "chunk-residency Tier 3 decision",
+    "visual variant reconciliation order"
+  ],
+  "grok_child_transcript_refs": [],
+  "grok_status_crosscheck": "NOT_AVAILABLE_IN_SUPPLIED_PACKAGE; no references fabricated",
+  "accepted": false,
+  "self_accept": false
+}

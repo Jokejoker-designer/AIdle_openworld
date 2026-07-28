@@ -1,0 +1,51 @@
+{
+  "receipt_id": "BAC_BAP_NPC_ROAM_SCHEDULE_001",
+  "job": "BAC_BAP_TOWN_ROAM_RUNTIME",
+  "authority": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "timestamp_utc": "2026-07-25T00:10:00Z",
+  "also_fixed": [
+    "nori7_presenter even-stance MethodTweener.bind conversion error — use member sources + _apply_even_stance_lerp_t",
+    "cast_presenter zero-scale sanitize (Basis Quaternion spam on cast load)"
+  ],
+  "roam_loop": [
+    "1 idle workshop 2–6s",
+    "2 choose dest by intent weights",
+    "3 walk or carry_crate to anchor",
+    "4 context action",
+    "5 talk or return workshop"
+  ],
+  "weights": {
+    "craft": 0.35,
+    "inspect": 0.2,
+    "carry": 0.15,
+    "talk": 0.15,
+    "rest": 0.15
+  },
+  "anchors": [
+    "workshop",
+    "workbench",
+    "furnace",
+    "crate_stack",
+    "blueprint_table",
+    "doorway",
+    "home_plaza",
+    "market_delivery",
+    "barn_storage",
+    "path_rest"
+  ],
+  "interrupt": "player within 2.8m → finish beat → face player → wave/talk 2.5–4s → resume idle workshop",
+  "product_writes": [
+    "game/scripts/modules/ucbv_001/npc_town_roamer.gd",
+    "game/scripts/modules/town/town_grid_loader.gd",
+    "game/scripts/modules/ucbv_001/cast_presenter.gd",
+    "game/scripts/modules/ucbv_001/nori7_presenter.gd",
+    "game/resources/ucbv_001/cast/cast_roster.json auto_roam"
+  ],
+  "verify_headless": {
+    "nori": "built=true",
+    "roam_log": "[NpcRoam] Bac Bap roam online home=(8.4, 0, 0) anchors=10",
+    "town": "cast=10 idle=10 ok=true"
+  }
+}

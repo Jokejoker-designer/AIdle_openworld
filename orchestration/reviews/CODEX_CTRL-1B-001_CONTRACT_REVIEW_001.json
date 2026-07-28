@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_CTRL-1B-001_CONTRACT_REVIEW_001",
+  "task_id": "CTRL-1B-001",
+  "directive_id": 56,
+  "reviewed_at": "2026-07-22T04:54:30+07:00",
+  "reviewed_by": "codex",
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "children": [
+    {
+      "wave": "A0",
+      "child_task_ref": "019f869a-55bb-7210-b2e7-4396cb276a41",
+      "status": "completed",
+      "started_at": "2026-07-21T21:34:49.279081800Z",
+      "completed_at": "2026-07-21T21:39:50.396677800Z",
+      "durable_meta_sha256": "81173ba39b46c44621946ad8bcc689cf111360db14e38f839c4a17c9d97ea52c",
+      "receipt_meta_sha256": "da5ceea002cc8570d536fe2a78540aa475a6b0163e13d76cfd717221ae963c2f"
+    },
+    {
+      "wave": "S1",
+      "child_task_ref": "019f869f-21c3-7513-9d70-c91361eae08a",
+      "status": "completed",
+      "started_at": "2026-07-21T21:40:03.653673400Z",
+      "completed_at": "2026-07-21T21:48:52.468699100Z",
+      "durable_meta_sha256": "8b35efb84333ca374f8f0856744bc102836469172410e19fafb7b4e8c9647831",
+      "receipt_meta_sha256": "4fc6cb6859325e60cf4d2a053c27c1b0eeedd3c39b9f2d7f018f58d13f3e90fd"
+    }
+  ],
+  "independent_checks": {
+    "exact_child_count": 2,
+    "sequential_execution": true,
+    "unexpected_child": false,
+    "a0_maf_schema_errors": 0,
+    "s1_maf_schema_errors": 0,
+    "valid_fixture_schema_errors": 0,
+    "declared_contract_hashes_match": true,
+    "projected_invalid_cases_checked": 12,
+    "schema_rejected_cases": 11,
+    "semantic_only_case_not_schema_rejected": "INV-08-multi_context_r_binding",
+    "invalid_suite_payloads_executed_by_worker": false,
+    "worker_only_rejected_invalid_suite_root": true,
+    "godot_product_patch_authorized": false
+  },
+  "findings": [
+    {
+      "id": "CTRL1B-CODEX-F01-DURABLE-META",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "detail": "Both receipts bind pre-completion meta hashes rather than the current durable completed meta.json. A0 omits completed_at from child_meta and S1 omits exact timestamps. Preserve the original receipts and add an append-only correction receipt with the final hashes and timestamps."
+    },
+    {
+      "id": "CTRL1B-CODEX-F02-INVALID-HARNESS",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "detail": "S1's smoke rejects invalid_context_fixture.json only because the suite wrapper is not a root contract document. It does not execute all twelve payloads against their intended schema or semantic rules. Add an executable deterministic fixture validator and make all twelve cases fail for their declared reason, including multi-context R and Esc ordering."
+    },
+    {
+      "id": "CTRL1B-CODEX-F03-CONTEXT-CARDINALITY",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "detail": "The schema fixes contexts array length to five but does not enforce exactly one occurrence of each closed context_id. Harden the schema or semantic validator so duplicate IDs cannot replace a required context."
+    }
+  ],
+  "preserve": [
+    "orchestration/receipts/control/CTRL_1B_001_a0_a11y_001.json",
+    "orchestration/receipts/control/CTRL_1B_001_s1_schema_001.json",
+    "orchestration/logs/ctrl-1b-001-a0-a11y-001.log",
+    "orchestration/logs/ctrl-1b-001-s1-schema-001.log"
+  ],
+  "next_route": "DIRECTIVE_57_CONTROL_CONTRACT_CORRECTION"
+}

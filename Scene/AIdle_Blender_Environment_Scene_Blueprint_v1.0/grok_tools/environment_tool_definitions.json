@@ -1,0 +1,33 @@
+[
+  {
+    "name": "inspect_environment_template",
+    "description": "Return capabilities and constraints of one approved environment template.",
+    "parameters": {"type": "object", "properties": {"template_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{2,63}$"}}, "required": ["template_id"], "additionalProperties": false}
+  },
+  {
+    "name": "search_environment_modules",
+    "description": "Search approved environment modules by world profile and class; never searches arbitrary paths or URLs.",
+    "parameters": {"type": "object", "properties": {"world_profile": {"enum": ["cozy_cyber_pixel", "tiny_diorama", "solarpunk_haven", "arcane_clockwork", "spirit_valley", "surrealism_canvas", "oceanpunk_abyss"]}, "module_class": {"enum": ["TERRAIN", "ARCHITECTURE", "NATURE", "PROP", "LANDMARK", "LIGHTING", "INTERACTION_HINT"]}, "query": {"type": "string", "maxLength": 120}}, "required": ["world_profile"], "additionalProperties": false}
+  },
+  {
+    "name": "build_environment_scene",
+    "description": "Create a quarantined Blender environment package. The tool loader MUST resolve and inline the canonical schema and reject a hash mismatch.",
+    "x-aidle-canonical-schema": "../contracts/environment_scene_build_spec.schema.json",
+    "parameters": {"type": "object", "properties": {"scene_spec": {"$ref": "../contracts/environment_scene_build_spec.schema.json"}}, "required": ["scene_spec"], "additionalProperties": false}
+  },
+  {
+    "name": "get_environment_job_status",
+    "description": "Return server-owned lifecycle status for one environment job.",
+    "parameters": {"type": "object", "properties": {"job_id": {"type": "string", "pattern": "^BLD-[A-F0-9]{12}$"}}, "required": ["job_id"], "additionalProperties": false}
+  },
+  {
+    "name": "validate_environment_package",
+    "description": "Validate a quarantined package; never promotes it to the approved catalog.",
+    "parameters": {"type": "object", "properties": {"job_id": {"type": "string", "pattern": "^BLD-[A-F0-9]{12}$"}}, "required": ["job_id"], "additionalProperties": false}
+  },
+  {
+    "name": "render_environment_preview",
+    "description": "Render allowlisted views of an existing quarantined environment job.",
+    "parameters": {"type": "object", "properties": {"job_id": {"type": "string", "pattern": "^BLD-[A-F0-9]{12}$"}, "views": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["isometric_main", "front", "back", "top", "build_plot"]}}}, "required": ["job_id", "views"], "additionalProperties": false}
+  }
+]

@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_block_platform_foundation_v1",
+  "module_id": "block_platform",
+  "module_role": "foundation",
+  "display_name": "Platform Foundation",
+  "world_profile_id": "cozy_cyber_pixel",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "author_wave": "U3_BLOCK_FAMILY_ART",
+  "allowlist_verified": true,
+  "dna_catalog_present": true,
+  "domain": "GEOMETRY",
+  "category": "PRIMITIVE",
+  "geometry_family": "block_platform",
+  "bounds_m": {
+    "width": 4.0,
+    "depth": 4.0,
+    "height": 0.3,
+    "origin": "center_bottom",
+    "source": "art_descriptor_from_4m_kit_grid_snap_0_5; naming not free invent"
+  },
+  "sockets_from_dna": {
+    "socket_inputs": ["snap_grid"],
+    "socket_outputs": ["snap_grid"],
+    "source": "world_DNA/.../catalogs/module_catalog.json",
+    "role_intent_residual": "building_foundation not declared on this primitive; pair with arch_floor_round_4m vertical_stack when stacking"
+  },
+  "socket_types_contract_ref": "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json",
+  "material_slots_dna": ["body", "accent"],
+  "material_slots_production": {
+    "body": {"semantic_slot": "structure", "mat_id": "MAT_CozyStoneWarm", "bible_hex": "#efe0c8"},
+    "accent": {"semantic_slot": "stone", "mat_id": "MAT_CozyStone", "bible_hex": "#e0d5c4"},
+    "trim_optional": {"semantic_slot": "wood", "mat_id": "MAT_CozyWood", "bible_hex": "#c98a5e"}
+  },
+  "silhouette": {
+    "family": "ucbv_cozy_rounded_readable_v1",
+    "form": "low_rounded_slab",
+    "bevel_face_fraction": 0.05,
+    "hard_90_outer_corners": false,
+    "readable_mass": "wide stable base under Nori and walls"
+  },
+  "lod": {
+    "LOD0": "bevelled_slab_edge_band",
+    "LOD1": "simple_slab",
+    "LOD2_or_billboard": "flat_box"
+  },
+  "performance_class_dna": "XS",
+  "collision_policy_dna_hint": "CONVEX",
+  "mesh_descriptor": "mesh_descriptors/block_platform.meshdesc.json",
+  "visual_states_ref": "visual_states.json",
+  "provenance_required_fields": [
+    "asset_id",
+    "module_role",
+    "world_profile_id",
+    "style_lock_id",
+    "source_hashes",
+    "author_wave"
+  ]
+}

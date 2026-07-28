@@ -1,0 +1,157 @@
+{
+  "schema": "h1_consolidate_001_r1_smoke_summary/1.0",
+  "wave": "R1",
+  "directive_id": 76,
+  "overall_pass": true,
+  "checks": [
+    {
+      "id": "LOOKUP",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_H1_RUNTIME_AUTOLOAD_LOOKUP_SMOKE=PASS checks=6 scan_hits=0 runtime_ok=2",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/LOOKUP.log"
+    },
+    {
+      "id": "ERROR_FREE",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/ERROR_FREE.log"
+    },
+    {
+      "id": "H1_FLOW",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/H1_FLOW.log"
+    },
+    {
+      "id": "H1_CHROME",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS checks=6",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/H1_CHROME.log"
+    },
+    {
+      "id": "P2E_CORE",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/P2E_CORE.log"
+    },
+    {
+      "id": "P2E_AUTH",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/P2E_AUTH.log"
+    },
+    {
+      "id": "P2E_QR",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/P2E_QR.log"
+    },
+    {
+      "id": "P2E_PLAY",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_P2E001_PLAYABLE_SELECT_SMOKE=PASS checks=5",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/P2E_PLAY.log"
+    },
+    {
+      "id": "P2E_CORR",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_P2E001_CORRECTION_SMOKE=PASS checks=4",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/P2E_CORR.log"
+    },
+    {
+      "id": "P2E_PIN",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_P2E001_PLAYER_INPUT_SMOKE=PASS checks=5",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/P2E_PIN.log"
+    },
+    {
+      "id": "CTRL_ROUTER",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/CTRL_ROUTER.log"
+    },
+    {
+      "id": "CTRL_A11Y",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS checks=11",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/CTRL_A11Y.log"
+    },
+    {
+      "id": "G3_E2E",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "G3_E2E_SMOKE=PASS checks=76",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/G3_E2E.log"
+    },
+    {
+      "id": "G4_PERSIST",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "G4_PERSIST_SMOKE=PASS checks=22",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/G4_PERSIST.log"
+    },
+    {
+      "id": "BLOCK_DNA",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "valid 14/14 invalid 42/42 PASS gate",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/block_dna.log"
+    },
+    {
+      "id": "CONTROL_1B_FIXTURES",
+      "exit": 0,
+      "error_lines": 0,
+      "pass": true,
+      "detail": "HARNESS_RESULT=PASS",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/control_1b_fixtures.log"
+    }
+  ],
+  "block_dna": {
+    "pass": true,
+    "valid": "14/14",
+    "invalid": "42/42"
+  },
+  "static_lookup": {
+    "pass": true,
+    "scan_hits": 0,
+    "runtime_ok": 2
+  },
+  "headed": {
+    "pass": true,
+    "matrix_complete": true,
+    "zero_error": true,
+    "error_line_count": 0,
+    "f01_signature_repeated": false,
+    "png_count": 26,
+    "build_R_ok": true,
+    "godot_exit": 0,
+    "runner_exit": 0
+  }
+}

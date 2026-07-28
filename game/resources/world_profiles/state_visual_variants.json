@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "mechanism": "STATE_VARIANTS_extended",
+  "note": "WO-P1E-006: world_profile selects a visual variant the same way physics state selects wet/frozen/restored. Cozy registers current materials as identity (no recolor). Surrealism is purple-as-accent, readable ground, water still water.",
+  "art_style_to_world_profile": {
+	"cozy_cyber_pixel": "cozy_cyber_pixel",
+	"surrealism_canvas": "surrealism_canvas",
+	"pastoral_fantasy": "cozy_cyber_pixel",
+	"cyberpunk_dense": "cozy_cyber_pixel",
+	"custom": "cozy_cyber_pixel"
+  },
+  "world_profiles_with_content": ["cozy_cyber_pixel", "surrealism_canvas"],
+  "deferred_world_profiles_no_kit": [
+	"tiny_diorama",
+	"solarpunk_haven",
+	"arcane_clockwork",
+	"spirit_valley",
+	"oceanpunk_abyss"
+  ],
+  "deferred_art_styles_no_world_profile": ["cyberpunk_dense", "pastoral_fantasy"],
+  "variants": {
+	"cozy_cyber_pixel": {
+	  "mode": "identity_register",
+	  "description": "Current verified kit materials — do not re-author. Applying this variant is a no-op recolor.",
+	  "hsl_targets": {
+		"water": {
+		  "bible_rgb": [143, 212, 232],
+		  "hue_target_deg": 193.0,
+		  "hue_tol_deg": 35.0,
+		  "sat_min_pct": 18.0,
+		  "rb_spread_min": 20
+		}
+	  },
+	  "materials": {}
+	},
+	"surrealism_canvas": {
+	  "mode": "material_table",
+	  "description": "Dreamlike accents over readable ground; purple is accent not void. Pond remains water-readable.",
+	  "hsl_targets": {
+		"water": {
+		  "bible_rgb": [160, 150, 220],
+		  "hue_target_deg": 255.0,
+		  "hue_tol_deg": 45.0,
+		  "sat_min_pct": 18.0,
+		  "rb_spread_min": 15
+		}
+	  },
+	  "materials": {
+		"MAT_CozyWater": {
+		  "albedo": [0.35, 0.32, 0.62, 1.0],
+		  "emission": [0.28, 0.22, 0.55],
+		  "emission_strength": 0.85,
+		  "roughness": 0.9
+		},
+		"MAT_CozyWaterLight": {
+		  "albedo": [0.4, 0.36, 0.7, 1.0],
+		  "emission": [0.32, 0.26, 0.62],
+		  "emission_strength": 0.85,
+		  "roughness": 0.9
+		},
+		"MAT_CozyWood": { "albedo": [0.93, 0.88, 0.95, 1.0], "roughness": 0.82 },
+		"MAT_CozyRoof": { "albedo": [0.78, 0.42, 0.55, 1.0], "roughness": 0.78 },
+		"MAT_CozyRoofShade": { "albedo": [0.65, 0.35, 0.48, 1.0], "roughness": 0.8 },
+		"MAT_CozyDoor": { "albedo": [0.72, 0.48, 0.58, 1.0], "roughness": 0.72 },
+		"MAT_CozyStone": { "albedo": [0.58, 0.55, 0.68, 1.0], "roughness": 0.88 },
+		"MAT_CozyStoneWarm": { "albedo": [0.65, 0.58, 0.7, 1.0], "roughness": 0.86 },
+		"MAT_CozyCeramic": { "albedo": [0.88, 0.84, 0.92, 1.0], "roughness": 0.55 },
+		"MAT_CozyBark": { "albedo": [0.45, 0.35, 0.48, 1.0], "roughness": 0.9 },
+		"MAT_CozyLeaf": { "albedo": [0.35, 0.62, 0.55, 1.0], "roughness": 0.75 },
+		"MAT_CozyMetal": { "albedo": [0.55, 0.52, 0.68, 1.0], "roughness": 0.45, "metallic": 0.55 },
+		"MAT_CozyGlass": { "albedo": [0.65, 0.55, 0.85, 0.55], "roughness": 0.15 },
+		"MAT_CozyGlassPreview": { "albedo": [0.55, 0.45, 0.75, 0.35], "roughness": 0.2 },
+		"MAT_CozyLampWarm": {
+		  "albedo": [0.95, 0.75, 0.55, 1.0],
+		  "emission": [1.0, 0.7, 0.45],
+		  "emission_strength": 1.0,
+		  "roughness": 0.35
+		},
+		"MAT_CozyPreviewMarker": {
+		  "albedo": [0.85, 0.7, 0.95, 1.0],
+		  "emission": [0.7, 0.5, 0.95],
+		  "emission_strength": 0.5,
+		  "roughness": 0.4
+		},
+		"MAT_CozySoil": { "albedo": [0.45, 0.35, 0.48, 1.0], "roughness": 0.92 },
+		"MAT_CozyStem": { "albedo": [0.35, 0.55, 0.5, 1.0], "roughness": 0.82 },
+		"MAT_CozyFlowerPink": { "albedo": [0.9, 0.55, 0.85, 1.0], "roughness": 0.7 },
+		"MAT_CozyFlowerYellow": { "albedo": [0.95, 0.8, 0.45, 1.0], "roughness": 0.68 },
+		"MAT_CozyFlowerPurple": { "albedo": [0.7, 0.45, 0.95, 1.0], "roughness": 0.7 },
+		"MAT_CozyFencePost": { "albedo": [0.55, 0.42, 0.58, 1.0], "roughness": 0.8 },
+		"MAT_CozyFenceRail": { "albedo": [0.65, 0.5, 0.68, 1.0], "roughness": 0.78 },
+		"MAT_BuildPlot": { "albedo": [0.75, 0.65, 0.85, 1.0], "roughness": 0.7 },
+		"MAT_CozyGround": { "albedo": [0.45, 0.4, 0.55, 1.0], "roughness": 0.88 }
+	  }
+	}
+  }
+}

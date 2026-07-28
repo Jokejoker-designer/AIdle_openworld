@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_UCBV-001_C4S_ACCEPTANCE_015",
+  "task_id": "UCBV-001",
+  "directive_reviewed": 95,
+  "reviewed_at": "2026-07-23T13:08:00+07:00",
+  "reviewed_by": "codex",
+  "verdict": "C4S_ACCEPTED_AS_C5_PURPLE_INPUT_ONLY",
+  "accepted": false,
+  "self_accept": false,
+  "lineage": {
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "child_task_ref": "019f8d90-59c9-7061-9aa4-a261d4006c94",
+    "durable_started_at": "2026-07-23T06:01:15.468994900Z",
+    "durable_completed_at": "2026-07-23T06:06:05.413304100Z",
+    "receipt": "orchestration/receipts/ucbv_001/correction_009/C4S_qa_evidence_009.json",
+    "receipt_sha256": "350D1A164EC3DDC61E583955DC7243ED7603913B76FCB72D50A29E3C61DFA953",
+    "log_sha256": "CA6EF53B18699F8E7BCB1A2A500FD841B2099BF35361FD53A32A8CEB093A4A55"
+  },
+  "independent_validation": {
+    "receipt_schema_errors": 0,
+    "evidence_refs_type": "array[string]",
+    "durable_lineage_matches": true,
+    "product_writes": [],
+    "png_count": 38,
+    "png_hashes_matched": "38/38",
+    "visual_spot_checks": ["catalog_28_1280x720", "delete_select_868x517", "scan_action_1280x720"],
+    "h1_flow": "PASS checks=13 exit=0 strict_error_signatures=0",
+    "inputmap_e2e": "PASS checks=17 inputs=34 exit=0 strict_error_signatures=0",
+    "navigation_warning": "PASS checks=16 exit=0 strict_error_signatures=0",
+    "nori_runtime_marker": "CCP-RH-001 bones=14 mode=glb_c1r procedural=false"
+  },
+  "residual_for_purple_and_human": {
+    "id": "NORI7-V01",
+    "finding": "Nori-7 is visibly very white and low-detail in current headed evidence. Runtime GLB identity is proven, but aesthetic quality and animation expressiveness are not product accepted by this C4 machine gate.",
+    "disposition": "C5 must report it honestly; Human Product Lead remains final visual acceptor."
+  },
+  "decision": {
+    "c4_accepted_as_c5_input": true,
+    "c5_authorized": true,
+    "overall_ucbv_accepted": false,
+    "human_gate_open": false,
+    "red_f01_hard_stop": true
+  }
+}

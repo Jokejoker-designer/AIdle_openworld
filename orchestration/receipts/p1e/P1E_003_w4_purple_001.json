@@ -1,0 +1,494 @@
+{
+  "agent_step_id": "P1E-003-w4-purple-001-2026-07-21",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:9a9cb395c5a79c03c198d5f7334d82c7113022f1348ca2a46a756c9e3b35e7d7",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f854f-eafd-7010-830f-acc8a0cd6a46",
+  "transcript_ref": "019f854f-eafd-7010-830f-acc8a0cd6a46",
+  "writer_transcript_ref": "019f854f-eafd-7010-830f-acc8a0cd6a46",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f854b-a4da-78c2-a94e-f0c94a4239e8",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/p1e-003-w4-purple-001.log",
+  "handoff_ref": "HUMAN_PRODUCT_LEAD",
+  "start_time": "2026-07-21T15:33:55Z",
+  "end_time": "2026-07-21T15:36:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; required_skills always×5 + evidence-memory-ledger + adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches; never ACCEPTED; verdicts VERIFIED|CHANGES_REQUESTED|NEED_HUMAN.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "evidence-memory-ledger",
+      "adversarial-review"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, aidle-worldgen-purple-acceptance profile, purple-team-release-gate + ui-visual-critic, WO-P1E-003, COZY_ART_BIBLE_001 §8, W1/W2/W3 receipts, evidence/p1e_w1, quarantine BLD-DF6B006072E1, Godot smokes, agent_step_contract schema, skills FULL (always×5 + evidence-memory-ledger + adversarial-review) manually. No bootstrap loop.",
+  "character_binding": {
+    "trustlayer": "purple-team-release-gate",
+    "ui": "ui-visual-critic"
+  },
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "version": "1.0",
+      "mode": "full",
+      "load_evidence": "FULL: VERIFY_ONLY; no inventing evidence; no product patch; no self-accept; never ACCEPTED"
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "version": "1.0",
+      "mode": "full",
+      "load_evidence": "FULL: slot purple-team-release-gate; Purple never patches; Red finds only; Blue patches approved WO only"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "version": "1.0",
+      "mode": "full",
+      "load_evidence": "FULL: handoff HUMAN_PRODUCT_LEAD; residual honesty ledger R-MED-01..R-INFO-09 retained"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "version": "1.0",
+      "mode": "full",
+      "load_evidence": "FULL: exclusive receipt/log only; product_writes=[]; parent 019f7ffd; no grandchildren"
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "version": "1.0",
+      "mode": "full",
+      "load_evidence": "FULL: FACT from independent Godot smokes + Bridge pytest + Rec.709 remeasure + quarantine SHA FAIL=0/47 + headed multimodal PNG review; residuals labeled honesty not invent PASS"
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "version": "1.0",
+      "mode": "full",
+      "load_evidence": "FULL profile-routed: preserved independent measurements, W1–W3 durable refs, AC matrix, residuals"
+    },
+    {
+      "skill_id": "adversarial-review",
+      "version": "1.0",
+      "mode": "full",
+      "load_evidence": "FULL profile-routed: challenged full ACCEPTED claim; challenged continuous fence enclosure overclaim; challenged charm=metrics equivalence; challenged self-accept"
+    }
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-003-WAVE1-EXPOSURE-PROPS-DENSITY.md",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_003_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_003_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_003_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-003-w3-qa-001.log",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_w1/luma_metrics.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_w1/starter_realm_preview_p1e003_w1.png",
+    "E:/AIdle_openworld/game/project.godot",
+    "E:/AIdle_openworld/game/tests/p1e003_density_exposure_smoke.gd",
+    "E:/AIdle_openworld/game/tests/p1e002_glb_intake_smoke.gd",
+    "E:/AIdle_openworld/game/tests/g8_ux_input_collision_smoke.gd",
+    "E:/AIdle_openworld/game/tests/g8_ux002_fence_rail_collision_smoke.gd",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/scene_manifest.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/artifact_hashes.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f854f-eafd-7010-830f-acc8a0cd6a46/summary.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_003_w4_purple_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-003-w4-purple-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "P1E-003",
+    "work_order": "orchestration/work_orders/WO-P1E-003-WAVE1-EXPOSURE-PROPS-DENSITY.md",
+    "wave": "P1E_003_W4_PURPLE",
+    "profile": "aidle-worldgen-purple-acceptance",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "status": "WAITING_HUMAN",
+    "purple_verdict": "VERIFIED",
+    "verdict": "VERIFIED",
+    "completion_signal": "WAITING_HUMAN",
+    "summary": "VERIFY_ONLY Wave 4 Purple independent acceptance for WO-P1E-003 package BLD-DF6B006072E1 after W1 Blue 019f8527 / W2 Red 019f8547 (service_diff_clean=true) / W3 QA 019f854b (PASS_WITH_NOTES). Independent Rec.709 re-measure: mean_luma=155.663 blown=0.097% shadow=10.106% all inside art bible §8. Independent smokes: AIDLE_P1E003_SMOKE=PASS checks=9 (density=43 fence_bodies=10 anim_stagger=11 hash=47/47); AIDLE_P1E002_SMOKE=PASS checks=4; AIDLE_G8_UX_SMOKE=PASS checks=6; AIDLE_G8_UX002_SMOKE=PASS checks=2; Bridge pytest 44 passed; all exit 0. GAME_GLB_COUNT=0; quarantine FAIL=0/47; evidence preview byte-identical. Headed multimodal review confirms density/props/shadows/build-plot clear; R-MED-01 fence multi-cluster honesty residual non-blocking. Red findings carried non-blocking. Never ACCEPT. product_writes=[]. Handoff HUMAN_PRODUCT_LEAD.",
+    "package_job_id": "BLD-DF6B006072E1",
+    "package_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1",
+    "lighting_rig": "p1e_cozy_sun_area_v2",
+    "character_binding_detail": {
+      "trustlayer_character_id": "purple-team-release-gate",
+      "trustlayer_card": "E:/agents/characters/13-purple-team-release-gate.md",
+      "ui_character_id": "ui-visual-critic",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "reviewed_children": [
+      {
+        "wave": "W1",
+        "receipt": "orchestration/receipts/p1e/P1E_003_w1_blue_001.json",
+        "child_task_ref": "019f8527-ec7c-7bd2-a4a1-6dc478df99cd",
+        "authority": "PATCH_DRAFT",
+        "status": "REVIEWED_PRODUCT_PRESENT",
+        "package": "BLD-DF6B006072E1",
+        "mean_luma_claimed": 155.663,
+        "blown_pct_claimed": 0.097,
+        "shadow_pct_claimed": 10.106,
+        "instance_count_claimed": 43,
+        "note": "Exposure rebalance + four modules + density 43; quarantine package; Godot intake; accepted=false"
+      },
+      {
+        "wave": "W2",
+        "receipt": "orchestration/receipts/p1e/P1E_003_w2_red_001.json",
+        "child_task_ref": "019f8547-6edc-7031-9abb-2dec5c05c8e4",
+        "authority": "READ_ONLY_AUDIT",
+        "status": "REVIEWED_FINDINGS_SUBSTANTIVE",
+        "verdict": "FINDINGS_REPORTED",
+        "service_diff_clean": true,
+        "note": "Hard gates PASS/PASS_WITH_NOTES; blocking_reopen=0; residuals R-MED-01..R-INFO-09; service_diff_clean=true; product_writes=[]"
+      },
+      {
+        "wave": "W3",
+        "receipt": "orchestration/receipts/p1e/P1E_003_w3_qa_001.json",
+        "child_task_ref": "019f854b-a4da-78c2-a94e-f0c94a4239e8",
+        "authority": "VERIFY_ONLY",
+        "status": "REVIEWED_EVIDENCE_RECONFIRMED",
+        "verdict": "PASS_WITH_NOTES",
+        "note": "Independent smokes green; exposure remeasure matched; headed confirmed; handoff W4 purple"
+      }
+    ],
+    "independent_remeasure": {
+      "preview_path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/starter_realm_preview.png",
+      "evidence_copy_path": "E:/AIdle_openworld/orchestration/evidence/p1e_w1/starter_realm_preview_p1e003_w1.png",
+      "method": "Pillow+numpy RGB Rec.709 luma L=0.2126R+0.7152G+0.0722B full-frame 768x512",
+      "sha256": "7e3b9bbdb528e15a3b3e66ee326d1844a4846f3141d70175af12e43b2357eea0",
+      "bytes": 447378,
+      "evidence_byte_identical_to_quarantine": true,
+      "mean_luma": 155.662815,
+      "blown_pct": 0.096639,
+      "shadow_pct": 10.105642,
+      "min_luma": 8.1456,
+      "max_luma": 255.0,
+      "cyanish_pixels": 0,
+      "targets_art_bible_s8": {
+        "mean_luma": [150, 185],
+        "blown_pct_max": 3.0,
+        "shadow_pct": [5.0, 15.0]
+      },
+      "pass": {
+        "mean": true,
+        "blown": true,
+        "shadow": true
+      },
+      "worker_preview_luma_validation_json": {
+        "mean_luma": 155.756,
+        "blown_pct": 0.113,
+        "shadow_pct": 10.036
+      },
+      "matches_w1_receipt": true,
+      "matches_w2_remeasure": true,
+      "matches_w3_remeasure": true,
+      "matches_evidence_luma_metrics_json": true
+    },
+    "independent_smoke": {
+      "p1e003_smoke": {
+        "marker": "AIDLE_P1E003_SMOKE=PASS checks=9",
+        "exit": 0,
+        "package_density": 43,
+        "fence_collision_bodies": 10,
+        "anim_stagger_unique": 11,
+        "build_plot_clear": true,
+        "hash_ok": "47/47",
+        "godot_runtime_load": "OK",
+        "game_glb_count": 0,
+        "package_job_id": "BLD-DF6B006072E1"
+      },
+      "p1e002_smoke": {
+        "marker": "AIDLE_P1E002_SMOKE=PASS checks=4",
+        "exit": 0,
+        "note": "Regression on prior package BLD-E6BCC14D117E modules=9; preview stages non-solid retained"
+      },
+      "g8_ux_smoke": {
+        "marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+        "exit": 0,
+        "input_map_bindings": "PASS"
+      },
+      "g8_ux002_smoke": {
+        "marker": "AIDLE_G8_UX002_SMOKE=PASS checks=2",
+        "exit": 0,
+        "note": "rails collision + player blocked between posts; starter build job=BLD-DF6B006072E1 modules=43"
+      },
+      "bridge_pytest_full": {
+        "tests": "tests/",
+        "result": "44 passed",
+        "exit": 0
+      },
+      "quarantine_hash": {"ok": 47, "fail": 0, "miss": 0},
+      "game_glb_count": 0,
+      "assets_glb_count": 0,
+      "known_residual_script_error": "ArtStyleManager cozy_cyber_pixel key miss (R-LOW-06) — smokes still PASS exit 0"
+    },
+    "density_composition": {
+      "instance_count": 43,
+      "range_target": [35, 50],
+      "range_ok": true,
+      "by_module": {
+        "cozy_house_small_A": 1,
+        "cozy_path_stone_A": 8,
+        "cozy_pond_small_A": 1,
+        "cozy_tree_landmark_A": 1,
+        "cozy_farm_plot_A": 1,
+        "shared_light_brush_station_A": 1,
+        "cozy_greenhouse_preview_anchor_A": 1,
+        "cozy_fence_section_A": 10,
+        "cozy_flower_cluster_A": 9,
+        "cozy_garden_lamp_A": 4,
+        "cozy_rock_small_A": 6
+      },
+      "unique_positions": 43,
+      "unique_yaws": 35,
+      "unique_scales": 18,
+      "near_identity_count": 3,
+      "fence_collision_hints": 10,
+      "fence_collision_bodies_smoke": 10,
+      "anim_stagger_unique_delays": 11
+    },
+    "quarantine_runtime_load": {
+      "status": "OK",
+      "mechanism": "GLTFDocument+GLTFState absolute OS path under generated_quarantine",
+      "package_root": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1",
+      "res_promotion": false,
+      "game_glb_count": 0,
+      "starter_builder_log": "Built via GLB intake | job=BLD-DF6B006072E1 modules=43"
+    },
+    "input_map_spot_check": {
+      "project_godot_mtime_utc": "2026-07-21T09:56:48.7049512Z",
+      "project_godot_sha256": "f28af2f7915608e679d885bce921ebed6533b332fb9a3cd6466b4ecdc8362c92",
+      "jump": "present; Space key event",
+      "ui_left": "events=[]",
+      "ui_right": "events=[]",
+      "ui_up": "events=[]",
+      "ui_down": "events=[]",
+      "g8_ux_input_map_bindings": "PASS",
+      "p1e003_w1_touched_project_godot": false,
+      "verdict": "PASS"
+    },
+    "headed_visual": {
+      "status": "CONFIRMED_EXISTING",
+      "re_capture_attempted": false,
+      "reason_no_recapture": "W1 Bridge preview + evidence copy already present, byte-identical to quarantine package; exclusive Purple writes are receipt+log only. Multimodal review performed on existing PNG.",
+      "screenshots": [
+        {
+          "path": "orchestration/evidence/p1e_w1/starter_realm_preview_p1e003_w1.png",
+          "size": "768x512",
+          "bytes": 447378,
+          "sha256": "7e3b9bbdb528e15a3b3e66ee326d1844a4846f3141d70175af12e43b2357eea0",
+          "mean_luma": 155.662815,
+          "review": "Isometric cozy starter realm: house with soft green roof and directional shadow, path stones, farm plot, greenhouse, pond disc, tree, multi-cluster fence sections, flower clusters, garden lamps, scattered rocks. Soft directional shadows present (not zero-shadow washout). Build plot (yellow pad + grey block) clear/unoccluded. Density reads substantially above prior 9-instance kit."
+        }
+      ],
+      "supporting_metrics": "orchestration/evidence/p1e_w1/luma_metrics.json",
+      "package_preview": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/starter_realm_preview.png",
+      "human_charm_note": "R-MED-01 fence multi-cluster (not continuous enclosure) still visible in headed view; metrics/density PASS does not equal product delight — Human Product Lead final taste remains open."
+    },
+    "acceptance_criteria_matrix": [
+      {
+        "id": "AC1",
+        "criterion": "Exposure inside art bible §8 targets, measured and reported numerically",
+        "verdict": "PASS",
+        "evidence": "Independent full-frame Rec.709: mean_luma=155.663 (150–185), blown=0.097% (<3%), shadow=10.106% (5–15%). Matches W1/W2/W3 and evidence/p1e_w1/luma_metrics.json."
+      },
+      {
+        "id": "AC2",
+        "criterion": "Four new modules authored, registry records complete with extended fields",
+        "verdict": "PASS",
+        "evidence": "Package contains fence×10 flower×9 lamp×4 rock×6; smoke wave1_modules_present PASS; Red H2 registry/YAML extended fields confirmed in W2; not re-authored under VERIFY_ONLY."
+      },
+      {
+        "id": "AC3",
+        "criterion": "Fence rails collide; player cannot walk between posts",
+        "verdict": "PASS",
+        "evidence": "AIDLE_P1E003_SMOKE fence_collision_bodies_10; AIDLE_G8_UX002_SMOKE=PASS checks=2 (rails_have_collision_bodies + player_blocked_between_posts). Note R-LOW-04: full-section BOX not per-rail mesh.",
+        "red_finding": "R-LOW-04"
+      },
+      {
+        "id": "AC4",
+        "criterion": "35–50 instances placed, with varied rotation and scale",
+        "verdict": "PASS",
+        "evidence": "modules[] length=43; unique_pos=43 unique_yaws≈35 unique_scales=18 near_identity≈3; smoke package_density_43 + runtime_build_43."
+      },
+      {
+        "id": "AC5",
+        "criterion": "Animations staggered — no visible synchronisation",
+        "verdict": "PASS_WITH_NOTES",
+        "evidence": "Smoke anim_stagger_unique_11 (0–1.5s Godot-side). R-LOW-05: delays not serialized in scene_manifest.",
+        "red_finding": "R-LOW-05"
+      },
+      {
+        "id": "AC6",
+        "criterion": "Build plot clear; house / player / Companion not occluded",
+        "verdict": "PASS",
+        "evidence": "Smoke build_plot_clear=true; headed preview shows open yellow pad + house/tree/path readable silhouettes."
+      },
+      {
+        "id": "AC7",
+        "criterion": "Quarantine boundary intact — GAME_GLB_COUNT=0 under game/",
+        "verdict": "PASS",
+        "evidence": "Recursive game/** *.glb/*.gltf = 0; assets GLB=0; smoke GAME_GLB_COUNT=0; load from absolute quarantine BLD-DF6B006072E1 only."
+      },
+      {
+        "id": "AC8",
+        "criterion": "No regression: 44 tests, G8-UX smokes, preview stages still non-solid",
+        "verdict": "PASS",
+        "evidence": "Bridge pytest tests/ = 44 passed exit 0; AIDLE_G8_UX_SMOKE=PASS checks=6; AIDLE_G8_UX002_SMOKE=PASS checks=2; AIDLE_P1E002_SMOKE preview_stages wireframe/hologram/materializing collision_layer=0."
+      }
+    ],
+    "red_findings_triage": [
+      {"id": "R-MED-01", "severity": "medium", "blocking": false, "purple_disposition": "CARRY_HONESTY_NOTE — fence multi-cluster not continuous garden boundary; human charm gate"},
+      {"id": "R-MED-02", "severity": "medium", "blocking": false, "purple_disposition": "CARRY_PROCESS_NOTE — WO expected-shape omitted worker_entry + job_service; service_diff_clean residual"},
+      {"id": "R-LOW-03", "severity": "low", "blocking": false, "purple_disposition": "CARRY — Blue log understated service delta"},
+      {"id": "R-LOW-04", "severity": "low", "blocking": false, "purple_disposition": "CARRY — fence BOX not per-rail mesh colliders; AC3 still PASS via bodies+player block"},
+      {"id": "R-LOW-05", "severity": "low", "blocking": false, "purple_disposition": "CARRY — anim stagger Godot-side only; AC5 PASS_WITH_NOTES"},
+      {"id": "R-LOW-06", "severity": "low", "blocking": false, "purple_disposition": "CARRY — ArtStyleManager cozy_cyber_pixel SCRIPT ERROR residual observed this Purple run; non-fatal"},
+      {"id": "R-INFO-07", "severity": "info", "blocking": false, "purple_disposition": "CONFIRM — jobs.py tree dirtiness non-W1"},
+      {"id": "R-INFO-08", "severity": "info", "blocking": false, "purple_disposition": "CONFIRM — object_count 46 vs modules 43"},
+      {"id": "R-INFO-09", "severity": "info", "blocking": false, "purple_disposition": "CONFIRM_HANDOFF — headed charm remains Human Product Lead judgment"}
+    ],
+    "adversarial_review_snapshot": {
+      "claim_under_review": "WO-P1E-003 is VERIFIED for Human Product Lead acceptance after W1–W3",
+      "what_i_accept": "Independent smokes 9+4+6+2 green; pytest 44; exposure in art-bible §8 band; density 43; fence collide; 0 game GLB; hash FAIL=0/47; Red blocking_reopen=0; W2 service_diff_clean=true",
+      "what_i_challenge": "Purple must not ACCEPTED; must not sell continuous fence enclosure as delivered; must not equate metrics PASS with product delight",
+      "strongest_counter_argument": "If Human Product Lead raises continuous garden-boundary fence composition or residual charm to a hard gate, route CHANGES_REQUESTED — evidence today does not invent a continuous enclosure",
+      "missing_evidence_for_overclaim": [
+        "Continuous fence enclosure composition (R-MED-01)",
+        "Anim stagger serialized in scene_manifest (R-LOW-05)",
+        "World Commit durability claims (out of WO scope)",
+        "Fresh headed Godot runtime recapture under permanent harness (optional; Bridge preview sufficient for density/exposure judgment)"
+      ],
+      "final_verdict": "VERIFIED",
+      "scope_drift_risk": "low — Purple did not patch product, did not expand into P2E–P6E / Control / Foundry / catalog / World Commit"
+    },
+    "blocking_issues": [],
+    "non_blocking_residuals": [
+      "R-MED-01 fence multi-cluster not continuous garden boundary",
+      "R-MED-02 WO allowlist shape process residual",
+      "R-LOW-03..06 service log / BOX colliders / anim stagger / ArtStyleManager",
+      "R-INFO-07..09 jobs dirtiness / object_count / human charm"
+    ],
+    "finding_counts": {
+      "blocking_reopen": 0,
+      "gates_fail": 0,
+      "acceptance_pass": 7,
+      "acceptance_pass_with_notes": 1,
+      "red_findings_carried": 9
+    },
+    "human_decisions_required": [
+      {
+        "id": "HD-P1E-003-ACCEPT",
+        "action": "Human Product Lead ACCEPTED (or CHANGES_REQUESTED) for WO-P1E-003 — Purple never ACCEPTs",
+        "blocks": ["work_order_ACCEPTED"]
+      },
+      {
+        "id": "HD-P1E-003-CHARM-FENCE",
+        "action": "Optional: decide whether R-MED-01 multi-cluster fence (vs continuous enclosure) is accepted residual or follow-up composition WO",
+        "blocks": []
+      }
+    ],
+    "metrics_report": {
+      "mean_luma": 155.662815,
+      "blown_pct": 0.096639,
+      "shadow_pct": 10.105642,
+      "instance_count": 43,
+      "fence_collision_bodies": 10,
+      "hash_ok": 47,
+      "hash_fail": 0,
+      "game_glb_count": 0,
+      "bridge_pytest_passed": 44,
+      "p1e003_checks": 9,
+      "p1e002_checks": 4,
+      "g8_ux_checks": 6,
+      "g8_ux002_checks": 2
+    }
+  },
+  "smoke_test": {
+    "commands": [
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e003_density_exposure_smoke.gd",
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_smoke.gd",
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux_input_collision_smoke.gd",
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+      "cd E:/AIdle_Blender_Bridge_P0 && python -m pytest tests/ -q",
+      "Pillow+numpy Rec.709 full-frame re-measure starter_realm_preview.png + evidence copy identity",
+      "artifact_hashes.json reverify + recursive game GLB count + project.godot input map spot-check"
+    ],
+    "markers": {
+      "AIDLE_P1E003_SMOKE": "PASS checks=9",
+      "AIDLE_P1E002_SMOKE": "PASS checks=4",
+      "AIDLE_G8_UX_SMOKE": "PASS checks=6",
+      "AIDLE_G8_UX002_SMOKE": "PASS checks=2",
+      "GODOT_RUNTIME_LOAD": "OK",
+      "GAME_GLB_COUNT": "0",
+      "bridge_pytest_full": "44 passed",
+      "quarantine_hash": "ok=47 fail=0",
+      "exposure_remeasure": "mean=155.663 blown=0.097 shadow=10.106 PASS",
+      "instance_count": 43,
+      "INPUT_MAP_SPOT_CHECK": "PASS"
+    },
+    "exit_codes_all_zero": true,
+    "ran_by": "P1E_003_W4_PURPLE independent re-verify"
+  },
+  "self_audit": {
+    "authority_verify_only": true,
+    "product_writes_empty": true,
+    "no_product_patch": true,
+    "no_self_accept": true,
+    "never_accepted": true,
+    "headed_visual_reviewed": true,
+    "hash_reverify_independent": true,
+    "luma_remeasure_independent": true,
+    "input_map_spot_checked": true,
+    "zero_game_glb": true,
+    "quarantine_runtime_load_ok": true,
+    "boundary_honesty_recorded": true,
+    "exclusive_writes_only": true,
+    "self_accept": false,
+    "accepted": false,
+    "durable_child_task_ref": "019f854f-eafd-7010-830f-acc8a0cd6a46",
+    "prior_wave_crosscheck": "019f854b-a4da-78c2-a94e-f0c94a4239e8",
+    "w2_crosscheck": "019f8547-6edc-7031-9abb-2dec5c05c8e4",
+    "blue_wave_crosscheck": "019f8527-ec7c-7bd2-a4a1-6dc478df99cd",
+    "parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "no_grandchildren": true,
+    "handoff": "HUMAN_PRODUCT_LEAD"
+  },
+  "evidence_refs": [
+    "orchestration/logs/p1e-003-w4-purple-001.log",
+    "orchestration/logs/_p1e003_w4_purple_p1e003_capture.txt",
+    "orchestration/logs/_p1e003_w4_purple_p1e002_capture.txt",
+    "orchestration/logs/_p1e003_w4_purple_g8ux_capture.txt",
+    "orchestration/logs/_p1e003_w4_purple_g8ux002_capture.txt",
+    "orchestration/logs/_p1e003_w4_purple_pytest_capture.txt",
+    "orchestration/evidence/p1e_w1/luma_metrics.json",
+    "orchestration/evidence/p1e_w1/starter_realm_preview_p1e003_w1.png",
+    "orchestration/receipts/p1e/P1E_003_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_003_w2_red_001.json",
+    "orchestration/receipts/p1e/P1E_003_w3_qa_001.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/starter_realm_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/scene_manifest.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-DF6B006072E1/artifact_hashes.json"
+  ],
+  "next_route": "HUMAN_PRODUCT_LEAD",
+  "completion_signal": "WAITING_HUMAN"
+}

@@ -1,0 +1,142 @@
+{
+  "schema_version": "buildings_fidelity/1.0",
+  "receipt_id": "BUILDINGS_FIDELITY_V3",
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "authority": "PATCH_DRAFT",
+  "agent": "grok",
+  "timestamp_utc": "2026-07-24T04:09:50Z",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "job": "BUILDINGS_FIDELITY_V3",
+  "primary_fix": "true_sloped_sphere_fishscale_roofs_kill_shelf_plank_signature",
+  "author_script": "orchestration/control/character_build/author_buildings_fidelity_v3.py",
+  "headed_log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_buildings_fidelity_v3.log",
+  "structural": {
+    "real_glb": 29,
+    "buildings": "10/10",
+    "props_placeholder": 21,
+    "positions": "UNCHANGED"
+  },
+  "home_bld": "CLOSED_PERMANENTLY — not touched",
+  "roof_shelf_plank_signature": {
+    "status": "RESOLVED_ON_WORKSHOP_AND_BARN",
+    "evidence": [
+      "close_workshop_bld_1280x720.png",
+      "close_barn_bld_1280x720.png"
+    ],
+    "note": "Sphere fishscales on true gable slope + ridge spheres; freecam no longer reads as flat shelf-planks"
+  },
+  "objects": [
+    {
+      "plot_id": "WORKSHOP.BLD",
+      "object_id": "cozy_workshop_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes_on_new_sig": 1,
+      "prior_roof_plank_sig": "RESOLVED",
+      "signature": "workshop_soft_clay_scales_ok_still_short_of_ssot_terracotta_detail_tools",
+      "matching_100_pct": false,
+      "capture": "close_workshop_bld_1280x720.png"
+    },
+    {
+      "plot_id": "BARN.BLD",
+      "object_id": "cozy_barn_small_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes_on_new_sig": 1,
+      "prior_roof_plank_sig": "RESOLVED",
+      "signature": "barn_scale_canopy_ok_doors_hay_still_partial_vs_ssot",
+      "matching_100_pct": false,
+      "capture": "close_barn_bld_1280x720.png"
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "object_id": "cozy_well_house_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 3,
+      "signature": "well_sphere_shingles_ok_form_still_high_partial",
+      "note": "A-frame now sphere scales; 3rd consecutive under-100% on well overall form → track for NEED_HUMAN if identical residual continues",
+      "matching_100_pct": false,
+      "capture": "close_well_bld_1280x720.png"
+    },
+    {
+      "plot_id": "MARKET.BLD",
+      "object_id": "cozy_market_stall_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 3,
+      "signature": "market_awning_ok_fruit_still_underdetailed",
+      "matching_100_pct": false
+    },
+    {
+      "plot_id": "GARDEN.BLD",
+      "object_id": "cozy_gazebo_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 3,
+      "signature": "gazebo_green_dome_ok_fishscale_density",
+      "matching_100_pct": false
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "object_id": "cozy_windmill_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 3,
+      "signature": "windmill_tier_blades_still_simplified",
+      "matching_100_pct": false
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "object_id": "cozy_bridge_arch_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 3,
+      "signature": "bridge_cobble_arch_still_soft_pile",
+      "matching_100_pct": false
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "object_id": "cozy_watchtower_A",
+      "fidelity": "HIGH_PARTIAL",
+      "strikes": 3,
+      "signature": "watchtower_form_ok_roof_detail_partial",
+      "matching_100_pct": false
+    }
+  ],
+  "matching_100_pct_count": 0,
+  "need_human_candidates": [
+    {
+      "plot_id": "MARKET.BLD",
+      "reason": "3_consecutive_high_partial_similar_sig_fruit_awning",
+      "strikes": 3
+    },
+    {
+      "plot_id": "GARDEN.BLD",
+      "reason": "3_consecutive_high_partial",
+      "strikes": 3
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "reason": "3_consecutive_high_partial",
+      "strikes": 3
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "reason": "3_consecutive_high_partial",
+      "strikes": 3
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "reason": "3_consecutive_high_partial",
+      "strikes": 3
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "reason": "3_consecutive_high_partial",
+      "strikes": 3
+    }
+  ],
+  "need_human_note": "Six buildings hit strike 3 on persistent under-100% residual families. Escalate NEED_HUMAN for Product Lead (accept residual vs more remesh) — same law as HOME.BLD. Workshop+barn roof plank sig fixed; their overall fidelity continues under new signatures (strike 1).",
+  "next": [
+    "Product Lead call on 6 buildings at strike-3 residual OR continue one more targeted pass if residual is not identical",
+    "Workshop+barn V4 optional: terracotta hue + door/hay/tool density if not NEED_HUMAN yet",
+    "21 missing props",
+    "Town-wide neatness vs TOWN_FAIRY_STREET_PLAN_V1 (reposition only)"
+  ]
+}

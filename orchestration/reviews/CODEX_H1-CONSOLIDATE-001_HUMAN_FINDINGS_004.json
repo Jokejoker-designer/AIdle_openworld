@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_H1-CONSOLIDATE-001_HUMAN_FINDINGS_004",
+  "task_id": "H1-CONSOLIDATE-001",
+  "directive_id": 77,
+  "reviewed_at": "2026-07-22T21:37:23+07:00",
+  "reviewed_by": "codex",
+  "state": "CHANGES_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "human_result": "PLAYTEST_COMPLETED_WITH_FINDINGS_AND_CORRECTION_AUTHORIZED",
+  "human_findings": [
+    {
+      "id": "H1-HUMAN-UX-01",
+      "finding": "Helper Pulse appears as a cyan square around the player instead of a readable non-blocking pulse.",
+      "required_correction": "Replace the square ColorRect presentation with a non-rectangular pulse/ring or equivalent unobtrusive affordance."
+    },
+    {
+      "id": "H1-HUMAN-UX-02",
+      "finding": "The normal mouse pointer is replaced by a square cursor/proxy during ordinary play.",
+      "required_correction": "Restore the normal OS pointer by default and keep any enhanced action label optional without a forced square proxy."
+    },
+    {
+      "id": "H1-HUMAN-BUILD-01",
+      "finding": "Small Build is not yet a natural manual placement interaction.",
+      "required_correction": "Rename it Manual Build and implement mouse-to-ground snapped hologram placement with left-click preview placement, Q/R preview-only adjustment, right-click or Escape cancel, and explicit World Commit confirmation."
+    }
+  ],
+  "machine_diagnosis": [
+    "game/scripts/ui/cozy_helper_pulse.gd currently renders the pulse with a centered 120x120 ColorRect.",
+    "game/scripts/ui/control_1b_cursor_label.gd creates a square cursor/proxy, and game/scripts/main/main.gd can force it visible outside Build context.",
+    "The current Small Build action places the highlighted module without a true screen-to-ground mouse ray placement path."
+  ],
+  "deferred_not_authorized": [
+    "P2E-002 AI Build Zone drag-selection and text-to-build intake",
+    "UCBV-001 unified detailed Character and Block visual foundation"
+  ],
+  "next_route": "H1 human UX and Manual Build correction, followed by independent Codex validation and Human retest",
+  "human_gate_open": false
+}

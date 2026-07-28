@@ -1,0 +1,615 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "H1-CONSOLIDATE-001-c2-purple-manual-build-005-2026-07-22T155520Z",
+  "step_id": "H1-CONSOLIDATE-001-c2-purple-manual-build-005",
+  "work_order_id": "WO-H1-CONSOLIDATE-001-MANUAL-BUILD-CORRECTION-004",
+  "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-MANUAL-BUILD-CORRECTION-004.md",
+  "work_order_sha256": "80512fa37bb6c9b2247d5658a71e50c95c4c4bd5e30990c87df606b459d60a86",
+  "directive_id": 79,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "846dd7ba404e00fc6b321ff5733a27df5a9393fa824532ae42560dfa35ada84a",
+  "directive_state": "IN_PROGRESS",
+  "directive_verdict": "CHANGES_REQUESTED_ZERO_ERROR_REGRESSION_SCHEMA_AND_LEASE",
+  "supersedes_directive_id": 78,
+  "permitted_task_ids": ["H1-CONSOLIDATE-001"],
+  "review": "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_MANUAL_BUILD_REVIEW_005.json",
+  "review_sha256": "a6f450f7ffaf1d141094a7898389492a857299e70c62455a2a3c3d1da5bad3f4",
+  "milestone": "H1 Manual Build strict regression and provenance correction — C2 Purple non-accepting gate",
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "profile_name": "aidle-worldgen-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_sha256": "9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger,adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches; never ACCEPTED; verdicts VERIFIED|CHANGES_REQUESTED|NEED_HUMAN.",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "C2 Purple independent non-accepting gate only; exclusive log+receipt only; product_writes=[]; evidence 005 spot-check no rewrite; never patch; never ACCEPTED; no grandchildren; preserve evidence 001-004 + correction_003/** immutable; UCBV-001/P2E-002 unauthorized",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:9c76480dffd8835352487ca6ccc6e063e2d02b1270a0a95de0410aa7fbd79239",
+  "input_context_hash_16": "9c76480dffd88353",
+  "input_context_hash_method": "sha256 of concatenated hex digests (UTF-8): WO-H1-CONSOLIDATE-001-MANUAL-BUILD-CORRECTION-004.md + codex_directive.json + aidle-worldgen-purple-acceptance.md + CODEX_H1-CONSOLIDATE-001_MANUAL_BUILD_REVIEW_005.json + C0_manual_build_fix_005.json + C1_qa_manual_build_005.json + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "REVIEW_REQUESTED",
+  "purple_verdict": "VERIFIED",
+  "child_task_ref": "019f8a88-06a2-7cb2-96e8-987ea1af555c",
+  "transcript_ref": "019f8a88-06a2-7cb2-96e8-987ea1af555c",
+  "writer_transcript_ref": "019f8a88-06a2-7cb2-96e8-987ea1af555c",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_c0": "019f8a7b-ee32-7b31-960b-2f634530e6f9",
+  "prior_c0_receipt": "orchestration/receipts/h1_consolidate_001/correction_004/C0_manual_build_fix_005.json",
+  "prior_c0_sha256": "ef942b83d8e2fd7afcc6bc7875915a6ca85307f1d6f56d399dd8cb487d885c3f",
+  "prior_c1": "019f8a82-a121-74a0-bcdd-00624873887d",
+  "prior_c1_receipt": "orchestration/receipts/h1_consolidate_001/correction_004/C1_qa_manual_build_005.json",
+  "prior_c1_sha256": "0abd4f107686c9a34d6ef3ea9be8a8717b0e6b718fe341d4e18f4eb123238122",
+  "child_refs_for_parent": {
+    "C0_product": "019f8a7b-ee32-7b31-960b-2f634530e6f9",
+    "C1_qa": "019f8a82-a121-74a0-bcdd-00624873887d",
+    "C2_purple": "019f8a88-06a2-7cb2-96e8-987ea1af555c",
+    "parent": "019f7ffd-3995-71c0-aca1-51078e24a852"
+  },
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8a88-06a2-7cb2-96e8-987ea1af555c/meta.json",
+  "durable_meta_sha256_at_start": "63d780d0331a5d8f80dd881f8ce5991e1f08f5884776bd8cfa6f46d04ff9ed80",
+  "started_at": "2026-07-22T15:53:18.248141300Z",
+  "completed_at_utc": "2026-07-22T15:55:20Z",
+  "timestamp_note": "Worker artifact time only. Codex binds durable parent-owned meta completion timestamps. Receipt timing is never canonical session completion evidence.",
+  "next_owner": "PARENT_CODEX",
+  "next_route": "WAITING_CODEX",
+  "human_gate_open": false,
+  "human_result": "NOT_RUN_AFTER_CORRECTION",
+  "human_pass_inferred": false,
+  "human_retest_required": true,
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_eof",
+    "role": "C2 VERIFY_ONLY purple independent non-accepting gate for Manual Build correction_004; never patch; never self-accept; machine-clean package routes REVIEW_REQUESTED/WAITING_CODEX never ACCEPTED"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, purple profile, TrustLayer/UI cards, WO MANUAL-BUILD-CORRECTION-004, Directive 79, MANUAL_BUILD_REVIEW_005, C0+C1 receipts, skills ALWAYS full EOF + adversarial-review + evidence-memory-ledger full EOF manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "read_mode": "full_file_size_hash_verify",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "bytes": 8484,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "bytes": 1766,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/h1_consolidate_001/correction_004/C2_purple_manual_build_005.log",
+    "E:/AIdle_openworld/orchestration/receipts/h1_consolidate_001/correction_004/C2_purple_manual_build_005.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [],
+  "orch_writes": [
+    {
+      "path": "orchestration/receipts/h1_consolidate_001/correction_004/C2_purple_manual_build_005.json",
+      "role": "this_receipt"
+    },
+    {
+      "path": "orchestration/logs/h1_consolidate_001/correction_004/C2_purple_manual_build_005.log",
+      "role": "primary_gate_log"
+    }
+  ],
+  "lease_respected": true,
+  "out_of_lease_writes": [],
+  "forbidden_paths_not_written": [
+    "game/**",
+    "world_DNA/**",
+    "Scene/**",
+    "orchestration/evidence/h1_consolidate_001/001/**",
+    "orchestration/evidence/h1_consolidate_001/002/**",
+    "orchestration/evidence/h1_consolidate_001/003/**",
+    "orchestration/evidence/h1_consolidate_001/004/**",
+    "orchestration/evidence/h1_consolidate_001/005/**",
+    "orchestration/receipts/h1_consolidate_001/correction_003/**",
+    "orchestration/logs/h1_consolidate_001/correction_003/**",
+    "orchestration/receipts/h1_consolidate_001/correction_004/C0_manual_build_fix_005.json",
+    "orchestration/receipts/h1_consolidate_001/correction_004/C1_qa_manual_build_005.json"
+  ],
+  "preserve_immutable": [
+    "orchestration/evidence/h1_consolidate_001/001/**",
+    "orchestration/evidence/h1_consolidate_001/002/**",
+    "orchestration/evidence/h1_consolidate_001/003/**",
+    "orchestration/evidence/h1_consolidate_001/004/**",
+    "orchestration/receipts/h1_consolidate_001/correction_003/**",
+    "orchestration/logs/h1_consolidate_001/correction_003/**"
+  ],
+  "immutable_spot_hashes": {
+    "orchestration/evidence/h1_consolidate_001/004/evidence_manifest.json": "e0fc9b9eaba53f35510b729d3995317270cd2f9b1dc852d301772df962b46729",
+    "orchestration/receipts/h1_consolidate_001/correction_003/W0_control_manual_build_004.json": "3226860d6c931599d2da26dd8f51570e02831f7711f1cef495c78e1868010796",
+    "orchestration/receipts/h1_consolidate_001/correction_003/W2_qa_manual_build_004.json": "acfc676ede1d12800b4690037d93aa40a4523c63057ff6928523905cebe40d22",
+    "orchestration/receipts/h1_consolidate_001/correction_003/W3_purple_manual_build_004.json": "4c5143acbb563fdedec88d8e88c8546c4cd2f7d1a9f170f8dc60672faa9cf719",
+    "orchestration/evidence/h1_consolidate_001/005/evidence_manifest.json": "cb6d74bf41bd33617931008f1eb98740bbaf650aa354f6fa764f288b33ebedf6",
+    "orchestration/evidence/h1_consolidate_001/005/smoke_summary.json": "bf064053a87b1e6e9780ff054e7aa49a3da102ded398a642460acc7cf32b01bf"
+  },
+  "product_hash_verify_c0_unchanged": [
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_hud.gd",
+      "sha256": "c07fe741d6c04746a111e1a5ea62633630d0cde17b0f56f6c07e1bf6c0057c5b",
+      "matches_c0": true
+    },
+    {
+      "path": "game/scenes/ui/playable_action_bar.tscn",
+      "sha256": "90246f9b5ae69faaf2ba815ac05e17719c2e4959aebe854f3dfc54fb404f059a",
+      "matches_c0": true
+    },
+    {
+      "path": "game/tests/h1_consolidation_chrome_smoke.gd",
+      "sha256": "81c37150a9bb57f72ca5eb14a61bca308333d903626d5e87b59a8709de98c5b6",
+      "matches_c0": true
+    },
+    {
+      "path": "game/tests/h1_consolidation_flow_smoke.gd",
+      "sha256": "e78a27ed2602815e59090ff3de0feaaf4dac4c8f1bba0ea203ea12838fa730d9",
+      "matches_c0": true
+    },
+    {
+      "path": "game/scripts/ui/control_1b_cursor_label.gd",
+      "sha256": "36d52b44f41dab62f6fa6074783e0cc1f5e554f6a0e46c3af20fad0d5cd174b2",
+      "matches_c0": true
+    },
+    {
+      "path": "game/autoload/control_accessibility_settings.gd",
+      "sha256": "cb5c384a2f816571eeaaf4697e27375c38620525eafb8d53b9514368244e01b4",
+      "matches_c0": true
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+      "sha256": "d8a6cc9f40f529bee992675cea9d2c53afb0539bb14a9b133cc08c06dd29628d",
+      "matches_c0": true
+    },
+    {
+      "path": "game/tests/h1_human_ux_manual_build_smoke.gd",
+      "sha256": "1fafbfe54d876550156907c2fe60398071a59cc621d74a8a0c5433b1388b6d93",
+      "matches_c0": true
+    }
+  ],
+  "result": {
+    "purple_verdict": "VERIFIED",
+    "verdict": "REVIEW_REQUESTED",
+    "status": "REVIEW_REQUESTED",
+    "accepted": false,
+    "self_accept": false,
+    "never_accepted": true,
+    "human_pass": false,
+    "human_retest_required": true,
+    "zero_error_including_teardown": true,
+    "error_line_count": 0,
+    "headed_functional_pass": true,
+    "headed_pass_strict": true,
+    "primary_manual_build_smoke": true,
+    "smoke_all_pass_strict": true,
+    "machine_package_clean": true,
+    "hitl_required": false,
+    "ucbv001_authorized": false,
+    "p2e002_authorized": false,
+    "summary": "C2 Purple VERIFY_ONLY independent gate under Directive 79 after C0 (PATCH_DRAFT product/test) and C1 (VERIFY_ONLY QA evidence 005). Machine package is clean: H1-CODEX-MB-F01/F02/F06 closed by C0 and retested green by C1; headed godot_headed.log ERROR/USER ERROR/SCRIPT ERROR count=0 including teardown; 22 distinct dual-res PNGs (11 states × 2); 17/17 strict regressions green with zero ERROR lines unfiltered; C0 exact two-file orch lease honesty confirmed; C0+C1 receipts schema-valid with non-empty smoke_test+self_audit. Historical residuals F03 (W2 missing smoke_test/self_audit) and F04 (W0 aux logs) remain preserved immutable under correction_003 — not blockers for this correction wave machine gate. F05 remains process note (worker artifact times only). Purple routes REVIEW_REQUESTED / WAITING_CODEX. purple_verdict=VERIFIED means machine gate clean for Codex review only — never ACCEPTED; no Human PASS inference. UCBV-001 and P2E-002 remain unauthorized. product_writes=[]; lease_respected=true.",
+    "gates_reconciled": {
+      "dual_resolution_1280x720_868x517": true,
+      "normal_os_pointer_ordinary_play": true,
+      "helper_pulse_non_square_ring": true,
+      "manual_build_label_runtime_and_tscn": true,
+      "tscn_residual_small_build_closed": true,
+      "intentional_lmb_before_can_confirm": true,
+      "place_at_cursor_fail_closed_outside_build": true,
+      "force_custom_cursor_wired_os_pointer_default": true,
+      "distinct_cursor_snapped_preview": true,
+      "invalid_surface_feedback": true,
+      "qr_separation_build_preview_vs_camera": true,
+      "single_cancel_esc": true,
+      "confirm_through_world_commit": true,
+      "save_reload_undo_available": true,
+      "zero_error_including_teardown": true,
+      "primary_h1_human_ux_manual_build_smoke": true,
+      "headed_functional_matrix": true,
+      "headed_pass_strict_zero_error": true,
+      "p2e_play_compile_clean": true,
+      "h1_chrome_flow_green": true,
+      "c0_exact_two_file_orch_lease": true,
+      "c1_schema_smoke_test_self_audit": true,
+      "c0_schema_smoke_test_self_audit": true
+    },
+    "findings_adjudication": [
+      {
+        "id": "H1-CODEX-MB-F01",
+        "severity": "high",
+        "status": "closed_by_c0_retested_c1",
+        "summary": "HUD cursor_valid/cursor_hit_present explicitly typed bool; product sha matches C0; headed zero ERROR; P2E_PLAY PASS checks=5."
+      },
+      {
+        "id": "H1-CODEX-MB-F02",
+        "severity": "medium",
+        "status": "closed_by_c0_retested_c1",
+        "summary": "playable_action_bar.tscn text=Manual Build; chrome/flow smokes assert Manual Build and reject Small Build residual; H1_FLOW and H1_CHROME PASS."
+      },
+      {
+        "id": "H1-CODEX-MB-F03",
+        "severity": "high",
+        "status": "historical_immutable_not_rewritten",
+        "summary": "W2 correction_003 receipt still missing smoke_test and self_audit; preserved as rejected evidence; C1 of this wave is schema-valid — F03 is not a live machine blocker for D79 package."
+      },
+      {
+        "id": "H1-CODEX-MB-F04",
+        "severity": "high",
+        "status": "historical_immutable_not_deleted",
+        "summary": "W0 correction_003 auxiliary logs/json remain on disk under logs/correction_003/; C0 of this wave used exact two orch files only (receipt+log) with out_of_lease_writes=[]. Historical F04 does not re-open under C0 honesty."
+      },
+      {
+        "id": "H1-CODEX-MB-F05",
+        "severity": "medium",
+        "status": "process_note_carried",
+        "summary": "Worker receipt completion timestamps remain artifact times only; Codex binds durable parent-owned meta. Not a product blocker."
+      },
+      {
+        "id": "H1-CODEX-MB-F06",
+        "severity": "low",
+        "status": "closed_by_c0_retested_c1",
+        "summary": "intentional LMB/_intentional_place_done before can_confirm; place_at_cursor fails closed outside Build; force_custom_cursor wired optional non-square a11y with OS pointer default; primary Manual Build smoke PASS checks=13."
+      }
+    ],
+    "blocking_residuals": [],
+    "residual_register": [
+      {
+        "id": "C2-RES-HIST-F03",
+        "severity": "info",
+        "status": "historical_preserved",
+        "title": "W2 correction_003 schema-invalid receipt immutable",
+        "finding": "Original W2 receipt lacks required smoke_test and self_audit. Must not be rewritten. Superseded for machine proof by C1_qa_manual_build_005.json which is schema-valid.",
+        "blocks_purple_verified": false,
+        "blocks_machine_review_requested": false,
+        "owner": "codex_provenance_ledger"
+      },
+      {
+        "id": "C2-RES-HIST-F04",
+        "severity": "info",
+        "status": "historical_preserved",
+        "title": "W0 correction_003 out-of-lease auxiliary artifacts immutable",
+        "finding": "Eight+ aux log/json files remain under orchestration/logs/h1_consolidate_001/correction_003/. Not deleted. C0 D79 lease honesty independent and PASS.",
+        "blocks_purple_verified": false,
+        "blocks_machine_review_requested": false,
+        "owner": "codex_provenance_ledger"
+      },
+      {
+        "id": "C2-RES-F05-TIMESTAMPS",
+        "severity": "info",
+        "status": "process_note",
+        "title": "Worker artifact timestamps non-canonical",
+        "finding": "All C0/C1/C2 completed_at_utc values are worker artifact times; durable meta completion is Codex-bound.",
+        "blocks_purple_verified": false,
+        "owner": "codex"
+      },
+      {
+        "id": "C2-RES-HUMAN-RETEST",
+        "severity": "medium",
+        "status": "open_required_after_codex_machine",
+        "title": "Human Product Lead focused retest not run",
+        "finding": "Even clean machine correction does not infer Human PASS. human_gate_open remains false until Codex machine review then Human focused retest.",
+        "blocks_human_pass": true,
+        "blocks_accepted": true,
+        "blocks_purple_verified": false,
+        "owner": "human_product_lead_after_codex"
+      },
+      {
+        "id": "C2-RES-UCBV-P2E002-UNAUTHORIZED",
+        "severity": "info",
+        "status": "hard_stop_queue",
+        "title": "UCBV-001 and P2E-002 remain unauthorized",
+        "finding": "Directive 79 queued_not_authorized lists both. No dispatch. UCBV-001 is Human-directed first priority after H1 closes; P2E-002 follows UCBV-001.",
+        "blocks_dispatch": true,
+        "owner": "parent_coordinator"
+      },
+      {
+        "id": "C2-RES-RED-F01-NETWORK",
+        "severity": "info",
+        "status": "hard_stop_carried",
+        "title": "Red F01 network/shipping hard stop",
+        "finding": "No install, credential, live provider, Godot version change, push, deploy, or publish under this gate.",
+        "blocks_shipping": true,
+        "owner": "all_agents"
+      },
+      {
+        "id": "C2-RES-C0-LOG-INTERMEDIATE",
+        "severity": "low",
+        "status": "documented_non_blocking",
+        "title": "C0 leased log contains intermediate FAIL then re-run PASS",
+        "finding": "C0_manual_build_fix_005.log records initial AIDLE_H1_HUMAN_UX_MANUAL_BUILD_SMOKE=FAIL failed=1 (place_at_cursor gate tighten) plus PowerShell-captured Camera-not-inside-scene ERROR strings during iteration, then full suite re-run all PASS. Final C1 evidence suite is zero-error. No filtering of those intermediate lines; honesty preserved.",
+        "blocks_purple_verified": false,
+        "owner": "provenance_note"
+      }
+    ],
+    "wave_chain_reconcile": {
+      "C0": {
+        "ref": "019f8a7b-ee32-7b31-960b-2f634530e6f9",
+        "authority": "PATCH_DRAFT",
+        "verdict": "C0_MANUAL_BUILD_FIX_PATCHED_NO_ACCEPT",
+        "accepted": false,
+        "product_writer": true,
+        "product_writes_count": 8,
+        "orch_writes_count": 2,
+        "lease_respected": true,
+        "out_of_lease_writes": [],
+        "finding_ids_claimed_closed": ["H1-CODEX-MB-F01", "H1-CODEX-MB-F02", "H1-CODEX-MB-F06"],
+        "schema_smoke_test_self_audit": true
+      },
+      "C1": {
+        "ref": "019f8a82-a121-74a0-bcdd-00624873887d",
+        "authority": "VERIFY_ONLY",
+        "verdict": "C1_QA_ALL_GREEN_ZERO_ERROR_ROUTE_C2_NO_ACCEPT",
+        "accepted": false,
+        "product_writes": [],
+        "headed_pass": true,
+        "zero_error": true,
+        "error_line_count": 0,
+        "png_count": 22,
+        "png_unique_sha": 22,
+        "all_smokes_strict": true,
+        "schema_smoke_test_self_audit": true
+      },
+      "C2": {
+        "ref": "019f8a88-06a2-7cb2-96e8-987ea1af555c",
+        "authority": "VERIFY_ONLY",
+        "verdict": "REVIEW_REQUESTED",
+        "purple_verdict": "VERIFIED",
+        "accepted": false,
+        "product_writes": [],
+        "evidence_rewritten": false,
+        "completion_signal": "WAITING_CODEX"
+      }
+    },
+    "adversarial_review": {
+      "review_id": "H1-CONSOLIDATE-001-C2-ADV-001",
+      "reviewer_role": "purple-team-release-gate",
+      "intent_anchor": {
+        "user_goal": "Independent Purple non-accepting gate of H1 Manual Build correction_004 C0+C1 package; honest residual adjudication; route Codex only",
+        "current_priority": "Adjudicate F01–F06; verify C0 lease honesty + C1 zero-error strict suite; recommend REVIEW_REQUESTED or CHANGES_REQUESTED; never ACCEPTED",
+        "allowed_scope": [
+          "orchestration/receipts/h1_consolidate_001/correction_004/C2_purple_manual_build_005.json",
+          "orchestration/logs/h1_consolidate_001/correction_004/C2_purple_manual_build_005.log",
+          "read-only spot-check of C0/C1 receipts and evidence 005"
+        ],
+        "forbidden_scope": [
+          "product/test patch",
+          "rewrite evidence 001-005",
+          "rewrite correction_003",
+          "self-accept / ACCEPTED",
+          "dispatch UCBV-001 or P2E-002",
+          "infer Human PASS"
+        ]
+      },
+      "claim_under_review": "C0 closed F01/F02/F06 within exact lease; C1 produced zero-error dual-res evidence 005 and strict green regressions; machine package is clean for Codex REVIEW_REQUESTED.",
+      "what_i_accept": [
+        "Independent product SHA recompute matches all 8 C0 product_writes",
+        "C0 orch lease is exactly 2 files under correction_004 (receipt+log); no aux logs for C0",
+        "C1 receipt has non-empty smoke_test and self_audit; product_writes=[]",
+        "godot_headed.log has 0 ERROR/USER ERROR/SCRIPT ERROR lines (unfiltered scan)",
+        "22 PNGs distinct SHA; 11 states × 2 resolutions; gates_ok including intentional LMB and Manual Build label",
+        "17 smoke suite all PASS with error_lines=0 per C1 smoke_summary",
+        "W2 still schema-invalid and still present (F03 historical honesty)",
+        "W0 aux artifacts still present under correction_003 (F04 historical honesty)"
+      ],
+      "what_i_challenge": [
+        "Whether intermediate C0 log ERROR strings could be misread as residual zero-error failure — rejected: C1 suite is the acceptance evidence surface for zero-error; C0 log documents iterative fix honesty",
+        "Whether historical F03/F04 should force CHANGES_REQUESTED on D79 — rejected: WO and review explicitly preserve them as non-rewritable; D79 required C0/C1 fresh honest artifacts which exist"
+      ],
+      "strongest_counter_argument": "A pedantic reading of F03/F04 as still open high-severity could force CHANGES_REQUESTED forever. Counter: they are provenance-history of prior wave correction_003; D79 acceptance surface is C0+C1 under correction_004, which is machine-clean.",
+      "missing_evidence": [
+        "Human focused retest after Codex machine gate (explicitly out of Purple scope; human_gate_open=false)"
+      ],
+      "scope_drift_risk": "low",
+      "final_verdict": "ACCEPT_CLAIM_FOR_CODEX_ROUTE_ONLY",
+      "self_audit": {
+        "preserved_user_intent": true,
+        "did_not_invent_objection": true,
+        "evidence_based": true,
+        "no_scope_hijack": true
+      }
+    }
+  },
+  "smoke_test": {
+    "required": true,
+    "authority": "VERIFY_ONLY_SPOT_CHECK_NO_RERUN",
+    "note": "Purple does not re-execute Godot suite. Spot-check of C1 evidence artifacts and markers only.",
+    "all_green": true,
+    "primary": {
+      "id": "H1_MANUAL_BUILD",
+      "result": "PASS",
+      "checks": 13,
+      "marker": "AIDLE_H1_HUMAN_UX_MANUAL_BUILD_SMOKE=PASS checks=13",
+      "log": "orchestration/evidence/h1_consolidate_001/005/smokes/H1_MANUAL_BUILD.log",
+      "error_lines_spot_check": 0
+    },
+    "headed": {
+      "marker": "AIDLE_H1C_C1_HEADED=PASS checks=27 captures=22 gates=24",
+      "headed_pass": true,
+      "error_line_count_spot_check": 0,
+      "pngs": 22,
+      "png_unique_sha_spot_check": 22,
+      "godot_headed_log": "orchestration/evidence/h1_consolidate_001/005/godot_headed.log",
+      "manifest": "orchestration/evidence/h1_consolidate_001/005/evidence_manifest.json"
+    },
+    "regressions_spot_check": [
+      {"id": "H1_FLOW", "result": "PASS", "marker": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13"},
+      {"id": "H1_CHROME", "result": "PASS", "marker": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS checks=6"},
+      {"id": "ERROR_FREE", "result": "PASS", "marker": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6"},
+      {"id": "P2E_PLAY", "result": "PASS", "marker": "AIDLE_P2E001_PLAYABLE_SELECT_SMOKE=PASS checks=5"},
+      {"id": "P2E_CORE", "result": "PASS", "marker": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14"},
+      {"id": "P2E_AUTH", "result": "PASS", "marker": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8"},
+      {"id": "P2E_QR", "result": "PASS", "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8"},
+      {"id": "P2E_CORR", "result": "PASS", "marker": "AIDLE_P2E001_CORRECTION_SMOKE=PASS checks=4"},
+      {"id": "P2E_PIN", "result": "PASS", "marker": "AIDLE_P2E001_PLAYER_INPUT_SMOKE=PASS checks=5"},
+      {"id": "CTRL_ROUTER", "result": "PASS", "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16"},
+      {"id": "CTRL_A11Y", "result": "PASS", "marker": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS checks=11"},
+      {"id": "G3_E2E", "result": "PASS", "marker": "G3_E2E_SMOKE=PASS checks=76"},
+      {"id": "G4_PERSIST", "result": "PASS", "marker": "G4_PERSIST_SMOKE=PASS checks=22"},
+      {"id": "BLOCK_DNA", "result": "PASS", "marker": "valid 14/14 invalid 42/42"},
+      {"id": "CONTROL_1B_FIXTURES", "result": "PASS", "marker": "HARNESS_RESULT=PASS"},
+      {"id": "LOOKUP", "result": "PASS", "marker": "AIDLE_H1_RUNTIME_AUTOLOAD_LOOKUP_SMOKE=PASS checks=6"}
+    ],
+    "summary_path": "orchestration/evidence/h1_consolidate_001/005/smoke_summary.json",
+    "overall_pass_strict": true,
+    "zero_error_lines_across_smokes": true,
+    "c0_lease_honesty": {
+      "orch_files_only": [
+        "orchestration/receipts/h1_consolidate_001/correction_004/C0_manual_build_fix_005.json",
+        "orchestration/logs/h1_consolidate_001/correction_004/C0_manual_build_fix_005.log"
+      ],
+      "out_of_lease_writes_empty": true,
+      "schema_smoke_test_self_audit": true
+    },
+    "c1_schema": {
+      "required_fields_present": true,
+      "smoke_test_non_empty": true,
+      "self_audit_non_empty": true,
+      "accepted_false": true,
+      "self_accept_false": true
+    }
+  },
+  "self_audit": {
+    "lease_only_writes": true,
+    "product_writes_count": 0,
+    "product_patches": false,
+    "evidence_rewrites": false,
+    "out_of_lease_writes_empty": true,
+    "orch_writes_count": 2,
+    "self_accept": false,
+    "accepted": false,
+    "never_accepted": true,
+    "human_pass_inferred": false,
+    "canonical_completion_time_claim": false,
+    "p2e002_dispatched": false,
+    "ucbv001_dispatched": false,
+    "grandchildren_spawned": false,
+    "smoke_test_present_non_empty": true,
+    "self_audit_present_non_empty": true,
+    "schema_required_fields": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "zero_error_reported_unfiltered": true,
+    "c0_product_hashes_independently_verified": true,
+    "immutable_001_004_and_correction_003_untouched": true,
+    "w2_receipt_not_rewritten": true,
+    "evidence_005_not_rewritten": true,
+    "adversarial_review_performed": true,
+    "residuals": [
+      "C2-RES-HIST-F03",
+      "C2-RES-HIST-F04",
+      "C2-RES-F05-TIMESTAMPS",
+      "C2-RES-HUMAN-RETEST",
+      "C2-RES-UCBV-P2E002-UNAUTHORIZED",
+      "C2-RES-RED-F01-NETWORK",
+      "C2-RES-C0-LOG-INTERMEDIATE"
+    ],
+    "blocking_residuals": [],
+    "blocked_actions_not_taken": [
+      "product/test patch",
+      "self-accept",
+      "ACCEPTED claim",
+      "infer Human PASS",
+      "dispatch P2E-002",
+      "dispatch UCBV-001",
+      "rewrite evidence 001-005",
+      "rewrite correction_003 receipts/logs",
+      "rewrite invalid W2 receipt",
+      "delete W0 aux logs",
+      "network/live provider/credentials",
+      "install/Godot version change",
+      "push/deploy/publish",
+      "grandchildren"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/receipts/h1_consolidate_001/correction_004/C0_manual_build_fix_005.json",
+    "orchestration/receipts/h1_consolidate_001/correction_004/C1_qa_manual_build_005.json",
+    "orchestration/logs/h1_consolidate_001/correction_004/C0_manual_build_fix_005.log",
+    "orchestration/logs/h1_consolidate_001/correction_004/C1_qa_manual_build_005.log",
+    "orchestration/evidence/h1_consolidate_001/005/evidence_manifest.json",
+    "orchestration/evidence/h1_consolidate_001/005/smoke_summary.json",
+    "orchestration/evidence/h1_consolidate_001/005/godot_headed.log",
+    "orchestration/evidence/h1_consolidate_001/005/visual_claim_meta.json",
+    "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_MANUAL_BUILD_REVIEW_005.json",
+    "orchestration/work_orders/WO-H1-CONSOLIDATE-001-MANUAL-BUILD-CORRECTION-004.md",
+    "orchestration/control/codex_directive.json",
+    "orchestration/logs/h1_consolidate_001/correction_004/C2_purple_manual_build_005.log",
+    "orchestration/receipts/h1_consolidate_001/correction_004/C2_purple_manual_build_005.json"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "aidle://town_build_10phase/agent_handoff",
+  "title": "Town phase agent handoff",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "from_agent",
+    "to_agent",
+    "phase_id",
+    "payload_paths",
+    "authority"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "town_handoff/1.0"
+    },
+    "from_agent": {
+      "type": "string"
+    },
+    "to_agent": {
+      "type": "string"
+    },
+    "phase_id": {
+      "type": "string"
+    },
+    "payload_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authority": {
+      "enum": [
+        "READ_ONLY_AUDIT",
+        "PATCH_DRAFT",
+        "VERIFY_ONLY",
+        "REPORT_ONLY",
+        "HUMAN_APPROVAL_REQUIRED"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

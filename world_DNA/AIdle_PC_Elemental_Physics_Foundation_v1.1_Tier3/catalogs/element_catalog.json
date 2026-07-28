@@ -1,0 +1,385 @@
+{
+  "catalog_version": "1.0",
+  "elements": [
+    {
+      "element_id": "element_earth",
+      "name": "EARTH",
+      "class": "MATTER",
+      "traits": [
+        "supports_growth",
+        "erodible"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_soil",
+      "name": "SOIL",
+      "class": "MATTER",
+      "traits": [
+        "supports_growth",
+        "absorbs_water"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_stone",
+      "name": "STONE",
+      "class": "MATTER",
+      "traits": [
+        "structural",
+        "heat_storage"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_sand",
+      "name": "SAND",
+      "class": "MATTER",
+      "traits": [
+        "granular",
+        "erodible"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_clay",
+      "name": "CLAY",
+      "class": "MATTER",
+      "traits": [
+        "moldable",
+        "water_sensitive"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_wood",
+      "name": "WOOD",
+      "class": "MATTER",
+      "traits": [
+        "structural",
+        "flammable",
+        "organic"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_metal",
+      "name": "METAL",
+      "class": "MATTER",
+      "traits": [
+        "structural",
+        "conductive",
+        "corrodible"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_glass",
+      "name": "GLASS",
+      "class": "MATTER",
+      "traits": [
+        "transparent",
+        "brittle"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_crystal",
+      "name": "CRYSTAL",
+      "class": "MATTER",
+      "traits": [
+        "brittle",
+        "energy_storage",
+        "emissive"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_water",
+      "name": "WATER",
+      "class": "MATTER",
+      "traits": [
+        "fluid",
+        "thermal_carrier",
+        "growth_resource"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_ice",
+      "name": "ICE",
+      "class": "MATTER",
+      "traits": [
+        "solid",
+        "slippery",
+        "melting"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_steam",
+      "name": "STEAM",
+      "class": "MATTER",
+      "traits": [
+        "gas",
+        "pressure_carrier",
+        "thermal_carrier"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_air",
+      "name": "AIR",
+      "class": "MATTER",
+      "traits": [
+        "gas",
+        "pressure_medium"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_fire",
+      "name": "FIRE",
+      "class": "ENERGY_STATE",
+      "traits": [
+        "heat_source",
+        "consumes_fuel"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_plant",
+      "name": "PLANT",
+      "class": "BIOLOGICAL",
+      "traits": [
+        "growing",
+        "water_dependent",
+        "light_dependent"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_coral",
+      "name": "CORAL",
+      "class": "BIOLOGICAL",
+      "traits": [
+        "growing",
+        "water_dependent",
+        "pollution_sensitive"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_cloud",
+      "name": "CLOUD",
+      "class": "MATTER",
+      "traits": [
+        "fluid_visual",
+        "water_storage"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_ash",
+      "name": "ASH",
+      "class": "MATTER",
+      "traits": [
+        "lightweight",
+        "soil_modifier"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_mud",
+      "name": "MUD",
+      "class": "MATTER",
+      "traits": [
+        "viscous",
+        "slows_motion"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_oil",
+      "name": "OIL",
+      "class": "MATTER",
+      "traits": [
+        "fluid",
+        "flammable",
+        "polluting"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_heat",
+      "name": "HEAT",
+      "class": "ENERGY",
+      "traits": [
+        "raises_temperature"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_cold",
+      "name": "COLD",
+      "class": "ENERGY",
+      "traits": [
+        "lowers_temperature"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_electricity",
+      "name": "ELECTRICITY",
+      "class": "ENERGY",
+      "traits": [
+        "networked",
+        "conductive"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_light",
+      "name": "LIGHT",
+      "class": "ENERGY",
+      "traits": [
+        "illumination",
+        "growth_input"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_wind",
+      "name": "WIND",
+      "class": "FORCE",
+      "traits": [
+        "directional",
+        "kinetic_source"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_pressure",
+      "name": "PRESSURE",
+      "class": "FORCE",
+      "traits": [
+        "fluid_force",
+        "structural_load"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_gravity",
+      "name": "GRAVITY",
+      "class": "FORCE",
+      "traits": [
+        "directional",
+        "world_rule"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_kinetic",
+      "name": "KINETIC",
+      "class": "ENERGY",
+      "traits": [
+        "motion_energy"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_solar",
+      "name": "SOLAR",
+      "class": "ENERGY",
+      "traits": [
+        "renewable",
+        "light_source"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_sound",
+      "name": "SOUND",
+      "class": "ENERGY",
+      "traits": [
+        "wave",
+        "signal"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_arcane",
+      "name": "ARCANE",
+      "class": "ENERGY",
+      "traits": [
+        "networked",
+        "world_specific"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_spirit",
+      "name": "SPIRIT",
+      "class": "ENERGY",
+      "traits": [
+        "restorative",
+        "world_specific"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_bioluminescence",
+      "name": "BIOLUMINESCENCE",
+      "class": "ENERGY",
+      "traits": [
+        "emissive",
+        "biological"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    },
+    {
+      "element_id": "element_void",
+      "name": "VOID",
+      "class": "WORLD_RULE",
+      "traits": [
+        "anomaly",
+        "space_modifier"
+      ],
+      "runtime_representation": "SCALAR_OR_STATE",
+      "ai_authority": "CONFIGURE_ONLY"
+    }
+  ]
+}

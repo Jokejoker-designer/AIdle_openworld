@@ -1,0 +1,334 @@
+{
+  "agent_step_id": "G8-001-D2-asset-remediation-004-2026-07-21",
+  "agent_type": "aidle-asset",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:8303a1dbb49f2a37bf84d64091df4b22e0838c69f259b848902001f9c7341070",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8277-f857-7330-8007-932a2ac10ad8",
+  "transcript_ref": "019f8277-f857-7330-8007-932a2ac10ad8",
+  "writer_transcript_ref": "019f8277-f857-7330-8007-932a2ac10ad8",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "trace_ref": "orchestration/logs/g8-d2-asset-child.log",
+  "handoff_ref": "D3_NETWORK_PURPLE_GATE",
+  "start_time": "2026-07-21T02:18:48.299661200Z",
+  "end_time": "2026-07-21T02:20:37.2549892Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/asset.md",
+  "profile_binding_evidence": "FULL read: name=aidle-asset; trustlayer_character=blue-team-p0-remediator; ui_character=ui-color-type-specialist; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop, game-asset-core; Authority PATCH_DRAFT in profile card but WO-004 overrides this wave to VERIFY_ONLY; bind DESIGN.md warm natural base, matte Dreamy Low-Poly, restrained cyan manifestation accent, anti-purple-slop.",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/asset.md",
+    "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "E:/agents/ui-design/characters/06-ui-color-type-specialist.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+    "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004.md",
+    "E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md",
+    "E:/AIdle_openworld/DESIGN.md",
+    "E:/AIdle_openworld/design-contract.md",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D0_schema.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D1_executor.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/ui_visual_correction_003/C5_asset.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/ui_skill_correction/U1_asset.json",
+    "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+    "E:/AIdle_openworld/game/autoload/art_style_manager.gd",
+    "E:/AIdle_openworld/game/scripts/core/constants.gd",
+    "E:/AIdle_openworld/game/scripts/core/headed_visual_smoke.gd",
+    "E:/AIdle_openworld/game/resources/art_styles/cozy_cyber_pixel_2_5d.json",
+    "E:/AIdle_openworld/game/resources/art_styles/tokens/shared_2_5d_tokens.json",
+    "E:/AIdle_openworld/contracts/assets/recipes/cozy_house_small.json",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/Agents.md"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_asset.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-asset-child.log",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-asset-hash-result.txt",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-asset-recipe-smoke.log"
+  ],
+  "product_writes": [],
+  "adoption_status": "ADOPTED_WITHOUT_PATCH",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004",
+    "directive_id": 25,
+    "wave": "D2_ASSET",
+    "profile": "asset",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/asset.md",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "D2 asset VERIFY_ONLY: real child 019f8277-f857-7330-8007-932a2ac10ad8 adopted Directive 24 draft for starter_realm_builder + art style without product rewrite. DESIGN.md color/type compliance PASS (warm natural Cozy tokens, matte_tactile Dreamy Low-Poly, anti purple-slop). Cozy clean-world default + isolated surrealism saved-choice honesty proven via D1 headed evidence (product_clean_world_default=cozy_cyber_pixel; SAVED_CHOICE_RUNNER_PASS; C-A5 PASS). This-run G3_W1_ASSET_SMOKE=PASS checks=16. product_writes=[]; self_accept=false; G8 not ACCEPTED; handoff D3.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "trustlayer_character_source": "E:/agents/characters/09-blue-team-p0-remediator.md",
+      "ui_character_id": "ui-color-type-specialist",
+      "ui_character_source": "E:/agents/ui-design/characters/06-ui-color-type-specialist.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: Load COMPLIANCE.md + registry; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no inventing evidence / no exceed authority"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: registry E:\\agents\\characters\\registry.yaml; slot 09 blue-team-p0-remediator; WO-004 force VERIFY_ONLY this wave (asset is not product writer); Red finds; Blue patches only approved WOs; Purple never patches"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: hub E:\\; MASTER_PLAN + JOURNAL_LATEST; journal-entry after milestones; do not skip handoff"
+      },
+      {
+        "skill_id": "game-asset-core",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: engine-ready defaults; style anchoring; verify by blind describe+diff; escalate representation then strategy; UI/panels geometry-identical states"
+      }
+    ],
+    "character_card_evidence": {
+      "blue-team-p0-remediator": "E:/agents/characters/09-blue-team-p0-remediator.md — PATCH_DRAFT card; this WO binds VERIFY_ONLY; no invent evidence; step contract required",
+      "ui-color-type-specialist": "E:/agents/ui-design/characters/06-ui-color-type-specialist.md — tokens/contrast/type; bind DESIGN.md; avoid AI purple-slop gradients"
+    },
+    "input_context_hash": "sha256:8303a1dbb49f2a37bf84d64091df4b22e0838c69f259b848902001f9c7341070",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-SUBAGENT-WORKFLOW-REMEDIATION-004.md",
+        "E:/AIdle_openworld/DESIGN.md",
+        "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+        "E:/AIdle_openworld/game/resources/art_styles/cozy_cyber_pixel_2_5d.json",
+        "E:/AIdle_openworld/game/autoload/art_style_manager.gd"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "8303a1dbb49f2a37bf84d64091df4b22e0838c69f259b848902001f9c7341070",
+      "BYTE_LEN": 27225,
+      "result_file": "orchestration/logs/g8-d2-asset-hash-result.txt"
+    },
+    "adoption_status": "ADOPTED_WITHOUT_PATCH",
+    "adoption_rationale": "Preserved Directive 24 / U1 + C5 asset draft already implements warm landmark palette, surrealism non-void rescue, matte roughness 0.85, 9 landmark groups, cozy default tokens. Static color/type compliance 28/28 PASS and headed captures show warm natural Dreamy Low-Poly without purple-slop void. No product rewrite required under VERIFY_ONLY.",
+    "product_writes": [],
+    "writer_lease": [],
+    "writer_lease_note": "Asset is VERIFY_ONLY this correction; sole product writers remain core/executor only.",
+    "forbidden_writes_honored": [
+      "game/scripts/modules/asset/starter_realm_builder.gd",
+      "game/autoload/art_style_manager.gd",
+      "game/resources/art_styles/**",
+      "scripts/run_g8_headed_visual_c003.py",
+      "game/scripts/core/headed_visual_smoke.gd",
+      "game/scripts/modules/executor/**",
+      "game/scripts/modules/g3_ui/**"
+    ],
+    "no_children_spawned": true,
+    "no_grandchildren": true,
+    "trace_ref": "orchestration/logs/g8-d2-asset-child.log",
+    "handoff_ref": "D3_NETWORK_PURPLE_GATE",
+    "handoff_note": "Asset D2 gates recorded; concurrent peers companion/manifestation/persist; next wave D3 network Purple alone after all D2 complete.",
+    "child_task_ref": "019f8277-f857-7330-8007-932a2ac10ad8",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "start_time": "2026-07-21T02:18:48.299661200Z",
+    "end_time": "2026-07-21T02:20:37.2549892Z",
+    "gates": {
+      "design_md_color_type_compliance": "PASS",
+      "warm_natural_palette": "PASS",
+      "matte_dreamy_low_poly": "PASS",
+      "anti_purple_slop": "PASS",
+      "starter_realm_builder_landmarks": "PASS",
+      "cozy_clean_world_default": "PASS",
+      "saved_style_honesty": "PASS",
+      "headed_visual_inspect": "PASS",
+      "asset_recipe_smoke": "PASS",
+      "G3_W1_ASSET_SMOKE_checks": 16
+    },
+    "design_compliance_detail": {
+      "design_tokens_verified_in_cozy_profile": {
+        "sky": "#9ED7E5",
+        "ground": "#C9B98A",
+        "leaf": "#72A96B",
+        "ink": "#263238",
+        "cream_light": "#FFF1C7",
+        "manifestation_cyan": "#62E6FF",
+        "warm_primary": "#F7B267"
+      },
+      "material": {
+        "cozy_final_surface": "matte_tactile",
+        "shared_final_surface": "matte_tactile",
+        "no_photoreal_mix": true,
+        "builder_default_roughness": 0.85
+      },
+      "camera_shape": {
+        "free_orbit_allowed": false,
+        "shape_language": "rounded_readable",
+        "geometry_bias": "soft_low_poly"
+      },
+      "anti_patterns_honored": [
+        "no arbitrary purple gradients as world field",
+        "surrealism_canvas keeps warm ground/path/leaf for landmark readability",
+        "ArtStyleManager surrealism description: purple is accent, not a void field"
+      ],
+      "static_checks": {
+        "total": 28,
+        "pass": 28,
+        "fail": 0,
+        "marker": "STATIC_COLOR_TYPE_COMPLIANCE=PASS"
+      }
+    },
+    "starter_realm_builder_audit": {
+      "path": "game/scripts/modules/asset/starter_realm_builder.gd",
+      "landmark_names": [
+        "House",
+        "Path",
+        "FarmPlots",
+        "Trees",
+        "Fence",
+        "Pond",
+        "Stones",
+        "Lamps",
+        "Flowers"
+      ],
+      "ground_variation": true,
+      "surrealism_warm_rescue": true,
+      "palette_source": "ArtStyleManager.get_active_style() with DESIGN.md cozy token fallback for ground/sky/leaf under surrealism_canvas",
+      "product_patch_this_wave": false
+    },
+    "cozy_default_and_saved_style": {
+      "product_default_constant": "cozy_cyber_pixel (AIdleConstants.DEFAULT_ART_STYLE)",
+      "cozy_profile_mvp_default": true,
+      "evidence_manifest_product_clean_world_default": "cozy_cyber_pixel",
+      "evidence_test_setup": "ephemeral_cozy_for_capture",
+      "headed_banner_observed": "Art: Cozy Cyber-Pixel / Dreamy Low-Poly",
+      "headed_style_chip_observed": "cozy_cyber_pixel",
+      "saved_choice_path": "core-owned headed_visual_smoke: isolate seed surrealism_canvas then ephemeral Cozy persist=false; seed still surrealism",
+      "d1_core_gate_cozy_default_and_saved_style": "PASS",
+      "d1_core_C_A5": "PASS",
+      "d1_markers": [
+        "SAVED_CHOICE_RUNNER_PASS",
+        "CANONICAL_RUNNER=PASS"
+      ],
+      "honesty_note": "Asset VERIFY_ONLY observes core-owned C-A5/saved-choice proof; does not re-own art_style_manager writer lease."
+    },
+    "headed_visual_critique": {
+      "captures_inspected": [
+        "orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png",
+        "orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png"
+      ],
+      "blind_describe_summary": "Warm cream house, tan paths, soft green ground patches, teal pond, rounded low-poly trees/lamps/farm plots; cyan companion orb; no purple void field; matte non-photoreal materials.",
+      "anti_purple_slop": "PASS",
+      "warm_natural": "PASS",
+      "dreamy_low_poly": "PASS",
+      "capture_count_manifest": 10,
+      "manifest_final_verdict": "PASS"
+    },
+    "dir24_preserved_refs": [
+      "game/scripts/modules/asset/starter_realm_builder.gd",
+      "orchestration/receipts/g8/ui_skill_correction/U1_asset.json",
+      "orchestration/receipts/g8/ui_visual_correction_003/C5_asset.json",
+      "orchestration/evidence/g8_ui_visual_correction_003/"
+    ],
+    "c003_acceptance_status": {
+      "is_acceptance_evidence": false,
+      "reason": "C003/C5 lacked durable child_task_ref; this remediation-004 receipt supplies real child provenance. G8 remains non-ACCEPTED."
+    },
+    "children": [],
+    "findings": [],
+    "residual_risks": [
+      "Pixel-level status/quest readability remains D3 network/ui-visual-critic territory.",
+      "Saved-choice executable harness is core-owned; asset re-verified via evidence + constants, not by re-running headed runner this wave.",
+      "G8-001 remains non-ACCEPTED pending D3 + parent collate + Codex."
+    ]
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "name": "input_context_hash",
+        "command": "python hashlib sha256 concat WO+DESIGN+starter_realm_builder+cozy_cyber_pixel_2_5d+art_style_manager",
+        "exit_code": 0,
+        "FULL_SHA256": "8303a1dbb49f2a37bf84d64091df4b22e0838c69f259b848902001f9c7341070",
+        "result_file": "orchestration/logs/g8-d2-asset-hash-result.txt",
+        "run_by_transcript_ref": "019f8277-f857-7330-8007-932a2ac10ad8"
+      },
+      {
+        "name": "static_color_type_compliance",
+        "command": "python static DESIGN/cozy/builder/shared/evidence checks",
+        "exit_code": 0,
+        "markers": [
+          "STATIC_COLOR_TYPE_COMPLIANCE=PASS",
+          "CHECKS_PASS 28",
+          "CHECKS_FAIL 0"
+        ],
+        "run_by_transcript_ref": "019f8277-f857-7330-8007-932a2ac10ad8"
+      },
+      {
+        "name": "g3_w1_asset_recipe_smoke",
+        "command": "tools\\Godot_v4.3-stable_win64_console.exe --path game --headless -s res://scripts/modules/asset/g3_recipe_smoke.gd",
+        "exit_code": 0,
+        "markers": [
+          "G3_W1_ASSET_SMOKE=PASS checks=16"
+        ],
+        "log": "orchestration/logs/g8-d2-asset-recipe-smoke.log",
+        "run_by_transcript_ref": "019f8277-f857-7330-8007-932a2ac10ad8"
+      },
+      {
+        "name": "observe_d1_headed_saved_choice",
+        "command": "read orchestration/logs/g8-d1-core-headed-runner.out.log + evidence_manifest.json + D1_core.json gates",
+        "exit_code": 0,
+        "markers": [
+          "SAVED_CHOICE_RUNNER_PASS",
+          "product_clean_world_default=cozy_cyber_pixel",
+          "cozy_default_and_saved_style=PASS",
+          "C-A5=PASS"
+        ],
+        "owned_by": "core (observe-only for asset VERIFY_ONLY)"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "VERIFY_ONLY",
+    "no_self_accept": true,
+    "self_accept": false,
+    "no_product_patch": true,
+    "product_writes_empty": true,
+    "no_nested_grandchildren": true,
+    "character_skill_trace_present": true,
+    "no_invented_gate_pass": true,
+    "no_invented_hash": true,
+    "raw_file_byte_hash_finalized": true,
+    "control_foundation_not_implemented": true,
+    "g8_not_accepted": true,
+    "c003_not_claimed_as_acceptance": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-d2-asset-child.log",
+    "orchestration/logs/g8-d2-asset-hash-result.txt",
+    "orchestration/logs/g8-d2-asset-recipe-smoke.log",
+    "orchestration/logs/g8-d1-core-headed-runner.out.log",
+    "orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "orchestration/evidence/g8_ui_visual_correction_003/overview_1280x720.png",
+    "orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png",
+    "orchestration/receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+    "orchestration/receipts/g8/ui_visual_correction_003/C5_asset.json",
+    "orchestration/receipts/g8/ui_skill_correction/U1_asset.json",
+    "game/scripts/modules/asset/starter_realm_builder.gd",
+    "game/resources/art_styles/cozy_cyber_pixel_2_5d.json",
+    "game/resources/art_styles/tokens/shared_2_5d_tokens.json",
+    "DESIGN.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "D3_NETWORK_PURPLE_GATE"
+}

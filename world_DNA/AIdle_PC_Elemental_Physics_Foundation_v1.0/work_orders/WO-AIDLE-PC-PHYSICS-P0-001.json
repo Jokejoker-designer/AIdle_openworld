@@ -1,0 +1,25 @@
+{
+  "work_order_id": "WO-AIDLE-PC-PHYSICS-P0-001",
+  "title": "Integrate PC elemental physics catalogs",
+  "authority": "PATCH_DRAFT",
+  "objective": "Import catalogs and Godot 4.3 scaffolds without changing mobile IDs.",
+  "dependencies": [
+    "Godot 4.3 repository available",
+    "Scene gate explicitly opened"
+  ],
+  "deliverables": [
+    "ElementalRegistry",
+    "ReactionResolver",
+    "SimulationLODController",
+    "PCQualityManager",
+    "headless tests"
+  ],
+  "acceptance": [
+    "JSON validation PASS",
+    "Godot 4.3 script parse PASS",
+    "Preview has no authority",
+    "No arbitrary AI execution",
+    "Independent review"
+  ],
+  "self_accept": false
+}

@@ -1,0 +1,1619 @@
+{
+  "schema_version": "character_foundry_1c_intake_report/1.0",
+  "work_order_id": "WO-CHAR-1C-001-FOUNDRY-SCHEMA-INTAKE",
+  "wave": "W1_SCHEMA",
+  "package": "AIdle Character Foundry MD",
+  "pack_version": "1.0",
+  "manifest_sha256_locked": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+  "manifest_sha256_before": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+  "manifest_sha256_after": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+  "manifest_hash_match": true,
+  "source_diff": "zero",
+  "character_count": 28,
+  "world_count": 7,
+  "unique_character_ids": 28,
+  "class_distribution": {
+    "CREATURE_AMBIENT": 4,
+    "CONSTRUCT": 1,
+    "NPC_QUEST": 1,
+    "NPC_WORKER": 6,
+    "CREATURE_TAMEABLE": 4,
+    "NPC_SOCIAL": 3,
+    "ROBOT_HELPER": 3,
+    "NPC_GUIDE": 3,
+    "SPIRIT_ENTITY": 3,
+    "COMPANION": 0
+  },
+  "world_profiles": [
+    {
+      "folder": "01_cozy_cyber_pixel",
+      "world_profile_id": "cozy_cyber_pixel",
+      "world_profile_display": "Cozy Cyber-Pixel / Dreamy Low-Poly",
+      "character_ids": [
+        "CCP-CT-004",
+        "CCP-NS-002",
+        "CCP-NW-003",
+        "CCP-RH-001"
+      ]
+    },
+    {
+      "folder": "02_surrealism_canvas",
+      "world_profile_id": "surrealism_canvas",
+      "world_profile_display": "Surrealism Canvas",
+      "character_ids": [
+        "SC-CA-008",
+        "SC-NG-005",
+        "SC-NS-006",
+        "SC-NW-007"
+      ]
+    },
+    {
+      "folder": "03_solarpunk_haven",
+      "world_profile_id": "solarpunk_haven",
+      "world_profile_display": "Solarpunk Haven",
+      "character_ids": [
+        "SPH-CT-012",
+        "SPH-NG-009",
+        "SPH-NW-010",
+        "SPH-RH-011"
+      ]
+    },
+    {
+      "folder": "04_arcane_clockwork",
+      "world_profile_id": "arcane_clockwork",
+      "world_profile_display": "Arcane Clockwork",
+      "character_ids": [
+        "AC-CA-016",
+        "AC-CO-015",
+        "AC-NQ-014",
+        "AC-NW-013"
+      ]
+    },
+    {
+      "folder": "05_spirit_valley",
+      "world_profile_id": "spirit_valley",
+      "world_profile_display": "Spirit Valley",
+      "character_ids": [
+        "SV-NW-019",
+        "SV-SA-020",
+        "SV-SE-017",
+        "SV-SG-018"
+      ]
+    },
+    {
+      "folder": "06_oceanpunk_abyss",
+      "world_profile_id": "oceanpunk_abyss",
+      "world_profile_display": "Oceanpunk / Bioluminescent Abyss",
+      "character_ids": [
+        "OA-CA-024",
+        "OA-CT-022",
+        "OA-NS-023",
+        "OA-RG-021"
+      ]
+    },
+    {
+      "folder": "07_tiny_diorama",
+      "world_profile_id": "tiny_diorama",
+      "world_profile_display": "Tiny Diorama World",
+      "character_ids": [
+        "TD-CA-027",
+        "TD-CT-028",
+        "TD-NG-025",
+        "TD-NW-026"
+      ]
+    }
+  ],
+  "identity_boundary": {
+    "aida_present_in_foundry": false,
+    "merge_replace_aida_allowed": false,
+    "nori7_id": "CCP-RH-001",
+    "nori7_class": "ROBOT_HELPER",
+    "nori7_is_system_companion": false,
+    "cozy_cast_ids": [
+      "CCP-RH-001",
+      "CCP-NS-002",
+      "CCP-NW-003",
+      "CCP-CT-004"
+    ],
+    "system_companion_mvp": "text_only_AIda_outside_foundry_pack"
+  },
+  "normalization": {
+    "reproducible": true,
+    "preserve_source_strings": true,
+    "structured_allowlist_source": "derived_from_world_ability_phrases",
+    "structured_denylist_source": "derived_from_limitation_phrases_plus_universal",
+    "universal_denylist": [
+      "direct_world_commit",
+      "mutate_canonical_inventory",
+      "mutate_ownership",
+      "mutate_economy",
+      "execute_arbitrary_code",
+      "trustlayer_tool_invocation",
+      "replace_or_merge_aida",
+      "provider_credential_access"
+    ],
+    "foundry_source_edits": false
+  },
+  "records": [
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "AC-CA-016",
+      "display_name": "Quillix",
+      "world_profile_id": "arcane_clockwork",
+      "world_profile_display": "Arcane Clockwork",
+      "character_class": "CREATURE_AMBIENT",
+      "species_form": "Bướm lưu trữ bằng giấy",
+      "gameplay_role": "Lưu và tìm bản vẽ",
+      "world_ability": "Tìm blueprint, đánh dấu recipe cũ và nhận biết phiên bản.",
+      "limitation": "Không mang dữ liệu ngoài quyền truy cập và không sửa bản vẽ.",
+      "behavior_allowlist": [
+        "Tìm blueprint",
+        "đánh dấu recipe cũ",
+        "nhận biết phiên bản"
+      ],
+      "behavior_denylist": [
+        "Không mang dữ liệu ngoài quyền truy cập",
+        "không sửa bản vẽ",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "04_arcane_clockwork/04_quillix.md",
+        "source_sha256": "0b865e900cb5a0f5121883e42233e48c447683a706ac32ab49a3f374476f88a0",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Kho lưu trữ, workbench, thư viện máy.",
+      "relationship_hooks": "Theo Brassel; ghi lịch Oria; đậu trên Cinder-04.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Archive-moth-01; 2 wing pages; 2 hinge bones."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "AC-CO-015",
+      "display_name": "Cinder-04",
+      "world_profile_id": "arcane_clockwork",
+      "world_profile_display": "Arcane Clockwork",
+      "character_class": "CONSTRUCT",
+      "species_form": "Golem xây dựng",
+      "gameplay_role": "Vận chuyển và hỗ trợ manifestation",
+      "world_ability": "Vận chuyển module, diễn hoạt xây dựng và gắn module nâng/sửa/đo.",
+      "limitation": "Không chọn vị trí, không commit công trình và không tự suy diễn nhiệm vụ.",
+      "behavior_allowlist": [
+        "Vận chuyển module",
+        "diễn hoạt xây dựng",
+        "gắn module nâng/sửa/đo"
+      ],
+      "behavior_denylist": [
+        "Không chọn vị trí",
+        "không commit công trình",
+        "không tự suy diễn nhiệm vụ",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "04_arcane_clockwork/03_cinder_04.md",
+        "source_sha256": "04f239c39090be9bf7b8058e792620b631a77ffa38cbc468371c8120c4398aa8",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Xưởng xây dựng, kho vật liệu hoặc công trường.",
+      "relationship_hooks": "Được Brassel bảo trì; nhận lịch từ Oria; Quillix theo ghi lại cấu hình.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Golem-construction-01; hands IK; chest-core socket."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "AC-NQ-014",
+      "display_name": "Oria Chuông Trời",
+      "world_profile_id": "arcane_clockwork",
+      "world_profile_display": "Arcane Clockwork",
+      "character_class": "NPC_QUEST",
+      "species_form": "Người giữ nhịp thời gian",
+      "gameplay_role": "Quản lý sự kiện và tháp chuông",
+      "world_ability": "Kích hoạt event theo lịch, quản lý tháp chuông và replay sự kiện dạng preview.",
+      "limitation": "Không sửa lịch sử canonical hoặc ép người chơi vào sự kiện.",
+      "behavior_allowlist": [
+        "Kích hoạt event theo lịch",
+        "quản lý tháp chuông",
+        "replay sự kiện dạng preview"
+      ],
+      "behavior_denylist": [
+        "Không sửa lịch sử canonical hoặc ép người chơi vào sự kiện",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "04_arcane_clockwork/02_oria_chuong_troi.md",
+        "source_sha256": "8f50f02c55af0d425cf6370c9c8c83bdc8a8441aa4ef996d29afc6c1d9c9a7ad",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Tháp chuông, quảng trường, cổng sự kiện.",
+      "relationship_hooks": "Tin Brassel; giao lịch vận hành Cinder-04; nhờ Quillix lưu biên niên.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Humanoid-tall-01; bell-skirt bones; staff VFX socket."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "AC-NW-013",
+      "display_name": "Brassel Thợ Rune",
+      "world_profile_id": "arcane_clockwork",
+      "world_profile_display": "Arcane Clockwork",
+      "character_class": "NPC_WORKER",
+      "species_form": "Thợ rune cơ khí",
+      "gameplay_role": "Kết nối cơ khí và rune",
+      "world_ability": "Kiểm tra socket, xây trigger có cấu trúc và phát hiện kết nối nguy hiểm.",
+      "limitation": "Không chấp nhận raw executable code hoặc rune không có giới hạn.",
+      "behavior_allowlist": [
+        "Kiểm tra socket",
+        "xây trigger có cấu trúc",
+        "phát hiện kết nối nguy hiểm"
+      ],
+      "behavior_denylist": [
+        "Không chấp nhận raw executable code hoặc rune không có giới hạn",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "04_arcane_clockwork/01_brassel_tho_rune.md",
+        "source_sha256": "724ffa2a69ec7cf312e0d7778a74f47d7e4e330b8e1c90a3ea0205d550b6a55c",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Workbench, xưởng rune, tháp máy hoặc cầu cơ khí.",
+      "relationship_hooks": "Hợp tác với Oria; bảo trì Cinder-04; dùng Quillix lưu bản vẽ.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Humanoid-stocky-01; goggles layer rig; glove/tool rig."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "CCP-CT-004",
+      "display_name": "Bụi Mơ",
+      "world_profile_id": "cozy_cyber_pixel",
+      "world_profile_display": "Cozy Cyber-Pixel / Dreamy Low-Poly",
+      "character_class": "CREATURE_TAMEABLE",
+      "species_form": "Mèo-bụi cây",
+      "gameplay_role": "Thú cưng tìm vật liệu nhỏ và hỗ trợ cảm giác gắn bó",
+      "world_ability": "Tìm hạt giống rơi, đánh dấu vật liệu nhỏ và ngủ cạnh cây để tạo hiệu ứng trang trí dịu.",
+      "limitation": "Không tăng sản lượng bắt buộc, không tự lấy vật phẩm có ownership.",
+      "behavior_allowlist": [
+        "Tìm hạt giống rơi",
+        "đánh dấu vật liệu nhỏ",
+        "ngủ cạnh cây để tạo hiệu ứng trang trí dịu"
+      ],
+      "behavior_denylist": [
+        "Không tăng sản lượng bắt buộc",
+        "không tự lấy vật phẩm có ownership",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "01_cozy_cyber_pixel/04_bui_mo.md",
+        "source_sha256": "2e4301f31c80c65f1d9fca4f159103889ad7083509bd333ceb8e0ed1cbc57f03",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": true,
+      "spawn_location": "Bụi cây, cạnh máy móc ấm, bên ao hoặc dưới hiên nhà.",
+      "relationship_hooks": "Thích Nori-7; nhận hạt giống từ Mây Mạch; ngủ trong xưởng Bác Bắp.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Quadruped-small-01; đuôi và ba lá là xương phụ."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "CCP-NS-002",
+      "display_name": "Mây Mạch",
+      "world_profile_id": "cozy_cyber_pixel",
+      "world_profile_display": "Cozy Cyber-Pixel / Dreamy Low-Poly",
+      "character_class": "NPC_SOCIAL",
+      "species_form": "Người giao thư cyber-cozy",
+      "gameplay_role": "Giao thư, kết nối cư dân và mở nhiệm vụ xã hội",
+      "world_ability": "Mang thư và quà, giới thiệu NPC, báo khu vực cần hỗ trợ và kích hoạt nhiệm vụ cộng đồng.",
+      "limitation": "Không mở thư, không tự gửi vật phẩm có ownership và không chia sẻ hội thoại riêng.",
+      "behavior_allowlist": [
+        "Mang thư",
+        "quà",
+        "giới thiệu NPC",
+        "báo khu vực cần hỗ trợ",
+        "kích hoạt nhiệm vụ cộng đồng"
+      ],
+      "behavior_denylist": [
+        "Không mở thư",
+        "không tự gửi vật phẩm có ownership",
+        "không chia sẻ hội thoại riêng",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "01_cozy_cyber_pixel/02_may_mach.md",
+        "source_sha256": "f2dfaa7b7b8016427ea3a45fc6f4cccc338847c5a7150a0f8ad2025310642856",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": true,
+      "spawn_location": "Bưu trạm, quảng trường, lối vào các nhà hoặc tuyến đường làng.",
+      "relationship_hooks": "Hay nhờ Nori-7 mang đồ nhẹ; quý Bác Bắp; thường mang hạt giống cho Bụi Mơ.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Humanoid-small-01; túi đeo có xương phụ; tóc búi là mesh cứng."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "CCP-NW-003",
+      "display_name": "Bác Bắp",
+      "world_profile_id": "cozy_cyber_pixel",
+      "world_profile_display": "Cozy Cyber-Pixel / Dreamy Low-Poly",
+      "character_class": "NPC_WORKER",
+      "species_form": "Thợ máy làng",
+      "gameplay_role": "Sửa máy, nâng cấp robot và dạy chế tạo",
+      "world_ability": "Sửa robot, mở khóa tool module, tái chế linh kiện và đánh giá độ bền.",
+      "limitation": "Không cho nâng cấp nếu thiếu điều kiện an toàn hoặc chỉ để tăng thông số vô nghĩa.",
+      "behavior_allowlist": [
+        "Sửa robot",
+        "mở khóa tool module",
+        "tái chế linh kiện",
+        "đánh giá độ bền"
+      ],
+      "behavior_denylist": [
+        "Không cho nâng cấp nếu thiếu điều kiện an toàn hoặc chỉ để tăng thông số vô nghĩa",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "01_cozy_cyber_pixel/03_bac_bap.md",
+        "source_sha256": "070c031275ba4f3cedd86b9ea0c1a7259536aed10709c96a76dbe62bdfbc4bf1",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": true,
+      "spawn_location": "Xưởng sửa chữa, kho dụng cụ, khu máy móc cũ.",
+      "relationship_hooks": "Là người bảo trì Nori-7; thường nhận linh kiện từ Mây Mạch; để Bụi Mơ ngủ gần lò sưởi.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Humanoid-stocky-01; găng cơ khí có 3 khớp phụ."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "CCP-RH-001",
+      "display_name": "Nori-7",
+      "world_profile_id": "cozy_cyber_pixel",
+      "world_profile_display": "Cozy Cyber-Pixel / Dreamy Low-Poly",
+      "character_class": "ROBOT_HELPER",
+      "species_form": "Robot làm vườn hình giọt nước",
+      "gameplay_role": "Chăm sóc nông trại và hướng dẫn công cụ cơ bản",
+      "world_ability": "Tưới cây, thu gom sản phẩm nhỏ, báo cây bệnh và đánh dấu ô đất chưa được chăm sóc.",
+      "limitation": "Không tự nhổ cây, đổi lịch trồng hoặc tiêu tài nguyên nếu chưa được người chơi xác nhận.",
+      "behavior_allowlist": [
+        "Tưới cây",
+        "thu gom sản phẩm nhỏ",
+        "báo cây bệnh",
+        "đánh dấu ô đất chưa được chăm sóc"
+      ],
+      "behavior_denylist": [
+        "Không tự nhổ cây",
+        "đổi lịch trồng hoặc tiêu tài nguyên nếu chưa được người chơi xác nhận",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "01_cozy_cyber_pixel/01_nori_7.md",
+        "source_sha256": "c59808565ea3a523bf8714e45e0048557f4c08b3454698326d56c420f7177be4",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": true,
+      "spawn_location": "Gần nhà kính, trạm sạc mặt trời hoặc khu vườn khởi đầu.",
+      "relationship_hooks": "Tin tưởng Bác Bắp như người bảo trì; thường theo Mây Mạch để nhận linh kiện; tò mò về Bụi Mơ.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Biped-small-robot-01; 8–10 xương chính; vòi và mầm cây là xương phụ."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "OA-CA-024",
+      "display_name": "Bronti Vỏ Thành",
+      "world_profile_id": "oceanpunk_abyss",
+      "world_profile_display": "Oceanpunk / Bioluminescent Abyss",
+      "character_class": "CREATURE_AMBIENT",
+      "species_form": "Sinh vật mai đảo san hô",
+      "gameplay_role": "Landmark di động và nền sinh thái sống",
+      "world_ability": "Làm landmark di động, mang observation socket và tạo nhiệm vụ chăm sóc.",
+      "limitation": "Không dùng làm phương tiện chiến đấu; cấu trúc trên mai cần xác nhận và giới hạn tải.",
+      "behavior_allowlist": [
+        "Làm landmark di động",
+        "mang observation socket",
+        "tạo nhiệm vụ chăm sóc"
+      ],
+      "behavior_denylist": [
+        "Không dùng làm phương tiện chiến đấu; cấu trúc trên mai cần xác nhận",
+        "giới hạn tải",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "06_oceanpunk_abyss/04_bronti_vo_thanh.md",
+        "source_sha256": "1a44e58452102cebaa37f898f4b3d539646cb00fe39322f9ef865108b9716440",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Vực rộng, tuyến di cư hoặc cạnh rạn san hô lớn.",
+      "relationship_hooks": "Được Coralyn nghiên cứu; Nereu-5 theo dõi; Lumi Ray bơi quanh.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Landmark-creature-01; shell sockets; simplified locomotion."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "OA-CT-022",
+      "display_name": "Lumi Ray",
+      "world_profile_id": "oceanpunk_abyss",
+      "world_profile_display": "Oceanpunk / Bioluminescent Abyss",
+      "character_class": "CREATURE_TAMEABLE",
+      "species_form": "Sinh vật biển phát sáng",
+      "gameplay_role": "Dẫn đường và chiếu sáng",
+      "world_ability": "Dẫn đến vùng an toàn, chiếu sáng và báo dòng nước nguy hiểm.",
+      "limitation": "Không chiến đấu và rời đi nếu ánh sáng quá mạnh.",
+      "behavior_allowlist": [
+        "Dẫn đến vùng an toàn",
+        "chiếu sáng",
+        "báo dòng nước nguy hiểm"
+      ],
+      "behavior_denylist": [
+        "Không chiến đấu",
+        "rời đi nếu ánh sáng quá mạnh",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "06_oceanpunk_abyss/02_lumi_ray.md",
+        "source_sha256": "4194d39504012f9e180b5ac55c2051481690ce53930ea9e297ba1f55152ebb31",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Rừng tảo, hang an toàn, gần căn cứ.",
+      "relationship_hooks": "Đi cùng Nereu-5; theo Coralyn; tránh lưng Bronti khi quá đông.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Glider-creature-01; cloth-like wing bones."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "OA-NS-023",
+      "display_name": "Coralyn",
+      "world_profile_id": "oceanpunk_abyss",
+      "world_profile_display": "Oceanpunk / Bioluminescent Abyss",
+      "character_class": "NPC_SOCIAL",
+      "species_form": "Nhà lưu trữ di tích",
+      "gameplay_role": "Nghiên cứu lịch sử đại dương",
+      "world_ability": "Giải mã di tích, mở quest khảo cổ, lưu provenance và phân biệt bản sao.",
+      "limitation": "Không cho bán hiện vật chưa xác minh hoặc lấy đồ không rõ quyền sở hữu.",
+      "behavior_allowlist": [
+        "Giải mã di tích",
+        "mở quest khảo cổ",
+        "lưu provenance",
+        "phân biệt bản sao"
+      ],
+      "behavior_denylist": [
+        "Không cho bán hiện vật chưa xác minh hoặc lấy đồ không rõ quyền sở hữu",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "06_oceanpunk_abyss/03_coralyn.md",
+        "source_sha256": "2ce20b1131cc69803cac2c2b2a15dbc18e481e806d324e674552e6f9b6c92dae",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Di tích, archive dome, tàu khảo sát.",
+      "relationship_hooks": "Dùng Nereu-5 để quét; quan sát Lumi Ray; nghiên cứu Bronti mà không xâm hại.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Humanoid-medium-01 + swim set; archive-cylinder socket."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "OA-RG-021",
+      "display_name": "Nereu-5",
+      "world_profile_id": "oceanpunk_abyss",
+      "world_profile_display": "Oceanpunk / Bioluminescent Abyss",
+      "character_class": "ROBOT_HELPER",
+      "species_form": "Drone thám hiểm hình cá",
+      "gameplay_role": "Sonar, dẫn đường và kiểm tra căn cứ",
+      "world_ability": "Sonar tutorial, đánh dấu rò rỉ, dẫn về căn cứ và quét route đường hầm.",
+      "limitation": "Không tự điều khiển tàu hoặc mở airlock quan trọng.",
+      "behavior_allowlist": [
+        "Sonar tutorial",
+        "đánh dấu rò rỉ",
+        "dẫn về căn cứ",
+        "quét route đường hầm"
+      ],
+      "behavior_denylist": [
+        "Không tự điều khiển tàu hoặc mở airlock quan trọng",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "06_oceanpunk_abyss/01_nereu_5.md",
+        "source_sha256": "1c4c017e80f7bd83284ad2d975ec244b0be79dcac6f9fc31989c781cef832a88",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Căn cứ, dock tàu, đường hầm mới.",
+      "relationship_hooks": "Theo Coralyn; thích bơi cùng Lumi Ray; thận trọng với Bronti.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Drone-fish-01; fins, tail, visor root."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "SC-CA-008",
+      "display_name": "Gấp Bóng",
+      "world_profile_id": "surrealism_canvas",
+      "world_profile_display": "Surrealism Canvas",
+      "character_class": "CREATURE_AMBIENT",
+      "species_form": "Chim origami bằng bóng",
+      "gameplay_role": "Gấp bóng thành chỉ dẫn tạm thời",
+      "world_ability": "Đánh dấu đường bí mật, tạo bóng cầu thang tạm trong preview và dẫn đến anomaly.",
+      "limitation": "Không tạo collision lâu dài và không thay đổi geometry canonical.",
+      "behavior_allowlist": [
+        "Đánh dấu đường bí mật",
+        "tạo bóng cầu thang tạm trong preview",
+        "dẫn đến anomaly"
+      ],
+      "behavior_denylist": [
+        "Không tạo collision lâu dài",
+        "không thay đổi geometry canonical",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "02_surrealism_canvas/04_gap_bong.md",
+        "source_sha256": "a6bd199c13a27f914615ac0e22aefc72ff38ed3bb9f39150ecd3becfb4c7bcaf",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Rìa anomaly, portal chưa mở, nơi có bóng bất thường.",
+      "relationship_hooks": "Đi theo Kẻ Giữ Khung; đậu trên vai Lụa Ngược; bị Ông Nhỏ Lớn dùng làm mốc đo.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Origami-bird-01; blendshape/fold bones; không dùng feather rig."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "SC-NG-005",
+      "display_name": "Kẻ Giữ Khung",
+      "world_profile_id": "surrealism_canvas",
+      "world_profile_display": "Surrealism Canvas",
+      "character_class": "NPC_GUIDE",
+      "species_form": "Thực thể trong khung tranh",
+      "gameplay_role": "Giải thích portal và Surreal Rule",
+      "world_ability": "Đăng ký Surreal Rule, giải thích vùng ảnh hưởng và preview portal.",
+      "limitation": "Không tự kích hoạt anomaly hoặc mở portal chưa được xác nhận.",
+      "behavior_allowlist": [
+        "Đăng ký Surreal Rule",
+        "giải thích vùng ảnh hưởng",
+        "preview portal"
+      ],
+      "behavior_denylist": [
+        "Không tự kích hoạt anomaly hoặc mở portal chưa được xác nhận",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "02_surrealism_canvas/01_ke_giu_khung.md",
+        "source_sha256": "bb5f84637b3eac872a0a372f937387c277ffbadfd6c97123b4b28acdee14e732",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Cạnh portal, khung tranh lớn hoặc trung tâm vùng anomaly.",
+      "relationship_hooks": "Tôn trọng Lụa Ngược; thường tranh luận về tỷ lệ với Ông Nhỏ Lớn; chăm Gấp Bóng.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Humanoid-thin-01 + frame-root; frame là root phụ độc lập."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "SC-NS-006",
+      "display_name": "Lụa Ngược",
+      "world_profile_id": "surrealism_canvas",
+      "world_profile_display": "Surrealism Canvas",
+      "character_class": "NPC_SOCIAL",
+      "species_form": "Người kể chuyện siêu thực",
+      "gameplay_role": "Thu thập ký ức và kể câu chuyện đảo chiều",
+      "world_ability": "Mở memory scene, cho xem hai phiên bản sự kiện và hỗ trợ nhiệm vụ lựa chọn.",
+      "limitation": "Không xác định phiên bản nào đúng thay người chơi và không sửa lịch sử canonical.",
+      "behavior_allowlist": [
+        "Mở memory scene",
+        "cho xem hai phiên bản sự kiện",
+        "hỗ trợ nhiệm vụ lựa chọn"
+      ],
+      "behavior_denylist": [
+        "Không xác định phiên bản nào đúng thay người chơi",
+        "không sửa lịch sử canonical",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "02_surrealism_canvas/02_lua_nguoc.md",
+        "source_sha256": "330377bb74233622925674167ddb939f8ba412f4381f9bb9f3895b4afb11540d",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Bờ sông đổi màu, thư viện ký ức hoặc vùng có bóng chuyển động.",
+      "relationship_hooks": "Đồng hành cùng Kẻ Giữ Khung; tò mò về kiến trúc của Ông Nhỏ Lớn; để Gấp Bóng đậu trên vai.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Humanoid-tall-01; 6–8 xương ribbon; shadow-expression shader độc lập."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "SC-NW-007",
+      "display_name": "Ông Nhỏ Lớn",
+      "world_profile_id": "surrealism_canvas",
+      "world_profile_display": "Surrealism Canvas",
+      "character_class": "NPC_WORKER",
+      "species_form": "Kiến trúc sư tỷ lệ",
+      "gameplay_role": "Điều chỉnh tỷ lệ và không gian bên trong công trình",
+      "world_ability": "Preview tỷ lệ, thiết kế nội thất lớn hơn ngoại thất và cảnh báo navigation/collision.",
+      "limitation": "Không cho scale vô hạn hoặc thay đổi kích thước đang ảnh hưởng ownership.",
+      "behavior_allowlist": [
+        "Preview tỷ lệ",
+        "thiết kế nội thất lớn hơn ngoại thất",
+        "cảnh báo navigation/collision"
+      ],
+      "behavior_denylist": [
+        "Không cho scale vô hạn hoặc thay đổi kích thước đang ảnh hưởng ownership",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "02_surrealism_canvas/03_ong_nho_lon.md",
+        "source_sha256": "28b3287c0fe99c0623d0919628cae11f6ac4475fefdc797859830ed0af013cd0",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Cửa phi lý, công trình nhiều lớp hoặc xưởng đo.",
+      "relationship_hooks": "Tranh luận vui với Kẻ Giữ Khung; hay nhờ Lụa Ngược kể lại kích thước cũ; dùng Gấp Bóng làm dấu đo.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Humanoid-small-01; scale animation chỉ ở visual layer, không đổi collider trực tiếp."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "SPH-CT-012",
+      "display_name": "Mầm Tám",
+      "world_profile_id": "solarpunk_haven",
+      "world_profile_display": "Solarpunk Haven",
+      "character_class": "CREATURE_TAMEABLE",
+      "species_form": "Sinh vật củ tám rễ",
+      "gameplay_role": "Chỉ báo sức khỏe môi trường",
+      "world_ability": "Dẫn đến đất tốt và để lại sprout marker tạm thời.",
+      "limitation": "Không trực tiếp tăng chỉ số và không xuất hiện trong vùng ô nhiễm nặng.",
+      "behavior_allowlist": [
+        "Dẫn đến đất tốt",
+        "để lại sprout marker tạm thời"
+      ],
+      "behavior_denylist": [
+        "Không trực tiếp tăng chỉ số",
+        "không xuất hiện trong vùng ô nhiễm nặng",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "03_solarpunk_haven/04_mam_tam.md",
+        "source_sha256": "15a1e54ebfeee5fee26fb89c475fbea36742d2cb64a8e610c68b19a95f83c15e",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Đất ẩm, dưới pin mặt trời hoặc cạnh hồ sạch.",
+      "relationship_hooks": "Theo Sora; chơi với Kito; được Luma ghi nhận như chỉ báo sống.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Root-creature-01; 8 chân IK đơn giản."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "SPH-NG-009",
+      "display_name": "Luma Tán Lá",
+      "world_profile_id": "solarpunk_haven",
+      "world_profile_display": "Solarpunk Haven",
+      "character_class": "NPC_GUIDE",
+      "species_form": "Nhà sinh thái học",
+      "gameplay_role": "Giải thích cân bằng sinh thái",
+      "world_ability": "Hướng dẫn Eco Scan, đánh giá khu vực và đề xuất phục hồi.",
+      "limitation": "Không tự áp dụng eco add-on hoặc che giấu hậu quả môi trường.",
+      "behavior_allowlist": [
+        "Hướng dẫn Eco Scan",
+        "đánh giá khu vực",
+        "đề xuất phục hồi"
+      ],
+      "behavior_denylist": [
+        "Không tự áp dụng eco add-on hoặc che giấu hậu quả môi trường",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "03_solarpunk_haven/01_luma_tan_la.md",
+        "source_sha256": "f219512daa7343ac4c785174d92ebfb6f4d3785bdf6bb13259942acffb688d8c",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Trạm sinh thái, vườn cộng đồng, khu đất cần phục hồi.",
+      "relationship_hooks": "Làm việc cùng Sora; theo dõi Kito; coi Mầm Tám là chỉ báo sống.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Humanoid-medium-01; tóc canopy là 3 cụm mesh; scanner có rig riêng."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "SPH-NW-010",
+      "display_name": "Sora Giữ Sương",
+      "world_profile_id": "solarpunk_haven",
+      "world_profile_display": "Solarpunk Haven",
+      "character_class": "NPC_WORKER",
+      "species_form": "Kỹ sư nước",
+      "gameplay_role": "Quản lý nước và khí hậu cục bộ",
+      "world_ability": "Xây hệ thống thu nước, kiểm tra luồng, sửa hồ/kênh và dự báo hạn.",
+      "limitation": "Không chuyển nước khỏi cộng đồng khác hoặc tự mở công trình lớn.",
+      "behavior_allowlist": [
+        "Xây hệ thống thu nước",
+        "kiểm tra luồng",
+        "sửa hồ/kênh",
+        "dự báo hạn"
+      ],
+      "behavior_denylist": [
+        "Không chuyển nước khỏi cộng đồng khác hoặc tự mở công trình lớn",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "03_solarpunk_haven/02_sora_giu_suong.md",
+        "source_sha256": "78be2fb0707fd09a3418aac805463bc37e3109b6c9b8faf8fb3a42afd74832bf",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Kênh, bể nước, hồ thu sương hoặc trạm thời tiết.",
+      "relationship_hooks": "Làm việc với Luma; Kito thường đậu trên mũ; Mầm Tám theo dấu đất ẩm.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Humanoid-medium-01; backpack-tanks rig; tube spline bones."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "SPH-RH-011",
+      "display_name": "Kito Thụ Phấn",
+      "world_profile_id": "solarpunk_haven",
+      "world_profile_display": "Solarpunk Haven",
+      "character_class": "ROBOT_HELPER",
+      "species_form": "Drone thụ phấn dạng hạt",
+      "gameplay_role": "Hỗ trợ cây trồng và đa dạng sinh học",
+      "world_ability": "Đánh dấu cây thiếu thụ phấn, mang phấn và theo dõi đa dạng hoa.",
+      "limitation": "Không hoạt động ở vùng độc hại; không tự sửa chỉ số sinh thái.",
+      "behavior_allowlist": [
+        "Đánh dấu cây thiếu thụ phấn",
+        "mang phấn",
+        "theo dõi đa dạng hoa"
+      ],
+      "behavior_denylist": [
+        "Không hoạt động ở vùng độc hại; không tự sửa chỉ số sinh thái",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "03_solarpunk_haven/03_kito_thu_phan.md",
+        "source_sha256": "f9b50907309a00fc784763e81c104756a0c89319f0ac2b3dbf50ea75d710cff3",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Vườn hoa, trạm sạc, nhà kính và nông trại.",
+      "relationship_hooks": "Theo Luma khi khảo sát; thường đậu trên mũ Sora; chơi với Mầm Tám.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Drone-seed-01; 2 cánh + 6 chân gấp."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "SV-NW-019",
+      "display_name": "Trúc Nhi",
+      "world_profile_id": "spirit_valley",
+      "world_profile_display": "Spirit Valley",
+      "character_class": "NPC_WORKER",
+      "species_form": "Người chăm rừng tre",
+      "gameplay_role": "Chăm rừng và sửa cầu",
+      "world_ability": "Dạy phục hồi rừng, sửa cầu và mở đường tự nhiên.",
+      "limitation": "Không cho chặt cây không cần thiết và không dùng chiến đấu làm giải pháp chính.",
+      "behavior_allowlist": [
+        "Dạy phục hồi rừng",
+        "sửa cầu",
+        "mở đường tự nhiên"
+      ],
+      "behavior_denylist": [
+        "Không cho chặt cây không cần thiết",
+        "không dùng chiến đấu làm giải pháp chính",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "05_spirit_valley/03_truc_nhi.md",
+        "source_sha256": "f82a9f571b5aacadb78433aeb77e58c217398c644c9406e9504eb927ee44a69b",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Rừng tre, cầu hỏng, đền phụ.",
+      "relationship_hooks": "Bảo vệ Vân Hồ; làm nghi thức với Đăng Tâm; học lịch sử từ Mộc Ông.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Humanoid-medium-01; staff IK; bamboo plates rigid."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "SV-SA-020",
+      "display_name": "Mộc Ông",
+      "world_profile_id": "spirit_valley",
+      "world_profile_display": "Spirit Valley",
+      "character_class": "SPIRIT_ENTITY",
+      "species_form": "Rùa gốc cây cổ",
+      "gameplay_role": "Ghi nhớ lịch sử khu rừng",
+      "world_ability": "Kể lịch sử vùng, mở seed cổ và mang khu vườn mini.",
+      "limitation": "Chỉ xuất hiện khi môi trường đạt mức phục hồi; không cho phần thưởng nếu điều kiện chưa đủ.",
+      "behavior_allowlist": [
+        "Kể lịch sử vùng",
+        "mở seed cổ",
+        "mang khu vườn mini"
+      ],
+      "behavior_denylist": [
+        "Chỉ xuất hiện khi môi trường đạt mức phục hồi; không cho phần thưởng nếu điều kiện chưa đủ",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "05_spirit_valley/04_moc_ong.md",
+        "source_sha256": "9c3a22bcc829d7810434f8f426cdd9c016f95191ca8e4452cef92e675c9ef8de",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Rừng cổ, bờ hồ, nơi phục hồi hoàn chỉnh.",
+      "relationship_hooks": "Cho Vân Hồ nghỉ; trò chuyện với Đăng Tâm; cố vấn Trúc Nhi.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Large-turtle-spirit-01; shell garden sockets."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "SV-SE-017",
+      "display_name": "Vân Hồ",
+      "world_profile_id": "spirit_valley",
+      "world_profile_display": "Spirit Valley",
+      "character_class": "SPIRIT_ENTITY",
+      "species_form": "Cáo mây",
+      "gameplay_role": "Linh vật mây và mưa",
+      "world_ability": "Dẫn đến nguồn nước và gọi mưa nhẹ trong sự kiện đã xác nhận.",
+      "limitation": "Không thay đổi khí hậu toàn vùng hoặc xuất hiện ở rừng suy kiệt nặng.",
+      "behavior_allowlist": [
+        "Dẫn đến nguồn nước",
+        "gọi mưa nhẹ trong sự kiện đã xác nhận"
+      ],
+      "behavior_denylist": [
+        "Không thay đổi khí hậu toàn vùng hoặc xuất hiện ở rừng suy kiệt nặng",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "05_spirit_valley/01_van_ho.md",
+        "source_sha256": "9d4897e90174929da2e4c4327a69be4679c924b185a5a96ad3411353e54feb0e",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Sườn núi, hồ sen, mây thấp hoặc rừng phục hồi.",
+      "relationship_hooks": "Theo Đăng Tâm; được Trúc Nhi bảo vệ; ngủ trên mai Mộc Ông.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Quadruped-spirit-01; cloud clusters shader; tail mist spline."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "SV-SG-018",
+      "display_name": "Đăng Tâm",
+      "world_profile_id": "spirit_valley",
+      "world_profile_display": "Spirit Valley",
+      "character_class": "SPIRIT_ENTITY",
+      "species_form": "Linh hồn đèn lồng",
+      "gameplay_role": "Dẫn đường và giữ ký ức tại đền",
+      "world_ability": "Đánh dấu đường nghi thức, lưu memory scene và dẫn khỏi vùng nguy hiểm.",
+      "limitation": "Không lưu dữ liệu ngoài sự đồng ý và không thay đổi quyết định của người chơi.",
+      "behavior_allowlist": [
+        "Đánh dấu đường nghi thức",
+        "lưu memory scene",
+        "dẫn khỏi vùng nguy hiểm"
+      ],
+      "behavior_denylist": [
+        "Không lưu dữ liệu ngoài sự đồng ý",
+        "không thay đổi quyết định của người chơi",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "05_spirit_valley/02_dang_tam.md",
+        "source_sha256": "ad379585f5d473f9913221d03fbe6dc5d7e9e29087ec6733450c84718bbb9193",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Đền, cổng đá, đường rừng đêm.",
+      "relationship_hooks": "Dẫn Vân Hồ; làm việc với Trúc Nhi; trò chuyện cùng Mộc Ông.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Lantern-spirit-01; lantern root + light-body bones."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "TD-CA-027",
+      "display_name": "Miette Chim Giấy",
+      "world_profile_id": "tiny_diorama",
+      "world_profile_display": "Tiny Diorama World",
+      "character_class": "CREATURE_AMBIENT",
+      "species_form": "Chim giấy đưa tin",
+      "gameplay_role": "Mang thông báo và đánh dấu recipe",
+      "world_ability": "Mang thông báo, gắn recipe vào scene và dẫn tới khu mới.",
+      "limitation": "Không mang nội dung riêng tư khi chưa có quyền.",
+      "behavior_allowlist": [
+        "Mang thông báo",
+        "gắn recipe vào scene",
+        "dẫn tới khu mới"
+      ],
+      "behavior_denylist": [
+        "Không mang nội dung riêng tư khi chưa có quyền",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "07_tiny_diorama/03_miette_chim_giay.md",
+        "source_sha256": "e23699a489063a9455b3dad2206ff7ff3a98934c5cb9717a6ddde84d0e7cfa57",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Bưu bàn, Collection Tray, ga đồ chơi.",
+      "relationship_hooks": "Đưa recipe cho Pip; bay theo tàu Tock; chơi với Patch.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Origami-bird-02; 4 fold bones; ribbon tail."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "TD-CT-028",
+      "display_name": "Patch Gấu Nút",
+      "world_profile_id": "tiny_diorama",
+      "world_profile_display": "Tiny Diorama World",
+      "character_class": "CREATURE_TAMEABLE",
+      "species_form": "Gấu vải ghép",
+      "gameplay_role": "Mascot sưu tầm và tìm vật thể thất lạc",
+      "world_ability": "Tìm vật thể nhỏ bị che, nhặt decorative token và hiển thị lịch sử biome.",
+      "limitation": "Không tự lấy vật phẩm có ownership hoặc đồ nhiệm vụ.",
+      "behavior_allowlist": [
+        "Tìm vật thể nhỏ bị che",
+        "nhặt decorative token",
+        "hiển thị lịch sử biome"
+      ],
+      "behavior_denylist": [
+        "Không tự lấy vật phẩm có ownership hoặc đồ nhiệm vụ",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "07_tiny_diorama/04_patch_gau_nut.md",
+        "source_sha256": "7de863241420d77d59c47f4e838510619e5178d1618de439448643641e02aa17",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Collection Tray, góc workshop, cạnh hộp nút.",
+      "relationship_hooks": "Ngồi cùng Pip; trêu Tock; theo Miette để tìm giấy.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Plush-bear-01; ears and patch sockets."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "TD-NG-025",
+      "display_name": "Pip Đất Sét",
+      "world_profile_id": "tiny_diorama",
+      "world_profile_display": "Tiny Diorama World",
+      "character_class": "NPC_GUIDE",
+      "species_form": "Nghệ nhân đất sét mini",
+      "gameplay_role": "Hướng dẫn tạo và sơn mô hình",
+      "world_ability": "Hand Mode tutorial, sơn, material variant, sửa hình và lưu recipe.",
+      "limitation": "Không tự ghi thay đổi; mọi kéo thả lâu dài cần xác nhận.",
+      "behavior_allowlist": [
+        "Hand Mode tutorial",
+        "sơn",
+        "material variant",
+        "sửa hình",
+        "lưu recipe"
+      ],
+      "behavior_denylist": [
+        "Không tự ghi thay đổi; mọi kéo thả lâu dài cần xác nhận",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "07_tiny_diorama/01_pip_dat_set.md",
+        "source_sha256": "d4435a1a215c6c192a09c866c6aa16ba2c2a212964239da631a4fdc2da8bf756",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Bàn tạo vật thể, workshop diorama.",
+      "relationship_hooks": "Nhờ Tock kiểm tra grid; dùng Miette gửi recipe; cho Patch ngồi trong khay.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Humanoid-small-clay-01; squash/stretch nhẹ."
+    },
+    {
+      "schema_version": "character_spec/1.0",
+      "character_id": "TD-NW-026",
+      "display_name": "Tock Đường Ray",
+      "world_profile_id": "tiny_diorama",
+      "world_profile_display": "Tiny Diorama World",
+      "character_class": "NPC_WORKER",
+      "species_form": "Người máy gỗ đường sắt",
+      "gameplay_role": "Quản lý tàu đồ chơi và nối diorama",
+      "world_ability": "Xây đường ray, kiểm tra kết nối, mở tuyến và cảnh báo vật cản.",
+      "limitation": "Không tự di chuyển nhà hoặc thay grid của người chơi.",
+      "behavior_allowlist": [
+        "Xây đường ray",
+        "kiểm tra kết nối",
+        "mở tuyến",
+        "cảnh báo vật cản"
+      ],
+      "behavior_denylist": [
+        "Không tự di chuyển nhà hoặc thay grid của người chơi",
+        "direct_world_commit",
+        "mutate_canonical_inventory",
+        "mutate_ownership",
+        "mutate_economy",
+        "execute_arbitrary_code",
+        "trustlayer_tool_invocation",
+        "replace_or_merge_aida",
+        "provider_credential_access"
+      ],
+      "authority": {
+        "can_world_commit": false,
+        "tool_authority": false,
+        "trustlayer_worker": false,
+        "is_system_companion": false,
+        "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+      },
+      "identity_boundary": {
+        "is_aida": false,
+        "aida_merge_or_replace": false,
+        "replaces_system_companion": false
+      },
+      "provenance": {
+        "package": "AIdle Character Foundry MD",
+        "pack_version": "1.0",
+        "source_path": "07_tiny_diorama/02_tock_duong_ray.md",
+        "source_sha256": "06897e6afbbf1daa0301873de0c6fd31b51553d4ef4253f13d28a1b802cd3ae4",
+        "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+      },
+      "cozy_cast": false,
+      "spawn_location": "Ga đồ chơi, đầu tuyến, cầu mô hình.",
+      "relationship_hooks": "Làm grid cho Pip; nhận tin từ Miette; Patch thường lấy nhầm nút tín hiệu.",
+      "source_status": "Concept / Production-ready specification",
+      "rig_family": "Toy-robot-01; wheel-feet switch; flag bone."
+    }
+  ],
+  "valid_count": 28,
+  "invalid_count": 0
+}

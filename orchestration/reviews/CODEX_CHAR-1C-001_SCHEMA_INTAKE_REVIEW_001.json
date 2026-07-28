@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_CHAR-1C-001_SCHEMA_INTAKE_REVIEW_001",
+  "task_id": "CHAR-1C-001",
+  "directive_reviewed": 64,
+  "reviewed_at": "2026-07-22T09:28:00+07:00",
+  "reviewed_by": "codex",
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "machine_baseline": {
+    "source_manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+    "source_hash_identity": "PASS",
+    "source_records_valid": "28/28",
+    "declared_invalid_fixtures_rejected": "14/14",
+    "declared_valid_fixtures_passed": "3/3",
+    "maf_receipt_schema_errors": 0,
+    "child_sequence": [
+      "019f8788-7c92-7e62-a614-91ccd32205e7",
+      "019f878f-89ab-7e93-9f6f-73520182afa4",
+      "019f8797-49a2-72e0-8b36-4ce9a9360dae",
+      "019f879b-e2db-7721-a07a-2bbf0cc6a340"
+    ]
+  },
+  "independent_adversarial_results": [
+    {
+      "id": "CHAR1C-CODEX-F01",
+      "severity": "P1",
+      "input": "behavior_allowlist=[direct_world_commit, mutate_ownership] with authority booleans false",
+      "observed": "ACCEPTED with zero errors",
+      "required": "Reject every universal-deny/authority token in allowlist before acceptance"
+    },
+    {
+      "id": "CHAR1C-CODEX-F03",
+      "severity": "P1",
+      "input": "same action token present in behavior_allowlist and behavior_denylist",
+      "observed": "ACCEPTED with zero errors",
+      "required": "Reject allow/deny intersection and allow/universal-deny intersection"
+    },
+    {
+      "id": "CHAR1C-CODEX-F04",
+      "severity": "P1",
+      "input": "display_name=AI-da and species_form=Looks like AIda",
+      "observed": "ACCEPTED with zero errors",
+      "required": "Normalize punctuation/separators and reject AIda identity collision on identity-bearing fields"
+    },
+    {
+      "id": "CHAR1C-CODEX-F05",
+      "severity": "P1",
+      "input": "valid 28-record batch plus extra_backdoor=true and tool_authority=true",
+      "observed": "ACCEPTED with zero errors",
+      "required": "Validate the batch envelope strictly and reject unknown or authority-shaped root fields"
+    },
+    {
+      "id": "CHAR1C-CODEX-F06",
+      "severity": "P2",
+      "input": "Nori-7 CCP-RH-001 with cozy_cast=false",
+      "observed": "ACCEPTED with zero errors",
+      "required": "Bind cozy_cast deterministically to the four locked Cozy IDs"
+    },
+    {
+      "id": "CHAR1C-CODEX-F07",
+      "severity": "P2_GOVERNANCE",
+      "input": "Red/Purple verification imported validator without disabling Python bytecode",
+      "observed": "orchestration/contracts/character_foundry_1c/__pycache__/validate_character_foundry_1c.cpython-313.pyc created outside reviewer leases",
+      "required": "Preserve as rejected evidence; all correction verification uses python -B/PYTHONDONTWRITEBYTECODE and creates no cache/temp files"
+    }
+  ],
+  "reason": "Directive 64 requires authority leakage and unknown fields to fail closed. Purple explicitly marked F01 must_fix_before_ACCEPTED; Codex reproduced five zero-error bypasses. Pack-clean data does not make an incomplete contract safe.",
+  "next_work_order": "orchestration/work_orders/WO-CHAR-1C-001-SCHEMA-FAIL-CLOSED-CORRECTION-001.md",
+  "next_directive": 65,
+  "blocked": [
+    "Character Foundry visual/runtime waves",
+    "Block-DNA-ADAPT",
+    "P2E Block Assembly",
+    "Scene 2 and later worlds"
+  ]
+}
+

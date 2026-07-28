@@ -1,0 +1,54 @@
+{
+  "schema_version": "town_grid_claude_monitor/1.0",
+  "directive_id": 99,
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "agent": "claude",
+  "role": "scheduled-continuity-monitor",
+  "authority": "READ_ONLY_AUDIT",
+  "accepted": false,
+  "self_accept": false,
+  "run_type": "SCHEDULED_TASK_aidle-grok-monitor",
+  "timestamp_local": "2026-07-23T23:26:10+07:00",
+  "compared_against": "orchestration/control/MONITOR_LAST_CHECK.json (baseline written 2026-07-23, last_entry_number_seen=74, receipts_seen_count=343)",
+  "new_or_modified_since_last_check": [
+    "orchestration/receipts/town_grid_import_001/QA_town_grid_headed_001.json (new)",
+    "orchestration/receipts/town_grid_import_001/REDO_LOOP_ACK_001.json (new)",
+    "orchestration/receipts/town_grid_import_001/REDO_LOOP_ITERATIONS_001.json (new)",
+    "orchestration/receipts/town_grid_import_001/PURPLE_WAITING_001.json (modified: WAITING re-affirmed with fidelity_block)",
+    "orchestration/receipts/town_grid_import_001/QA_GAP_NOTE.md (modified: now reflects QA filed, fidelity FAIL 0/21)",
+    "CONDUCTOR_JOURNAL.md entries 075-076 (Grok redo-loop dispatch + honest fidelity finding; build/design parent consolidation)"
+  ],
+  "independent_reverification": {
+    "qa_headed_evidence_real": "CONFIRMED. Re-read raw logs directly (UTF-16LE decoded, not trusted as UTF-8 text): godot_headed_qa_fidelity_v4_freecam.log and the 3 later house-iteration logs (v5/v6/v7_house12-14) all contain zero occurrences of 'error'/'exception' case-insensitive. The printed [TOWN_GRID_HEADED_QA] report JSON embedded in the raw log body matches headed_qa_machine_report.json and QA_town_grid_headed_001.json field-for-field (plots=50, real_glb=21, placeholders=29, cast=10, idle=10, max_abs=11.50, checks_passed=11) -- this is machine-emitted, not a hand-typed claim.",
+    "screenshots_exist_and_match_self_assessment": "CONFIRMED. Viewed close_home_1280x720.png directly (not just trusted the receipt's description). HOME.BLD shows a gable roof with tan/yellow shingle rows + chimney + lilac base, consistent with the receipt's own 'gable_ok_tiles_simplified_not_full_fishscale' self-score (PARTIAL, not 100%). HOME.CHAR (CCP-RH-001) does render as a plain pale/white blob-like figure in the same frame, consistent with the receipt's own disclosed 'FAIL_CAST_BLOB' finding on the cast presenter. Self-assessment is honest, not inflated.",
+    "fidelity_audit_math": "CONFIRMED 0/21 real-GLB plots scored match_100_pct=true anywhere in QA_town_grid_headed_001.json (grep-equivalent manual scan of all 21 entries in mockup_fidelity_audit_real_glb_plots.plots -- every one is match_100_pct:false). Wave correctly reports wave_close_under_fidelity_law: BLOCKED.",
+    "module_catalog_honesty": "CONFIRMED. Parsed game/resources/p1e_cozy/module_catalog.json: accepted=false, self_accept=false at catalog level; all 12 module glb paths (including the 11 redo-loop rebuilds + the pre-existing preview_anchor) resolve to real files on disk under game/assets/p1e_cozy/modules/ -- zero missing/fake references.",
+    "placement_fingerprint": "Not re-derived this cycle -- game/resources/town/town_grid_plan_v1.json and orchestration/control/visual_reference/town_plan/TOWN_GRID_PLAN_V1.json were NOT among the files modified since the last check (mtimes unchanged from the prior CLAUDE_VERIFY_001.json cycle, which already recomputed and matched payload_fingerprint ca8223b1c400199dd2adc71a14668601cb0f2a8f8c23bf8d6f2c0cc687057bcd independently). No re-check needed; nothing to invalidate it.",
+    "additive_only_check": "CONFIRMED. game/scripts/modules/asset/starter_realm_builder.gd mtime (2026-07-23 ~22:19) predates this wave and is untouched by the redo loop. game/resources/town/town_layout_10phase.json mtime is far older (2026-07-23 ~18:00) and untouched -- not edited in place, consistent with the standing 'supersede, do not edit' rule.",
+    "file_scope_check": "The 15 game/** files touched during this redo-loop window (mtime after wave start) are exactly: 12 module GLBs under game/assets/p1e_cozy/modules/ (the ones named in REDO_LOOP_ITERATIONS_001.json's iteration log), game/resources/p1e_cozy/module_catalog.json (the promotion/catalog step), game/scripts/modules/town/town_grid_loader.gd (material-boost runtime override from iteration #2), and two test/probe scripts (game/tests/town_grid_headed_qa_001.gd, game/tests/_probe_house_mats.gd). No file outside this asset/loader/test set was touched. One caveat below.",
+    "in_flight_unreceipted_work_detected": "game/assets/p1e_cozy/modules/cozy_house_small_A.glb and game/resources/p1e_cozy/module_catalog.json both have a LATER mtime (2026-07-23 23:25:20) than the newest redo-loop receipt on disk (REDO_LOOP_ITERATIONS_001.json, 23:19:36, which documents iterations up through v14/house14 at ~23:18-23:19). This means at least one more house iteration ran after the last receipt was written, with no corresponding receipt yet. Not a violation (redo loops are expected to run ahead of receipt-writing mid-loop) -- flagged so the next monitor cycle checks whether a new iteration/receipt appears, or whether this is simply the same v14 GLB being re-saved."
+  },
+  "template_compliance_note": {
+    "finding": "GROK_TOWN_MOCKUP_REDO_LOOP_PROMPT_001.md (the live dispatch driving this redo loop) predates full adoption of STANDARD_GROK_WORK_ORDER_PROMPT_TEMPLATE_001.md's exact-file-naming clause (item 2: 'NAME every game/** file you will write') -- it says only 'no game/** file outside the named set' without enumerating the set up front, because it supersedes/continues the original WO rather than opening a fresh one.",
+    "severity": "minor / informational",
+    "mitigation_observed": "In practice Grok stayed narrowly scoped to assets + the town loader + tests (see file_scope_check above), so this is a documentation-process gap, not an observed overreach. No action needed unless a future iteration drifts outside asset/loader/test files."
+  },
+  "honesty_and_destructive_edit_checks": {
+    "fake_glb_or_idle_alias": "NONE FOUND",
+    "unauthored_objects_labeled": "CONFIRMED -- 29 placeholders, all reason=not_in_catalog, per the honesty rule in town_grid_loader.gd (re-verified in a prior cycle, code unchanged this cycle)",
+    "destructive_edits": "NONE FOUND -- starter_realm_builder.gd and town_layout_10phase.json both untouched during this wave"
+  },
+  "open_items_carried_forward_not_new_this_cycle": [
+    "town_build_10phase package (discovered via GROK_SESSION_HANDOFF_DESIGN_PARENT_001.md, journal entry 076) still not independently reviewed by Claude -- aging follow-up, not urgent per the Human's own framing, but noting it has now carried across 2 monitor cycles.",
+    "Unregistered third Grok session UUID 019f8ded-1cdc-7052-be45-1d519dd5c9b7 (journal entry 074) still not confirmed as self-update-only vs a real third parent -- NOT added to codex_directive.json parent_sessions (correctly), still needs a one-line Human confirmation."
+  ],
+  "governance_action_taken": {
+    "codex_directive_open_gaps_updated": "Updated the WO-TOWN-GRID-IMPORT-001 entry in codex_directive.json open_gaps from status CHANGES_REQUESTED_QA_INCOMPLETE (stale -- QA has since run and passed structurally) to CHANGES_REQUESTED_FIDELITY_INCOMPLETE, with the detail field pointing at this receipt and QA_town_grid_headed_001.json. This is a documentation-accuracy edit to a control/ governance file, not a game/** patch, not an acceptance, not a new dispatch."
+  },
+  "verdict": "CHANGES_REQUESTED_FIDELITY_INCOMPLETE",
+  "verdict_detail": "No wave-close is being requested and none should happen: WO-TOWN-GRID-IMPORT-001 remains correctly blocked under the mockup_fidelity_rule (0/21 real-GLB plots at 100% match). Everything reviewed this cycle -- the new headed QA receipt, the redo-loop iteration log, the catalog promotion, and the raw evidence (logs + a screenshot) -- is internally consistent, honest, machine-corroborated, additive-only, and within the WO's practical file scope. Grok is actively iterating correctly (house v14 broke its prior failure signature; cast-presenter white-blob bug is self-disclosed, not hidden). Purple correctly stayed WAITING and made no self-accept claim. Nothing here needs the Human Product Lead's decision right now.",
+  "purple_handoff": "unchanged: WAITING, do_not_self_accept",
+  "no_game_patch_by_claude": true,
+  "no_acceptance_given_or_claimed": true,
+  "no_new_dispatch_to_grok": true
+}

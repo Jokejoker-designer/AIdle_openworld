@@ -1,0 +1,301 @@
+{
+  "agent_step_id": "G8-UX-001-W3-qa-001-2026-07-21",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:15f8d3afdabdaafc102951426de4eec1f5a4030197ad0ac36fcaef96554629f4",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8422-4207-7fa3-9b42-299c6c4f47c3",
+  "transcript_ref": "019f8422-4207-7fa3-9b42-299c6c4f47c3",
+  "writer_transcript_ref": "019f8422-4207-7fa3-9b42-299c6c4f47c3",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_ref": "019f841e-3871-7962-85e3-543623b98a9b",
+  "prior_wave_receipt": "orchestration/receipts/g8_ux/G8_UX_w2_red_001.json",
+  "w1_child_ref": "019f841a-444f-7ac2-afc6-d851a6b3b687",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/g8-ux-w3-qa-001.log",
+  "handoff_ref": "G8_UX_W4_PURPLE",
+  "start_time": "2026-07-21T10:04:25Z",
+  "end_time": "2026-07-21T10:06:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-qa-evidence; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; authority_token=VERIFY_ONLY; required_skills include evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches product; tests_logs_screenshots_receipts_only.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "evidence-memory-ledger"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, profile aidle-worldgen-qa-evidence, WO-G8-UX-001, W1/W2 receipts, smoke, agent_step_contract schema manually. No bootstrap loop.",
+  "authorization_note": "VERIFY_ONLY only. Did not patch product/tests/harness/contracts. Human Product Lead Dir50 override applies to Blue product surface only. Control-1B still BLOCKED; P1E blocked; G8-001 HITL_REQUIRED. codex_directive.json and Blender/ENV0 untouched.",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-UX-001-INPUT-FOCUS-AND-COLLISION.md",
+    "E:/AIdle_openworld/orchestration/evidence/g8_human_gate/HUMAN_PLAYTEST_FINDING_001_UI_FOCUS_TRAP.md",
+    "E:/AIdle_openworld/orchestration/receipts/g8_ux/G8_UX_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8_ux/G8_UX_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/game/tests/g8_ux_input_collision_smoke.gd",
+    "E:/AIdle_openworld/game/scripts/ui/playable_action_bar.gd",
+    "E:/AIdle_openworld/game/scripts/player/player_controller.gd",
+    "E:/AIdle_openworld/game/scenes/player/player.tscn",
+    "E:/AIdle_openworld/game/project.godot",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_smoke.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/agents/characters/12-purple-team-finding-triage.md",
+    "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f8422-4207-7fa3-9b42-299c6c4f47c3/summary.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/g8_ux/G8_UX_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-ux-w3-qa-001.log",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ux/w3_ac1_ac4_transform_deltas.json",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ux/w3_smoke_raw_capture.txt",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ux/w3_manifestation_smoke_raw_capture.txt"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "G8-UX-001",
+    "work_order": "orchestration/work_orders/WO-G8-UX-001-INPUT-FOCUS-AND-COLLISION.md",
+    "wave": "G8_UX_W3_QA",
+    "profile": "aidle-worldgen-qa-evidence",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "EVIDENCE_COMPLETE",
+    "summary": "VERIFY_ONLY QA re-ran Godot 4.3 headless g8_ux_input_collision_smoke twice (both EXIT=0 AIDLE_G8_UX_SMOKE=PASS checks=6) and manifestation_smoke twice (PASS checks=8). Recorded AC1/AC4 transform deltas with UTC timestamps under orchestration/evidence/g8_ux/ (WO headed-equivalent bar). FOCUS_NONE×6, jump action, player mask=5, complete layer=4, preview stages non-solid all confirmed. product_writes=[]. accepted=false. Handoff G8_UX_W4_PURPLE.",
+    "character_binding": {
+      "trustlayer_character_id": "purple-team-finding-triage",
+      "trustlayer_card": "E:/agents/characters/12-purple-team-finding-triage.md",
+      "ui_character_id": "ui-a11y-auditor",
+      "ui_card": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; VERIFY_ONLY; no self-accept; no inventing evidence"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: Purple-triage character VERIFY_ONLY; handoff W4 purple acceptance; no grandchildren"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: exclusive receipt+log+evidence writes; claims bound to smoke stdout"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: parent_spawn_only; one_writer_per_file; no product writes"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: dual re-run stability of delta_xz and AC4 after.z checked"
+      },
+      {
+        "skill_id": "evidence-memory-ledger",
+        "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: durable evidence JSON + raw captures + log lineage for AC1/AC4"
+      }
+    ],
+    "confirmations": {
+      "FOCUS_NONE": {
+        "pass": true,
+        "evidence": "smoke action_bar_buttons_focus_none=6; playable_action_bar.gd:106 focus_mode=Control.FOCUS_NONE"
+      },
+      "jump": {
+        "pass": true,
+        "evidence": "player_controller.gd:75 is_action_just_pressed(\"jump\"); smoke input_map_jump + player_script_jump_action OK"
+      },
+      "player_collision_mask": {
+        "pass": true,
+        "value": 5,
+        "evidence": "player.tscn collision_mask=5; smoke ac4 player_mask=5"
+      },
+      "manifestation_complete_layer": {
+        "pass": true,
+        "value": 4,
+        "evidence": "manifestation_instance COLLISION_LAYER_MANIFESTATION:=4; smoke ac4 manifestation_layer=4"
+      },
+      "preview_stages_non_solid": {
+        "pass": true,
+        "stages": ["wireframe", "hologram", "materializing"],
+        "evidence": "smoke ac5_preview_stages_non_solid OK; durable collision only complete"
+      }
+    },
+    "ac1_numbers": {
+      "delta_xz": 0.938888907432556,
+      "before": {"x": 0.0, "y": 0.0466666668653488, "z": 0.0},
+      "after": {"x": 0.0, "y": 0.000768569181673229, "z": -0.93888890743256},
+      "threshold_min": 0.05,
+      "pass": true,
+      "runs": 2,
+      "stable_across_runs": true
+    },
+    "ac4_numbers": {
+      "before": {"x": 0.0, "y": 0.05, "z": -0.6},
+      "after": {"x": 0.0, "y": 0.0000471936073154211, "z": -1.64984464645386},
+      "after_z": -1.64984464645386,
+      "manifestation_layer": 4,
+      "player_mask": 5,
+      "penetrated": false,
+      "pass": true,
+      "runs": 2,
+      "stable_across_runs": true
+    },
+    "red_residuals_carried": [
+      {
+        "id": "R-INFO-01",
+        "disposition": "PARTIALLY_ADDRESSED",
+        "note": "Timestamped transform-delta evidence files recorded; interactive headed screenshot/playtest still optional for Human Product Lead ACCEPT"
+      },
+      {
+        "id": "R-LOW-02",
+        "disposition": "OPEN_NON_BLOCKING",
+        "note": "AC1 still uses emit_signal(pressed); matches FOCUS_NONE design; QA did not patch"
+      },
+      {
+        "id": "R-LOW-03",
+        "disposition": "OPEN_NON_BLOCKING",
+        "note": "ui_accept still engine-default Space alongside jump; FOCUS_NONE mitigates focus trap; out of QA write scope"
+      }
+    ],
+    "handoff_ref": "G8_UX_W4_PURPLE",
+    "next_wave": "G8_UX_W4_PURPLE",
+    "next_profile": "aidle-worldgen-purple-acceptance",
+    "next_authority": "VERIFY_ONLY",
+    "product_writes": [],
+    "handoff_note": "W3 QA evidence complete. Handoff G8_UX_W4_PURPLE aidle-worldgen-purple-acceptance VERIFY_ONLY: re-verify AC1–AC9 against durable evidence + independent smoke if desired; return VERIFIED|CHANGES_REQUESTED|NEED_HUMAN only. Purple never patches and does not ACCEPT. Human Product Lead sole acceptor. No grandchildren. G8-001 HITL_REQUIRED; Control-1B not claimed."
+  },
+  "smoke_test": {
+    "ran": true,
+    "authority": "VERIFY_ONLY independent evidence capture (no product mutation)",
+    "commands": [
+      {
+        "run_id": "w3-qa-primary",
+        "cmd": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://tests/g8_ux_input_collision_smoke.gd",
+        "started_at_utc": "2026-07-21T10:04:50.8788234Z",
+        "ended_at_utc": "2026-07-21T10:04:53.3319107Z",
+        "exit_code": 0,
+        "marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+        "evidence": {
+          "action_bar_buttons_focus_none": 6,
+          "arrow_owner": "move_* (WASD+arrows); ui_left/right/up/down events empty",
+          "ac1_transform_delta": {
+            "before": {"x": 0.0, "y": 0.0466666668653488, "z": 0.0},
+            "after": {"x": 0.0, "y": 0.000768569181673229, "z": -0.93888890743256},
+            "delta_xz": 0.938888907432556
+          },
+          "ac4_collision": {
+            "before": {"x": 0.0, "y": 0.05, "z": -0.6},
+            "after": {"x": 0.0, "y": 0.0000471936073154211, "z": -1.64984464645386},
+            "manifestation_layer": 4,
+            "player_mask": 5,
+            "penetrated": false
+          }
+        }
+      },
+      {
+        "run_id": "w3-qa-confirm",
+        "cmd": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://tests/g8_ux_input_collision_smoke.gd",
+        "started_at_utc": "2026-07-21T10:05:20.3170229Z",
+        "ended_at_utc": "2026-07-21T10:05:21.9157785Z",
+        "exit_code": 0,
+        "marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+        "raw_capture": "orchestration/evidence/g8_ux/w3_smoke_raw_capture.txt",
+        "evidence": {
+          "ac1_transform_delta": {
+            "delta_xz": 0.938888907432556
+          },
+          "ac4_collision": {
+            "after_z": -1.64984464645386,
+            "manifestation_layer": 4,
+            "player_mask": 5,
+            "penetrated": false
+          }
+        }
+      },
+      {
+        "run_id": "w3-manifestation-primary",
+        "cmd": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
+        "started_at_utc": "2026-07-21T10:04:50.8788234Z",
+        "ended_at_utc": "2026-07-21T10:04:52.8610165Z",
+        "exit_code": 0,
+        "marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8"
+      },
+      {
+        "run_id": "w3-manifestation-confirm",
+        "cmd": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
+        "started_at_utc": "2026-07-21T10:05:21.9167781Z",
+        "ended_at_utc": "2026-07-21T10:05:22.2824818Z",
+        "exit_code": 0,
+        "marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
+        "raw_capture": "orchestration/evidence/g8_ux/w3_manifestation_smoke_raw_capture.txt"
+      }
+    ],
+    "acceptance_criteria_map": {
+      "AC1_movement_after_action_bar_click": "PASS (delta_xz=0.938888907432556; dual run; evidence JSON)",
+      "AC2_space_jump_not_ui_accept": "PASS (script + InputMap jump=Space)",
+      "AC3_arrow_single_owner": "PASS (owner=move_*; ui_* empty)",
+      "AC4_player_collides_complete_manifestation": "PASS (penetrated=false; after.z=-1.64984464645386; mask=5; layer=4)",
+      "AC5_preview_non_solid": "PASS (wireframe/hologram/materializing)",
+      "AC6_starter_solidity_unchanged": "PASS (no product write; prior audit stands)",
+      "AC7_regression_exists_and_passes": "PASS (checks=6 exit 0 ×2)",
+      "AC8_no_preexisting_test_regress": "PASS (manifestation_smoke checks=8 ×2)",
+      "AC9_allowlist_only": "PASS for W1 set (QA product_writes=[])"
+    },
+    "headed_note": "Interactive headed screenshot/camera not available in this subagent shell. WO allows recorded transform delta for AC1/AC4; W3 wrote timestamped dual-run deltas + raw captures under orchestration/evidence/g8_ux/."
+  },
+  "self_audit": {
+    "allowlist_respected": true,
+    "product_writes_empty": true,
+    "self_accept": false,
+    "accepted": false,
+    "codex_directive_untouched": true,
+    "blender_bridge_untouched": true,
+    "env0_untouched": true,
+    "control_1b_not_claimed": true,
+    "g8_001_still_hitl_required": true,
+    "one_writer_per_file": true,
+    "no_grandchildren": true,
+    "verify_only_no_patch": true,
+    "child_task_ref_durable": "019f8422-4207-7fa3-9b42-299c6c4f47c3",
+    "child_task_ref_source": "C:\\Users\\phant\\.grok\\sessions\\E%3A%5CAIdle_openworld\\019f8422-4207-7fa3-9b42-299c6c4f47c3\\summary.json session_kind=subagent title=G8 UX Wave 3 Collision Smoke QA Verify",
+    "issues": []
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ux-w3-qa-001.log",
+    "orchestration/evidence/g8_ux/w3_ac1_ac4_transform_deltas.json",
+    "orchestration/evidence/g8_ux/w3_smoke_raw_capture.txt",
+    "orchestration/evidence/g8_ux/w3_manifestation_smoke_raw_capture.txt",
+    "orchestration/receipts/g8_ux/G8_UX_w1_blue_001.json",
+    "orchestration/receipts/g8_ux/G8_UX_w2_red_001.json",
+    "orchestration/work_orders/WO-G8-UX-001-INPUT-FOCUS-AND-COLLISION.md",
+    "game/tests/g8_ux_input_collision_smoke.gd"
+  ],
+  "next_route": "G8_UX_W4_PURPLE"
+}

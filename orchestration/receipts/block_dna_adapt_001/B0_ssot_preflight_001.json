@@ -1,0 +1,432 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "BLOCK-DNA-ADAPT-001-b0-ssot-preflight-001-2026-07-22",
+  "step_id": "BLOCK-DNA-ADAPT-001-b0-ssot-preflight-001",
+  "work_order_id": "WO-BLOCK-DNA-ADAPT-001-STRICT-CONTRACT-GATE",
+  "work_order": "orchestration/work_orders/WO-BLOCK-DNA-ADAPT-001-STRICT-CONTRACT-GATE.md",
+  "work_order_sha256": "2f228d7373679bbd0715b7225be5aa3db7777cd2b1fa8f712b99c869e54e5e03",
+  "directive_id": 68,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "cc275ce1d180be8d3c5d5f602b752f07dffa948c70cba44ad0eacc3f7f2afc93",
+  "directive_state": "READY",
+  "directive_verdict": "DISPATCH_APPROVED",
+  "permitted_task_ids": ["BLOCK-DNA-ADAPT-001"],
+  "accepted_task_ids_from_directive": ["CTRL-1B-001", "CTRL-1B-002", "P1E-006", "CHAR-1C-001"],
+  "milestone": "Block-DNA strict contract gate — B0 SSOT/sequence preflight",
+  "agent_id": "aidle-worldgen-ssot-sequence",
+  "agent_type": "aidle-worldgen-ssot-sequence",
+  "profile_name": "aidle-worldgen-ssot-sequence",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-ssot-sequence.md",
+  "profile_sha256": "c2c532343f2b67ebdd72318be460ee0bbaf2e6dec93478b4ca9f42fb1f74381f",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-ssot-sequence; trustlayer_character=devil-advocate; ui_character=ui-ux-researcher; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,architecture-lock,evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set evidence_and_preflight_only; no product patches; no self-accept of worlds.",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "preflight evidence log+receipt only; product_writes=[]; never ACCEPTED; no grandchildren; no world_DNA/game/Scene/Control/Character/PersistModule/contract patches",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:cf1ca5eabd73c3072d3593f044d3decf52a0c5569981c8acca644f2bb004e532",
+  "input_context_hash_16": "cf1ca5eabd73c307",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-BLOCK-DNA-ADAPT-001-STRICT-CONTRACT-GATE.md + codex_directive.json + aidle-worldgen-ssot-sequence.md + ARCHITECTURE_LOCK.md + CODEX_CHAR-1C-001_EXTERNAL_TRANSCRIPT_ACCEPTANCE_004.json + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "B0_COMPLETE_ROUTE_B1_SCHEMA",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "B0_SSOT_PREFLIGHT_PASS_NO_ACCEPT",
+  "preflight_verdict": "PASS",
+  "child_task_ref": "019f8800-17d3-7b00-87c6-73a6153b990f",
+  "transcript_ref": "019f8800-17d3-7b00-87c6-73a6153b990f",
+  "writer_transcript_ref": "019f8800-17d3-7b00-87c6-73a6153b990f",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8800-17d3-7b00-87c6-73a6153b990f/meta.json",
+  "durable_meta_sha256_at_start": "c41bfeef51b1e4cf32cad68f09883a7e10dac99566587cae7fddffe54e8a81c1",
+  "started_at": "2026-07-22T04:05:35.319392100Z",
+  "completed_at_utc": "2026-07-22T04:08:30Z",
+  "next_owner": "B1_SCHEMA",
+  "next_route": "B1_SCHEMA",
+  "character_binding": {
+    "trustlayer_character_id": "devil-advocate",
+    "trustlayer_file": "E:/agents/characters/14-devil-advocate.md",
+    "trustlayer_sha256": "21b9193731c92a623e5b5837f364d61f24cea1a7cb2189c20cb84e77f89ba125",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-ux-researcher",
+    "ui_file": "E:/agents/ui-design/characters/03-ui-ux-researcher.md",
+    "ui_sha256": "0f5f18bc6772f567a1d8283323988cf125bb7ddb63c45985917287707e2cc5c1",
+    "ui_read": "full_eof",
+    "role": "B0 VERIFY_ONLY SSOT/sequence preflight for Block-DNA strict contract gate; no product or contract writes"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO, Directive 68, ARCHITECTURE_LOCK, skills, DNA roots, and acceptance reviews manually with transcript-backed full-EOF ranges.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; EOF hard-stops section"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; ends at agent_step_contract schema path"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; ends at Full protocol E:\\shared\\LOOP.md"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; ends at rooms/docs paths"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "chunked_three_invocations",
+      "transcript_ranges": [
+        {"offset": 1, "limit": 400, "note": "read_file invocation 1 intended L1-400; tool returned full-file content through L1123 with continuous line numbers"},
+        {"offset": 401, "limit": 400, "note": "read_file invocation 2 intended L401-800; tool again returned full-file content; content continuity and middle sections verified (Task Execution Cycle through Skill Lifecycle)"},
+        {"offset": 801, "limit": 400, "note": "read_file invocation 3 intended L801-EOF; full content through L1123 Prime Directive verified"}
+      ],
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "honesty_note": "Three distinct durable read_file calls were issued with offset/limit as required. The read_file tool returned the complete 1123-line file body on each call rather than a strict window; EOF was confirmed on all three via the terminal Prime Directive paragraph."
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "bytes": 828,
+      "line_count": 26,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "also_read_project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027"
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/block-dna-adapt-001-b0-ssot-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/block_dna_adapt_001/B0_ssot_preflight_001.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/logs/block-dna-adapt-001-b0-ssot-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/block_dna_adapt_001/B0_ssot_preflight_001.json"
+  ],
+  "forbidden_paths_not_written": [
+    "world_DNA/**",
+    "game/**",
+    "Scene/**",
+    "Control/**",
+    "game_character/**",
+    "PersistModule/**",
+    "contracts/world_prompt.schema.json",
+    "orchestration/contracts/block_dna_adapt_001/**",
+    "P1E resource trees"
+  ],
+  "result": {
+    "verdict": "B0_SSOT_PREFLIGHT_PASS_NO_ACCEPT",
+    "preflight_pass": true,
+    "summary": "Directive 68 sequential B0 preflight PASS. Accepted deps CTRL-1B-001, CTRL-1B-002, P1E-006, CHAR-1C-001 confirmed via Codex acceptance reviews. Both immutable DNA package roots exist with baseline hashes recorded. Architecture Lock confirms DNA as design input only, proposal→preview→confirm→World Commit, no runtime Block Assembly this WO. Exact B0-B4 leases free; sole running child is this B0; contract tree not yet created; P2E blocked. U0/U2 rejected as acceptance evidence (immutable); U1 PROVENANCE_PASS. product_writes=[]; accepted=false; self_accept=false; next_owner=B1_SCHEMA.",
+    "accepted_dependencies": {
+      "CTRL-1B-001": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_CTRL-1B-001_FINAL_ACCEPTANCE_002.json",
+        "accepted": true,
+        "scope": "Control 1B contract and executable fixture gate only; no Godot product implementation accepted in that review"
+      },
+      "CTRL-1B-002": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_CTRL-1B-002_FINAL_ACCEPTANCE_006.json",
+        "accepted": true,
+        "scope": "Local Godot 4.3-stable Control Foundation and Cozy V/B slice, including context-isolated physical R behavior"
+      },
+      "P1E-006": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_P1E-006_FINAL_ACCEPTANCE_005.json",
+        "accepted": true,
+        "scope": "World 1 kit per-world-profile palette variants plus product-owned headless-safe Starter Realm lifecycle"
+      },
+      "CHAR-1C-001": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_CHAR-1C-001_EXTERNAL_TRANSCRIPT_ACCEPTANCE_004.json",
+        "review_sha256": "181f21c1487696b70e7335bb7a5784a6abe25ee82a2b7ee5082071ab088748e5",
+        "accepted": true,
+        "acceptance_scope": "Character Foundry 1C machine schema and 28-record provenance intake only",
+        "not_accepted": [
+          "character mesh or rig production",
+          "animation or behavior runtime",
+          "Godot or Blender Character Foundry implementation",
+          "Scene 2 or P2E Block Assembly runtime",
+          "network, shipping, economy, ownership or World Commit expansion"
+        ]
+      }
+    },
+    "char_1c_unicode_receipt_policy": {
+      "u0": {
+        "receipt": "orchestration/receipts/character_1c/CHAR_1C_001_u0_unicode_correction_003.json",
+        "receipt_sha256": "fec3ef0d148095644f6c98f745daa8842bbcf82c89fda5ad9d4d96ab41e13472",
+        "receipt_status": "REJECTED_AS_ACCEPTANCE_EVIDENCE",
+        "immutable": true,
+        "child_task_ref": "019f87c7-5788-7761-8ee1-4b969bd0861e"
+      },
+      "u1": {
+        "receipt": "orchestration/receipts/character_1c/CHAR_1C_001_u1_red_unicode_003.json",
+        "receipt_sha256": "d36d09f99f6e00a19134613ffa99d3ef32c8d356a357adf9c57aa17be9ba5735",
+        "receipt_status": "PROVENANCE_PASS",
+        "immutable": true,
+        "child_task_ref": "019f87cb-63f5-7a72-b05b-27808614b8ae"
+      },
+      "u2": {
+        "receipt": "orchestration/receipts/character_1c/CHAR_1C_001_u2_purple_unicode_003.json",
+        "receipt_sha256": "833d25f8af80e462c5be9db5476c9025925f09292046b7e666b8b92ba97e153f",
+        "receipt_status": "REJECTED_AS_ACCEPTANCE_EVIDENCE",
+        "immutable": true,
+        "child_task_ref": "019f87d0-7034-7ff2-9c11-dd9ed4911559"
+      },
+      "policy_source": "CODEX_CHAR-1C-001_EXTERNAL_TRANSCRIPT_ACCEPTANCE_004.json canonical_evidence_policy"
+    },
+    "architecture_lock_confirmation": {
+      "project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027",
+      "wo_lock_block_present": true,
+      "dna_role": "immutable design input; neither v1.0 nor v1.1_Tier3 is v1.1 product canonical runtime authority",
+      "mutation_path": "Structured World Prompt -> validate -> preview -> explicit confirm/cancel -> World Commit",
+      "preview_never_canonical": true,
+      "runtime_block_assembly_this_wo": false,
+      "forbidden_this_wo": [
+        "PC graphics-standard adoption as runtime",
+        "voxel/free-3D expansion",
+        "runtime Block Assembly",
+        "arbitrary generated code",
+        "direct commit",
+        "network/shipping expansion",
+        "P2E Block Assembly"
+      ],
+      "active_world_prompt_schema": "E:/AIdle_openworld/contracts/world_prompt.schema.json",
+      "active_world_prompt_schema_sha256": "cc57300fb01d5e803b44aca80c77ff1d8dee72f00974a90f9ec6f500ceb2841c"
+    },
+    "dna_baseline_hashes": {
+      "note": "Baseline only; zero writes to world_DNA/**",
+      "roots_exist": {
+        "v1.0": true,
+        "v1.1_Tier3": true
+      },
+      "packages": {
+        "v1.0_root": "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.0",
+        "v1.1_Tier3_root": "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.1_Tier3",
+        "v1.0_zip_sha256": "766489cfc0062a0252822ee6c9ea286d138038bd7acc155089f146c0dfa8e2ad",
+        "v1.1_Tier3_zip_sha256": "24dc81432a39fc8315a7a37940f030968c50bdfe4a39033c69336a63fcae2bb9",
+        "v1.0_manifest_json_sha256": "ce4f496c43cd520c9e18a073bcb8a78e6d0c6d92dbbc536801ea3da964ae0de2",
+        "v1.1_manifest_json_sha256": "32e4d7aad3dc36983816aca030ed567d117ae03e10b83d2a3bc96595a2790c77",
+        "v1.0_SHA256SUMS_txt_sha256": "fdc45759fabe7379385ad290c7510770dab4e789ef6aa028455da5ca879eacb4",
+        "v1.1_SHA256SUMS_txt_sha256": "2772391a3e2e8ebb2f4f8938b0ad3ec51ea669057b9c16a7c9bcff9d05b3a978",
+        "v1.0_package_tree_aggregate_sha256": "cb5ff00352955481e33e930069c794987f01a0af805a376fb1f00483526ec103",
+        "v1.0_package_tree_file_count_ex_pycache": 153,
+        "v1.1_Tier3_package_tree_aggregate_sha256": "8c9f517c57764272e0c64d33a554f08c788cca62eb4e95cc2d45404e6ba69db9",
+        "v1.1_Tier3_package_tree_file_count_ex_pycache": 183
+      },
+      "block_module_foundation": {
+        "embedded_path_suffix": "foundation_core/AIdle_Block_Module_Foundation_v1.0",
+        "v1.0_and_v1.1_block_manifest_sha256": "836ed0b99127b3d18a45c6a3c56951d1fa9e819705014950d6129a5cc017288b",
+        "v1.0_and_v1.1_socket_types_sha256": "37f0522e03048529b041b47c700f6ad48f3739ac5f94863706b1acabb3f3ef41",
+        "v1.0_and_v1.1_compatibility_matrix_sha256": "2fcb4c2eb109fbc72a08583c8e65fed28f9b0b37562872a2ab7c0f5a23b61ea5",
+        "v1.0_and_v1.1_block_module_tree_aggregate_sha256": "7b05ef27fa294290f9a01b6aeb3567e256d14c136aa9703440abe0b2eb76e2ac",
+        "block_module_tree_file_count_ex_pycache": 71,
+        "block_identity_across_dna_packages": "IDENTICAL_EMBEDDED_BLOCK_CORE",
+        "source_schemas": {
+          "build_graph.schema.json": "0ba98924a81efe37d7f7fa8765df77719c2724e838d7af01559f6e796875276b",
+          "build_recipe.schema.json": "cd96f472dd24ed8582ca8e65ff501436d706a17c8e04a30a729b4551255934bf",
+          "module_definition.schema.json": "6ca7fc0bab14004c8b831ac3a84e6560fbe30e6fdbd5c937d617313979dd53a5"
+        },
+        "source_schema_note": "DNA source Build Recipe/Graph schemas observed fail-open (loose array items, missing additionalProperties:false, weak numeric bounds) — B1 must close under orchestration/contracts/block_dna_adapt_001 without rewriting these files"
+      },
+      "hash_method": {
+        "file": "SHA-256 of raw file bytes (PowerShell Get-FileHash)",
+        "tree_aggregate": "SHA-256 over sorted relative-path UTF-8 + raw file bytes for all files under package root excluding __pycache__ and Thumbs.db"
+      }
+    },
+    "leases": {
+      "dispatch_order": ["B0", "B1", "B2", "B3", "B4"],
+      "mode": "strictly_sequential",
+      "parent_product_patch": false,
+      "no_grandchildren": true,
+      "one_writer_per_file": true,
+      "exact_leases": {
+        "B0": {
+          "profile": "aidle-worldgen-ssot-sequence",
+          "authority_token": "VERIFY_ONLY",
+          "paths": [
+            "orchestration/logs/block-dna-adapt-001-b0-ssot-001.log",
+            "orchestration/receipts/block_dna_adapt_001/B0_ssot_preflight_001.json"
+          ],
+          "pre_exists": false,
+          "claimed_by_this_child": true
+        },
+        "B1": {
+          "profile": "schema",
+          "authority_token": "PATCH_DRAFT",
+          "paths": [
+            "orchestration/contracts/block_dna_adapt_001/**",
+            "orchestration/logs/block-dna-adapt-001-b1-schema-001.log",
+            "orchestration/receipts/block_dna_adapt_001/B1_schema_contract_001.json"
+          ],
+          "pre_exists": false,
+          "writer_started": false
+        },
+        "B2": {
+          "profile": "aidle-worldgen-red-scope",
+          "authority_token": "READ_ONLY_AUDIT",
+          "paths": [
+            "orchestration/logs/block-dna-adapt-001-b2-red-001.log",
+            "orchestration/receipts/block_dna_adapt_001/B2_red_audit_001.json"
+          ],
+          "pre_exists": false,
+          "writer_started": false
+        },
+        "B3": {
+          "profile": "aidle-worldgen-qa-evidence",
+          "authority_token": "VERIFY_ONLY",
+          "paths": [
+            "orchestration/logs/block-dna-adapt-001-b3-qa-001.log",
+            "orchestration/receipts/block_dna_adapt_001/B3_qa_evidence_001.json"
+          ],
+          "pre_exists": false,
+          "writer_started": false
+        },
+        "B4": {
+          "profile": "aidle-worldgen-purple-acceptance",
+          "authority_token": "VERIFY_ONLY",
+          "paths": [
+            "orchestration/logs/block-dna-adapt-001-b4-purple-001.log",
+            "orchestration/receipts/block_dna_adapt_001/B4_purple_gate_001.json"
+          ],
+          "pre_exists": false,
+          "writer_started": false
+        }
+      },
+      "competing_writers": {
+        "running_children_under_parent": 1,
+        "running_child_ids": ["019f8800-17d3-7b00-87c6-73a6153b990f"],
+        "this_is_sole_running_child": true,
+        "block_dna_contract_tree_exists": false,
+        "b1_b4_evidence_exists": false,
+        "verdict": "NO_COMPETING_WRITERS"
+      }
+    },
+    "p2e_status": {
+      "blocked": true,
+      "reason": "Directive 68 forbidden_actions and WO objective authorize only the strict project-local adapter contract gate; runtime Block Assembly / P2E not permitted",
+      "permitted_task_ids_only": ["BLOCK-DNA-ADAPT-001"]
+    },
+    "scope_authorization": {
+      "authorized_product_paths": [],
+      "b1_sole_future_product_lease": "orchestration/contracts/block_dna_adapt_001/**",
+      "game_edits_authorized": false,
+      "scene_edits_authorized": false,
+      "control_edits_authorized": false,
+      "character_runtime_edits_authorized": false,
+      "persistmodule_edits_authorized": false,
+      "world_dna_edits_authorized": false
+    }
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "preflight_existence_and_hash_probe",
+    "checks": [
+      {"id": "DNA_V10_ROOT", "result": "PASS", "detail": "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.0 exists"},
+      {"id": "DNA_V11_ROOT", "result": "PASS", "detail": "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.1_Tier3 exists"},
+      {"id": "DNA_BASELINE_HASHES", "result": "PASS", "detail": "package trees, zips, manifests, block schemas hashed"},
+      {"id": "DEPS_ACCEPTED", "result": "PASS", "detail": "CTRL-1B-001/002, P1E-006, CHAR-1C-001 all accepted=true in Codex reviews; also listed in directive.accepted_task_ids"},
+      {"id": "LEASES_FREE", "result": "PASS", "detail": "all B0-B4 exclusive paths pre-existed false; contract tree absent"},
+      {"id": "SOLE_RUNNING_CHILD", "result": "PASS", "detail": "only 019f8800-17d3-7b00-87c6-73a6153b990f running under parent"},
+      {"id": "P2E_BLOCKED", "result": "PASS", "detail": "P2E not in permitted_task_ids; WO forbids runtime Block Assembly"},
+      {"id": "U0_U2_REJECT_U1_PASS", "result": "PASS", "detail": "hashes match acceptance_004 bindings; statuses preserved"},
+      {"id": "NO_PRODUCT_WRITES", "result": "PASS", "detail": "product_writes=[]"},
+      {"id": "WORLD_PROMPT_SCHEMA_PRESENT", "result": "PASS", "detail": "contracts/world_prompt.schema.json sha256=cc57300fb01d5e803b44aca80c77ff1d8dee72f00974a90f9ec6f500ceb2841c"}
+    ],
+    "exit_code": 0,
+    "pass": true
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "one_writer_per_file": true,
+    "exclusive_lease_only": true,
+    "dna_not_modified": true,
+    "skills_transcript_backed": true,
+    "characters_bound": true,
+    "maf_required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "residual_risks": [
+      "Source DNA Build Recipe/Graph schemas remain fail-open by design of the package; closure is B1's job under a new contract tree only.",
+      "Tree aggregate hashes exclude __pycache__; B1 should re-hash the same method when locking source-baseline.",
+      "curiosity-engine read_file tool returned full-file content on each chunked call; content EOF verified but strict line-window metadata was not emitted by the tool."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-BLOCK-DNA-ADAPT-001-STRICT-CONTRACT-GATE.md",
+    "orchestration/control/codex_directive.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "orchestration/reviews/CODEX_CHAR-1C-001_EXTERNAL_TRANSCRIPT_ACCEPTANCE_004.json",
+    "orchestration/reviews/CODEX_CTRL-1B-001_FINAL_ACCEPTANCE_002.json",
+    "orchestration/reviews/CODEX_CTRL-1B-002_FINAL_ACCEPTANCE_006.json",
+    "orchestration/reviews/CODEX_P1E-006_FINAL_ACCEPTANCE_005.json",
+    "orchestration/logs/block-dna-adapt-001-b0-ssot-001.log",
+    "orchestration/receipts/block_dna_adapt_001/B0_ssot_preflight_001.json",
+    "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.0/manifest.json",
+    "world_DNA/AIdle_PC_Elemental_Physics_Foundation_v1.1_Tier3/manifest.json",
+    "contracts/world_prompt.schema.json"
+  ],
+  "trace": {
+    "handoff_from": "parent_019f7ffd-3995-71c0-aca1-51078e24a852",
+    "handoff_to": "B1_SCHEMA",
+    "wave": "B0",
+    "task_id": "BLOCK-DNA-ADAPT-001"
+  }
+}

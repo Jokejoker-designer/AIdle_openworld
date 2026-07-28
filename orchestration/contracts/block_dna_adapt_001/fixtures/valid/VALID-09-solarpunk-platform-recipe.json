@@ -1,0 +1,54 @@
+{
+  "schema_version": "block_dna_adapt_001/1.0",
+  "recipe_id": "recipe_solarpunk_platform_v1",
+  "recipe_type": "MODULE_CLUSTER",
+  "world_profile": "solarpunk_haven",
+  "root_module_id": "block_platform",
+  "idempotency_key": "idem_recipe_solarpunk_platform_v1",
+  "instances": [
+    {
+      "instance_id": "platform",
+      "module_id": "block_platform",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "parameters": {
+        "variant": "solar"
+      }
+    }
+  ],
+  "connections": [],
+  "material_overrides": [
+    {
+      "instance_id": "platform",
+      "slot": "metal",
+      "p1e_material_id": "MAT_CozyMetal"
+    }
+  ],
+  "behavior_bindings": [],
+  "validation": {
+    "check_sockets": true,
+    "check_materials": true,
+    "check_occupancy": true
+  },
+  "outputs": {
+    "proposal_only": true,
+    "scene_manifest": true,
+    "asset_request_on_missing": true
+  },
+  "payload_fingerprint": "a8f540d87d91f385bbe3be77b13d337141396e6089729e59eb306d27f74b65fa"
+}

@@ -1,134 +1,93 @@
 {
-  "agent_step_id": "G8-001-parent-collate-directive-20-correction-001-2026-07-21",
+  "agent_step_id": "G8-001-parent-collate-directive-24-ui-visual-003-2026-07-21",
   "agent_type": "aidle-conductor",
   "skill_id": "maf-mandatory-standard",
   "skill_version": "1.0",
   "authority_token": "HUMAN_APPROVAL_REQUIRED",
+  "input_context_hash": "sha256:directive24-c003",
   "output_schema_version": "agent_step_contract/1.0",
   "result": {
     "task_id": "G8-001",
-    "directive_id": 20,
-    "supersedes_directive_id": 19,
-    "correction_id": "G8-001-CORRECTION-001",
-    "work_order": "orchestration/work_orders/WO-G8-001-CORRECTION-001.md",
-    "prior_work_order": "orchestration/work_orders/WO-G8-001.md",
+    "directive_id": 24,
+    "supersedes_directive_id": 23,
+    "correction_id": "G8-001-UI-VISUAL-CORRECTION-003",
+    "work_order": "orchestration/work_orders/WO-G8-001-UI-VISUAL-CORRECTION-003.md",
     "state": "REVIEW_REQUESTED",
     "waiting": "WAITING_CODEX",
-    "machine_verdict": "CORRECTION_APPLIED_AWAITING_CODEX",
+    "machine_verdict": "UI_VISUAL_CORRECTION_003_APPLIED_AWAITING_CODEX",
     "self_accept": false,
     "parent_may_self_accept": false,
     "accepted_by_parent": false,
-    "summary": "Directive 20 CORRECTION-001 complete in existing parent. Directive 19 functional matrix markers remain accepted as history, but its claim of zero prior-evidence mutation is disclosed as FAILED: six tracked G3/G4 export files were rewritten by VERIFY_ONLY smokes. Correction: executor+persist PATCH_DRAFT redirect runtime evidence to user:// only; six files restored to 60fccdd without reset/checkout; core VERIFY_ONLY re-ran G3=76 G4=22 validator clean 2.5D boot with SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS; schema validated C0–C2 receipts. Return REVIEW_REQUESTED/WAITING_CODEX — not ACCEPTED, not HITL yet.",
-    "directive_19_scope_honesty": {
-      "claim": "product_patches_this_gate=0 and no prior-evidence edits",
-      "actual": "six tracked export/evidence files mutated by G3/G4 smokes",
-      "codex_verdict": "CHANGES_REQUESTED",
-      "review": "orchestration/reviews/CODEX_G8-001_MACHINE_REVIEW.json",
-      "preserved_not_erased": true
+    "summary": "Directive 24 C003: canonical external headed runner PASS; cancel entity_absent + crop change; Bridge UUID valid; StatusPill ≥12px; error_lines ingest + external ERROR gate; isolated saved-style seed preserved. Control Foundation NOT implemented (1B deferred). G3=76 G4=22 zero-diff. Eight C003 MAF receipts. REVIEW_REQUESTED/WAITING_CODEX — not ACCEPTED.",
+    "character_binding": {
+      "trustlayer_character_id": "lead-orchestrator",
+      "ui_character_id": "ui-orchestrator",
+      "maf_role": "workflow_host",
+      "authority_token": "HUMAN_APPROVAL_REQUIRED"
     },
-    "correction_waves": {
-      "C0_EXECUTOR_PATCH": {
-        "profile": "executor",
-        "authority": "PATCH_DRAFT",
-        "receipt": "orchestration/receipts/g8/correction/C0_executor.json",
-        "verdict": "PASS"
-      },
-      "C1_PERSIST_PATCH": {
-        "profile": "persist",
-        "authority": "PATCH_DRAFT",
-        "receipt": "orchestration/receipts/g8/correction/C1_persist.json",
-        "verdict": "PASS"
-      },
-      "C2_CORE_PURPLE_VERIFY": {
-        "profile": "core",
-        "authority": "VERIFY_ONLY",
-        "receipt": "orchestration/receipts/g8/correction/C2_core.json",
-        "verdict": "PASS"
-      },
-      "C3_SCHEMA_RECEIPT_VERIFY": {
-        "profile": "schema",
-        "authority": "VERIFY_ONLY",
-        "receipt": "orchestration/receipts/g8/correction/C3_schema.json",
-        "verdict": "PASS"
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full"
       }
-    },
-    "domain_receipts_directive_19": "orchestration/receipts/g8/G8_*.json",
-    "evidence_index": {
-      "correction_report": "orchestration/reviews/G8-001_CORRECTION_001_REPORT.md",
-      "alpha_report": "orchestration/reviews/G8-001_ALPHA_EVIDENCE_REPORT.md",
-      "human_checklist": "orchestration/reviews/G8-001_HUMAN_ACCEPTANCE_CHECKLIST.md",
-      "correction_matrix_log": "orchestration/logs/g8-correction-001-matrix.log",
-      "directive_19_matrix_log": "orchestration/logs/g8-integrated-matrix.log",
-      "codex_machine_review": "orchestration/reviews/CODEX_G8-001_MACHINE_REVIEW.json"
-    },
-    "six_tracked_exports_zero_diff_after_rerun": true,
-    "baseline_commit": "60fccdd792d6d8f682441bbfe9ff6e7d67a27226",
-    "runtime_isolation": {
-      "g3": "user://g3_e2e_smoke/",
-      "g4": "user://g4_persist_smoke/"
-    },
-    "product_writes_correction": [
-      "game/scripts/modules/executor/g3_e2e_smoke.gd",
-      "game/scripts/modules/executor/g3_onboarding_slice.gd",
-      "game/scripts/modules/persist/g4_persist_smoke.gd"
     ],
-    "no_tasks_json_accept": true
+    "trace_ref": "orchestration/logs/g8-ui-visual-correction-003-runner.log#PARENT",
+    "handoff_ref": "WAITING_CODEX",
+    "control_foundation_1b": "NOT_IN_SCOPE_THIS_DIRECTIVE",
+    "waves": {
+      "C0_ASSERTIONS": "PASS",
+      "C1_CORE_RUNNER_BRIDGE": "PASS",
+      "C2_EXECUTOR_CANCEL_STATUS": "PASS",
+      "C3_COMPANION_VERIFY": "PASS",
+      "C4_MANIFESTATION_VERIFY": "PASS",
+      "C5_ASSET_VISUAL_AUDIT": "PASS",
+      "C6_PERSIST_SAVED_CHOICE": "PASS",
+      "C7_PURPLE_GATE": "PASS"
+    },
+    "regression": {
+      "canonical_runner": "PASS",
+      "g3_checks": 76,
+      "g4_checks": 22,
+      "manifestation_checks": 8,
+      "six_tracked_exports_zero_diff": true,
+      "png_count": 10
+    },
+    "evidence_index": {
+      "report": "orchestration/reviews/G8-001_UI_VISUAL_CORRECTION_003_REPORT.md",
+      "assertions": "orchestration/reviews/G8-001_UI_VISUAL_ASSERTIONS_C003.md",
+      "runner": "scripts/run_g8_headed_visual_c003.py",
+      "runner_log": "orchestration/logs/g8-ui-visual-correction-003-runner.log",
+      "evidence": "orchestration/evidence/g8_ui_visual_correction_003/",
+      "receipts": "orchestration/receipts/g8/ui_visual_correction_003/"
+    },
+    "parent_product_patch": false,
+    "product_writes": 0
   },
   "smoke_test": {
-    "log": "orchestration/logs/g8-correction-001-matrix.log",
+    "passed": true,
     "commands": [
-      {
-        "name": "g3_e2e",
-        "exit_code": 0,
-        "marker": "G3_E2E_SMOKE=PASS checks=76"
-      },
-      {
-        "name": "g4_persist",
-        "exit_code": 0,
-        "marker": "G4_PERSIST_SMOKE=PASS checks=22"
-      },
-      {
-        "name": "validator",
-        "exit_code": 0,
-        "marker": "AIDLE_VALIDATION=PASS"
-      },
-      {
-        "name": "clean_boot_2_5d",
-        "exit_code": 0,
-        "marker": "Camera mode=fixed-angle 2.5D"
-      },
-      {
-        "name": "six_tracked_zero_diff",
-        "exit_code": 0,
-        "marker": "SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS"
-      },
-      {
-        "name": "maf_correction_receipts",
-        "exit_code": 0,
-        "marker": "MAF_CORRECTION_RECEIPTS_VALIDATE=PASS count=3"
-      }
+      {"marker": "CANONICAL_RUNNER=PASS"},
+      {"marker": "CANCEL_CROP_WIDE_PASS"},
+      {"marker": "SAVED_CHOICE_RUNNER_PASS"},
+      {"marker": "G3_E2E_SMOKE=PASS checks=76"},
+      {"marker": "G4_PERSIST_SMOKE=PASS checks=22"},
+      {"marker": "SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS"}
     ]
   },
   "self_audit": {
     "authority_honored": true,
-    "no_nested_grandchildren": true,
     "no_self_accept": true,
-    "directive_19_failure_disclosed": true,
-    "no_silent_rewrite_of_failure": true,
-    "no_install_live_provider_push": true,
+    "no_nested_grandchildren": true,
+    "control_foundation_not_implemented": true,
     "residual_risks": [
-      "Await Codex independent re-verification",
-      "Human headed checklist still required for alpha",
-      "G5 fixture / G6 local POC limits unchanged"
+      "Codex fixed crop 550..900 may still be static if cancel entity is outside that box; wide crop + entity_absent are authoritative",
+      "Phase 1B Control Foundation still PARTIAL / deferred"
     ]
   },
   "evidence_refs": [
-    "orchestration/reviews/G8-001_CORRECTION_001_REPORT.md",
-    "orchestration/logs/g8-correction-001-matrix.log",
-    "orchestration/receipts/g8/correction/C0_executor.json",
-    "orchestration/receipts/g8/correction/C1_persist.json",
-    "orchestration/receipts/g8/correction/C2_core.json",
-    "orchestration/receipts/g8/correction/C3_schema.json",
+    "orchestration/reviews/G8-001_UI_VISUAL_CORRECTION_003_REPORT.md",
+    "orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
     "E:/standards/maf/schemas/agent_step_contract.schema.json"
   ],
   "next_route": "WAITING_CODEX"

@@ -1,0 +1,112 @@
+{
+  "schema_version": "town_grid_purple/1.1",
+  "directive_id": 99,
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "agent": "grok",
+  "role": "purple-team",
+  "authority": "VERIFY_ONLY",
+  "verdict": "WAITING",
+  "accepted": false,
+  "self_accept": false,
+  "note": "WO-level Purple remains WAITING on Human batch accept for remaining open plots. Machine structural PASS does not equal product accept. Fidelity law still applies to open HIGH_PARTIAL objects.",
+  "evidence": [
+    "orchestration/receipts/town_grid_import_001/BLUE_IMPORT_001.json",
+    "orchestration/receipts/town_grid_import_001/RED_FINDINGS_001.json",
+    "orchestration/receipts/town_grid_import_001/QA_town_grid_headed_001.json",
+    "orchestration/receipts/town_grid_import_001/CLAUDE_VERIFY_001.json",
+    "orchestration/receipts/town_grid_import_001/HOME_BLD_HUMAN_ACCEPTED_001.json",
+    "game/tests/town_grid_import_smoke.gd",
+    "game/tests/town_grid_headed_qa_001.gd",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_001.log",
+    "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/town_cadastre_overview_50_1600x900.png",
+    "AIDLE_TOWN_GRID_IMPORT_SMOKE=PASS",
+    "AIDLE_TOWN_GRID_HEADED_QA=PASS",
+    "orchestration/receipts/town_grid_import_001/BUILDINGS_WAVE1_V1.json",
+    "orchestration/receipts/town_grid_import_001/BUILDINGS_FIDELITY_V3.json",
+    "orchestration/receipts/town_grid_import_001/BUILDINGS_FIDELITY_V4.json",
+    "orchestration/receipts/town_grid_import_001/TOWN_ALIGNMENT_V1.json"
+  ],
+  "awaiting": "Human batch accept or CHANGES_REQUESTED on remaining open HIGH_PARTIAL plots (not HOME.BLD)",
+  "fidelity_block": {
+    "match_100_pct_count": 0,
+    "real_glb_count": 21,
+    "blocking_finding": "TG-QA-F01",
+    "home_bld_note": "HOME.BLD closed by Human as accepted residual (non-100%); still counted non-100% in scorecard math; not blocking further iteration on other objects"
+  },
+  "human_sourced_object_acceptances": [
+    {
+      "entry_id": "HOME_BLD_HUMAN_ACCEPTED_001",
+      "source": "HUMAN",
+      "not_self_accept": true,
+      "is_self_accept": false,
+      "decided_by": "Human Product Lead",
+      "relayed_by": "Claude conductor",
+      "filed_by": "grok",
+      "plot_id": "HOME.BLD",
+      "object_id": "cozy_house_small_A",
+      "decision": "HUMAN_ACCEPTED_RESIDUAL",
+      "ssot_100_pct_match": false,
+      "signature_at_acceptance": "soft_clay_door_side_window_high_partial",
+      "strikes_at_acceptance": 3,
+      "loop_status": "CLOSED_PERMANENTLY",
+      "receipt": "orchestration/receipts/town_grid_import_001/HOME_BLD_HUMAN_ACCEPTED_001.json",
+      "evidence": [
+        "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/close_home_1280x720.png",
+        "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_fidelity_v25_house24.log"
+      ],
+      "note": "Human Product Lead chose keep current soft-clay finish rather than remesh. Relay only — must never be read as agent self-accept."
+    }
+  ],
+  "closed_objects": [
+    {
+      "plot_id": "HOME.BLD",
+      "reason": "HUMAN_ACCEPTED_RESIDUAL",
+      "do_not_iterate": true
+    }
+  ],
+  "open_work": [
+    "Human: CONFLICT_WD_GAZEBO_VS_HOME_BLD (deck at origin vs house)",
+    "Human: 6 buildings post-V4 NEED_HUMAN_AGAIN",
+    "21 missing props"
+  ],
+  "structural_update": {
+    "when": "2026-07-24T01:40:19Z",
+    "real_glb": 29,
+    "placeholders": 21,
+    "buildings_real": "10/10",
+    "note": "BUILDINGS_WAVE1_V1 structure filled; fidelity still open per-object; not product accept"
+  },
+  "buildings_fidelity_v3": {
+    "roof_shelf_plank_resolved": true,
+    "matching_100_pct_count": 0,
+    "need_human_candidates": [
+      "MARKET.BLD",
+      "GARDEN.BLD",
+      "WELL.BLD",
+      "WINDMILL.BLD",
+      "BRIDGE.BLD",
+      "LOOKOUT.BLD"
+    ],
+    "note": "Six buildings at 3-strike residual HIGH_PARTIAL — Human Product Lead call (accept residual vs remesh). Workshop/barn roof plank fixed, still overall HIGH_PARTIAL under new signatures."
+  },
+  "buildings_fidelity_v4": {
+    "human_authorization": "HUMAN_AUTHORIZED_ONE_MORE_REMESH",
+    "matching_100_pct_count": 0,
+    "need_human_again": [
+      "MARKET.BLD",
+      "GARDEN.BLD",
+      "WELL.BLD",
+      "WINDMILL.BLD",
+      "BRIDGE.BLD",
+      "LOOKOUT.BLD"
+    ],
+    "note": "V4 was the authorized 4th attempt. Zero buildings closed to 100%. All 6 back to Human (accept residual vs different strategy). No agent auto-V5."
+  },
+  "town_alignment_v1": {
+    "done": true,
+    "design_flags_for_human": [
+      "CONFLICT_WD_GAZEBO_VS_HOME_BLD"
+    ],
+    "note": "Alignment pass complete (presentation neatness + path overlay). One design conflict flagged. 6 buildings still NEED_HUMAN_AGAIN from V4."
+  }
+}

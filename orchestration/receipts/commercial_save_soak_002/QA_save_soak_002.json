@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "COMMERCIAL-SAVE-SOAK-002-2026-07-23",
+  "step_id": "COMMERCIAL-SAVE-SOAK-002",
+  "work_order": "orchestration/work_orders/WO-COMMERCIAL-SAVE-SOAK-002.md",
+  "directive_id": 99,
+  "authority_token": "PATCH_DRAFT",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "writer_transcript_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "accepted": false,
+  "self_accept": false,
+  "human_prior_accept": "orchestration/receipts/BATCH_COMMERCIAL_003/HUMAN_ACCEPT_BATCH_COMMERCIAL_003.json",
+  "product_writes": [
+    "game/tests/commercial_save_soak_002.gd"
+  ],
+  "smoke": {
+    "script": "res://tests/commercial_save_soak_002.gd",
+    "exit": 0,
+    "marker": "AIDLE_COMMERCIAL_SAVE_SOAK_002=PASS checks=3",
+    "log_sha256": "d607a7d33c757c199ff8fa011022a2df81cc540dada120844245ea7444933a1d"
+  },
+  "evidence": {},
+  "gate8_status": "IMPROVED_KERNEL_PLUS_SOAK",
+  "closed_gaps": [
+    "G8-GAP-SOAK-ITERATIONS (20-cycle)",
+    "G8-GAP-MULTI-SESSION sequential A/B/C",
+    "stale revision conflict asserted"
+  ],
+  "still_open": [
+    "headed playthrough save UX",
+    "true multi-process concurrent writers",
+    "production key provider"
+  ],
+  "verdict": "SAVE_SOAK_002_PASS_GATE8_STRENGTHENED",
+  "recorded_at": "2026-07-23T15:32:13+07:00"
+}

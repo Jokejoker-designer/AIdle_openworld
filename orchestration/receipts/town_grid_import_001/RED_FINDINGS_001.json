@@ -1,0 +1,43 @@
+{
+  "schema_version": "town_grid_red_findings/1.0",
+  "directive_id": 99,
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "agent": "grok",
+  "role": "red-team",
+  "authority": "READ_ONLY_AUDIT",
+  "patches": false,
+  "accepted": false,
+  "self_accept": false,
+  "checks": {
+    "plots_count_50": true,
+    "coords_match_plan": true,
+    "content_within_pm12": true,
+    "max_abs_xz": 11.5,
+    "building_footprint_cell_overlap": false,
+    "placeholders_honest_label": true,
+    "no_fake_glb_for_concept": true,
+    "no_idle_alias_for_missing": true,
+    "town_layout_10phase_not_edited_in_place": true,
+    "lease_files_named": true,
+    "confirm_gate_untouched": true,
+    "manifestation_order_untouched": true
+  },
+  "findings": [
+    {
+      "id": "TG-R01",
+      "severity": "info",
+      "title": "Headless mesh_get_surface_count null on teardown",
+      "detail": "Known dummy renderer residual when freeing many MeshInstance3D under headless; smoke still PASS. Not a F01 hard stop; not new Confirm regression.",
+      "action": "none_required_for_import_wave"
+    },
+    {
+      "id": "TG-R02",
+      "severity": "info",
+      "title": "TorusMesh footprint edge may warn under dummy renderer",
+      "detail": "Cosmetic outline; not fake content. Headed path should be fine.",
+      "action": "optional_followup_simplify_outline"
+    }
+  ],
+  "hard_stops_triggered": [],
+  "verdict": "NO_BLOCKING_FINDINGS"
+}

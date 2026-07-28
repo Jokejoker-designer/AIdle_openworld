@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_UCBV-001_C4_QA_GATE_011",
+  "task_id": "UCBV-001",
+  "directive_reviewed": 91,
+  "reviewed_at": "2026-07-23T12:09:33+07:00",
+  "reviewed_by": "codex",
+  "verdict": "C4_CHANGES_REQUESTED_H1_FLOW_SCRIPT_ERROR_BLOCKS_C5",
+  "accepted": false,
+  "self_accept": false,
+  "scope_acceptance": "C4_EVIDENCE_REJECTED_PENDING_ZERO_ERROR_CORRECTION",
+  "lineage": {
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "child_task_ref": "019f8c85-1f28-7502-9632-48bece015355",
+    "durable_started_at": "2026-07-23T01:09:22.347643200Z",
+    "durable_completed_at": "2026-07-23T01:21:59.896413800Z",
+    "receipt": "orchestration/receipts/ucbv_001/correction_002/C4_qa_evidence_002.json",
+    "receipt_sha256": "A06AF8F4B38451B47B3908A09C49537DB7172FF4FA12A82E210C5DDDFB811CA2",
+    "log": "orchestration/logs/ucbv_001/correction_002/C4_qa_evidence_002.log",
+    "log_sha256": "0FD9FDA943BCFD63C776E316670A4D899E33E5CF0A1A2B70E83D80E8B507CCB5"
+  },
+  "independent_validation": {
+    "receipt_schema_errors": 0,
+    "profile": "aidle-worldgen-qa-evidence",
+    "trustlayer_character": "purple-team-finding-triage",
+    "ui_character": "ui-a11y-auditor",
+    "authority_token": "VERIFY_ONLY",
+    "product_writes": [],
+    "durable_lineage_matches": true,
+    "headed_png_count_on_disk": 38,
+    "headed_evidence_claim": "dual-resolution evidence is present; it is not accepted while the required zero-error regression gate fails",
+    "independent_h1_flow_exit": 0,
+    "independent_h1_flow_marker": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=12",
+    "independent_h1_flow_script_error": "SCRIPT ERROR: Invalid call. Nonexistent 'bool' constructor. at res://tests/h1_consolidation_flow_smoke.gd:196",
+    "c3f01_warning_signatures": 0
+  },
+  "findings": [
+    {
+      "id": "C4-F01",
+      "severity": "HIGH",
+      "status": "OPEN_BLOCKS_C5",
+      "finding": "The required C4 regression matrix is not zero-error: H1 flow emits a SCRIPT ERROR at line 196 even though its assertion marker and process exit are PASS/0.",
+      "required_route": "One narrow Blue PATCH_DRAFT correction to h1_consolidation_flow_smoke.gd only, then independent clean rerun before fresh C4 verification."
+    },
+    {
+      "id": "C4-F02",
+      "severity": "MEDIUM",
+      "status": "EVIDENCE_HYGIENE_NOTE",
+      "finding": "C4 wrote _write_c4_receipt.py under its evidence wildcard. It is inside the stated path wildcard but is a receipt generator rather than submitted evidence; it is not accepted as durable product or gate evidence.",
+      "required_route": "Do not modify it under the narrow correction. C4 rerun must report it honestly and not treat generated wording as acceptance."
+    }
+  ],
+  "decision": {
+    "c4_accepted": false,
+    "c5_authorized": false,
+    "c4f01_blue_correction_authorized": true,
+    "overall_ucbv_accepted": false,
+    "human_gate_open": false,
+    "red_f01_hard_stop": true
+  },
+  "next_route": "C4F01_H1_FLOW_ZERO_ERROR_BLUE_CORRECTION"
+}

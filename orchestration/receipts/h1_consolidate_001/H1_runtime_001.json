@@ -1,0 +1,509 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "H1-CONSOLIDATE-001-h1-runtime-001-2026-07-22",
+  "step_id": "H1-CONSOLIDATE-001-h1-runtime-001",
+  "work_order_id": "WO-H1-CONSOLIDATE-001-VERTICAL-SLICE",
+  "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-VERTICAL-SLICE.md",
+  "work_order_sha256": "3c1452b275d09d2b37fe707e2327c8b80b76bc4a812ad3586e199eff1832ec82",
+  "directive_id": 74,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "7436b2175a423903bc5c4364bcd38c7f03f479d404f65670574fc3e782b145c7",
+  "directive_state": "READY",
+  "directive_verdict": "P2E_001_ACCEPTED_H1_CONSOLIDATION_OPEN",
+  "supersedes_directive_id": 73,
+  "permitted_task_ids": ["H1-CONSOLIDATE-001"],
+  "accepted_task_ids_from_directive": ["P2E-001"],
+  "milestone": "H1 vertical-slice consolidation — H1 runtime product chrome + Companion-led flow",
+  "agent_id": "aidle-worldgen-godot-runtime",
+  "agent_type": "aidle-worldgen-godot-runtime",
+  "profile_name": "aidle-worldgen-godot-runtime",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-godot-runtime.md",
+  "profile_sha256": "220c643ab23e3d62de8252cfdfc75f8c8f99db383bfc69235ab4e25c5d5a22b9",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-godot-runtime; trustlayer_character=blue-team-p0-remediator; ui_character=ui-app-dashboard; authority_token=PATCH_DRAFT; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set approved_godot_scene_and_runtime_files under WO lease.",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "sole product/test writer under WO H1 exact lease; orchestration log+receipt only outside game; no DNA/Scene/Character/network/shipping; never ACCEPTED; no grandchildren",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:4e2637571039879e417ed0ddfb5190a1c6ae7e1e984e86bf161493096dda3115",
+  "input_context_hash_16": "4e2637571039879e",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-H1-CONSOLIDATE-001-VERTICAL-SLICE.md + codex_directive.json + aidle-worldgen-godot-runtime.md + H0_ssot_preflight_001.json + DESIGN.md",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "H1_COMPLETE_ROUTE_H2_CONTROL",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "H1_RUNTIME_CONSOLIDATION_PASS_NO_ACCEPT",
+  "child_task_ref": "019f88d8-715a-76e3-9792-bfa7663e0bf8",
+  "transcript_ref": "019f88d8-715a-76e3-9792-bfa7663e0bf8",
+  "writer_transcript_ref": "019f88d8-715a-76e3-9792-bfa7663e0bf8",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_h0": "019f88d4-0d38-7162-8bbd-de4b3e86aaa9",
+  "prior_h0_receipt": "orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json",
+  "prior_h0_sha256": "7317459a357e384c9700743c2b9a4fe02c169bafb7960489272381eee7846623",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f88d8-715a-76e3-9792-bfa7663e0bf8/meta.json",
+  "started_at": "2026-07-22T08:01:54.012917600Z",
+  "completed_at_utc": "2026-07-22T08:12:30Z",
+  "next_owner": "H2_CONTROL",
+  "next_route": "H2_CONTROL",
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-app-dashboard",
+    "ui_file": "E:/agents/ui-design/characters/08-ui-app-dashboard.md",
+    "ui_sha256": "20ab5ba77ed1fd3f410de284f70d27ca1b7379a5c0d00c0f3a83eef11d5f990d",
+    "ui_read": "full_eof",
+    "role": "H1 PATCH_DRAFT sole product/test writer — Companion-led consolidation + product chrome; no self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO, Directive 74, ARCHITECTURE_LOCK, DESIGN.md, design-contract, skills, H0 receipt, and P2E acceptance manually with full-EOF skill reads.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "full_file_via_prior_session_and_size_verify",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "honesty_note": "Full 1123-line skill present and size/hash verified; content used for execution-cycle discipline. Not re-chunked mid-H1 to avoid context thrash after H0 verified EOF."
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "bytes": 828,
+      "line_count": 26,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "also_read_project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027"
+    },
+    {
+      "skill_id": "game-ui-icons",
+      "mode": "ROUTED_UI",
+      "source": "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+      "sha256": "f55828fd6e62640ab2a9ec8d2e72fb5fd8079b529ac21cd5d7b61347654b77b9",
+      "bytes": 2235,
+      "line_count": 55,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "note": "Applied as UI system constraints (interaction states, set consistency, no diagnostic chrome as primary); no new raster icon assets generated under lease."
+    }
+  ],
+  "ui_workflow": {
+    "brief": "Five-minute Companion-led Private Reality consolidation; conversation primary; BA bounded",
+    "design_md_constraints": [
+      "Warm Dreamy Low-Poly / Cozy Cyber-Pixel",
+      "Manifestation cyan construction light #62E6FF",
+      "Color never sole state cue",
+      "Companion text bubble not permanent full-screen editor",
+      "wireframe → hologram → materializing → complete"
+    ],
+    "in_place_artifact": "Edited leased product scripts/scenes only; no new top-level UI package",
+    "headed_critique_notes": [
+      "Headed dual-resolution PNGs deferred to H3 evidence lease (not H1 writer set)",
+      "Product chrome: debug overlay / snapshot-session counters off by default; F3 only",
+      "Context HUD label Explore/Build/Companion (no diagnostic CTX counters)",
+      "Confirm/Cancel use glyph+text (✓/✕); Small Build replaces Demo Build",
+      "Stage banner uses glyph+plain language labels, not color alone"
+    ],
+    "a11y": [
+      "Confirm/Cancel not color-alone",
+      "Stage labels include pattern glyphs",
+      "Responsive offsets retained for 868x517 clearance",
+      "Cursor action label remains a11y-optional, not default chrome"
+    ],
+    "handoff": "H2_CONTROL VERIFY_ONLY audit of focus/Esc/Q-R/responsive/no hidden diagnostic UI",
+    "journal_note": "H1 runtime consolidation complete under Directive 74; P2E regressions green; product chrome mode on; Companion→BA preview path wired; no self-accept; Human five-minute gate remains post H0–H4 Codex path."
+  },
+  "writer_lease": [
+    "game/scripts/main/main.gd",
+    "game/scripts/modules/companion/companion_chat_panel.gd",
+    "game/scripts/modules/g3_ui/starter_realm_panel.gd",
+    "game/scripts/modules/manifestation/manifestation_instance.gd",
+    "game/scripts/modules/manifestation/manifestation_stages.gd",
+    "game/scripts/modules/block_assembly/**",
+    "game/scripts/ui/hud.gd",
+    "game/scripts/ui/context_action_hud.gd",
+    "game/scripts/ui/cozy_homestead_panel.gd",
+    "game/scripts/ui/playable_action_bar.gd",
+    "game/scenes/ui/hud.tscn",
+    "game/scenes/ui/context_action_hud.tscn",
+    "game/scenes/ui/cozy_homestead_panel.tscn",
+    "game/scenes/ui/playable_action_bar.tscn",
+    "game/tests/h1_consolidation_*.gd",
+    "orchestration/logs/h1-consolidate-h1-runtime-001.log",
+    "orchestration/receipts/h1_consolidate_001/H1_runtime_001.json"
+  ],
+  "files_before_write": {
+    "note": "Listed before product edits; h1_consolidation_*.gd absent pre-H1 (H0 path_presence)",
+    "product_paths_existed": true,
+    "h1_tests_pre_count": 0
+  },
+  "product_writes": [
+    {
+      "path": "game/scripts/main/main.gd",
+      "sha256": "7465c844ef4d9dc719b92ee63167747c009a9f6bcd4a12563112d0ce46c13c19",
+      "bytes": 55412
+    },
+    {
+      "path": "game/scripts/modules/companion/companion_chat_panel.gd",
+      "sha256": "19229f4d706908fa5b93a8496119d00f641a8afe7fe6feb7cf83570f56bd1863",
+      "bytes": 12271
+    },
+    {
+      "path": "game/scripts/modules/g3_ui/starter_realm_panel.gd",
+      "sha256": "1c920474fef5280f007d39ad68c89c4509ff1f662f9aacdb1a2113bb14b9e2e0",
+      "bytes": 6814
+    },
+    {
+      "path": "game/scripts/modules/manifestation/manifestation_instance.gd",
+      "sha256": "3cb888587956c723a5993f62dd3247ee8f7f45449320fa162c7857589459f184",
+      "bytes": 16292
+    },
+    {
+      "path": "game/scripts/modules/manifestation/manifestation_stages.gd",
+      "sha256": "3d99e4fcba04050feceac82d870b76f9f7efd2f898ede55c3565a63204fefbdf",
+      "bytes": 4193
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+      "sha256": "f36bca8fb0de2ffbd622232e5af2b261b84ae7b71425b4eff8b68db60bc0a7d6",
+      "bytes": 34585
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_hud.gd",
+      "sha256": "8d9c420c2a4e7e1ab0a276cb4ff69a377f1913ac21bcbbec0314d75e50b6d89c",
+      "bytes": 6084
+    },
+    {
+      "path": "game/scripts/ui/hud.gd",
+      "sha256": "1726726d48a2e13f1125c6c15f5fc7df42dc51debdaa51508fb66090897b61a6",
+      "bytes": 5007
+    },
+    {
+      "path": "game/scripts/ui/context_action_hud.gd",
+      "sha256": "d7d3fa6bee5bb0dea6778b7efdee3496982d5df71b7dedd01f70cb33d4e8b65c",
+      "bytes": 9948
+    },
+    {
+      "path": "game/scripts/ui/cozy_homestead_panel.gd",
+      "sha256": "9f76ad37064114df8e55149a4d6125b3d6691ec957d353cf966dcae0562342bd",
+      "bytes": 5946
+    },
+    {
+      "path": "game/scripts/ui/playable_action_bar.gd",
+      "sha256": "a130c1ab54a043320d1a934f79e92ce90d529d4c5b097a16865a148277a8172b",
+      "bytes": 7694
+    },
+    {
+      "path": "game/scenes/ui/playable_action_bar.tscn",
+      "sha256": "d559d65060308000391f1fc21f4486e5e1a1fa89e1356fa371ce38354e98ddc4",
+      "bytes": 2371
+    },
+    {
+      "path": "game/tests/h1_consolidation_flow_smoke.gd",
+      "sha256": "6c8c3db8844e8bff053d974dad8d560e47524024d992cbd0d690988b5a487cef",
+      "bytes": 15869
+    },
+    {
+      "path": "game/tests/h1_consolidation_chrome_smoke.gd",
+      "sha256": "1023e9b7d59ec5e01230936c2c11ef64a7c1af11491936777703c5178e68f0b0",
+      "bytes": 6287
+    }
+  ],
+  "product_writes_unchanged_but_leased": [
+    {
+      "path": "game/scenes/ui/hud.tscn",
+      "sha256": "c834861214e3eb5900e57f4833b928de40a6d18743081de9e585a738b1813256",
+      "note": "leased; no content change required"
+    },
+    {
+      "path": "game/scenes/ui/context_action_hud.tscn",
+      "sha256": "b5e3875aafdfdb5ca5bdb0bca8f22e53f66114b1b462b37aabf49a8684a99937",
+      "note": "leased; script-driven UI; no tscn change"
+    },
+    {
+      "path": "game/scenes/ui/cozy_homestead_panel.tscn",
+      "sha256": "2c6c7b52b238709ebfa9f0452acec7f1db0c66e9e358ac7a811852e7bf13dd73",
+      "note": "leased; script-only panel; no tscn change"
+    }
+  ],
+  "evidence_writes": [
+    "orchestration/logs/h1-consolidate-h1-runtime-001.log",
+    "orchestration/receipts/h1_consolidate_001/H1_runtime_001.json"
+  ],
+  "log_sha256": "ac928bc2d8e05c0daf24bed0e86d0c12c327cda3afd7a6d30ec493eacd67340c",
+  "result": {
+    "verdict": "H1_RUNTIME_CONSOLIDATION_PASS_NO_ACCEPT",
+    "summary": "H1 runtime consolidation implements product chrome (no diagnostic wall as primary), Companion as primary creative guide without World Commit tool, Companion proposal → Block Assembly bounded preview path, ordered manifestation stages with non-color stage labels, local identity save/reload + compensation undo + cancel on BA controller, and headless h1_consolidation smokes. All Block-DNA, P2E, Control 1B router, and H1 smokes PASS. E2 historical rejection not rehabilitated. accepted=false; next_route=H2_CONTROL.",
+    "implementation_highlights": [
+      "main.gd: _apply_product_chrome, begin_companion_led_build, proposal-card → BA preview, confirm stage banners, get_product_chrome_audit",
+      "companion_chat_panel: companion_proposal_ready signal, has_world_commit_tool=false, product copy",
+      "block_assembly_controller: begin_companion_led_preview, handle_player_confirm walks stages, export/reload_identity_snapshot, undo compensation preserved",
+      "manifestation_stages: stage_display_label, stage_pattern_glyph, is_ordered_sequence",
+      "context_action_hud: product context labels Explore/Build/Companion",
+      "playable_action_bar: Small Build, ✓ Confirm, ✕ Cancel",
+      "starter_realm_panel: stage banner glyph+text, product quest line"
+    ],
+    "five_minute_flow_mapping": [
+      {"id": "launch", "status": "wired", "note": "product chrome on ready"},
+      {"id": "move", "status": "preserved", "note": "Exploration locomotion + Q/R camera (Control 1B)"},
+      {"id": "companion_request", "status": "wired", "note": "E / Companion primary; proposal signal"},
+      {"id": "structured_proposal", "status": "wired", "note": "Proposal Card + companion_proposal_ready"},
+      {"id": "preview", "status": "wired", "note": "begin_companion_led_preview → hologram BA surface"},
+      {"id": "build_r", "status": "preserved", "note": "rotate_preview_degrees; camera yaw freeze path unchanged"},
+      {"id": "confirm", "status": "wired", "note": "handle_player_confirm → stages then World Commit"},
+      {"id": "manifestation", "status": "wired", "note": "wireframe→hologram→materializing→complete ordered"},
+      {"id": "commit", "status": "preserved", "note": "issuer=world_commit_service; client_world_commit=false"},
+      {"id": "save_reload", "status": "wired", "note": "export/reload_identity_snapshot local identity"},
+      {"id": "undo", "status": "preserved", "note": "request_undo_compensation authority path"},
+      {"id": "cancel", "status": "preserved", "note": "cancel_preview + Esc single-dispatch patterns"}
+    ],
+    "p2e_e2_historical_rejection": {
+      "immutable": true,
+      "rehabilitated": false,
+      "receipt": "orchestration/receipts/p2e_001/correction_003/E2_purple_gate_004.json",
+      "note": "Not rewritten under H1"
+    },
+    "forbidden_scope_confirmation": {
+      "dna_v1_2_authorized": false,
+      "scene_expansion_authorized": false,
+      "character_foundry_runtime_authorized": false,
+      "network_authorized": false,
+      "self_accept_authorized": false,
+      "e2_rehabilitated": false
+    }
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "headless_godot_and_python_gates",
+    "godot": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+    "project": "E:/AIdle_openworld/game",
+    "checks": [
+      {
+        "id": "BLOCK_DNA",
+        "pass": true,
+        "detail": "14/14 valid, 42/42 invalid rejected; exit=0"
+      },
+      {
+        "id": "CONTROL_1B_FIXTURES",
+        "pass": true,
+        "detail": "HARNESS_RESULT=PASS; invalid_rejected 12/12"
+      },
+      {
+        "id": "CTRL_ROUTER",
+        "pass": true,
+        "detail": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16 exit=0"
+      },
+      {
+        "id": "P2E_CORE",
+        "pass": true,
+        "detail": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14 exit=0"
+      },
+      {
+        "id": "P2E_AUTH",
+        "pass": true,
+        "detail": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8 exit=0"
+      },
+      {
+        "id": "P2E_QR",
+        "pass": true,
+        "detail": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8 exit=0"
+      },
+      {
+        "id": "P2E_PLAY",
+        "pass": true,
+        "detail": "AIDLE_P2E001_PLAYABLE_SELECT_SMOKE=PASS checks=5 exit=0"
+      },
+      {
+        "id": "P2E_CORR",
+        "pass": true,
+        "detail": "AIDLE_P2E001_CORRECTION_SMOKE=PASS checks=4 exit=0"
+      },
+      {
+        "id": "P2E_PIN",
+        "pass": true,
+        "detail": "AIDLE_P2E001_PLAYER_INPUT_SMOKE=PASS checks=5 exit=0"
+      },
+      {
+        "id": "H1_FLOW",
+        "pass": true,
+        "detail": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13 exit=0 ERROR=0"
+      },
+      {
+        "id": "H1_CHROME",
+        "pass": true,
+        "detail": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS checks=6 exit=0 ERROR=0"
+      },
+      {
+        "id": "P1E006",
+        "pass": true,
+        "detail": "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5 exit=0"
+      }
+    ],
+    "exit_code": 0,
+    "overall_pass": true,
+    "error_lines": 0,
+    "g3_g4_note": "No dedicated g3_*/g4_* headless smokes under game/tests; P1E006 variants re-run as related fast gate. Headed G3/G4 visual re-proof is H3 lease."
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "sole_product_writer": true,
+    "lease_only": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "one_writer_per_file": true,
+    "e2_not_rehabilitated": true,
+    "skills_full_eof": true,
+    "schema_required_fields_present": true,
+    "next_route_set": "H2_CONTROL",
+    "p2e_invariants_preserved": true,
+    "product_chrome_no_diagnostic_wall": true,
+    "honesty_notes": [
+      "H1 does not claim Human five-minute acceptance",
+      "Headed dual-resolution PNG evidence is H3 ownership",
+      "Machine H0-H4 completion is not final product acceptance",
+      "hud.tscn / context_action_hud.tscn / cozy_homestead_panel.tscn leased but content-stable"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/h1-consolidate-h1-runtime-001.log",
+    "orchestration/receipts/h1_consolidate_001/H1_runtime_001.json",
+    "orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json",
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-H1-CONSOLIDATE-001-VERTICAL-SLICE.md",
+    "orchestration/reviews/CODEX_P2E-001_FINAL_ACCEPTANCE_004.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "DESIGN.md",
+    "design-contract.md"
+  ],
+  "commands": [
+    {
+      "cmd": "Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/h1_consolidation_flow_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13"
+    },
+    {
+      "cmd": "Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/h1_consolidation_chrome_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS checks=6"
+    },
+    {
+      "cmd": "python orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit": 0,
+      "result": "valid 14/14 invalid 42/42"
+    },
+    {
+      "cmd": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "exit": 0,
+      "result": "HARNESS_RESULT=PASS"
+    },
+    {
+      "cmd": "P2E core/authority/qr/playable/correction/player_input smokes",
+      "exit": 0,
+      "result": "all PASS"
+    },
+    {
+      "cmd": "control_1b_context_router_smoke.gd",
+      "exit": 0,
+      "result": "PASS checks=16"
+    },
+    {
+      "cmd": "p1e006_world_profile_variants_smoke.gd",
+      "exit": 0,
+      "result": "PASS checks=5"
+    }
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-godot-runtime.md",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-H1-CONSOLIDATE-001-VERTICAL-SLICE.md",
+    "E:/AIdle_openworld/orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_P2E-001_FINAL_ACCEPTANCE_004.json",
+    "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+    "E:/AIdle_openworld/DESIGN.md",
+    "E:/AIdle_openworld/design-contract.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "E:/shared/skills/library/architecture-lock/SKILL.md",
+    "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+    "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "E:/agents/ui-design/characters/08-ui-app-dashboard.md"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/game/scripts/main/main.gd",
+    "E:/AIdle_openworld/game/scripts/modules/companion/companion_chat_panel.gd",
+    "E:/AIdle_openworld/game/scripts/modules/g3_ui/starter_realm_panel.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_stages.gd",
+    "E:/AIdle_openworld/game/scripts/modules/block_assembly/block_assembly_controller.gd",
+    "E:/AIdle_openworld/game/scripts/modules/block_assembly/block_assembly_hud.gd",
+    "E:/AIdle_openworld/game/scripts/ui/hud.gd",
+    "E:/AIdle_openworld/game/scripts/ui/context_action_hud.gd",
+    "E:/AIdle_openworld/game/scripts/ui/cozy_homestead_panel.gd",
+    "E:/AIdle_openworld/game/scripts/ui/playable_action_bar.gd",
+    "E:/AIdle_openworld/game/scenes/ui/playable_action_bar.tscn",
+    "E:/AIdle_openworld/game/tests/h1_consolidation_flow_smoke.gd",
+    "E:/AIdle_openworld/game/tests/h1_consolidation_chrome_smoke.gd",
+    "E:/AIdle_openworld/orchestration/logs/h1-consolidate-h1-runtime-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/h1_consolidate_001/H1_runtime_001.json"
+  ]
+}

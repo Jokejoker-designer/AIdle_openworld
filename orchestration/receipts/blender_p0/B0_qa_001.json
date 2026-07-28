@@ -1,0 +1,479 @@
+{
+  "agent_step_id": "B0-001-qa-evidence-2026-07-21",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:f4365fcd905b199d88154dc236a4966182753641c1b336eecb3effe1a69bb840",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8373-dc18-7010-bc49-980d27cd672c",
+  "transcript_ref": "019f8373-dc18-7010-bc49-980d27cd672c",
+  "writer_transcript_ref": "019f8373-dc18-7010-bc49-980d27cd672c",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/blender-p0-qa-001.log",
+  "handoff_ref": "B0_PURPLE",
+  "next_route": "B0_PURPLE",
+  "start_time": "2026-07-21T06:53:40.000Z",
+  "end_time": "2026-07-21T06:55:30.000Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-qa-evidence; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; authority_token=VERIFY_ONLY; required_skills includes always×5 + evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set=tests_logs_screenshots_receipts_only",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "routed_evidence": [
+      "evidence-memory-ledger"
+    ]
+  },
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-B0-001-BLENDER-BRIDGE-P0-GATE.md",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/agents/characters/12-purple-team-finding-triage.md",
+    "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/evidence-memory-ledger/SKILL.md",
+    "E:/AIdle_Blender_Bridge_P0/docs/P0_ACCEPTANCE_CHECKLIST.md",
+    "E:/AIdle_Blender_Bridge_P0/docs/SECURITY.md",
+    "E:/AIdle_Blender_Bridge_P0/Grok/tool_definitions.json",
+    "E:/AIdle_Blender_Bridge_P0/Grok/GROK_BLENDER_PRODUCTION_AGENT.md",
+    "E:/AIdle_Blender_Bridge_P0/app/models.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_api.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_security.py",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-6D1FFC4ECA6F/job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-6D1FFC4ECA6F/blender_command.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-6D1FFC4ECA6F/blender_exit_code.txt",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-6D1FFC4ECA6F/worker_stderr.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8E38380A6FC1/job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-0B63ED79CCFD/job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-0B63ED79CCFD/worker_stderr.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-74FBA93DA795/job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-93F0CB7220A4/worker_stderr.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-6D1FFC4ECA6F/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-6D1FFC4ECA6F/artifact_hashes.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-6D1FFC4ECA6F/p0_probe_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8E38380A6FC1/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8E38380A6FC1/p0_probe_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-93F0CB7220A4/validation.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/blender-p0-qa-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "B0-001",
+    "directive_id": 46,
+    "work_order": "orchestration/work_orders/WO-B0-001-BLENDER-BRIDGE-P0-GATE.md",
+    "wave": "B0_001_CHILD3_QA_EVIDENCE",
+    "profile": "aidle-worldgen-qa-evidence",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "child_task_ref": "019f8373-dc18-7010-bc49-980d27cd672c",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY QA evidence child: pytest 11 passed (exit 0) and compileall exit 0 at E:/AIdle_Blender_Bridge_P0 with no installs. Shared real-mode quarantine job BLD-6D1FFC4ECA6F is QUARANTINED_COMPLETE exit 0 with non-empty .blend/.glb/PNG/validation.json/artifact_hashes.json; independent sha256 recompute matches; preview 512x512 multimodal-inspected non-blank character; preview_visual_signal=0.8745>=0.15; worker stderr empty. Negative fail-closed cases executable (extra 422, validation-off 422, unknown template 422, path escape PathPolicyError, duplicate 409, exit0-missing-artifacts 65). Grok tools limited to three functions — no shell/download/add-on/output-path. Failed compat BLD-0B63ED79CCFD preserved read-only. product_writes=[]; no self-ACCEPT; handoff B0_PURPLE.",
+    "character_binding": {
+      "trustlayer_character_id": "purple-team-finding-triage",
+      "trustlayer_source": "E:/agents/characters/12-purple-team-finding-triage.md",
+      "ui_character_id": "ui-a11y-auditor",
+      "ui_source": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: Load COMPLIANCE.md + registry; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops include no inventing evidence / no exceeding authority"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: slot 12 purple-team-finding-triage VERIFY_ONLY; Purple triages/gates, never patches product code; step contract required"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: hub E:\\; MASTER_PLAN + JOURNAL; journal-entry after milestones; do not skip handoff"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: project room sync; respect authority tokens; Red does not patch; Purple verifies"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: evidence classification FACT/INFERENCE; do not invent; command evidence must record cwd/exit; verification gate before complete"
+      },
+      {
+        "skill_id": "evidence-memory-ledger",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/evidence-memory-ledger/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: selective auditable evidence; no secrets; claim-to-source; do not promote hypothesis as fact; durable findings with hashes/paths"
+      }
+    ],
+    "scope": {
+      "in_scope": [
+        "python -m pytest -q at E:/AIdle_Blender_Bridge_P0",
+        "python -m compileall -q app tests blender_scripts",
+        "inspect shared quarantine/probe preview evidence (coordinate with rig child READ-ONLY)",
+        "document negative fail-closed cases",
+        "security review: Grok tool surface no shell/download/add-on",
+        "write B0_qa_001.json + blender-p0-qa-001.log only"
+      ],
+      "out_of_scope": [
+        "product patches under E:/AIdle_Blender_Bridge_P0",
+        "fresh real Blender probe production (rig child ownership)",
+        "schema/policy authority matrix (schema child ownership)",
+        "Purple final acceptance of B0-001",
+        "install, credentials, push, deploy, publish",
+        "Godot publish / catalog approval / Nori-7 / Character Foundry",
+        "grandchildren"
+      ],
+      "authority_boundary": {
+        "this_wave": "VERIFY_ONLY — evidence matrix + inspection only",
+        "only_write": [
+          "orchestration/receipts/blender_p0/B0_qa_001.json",
+          "orchestration/logs/blender-p0-qa-001.log"
+        ],
+        "next_writer": "aidle-worldgen-purple-acceptance → B0_purple_001.json",
+        "explicit_not": [
+          "product or Bridge patches",
+          "self-ACCEPT of B0-001",
+          "nested children",
+          "claim multiplayer/game-ready/Nori-7 from P0 probe alone"
+        ]
+      }
+    },
+    "product_writes": [],
+    "only_owned_files_written": true,
+    "no_children_spawned": true,
+    "children": [],
+    "no_product_edits": true,
+    "matrix": {
+      "cwd": "E:/AIdle_Blender_Bridge_P0",
+      "no_install": true,
+      "pytest": {
+        "command": "python -m pytest -q",
+        "exit_code": 0,
+        "expected_passed": 11,
+        "observed_passed": 11,
+        "observed_failed": 0,
+        "observed_errors": 0,
+        "verbose_confirm": "python -m pytest -v --tb=line → 11 passed, 1 warning in 0.23s",
+        "python": "3.11.9",
+        "pytest_version": "9.0.3",
+        "platform": "win32",
+        "tests": [
+          {"nodeid": "tests/test_api.py::test_health", "result": "PASSED"},
+          {"nodeid": "tests/test_api.py::test_templates", "result": "PASSED"},
+          {"nodeid": "tests/test_api.py::test_strict_schema_rejects_extra", "result": "PASSED"},
+          {"nodeid": "tests/test_api.py::test_validation_evidence_cannot_be_disabled", "result": "PASSED"},
+          {"nodeid": "tests/test_api.py::test_unknown_template_rejected", "result": "PASSED"},
+          {"nodeid": "tests/test_api.py::test_mock_job_end_to_end", "result": "PASSED"},
+          {"nodeid": "tests/test_api.py::test_duplicate_request_id", "result": "PASSED"},
+          {"nodeid": "tests/test_runner.py::test_real_command_contains_security_flags", "result": "PASSED"},
+          {"nodeid": "tests/test_runner.py::test_real_exit_zero_without_required_artifacts_fails_closed", "result": "PASSED"},
+          {"nodeid": "tests/test_security.py::test_resolve_within_blocks_escape", "result": "PASSED"},
+          {"nodeid": "tests/test_security.py::test_safe_child_blocks_traversal", "result": "PASSED"}
+        ],
+        "warnings": [
+          "StarletteDeprecationWarning: Using httpx with starlette.testclient is deprecated; install httpx2 instead"
+        ],
+        "verdict": "PASS"
+      },
+      "compileall": {
+        "command": "python -m compileall -q app tests blender_scripts",
+        "exit_code": 0,
+        "verdict": "PASS"
+      },
+      "negative_fail_closed": {
+        "cases": [
+          {
+            "id": "NF-1",
+            "case": "extra_fields",
+            "evidence": "tests/test_api.py::test_strict_schema_rejects_extra",
+            "expected": "HTTP 422",
+            "result": "PASS",
+            "model_lock": "CharacterJobRequest ConfigDict(extra='forbid')"
+          },
+          {
+            "id": "NF-2",
+            "case": "disabled_validation",
+            "evidence": "tests/test_api.py::test_validation_evidence_cannot_be_disabled",
+            "expected": "HTTP 422",
+            "result": "PASS",
+            "model_lock": "OutputRequest.generate_validation_report: Literal[True]"
+          },
+          {
+            "id": "NF-3",
+            "case": "unknown_template",
+            "evidence": "tests/test_api.py::test_unknown_template_rejected",
+            "expected": "HTTP 422",
+            "result": "PASS"
+          },
+          {
+            "id": "NF-4",
+            "case": "path_escape",
+            "evidence": "tests/test_security.py::test_resolve_within_blocks_escape + test_safe_child_blocks_traversal",
+            "expected": "PathPolicyError",
+            "result": "PASS"
+          },
+          {
+            "id": "NF-5",
+            "case": "duplicate_request_id",
+            "evidence": "tests/test_api.py::test_duplicate_request_id",
+            "expected": "HTTP 409",
+            "result": "PASS"
+          },
+          {
+            "id": "NF-6",
+            "case": "exit_zero_missing_artifacts",
+            "evidence": "tests/test_runner.py::test_real_exit_zero_without_required_artifacts_fails_closed",
+            "expected": "exit_code 65 + missing or empty message + artifact_hashes.json written",
+            "result": "PASS"
+          },
+          {
+            "id": "NF-7",
+            "case": "client_cannot_supply_output_path",
+            "evidence": "app/models.py CharacterJobRequest fields; JobReceipt.output_zone const generated_quarantine",
+            "expected": "no client output path fields",
+            "result": "PASS"
+          }
+        ],
+        "verdict": "PASS"
+      },
+      "security_grok_tools": {
+        "tool_definitions_path": "E:/AIdle_Blender_Bridge_P0/Grok/tool_definitions.json",
+        "tools": [
+          "inspect_character_template",
+          "build_character_from_template",
+          "get_character_job_status"
+        ],
+        "absent_classes": [
+          "shell",
+          "python_exec",
+          "download",
+          "add_on",
+          "install",
+          "output_path",
+          "arbitrary_command"
+        ],
+        "agent_doc_rules": "Grok/GROK_BLENDER_PRODUCTION_AGENT.md forbids Python/shell, client output paths, download URLs",
+        "verdict": "PASS"
+      },
+      "preview_quarantine_evidence": {
+        "coordination": "READ-ONLY shared storage/jobs + storage/generated_quarantine; concurrent rig child may produce probes; QA did not rewrite",
+        "primary_job_id": "BLD-6D1FFC4ECA6F",
+        "request_id": "p0-real-20260721064644",
+        "character_id": "AIDLE-P0-PROBE",
+        "template_id": "p0_probe_empty_scene",
+        "operation_profile": "p0_probe",
+        "state": "QUARANTINED_COMPLETE",
+        "runner_mode": "real",
+        "exit_code": 0,
+        "created_at": "2026-07-21T06:46:44.510760Z",
+        "updated_at": "2026-07-21T06:46:51.116324Z",
+        "output_zone": "generated_quarantine",
+        "blender_executable_in_command": "E:\\blender.exe",
+        "security_flags_in_command": [
+          "--background",
+          "--factory-startup",
+          "--disable-autoexec",
+          "--python-exit-code",
+          "20"
+        ],
+        "worker_entry": "E:\\AIdle_Blender_Bridge_P0\\blender_scripts\\worker_entry.py",
+        "artifacts": {
+          "p0_probe.blend": {
+            "bytes": 115532,
+            "sha256": "2a29ad00d5e82ba8752fd477f508a781a786241f492f3108db72988368bbc15c",
+            "hash_match": true
+          },
+          "p0_probe.glb": {
+            "bytes": 110916,
+            "sha256": "fb157bdd01e8bf0275d053c3ac857b6ecff21b1b689dc35c554e904ca7fabd79",
+            "hash_match": true
+          },
+          "p0_probe_preview.png": {
+            "bytes": 196100,
+            "sha256": "550a686f4ca68c325564ff5a1c45665454832153e3a95208d574797de96324bc",
+            "hash_match": true,
+            "dimensions": [512, 512],
+            "mode": "RGBA"
+          },
+          "validation.json": {
+            "bytes": 589,
+            "sha256": "5f3e17b8f3f6681eecee14e0edbcc64f79ae787b73ee6894bd0feb571d701dbe",
+            "hash_match": true
+          },
+          "artifact_hashes.json": {
+            "present": true,
+            "job_id_match": true,
+            "character_id_match": true
+          }
+        },
+        "validation": {
+          "passed": true,
+          "object_count": 6,
+          "triangle_count": 1488,
+          "preview_visual_signal": 0.874509871006012,
+          "preview_visual_signal_threshold": 0.15,
+          "preview_visual_signal_pass": true,
+          "network_policy_marker": "deny",
+          "checks": {
+            "approved_entry_script": "PASS",
+            "quarantine_path": "PASS",
+            "autoexec_disabled_by_runner": "PASS",
+            "glb_export": "PASS",
+            "preview_visual_signal": "PASS"
+          }
+        },
+        "worker_stderr": {
+          "path": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-6D1FFC4ECA6F/worker_stderr.log",
+          "bytes": 0,
+          "errors": false,
+          "tracebacks": false,
+          "warnings": []
+        },
+        "visual_inspection": {
+          "method": "multimodal read_file on PNG",
+          "flat_or_blank": false,
+          "description": "Low-poly egg/character body beige with green antenna, cyan face panel, green biped feet, dark gradient lower body, dark gray backdrop; subject centered and lit; not a solid flat frame",
+          "second_job_crosscheck": {
+            "job_id": "BLD-8E38380A6FC1",
+            "state": "QUARANTINED_COMPLETE",
+            "preview_visual_signal": 0.8823530077934265,
+            "visual_match": "same character composition; non-blank"
+          }
+        },
+        "godot_copy_hits": 0,
+        "catalog_approval_claimed": false,
+        "direct_world_state_mutation_observed": false,
+        "failed_compat_preserved": {
+          "job_id": "BLD-0B63ED79CCFD",
+          "state": "FAILED",
+          "exit_code": 20,
+          "error": "Blender worker failed",
+          "stderr_excerpt": "TypeError: bpy_struct: item.attr = val: enum \"BLENDER_EEVEE_NEXT\" not found in ('BLENDER_EEVEE', 'BLENDER_WORKBENCH', 'CYCLES')",
+          "qa_action": "READ_ONLY_PRESERVE",
+          "rewritten": false,
+          "cleaned": false
+        },
+        "verdict": "PASS"
+      }
+    },
+    "findings": [
+      {
+        "id": "B0-QA-F1",
+        "severity": "INFO",
+        "classification": "FACT",
+        "statement": "pytest reports 11 passed at Bridge root without package install"
+      },
+      {
+        "id": "B0-QA-F2",
+        "severity": "INFO",
+        "classification": "FACT",
+        "statement": "compileall app tests blender_scripts exits 0"
+      },
+      {
+        "id": "B0-QA-F3",
+        "severity": "INFO",
+        "classification": "FACT",
+        "statement": "Primary real quarantine BLD-6D1FFC4ECA6F is non-blank preview with visual_signal 0.8745 and matching artifact hashes"
+      },
+      {
+        "id": "B0-QA-F4",
+        "severity": "INFO",
+        "classification": "FACT",
+        "statement": "Failed compat probe BLD-0B63ED79CCFD remains preserved with EEVEE_NEXT TypeError evidence; QA did not rewrite"
+      },
+      {
+        "id": "B0-QA-F5",
+        "severity": "LOW",
+        "classification": "FACT",
+        "statement": "Starlette/httpx TestClient deprecation warning during pytest; does not fail matrix"
+      },
+      {
+        "id": "B0-QA-F6",
+        "severity": "INFO",
+        "classification": "FACT",
+        "statement": "Grok tool surface is three functions only; shell/download/add-on/output-path not exposed"
+      },
+      {
+        "id": "B0-QA-F7",
+        "severity": "INFO",
+        "classification": "INFERENCE",
+        "statement": "QA did not itself spawn a fresh real probe; inspection uses concurrent shared storage (newest complete job BLD-6D1FFC4ECA6F at 2026-07-21T06:46:44Z). Purple should cross-check rig child receipt for Blender 5.2 version command ownership"
+      }
+    ],
+    "handoff": {
+      "to": "B0_PURPLE",
+      "profile": "aidle-worldgen-purple-acceptance",
+      "authority": "VERIFY_ONLY",
+      "message": "QA matrix PASS. Receipts for schema+rig may land in parallel; Purple must not accept until children 1–3 complete and must not self-patch.",
+      "blocking_for_parent_accept": true,
+      "accepted": false
+    }
+  },
+  "smoke_test": {
+    "commands": [
+      {
+        "cmd": "python -m pytest -q",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "passed": 11
+      },
+      {
+        "cmd": "python -m compileall -q app tests blender_scripts",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0
+      }
+    ],
+    "status": "PASS"
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "one_writer_per_file": true,
+    "no_grandchildren": true,
+    "evidence_invented": false,
+    "exclusive_paths_only": true,
+    "status": "PASS"
+  },
+  "evidence_refs": [
+    "orchestration/logs/blender-p0-qa-001.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-6D1FFC4ECA6F/job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-6D1FFC4ECA6F/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-6D1FFC4ECA6F/artifact_hashes.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-6D1FFC4ECA6F/p0_probe_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-0B63ED79CCFD/job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/Grok/tool_definitions.json"
+  ]
+}

@@ -1,0 +1,448 @@
+{
+  "agent_step_id": "B0-001-rig-correction-002-2026-07-21",
+  "agent_type": "aidle-character-rig-animation",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:f6e99ef32fe02e14c321d4ee4161509b97eed0377f42491f46dfe8d354a2f681",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8389-938f-7c11-b288-85ccbffeedae",
+  "correction_child_ref": "019f8389-938f-7c11-b288-85ccbffeedae",
+  "original_child_task_ref": "019f8373-dc18-7010-bc49-97f61e6402b5",
+  "transcript_ref": "019f8389-938f-7c11-b288-85ccbffeedae",
+  "writer_transcript_ref": "019f8389-938f-7c11-b288-85ccbffeedae",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "resumed_from": "019f8373-dc18-7010-bc49-97f61e6402b5",
+  "prior_schema_correction_ref": "019f8387-0769-7232-b022-168056657d0b",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/blender-p0-rig-correction-002.log",
+  "handoff_ref": "B0_PURPLE_CORRECTION_002",
+  "start_time": "2026-07-21T07:17:40.0000000Z",
+  "end_time": "2026-07-21T07:19:30.0000000Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-character-rig-animation.md",
+  "profile_binding_evidence": "FULL re-read correction: name=aidle-character-rig-animation; trustlayer_character=blue-team-p0-remediator; ui_character=ui-component-craftsman; profile default PATCH_DRAFT overridden THIS WO to VERIFY_ONLY; architecture-lock in required_skills; parent_spawn_only; no_grandchildren; self_accept=false.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "architecture-lock"
+    ]
+  },
+  "lineage": {
+    "original_child_task_ref": "019f8373-dc18-7010-bc49-97f61e6402b5",
+    "correction_child_ref": "019f8389-938f-7c11-b288-85ccbffeedae",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "prior_schema_correction_ref": "019f8387-0769-7232-b022-168056657d0b",
+    "session_kind": "subagent_resume",
+    "directive_46_receipt_preserved": "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_rig_001.json",
+    "directive_46_receipt_sha256": "bfce94a4afb08e26723d97da1582d7811f5600b4ce36908a77e12bbb5a6e0c93"
+  },
+  "bootstrap_note": "bootstrap-agent-session.ps1 known parser error ~L52; loaded skills/profile/WO/Codex review manually. No bootstrap loop.",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-character-rig-animation.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-B0-001-EVIDENCE-CORRECTION-001.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_B0-001_MACHINE_REVIEW_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_rig_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_schema_correction_002.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "E:/shared/skills/library/architecture-lock/SKILL.md",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/blender_exit_code.txt",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/worker_stderr.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/worker_stdout.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/blender_command.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/build_spec.internal.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8A8D63935D6B/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8A8D63935D6B/artifact_hashes.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8A8D63935D6B/p0_probe_preview.png",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-0B63ED79CCFD/job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-D2C21066E6F2/build_spec.internal.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_rig_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/blender-p0-rig-correction-002.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "B0-001",
+    "directive_id": 47,
+    "work_order": "orchestration/work_orders/WO-B0-001-EVIDENCE-CORRECTION-001.md",
+    "codex_review": "orchestration/reviews/CODEX_B0-001_MACHINE_REVIEW_001.json",
+    "blocker_addressed": "B0-PROBE-001",
+    "wave": "B0_RIG_CORRECTION_002",
+    "profile": "aidle-character-rig-animation",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS_PROBE_SEMANTICS_CORRECTED",
+    "summary": "Rig lineage evidence correction for Codex blocker B0-PROBE-001. Explicitly: BLD-D2C21066E6F2 is a direct command-contract probe without FastAPI/service job_receipt.json and must NOT be claimed as server-mediated QUARANTINED_COMPLETE service job semantics. Independently bound Codex/service-created job BLD-8A8D63935D6B (this correction child did NOT create it): job_receipt QUARANTINED_COMPLETE, runner_mode=real, exit_code=0; rehashed quarantine artifacts with 0 mismatches; preview_visual_signal=0.8745; stderr empty. Failed BLD-0B63ED79CCFD and Directive 46 B0_rig_001.json preserved unmodified. product_writes=[]; no product/test patch.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "trustlayer_character_source": "E:/agents/characters/09-blue-team-p0-remediator.md",
+      "ui_character_id": "ui-component-craftsman",
+      "ui_character_source": "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY",
+      "authority_override_note": "Profile PATCH_DRAFT reduced to VERIFY_ONLY for this WO; no Blue product remediation."
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: COMPLIANCE + registry path; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; no inventing evidence"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: slot 09 blue-team-p0-remediator; Red finds / Blue patches approved WOs only / Purple never patches; this step VERIFY_ONLY"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: hub E:/; MASTER_PLAN/JOURNAL; do not skip handoff"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: project rooms; respect authority tokens"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: FACT vs INFERENCE; verify with filesystem hashes; do not invent provenance"
+      },
+      {
+        "skill_id": "architecture-lock",
+        "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read + ARCHITECTURE_LOCK.md: asset workers untrusted until QA; Godot presentation; quarantine-only intake"
+      }
+    ],
+    "semantics_correction": {
+      "blocker_id": "B0-PROBE-001",
+      "codex_finding": "Rig child BLD-D2C21066E6F2 was a direct Blender command-contract probe and has no job_receipt.json; its receipt overstates service-owned QUARANTINED_COMPLETE proof.",
+      "corrected_classification": {
+        "BLD-D2C21066E6F2": {
+          "kind": "DIRECT_COMMAND_CONTRACT_PROBE",
+          "service_mediated": false,
+          "fastapi_or_character_job_service": false,
+          "job_receipt_json_present": false,
+          "job_receipt_path_checked": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-D2C21066E6F2/job_receipt.json",
+          "job_receipt_exists": false,
+          "what_exists": [
+            "build_spec.internal.json",
+            "blender_command.json",
+            "blender_exit_code.txt",
+            "worker_stdout(_fg).log",
+            "worker_stderr(_fg).log",
+            "run_probe.cmd"
+          ],
+          "created_by": "Directive 46 rig child 019f8373-dc18-7010-bc49-97f61e6402b5 via direct E:/blender.exe invocation matching BlenderRunner command argv",
+          "may_claim": [
+            "Real Blender 5.2 headless worker completed with exit 0",
+            "Non-empty quarantine .blend/.glb/PNG/validation for technical geometry/export evidence",
+            "preview_visual_signal measured by worker"
+          ],
+          "must_not_claim": [
+            "FastAPI/TestClient CharacterJobService job lifecycle",
+            "Canonical service state QUARANTINED_COMPLETE from job_receipt.json",
+            "Server-issued request_id / service job store semantics"
+          ],
+          "directive_46_receipt_status": "PRESERVED_UNMODIFIED; not acceptance authority for service-mediated gate; semantics superseded by this correction for B0-PROBE-001"
+        },
+        "BLD-8A8D63935D6B": {
+          "kind": "SERVER_MEDIATED_SERVICE_JOB",
+          "service_mediated": true,
+          "created_by": "Codex independently via FastAPI TestClient + CharacterJobService (per WO + CODEX_B0-001_MACHINE_REVIEW_001)",
+          "created_by_this_correction_child": false,
+          "explicit_non_creation_statement": "This correction child (019f8389-938f-7c11-b288-85ccbffeedae) did NOT create BLD-8A8D63935D6B. Job pre-existed; child only read, rehashed, and bound it.",
+          "job_receipt_json_present": true,
+          "job_receipt_state": "QUARANTINED_COMPLETE",
+          "runner_mode": "real",
+          "exit_code": 0
+        }
+      }
+    },
+    "server_mediated_job_bind": {
+      "job_id": "BLD-8A8D63935D6B",
+      "request_id": "codex-b0-api-63f7c439f591",
+      "character_id": "AIDLE-P0-CODEX-API",
+      "template_id": "p0_probe_empty_scene",
+      "operation_profile": "p0_probe",
+      "paths": {
+        "job_dir": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B",
+        "quarantine_dir": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8A8D63935D6B"
+      },
+      "job_receipt": {
+        "path": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/job_receipt.json",
+        "sha256": "28227144828152d31b0ab851bdcdd765d56b58eca3d40d2e4506e390c2d179d9",
+        "matches_codex_review_hash": true,
+        "state": "QUARANTINED_COMPLETE",
+        "runner_mode": "real",
+        "output_zone": "generated_quarantine",
+        "exit_code": 0,
+        "error": null,
+        "created_at": "2026-07-21T07:11:13.422165Z",
+        "updated_at": "2026-07-21T07:11:21.189120Z",
+        "artifacts": [
+          "generated_quarantine/BLD-8A8D63935D6B/artifact_hashes.json",
+          "generated_quarantine/BLD-8A8D63935D6B/p0_probe.blend",
+          "generated_quarantine/BLD-8A8D63935D6B/p0_probe.glb",
+          "generated_quarantine/BLD-8A8D63935D6B/p0_probe_preview.png",
+          "generated_quarantine/BLD-8A8D63935D6B/validation.json"
+        ]
+      },
+      "blender_exit_code_file": {
+        "path": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/blender_exit_code.txt",
+        "value": 0
+      },
+      "worker_stderr": {
+        "path": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/worker_stderr.log",
+        "bytes": 0,
+        "empty": true,
+        "errors": [],
+        "tracebacks": [],
+        "warnings": []
+      },
+      "worker_stdout_summary": {
+        "path": "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/worker_stdout.log",
+        "bytes": 1675,
+        "contains_p0_worker_complete": true,
+        "blender_version_line": "Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)"
+      },
+      "validation": {
+        "path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8A8D63935D6B/validation.json",
+        "sha256": "e4dbad69ebdb672f50e2f1da2050b9944b8620895194436073e6a5c5853c52c7",
+        "matches_codex_review_hash": true,
+        "passed": true,
+        "runner_mode": "real",
+        "job_id": "BLD-8A8D63935D6B",
+        "character_id": "AIDLE-P0-CODEX-API",
+        "template_id": "p0_probe_empty_scene",
+        "object_count": 6,
+        "triangle_count": 1488,
+        "preview_visual_signal": 0.874509871006012,
+        "network_policy_marker": "deny",
+        "checks": {
+          "approved_entry_script": "PASS",
+          "quarantine_path": "PASS",
+          "autoexec_disabled_by_runner": "PASS",
+          "glb_export": "PASS",
+          "preview_visual_signal": "PASS"
+        }
+      },
+      "independent_rehash": {
+        "method": "Get-FileHash -Algorithm SHA256 on live quarantine files (excluding artifact_hashes.json self)",
+        "mismatch_count": 0,
+        "artifact_hashes_json_sha256": "0fb2642f270b1b3bfb0785a8ffab9c4ae4ca368b48b8d34967b7634a1b1051d9",
+        "matches_codex_review_artifact_hashes_sha256": true,
+        "files": [
+          {
+            "path": "p0_probe.blend",
+            "bytes": 115642,
+            "sha256": "a35ff3f9c12d641f12019d8d57a24c5aba60917b8bd85539bf99f69e05d74ee4",
+            "matches_stored_artifact_hashes": true
+          },
+          {
+            "path": "p0_probe.glb",
+            "bytes": 110916,
+            "sha256": "6a09044259a978495d2cdbe219f8caad37008d2faa1b67eb452c2a9e0d0b1760",
+            "matches_stored_artifact_hashes": true,
+            "glb_magic": "glTF",
+            "glb_version": 2,
+            "glb_length": 110916
+          },
+          {
+            "path": "p0_probe_preview.png",
+            "bytes": 196100,
+            "sha256": "5b7b2f405361d6949e321c3e8aa7e7feed6644e3ccb99eb0a16ac09e8be19af9",
+            "matches_stored_artifact_hashes": true
+          },
+          {
+            "path": "validation.json",
+            "bytes": 593,
+            "sha256": "e4dbad69ebdb672f50e2f1da2050b9944b8620895194436073e6a5c5853c52c7",
+            "matches_stored_artifact_hashes": true
+          }
+        ]
+      },
+      "preview_visual_inspection": {
+        "path": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8A8D63935D6B/p0_probe_preview.png",
+        "preview_visual_signal": 0.874509871006012,
+        "threshold": 0.15,
+        "flat_or_blank": false,
+        "description": "Non-blank 512-class low-poly cream robot with green legs/sprout and cyan face panel on dark background."
+      },
+      "limits": {
+        "object_count": 6,
+        "max_objects": 32,
+        "triangle_count": 1488,
+        "max_triangles": 50000,
+        "rig_family": null,
+        "production_rig_note": "Still P0 probe primitives only; not production skeleton/animation acceptance."
+      },
+      "blender_command": [
+        "E:\\blender.exe",
+        "--background",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "20",
+        "--python",
+        "E:\\AIdle_Blender_Bridge_P0\\blender_scripts\\worker_entry.py",
+        "--",
+        "E:\\AIdle_Blender_Bridge_P0\\storage\\jobs\\BLD-8A8D63935D6B\\build_spec.internal.json",
+        "E:\\AIdle_Blender_Bridge_P0\\storage\\jobs\\BLD-8A8D63935D6B"
+      ]
+    },
+    "preserved_evidence": {
+      "failed_probe_BLD-0B63ED79CCFD": {
+        "job_receipt_exists": true,
+        "state": "FAILED",
+        "exit_code": 20,
+        "rewritten": false
+      },
+      "directive_46_B0_rig_001": {
+        "path": "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_rig_001.json",
+        "sha256": "bfce94a4afb08e26723d97da1582d7811f5600b4ce36908a77e12bbb5a6e0c93",
+        "overwritten": false,
+        "status_for_acceptance": "PRESERVED; not used alone as service-mediated probe proof after B0-PROBE-001 correction"
+      },
+      "direct_probe_BLD-D2C21066E6F2": {
+        "quarantine_and_job_dirs_left_in_place": true,
+        "rewritten": false
+      }
+    },
+    "technical_gates": [
+      {
+        "gate_id": "RIG-C-G1-SEMANTICS-DIRECT-VS-SERVICE",
+        "status": "PASS",
+        "description": "Distinguish direct command-contract probe from server-mediated service job"
+      },
+      {
+        "gate_id": "RIG-C-G2-BIND-CODEX-SERVER-JOB",
+        "status": "PASS",
+        "description": "Independently bind BLD-8A8D63935D6B without claiming creation",
+        "job_id": "BLD-8A8D63935D6B",
+        "job_receipt_state": "QUARANTINED_COMPLETE",
+        "runner_mode": "real",
+        "exit_code": 0
+      },
+      {
+        "gate_id": "RIG-C-G3-REHASH-MATCH",
+        "status": "PASS",
+        "description": "Live rehash matches stored artifact_hashes and Codex review SHAs",
+        "mismatch_count": 0
+      },
+      {
+        "gate_id": "RIG-C-G4-PREVIEW-AND-LIMITS",
+        "status": "PASS",
+        "preview_visual_signal": 0.874509871006012,
+        "object_count": 6,
+        "triangle_count": 1488
+      },
+      {
+        "gate_id": "RIG-C-G5-STDERR-CLEAN",
+        "status": "PASS",
+        "stderr_empty": true
+      },
+      {
+        "gate_id": "RIG-C-G6-PRESERVE-PRIOR",
+        "status": "PASS",
+        "failed_probe_preserved": true,
+        "b0_rig_001_not_overwritten": true
+      },
+      {
+        "gate_id": "RIG-C-G7-LEASE-AND-NO-PATCH",
+        "status": "PASS",
+        "product_writes": [],
+        "exclusive_writes_only": [
+          "orchestration/receipts/blender_p0/B0_rig_correction_002.json",
+          "orchestration/logs/blender-p0-rig-correction-002.log"
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "RIG-C-F1",
+        "severity": "corrected",
+        "classification": "FACT",
+        "title": "Direct probe must not be labeled service QUARANTINED_COMPLETE",
+        "detail": "BLD-D2C21066E6F2 has no job_receipt.json. Technical export success remains valid as direct-probe evidence only. Service-mediated proof for B0 is BLD-8A8D63935D6B."
+      },
+      {
+        "finding_id": "RIG-C-F2",
+        "severity": "info",
+        "classification": "FACT",
+        "title": "Codex server job independently rehashed",
+        "detail": "All four quarantine content files match artifact_hashes.json; job_receipt/validation/artifact_hashes file SHAs match CODEX_B0-001_MACHINE_REVIEW_001 machine_gates.server_mediated_real_probe."
+      }
+    ],
+    "limitations": [
+      "This child did not re-run pytest/compileall (QA scope) or purple acceptance.",
+      "P0 probe remains non-production (rig_family null).",
+      "No new Blender job was created by this correction child."
+    ],
+    "next_route": "B0_PURPLE_CORRECTION_002",
+    "handoff_to": "aidle-worldgen-purple-acceptance"
+  },
+  "smoke_test": {
+    "name": "bind_codex_server_mediated_job_BLD-8A8D63935D6B",
+    "command": "Get-FileHash quarantine artifacts + read job_receipt.json (read-only bind; no new probe)",
+    "job_id": "BLD-8A8D63935D6B",
+    "exit_code": 0,
+    "passed": true,
+    "notes": "job_receipt state=QUARANTINED_COMPLETE runner_mode=real exit_code=0; rehash mismatch_count=0; stderr empty; signal=0.8745"
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "did_not_create_BLD-8A8D63935D6B": true,
+    "did_not_overwrite_B0_rig_001": true,
+    "did_not_rewrite_failed_probe": true,
+    "exclusive_two_file_lease_only": true,
+    "evidence_invented": false,
+    "direct_vs_service_distinguished": true
+  },
+  "evidence_refs": [
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/job_receipt.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/worker_stderr.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/jobs/BLD-8A8D63935D6B/worker_stdout.log",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8A8D63935D6B/validation.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8A8D63935D6B/artifact_hashes.json",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8A8D63935D6B/p0_probe.blend",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8A8D63935D6B/p0_probe.glb",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-8A8D63935D6B/p0_probe_preview.png",
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_rig_001.json",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_B0-001_MACHINE_REVIEW_001.json",
+    "orchestration/logs/blender-p0-rig-correction-002.log"
+  ],
+  "next_route": "B0_PURPLE_CORRECTION_002"
+}

@@ -1,0 +1,93 @@
+{
+  "step_id": "P1E-004-style-mismatch-root-cause-001",
+  "work_order_id": "WO-P1E-004-DNA-PILOT-AND-WATER-FIX",
+  "agent_id": "aidle-continuity-conductor",
+  "authority": "REPORT_ONLY",
+  "status": "REVIEW_REQUESTED",
+  "inputs": [
+    "game/autoload/art_style_manager.gd",
+    "game/scripts/world/world_root.gd",
+    "game/scripts/modules/asset/glb_intake.gd",
+    "game/scripts/modules/asset/glb_intake_runtime_builder.gd",
+    "game/scripts/modules/asset/starter_realm_builder.gd",
+    "C:/Users/phant/AppData/Roaming/Godot/app_userdata/AIdle Openworld/world_meta.cfg",
+    "Human Product Lead headed screenshot (HUD Art: Surrealism Canvas)",
+    "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/world_profiles/COZY_ART_BIBLE_001.md"
+  ],
+  "outputs": [
+    "orchestration/receipts/p1e/P1E_004_STYLE_MISMATCH_ROOT_CAUSE_001.json",
+    "orchestration/evidence/p1e_004/EVIDENCE_VS_LIVE_DISCREPANCY_REPORT.md",
+    "orchestration/standards/HEADED_VISUAL_EVIDENCE_QA.md",
+    "orchestration/evidence/**/visual_claim_meta.json (backfill)"
+  ],
+  "evidence_refs": [
+    "orchestration/receipts/p1e/P1E_004_STYLE_MISMATCH_ROOT_CAUSE_001.json",
+    "orchestration/standards/HEADED_VISUAL_EVIDENCE_QA.md",
+    "game/autoload/art_style_manager.gd",
+    "user://world_meta.cfg art_style=surrealism_canvas"
+  ],
+  "writer_lease": [
+    "orchestration/receipts/p1e/P1E_004_STYLE_MISMATCH_ROOT_CAUSE_001.json",
+    "orchestration/standards/HEADED_VISUAL_EVIDENCE_QA.md",
+    "orchestration/evidence/**/visual_claim_meta.json",
+    "game/scripts/core/headed_visual_smoke.gd"
+  ],
+  "self_accept": false,
+  "next_owner": "HUMAN_PRODUCT_LEAD",
+  "accepted": false,
+  "verdict": "ROOT_CAUSE_CONFIRMED_ART_STYLE_MISMATCH",
+  "product_writes_materials_palettes_defaults": [],
+  "confirmed_root_cause": {
+    "possibility": 2,
+    "summary": "Live session runs surrealism_canvas; Cozy kit and COZY_ART_BIBLE_001 authored for cozy_cyber_pixel. Evidence artefacts were correct for cozy (or Blender no-style). Human played a different style. Nobody rendered wrong for their respective artefact.",
+    "live_hud": {
+      "top_bar": "Art: Surrealism Canvas",
+      "bottom_bar": "surrealism_canvas"
+    },
+    "world_meta": {
+      "path": "C:/Users/phant/AppData/Roaming/Godot/app_userdata/AIdle Openworld/world_meta.cfg",
+      "art_style": "surrealism_canvas",
+      "note": "ArtStyleManager._load_world_meta restores saved style over AIdleConstants.DEFAULT_ART_STYLE=cozy_cyber_pixel"
+    },
+    "palette_evidence": {
+      "cozy_cyber_pixel": {
+        "ground": "8FBC8F",
+        "secondary": "7EC8E3",
+        "primary": "F7B267",
+        "accent": "E07A5F",
+        "sky": "8EC5E8",
+        "mood": "warm_cozy",
+        "neon_intensity": 0.25
+      },
+      "surrealism_canvas": {
+        "ground": "8B7AA8",
+        "primary": "C77DFF",
+        "secondary": "9B6BCF",
+        "accent": "FF9E00",
+        "sky": "A8B4E0",
+        "mood": "dreamlike",
+        "neon_intensity": 0.45
+      },
+      "human_match": "Pale lavender ground matches surrealism ground 8B7AA8; Cozy pond blues belong to cozy secondary/sky family (7EC8E3 / 8EC5E8 / bible 8fd4e8)."
+    },
+    "other_possibilities": "Stopped per human instruction. Possibility 2 alone is sufficient."
+  },
+  "style_application_path_for_option_C": {
+    "glb_module_materials_overridden_by_style": false,
+    "detail": "glb_intake + glb_intake_runtime_builder do not recolor VisualGLB surfaces from ArtStyleManager palette. GLTF materials remain.",
+    "style_does_apply_to": [
+      "Systems/Ground MeshInstance3D material_override (palette.ground) via world_root._apply_art_style_environment",
+      "WorldEnvironment background_color + ambient_light_color/energy (palette.sky) via same",
+      "Procedural fillers only (fence/ground_variation/stones/flowers when built via starter_realm_builder._palette) — not GLB module meshes"
+    ],
+    "option_C_available": true,
+    "option_C_nuance": "Option C is available for authored GLB modules today. Ambient light from sky still tints the whole scene (not a material override). Procedural fillers currently use palette colors; option C would require those fillers to stop using style palette for module-like props, or remain env-only (ground/sky/shadow)."
+  },
+  "product_options_deferred": {
+    "A": "Default cozy_cyber_pixel; Cozy kit ships only under that style; other styles gated until own kits",
+    "B": "Per-style palette variants per module (DNA-like state variants × styles)",
+    "C": "Style only tints ground/sky/shadow; never overrides authored module materials",
+    "decider": "Human Product Lead",
+    "agent_action": "HOLD — no material/palette/default changes"
+  }
+}

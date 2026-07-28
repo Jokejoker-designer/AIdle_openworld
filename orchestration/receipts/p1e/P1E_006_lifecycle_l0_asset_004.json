@@ -1,0 +1,284 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P1E-006-lifecycle-l0-asset-004-2026-07-22",
+  "step_id": "P1E-006-lifecycle-l0-asset-004",
+  "work_order_id": "WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003",
+  "work_order": "orchestration/work_orders/WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003.md",
+  "directive_id": 54,
+  "directive_supersedes": 53,
+  "review_source": "orchestration/reviews/CODEX_P1E-006_REVIEW_003.json",
+  "findings_addressed": ["P1E006-CODEX-F09", "P1E006-CODEX-F08"],
+  "agent_id": "aidle-worldgen-asset-art",
+  "agent_type": "aidle-worldgen-asset-art",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "6b65c458ec847e70",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "F09_PRODUCT_LIFECYCLE_READY_FOR_L1",
+  "child_task_ref": "019f8675-c7bc-75c1-8bc1-3a652f89aff2",
+  "transcript_ref": "019f8675-c7bc-75c1-8bc1-3a652f89aff2",
+  "writer_transcript_ref": "019f8675-c7bc-75c1-8bc1-3a652f89aff2",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "next_owner": "L1_QA",
+  "next_route": "L1_QA",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+  "character_binding": {
+    "trustlayer": "blue-team-p0-remediator",
+    "ui": "ui-color-type-specialist",
+    "role": "L0 product-owned Starter Realm headless-safe rebuild/teardown lifecycle for F09 (enables F08)"
+  },
+  "writer_lease": [
+    "E:/AIdle_openworld/game/scripts/modules/asset/mesh_presentation_lifecycle.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake_runtime_builder.gd",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l0-asset-004.log"
+  ],
+  "product_writes": [
+    "E:/AIdle_openworld/game/scripts/modules/asset/mesh_presentation_lifecycle.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake_runtime_builder.gd"
+  ],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l0-asset-004.log"
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_P1E-006_REVIEW_003.json",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake_runtime_builder.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake.gd",
+    "E:/AIdle_openworld/game/tests/p1e003_density_exposure_smoke.gd",
+    "E:/AIdle_openworld/game/tests/g8_ux002_fence_rail_collision_smoke.gd",
+    "E:/AIdle_openworld/game/tests/p1e002_glb_intake_tests.gd",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_clean_r0_asset_003.json",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "E:/shared/skills/library/od-reference-design-contract/SKILL.md"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/game/scripts/modules/asset/mesh_presentation_lifecycle.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake_runtime_builder.gd",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l0-asset-004.log"
+  ],
+  "original_evidence_preserved": true,
+  "r3_out_of_lease_artifacts_preserved": true,
+  "error_filtering_used": false,
+  "test_only_dispose_used": false,
+  "result": {
+    "verdict": "F09_PRODUCT_LIFECYCLE_READY_FOR_L1",
+    "summary": "Implemented product-owned headless-safe Starter Realm rebuild/teardown lifecycle. New mesh_presentation_lifecycle.gd detaches MeshInstance3D presentation meshes (cache materials + mi.mesh=null) before free; wired into starter_realm_builder rebuild free and glb_intake_runtime_builder free/replace/nav/cancel paths; after build under headless, residual product meshes (including NavSourcePlane) are detached so parent free/queue_free is dummy-safe. Not log filtering and not test-only dispose.",
+    "root_cause": {
+      "class": "dummy_renderer_mesh_free_on_realm_teardown",
+      "detail": "After R0 intake cleared GLTF meshes, residual product MeshInstance3D nodes still held presentation meshes at free time—especially NavigationRegion/NavSourcePlane (PlaneMesh) created in glb_intake_runtime_builder.bake_navigation, and any rebuild free of StarterRealm via starter_realm_builder existing.queue_free/free without detach. Godot 4.3 headless dummy mesh_storage then emits ERROR Parameter m is null at mesh_get_surface_count on free. p1e003 density and g8_ux002 fence suites exited 0 with PASS but unclean ERROR lines (F08/F09).",
+      "safe_path": "Shared product helper mesh_presentation_lifecycle.gd: prepare_subtree_for_free/detach_presentation_meshes/safe_free/safe_queue_free/ensure_headless_free_safe. Call on every product free/rebuild; ensure_headless_free_safe after realm build so live trees remain free-safe under dummy even when callers free parents with queue_free."
+    },
+    "f09_status": "CLOSED_PENDING_PURPLE",
+    "f08_status": "ENABLED_PENDING_L1_FULL_MATRIX",
+    "f09_note": "Product lifecycle helper + builder wiring; four required suites exit=0 PASS error_line_count=0 with unfiltered stdout+stderr.",
+    "f08_note": "L0 closed residual unclean suites named by Codex (p1e003, g8_ux002) plus regression p1e006 variants and p1e002 intake; full Directive-53 matrix remains L1.",
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+        "bytes": 1741,
+        "total_lines": 47,
+        "load_evidence": "FULL EOF hash+line count for L0 lifecycle child"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+        "bytes": 1938,
+        "total_lines": 54,
+        "load_evidence": "FULL EOF hash+line count for L0 lifecycle child"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+        "bytes": 982,
+        "total_lines": 37,
+        "load_evidence": "FULL EOF hash+line count for L0 lifecycle child"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+        "bytes": 1681,
+        "total_lines": 66,
+        "load_evidence": "FULL EOF hash+line count for L0 lifecycle child"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+        "bytes": 34306,
+        "total_lines": 1124,
+        "load_evidence": "FULL EOF hash+line count for L0 lifecycle child"
+      },
+      {
+        "skill_id": "od-reference-design-contract",
+        "source": "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+        "sha256": "8b5e62a123a180e5f1b8e0b7f97605d257f85bf0a2b0ca7f8c7475b54e007775",
+        "bytes": 5367,
+        "total_lines": 131,
+        "load_evidence": "FULL EOF routed skill hash+line count for L0 lifecycle child"
+      }
+    ],
+    "profile_load_evidence": {
+      "path": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+      "load": "FULL_EOF",
+      "sha256": "58589f36dc42758ea9fce3f058ec5323351a086ae1cd06185ab39bb6624c6c28",
+      "bytes": 1618,
+      "total_lines": 43,
+      "trustlayer": "blue-team-p0-remediator",
+      "ui": "ui-color-type-specialist",
+      "authority_token": "PATCH_DRAFT"
+    },
+    "product_change_detail": {
+      "mesh_presentation_lifecycle.gd": {
+        "action": "created",
+        "sha256": "ceedc41bfb4f182de195bb6d679534c4ffe4e1fef66a698f519bffc74c3e6241",
+        "api": [
+          "detach_presentation_meshes",
+          "prepare_subtree_for_free",
+          "ensure_headless_free_safe",
+          "safe_free",
+          "safe_queue_free",
+          "is_headless_dummy"
+        ]
+      },
+      "starter_realm_builder.gd": {
+        "action": "patched",
+        "changes": [
+          "rebuild path uses _MeshLifecycle.safe_free(existing) instead of queue_free+free",
+          "dispose_realm / ensure_headless_free_safe public product APIs",
+          "post-build ensure_headless_free_safe for GLB and procedural roots"
+        ]
+      },
+      "glb_intake_runtime_builder.gd": {
+        "action": "patched",
+        "changes": [
+          "safe_free on duplicate-fail root, parent StarterRealm replace, collision child clear, NavigationRegion replace",
+          "NavSourcePlane detach under headless after bake",
+          "ensure_headless_free_safe after full build_realm",
+          "cancel_preview_instance prepares meshes before free; dispose_realm API"
+        ]
+      },
+      "tests": {
+        "p1e003_density_exposure_smoke.gd": "not modified (product lifecycle alone cleaned ERROR lines)",
+        "g8_ux002_fence_rail_collision_smoke.gd": "not modified (product lifecycle alone cleaned ERROR lines)"
+      }
+    }
+  },
+  "smoke_test": {
+    "all_four_suites_clean": true,
+    "suites": {
+      "p1e003_density_exposure": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e003_density_exposure_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_P1E003_SMOKE=PASS checks=9",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "clean": true
+      },
+      "g8_ux002_fence_rail_collision": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_G8_UX002_SMOKE=PASS checks=2",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "clean": true
+      },
+      "p1e006_world_profile_variants": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "clean": true
+      },
+      "p1e002_glb_intake": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_tests.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_P1E002_TESTS=PASS checks=14",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "clean": true
+      }
+    },
+    "full_capture_log": "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l0-asset-004.log",
+    "commands": [
+      {
+        "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e003_density_exposure_smoke.gd",
+        "exit_code": 0
+      },
+      {
+        "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+        "exit_code": 0
+      },
+      {
+        "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+        "exit_code": 0
+      },
+      {
+        "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_tests.gd",
+        "exit_code": 0
+      }
+    ]
+  },
+  "self_audit": {
+    "allowlist_respected": true,
+    "undeclared_temps_created": false,
+    "error_filter_used": false,
+    "product_lifecycle_not_test_only": true,
+    "tests_modified": false,
+    "log_filter_or_suppress": false,
+    "exclusive_evidence_only": true,
+    "self_accept": false,
+    "accepted": false,
+    "prior_receipts_preserved": true,
+    "r3_artifacts_not_deleted": true,
+    "hard_stops_respected": true,
+    "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE/profile/skills/WO/review/directive/schema manually",
+    "confirmations": [
+      "no undeclared temps (_l0_*.log/.bat not created)",
+      "no ERROR line filtering or stderr suppression",
+      "product lifecycle is production path (builders + shared helper), not test-only dispose",
+      "all free/rebuild paths in allowlisted builders use mesh detach before free",
+      "four suites unfiltered clean"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+    "orchestration/logs/p1e-006-lifecycle-l0-asset-004.log",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_003.json",
+    "orchestration/work_orders/WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003.md",
+    "orchestration/control/codex_directive.json"
+  ]
+}

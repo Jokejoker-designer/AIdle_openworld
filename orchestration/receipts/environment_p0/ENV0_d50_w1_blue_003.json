@@ -1,0 +1,269 @@
+{
+  "agent_step_id": "ENV0-d50-w1-blue-003-2026-07-21",
+  "agent_type": "aidle-worldgen-asset-art",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "input_context_hash": "sha256:c8f8d97c9d7d923aef9bf50f7b8309a3245d909664cdaafb145924ff6d5202fb",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f83f2-30a7-7c41-aa82-51ab4828fe24",
+  "transcript_ref": "019f83f2-30a7-7c41-aa82-51ab4828fe24",
+  "writer_transcript_ref": "019f83f2-30a7-7c41-aa82-51ab4828fe24",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/environment-p0-d50-w1-blue-003.log",
+  "handoff_ref": "ENV0_D50_W2_RED",
+  "start_time": "2026-07-21T09:10:00Z",
+  "end_time": "2026-07-21T09:17:00Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-asset-art; trustlayer_character=blue-team-p0-remediator; ui_character=ui-color-type-specialist; authority_token=PATCH_DRAFT; required_skills include od-reference-design-contract; parent_spawn_only=true; no_grandchildren=true; self_accept=false; one_writer_per_file=true.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "od-reference-design-contract"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE concepts via skills + profile + WO-ENV0-001-CORRECTION-001 manually. No bootstrap loop.",
+  "files_read": [
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-001-CORRECTION-001.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-002-LEASE-IDEMPOTENCY-CORRECTION.md",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_red_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_purple_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c1_blue_002.json",
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c4_purple_002.json",
+    "E:/AIdle_Blender_Bridge_P0/app/config.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/blender_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/app/dependencies.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/environment_models.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/job_store.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_bridge_lease.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_environment_api.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_environment_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_api.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/conftest.py",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_d50_w1_blue_003.json",
+    "E:/AIdle_openworld/orchestration/logs/environment-p0-d50-w1-blue-003.log"
+  ],
+  "product_writes": [
+    "E:/AIdle_Blender_Bridge_P0/app/config.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/blender_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_bridge_lease.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_environment_api.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_environment_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_runner.py"
+  ],
+  "result": {
+    "task_id": "ENV0-001",
+    "directive_id": 50,
+    "work_order": "orchestration/work_orders/WO-ENV0-001-CORRECTION-001.md",
+    "wave": "ENV0_D50_W1_BLUE",
+    "profile": "aidle-worldgen-asset-art",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+    "authority_token": "PATCH_DRAFT",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "REVIEW_REQUESTED",
+    "summary": "Dir50 W1 PATCH_DRAFT closed F04/F05/F06 remaining correction hardening. F04: settings.bridge_revision enforced against expected_bridge_revision before allocate (422 mismatch, no job/quarantine). F05: re-hash build_spec.internal.json vs build_spec.sha256 immediately before Blender on character (BlenderRunner.run) and environment (_run_with_shared_lease) paths; exit 73 fail-closed; no artifacts on tamper. F06: bounded recover_stale_active_receipts (stale_active_ttl_seconds) marks FAILED only + operator cancel_if_queued proven. Adversarial: stale rev, tampered spec, no dual QUEUED, rejection immutability. BLK-ENV0-01/02/03 not redone. compileall 0; pytest 43 passed. Handoff ENV0_D50_W2_RED. accepted=false.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "trustlayer_card": "E:/agents/characters/09-blue-team-p0-remediator.md",
+      "ui_character_id": "ui-color-type-specialist",
+      "ui_card": "E:/agents/ui-design/characters/06-ui-color-type-specialist.md",
+      "maf_role": "agent",
+      "authority_token": "PATCH_DRAFT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; authority-bound PATCH_DRAFT; no inventing evidence"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: slot 09 blue patches only approved WO; Red finds never fixes; Purple never patches; one writer per file"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: hub E:/; handoff ENV0_D50_W2_RED after W1; no skip"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: exclusive Dir50 W1 product lease; no grandchildren; parent 019f7ffd only"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: FACT from pytest 43 passed; F04/F05/F06 closed in draft with adversarial coverage"
+      },
+      {
+        "skill_id": "od-reference-design-contract",
+        "source": "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL profile-routed: keep/change under leased paths; WO design constraints as contract"
+      }
+    ],
+    "finding_status": [
+      {
+        "finding_id": "ENV0-RED-F04",
+        "status": "CLOSED_IN_DRAFT",
+        "title": "expected_bridge_revision enforced against server bridge_revision",
+        "evidence": "Settings.bridge_revision; EnvironmentJobService._validate_registries mismatch → EnvironmentRegistryError before allocate; test_stale_bridge_revision_rejected_before_allocate (422, empty jobs/quarantine)"
+      },
+      {
+        "finding_id": "ENV0-RED-F05",
+        "status": "CLOSED_IN_DRAFT",
+        "title": "build_spec re-hashed before Blender execution",
+        "evidence": "BlenderRunner.verify_build_spec_integrity + BUILD_SPEC_INTEGRITY_EXIT_CODE=73; called in run() and EnvironmentJobService._run_with_shared_lease; tamper tests env+character fail-closed with no quarantine mock artifacts"
+      },
+      {
+        "finding_id": "ENV0-RED-F06",
+        "status": "CLOSED_IN_DRAFT",
+        "title": "bounded stale-active recovery + operator cancel path",
+        "evidence": "recover_stale_active_receipts TTL age-out to FAILED (no delete); invoked under create lock before busy; cancel_if_queued operator path; test_stale_active_receipt_recovery_unblocks_create"
+      }
+    ],
+    "blk_status_preserved": [
+      {
+        "id": "BLK-ENV0-01",
+        "status": "CLOSED_BY_WO_ENV0_002",
+        "note": "Not redone this wave; mutual lease remains; ENV0_c*_002 receipts not deleted"
+      },
+      {
+        "id": "BLK-ENV0-02",
+        "status": "CLOSED_BY_WO_ENV0_002",
+        "note": "Extended adversarial: test_no_dual_queued_character_and_environment + rejection immutability"
+      },
+      {
+        "id": "BLK-ENV0-03",
+        "status": "CLOSED_BY_WO_ENV0_002",
+        "note": "Idempotency fingerprint not modified this wave; suite still green"
+      }
+    ],
+    "allowlist_note": "tests/test_runner.py required minimal fixture adaptation (write matching build_spec.sha256) so F05 gate does not break character missing-artifact exit-65 regression. dependencies.py not modified.",
+    "residual_out_of_lease": [
+      "app/api/jobs.py still does not map BridgeBusyError to HTTP 409 (service-level refusal proven; HTTP mapping needs separate write lease)",
+      "F01 auth, F07 secondary registry ids, F08 output toggles, F10 network deny hardening still out of scope"
+    ],
+    "input_context_hash": "sha256:c8f8d97c9d7d923aef9bf50f7b8309a3245d909664cdaafb145924ff6d5202fb",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-001-CORRECTION-001.md",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_red_001.json",
+        "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_c4_purple_002.json"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "c8f8d97c9d7d923aef9bf50f7b8309a3245d909664cdaafb145924ff6d5202fb",
+      "BYTE_LEN": 81231
+    },
+    "child_task_ref": "019f83f2-30a7-7c41-aa82-51ab4828fe24",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "trace_ref": "orchestration/logs/environment-p0-d50-w1-blue-003.log",
+    "handoff_ref": "ENV0_D50_W2_RED",
+    "handoff_note": "W1 product hardening complete. Handoff ENV0_D50_W2_RED aidle-worldgen-red-scope READ_ONLY_AUDIT: confirm F04/F05/F06 cannot be bypassed; dual-lease still holds; recovery never deletes evidence. Then QA/Purple waves as Dir50 graph. No grandchildren. G8 HITL_REQUIRED; P1E blocked. accepted=false.",
+    "g8_hitl_note": "G8 stays HITL_REQUIRED. This wave does not imply G8 or ENV0 acceptance. No Godot/Scene/Control/Foundry/P1E edits.",
+    "product_writes": [
+      "E:/AIdle_Blender_Bridge_P0/app/config.py",
+      "E:/AIdle_Blender_Bridge_P0/app/services/blender_runner.py",
+      "E:/AIdle_Blender_Bridge_P0/app/services/job_service.py",
+      "E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py",
+      "E:/AIdle_Blender_Bridge_P0/tests/test_bridge_lease.py",
+      "E:/AIdle_Blender_Bridge_P0/tests/test_environment_api.py",
+      "E:/AIdle_Blender_Bridge_P0/tests/test_environment_runner.py",
+      "E:/AIdle_Blender_Bridge_P0/tests/test_runner.py"
+    ],
+    "out_of_scope_this_child": [
+      "Red audit W2",
+      "Full QA package + real HTTP probe ownership",
+      "Purple acceptance",
+      "jobs.py BridgeBusyError→409 mapping",
+      "F01 auth, F07-F10",
+      "P1E / Godot / Scene / World Commit",
+      "codex_directive.json",
+      "Grandchildren",
+      "Self-ACCEPT"
+    ],
+    "children": [],
+    "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded manually."
+  },
+  "smoke_test": {
+    "passed": true,
+    "attributed_to_transcript_ref": "019f83f2-30a7-7c41-aa82-51ab4828fe24",
+    "commands": [
+      {
+        "command": "python -m compileall -q app tests blender_scripts",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "compileall clean",
+        "mutating": false
+      },
+      {
+        "command": "python -m pytest tests/ -q --tb=short",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "43 passed full suite (character + environment + lease + F04/F05/F06 adversarial)",
+        "mutating": false
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "PATCH_DRAFT",
+    "no_self_accept": true,
+    "accepted": false,
+    "self_accept": false,
+    "sole_product_writer_lease_honored": true,
+    "allowlist_exception_test_runner_fixture_only": true,
+    "no_nested_grandchildren": true,
+    "character_skill_trace_present": true,
+    "no_invented_gate_pass": true,
+    "codex_directive_untouched": true,
+    "env0_c002_receipts_preserved": true,
+    "no_install_no_credentials_no_public_network_no_push_deploy": true,
+    "child_task_ref_is_durable_grok_desktop_id": true,
+    "child_task_ref_source": "unified.jsonl sid=019f83f2-30a7-7c41-aa82-51ab4828fe24",
+    "exclusive_orchestration_writes_only": [
+      "orchestration/receipts/environment_p0/ENV0_d50_w1_blue_003.json",
+      "orchestration/logs/environment-p0-d50-w1-blue-003.log"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/environment-p0-d50-w1-blue-003.log",
+    "orchestration/work_orders/WO-ENV0-001-CORRECTION-001.md",
+    "orchestration/receipts/environment_p0/ENV0_red_001.json",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_bridge_lease.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_environment_api.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_environment_runner.py",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "ENV0_D50_W2_RED"
+}

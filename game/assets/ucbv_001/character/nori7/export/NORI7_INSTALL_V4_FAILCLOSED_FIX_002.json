@@ -1,0 +1,39 @@
+{
+  "schema_version": "nori7_swap/1.0",
+  "receipt_id": "NORI7_INSTALL_V4_FAILCLOSED_FIX_002",
+  "job": "NORI7_MOCKUP_UPGRADE_V4_CUTE_WATER_RUNTIME_UNLOCK",
+  "authority": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "timestamp_utc": "2026-07-24T15:55:00Z",
+  "problem": "Headed/headless play: Nori-7 FAIL_CLOSED glb_sha256_mismatch expected 07d8d901… (realism V2) while live GLB is V4 CuteWater 63f06d5c…; after SHA sync, FAIL_CLOSED unexpected_extra_bone on N7V4_* modular pieces.",
+  "root_cause": [
+    "nori7_presenter reads expected SHA from nori7_animation_adapter.json then ucbv_paths.NORI_GLB_SHA256_EXPECTED — both still realism V2 after cast_roster-only install",
+    "bone validator allowed only 14 production + socket/neutral bones; V4 parents rigid modular meshes as N7V4_* skeleton bones"
+  ],
+  "product_writes": [
+    "game/scripts/modules/ucbv_001/ucbv_paths.gd — NORI_GLB_SHA256_EXPECTED → 63f06d5c…",
+    "game/resources/ucbv_001/character/nori7_animation_adapter.json — glb.sha256/bytes/bridge_job_id V4",
+    "game/assets/ucbv_001/character/nori7/package_manifest.json — bridge.glb_sha256/bytes + live already V4",
+    "game/scripts/modules/ucbv_001/nori7_presenter.gd — allow extra bones prefix N7V4_"
+  ],
+  "already_correct_before_this_fix": {
+    "live_glb": "export/nori7_rigged.glb",
+    "sha256": "63f06d5c6ce936629b12ff1612d005413863ee0c7996d1dd9ba76f2ca72d6eeb",
+    "cast_roster_ccp_rh_001": "63f06d5c… V4 wave"
+  },
+  "verify_headless": {
+    "command": "Godot 4.3 --path game --headless --quit-after 5",
+    "nori_line": "[Main] Nori-7 presenter built=true bones=14 character_id=CCP-RH-001 slice=c1r_glb_skinned mode=glb_c1r procedural=false",
+    "cast_gallery": "built=10 total=10 failed=0",
+    "known_noise": [
+      "Basis zero-scale Quaternion (water droplet scale=0 tracks)",
+      "Parameter m is null (headless quit noise, not Nori fail-closed)"
+    ]
+  },
+  "next_human_checks": [
+    "Restart game (style pick already reset if world_meta backed up)",
+    "Confirm Nori-7 visible at HOME.CHAR — not fail banner",
+    "Play idle/walk/water (6 droplets)/plant_seed/harvest/low_energy"
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "spec_version": "1.0.0",
+  "character_id": "CCP-RH-001",
+  "display_name": "Nori-7",
+  "class": "ROBOT_HELPER",
+  "slug": "nori7",
+  "mockup_ssot": {
+    "id": "MOCKUP_SSOT_V2",
+    "catalog_path": "E:\\AIdle_openworld\\orchestration\\control\\visual_reference\\mockup_ssot_v2\\MOCKUP_SSOT_V2.json",
+    "reference_images": [
+      "E:\\AIdle_openworld\\orchestration\\control\\visual_reference\\mockup_ssot_v2\\chars\\char_01_nori7.jpg",
+      "E:\\AIdle_openworld\\orchestration\\control\\visual_reference\\mockup_ssot_v2\\chars\\char_01_nori7_concept.jpg"
+    ],
+    "mockup_img_rel": "chars/char_01_nori7.jpg",
+    "video": "anim/anim_nori7_idle.mp4",
+    "approved_delta_work_order": null
+  },
+  "target": {
+    "match_mode": "CAMERA_LOCKED_MATCH",
+    "style": "Cozy Cyber-Pixel / Dreamy Low-Poly 2.5D",
+    "camera_priority": "PRIMARY_3Q_ISOMETRIC",
+    "world_profile": "cozy_cyber_pixel",
+    "notes": [
+      "Clay proof first; no material pass until FORM_LOCKED",
+      "Primary camera similarity is the main visual gate",
+      "Vision lock §12: mockup fidelity law — in-game must match mockup 100% when shipped",
+      "Do not claim 3D geometry fidelity for unseen angles"
+    ]
+  },
+  "camera_lock": {
+    "primary": {
+      "projection": "PERSPECTIVE",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "transform": {
+        "location": [
+          2.2,
+          -2.8,
+          1.6
+        ],
+        "rotation_euler_deg": [
+          62.0,
+          0.0,
+          38.0
+        ],
+        "fov_deg": 40.0,
+        "look_at": [
+          0.0,
+          0.0,
+          0.7
+        ]
+      }
+    },
+    "secondary_views": [
+      "FRONT",
+      "LEFT",
+      "BACK",
+      "TURN_45_RIGHT"
+    ]
+  },
+  "proportions": {
+    "character_heads_tall": 2.0,
+    "body_height_m": 1.2,
+    "form": "cream_teardrop_robot",
+    "signature": "sprout_sway + water_drip"
+  },
+  "landmarks": [
+    {
+      "id": "ground",
+      "hint": "feet contact"
+    },
+    {
+      "id": "head_top",
+      "hint": "sprout tip or hair crown"
+    },
+    {
+      "id": "face_center",
+      "hint": "eye cluster center"
+    }
+  ],
+  "palette": {
+    "dominant_families_max": 3,
+    "swatches": [
+      {
+        "token": "cream",
+        "hex": "#fdf3e2"
+      },
+      {
+        "token": "leaf",
+        "hex": "#7fc98f"
+      },
+      {
+        "token": "iris_cyan_eye_only",
+        "hex": "#a8dced"
+      }
+    ],
+    "forbidden_primary_colors": [
+      "full_body_cyan"
+    ],
+    "emission_allowed": false
+  },
+  "part_ownership": {
+    "S1": [
+      "head",
+      "face_socket",
+      "eyes",
+      "sprout",
+      "face_details"
+    ],
+    "S2": [
+      "torso",
+      "arms",
+      "hands",
+      "legs",
+      "feet",
+      "water_tank",
+      "nozzle",
+      "body_accessories"
+    ],
+    "S3": [
+      "retopo",
+      "uv",
+      "materials",
+      "armature",
+      "weights",
+      "animations",
+      "export"
+    ],
+    "S4": [
+      "read_only_visual_qa",
+      "technical_qa",
+      "change_requests"
+    ]
+  },
+  "skeleton_family": "robot_biped_small_v1",
+  "skeleton_alias": "skel_small_biped_robot_v1",
+  "object_dna_family_ref": "orchestration/control/object_dna_card_system/registries/skeleton_family_categories_v1.json",
+  "clips": [
+    "idle",
+    "walk",
+    "scan",
+    "happy",
+    "cancel",
+    "turn_left",
+    "turn_right",
+    "build_place",
+    "build_place_hold",
+    "confirm",
+    "water",
+    "plant_seed",
+    "harvest",
+    "charge",
+    "low_energy"
+  ],
+  "technical_budget": {
+    "triangle_max": 12000,
+    "bone_max": 14,
+    "texture_max_px": 1024,
+    "mobile_target": true,
+    "production_bones": [
+      "root",
+      "pelvis",
+      "spine",
+      "chest",
+      "head",
+      "arm_L",
+      "hand_L",
+      "arm_R",
+      "hand_R",
+      "leg_L",
+      "foot_L",
+      "leg_R",
+      "foot_R",
+      "sprout_ctrl"
+    ],
+    "skeleton_id": "skel_small_biped_robot_v1"
+  },
+  "gates": {
+    "silhouette_iou_min": 0.94,
+    "landmark_rmse_max": 0.018,
+    "bbox_delta_max": 0.02,
+    "palette_delta_e00_max": 6.0,
+    "require_rear_identifier": true
+  },
+  "forbidden_patterns": [
+    "white golf-ball single sphere body",
+    "cyan body fill (cyan eye ring only)",
+    "missing mechanical sprout rear identifier",
+    "placeholder capsule limbs without tank/nozzle readability",
+    "material or lighting used to hide form errors",
+    "alias missing clip to idle",
+    "self_accept"
+  ],
+  "production_binding": {
+    "existing_glb": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "adapter": "E:/AIdle_openworld/game/resources/ucbv_001/character/nori7_animation_adapter.json",
+    "quarantine_root": "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine",
+    "promote_to_game_requires_human": true
+  },
+  "four_subagent_system": {
+    "upstream": "E:/agents/AIdle_4_Subagent_Blender_Character_System/aidle_character_4_subagents",
+    "state_machine": "workflow/state_machine.json",
+    "collection_contract": "blender/BLENDER_COLLECTION_CONTRACT.md"
+  },
+  "human_acceptance_required": true,
+  "accepted": false,
+  "self_accept": false
+}

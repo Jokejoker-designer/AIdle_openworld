@@ -1,0 +1,791 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/dna-platform-vnext/schemas/universal_entity_recipe.schema.json",
+  "title": "AIdle Universal Entity Recipe",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "recipe_id",
+    "request_id",
+    "entity_kind",
+    "world_profile",
+    "compiler_target",
+    "root_instance_id",
+    "instances",
+    "connections",
+    "facets",
+    "authority",
+    "readiness",
+    "validation_expectations",
+    "provenance",
+    "payload_fingerprint"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "dna_platform_vnext/universal_entity_recipe/0.1"
+    },
+    "recipe_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9:_\\-]+$"
+    },
+    "entity_kind": {
+      "enum": [
+        "CHARACTER",
+        "CREATURE",
+        "PROP",
+        "VEHICLE",
+        "BUILDING",
+        "TERRAIN",
+        "PLANT",
+        "EFFECT",
+        "SYSTEM",
+        "REGION"
+      ]
+    },
+    "world_profile": {
+      "enum": [
+        "cozy_cyber_pixel",
+        "tiny_diorama",
+        "solarpunk_haven",
+        "arcane_clockwork",
+        "spirit_valley",
+        "surrealism_canvas",
+        "oceanpunk_abyss"
+      ]
+    },
+    "compiler_target": {
+      "enum": [
+        "STRICT_BUILD_RECIPE",
+        "STRICT_BUILD_GRAPH",
+        "HYBRID"
+      ]
+    },
+    "root_instance_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "instances": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "items": {
+        "$ref": "#/$defs/instance"
+      }
+    },
+    "connections": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {
+        "$ref": "#/$defs/connection"
+      }
+    },
+    "facets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "presentation",
+        "motion",
+        "behaviors",
+        "physics",
+        "vfx",
+        "audio"
+      ],
+      "properties": {
+        "presentation": {
+          "$ref": "#/$defs/presentation_facet"
+        },
+        "motion": {
+          "$ref": "#/$defs/motion_facet"
+        },
+        "behaviors": {
+          "type": "array",
+          "maxItems": 64,
+          "items": {
+            "$ref": "#/$defs/behavior_binding"
+          }
+        },
+        "physics": {
+          "$ref": "#/$defs/physics_facet"
+        },
+        "vfx": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
+        },
+        "audio": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proposal_only",
+        "may_commit_world",
+        "may_execute_generated_code",
+        "may_write_catalog",
+        "requires_human_confirmation",
+        "world_commit_route"
+      ],
+      "properties": {
+        "proposal_only": {
+          "const": true
+        },
+        "may_commit_world": {
+          "const": false
+        },
+        "may_execute_generated_code": {
+          "const": false
+        },
+        "may_write_catalog": {
+          "const": false
+        },
+        "requires_human_confirmation": {
+          "const": true
+        },
+        "world_commit_route": {
+          "const": "structured_world_prompt"
+        }
+      }
+    },
+    "readiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_status",
+        "runtime_ready",
+        "blockers",
+        "asset_requests"
+      ],
+      "properties": {
+        "source_status": {
+          "enum": [
+            "DESIGN_ONLY",
+            "AUTHORING_REQUIRED",
+            "QUARANTINED",
+            "RUNTIME_VERIFIED"
+          ]
+        },
+        "runtime_ready": {
+          "type": "boolean"
+        },
+        "blockers": {
+          "type": "array",
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        },
+        "asset_requests": {
+          "type": "array",
+          "maxItems": 64,
+          "items": {
+            "$ref": "#/$defs/asset_request"
+          }
+        }
+      }
+    },
+    "validation_expectations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "source_hashes",
+        "catalog_refs",
+        "sockets",
+        "profile_compatibility",
+        "motion_payload",
+        "behavior_authority",
+        "budget",
+        "runtime_evidence"
+      ],
+      "properties": {
+        "schema": {
+          "const": true
+        },
+        "source_hashes": {
+          "const": true
+        },
+        "catalog_refs": {
+          "const": true
+        },
+        "sockets": {
+          "const": true
+        },
+        "profile_compatibility": {
+          "const": true
+        },
+        "motion_payload": {
+          "const": true
+        },
+        "behavior_authority": {
+          "const": true
+        },
+        "budget": {
+          "const": true
+        },
+        "runtime_evidence": {
+          "const": true
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_registry_id",
+        "sources",
+        "generated_by_role",
+        "parent_recipe_ids"
+      ],
+      "properties": {
+        "source_registry_id": {
+          "const": "aidle_dna_v1_1_tier3_bridge_20260723"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 32,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source_id",
+              "sha256"
+            ],
+            "properties": {
+              "source_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            }
+          }
+        },
+        "generated_by_role": {
+          "enum": [
+            "DNA_INTENT_ARCHITECT",
+            "DNA_COMPOSER",
+            "HUMAN_AUTHORED"
+          ]
+        },
+        "parent_recipe_ids": {
+          "type": "array",
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      }
+    },
+    "payload_fingerprint": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "$defs": {
+    "vec3": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number",
+          "minimum": -128,
+          "maximum": 128
+        },
+        {
+          "type": "number",
+          "minimum": -128,
+          "maximum": 128
+        },
+        {
+          "type": "number",
+          "minimum": -64,
+          "maximum": 64
+        }
+      ],
+      "items": false,
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "rotation_vec3": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 360
+        },
+        {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 360
+        },
+        {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 360
+        }
+      ],
+      "items": false,
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "scale_vec3": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 4
+        },
+        {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 4
+        },
+        {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 4
+        }
+      ],
+      "items": false,
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "instance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "instance_id",
+        "module_ref",
+        "role",
+        "transform",
+        "parameter_overrides"
+      ],
+      "properties": {
+        "instance_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "module_ref": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source_id",
+            "catalog_version",
+            "module_id"
+          ],
+          "properties": {
+            "source_id": {
+              "const": "module_catalog"
+            },
+            "catalog_version": {
+              "const": "1.0"
+            },
+            "module_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_]+$"
+            }
+          }
+        },
+        "role": {
+          "enum": [
+            "ROOT",
+            "PART",
+            "ATTACHMENT",
+            "SYSTEM",
+            "DECORATION"
+          ]
+        },
+        "transform": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "position",
+            "rotation_deg",
+            "scale"
+          ],
+          "properties": {
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation_deg": {
+              "$ref": "#/$defs/rotation_vec3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale_vec3"
+            }
+          }
+        },
+        "parameter_overrides": {
+          "type": "object",
+          "maxProperties": 32,
+          "propertyNames": {
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "additionalProperties": {
+            "type": [
+              "string",
+              "number",
+              "integer",
+              "boolean"
+            ]
+          }
+        }
+      }
+    },
+    "connection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "connection_id",
+        "from_instance",
+        "from_socket",
+        "from_polarity",
+        "to_instance",
+        "to_socket",
+        "to_polarity"
+      ],
+      "properties": {
+        "connection_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "from_instance": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "from_socket": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "from_polarity": {
+          "enum": [
+            "input",
+            "output",
+            "peer"
+          ]
+        },
+        "to_instance": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "to_socket": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "to_polarity": {
+          "enum": [
+            "input",
+            "output",
+            "peer"
+          ]
+        },
+        "adapter_normalization_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        }
+      }
+    },
+    "presentation_facet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "material_theme_id",
+        "material_bindings"
+      ],
+      "properties": {
+        "material_theme_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "material_bindings": {
+          "type": "array",
+          "maxItems": 128,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "instance_id",
+              "slot",
+              "palette_token"
+            ],
+            "properties": {
+              "instance_id": {
+                "type": "string",
+                "pattern": "^(\\*|[a-z0-9_]+)$"
+              },
+              "slot": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              },
+              "palette_token": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "motion_facet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "skeleton_id",
+        "animation_set_id",
+        "motion_catalog_source_id",
+        "actions"
+      ],
+      "properties": {
+        "skeleton_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 128
+        },
+        "animation_set_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 128
+        },
+        "motion_catalog_source_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "motion_primitives",
+            null
+          ]
+        },
+        "actions": {
+          "type": "array",
+          "maxItems": 128,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "action_id",
+              "build_mode",
+              "runtime_payload_proven"
+            ],
+            "properties": {
+              "action_id": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              },
+              "build_mode": {
+                "enum": [
+                  "AUTHORED_CLIP",
+                  "BASE_POSE_BLEND",
+                  "PROCEDURAL_RUNTIME",
+                  "ASSET_REQUEST_REQUIRED"
+                ]
+              },
+              "runtime_payload_proven": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
+    "behavior_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "instance_id",
+        "behavior_id",
+        "ai_authority",
+        "config"
+      ],
+      "properties": {
+        "instance_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "behavior_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "ai_authority": {
+          "const": "CONFIGURE_ONLY"
+        },
+        "config": {
+          "type": "object",
+          "maxProperties": 32,
+          "propertyNames": {
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "additionalProperties": {
+            "type": [
+              "string",
+              "number",
+              "integer",
+              "boolean"
+            ]
+          }
+        }
+      }
+    },
+    "physics_facet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bindings",
+        "simulation_lod_policy"
+      ],
+      "properties": {
+        "bindings": {
+          "type": "array",
+          "maxItems": 128,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "instance_id",
+              "element_ids",
+              "physical_profile_id",
+              "reaction_rule_ids"
+            ],
+            "properties": {
+              "instance_id": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              },
+              "element_ids": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "pattern": "^element_[a-z0-9_]+$"
+                }
+              },
+              "physical_profile_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 128
+              },
+              "reaction_rule_ids": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9_]+$"
+                }
+              }
+            }
+          }
+        },
+        "simulation_lod_policy": {
+          "enum": [
+            "NONE",
+            "DISTANCE_AND_RESIDENCY",
+            "TIER3_OFFLINE_ELIGIBLE"
+          ]
+        }
+      }
+    },
+    "asset_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_request_id",
+        "missing_capability",
+        "reason",
+        "deliverable_kind",
+        "acceptance_checks",
+        "quarantine_required",
+        "catalog_promotion_allowed"
+      ],
+      "properties": {
+        "asset_request_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9:_\\-]+$"
+        },
+        "missing_capability": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "deliverable_kind": {
+          "enum": [
+            "MODULE_GLTF",
+            "SKELETON_RIG",
+            "ANIMATION_ACTIONS",
+            "MATERIAL",
+            "BEHAVIOR_IMPLEMENTATION",
+            "GENERATOR_IMPLEMENTATION",
+            "VFX",
+            "AUDIO"
+          ]
+        },
+        "acceptance_checks": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        },
+        "quarantine_required": {
+          "const": true
+        },
+        "catalog_promotion_allowed": {
+          "const": false
+        }
+      }
+    }
+  }
+}
+

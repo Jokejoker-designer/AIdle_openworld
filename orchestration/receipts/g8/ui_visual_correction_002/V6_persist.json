@@ -1,0 +1,69 @@
+{
+  "agent_step_id": "G8-001-V002-V6_A11Y_CLEAN_STATE-2026-07-21",
+  "agent_type": "aidle-persist",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "READ_ONLY_AUDIT",
+  "input_context_hash": "sha256:8733c8c3a8fdc7ed",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-UI-VISUAL-CORRECTION-002",
+    "directive_id": 23,
+    "wave": "V6_A11Y_CLEAN_STATE",
+    "profile": "persist",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "READ_ONLY: geometry assertions, ChatInput visible, high-contrast pill, G4=22 and six-export zero-diff; clean-state Cozy product rule documented separately from ephemeral test_setup.",
+    "character_binding": {
+      "trustlayer_character_id": "purple-team-finding-triage",
+      "ui_character_id": "ui-a11y-auditor",
+      "maf_role": "agent",
+      "authority_token": "READ_ONLY_AUDIT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full"
+      },
+      {
+        "skill_id": "ui-a11y-character-rules",
+        "source": "E:/agents/ui-design/registry.yaml#ui-a11y-auditor",
+        "mode": "character_rules"
+      }
+    ],
+    "trace_ref": "orchestration/logs/g8-ui-visual-correction-002.log#V6_A11Y_CLEAN_STATE",
+    "handoff_ref": "V7_PURPLE_VISUAL_GATE",
+    "product_writes": [],
+    "children": [],
+    "findings": [],
+    "residual_risks": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "G4_PERSIST_SMOKE=PASS checks=22"
+      },
+      {
+        "marker": "SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS"
+      },
+      {
+        "marker": "product_clean_world_default_is_cozy"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "character_skill_trace_present": true,
+    "no_catalog_false_claim": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ui-visual-correction-002.log",
+    "orchestration/evidence/g8_ui_visual_correction_002/",
+    "orchestration/reviews/CODEX_G8-001_UI_VISUAL_REVIEW_002.json"
+  ],
+  "next_route": "V7_PURPLE_VISUAL_GATE"
+}

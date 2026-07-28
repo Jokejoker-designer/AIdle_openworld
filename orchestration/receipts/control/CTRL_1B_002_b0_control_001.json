@@ -1,0 +1,286 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-b0-control-001-2026-07-22",
+  "step_id": "CTRL-1B-002-b0-control-001",
+  "work_order_id": "WO-CTRL-1B-002-CONTROL-FOUNDATION-IMPLEMENTATION",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-CONTROL-FOUNDATION-IMPLEMENTATION.md",
+  "directive_id": 58,
+  "directive_supersedes": 57,
+  "milestone": "Control 1B runtime foundation and Cozy V B slice",
+  "agent_id": "aidle-worldgen-control-input",
+  "agent_type": "aidle-worldgen-control-input",
+  "profile_name": "aidle-worldgen-control-input",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+  "profile_sha256": "c6b718fb24ea7e1b9ca2453b25cff077c023a582b652307572fbe5184450fe6e",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "exclusive lease only — control kernel InputMap catalog binding accessibility autoloads + B0 smokes + B0 receipt/log; no B1 HUD/Companion integration; no contract/fixture edit; no Character Foundry/World 2/network",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:96f33ee70ab5c5bc8cddcca296c3ef434c73ff540b0c5064031aaed4ce8a3eb0",
+  "input_context_hash_16": "96f33ee70ab5c5bc",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002 + CONTROL_1B_ACCEPTANCE_CONTRACT.md + codex_directive.json + aidle-worldgen-control-input.md",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "B0_CONTROL_KERNEL_COMPLETE_NO_ACCEPT",
+  "verdict_detail": "Implemented fail-closed ControlContextRouter, closed ControlActionCatalog, ControlBindingManager, ControlAccessibilitySettings; expanded project.godot InputMap + autoloads. Headless router smoke PASS checks=12, a11y smoke PASS checks=11, g8_ux_input_collision PASS checks=6; all exit 0 with zero ERROR/SCRIPT ERROR lines. Delete=proposal_only, undo=compensation_request, Esc cancel-before-pause, R no dual-fire. accepted=false; next_owner=B1_RUNTIME.",
+  "child_task_ref": "019f86c1-854c-76a3-a36b-004cc8e39216",
+  "transcript_ref": "019f86c1-854c-76a3-a36b-004cc8e39216",
+  "writer_transcript_ref": "019f86c1-854c-76a3-a36b-004cc8e39216",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "next_owner": "B1_RUNTIME",
+  "next_route": "B1_RUNTIME",
+  "character_binding": {
+    "trustlayer": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_lines_loaded": 17,
+    "ui": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "ui_lines_loaded": 49,
+    "role": "B0 control kernel + InputMap + accessibility state (PATCH_DRAFT exclusive lease; no self-accept)"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, WO, directive 58, acceptance contract, schema, character cards, skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "lines": 46,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "lines": 53,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "lines": 36,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "lines": 65,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "lines": 1123,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "lines": 26,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/game/project.godot",
+    "E:/AIdle_openworld/game/autoload/control_context_router.gd",
+    "E:/AIdle_openworld/game/autoload/control_accessibility_settings.gd",
+    "E:/AIdle_openworld/game/scripts/input/control_action_catalog.gd",
+    "E:/AIdle_openworld/game/scripts/input/control_binding_manager.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_context_router_smoke.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_accessibility_smoke.gd",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_b0_control_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-b0-control-001.log"
+  ],
+  "product_writes": [
+    "E:/AIdle_openworld/game/project.godot",
+    "E:/AIdle_openworld/game/autoload/control_context_router.gd",
+    "E:/AIdle_openworld/game/autoload/control_accessibility_settings.gd",
+    "E:/AIdle_openworld/game/scripts/input/control_action_catalog.gd",
+    "E:/AIdle_openworld/game/scripts/input/control_binding_manager.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_context_router_smoke.gd",
+    "E:/AIdle_openworld/game/tests/control_1b_accessibility_smoke.gd"
+  ],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_b0_control_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-b0-control-001.log"
+  ],
+  "product_write_hashes": {
+    "game/project.godot": "2533ff4814a6ad776f53c294f5b1a901f73e61aa0aa1494fe7e7fc4283d52e4b",
+    "game/autoload/control_context_router.gd": "0f49c2945ff55bed4126347d3bcb0197bcc8a07d6d09e7a9f5c1a0140229250f",
+    "game/autoload/control_accessibility_settings.gd": "3e08e9a5b47c0beaf24b1eeb01681d776bc8b5601357707b89c8b899f74a57a2",
+    "game/scripts/input/control_action_catalog.gd": "fc1f420d25180d9e2601357dedffbf7df23bdea253fc043f222cc3142860adc1",
+    "game/scripts/input/control_binding_manager.gd": "1bbe6eb71e86f51dd4d2dfad748d514e2e3d58963564a5ca8d52c808444f4101",
+    "game/tests/control_1b_context_router_smoke.gd": "237bcbd34e4f91e5e97ba2c679a90272aa4e739e00e286b7b6a14b3eb2e32960",
+    "game/tests/control_1b_accessibility_smoke.gd": "72c93d312bac4aa0f869963de0256ac6e50319ee9c015c39c96808c3252f3a4d"
+  },
+  "read_only_authority_inputs": [
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/input_context.schema.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py"
+  ],
+  "contract_not_edited": true,
+  "result": {
+    "verdict": "B0_CONTROL_KERNEL_COMPLETE_NO_ACCEPT",
+    "summary": "Control 1B kernel: five fail-closed contexts, closed action catalog matching contract §2.2, InputMap expansion, binding/remap manager, accessibility settings (remap, left/one-hand presets, hold/toggle sprint, mouse sensitivity, reduced_motion, screen_shake, cursor_size, confirmation_hold) persisted under user://control_a11y.cfg. Esc priority cancel-before-pause; R build-only rotate without dual-fire; delete_proposal and request_undo emit proposal/compensation signals only.",
+    "gates_covered_kernel": [
+      "C1B-CTX-01",
+      "C1B-CTX-02",
+      "C1B-CTX-03",
+      "C1B-CTX-06",
+      "C1B-ACT-01",
+      "C1B-ACT-02",
+      "C1B-ACT-03",
+      "C1B-ACT-04",
+      "C1B-ACT-05",
+      "C1B-CF-01",
+      "C1B-CF-05",
+      "C1B-HK-06",
+      "C1B-HK-07",
+      "C1B-HK-08",
+      "C1B-HK-09",
+      "C1B-HK-10",
+      "C1B-ESC-01",
+      "C1B-HUD-01",
+      "C1B-A11Y-01",
+      "C1B-A11Y-02",
+      "C1B-A11Y-03",
+      "C1B-A11Y-04",
+      "C1B-A11Y-05",
+      "C1B-A11Y-07",
+      "C1B-A11Y-08",
+      "C1B-A11Y-09",
+      "C1B-A11Y-12",
+      "C1B-SAFE-01",
+      "C1B-SAFE-02",
+      "C1B-SAFE-03"
+    ],
+    "out_of_scope_deferred_to_b1": [
+      "Companion/HUD full integration",
+      "player/camera consumption of router",
+      "Cozy Helper Pulse / Homestead Panel UI",
+      "headed H-01..H-33"
+    ],
+    "profile_load_evidence": {
+      "path": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+      "load": "FULL_EOF",
+      "sha256": "c6b718fb24ea7e1b9ca2453b25cff077c023a582b652307572fbe5184450fe6e",
+      "lines": 45,
+      "trustlayer": "blue-team-p0-remediator",
+      "ui": "ui-a11y-auditor",
+      "authority_token": "PATCH_DRAFT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+        "load_evidence": "FULL EOF"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+        "load_evidence": "FULL EOF"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+        "load_evidence": "FULL EOF"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+        "load_evidence": "FULL EOF"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+        "load_evidence": "FULL EOF"
+      },
+      {
+        "skill_id": "architecture-lock",
+        "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+        "load_evidence": "FULL EOF routed"
+      }
+    ]
+  },
+  "smoke_test": {
+    "all_clean": true,
+    "suites": {
+      "control_1b_context_router": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=12",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "clean": true
+      },
+      "control_1b_accessibility": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_accessibility_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS checks=11",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "clean": true
+      },
+      "g8_ux_input_collision": {
+        "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux_input_collision_smoke.gd",
+        "exit_code": 0,
+        "pass_marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+        "pass_marker_present": true,
+        "error_line_count": 0,
+        "script_error_count": 0,
+        "parse_compile_error_count": 0,
+        "clean": true,
+        "note": "regression: jump vs ui_accept + WASD/arrow ownership preserved"
+      }
+    },
+    "full_capture_log": "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-b0-control-001.log"
+  },
+  "self_audit": {
+    "lease_respected": true,
+    "contract_fixtures_untouched": true,
+    "no_b1_files_written": true,
+    "no_network_or_install": true,
+    "self_accept": false,
+    "accepted": false,
+    "hard_stops_honored": [
+      "no Companion/HUD full integration",
+      "no Character Foundry",
+      "no World 2",
+      "no World Commit",
+      "no contract edit"
+    ],
+    "notes": [
+      "Runtime consumers must use ControlContextRouter.is_action_* / try_dispatch rather than raw keycodes for remappable foundation actions (B1 integration).",
+      "GameManager still listens to pause_menu directly; B1 should route Esc through resolve_escape for full cancel priority in-game."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/receipts/control/CTRL_1B_002_b0_control_001.json",
+    "orchestration/logs/ctrl-1b-002-b0-control-001.log",
+    "Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "orchestration/work_orders/WO-CTRL-1B-002-CONTROL-FOUNDATION-IMPLEMENTATION.md"
+  ],
+  "next_route": "B1_RUNTIME"
+}

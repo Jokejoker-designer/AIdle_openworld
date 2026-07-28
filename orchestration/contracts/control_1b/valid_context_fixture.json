@@ -1,0 +1,1097 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "control-1b-input-context",
+  "contract_version": "1.0.0",
+  "description": "Valid Control 1B foundation catalog: five contexts, stable actions, conflict rules, a11y, safety, Cozy V/B slice. Directive 60: Exploration allowed_actions includes rotate_camera_right (Human R camera yaw); context-isolated R bindings; dual-fire still forbidden. Fixture for schema PASS only — not product acceptance.",
+  "contexts": [
+    {
+      "context_id": "exploration",
+      "purpose": "Move, explore, interact",
+      "locomotion_policy": "active",
+      "enter_actions": [],
+      "leave_actions": [
+        "companion_call",
+        "prompt_quick_open",
+        "build_mode_toggle",
+        "inspect_entity",
+        "world_ability",
+        "world_panel"
+      ],
+      "allowed_actions": [
+        "move_forward",
+        "move_back",
+        "move_left",
+        "move_right",
+        "sprint",
+        "jump",
+        "camera_zoom_in",
+        "camera_zoom_out",
+        "rotate_camera_left",
+        "rotate_camera_right",
+        "pause_menu",
+        "interact_primary",
+        "interact_secondary",
+        "companion_call",
+        "prompt_quick_open",
+        "build_mode_toggle",
+        "world_ability",
+        "world_panel",
+        "inspect_entity",
+        "map_open",
+        "camera_reset",
+        "cancel_action"
+      ],
+      "hud_actions": [
+        "interact_primary",
+        "interact_secondary",
+        "world_ability",
+        "build_mode_toggle"
+      ]
+    },
+    {
+      "context_id": "companion",
+      "purpose": "Dialogue and Prompt Composer",
+      "locomotion_policy": "suppressed_while_focus",
+      "enter_actions": [
+        "companion_call",
+        "prompt_quick_open"
+      ],
+      "leave_actions": [
+        "cancel_action"
+      ],
+      "allowed_actions": [
+        "companion_call",
+        "prompt_quick_open",
+        "prompt_send",
+        "prompt_newline",
+        "confirm_action",
+        "cancel_action",
+        "delete_proposal",
+        "request_undo"
+      ],
+      "hud_actions": [
+        "prompt_send",
+        "confirm_action",
+        "cancel_action",
+        "companion_call"
+      ]
+    },
+    {
+      "context_id": "build",
+      "purpose": "Place, rotate, preview structures",
+      "locomotion_policy": "active",
+      "enter_actions": [
+        "build_mode_toggle"
+      ],
+      "leave_actions": [
+        "build_mode_toggle",
+        "cancel_action"
+      ],
+      "allowed_actions": [
+        "move_forward",
+        "move_back",
+        "move_left",
+        "move_right",
+        "sprint",
+        "camera_zoom_in",
+        "camera_zoom_out",
+        "build_mode_toggle",
+        "build_place",
+        "build_cancel",
+        "build_rotate_left",
+        "build_rotate_right",
+        "build_elevation_up",
+        "build_elevation_down",
+        "build_scale_up",
+        "build_scale_down",
+        "build_snap_toggle",
+        "build_grid_toggle",
+        "build_duplicate",
+        "build_validate_collision",
+        "build_validate_navigation",
+        "build_link",
+        "confirm_action",
+        "cancel_action",
+        "delete_proposal",
+        "request_undo",
+        "request_redo",
+        "prompt_quick_open"
+      ],
+      "hud_actions": [
+        "build_place",
+        "build_rotate_right",
+        "build_snap_toggle",
+        "cancel_action"
+      ]
+    },
+    {
+      "context_id": "inspect",
+      "purpose": "Entity info, provenance, and state",
+      "locomotion_policy": "active",
+      "enter_actions": [
+        "inspect_entity"
+      ],
+      "leave_actions": [
+        "cancel_action"
+      ],
+      "allowed_actions": [
+        "move_forward",
+        "move_back",
+        "move_left",
+        "move_right",
+        "camera_zoom_in",
+        "camera_zoom_out",
+        "inspect_entity",
+        "interact_primary",
+        "cancel_action",
+        "confirm_action",
+        "delete_proposal",
+        "request_undo"
+      ],
+      "hud_actions": [
+        "inspect_entity",
+        "interact_primary",
+        "delete_proposal",
+        "cancel_action"
+      ]
+    },
+    {
+      "context_id": "world_tool",
+      "purpose": "Concept-specific world ability and management panel",
+      "locomotion_policy": "active",
+      "enter_actions": [
+        "world_ability",
+        "world_panel"
+      ],
+      "leave_actions": [
+        "cancel_action"
+      ],
+      "allowed_actions": [
+        "move_forward",
+        "move_back",
+        "move_left",
+        "move_right",
+        "sprint",
+        "jump",
+        "camera_zoom_in",
+        "camera_zoom_out",
+        "world_ability",
+        "world_panel",
+        "cozy_helper_pulse",
+        "cozy_homestead_panel",
+        "interact_primary",
+        "interact_secondary",
+        "cancel_action",
+        "confirm_action"
+      ],
+      "hud_actions": [
+        "world_ability",
+        "world_panel",
+        "interact_secondary",
+        "cancel_action"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "move_forward",
+      "category": "locomotion",
+      "remappable": true,
+      "safety_class": "benign",
+      "description": "Move along forward 2.5D axis"
+    },
+    {
+      "action_id": "move_back",
+      "category": "locomotion",
+      "remappable": true,
+      "safety_class": "benign"
+    },
+    {
+      "action_id": "move_left",
+      "category": "locomotion",
+      "remappable": true,
+      "safety_class": "benign"
+    },
+    {
+      "action_id": "move_right",
+      "category": "locomotion",
+      "remappable": true,
+      "safety_class": "benign"
+    },
+    {
+      "action_id": "sprint",
+      "category": "locomotion",
+      "remappable": true,
+      "safety_class": "benign",
+      "description": "Hold/toggle per a11y"
+    },
+    {
+      "action_id": "jump",
+      "category": "locomotion",
+      "remappable": true,
+      "safety_class": "benign"
+    },
+    {
+      "action_id": "camera_zoom_in",
+      "category": "camera",
+      "remappable": true,
+      "safety_class": "benign"
+    },
+    {
+      "action_id": "camera_zoom_out",
+      "category": "camera",
+      "remappable": true,
+      "safety_class": "benign"
+    },
+    {
+      "action_id": "rotate_camera_left",
+      "category": "camera",
+      "remappable": true,
+      "safety_class": "benign",
+      "description": "Camera yaw when permitted; not Build hologram rotate"
+    },
+    {
+      "action_id": "rotate_camera_right",
+      "category": "camera",
+      "remappable": true,
+      "safety_class": "benign",
+      "description": "Human-locked Exploration camera yaw right (Directive 60); never hologram; must not dual-fire with build_rotate_right"
+    },
+    {
+      "action_id": "pause_menu",
+      "category": "system",
+      "remappable": true,
+      "safety_class": "system"
+    },
+    {
+      "action_id": "toggle_debug",
+      "category": "system",
+      "remappable": true,
+      "safety_class": "system"
+    },
+    {
+      "action_id": "interact",
+      "category": "interaction",
+      "remappable": true,
+      "safety_class": "benign",
+      "description": "Legacy synonym retained for migration"
+    },
+    {
+      "action_id": "interact_primary",
+      "category": "interaction",
+      "remappable": true,
+      "safety_class": "benign"
+    },
+    {
+      "action_id": "interact_secondary",
+      "category": "interaction",
+      "remappable": true,
+      "safety_class": "benign"
+    },
+    {
+      "action_id": "companion_call",
+      "category": "companion",
+      "remappable": true,
+      "safety_class": "ui_nav"
+    },
+    {
+      "action_id": "prompt_quick_open",
+      "category": "prompt",
+      "remappable": true,
+      "safety_class": "ui_nav"
+    },
+    {
+      "action_id": "prompt_send",
+      "category": "prompt",
+      "remappable": true,
+      "safety_class": "proposal_only",
+      "requires_proposal": true
+    },
+    {
+      "action_id": "prompt_newline",
+      "category": "prompt",
+      "remappable": true,
+      "safety_class": "benign"
+    },
+    {
+      "action_id": "build_mode_toggle",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "ui_nav"
+    },
+    {
+      "action_id": "world_ability",
+      "category": "world_tool",
+      "remappable": true,
+      "safety_class": "preview_only"
+    },
+    {
+      "action_id": "world_panel",
+      "category": "world_tool",
+      "remappable": true,
+      "safety_class": "ui_nav"
+    },
+    {
+      "action_id": "inspect_entity",
+      "category": "inspect",
+      "remappable": true,
+      "safety_class": "benign"
+    },
+    {
+      "action_id": "map_open",
+      "category": "system",
+      "remappable": true,
+      "safety_class": "ui_nav"
+    },
+    {
+      "action_id": "camera_reset",
+      "category": "camera",
+      "remappable": true,
+      "safety_class": "benign"
+    },
+    {
+      "action_id": "cancel_action",
+      "category": "system",
+      "remappable": true,
+      "safety_class": "ui_nav"
+    },
+    {
+      "action_id": "confirm_action",
+      "category": "system",
+      "remappable": true,
+      "safety_class": "confirm_gated"
+    },
+    {
+      "action_id": "request_undo",
+      "category": "proposal_safety",
+      "remappable": true,
+      "safety_class": "compensation_request",
+      "requires_proposal": true
+    },
+    {
+      "action_id": "request_redo",
+      "category": "proposal_safety",
+      "remappable": true,
+      "safety_class": "compensation_request",
+      "requires_proposal": true
+    },
+    {
+      "action_id": "delete_proposal",
+      "category": "proposal_safety",
+      "remappable": true,
+      "safety_class": "proposal_only",
+      "requires_proposal": true
+    },
+    {
+      "action_id": "build_place",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "build_only": true
+    },
+    {
+      "action_id": "build_cancel",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "ui_nav",
+      "build_only": true
+    },
+    {
+      "action_id": "build_rotate_left",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "build_only": true
+    },
+    {
+      "action_id": "build_rotate_right",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "build_only": true,
+      "description": "Build-only hologram rotate; not exploration camera"
+    },
+    {
+      "action_id": "build_elevation_up",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "build_only": true
+    },
+    {
+      "action_id": "build_elevation_down",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "build_only": true
+    },
+    {
+      "action_id": "build_scale_up",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "build_only": true
+    },
+    {
+      "action_id": "build_scale_down",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "build_only": true
+    },
+    {
+      "action_id": "build_snap_toggle",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "build_only": true
+    },
+    {
+      "action_id": "build_grid_toggle",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "ui_nav",
+      "build_only": true
+    },
+    {
+      "action_id": "build_duplicate",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "build_only": true
+    },
+    {
+      "action_id": "build_validate_collision",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "build_only": true
+    },
+    {
+      "action_id": "build_validate_navigation",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "build_only": true
+    },
+    {
+      "action_id": "build_link",
+      "category": "build",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "build_only": true
+    },
+    {
+      "action_id": "cozy_helper_pulse",
+      "category": "world_tool",
+      "remappable": true,
+      "safety_class": "preview_only",
+      "alias_of": "world_ability",
+      "description": "Cozy Stage-1 alias for V Helper Pulse"
+    },
+    {
+      "action_id": "cozy_homestead_panel",
+      "category": "world_tool",
+      "remappable": true,
+      "safety_class": "ui_nav",
+      "alias_of": "world_panel",
+      "description": "Cozy Stage-1 alias for B Homestead Panel"
+    }
+  ],
+  "default_bindings": [
+    {
+      "action_id": "move_forward",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "W"
+        },
+        {
+          "device": "keyboard",
+          "code": "Up"
+        }
+      ],
+      "active_contexts": [
+        "exploration",
+        "build",
+        "inspect",
+        "world_tool"
+      ]
+    },
+    {
+      "action_id": "move_back",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "S"
+        },
+        {
+          "device": "keyboard",
+          "code": "Down"
+        }
+      ]
+    },
+    {
+      "action_id": "move_left",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "A"
+        },
+        {
+          "device": "keyboard",
+          "code": "Left"
+        }
+      ]
+    },
+    {
+      "action_id": "move_right",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "D"
+        },
+        {
+          "device": "keyboard",
+          "code": "Right"
+        }
+      ]
+    },
+    {
+      "action_id": "sprint",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Shift"
+        }
+      ]
+    },
+    {
+      "action_id": "jump",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Space"
+        }
+      ]
+    },
+    {
+      "action_id": "interact_primary",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "E"
+        }
+      ]
+    },
+    {
+      "action_id": "interact_secondary",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "F"
+        }
+      ]
+    },
+    {
+      "action_id": "companion_call",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "C"
+        }
+      ]
+    },
+    {
+      "action_id": "prompt_quick_open",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Slash"
+        }
+      ]
+    },
+    {
+      "action_id": "prompt_send",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Enter",
+          "modifiers": [
+            "ctrl"
+          ]
+        }
+      ],
+      "active_contexts": [
+        "companion"
+      ]
+    },
+    {
+      "action_id": "prompt_newline",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Enter",
+          "modifiers": [
+            "shift"
+          ]
+        }
+      ],
+      "active_contexts": [
+        "companion"
+      ]
+    },
+    {
+      "action_id": "build_mode_toggle",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Tab"
+        }
+      ]
+    },
+    {
+      "action_id": "world_ability",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "V"
+        }
+      ]
+    },
+    {
+      "action_id": "world_panel",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "B"
+        }
+      ]
+    },
+    {
+      "action_id": "inspect_entity",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "I"
+        }
+      ]
+    },
+    {
+      "action_id": "build_rotate_left",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Q"
+        }
+      ],
+      "active_contexts": [
+        "build"
+      ]
+    },
+    {
+      "action_id": "build_rotate_right",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "R"
+        }
+      ],
+      "active_contexts": [
+        "build"
+      ]
+    },
+    {
+      "action_id": "rotate_camera_left",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Q"
+        }
+      ],
+      "active_contexts": [
+        "exploration"
+      ]
+    },
+    {
+      "action_id": "rotate_camera_right",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "R"
+        }
+      ],
+      "active_contexts": [
+        "exploration"
+      ]
+    },
+    {
+      "action_id": "cancel_action",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Escape"
+        }
+      ]
+    },
+    {
+      "action_id": "pause_menu",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Escape"
+        }
+      ],
+      "active_contexts": [
+        "exploration"
+      ]
+    },
+    {
+      "action_id": "confirm_action",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Enter"
+        }
+      ]
+    },
+    {
+      "action_id": "delete_proposal",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Delete"
+        }
+      ]
+    },
+    {
+      "action_id": "request_undo",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Z",
+          "modifiers": [
+            "ctrl"
+          ]
+        }
+      ]
+    },
+    {
+      "action_id": "request_redo",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Y",
+          "modifiers": [
+            "ctrl"
+          ]
+        }
+      ]
+    },
+    {
+      "action_id": "build_place",
+      "events": [
+        {
+          "device": "mouse_button",
+          "code": "Left"
+        }
+      ],
+      "active_contexts": [
+        "build"
+      ]
+    },
+    {
+      "action_id": "build_cancel",
+      "events": [
+        {
+          "device": "mouse_button",
+          "code": "Right"
+        }
+      ],
+      "active_contexts": [
+        "build"
+      ]
+    },
+    {
+      "action_id": "camera_zoom_in",
+      "events": [
+        {
+          "device": "mouse_wheel",
+          "code": "WheelUp"
+        }
+      ]
+    },
+    {
+      "action_id": "camera_zoom_out",
+      "events": [
+        {
+          "device": "mouse_wheel",
+          "code": "WheelDown"
+        }
+      ]
+    },
+    {
+      "action_id": "build_snap_toggle",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "X"
+        }
+      ],
+      "active_contexts": [
+        "build"
+      ]
+    },
+    {
+      "action_id": "build_grid_toggle",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "G"
+        }
+      ],
+      "active_contexts": [
+        "build"
+      ]
+    },
+    {
+      "action_id": "map_open",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "M"
+        }
+      ]
+    },
+    {
+      "action_id": "camera_reset",
+      "events": [
+        {
+          "device": "keyboard",
+          "code": "Home"
+        }
+      ]
+    }
+  ],
+  "conflict_rules": [
+    {
+      "rule_id": "C1B-CF-01",
+      "statement": "One physical input must not dispatch actions from multiple active contexts in the same frame.",
+      "severity": true,
+      "physical_example": "R"
+    },
+    {
+      "rule_id": "C1B-CF-02",
+      "statement": "Most-specific context wins for modified wheel events (zoom vs tool vs elevation vs scale).",
+      "severity": true,
+      "physical_example": "MouseWheel"
+    },
+    {
+      "rule_id": "C1B-CF-03",
+      "statement": "Left mouse button must not simultaneously drive locomotion and tool use.",
+      "severity": true,
+      "physical_example": "MouseLeft"
+    },
+    {
+      "rule_id": "C1B-CF-04",
+      "statement": "UI text focus consumes character keys; world actions must not double-fire.",
+      "severity": true,
+      "physical_example": "Slash"
+    },
+    {
+      "rule_id": "C1B-CF-05",
+      "statement": "jump must not silently dual-bind with ui_accept.",
+      "severity": true,
+      "physical_example": "Space"
+    },
+    {
+      "rule_id": "C1B-CF-06",
+      "statement": "Conflict matrix is machine-checkable against catalog plus active context.",
+      "severity": true
+    }
+  ],
+  "esc_priority": [
+    {
+      "order": 1,
+      "target": "pending_confirmation",
+      "action_id": "cancel_action"
+    },
+    {
+      "order": 2,
+      "target": "preview_hologram",
+      "action_id": "cancel_action"
+    },
+    {
+      "order": 3,
+      "target": "prompt_composer_or_dialogue",
+      "action_id": "cancel_action"
+    },
+    {
+      "order": 4,
+      "target": "inspect_panel",
+      "action_id": "cancel_action"
+    },
+    {
+      "order": 5,
+      "target": "world_tool_panel",
+      "action_id": "cancel_action"
+    },
+    {
+      "order": 6,
+      "target": "build_mode_idle_exit",
+      "action_id": "build_mode_toggle"
+    },
+    {
+      "order": 7,
+      "target": "pause_menu",
+      "action_id": "pause_menu"
+    }
+  ],
+  "context_hud": {
+    "max_actions": 4,
+    "non_color_cues_required": true,
+    "show_full_keymap_on_main_hud": false,
+    "keyboard_focus_required": true,
+    "placement": "bottom_right"
+  },
+  "accessibility": {
+    "remap_all_actions": true,
+    "left_hand_preset": true,
+    "one_hand_preset": true,
+    "hold_toggle_options": true,
+    "mouse_sensitivity": {
+      "min": 0.1,
+      "max": 3.0,
+      "default": 1.0
+    },
+    "invert_zoom": true,
+    "reduced_motion": true,
+    "disable_screen_shake": true,
+    "cursor_size": {
+      "min_scale": 0.75,
+      "max_scale": 2.0,
+      "default_scale": 1.0
+    },
+    "action_label_near_cursor": true,
+    "no_mandatory_double_click": true,
+    "confirmation_hold": {
+      "configurable": true,
+      "default_seconds": 0.8,
+      "min_seconds": 0,
+      "max_seconds": 2.0
+    },
+    "pause_during_hologram": true
+  },
+  "safety": {
+    "direct_durable_delete_allowed": false,
+    "direct_durable_mutation_on_keydown_allowed": false,
+    "delete_is_proposal_only": true,
+    "undo_is_compensation_request": true,
+    "preview_owns_collision": false,
+    "preview_owns_ownership": false,
+    "collision_only_after_complete": true,
+    "pipeline": [
+      "prompt",
+      "structured_proposal",
+      "validate",
+      "preview",
+      "explicit_confirm",
+      "world_commit"
+    ],
+    "world_commit_only_mutates_canonical": true
+  },
+  "required_hotkeys": [
+    {
+      "gate_id": "C1B-HK-01",
+      "physical_default": "/",
+      "action_id": "prompt_quick_open",
+      "required_behavior": "Open Prompt Composer and focus input",
+      "active_contexts": [
+        "exploration",
+        "companion"
+      ]
+    },
+    {
+      "gate_id": "C1B-HK-02",
+      "physical_default": "Ctrl+Enter",
+      "action_id": "prompt_send",
+      "required_behavior": "Send prompt for Companion interpretation",
+      "active_contexts": [
+        "companion"
+      ]
+    },
+    {
+      "gate_id": "C1B-HK-03",
+      "physical_default": "Tab",
+      "action_id": "build_mode_toggle",
+      "required_behavior": "Enter or exit Build Mode",
+      "active_contexts": [
+        "exploration",
+        "build"
+      ]
+    },
+    {
+      "gate_id": "C1B-HK-04",
+      "physical_default": "V",
+      "action_id": "world_ability",
+      "required_behavior": "Cozy Helper Pulse / world ability",
+      "active_contexts": [
+        "exploration",
+        "world_tool"
+      ]
+    },
+    {
+      "gate_id": "C1B-HK-05",
+      "physical_default": "B",
+      "action_id": "world_panel",
+      "required_behavior": "Cozy Homestead Panel / world panel",
+      "active_contexts": [
+        "exploration",
+        "world_tool"
+      ]
+    },
+    {
+      "gate_id": "C1B-HK-06",
+      "physical_default": "Delete",
+      "action_id": "delete_proposal",
+      "required_behavior": "Create Delete Proposal only; never direct durable delete"
+    },
+    {
+      "gate_id": "C1B-HK-07",
+      "physical_default": "Ctrl+Z",
+      "action_id": "request_undo",
+      "required_behavior": "Compensation or rollback request; do not erase history"
+    },
+    {
+      "gate_id": "C1B-HK-08",
+      "physical_default": "Esc",
+      "action_id": "cancel_action",
+      "required_behavior": "Cancel priority before pause_menu"
+    },
+    {
+      "gate_id": "C1B-HK-09",
+      "physical_default": "R",
+      "action_id": "build_rotate_right",
+      "required_behavior": "Build-only hologram/preview rotate; never camera yaw",
+      "active_contexts": [
+        "build"
+      ]
+    },
+    {
+      "gate_id": "C1B-HK-10",
+      "physical_default": "R",
+      "action_id": "rotate_camera_right",
+      "required_behavior": "Exploration camera yaw right via remappable InputMap; never hologram; no dual-fire",
+      "active_contexts": [
+        "exploration"
+      ]
+    }
+  ],
+  "cozy_slice": {
+    "world_id": "cozy_cyber_pixel",
+    "world_ability_action": "world_ability",
+    "world_panel_action": "world_panel",
+    "world_ability_label": "Helper Pulse",
+    "world_panel_label": "Homestead Panel"
+  }
+}

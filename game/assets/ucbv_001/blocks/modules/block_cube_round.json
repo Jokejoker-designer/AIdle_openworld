@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_block_cube_round_corner_v1",
+  "module_id": "block_cube_round",
+  "module_role": "corner",
+  "display_name": "Cube Round Corner",
+  "world_profile_id": "cozy_cyber_pixel",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "author_wave": "U3_BLOCK_FAMILY_ART",
+  "allowlist_verified": true,
+  "dna_catalog_present": true,
+  "domain": "GEOMETRY",
+  "category": "PRIMITIVE",
+  "geometry_family": "block_cube_round",
+  "bounds_m": {
+    "width": 1.0,
+    "depth": 1.0,
+    "height": 2.8,
+    "origin": "center_bottom",
+    "corner_radius_m": 0.18,
+    "source": "1m corner pier on 0.5 snap grid; height matches wall"
+  },
+  "sockets_from_dna": {
+    "socket_inputs": ["snap_grid"],
+    "socket_outputs": ["snap_grid"],
+    "source": "module_catalog.json"
+  },
+  "socket_types_contract_ref": "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json",
+  "material_slots_dna": ["body", "accent"],
+  "material_slots_production": {
+    "body": {"semantic_slot": "body", "mat_id": "MAT_CozyCeramic", "bible_hex": "#fdf3e2"},
+    "accent": {"semantic_slot": "structure", "mat_id": "MAT_CozyStoneWarm", "bible_hex": "#efe0c8"}
+  },
+  "silhouette": {
+    "family": "ucbv_cozy_rounded_readable_v1",
+    "form": "rounded_vertical_pier",
+    "bevel_face_fraction": 0.06,
+    "hard_90_outer_corners": false,
+    "note": "Highest architecture roundness in kit; bridges wall panels without hard L-seam"
+  },
+  "lod": {
+    "LOD0": "rounded_pier_with_base_band",
+    "LOD1": "rounded_box",
+    "LOD2_or_billboard": "box"
+  },
+  "performance_class_dna": "XS",
+  "collision_policy_dna_hint": "CONVEX",
+  "mesh_descriptor": "mesh_descriptors/block_cube_round.meshdesc.json",
+  "visual_states_ref": "visual_states.json"
+}

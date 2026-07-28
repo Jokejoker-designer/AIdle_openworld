@@ -1,0 +1,1123 @@
+{
+  "schema_version": "town_grid_plan/1.0",
+  "town_id": "COZY_STARTER_TOWN_GRID_V1",
+  "title": "AIdle Cozy Starter Town — gridded cadastral plan (fits current realm)",
+  "mockup_ssot": "MOCKUP_SSOT_V2",
+  "world_profile": "cozy_cyber_pixel",
+  "coordinate_convention": "game_godot: x=east, z=north/depth, y=up; rotation_deg about y; matches game/resources/town/town_layout_10phase.json",
+  "fits_map": {
+    "note": "Designed to fit the CURRENT starter realm; all content within +/-10, town cadastre +/-12.",
+    "content_bounds": {
+      "min": {
+        "x": -11.5,
+        "z": -11.5
+      },
+      "max": {
+        "x": 11.5,
+        "z": 11.5
+      }
+    },
+    "cadastre_bounds": {
+      "min": {
+        "x": -12,
+        "z": -12
+      },
+      "max": {
+        "x": 12,
+        "z": 12
+      }
+    }
+  },
+  "grid": {
+    "cell_size_units": 2.0,
+    "cols": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L"
+    ],
+    "rows": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "origin": "town centre at world (0,0) between cells F6/G7",
+    "label_format": "COLROW e.g. F7"
+  },
+  "counts": {
+    "building": 10,
+    "prop": 30,
+    "character_spawn": 10
+  },
+  "accepted": false,
+  "self_accept": false,
+  "status": "DESIGN_PLAN_ACTIVE_NOT_IN_GAME",
+  "supersedes_prior": "game/resources/town/town_layout_10phase.json (prior art; overshot map to x=15.2 and lacked a named-cell grid) — Grok to reconcile under WO",
+  "districts": [
+    {
+      "district_id": "HOME",
+      "name": "Sân nhà",
+      "center": {
+        "x": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "district_id": "WORKSHOP",
+      "name": "Xưởng thợ",
+      "center": {
+        "x": 10.0,
+        "z": 0.0
+      }
+    },
+    {
+      "district_id": "MARKET",
+      "name": "Chợ phiên",
+      "center": {
+        "x": 8.0,
+        "z": 6.0
+      }
+    },
+    {
+      "district_id": "GARDEN",
+      "name": "Vườn nghỉ",
+      "center": {
+        "x": 2.0,
+        "z": 10.0
+      }
+    },
+    {
+      "district_id": "GREENHOUSE",
+      "name": "Nhà kính",
+      "center": {
+        "x": -5.0,
+        "z": 9.0
+      }
+    },
+    {
+      "district_id": "WELL",
+      "name": "Giếng làng",
+      "center": {
+        "x": -9.0,
+        "z": 3.0
+      }
+    },
+    {
+      "district_id": "WINDMILL",
+      "name": "Cối xay gió",
+      "center": {
+        "x": -9.0,
+        "z": -3.0
+      }
+    },
+    {
+      "district_id": "BARN",
+      "name": "Sân kho",
+      "center": {
+        "x": -5.0,
+        "z": -9.0
+      }
+    },
+    {
+      "district_id": "BRIDGE",
+      "name": "Cầu vòm",
+      "center": {
+        "x": 2.0,
+        "z": -10.0
+      }
+    },
+    {
+      "district_id": "LOOKOUT",
+      "name": "Chòi ngắm",
+      "center": {
+        "x": 8.0,
+        "z": -6.0
+      }
+    }
+  ],
+  "plots": [
+    {
+      "plot_id": "HOME.BLD",
+      "role": "building",
+      "district": "HOME",
+      "object_id": "cozy_house_small_A",
+      "grid_cell": "G7",
+      "occupancy_cells": [
+        "F6",
+        "F7",
+        "G6",
+        "G7",
+        "H6",
+        "H7"
+      ],
+      "footprint_units": [
+        5,
+        4
+      ],
+      "transform": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "HOME.CHAR",
+      "role": "character_spawn",
+      "district": "HOME",
+      "object_id": "CCP-RH-001",
+      "character_name": "Nori-7",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_cozy",
+      "grid_cell": "G7",
+      "transform": {
+        "x": 1.6,
+        "y": 0.0,
+        "z": 1.4,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "HOME.P1",
+      "role": "prop",
+      "district": "HOME",
+      "object_id": "cozy_path_stone_A",
+      "grid_cell": "E7",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -2.4,
+        "y": 0.0,
+        "z": 1.8,
+        "rotation_deg": 348.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "HOME.P2",
+      "role": "prop",
+      "district": "HOME",
+      "object_id": "cozy_garden_lamp_A",
+      "grid_cell": "H7",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 2.4,
+        "y": 0.0,
+        "z": 1.4,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "HOME.P3",
+      "role": "prop",
+      "district": "HOME",
+      "object_id": "cozy_mailbox_A",
+      "grid_cell": "G5",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": -2.4,
+        "rotation_deg": 12.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WORKSHOP.BLD",
+      "role": "building",
+      "district": "WORKSHOP",
+      "object_id": "cozy_workshop_A",
+      "grid_cell": "L7",
+      "occupancy_cells": [
+        "K6",
+        "K7",
+        "L6",
+        "L7"
+      ],
+      "footprint_units": [
+        5,
+        4
+      ],
+      "transform": {
+        "x": 10.0,
+        "y": 0.0,
+        "z": 0.0,
+        "rotation_deg": 180.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WORKSHOP.CHAR",
+      "role": "character_spawn",
+      "district": "WORKSHOP",
+      "object_id": "CCP-NW-003",
+      "character_name": "Bác Bắp",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_cozy",
+      "grid_cell": "K7",
+      "transform": {
+        "x": 8.4,
+        "y": 0.0,
+        "z": 0.0,
+        "rotation_deg": 180.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WORKSHOP.P1",
+      "role": "prop",
+      "district": "WORKSHOP",
+      "object_id": "cozy_tool_rack_A",
+      "grid_cell": "J7",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 7.6,
+        "y": 0.0,
+        "z": 1.8,
+        "rotation_deg": 168.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WORKSHOP.P2",
+      "role": "prop",
+      "district": "WORKSHOP",
+      "object_id": "cozy_crate_small_A",
+      "grid_cell": "L7",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 11.5,
+        "y": 0.0,
+        "z": 1.4,
+        "rotation_deg": 180.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WORKSHOP.P3",
+      "role": "prop",
+      "district": "WORKSHOP",
+      "object_id": "cozy_barrel_A",
+      "grid_cell": "L5",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 11.0,
+        "y": 0.0,
+        "z": -2.4,
+        "rotation_deg": 192.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "MARKET.BLD",
+      "role": "building",
+      "district": "MARKET",
+      "object_id": "cozy_market_stall_A",
+      "grid_cell": "K10",
+      "occupancy_cells": [
+        "J10",
+        "J9",
+        "K10",
+        "K9",
+        "L10",
+        "L9"
+      ],
+      "footprint_units": [
+        5,
+        4
+      ],
+      "transform": {
+        "x": 8.0,
+        "y": 0.0,
+        "z": 6.0,
+        "rotation_deg": 210.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "MARKET.CHAR",
+      "role": "character_spawn",
+      "district": "MARKET",
+      "object_id": "CCP-NS-002",
+      "character_name": "Mây Mạch",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_cozy",
+      "grid_cell": "J9",
+      "transform": {
+        "x": 6.72,
+        "y": 0.0,
+        "z": 5.04,
+        "rotation_deg": 210.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "MARKET.P1",
+      "role": "prop",
+      "district": "MARKET",
+      "object_id": "cozy_bench_A",
+      "grid_cell": "I10",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 5.6,
+        "y": 0.0,
+        "z": 7.8,
+        "rotation_deg": 198.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "MARKET.P2",
+      "role": "prop",
+      "district": "MARKET",
+      "object_id": "cozy_cart_A",
+      "grid_cell": "L10",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 10.4,
+        "y": 0.0,
+        "z": 7.4,
+        "rotation_deg": 210.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "MARKET.P3",
+      "role": "prop",
+      "district": "MARKET",
+      "object_id": "cozy_signpost_A",
+      "grid_cell": "K8",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 9.0,
+        "y": 0.0,
+        "z": 3.6,
+        "rotation_deg": 222.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GARDEN.BLD",
+      "role": "building",
+      "district": "GARDEN",
+      "object_id": "cozy_gazebo_A",
+      "grid_cell": "H12",
+      "occupancy_cells": [
+        "G11",
+        "G12",
+        "H11",
+        "H12"
+      ],
+      "footprint_units": [
+        4,
+        4
+      ],
+      "transform": {
+        "x": 2.0,
+        "y": 0.0,
+        "z": 10.0,
+        "rotation_deg": 255.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GARDEN.CHAR",
+      "role": "character_spawn",
+      "district": "GARDEN",
+      "object_id": "CCP-CT-004",
+      "character_name": "Bụi Mơ",
+      "world_profile": "cozy_cyber_pixel",
+      "resident_status": "native_cozy",
+      "grid_cell": "G11",
+      "transform": {
+        "x": 1.68,
+        "y": 0.0,
+        "z": 8.4,
+        "rotation_deg": 255.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GARDEN.P1",
+      "role": "prop",
+      "district": "GARDEN",
+      "object_id": "cozy_flower_cluster_A",
+      "grid_cell": "F12",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -0.4,
+        "y": 0.0,
+        "z": 11.5,
+        "rotation_deg": 243.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GARDEN.P2",
+      "role": "prop",
+      "district": "GARDEN",
+      "object_id": "cozy_flower_bed_B",
+      "grid_cell": "I12",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 4.4,
+        "y": 0.0,
+        "z": 11.4,
+        "rotation_deg": 255.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GARDEN.P3",
+      "role": "prop",
+      "district": "GARDEN",
+      "object_id": "cozy_bush_round_A",
+      "grid_cell": "H10",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 3.0,
+        "y": 0.0,
+        "z": 7.6,
+        "rotation_deg": 267.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GREENHOUSE.BLD",
+      "role": "building",
+      "district": "GREENHOUSE",
+      "object_id": "cozy_greenhouse_A",
+      "grid_cell": "D11",
+      "occupancy_cells": [
+        "C11",
+        "C12",
+        "D11",
+        "D12",
+        "E11",
+        "E12"
+      ],
+      "footprint_units": [
+        5,
+        4
+      ],
+      "transform": {
+        "x": -5.0,
+        "y": 0.0,
+        "z": 9.0,
+        "rotation_deg": 300.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GREENHOUSE.CHAR",
+      "role": "character_spawn",
+      "district": "GREENHOUSE",
+      "object_id": "SPH-RH-011",
+      "character_name": "Kito Thụ Phấn",
+      "world_profile": "solarpunk_haven",
+      "resident_status": "visitor",
+      "grid_cell": "D10",
+      "transform": {
+        "x": -4.2,
+        "y": 0.0,
+        "z": 7.56,
+        "rotation_deg": 300.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GREENHOUSE.P1",
+      "role": "prop",
+      "district": "GREENHOUSE",
+      "object_id": "cozy_farm_plot_A",
+      "grid_cell": "C12",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -7.4,
+        "y": 0.0,
+        "z": 10.8,
+        "rotation_deg": 288.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GREENHOUSE.P2",
+      "role": "prop",
+      "district": "GREENHOUSE",
+      "object_id": "cozy_crop_row_A",
+      "grid_cell": "E12",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -2.6,
+        "y": 0.0,
+        "z": 10.4,
+        "rotation_deg": 300.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "GREENHOUSE.P3",
+      "role": "prop",
+      "district": "GREENHOUSE",
+      "object_id": "cozy_scarecrow_A",
+      "grid_cell": "E10",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -4.0,
+        "y": 0.0,
+        "z": 6.6,
+        "rotation_deg": 312.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "role": "building",
+      "district": "WELL",
+      "object_id": "cozy_well_house_A",
+      "grid_cell": "B8",
+      "occupancy_cells": [
+        "B8",
+        "B9",
+        "C8",
+        "C9"
+      ],
+      "footprint_units": [
+        4,
+        4
+      ],
+      "transform": {
+        "x": -9.0,
+        "y": 0.0,
+        "z": 3.0,
+        "rotation_deg": 345.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WELL.CHAR",
+      "role": "character_spawn",
+      "district": "WELL",
+      "object_id": "OA-RG-021",
+      "character_name": "Nereu-5",
+      "world_profile": "oceanpunk_abyss",
+      "resident_status": "visitor",
+      "grid_cell": "C8",
+      "transform": {
+        "x": -7.56,
+        "y": 0.0,
+        "z": 2.52,
+        "rotation_deg": 345.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WELL.P1",
+      "role": "prop",
+      "district": "WELL",
+      "object_id": "cozy_pond_small_A",
+      "grid_cell": "A9",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -11.4,
+        "y": 0.0,
+        "z": 4.8,
+        "rotation_deg": 333.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WELL.P2",
+      "role": "prop",
+      "district": "WELL",
+      "object_id": "cozy_water_pump_A",
+      "grid_cell": "C9",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -6.6,
+        "y": 0.0,
+        "z": 4.4,
+        "rotation_deg": 345.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WELL.P3",
+      "role": "prop",
+      "district": "WELL",
+      "object_id": "cozy_birdbath_A",
+      "grid_cell": "C7",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -8.0,
+        "y": 0.0,
+        "z": 0.6,
+        "rotation_deg": 357.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "role": "building",
+      "district": "WINDMILL",
+      "object_id": "cozy_windmill_A",
+      "grid_cell": "B5",
+      "occupancy_cells": [
+        "B5",
+        "B6",
+        "C5",
+        "C6"
+      ],
+      "footprint_units": [
+        3,
+        3
+      ],
+      "transform": {
+        "x": -9.0,
+        "y": 0.0,
+        "z": -3.0,
+        "rotation_deg": 15.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WINDMILL.CHAR",
+      "role": "character_spawn",
+      "district": "WINDMILL",
+      "object_id": "AC-CO-015",
+      "character_name": "Cinder-04",
+      "world_profile": "arcane_clockwork",
+      "resident_status": "visitor",
+      "grid_cell": "C5",
+      "transform": {
+        "x": -7.56,
+        "y": 0.0,
+        "z": -2.52,
+        "rotation_deg": 15.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WINDMILL.P1",
+      "role": "prop",
+      "district": "WINDMILL",
+      "object_id": "cozy_fence_section_A",
+      "grid_cell": "A6",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -11.4,
+        "y": 0.0,
+        "z": -1.2,
+        "rotation_deg": 3.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WINDMILL.P2",
+      "role": "prop",
+      "district": "WINDMILL",
+      "object_id": "cozy_grass_tuft_A",
+      "grid_cell": "C6",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -6.6,
+        "y": 0.0,
+        "z": -1.6,
+        "rotation_deg": 15.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "WINDMILL.P3",
+      "role": "prop",
+      "district": "WINDMILL",
+      "object_id": "cozy_rock_cluster_A",
+      "grid_cell": "C4",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -8.0,
+        "y": 0.0,
+        "z": -5.4,
+        "rotation_deg": 27.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BARN.BLD",
+      "role": "building",
+      "district": "BARN",
+      "object_id": "cozy_barn_small_A",
+      "grid_cell": "D2",
+      "occupancy_cells": [
+        "C2",
+        "C3",
+        "D2",
+        "D3",
+        "E2",
+        "E3"
+      ],
+      "footprint_units": [
+        5,
+        4
+      ],
+      "transform": {
+        "x": -5.0,
+        "y": 0.0,
+        "z": -9.0,
+        "rotation_deg": 60.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BARN.CHAR",
+      "role": "character_spawn",
+      "district": "BARN",
+      "object_id": "TD-CT-028",
+      "character_name": "Patch Gấu Nút",
+      "world_profile": "tiny_diorama",
+      "resident_status": "visitor",
+      "grid_cell": "D3",
+      "transform": {
+        "x": -4.2,
+        "y": 0.0,
+        "z": -7.56,
+        "rotation_deg": 60.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BARN.P1",
+      "role": "prop",
+      "district": "BARN",
+      "object_id": "cozy_tree_fruit_A",
+      "grid_cell": "C3",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -7.4,
+        "y": 0.0,
+        "z": -7.2,
+        "rotation_deg": 48.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BARN.P2",
+      "role": "prop",
+      "district": "BARN",
+      "object_id": "cozy_rock_small_A",
+      "grid_cell": "E3",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -2.6,
+        "y": 0.0,
+        "z": -7.6,
+        "rotation_deg": 60.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BARN.P3",
+      "role": "prop",
+      "district": "BARN",
+      "object_id": "cozy_rock_stacked_A",
+      "grid_cell": "E1",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -4.0,
+        "y": 0.0,
+        "z": -11.4,
+        "rotation_deg": 72.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "role": "building",
+      "district": "BRIDGE",
+      "object_id": "cozy_bridge_arch_A",
+      "grid_cell": "H2",
+      "occupancy_cells": [
+        "G1",
+        "G2",
+        "H1",
+        "H2",
+        "I1",
+        "I2"
+      ],
+      "footprint_units": [
+        6,
+        3
+      ],
+      "transform": {
+        "x": 2.0,
+        "y": 0.0,
+        "z": -10.0,
+        "rotation_deg": 105.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BRIDGE.CHAR",
+      "role": "character_spawn",
+      "district": "BRIDGE",
+      "object_id": "SV-NW-019",
+      "character_name": "Trúc Nhi",
+      "world_profile": "spirit_valley",
+      "resident_status": "visitor",
+      "grid_cell": "G2",
+      "transform": {
+        "x": 1.68,
+        "y": 0.0,
+        "z": -8.4,
+        "rotation_deg": 105.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BRIDGE.P1",
+      "role": "prop",
+      "district": "BRIDGE",
+      "object_id": "cozy_tree_willow_A",
+      "grid_cell": "F2",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": -0.4,
+        "y": 0.0,
+        "z": -8.2,
+        "rotation_deg": 93.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BRIDGE.P2",
+      "role": "prop",
+      "district": "BRIDGE",
+      "object_id": "cozy_tree_blossom_A",
+      "grid_cell": "I2",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 4.4,
+        "y": 0.0,
+        "z": -8.6,
+        "rotation_deg": 105.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "BRIDGE.P3",
+      "role": "prop",
+      "district": "BRIDGE",
+      "object_id": "cozy_rock_mossy_A",
+      "grid_cell": "H1",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 3.0,
+        "y": 0.0,
+        "z": -11.5,
+        "rotation_deg": 117.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "role": "building",
+      "district": "LOOKOUT",
+      "object_id": "cozy_watchtower_A",
+      "grid_cell": "K4",
+      "occupancy_cells": [
+        "J3",
+        "J4",
+        "K3",
+        "K4"
+      ],
+      "footprint_units": [
+        3,
+        3
+      ],
+      "transform": {
+        "x": 8.0,
+        "y": 0.0,
+        "z": -6.0,
+        "rotation_deg": 150.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "LOOKOUT.CHAR",
+      "role": "character_spawn",
+      "district": "LOOKOUT",
+      "object_id": "SPH-NG-009",
+      "character_name": "Luma Tán Lá",
+      "world_profile": "solarpunk_haven",
+      "resident_status": "visitor",
+      "grid_cell": "J4",
+      "transform": {
+        "x": 6.72,
+        "y": 0.0,
+        "z": -5.04,
+        "rotation_deg": 150.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "LOOKOUT.P1",
+      "role": "prop",
+      "district": "LOOKOUT",
+      "object_id": "cozy_tree_landmark_A",
+      "grid_cell": "I4",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 5.6,
+        "y": 0.0,
+        "z": -4.2,
+        "rotation_deg": 138.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "LOOKOUT.P2",
+      "role": "prop",
+      "district": "LOOKOUT",
+      "object_id": "cozy_tree_pine_A",
+      "grid_cell": "L4",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 10.4,
+        "y": 0.0,
+        "z": -4.6,
+        "rotation_deg": 150.0,
+        "scale": 1.0
+      }
+    },
+    {
+      "plot_id": "LOOKOUT.P3",
+      "role": "prop",
+      "district": "LOOKOUT",
+      "object_id": "cozy_tree_cluster_A",
+      "grid_cell": "K2",
+      "footprint_units": [
+        1,
+        1
+      ],
+      "transform": {
+        "x": 9.0,
+        "y": 0.0,
+        "z": -8.4,
+        "rotation_deg": 162.0,
+        "scale": 1.0
+      }
+    }
+  ],
+  "honesty": {
+    "objects_are_ssot_design_ids": true,
+    "production_note": "These are DESIGN placement plots. Grok authors each object GLB (quarantine) then places it at its named plot via the World Commit/build-graph path under a narrow override.",
+    "non_cozy_characters_marked_visitor": true
+  },
+  "payload_fingerprint": "ca8223b1c400199dd2adc71a14668601cb0f2a8f8c23bf8d6f2c0cc687057bcd"
+}

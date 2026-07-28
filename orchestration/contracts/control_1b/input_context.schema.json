@@ -1,0 +1,785 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/contracts/control-1b/input-context/1.0.0",
+  "title": "AIdle Control 1B Input Context Contract",
+  "description": "Fail-closed catalog for five Input Contexts, stable InputMap action IDs, conflict rules, accessibility, safety, and context HUD. Unknown context_id/action_id values are invalid. Product implementation is out of scope for WO-CTRL-1B-001.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_id",
+    "contract_version",
+    "contexts",
+    "actions",
+    "default_bindings",
+    "conflict_rules",
+    "esc_priority",
+    "context_hud",
+    "accessibility",
+    "safety",
+    "required_hotkeys",
+    "cozy_slice"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0",
+      "description": "Schema document version; must match contract_version for this draft."
+    },
+    "contract_id": {
+      "const": "control-1b-input-context"
+    },
+    "contract_version": {
+      "const": "1.0.0"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 2048
+    },
+    "contexts": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "description": "Exactly five Input Context entries. Fail-closed cardinality: exactly one of each closed context_id (exploration, companion, build, inspect, world_tool). Duplicate IDs or missing required IDs are invalid.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "context_id",
+          "purpose",
+          "allowed_actions",
+          "hud_actions"
+        ],
+        "properties": {
+          "context_id": {
+            "$ref": "#/$defs/context_id"
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "allowed_actions": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 64,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/action_id"
+            }
+          },
+          "hud_actions": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/action_id"
+            },
+            "description": "At most four actions for context HUD."
+          },
+          "locomotion_policy": {
+            "enum": ["active", "suppressed_while_focus", "read_only"],
+            "default": "active"
+          },
+          "enter_actions": {
+            "type": "array",
+            "maxItems": 8,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/action_id"
+            }
+          },
+          "leave_actions": {
+            "type": "array",
+            "maxItems": 8,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/action_id"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": ["context_id"],
+            "properties": {
+              "context_id": {
+                "const": "exploration"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": ["context_id"],
+            "properties": {
+              "context_id": {
+                "const": "companion"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": ["context_id"],
+            "properties": {
+              "context_id": {
+                "const": "build"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": ["context_id"],
+            "properties": {
+              "context_id": {
+                "const": "inspect"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": ["context_id"],
+            "properties": {
+              "context_id": {
+                "const": "world_tool"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "actions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "action_id",
+          "category",
+          "remappable",
+          "safety_class"
+        ],
+        "properties": {
+          "action_id": {
+            "$ref": "#/$defs/action_id"
+          },
+          "category": {
+            "enum": [
+              "locomotion",
+              "camera",
+              "interaction",
+              "companion",
+              "prompt",
+              "build",
+              "inspect",
+              "world_tool",
+              "system",
+              "proposal_safety"
+            ]
+          },
+          "remappable": {
+            "type": "boolean"
+          },
+          "safety_class": {
+            "$ref": "#/$defs/safety_class"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 512
+          },
+          "alias_of": {
+            "$ref": "#/$defs/action_id",
+            "description": "Optional stable alias target (e.g. cozy_helper_pulse -> world_ability)."
+          },
+          "build_only": {
+            "type": "boolean",
+            "default": false
+          },
+          "requires_proposal": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "default_bindings": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "action_id",
+          "events"
+        ],
+        "properties": {
+          "action_id": {
+            "$ref": "#/$defs/action_id"
+          },
+          "events": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 8,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "device",
+                "code"
+              ],
+              "properties": {
+                "device": {
+                  "enum": [
+                    "keyboard",
+                    "mouse_button",
+                    "mouse_wheel"
+                  ]
+                },
+                "code": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_+\\-./]+$"
+                },
+                "modifiers": {
+                  "type": "array",
+                  "maxItems": 4,
+                  "uniqueItems": true,
+                  "items": {
+                    "enum": [
+                      "ctrl",
+                      "shift",
+                      "alt",
+                      "meta"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "active_contexts": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 5,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/context_id"
+            },
+            "description": "If present, physical event only dispatches in these contexts."
+          }
+        }
+      }
+    },
+    "conflict_rules": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 32,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rule_id",
+          "statement",
+          "severity"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "pattern": "^C1B-CF-[0-9]{2}$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "severity": {
+            "type": "boolean",
+            "const": true,
+            "description": "Conflict rules in this contract are hard fails."
+          },
+          "physical_example": {
+            "type": "string",
+            "maxLength": 128
+          }
+        }
+      }
+    },
+    "esc_priority": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 12,
+      "description": "Ordered Esc cancel priority; first match wins; pause is last.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "order",
+          "target",
+          "action_id"
+        ],
+        "properties": {
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          },
+          "target": {
+            "enum": [
+              "pending_confirmation",
+              "preview_hologram",
+              "prompt_composer_or_dialogue",
+              "inspect_panel",
+              "world_tool_panel",
+              "build_mode_idle_exit",
+              "pause_menu"
+            ]
+          },
+          "action_id": {
+            "$ref": "#/$defs/action_id"
+          }
+        }
+      }
+    },
+    "context_hud": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_actions",
+        "non_color_cues_required",
+        "show_full_keymap_on_main_hud",
+        "keyboard_focus_required"
+      ],
+      "properties": {
+        "max_actions": {
+          "type": "integer",
+          "const": 4
+        },
+        "non_color_cues_required": {
+          "type": "boolean",
+          "const": true
+        },
+        "show_full_keymap_on_main_hud": {
+          "type": "boolean",
+          "const": false
+        },
+        "keyboard_focus_required": {
+          "type": "boolean",
+          "const": true
+        },
+        "placement": {
+          "type": "string",
+          "enum": [
+            "bottom_right",
+            "bottom_center",
+            "custom"
+          ],
+          "default": "bottom_right"
+        }
+      }
+    },
+    "accessibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "remap_all_actions",
+        "left_hand_preset",
+        "one_hand_preset",
+        "hold_toggle_options",
+        "mouse_sensitivity",
+        "invert_zoom",
+        "reduced_motion",
+        "disable_screen_shake",
+        "cursor_size",
+        "action_label_near_cursor",
+        "no_mandatory_double_click",
+        "confirmation_hold",
+        "pause_during_hologram"
+      ],
+      "properties": {
+        "remap_all_actions": {
+          "type": "boolean",
+          "const": true
+        },
+        "left_hand_preset": {
+          "type": "boolean",
+          "const": true
+        },
+        "one_hand_preset": {
+          "type": "boolean",
+          "const": true
+        },
+        "hold_toggle_options": {
+          "type": "boolean",
+          "const": true
+        },
+        "mouse_sensitivity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "min",
+            "max",
+            "default"
+          ],
+          "properties": {
+            "min": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1
+            },
+            "max": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10
+            },
+            "default": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 10
+            }
+          }
+        },
+        "invert_zoom": {
+          "type": "boolean",
+          "const": true
+        },
+        "reduced_motion": {
+          "type": "boolean",
+          "const": true
+        },
+        "disable_screen_shake": {
+          "type": "boolean",
+          "const": true
+        },
+        "cursor_size": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "min_scale",
+            "max_scale",
+            "default_scale"
+          ],
+          "properties": {
+            "min_scale": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1
+            },
+            "max_scale": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 4
+            },
+            "default_scale": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 4
+            }
+          }
+        },
+        "action_label_near_cursor": {
+          "type": "boolean",
+          "const": true
+        },
+        "no_mandatory_double_click": {
+          "type": "boolean",
+          "const": true
+        },
+        "confirmation_hold": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "configurable",
+            "default_seconds",
+            "min_seconds",
+            "max_seconds"
+          ],
+          "properties": {
+            "configurable": {
+              "type": "boolean",
+              "const": true
+            },
+            "default_seconds": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 2,
+              "description": "Blueprint reference 0.8s for significant confirms."
+            },
+            "min_seconds": {
+              "type": "number",
+              "const": 0
+            },
+            "max_seconds": {
+              "type": "number",
+              "minimum": 0.8,
+              "maximum": 5
+            }
+          }
+        },
+        "pause_during_hologram": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "direct_durable_delete_allowed",
+        "direct_durable_mutation_on_keydown_allowed",
+        "delete_is_proposal_only",
+        "undo_is_compensation_request",
+        "preview_owns_collision",
+        "preview_owns_ownership",
+        "collision_only_after_complete",
+        "pipeline",
+        "world_commit_only_mutates_canonical"
+      ],
+      "properties": {
+        "direct_durable_delete_allowed": {
+          "type": "boolean",
+          "const": false
+        },
+        "direct_durable_mutation_on_keydown_allowed": {
+          "type": "boolean",
+          "const": false
+        },
+        "delete_is_proposal_only": {
+          "type": "boolean",
+          "const": true
+        },
+        "undo_is_compensation_request": {
+          "type": "boolean",
+          "const": true
+        },
+        "preview_owns_collision": {
+          "type": "boolean",
+          "const": false
+        },
+        "preview_owns_ownership": {
+          "type": "boolean",
+          "const": false
+        },
+        "collision_only_after_complete": {
+          "type": "boolean",
+          "const": true
+        },
+        "pipeline": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "string"
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "prompt"
+              }
+            },
+            {
+              "contains": {
+                "const": "structured_proposal"
+              }
+            },
+            {
+              "contains": {
+                "const": "validate"
+              }
+            },
+            {
+              "contains": {
+                "const": "preview"
+              }
+            },
+            {
+              "contains": {
+                "const": "explicit_confirm"
+              }
+            },
+            {
+              "contains": {
+                "const": "world_commit"
+              }
+            }
+          ]
+        },
+        "world_commit_only_mutates_canonical": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "required_hotkeys": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "gate_id",
+          "physical_default",
+          "action_id",
+          "required_behavior"
+        ],
+        "properties": {
+          "gate_id": {
+            "type": "string",
+            "pattern": "^C1B-HK-[0-9]{2}$"
+          },
+          "physical_default": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "action_id": {
+            "$ref": "#/$defs/action_id"
+          },
+          "required_behavior": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "active_contexts": {
+            "type": "array",
+            "maxItems": 5,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/context_id"
+            }
+          }
+        }
+      }
+    },
+    "cozy_slice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "world_id",
+        "world_ability_action",
+        "world_panel_action",
+        "world_ability_label",
+        "world_panel_label"
+      ],
+      "properties": {
+        "world_id": {
+          "const": "cozy_cyber_pixel"
+        },
+        "world_ability_action": {
+          "enum": [
+            "world_ability",
+            "cozy_helper_pulse"
+          ]
+        },
+        "world_panel_action": {
+          "enum": [
+            "world_panel",
+            "cozy_homestead_panel"
+          ]
+        },
+        "world_ability_label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "world_panel_label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        }
+      }
+    }
+  },
+  "$defs": {
+    "context_id": {
+      "type": "string",
+      "enum": [
+        "exploration",
+        "companion",
+        "build",
+        "inspect",
+        "world_tool"
+      ],
+      "description": "Closed set of five Input Contexts. Unknown values fail."
+    },
+    "safety_class": {
+      "type": "string",
+      "enum": [
+        "benign",
+        "ui_nav",
+        "proposal_only",
+        "compensation_request",
+        "preview_only",
+        "confirm_gated",
+        "system"
+      ]
+    },
+    "action_id": {
+      "type": "string",
+      "enum": [
+        "move_forward",
+        "move_back",
+        "move_left",
+        "move_right",
+        "sprint",
+        "jump",
+        "camera_zoom_in",
+        "camera_zoom_out",
+        "rotate_camera_left",
+        "rotate_camera_right",
+        "pause_menu",
+        "toggle_debug",
+        "interact",
+        "interact_primary",
+        "interact_secondary",
+        "companion_call",
+        "prompt_quick_open",
+        "prompt_send",
+        "prompt_newline",
+        "build_mode_toggle",
+        "world_ability",
+        "world_panel",
+        "inspect_entity",
+        "map_open",
+        "camera_reset",
+        "cancel_action",
+        "confirm_action",
+        "request_undo",
+        "request_redo",
+        "delete_proposal",
+        "build_place",
+        "build_cancel",
+        "build_rotate_left",
+        "build_rotate_right",
+        "build_elevation_up",
+        "build_elevation_down",
+        "build_scale_up",
+        "build_scale_down",
+        "build_snap_toggle",
+        "build_grid_toggle",
+        "build_duplicate",
+        "build_validate_collision",
+        "build_validate_navigation",
+        "build_link",
+        "cozy_helper_pulse",
+        "cozy_homestead_panel"
+      ],
+      "description": "Closed foundation action catalog for Control 1B. Unknown action_id fails."
+    }
+  }
+}

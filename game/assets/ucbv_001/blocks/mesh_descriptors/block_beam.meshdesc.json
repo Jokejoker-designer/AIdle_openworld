@@ -1,0 +1,116 @@
+{
+    "schema_version":  "ucbv_meshdesc_v1",
+    "format":  "godot_meshinstance_descriptor",
+    "module_id":  "block_beam",
+    "module_role":  "fence",
+    "asset_id":  "ucbv_001_block_beam_mesh_v1",
+    "engine_target":  "Godot 4.x",
+    "units":  "meters",
+    "coordinate_space":  "y_up_godot",
+    "style_lock_id":  "ucbv_001_style_lock_v1",
+    "world_profile_id":  "cozy_cyber_pixel",
+    "author_wave":  "U3_BLOCK_FAMILY_ART",
+    "primary_primitive":  "BoxMesh",
+    "overall_size_m":  {
+                           "y":  0.95,
+                           "z":  0.16,
+                           "x":  2
+                       },
+    "origin":  "center_bottom",
+    "bevel_face_fraction":  0.05,
+    "hard_90_outer_corners":  false,
+    "triangle_budget_soft":  48,
+    "material_slots":  [
+                           {
+                               "mat":  "MAT_CozyFencePost",
+                               "name":  "body"
+                           },
+                           {
+                               "mat":  "MAT_CozyFenceRail",
+                               "name":  "accent"
+                           }
+                       ],
+    "parts":  [
+                  {
+                      "offset":  [
+                                     -0.9,
+                                     0.475,
+                                     0
+                                 ],
+                      "size":  [
+                                   0.14,
+                                   0.95,
+                                   0.14
+                               ],
+                      "primitive":  "BoxMesh",
+                      "part_id":  "post_l",
+                      "material_slot":  "body"
+                  },
+                  {
+                      "offset":  [
+                                     0.9,
+                                     0.475,
+                                     0
+                                 ],
+                      "size":  [
+                                   0.14,
+                                   0.95,
+                                   0.14
+                               ],
+                      "primitive":  "BoxMesh",
+                      "part_id":  "post_r",
+                      "material_slot":  "body"
+                  },
+                  {
+                      "offset":  [
+                                     0,
+                                     0.75,
+                                     0
+                                 ],
+                      "size":  [
+                                   1.9,
+                                   0.12,
+                                   0.1
+                               ],
+                      "primitive":  "BoxMesh",
+                      "part_id":  "rail_top",
+                      "material_slot":  "accent"
+                  },
+                  {
+                      "offset":  [
+                                     0,
+                                     0.4,
+                                     0
+                                 ],
+                      "size":  [
+                                   1.9,
+                                   0.12,
+                                   0.1
+                               ],
+                      "primitive":  "BoxMesh",
+                      "part_id":  "rail_mid",
+                      "material_slot":  "accent"
+                  }
+              ],
+    "lod":  {
+                "LOD1":  "merge secondary trim",
+                "LOD0":  "full parts list",
+                "LOD2":  "single primary mass primitive"
+            },
+    "manifestation":  {
+                          "stages":  [
+                                         "wireframe",
+                                         "hologram",
+                                         "materializing",
+                                         "complete"
+                                     ],
+                          "collision_active_from":  "complete"
+                      },
+    "u5_integration_hints":  {
+                                 "node_type":  "MeshInstance3D",
+                                 "csg_fallback":  "CSGBox3D / CSGSphere3D acceptable for offline placeholders",
+                                 "material_override_from":  "material_bindings.json",
+                                 "glb_path_when_available":  null
+                             },
+    "world_truth":  "not_mesh_authority"
+}

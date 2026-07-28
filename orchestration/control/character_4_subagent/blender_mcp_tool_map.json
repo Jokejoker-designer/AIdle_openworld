@@ -1,0 +1,74 @@
+{
+  "schema_version": "character_4_subagent_mcp_map/1.0",
+  "note": "Maps abstract allowlist tools (upstream mcp_tool_allowlist.json) to connected Blender MCP tools. S4 must not use execute_blender_code for destructive edits.",
+  "mcp_server": "blender",
+  "by_agent": {
+    "ORCHESTRATOR": {
+      "allowed_mcp": [
+        "blender__get_scene_info",
+        "blender__get_object_info",
+        "blender__get_viewport_screenshot"
+      ],
+      "forbidden_mcp": [
+        "blender__execute_blender_code"
+      ],
+      "notes": "Orchestrator coordinates only; use offline orchestrator_aidle.py for job state."
+    },
+    "S1": {
+      "allowed_mcp": [
+        "blender__get_scene_info",
+        "blender__get_object_info",
+        "blender__get_viewport_screenshot",
+        "blender__execute_blender_code"
+      ],
+      "code_scope": "Only collections under S1_HEAD_HAIR_FACE; save only work/S1_head_hair_face.blend",
+      "forbidden": [
+        "edit S2 collections",
+        "export release GLB",
+        "self_accept"
+      ]
+    },
+    "S2": {
+      "allowed_mcp": [
+        "blender__get_scene_info",
+        "blender__get_object_info",
+        "blender__get_viewport_screenshot",
+        "blender__execute_blender_code"
+      ],
+      "code_scope": "Only collections under S2_BODY_CLOTHES; save only work/S2_body_clothes.blend",
+      "forbidden": [
+        "edit S1 collections",
+        "export release GLB",
+        "self_accept"
+      ]
+    },
+    "S3": {
+      "allowed_mcp": [
+        "blender__get_scene_info",
+        "blender__get_object_info",
+        "blender__get_viewport_screenshot",
+        "blender__execute_blender_code"
+      ],
+      "code_scope": "Append approved collections; rig/anim/export to quarantine only",
+      "offline_scripts": [
+        "E:/AIdle_openworld/orchestration/control/character_build/author_nori7_gardener_clips_v1.py",
+        "E:/AIdle_openworld/orchestration/control/character_build/author_nori7_mockup_parity_v1.py"
+      ],
+      "forbidden": [
+        "sculpt silhouette after FORM_LOCKED without change request",
+        "promote to game/** without Human"
+      ]
+    },
+    "S4": {
+      "allowed_mcp": [
+        "blender__get_scene_info",
+        "blender__get_object_info",
+        "blender__get_viewport_screenshot"
+      ],
+      "forbidden_mcp": [
+        "blender__execute_blender_code"
+      ],
+      "notes": "Read-only. Prefer offline render + metrics scripts. Verdict max: PASS_FOR_HUMAN_REVIEW."
+    }
+  }
+}

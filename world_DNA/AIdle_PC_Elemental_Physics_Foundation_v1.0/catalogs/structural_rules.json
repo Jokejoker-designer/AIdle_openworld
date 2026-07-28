@@ -1,0 +1,90 @@
+{
+  "catalog_version": "1.0",
+  "rules": [
+    {
+      "rule_id": "struct_support_graph_v1",
+      "inputs": [
+        "support_nodes",
+        "load_nodes"
+      ],
+      "method": "DIRECTED_SUPPORT_GRAPH",
+      "outputs": [
+        "stability_score",
+        "unsupported_nodes"
+      ],
+      "failure_threshold": 0.25
+    },
+    {
+      "rule_id": "struct_bridge_span_v1",
+      "inputs": [
+        "span_m",
+        "support_count",
+        "material_strength",
+        "load_class"
+      ],
+      "method": "NORMALIZED_SPAN_SCORE",
+      "outputs": [
+        "stability_score",
+        "support_required"
+      ],
+      "failure_threshold": 0.35
+    },
+    {
+      "rule_id": "struct_tower_slenderness_v1",
+      "inputs": [
+        "height_m",
+        "base_width_m",
+        "material_strength"
+      ],
+      "method": "SLENDERNESS_SCORE",
+      "outputs": [
+        "stability_score",
+        "brace_required"
+      ],
+      "failure_threshold": 0.4
+    },
+    {
+      "rule_id": "struct_pressure_shell_v1",
+      "inputs": [
+        "pressure_class",
+        "shell_strength",
+        "joint_quality"
+      ],
+      "method": "PRESSURE_MARGIN",
+      "outputs": [
+        "pressure_margin",
+        "leak_risk"
+      ],
+      "failure_threshold": 0.2
+    },
+    {
+      "rule_id": "struct_fire_integrity_v1",
+      "inputs": [
+        "temperature",
+        "exposure_time",
+        "flammability",
+        "structural_strength"
+      ],
+      "method": "FIRE_DEGRADATION",
+      "outputs": [
+        "integrity_delta",
+        "collapse_risk"
+      ],
+      "failure_threshold": 0.25
+    },
+    {
+      "rule_id": "struct_repair_state_v1",
+      "inputs": [
+        "damage",
+        "repair_materials",
+        "skill"
+      ],
+      "method": "REPAIR_PROGRESS",
+      "outputs": [
+        "integrity_delta",
+        "repair_progress"
+      ],
+      "failure_threshold": 0.0
+    }
+  ]
+}

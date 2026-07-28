@@ -1,0 +1,27 @@
+{
+  "receipt_id": "BUI_MO_CUTE_SMALL_ROAM_001",
+  "job": "BUI_MO_CUTIFY_SCALE_ROAM",
+  "date": "2026-07-25",
+  "character_id": "CCP-CT-004",
+  "slug": "bui_mo",
+  "problem": "Bui Mo looked giant/monster-like (town 1.65x + dark leaves + no roam/anim schedule)",
+  "fixes": {
+    "town_scale": 0.52,
+    "plant_y": -0.18,
+    "auto_roam": true,
+    "roam_profile": "garden_cat",
+    "materials": "bright lime canopy + soft cream face (cast_presenter _apply_bushcat_cute_palette)",
+    "clips": "walk/trot/sniff/leaf_sway/pounce/sit/eat_leaf/drink/sleep via NpcTownRoamer garden schedule"
+  },
+  "files": [
+    "game/resources/ucbv_001/cast/cast_roster.json",
+    "game/scripts/modules/town/town_grid_loader.gd",
+    "game/scripts/modules/ucbv_001/npc_town_roamer.gd",
+    "game/scripts/modules/ucbv_001/cast_presenter.gd"
+  ],
+  "headless_smoke": {
+    "town_grid": "PASS cast=10",
+    "bac_bap": "NpcRoam workshop plant=-0.72 scale=1.00",
+    "bui_mo": "NpcRoam garden_cat plant=-0.18 scale=0.52 pos~GARDEN.CHAR"
+  }
+}

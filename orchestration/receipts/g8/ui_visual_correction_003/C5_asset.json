@@ -1,0 +1,70 @@
+{
+  "agent_step_id": "G8-001-C003-C5_ASSET_VISUAL_AUDIT-2026-07-21",
+  "agent_type": "aidle-asset",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:9f1b36e97d89b944",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-UI-VISUAL-CORRECTION-003",
+    "directive_id": 24,
+    "wave": "C5_ASSET_VISUAL_AUDIT",
+    "profile": "asset",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY visual critique: 10 distinct PNGs, cancel crop change, StatusPill contrast surface present.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "ui_character_id": "ui-color-type-specialist",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full"
+      },
+      {
+        "skill_id": "game-asset-core",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+        "mode": "full"
+      }
+    ],
+    "trace_ref": "orchestration/logs/g8-ui-visual-correction-003-runner.log#C5_ASSET_VISUAL_AUDIT",
+    "handoff_ref": "C6_PERSIST_SAVED_CHOICE",
+    "product_writes": [],
+    "children": [],
+    "findings": [],
+    "residual_risks": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "CANONICAL_RUNNER=PASS"
+      },
+      {
+        "marker": "files 10"
+      },
+      {
+        "marker": "DISTINCT"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "character_skill_trace_present": true,
+    "no_catalog_false_claim": true,
+    "control_foundation_not_implemented": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ui-visual-correction-003-runner.log",
+    "orchestration/evidence/g8_ui_visual_correction_003/",
+    "orchestration/reviews/CODEX_G8-001_UI_VISUAL_REVIEW_003.json"
+  ],
+  "next_route": "C6_PERSIST_SAVED_CHOICE"
+}

@@ -1,0 +1,510 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_anim_robot_gardener_v1_timing",
+  "animation_set_id": "anim_robot_gardener_v1",
+  "skeleton_id": "skel_small_biped_robot_v1",
+  "author_wave": "U4_CHARACTER_MESH_RIG",
+  "authority_token": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "character_id": "CCP-RH-001",
+  "recipe_id": "recipe_nori7_v1",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "blend_profile": "cozy_bouncy",
+  "root_motion": false,
+  "fixed_library": true,
+  "timing_authority": "U4_PRODUCTION — first explicit character clip timings for this set",
+  "dna_catalog_residual": {
+	"source": "world_DNA/.../catalogs/animation_library.json → anim_robot_gardener_v1",
+	"status": "NAMES_ONLY_NO_DURATIONS",
+	"note": "DNA clip list had empty events[] and zero duration fields. U4 authors production timings. Ambient prop timings from COZY_ART_BIBLE §4 are reference for idle overlays only."
+  },
+  "art_bible_ambient_overlays": {
+	"source": "Scene/.../COZY_ART_BIBLE_001.md §4",
+	"bob_character_idle_s": 2.4,
+	"bob_small_robot_s": 3.0,
+	"blink_s": 4.0,
+	"sway_s_range": [
+	  3.4,
+	  3.6
+	],
+	"pulse_s": 2.0,
+	"usage": "idle body bob uses bob_small_robot 3.0s; blink overlay 4.0s; sprout sway 3.6s — not substitutes for build/confirm/cancel production clips"
+  },
+  "production_required_clips": [
+	"idle",
+	"walk",
+	"turn_left",
+	"turn_right",
+	"build_place",
+	"confirm",
+	"cancel"
+  ],
+  "clips": [
+	{
+	  "clip_id": "idle",
+	  "display_name": "Idle Happy",
+	  "duration_s": 3.0,
+	  "loop": true,
+	  "fps": 30,
+	  "root_motion": false,
+	  "keys": {
+		"pelvis_bob_y_m": {
+		  "0.0": 0.0,
+		  "0.5": -0.012,
+		  "1.0": 0.0
+		},
+		"sprout_sway_z_deg": {
+		  "0.0": 0.0,
+		  "0.5": 2.5,
+		  "1.0": 0.0
+		},
+		"nozzle_state": "stowed"
+	  },
+	  "overlay_tracks": [
+		{
+		  "id": "blink",
+		  "duration_s": 4.0,
+		  "loop": true,
+		  "snap_close_at_norm": 0.95
+		}
+	  ],
+	  "visual_state_link": "idle_happy",
+	  "events": [
+		{
+		  "t_s": 0.0,
+		  "name": "anim_marker_idle_enter",
+		  "payload": {
+			"authority": false
+		  },
+		  "note": "Presentation marker only — never mutates world"
+		}
+	  ],
+	  "runtime_transition": "IDLE_DEFAULT",
+	  "provenance": "bob_small robot 3.0s from art bible; U4 production clip"
+	},
+	{
+	  "clip_id": "walk",
+	  "display_name": "Short Biped Walk",
+	  "duration_s": 0.8,
+	  "loop": true,
+	  "fps": 30,
+	  "root_motion": false,
+	  "keys": {
+		"stride": "alternate_leg_L_R",
+		"pelvis_bob_y_m": {
+		  "0.0": 0.0,
+		  "0.25": 0.015,
+		  "0.5": 0.0,
+		  "0.75": 0.015,
+		  "1.0": 0.0
+		},
+		"leg_phase_deg": 18,
+		"arm_counter_swing_deg": 10,
+		"nozzle_state": "stowed"
+	  },
+	  "events": [
+		{
+		  "t_s": 0.0,
+		  "name": "footstep_L",
+		  "payload": {
+			"audio_hint": "soft_pad",
+			"authority": false
+		  }
+		},
+		{
+		  "t_s": 0.4,
+		  "name": "footstep_R",
+		  "payload": {
+			"audio_hint": "soft_pad",
+			"authority": false
+		  }
+		}
+	  ],
+	  "runtime_transition": "LOCOMOTION",
+	  "movement_type": "short_biped_robot_step"
+	},
+	{
+	  "clip_id": "turn_left",
+	  "display_name": "Turn Left",
+	  "duration_s": 0.45,
+	  "loop": false,
+	  "fps": 30,
+	  "root_motion": false,
+	  "keys": {
+		"yaw_delta_deg": -90,
+		"weight_shift": "foot_R_plant",
+		"nozzle_state": "stowed"
+	  },
+	  "events": [
+		{
+		  "t_s": 0.45,
+		  "name": "turn_complete",
+		  "payload": {
+			"authority": false
+		  }
+		}
+	  ],
+	  "runtime_transition": "ORIENT_LEFT",
+	  "iso_camera_note": "fixed three-quarter; character yaw may be discrete 90° steps"
+	},
+	{
+	  "clip_id": "turn_right",
+	  "display_name": "Turn Right",
+	  "duration_s": 0.45,
+	  "loop": false,
+	  "fps": 30,
+	  "root_motion": false,
+	  "keys": {
+		"yaw_delta_deg": 90,
+		"weight_shift": "foot_L_plant",
+		"nozzle_state": "stowed"
+	  },
+	  "events": [
+		{
+		  "t_s": 0.45,
+		  "name": "turn_complete",
+		  "payload": {
+			"authority": false
+		  }
+		}
+	  ],
+	  "runtime_transition": "ORIENT_RIGHT"
+	},
+	{
+	  "clip_id": "build_place",
+	  "display_name": "Build / Place (Preview)",
+	  "duration_s": 0.65,
+	  "hold_loop_after_s": 1.2,
+	  "hold_clip_id": "build_place_hold",
+	  "loop": false,
+	  "fps": 30,
+	  "root_motion": false,
+	  "keys": {
+		"weight_shift": true,
+		"lean_forward_deg": 8,
+		"nozzle_state": "extended",
+		"sprout_tilt_deg": 12,
+		"arm_R_point": "forward_down_build_point",
+		"eyes": "scanning_wider"
+	  },
+	  "events": [
+		{
+		  "t_s": 0.2,
+		  "name": "nozzle_extend_complete",
+		  "payload": {
+			"authority": false
+		  }
+		},
+		{
+		  "t_s": 0.45,
+		  "name": "preview_pose_ready",
+		  "payload": {
+			"authority": false,
+			"maps_to_runtime": "block_assembly_preview_visible",
+			"note": "Character presentation only; preview ownership stays non-durable"
+		  }
+		}
+	  ],
+	  "runtime_transition": "PREVIEW_PLACE",
+	  "maps_to_runtime_states": [
+		"preview",
+		"valid",
+		"invalid",
+		"selected"
+	  ],
+	  "visual_state_link": "active_build",
+	  "note": "Must align with real P2E preview place flow — not mockup-only. Does not call World Commit."
+	},
+	{
+	  "clip_id": "build_place_hold",
+	  "display_name": "Build Place Hold Loop",
+	  "duration_s": 1.2,
+	  "loop": true,
+	  "fps": 30,
+	  "root_motion": false,
+	  "keys": {
+		"micro_bob_y_m": 0.006,
+		"nozzle_state": "extended",
+		"sprout_sway_deg": 1.5
+	  },
+	  "runtime_transition": "PREVIEW_PLACE_HOLD",
+	  "note": "Played while placement preview is active awaiting confirm/cancel"
+	},
+	{
+	  "clip_id": "confirm",
+	  "display_name": "Confirm Commit Gesture",
+	  "duration_s": 0.75,
+	  "loop": false,
+	  "fps": 30,
+	  "root_motion": false,
+	  "keys": {
+		"nod_head_deg": 12,
+		"arm_R_affirm": "small_push_forward",
+		"nozzle_state": "extended_then_stow_end",
+		"sprout_tilt_deg": 8,
+		"eyes": "happy_open"
+	  },
+	  "events": [
+		{
+		  "t_s": 0.35,
+		  "name": "confirm_gesture_peak",
+		  "payload": {
+			"authority": false,
+			"maps_to_runtime": "user_confirmed_presentation_cue",
+			"note": "Animation MUST NOT emit World Commit; commit is server/service path only"
+		  }
+		},
+		{
+		  "t_s": 0.75,
+		  "name": "confirm_clip_end",
+		  "payload": {
+			"authority": false,
+			"return_to": "idle"
+		  }
+		}
+	  ],
+	  "runtime_transition": "CONFIRM",
+	  "maps_to_runtime_states": [
+		"materializing",
+		"complete"
+	  ],
+	  "visual_state_link": "active_build",
+	  "note": "Aligns with Confirm action after preview validation; collision only after complete+commit"
+	},
+	{
+	  "clip_id": "cancel",
+	  "display_name": "Cancel / Refuse",
+	  "duration_s": 0.5,
+	  "loop": false,
+	  "fps": 30,
+	  "root_motion": false,
+	  "keys": {
+		"lean_back_deg": 10,
+		"head_shake_yaw_deg": 8,
+		"nozzle_state": "stow_immediate",
+		"sprout_droop_deg": 10,
+		"eyes": "narrower_caution"
+	  },
+	  "events": [
+		{
+		  "t_s": 0.15,
+		  "name": "cancel_gesture_peak",
+		  "payload": {
+			"authority": false,
+			"maps_to_runtime": "preview_cancelled_presentation_cue",
+			"note": "Presentation only; cancels non-durable preview"
+		  }
+		},
+		{
+		  "t_s": 0.5,
+		  "name": "cancel_clip_end",
+		  "payload": {
+			"authority": false,
+			"return_to": "idle"
+		  }
+		}
+	  ],
+	  "runtime_transition": "CANCEL",
+	  "maps_to_runtime_states": [
+		"preview_cleared"
+	  ],
+	  "visual_state_link": "caution_needs_confirm",
+	  "quality_gate": "refusal_cancel_clip_required_present"
+	}
+  ],
+  "gardener_secondary_clips": [
+	{
+	  "clip_id": "scan",
+	  "duration_s": 1.3,
+	  "loop": false,
+	  "runtime_transition": "OPTIONAL_SCAN",
+	  "status": "PRODUCTION_KEYED_FULL_ANIM_V1",
+	  "real_keys": true,
+	  "job": "NORI7_ANIM_REALISM_V2"
+	},
+	{
+	  "clip_id": "water",
+	  "duration_s": 1.5,
+	  "loop": false,
+	  "runtime_transition": "OPTIONAL_WATER",
+	  "status": "PRODUCTION_KEYED_FULL_ANIM_V1",
+	  "note": "DNA name retained; duration authored here (bible had no water clip timing)",
+	  "real_keys": true,
+	  "job": "NORI7_ANIM_REALISM_V2"
+	},
+	{
+	  "clip_id": "plant_seed",
+	  "duration_s": 1.3,
+	  "loop": false,
+	  "status": "PRODUCTION_KEYED_FULL_ANIM_V1",
+	  "real_keys": true,
+	  "job": "NORI7_ANIM_REALISM_V2"
+	},
+	{
+	  "clip_id": "harvest",
+	  "duration_s": 1.2,
+	  "loop": false,
+	  "status": "PRODUCTION_KEYED_FULL_ANIM_V1",
+	  "real_keys": true,
+	  "job": "NORI7_ANIM_REALISM_V2"
+	},
+	{
+	  "clip_id": "charge",
+	  "duration_s": 2.0,
+	  "loop": false,
+	  "status": "PRODUCTION_KEYED_FULL_ANIM_V1",
+	  "real_keys": true,
+	  "job": "NORI7_ANIM_REALISM_V2"
+	},
+	{
+	  "clip_id": "happy",
+	  "duration_s": 1.1,
+	  "loop": false,
+	  "status": "PRODUCTION_KEYED_FULL_ANIM_V1",
+	  "real_keys": true,
+	  "job": "NORI7_ANIM_REALISM_V2"
+	},
+	{
+	  "clip_id": "low_energy",
+	  "duration_s": 2.4,
+	  "loop": true,
+	  "visual_state_link": "low_energy_rest",
+	  "status": "PRODUCTION_KEYED_FULL_ANIM_V1",
+	  "real_keys": true,
+	  "job": "NORI7_ANIM_REALISM_V2"
+	}
+  ],
+  "runtime_transition_map": {
+	"IDLE_DEFAULT": {
+	  "clip_id": "idle",
+	  "from_states": [
+		"complete_idle",
+		"post_confirm",
+		"post_cancel"
+	  ]
+	},
+	"LOCOMOTION": {
+	  "clip_id": "walk",
+	  "from_states": [
+		"moving"
+	  ]
+	},
+	"ORIENT_LEFT": {
+	  "clip_id": "turn_left",
+	  "from_states": [
+		"idle",
+		"moving"
+	  ]
+	},
+	"ORIENT_RIGHT": {
+	  "clip_id": "turn_right",
+	  "from_states": [
+		"idle",
+		"moving"
+	  ]
+	},
+	"PREVIEW_PLACE": {
+	  "clip_id": "build_place",
+	  "from_states": [
+		"idle",
+		"walk"
+	  ],
+	  "then": "build_place_hold",
+	  "runtime_systems": [
+		"block_assembly_preview",
+		"manifestation_preview"
+	  ]
+	},
+	"PREVIEW_PLACE_HOLD": {
+	  "clip_id": "build_place_hold",
+	  "while": [
+		"preview",
+		"valid",
+		"invalid",
+		"selected"
+	  ]
+	},
+	"CONFIRM": {
+	  "clip_id": "confirm",
+	  "from_states": [
+		"preview_valid",
+		"selected"
+	  ],
+	  "runtime_systems": [
+		"confirm_action",
+		"world_commit_service_async"
+	  ],
+	  "authority_note": "clip does not commit"
+	},
+	"CANCEL": {
+	  "clip_id": "cancel",
+	  "from_states": [
+		"preview",
+		"valid",
+		"invalid",
+		"selected",
+		"build_place_hold"
+	  ],
+	  "runtime_systems": [
+		"preview_cancel"
+	  ]
+	}
+  },
+  "default_blend_s": 0.12,
+  "interrupt_policy": {
+	"cancel_interrupts_build_place": true,
+	"cancel_interrupts_confirm_before_peak": true,
+	"walk_interrupts_idle": true,
+	"confirm_does_not_auto_play_without_input": true
+  },
+  "reduced_motion": {
+	"supported": true,
+	"behavior": "snap_to_end_pose_preserve_clip_identity_skip_bob_overlays"
+  },
+  "forbidden_in_events": [
+	"world_commit",
+	"inventory_mutation",
+	"currency_change",
+	"ownership_transfer",
+	"execute_arbitrary_script"
+  ],
+  "provenance": {
+	"asset_id": "ucbv_001_anim_robot_gardener_v1_timing",
+	"character_id": "CCP-RH-001",
+	"recipe_id": "recipe_nori7_v1",
+	"animation_set_id": "anim_robot_gardener_v1",
+	"style_lock_id": "ucbv_001_style_lock_v1",
+	"author_wave": "U4_CHARACTER_MESH_RIG"
+  },
+  "gardener_production_clips": [
+	"water",
+	"plant_seed",
+	"harvest",
+	"charge",
+	"low_energy"
+  ],
+  "production_clip_inventory": {
+	"core": [
+	  "idle",
+	  "walk",
+	  "scan",
+	  "happy",
+	  "cancel",
+	  "turn_left",
+	  "turn_right",
+	  "build_place",
+	  "build_place_hold",
+	  "confirm"
+	],
+	"gardener": [
+	  "water",
+	  "plant_seed",
+	  "harvest",
+	  "charge",
+	  "low_energy"
+	],
+	"total": 15,
+	"job": "NORI7_ANIM_REALISM_V2"
+  }
+}

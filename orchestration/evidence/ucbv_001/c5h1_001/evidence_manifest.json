@@ -1,0 +1,46 @@
+{
+  "wave": "C5H1",
+  "directive_id": 97,
+  "child_task_ref": "019f8dbf-44a6-7cb2-9ace-0e4965d14d15",
+  "authority_token": "VERIFY_ONLY",
+  "art_style_id": "cozy_cyber_pixel",
+  "world_profile": "cozy_cyber_pixel",
+  "world_profile_note": "StarterRealmBuilder profile=cozy_cyber_pixel; ArtStyleManager active style cozy_cyber_pixel (pond-white rule recorded via art_style_id)",
+  "control_used": "companion_call",
+  "control_binding": "KEY_C (physical C)",
+  "control_secondary_proven": "prompt_quick_open KEY_SLASH",
+  "esc_order": "first_esc_closes_companion_preview_retained; second_esc cancels preview via resolve_escape preview_hologram",
+  "zero_error": true,
+  "headed": true,
+  "headless_smoke": true,
+  "marker_headed": "AIDLE_UCBV001_C5H1_COMPANION_DEADLOCK_SMOKE=PASS checks=21 inputs=30 control=companion_call art=cozy_cyber_pixel headed=true captures=9",
+  "marker_headless": "AIDLE_UCBV001_C5H1_COMPANION_DEADLOCK_SMOKE=PASS checks=20 inputs=26 control=companion_call art=cozy_cyber_pixel headed=false captures=0",
+  "png_count": 9,
+  "viewports": ["1280x720", "868x517"],
+  "criteria": {
+    "c1_toggle_close_locomotion": "PASS",
+    "c2_confirm_enables_world_commit": "PASS",
+    "c3_esc_non_deadlock": "PASS",
+    "c4_build_esc_no_pause_zero_error": "PASS",
+    "c5_art_style_recorded": "PASS"
+  },
+  "pngs": [
+    {"file": "c1_companion_open_1280x720.png", "sha256": "47f4ca78dca09d85ce4d6ef7146cb57afda19e1b2a4d87658af7854cd0bc91be", "w": 1280, "h": 720, "state": "c1_companion_open"},
+    {"file": "c1_companion_closed_locomotion_1280x720.png", "sha256": "06ccbf42eb31e84d6493dcd646ae021f2e5133a269209acb61f762185729a05d", "w": 1280, "h": 720, "state": "c1_companion_closed_locomotion"},
+    {"file": "c2_preview_confirm_enabled_1280x720.png", "sha256": "17a135783aa0fe30dd167d6d826a332768748d37b0d56a67d1751496671f200f", "w": 1280, "h": 720, "state": "c2_preview_confirm_enabled"},
+    {"file": "c2_confirmed_world_commit_1280x720.png", "sha256": "b686b18e0e87a9ec1b1c1a4e65a094551eb8694b2b986f04d67d4e7b5af3c614", "w": 1280, "h": 720, "state": "c2_confirmed_world_commit"},
+    {"file": "c3_companion_over_preview_1280x720.png", "sha256": "87bd88063be029fc78367bf593ef0f2b5753b8fa1fe41d8ca7fe3c0064fb161e", "w": 1280, "h": 720, "state": "c3_companion_over_preview"},
+    {"file": "c3_after_esc_sequence_1280x720.png", "sha256": "0fc0492359d10f2b8b4ab641c5aed88382f19c459c7aef73e1925d8a29f319be", "w": 1280, "h": 720, "state": "c3_after_esc_sequence"},
+    {"file": "idle_style_record_1280x720.png", "sha256": "cea727598086f7b35b3426e2dc821ac3d44cfcd1e157a23fff4fd6e2773b8f98", "w": 1280, "h": 720, "state": "idle_style_record"},
+    {"file": "companion_open_868x517.png", "sha256": "c98948c76890a53700e45089168b64a6e19deb38b5911a02d8547221e8cdd76f", "w": 868, "h": 517, "state": "companion_open"},
+    {"file": "companion_closed_868x517.png", "sha256": "3e97778a3da3db38e1904baf6eed27864fbecea68ccf910d0d27af5bf0961c74", "w": 868, "h": 517, "state": "companion_closed"}
+  ],
+  "regressions": {
+    "h1_consolidation_flow_smoke": {"exit": 0, "marker": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13"},
+    "ucbv_001_inputmap_e2e_smoke": {"exit": 0, "marker": "AIDLE_UCBV001_INPUTMAP_E2E_SMOKE=PASS checks=17 inputs=34"},
+    "h1_human_ux_manual_build_smoke": {"exit": 0, "marker": "AIDLE_H1_HUMAN_UX_MANUAL_BUILD_SMOKE=PASS checks=13"}
+  },
+  "main_gd_sha256_verified": "7aad920aaca451da9ae73da5249ba9a2fcf75ab6fa37b33792b4328501a6fe24",
+  "smoke_script": "game/tests/ucbv_001_c5h1_companion_deadlock_smoke.gd",
+  "smoke_sha256": "de6d4e395ac8a34036750eba2c5ead36be906771bf3268ad9720eb80b596bf62"
+}

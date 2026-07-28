@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "UCBV-001-c5h1-blue-companion-deadlock-fix-001-2026-07-23",
+  "step_id": "UCBV-001-c5h1-blue-companion-deadlock-fix-001",
+  "work_order_id": "WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001",
+  "work_order": "orchestration/work_orders/WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001.md",
+  "work_order_sha256": "b4cd867db45b50d748f45e7f21de7fc34a1cfab7d6c7e6d5f4b965ee79683091",
+  "base_work_order": "orchestration/work_orders/WO-UCBV-001-C5-PURPLE-RELEASE-011.md",
+  "directive_id": 97,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "cf0dcef83fcedcf656f63e0af9670128b9a54328cb2ffa3cbb5ff06c2d9e9b95",
+  "directive_state": "CHANGES_REQUESTED",
+  "directive_verdict": "HUMAN_GATE_RETURNED_BLOCKER_DEADLOCK",
+  "root_cause_ref": "orchestration/control/HUMAN_GATE_FINDINGS_UCBV_001_H1_001.md",
+  "root_cause_sha256": "0475f70fc37d70f25d123f5f898e2b726ce167fde1d4d0f522fe67dc452d8a14",
+  "milestone": "UCBV-001 C5/H1 Human-gate correction — companion deadlock",
+  "agent_id": "aidle-worldgen-godot-runtime",
+  "agent_type": "aidle-worldgen-godot-runtime",
+  "profile_name": "aidle-worldgen-godot-runtime",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-godot-runtime.md",
+  "profile_sha256": "220c643ab23e3d62de8252cfdfc75f8c8f99db383bfc69235ab4e25c5d5a22b9",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-godot-runtime; trustlayer_character=blue-team-p0-remediator; ui_character=ui-app-dashboard; authority_token=PATCH_DRAFT; parent_spawn_only=true; no_grandchildren=true; self_accept=false; exclusive product lease main.gd only",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "Human-authorized narrow Godot override: game/scripts/main/main.gd only + Blue orchestration receipt/log under ucbv_001/c5h1_001; accepted=false; self_accept=false; no Confirm gate change; no GLB/catalog; no C5 purple; no Nori redesign; no P2E-002",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:864d85361e18fb814ba66aea094322e9d35d9c0625722200a2c46a1afc92fa20",
+  "input_context_hash_16": "864d85361e18fb81",
+  "input_context_hash_method": "sha256 of concatenated file bytes: codex_directive.json + WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001.md + aidle-worldgen-godot-runtime.md + HUMAN_GATE_FINDINGS_UCBV_001_H1_001.md + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C5H1_BLUE_COMPLETE_WAITING_RED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C5H1_COMPANION_DEADLOCK_PATCH_APPLIED_MAIN_GD_ONLY_ROUTE_RED",
+  "need_human": false,
+  "child_task_ref": "019f8db8-3aad-72b0-ae67-00859eae694a",
+  "transcript_ref": "019f8db8-3aad-72b0-ae67-00859eae694a",
+  "writer_transcript_ref": "019f8db8-3aad-72b0-ae67-00859eae694a",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8db8-3aad-72b0-ae67-00859eae694a/meta.json",
+  "c5_spawned": false,
+  "next_owner": "RED",
+  "next_route": "RED_FINDINGS_ONLY_AUDIT_DIFF_AND_DEADLOCK_SCENARIOS",
+  "human_gate_open": true,
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-app-dashboard",
+    "ui_file": "E:/agents/ui-design/characters/08-ui-app-dashboard.md",
+    "ui_sha256": "20ab5ba77ed1fd3f410de284f70d27ca1b7379a5c0d00c0f3a83eef11d5f990d",
+    "ui_read": "full_eof",
+    "role": "Blue PATCH_DRAFT C5H1 companion E-toggle + Esc priority; never self-accept; route Red"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded Agents.md, directive 97, WO C5H1, HUMAN_GATE_FINDINGS H1, main.gd, agent_step_contract schema, profile, TrustLayer/UI cards, ALWAYS five skills + architecture-lock manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "REQUIRED_PROJECT",
+      "source": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001.md",
+    "E:/AIdle_openworld/orchestration/control/HUMAN_GATE_FINDINGS_UCBV_001_H1_001.md",
+    "E:/AIdle_openworld/game/scripts/main/main.gd",
+    "E:/AIdle_openworld/game/autoload/control_context_router.gd",
+    "E:/AIdle_openworld/game/scripts/input/control_action_catalog.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-godot-runtime.md",
+    "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+    "E:/AIdle_openworld/Agents.md"
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/game/scripts/main/main.gd",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.log"
+  ],
+  "product_writes": [
+    "E:/AIdle_openworld/game/scripts/main/main.gd"
+  ],
+  "product_writes_sha256": {
+    "E:/AIdle_openworld/game/scripts/main/main.gd": "7aad920aaca451da9ae73da5249ba9a2fcf75ab6fa37b33792b4328501a6fe24"
+  },
+  "product_writes_pre_sha256": {
+    "E:/AIdle_openworld/game/scripts/main/main.gd": "fc56cbc1f3803b1c7806dc37abfc9a341e7124fb02fe35d61203ddfedca46976"
+  },
+  "orchestration_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.log"
+  ],
+  "out_of_lease_writes": [],
+  "tests_created": [],
+  "confirm_gate_unchanged": true,
+  "glb_catalog_untouched": true,
+  "result": {
+    "ok": true,
+    "patch_class": "C5H1_COMPANION_DEADLOCK_FIX",
+    "finding_closed_intent": "HUMAN_GATE_FINDINGS_UCBV_001_H1_001 Finding 1 HARD BLOCKER (code fix only; not accepted)",
+    "summary": "Route companion_call and prompt_quick_open so E closes when _chat_visible via _close_companion_composer (releases locomotion). Open path keeps try_dispatch + _open_companion_composer(true). Esc when _chat_visible closes companion first before build-preview resolve_escape priority; build_esc_no_pause path unregressed when companion closed. Confirm gating (_ba_can_confirm / handle_player_confirm) not modified.",
+    "e_key_change": {
+      "actions": ["companion_call", "prompt_quick_open"],
+      "before": "unconditional try_dispatch + _open_companion_composer(true) (open-only)",
+      "after": {
+        "when_chat_visible": "_close_companion_composer() only (no try_dispatch open; set_locomotion_suppressed(false))",
+        "when_chat_hidden": "is_action_allowed + try_dispatch + _open_companion_composer(true) (unchanged open path)"
+      },
+      "locomotion_release_on_close": true,
+      "reuse": "_close_companion_composer / same semantics as _toggle_companion_chat close branch; open keeps router try_dispatch"
+    },
+    "esc_change": {
+      "priority": "when _chat_visible, Esc closes companion before preview_hologram cancel_target force and resolve_escape",
+      "defined_outcome_with_build_preview": "first Esc closes Companion; second Esc retains existing preview cancel / build_esc_no_pause path",
+      "build_esc_no_pause_regression": "not touched when _chat_visible is false; existing pause=false clamp retained"
+    },
+    "confirm_gate": {
+      "changed": false,
+      "note": "_ba_can_confirm / handle_player_confirm / significant confirm hold paths untouched; Confirm still requires placed preview"
+    },
+    "line_refs_post_patch": {
+      "esc_companion_first": "main.gd ~213-219",
+      "prompt_quick_open_toggle": "main.gd ~237-246",
+      "companion_call_toggle": "main.gd ~248-257",
+      "close_releases_locomotion": "main.gd _close_companion_composer ~882-883 set_locomotion_suppressed(false)"
+    }
+  },
+  "smoke_test": {
+    "ran": false,
+    "reason": "Blue wave product lease is main.gd only; headed acceptance evidence is QA lease under orchestration/evidence/ucbv_001/c5h1_001 and game/tests or game/scripts smoke per WO. No test file created under this Blue product-only step.",
+    "static_verification": [
+      "companion_call close branches on _chat_visible before is_action_allowed open path",
+      "prompt_quick_open same toggle semantics",
+      "Esc _chat_visible early return before set_cancel_target preview_hologram",
+      "Confirm handlers and _ba_can_confirm body not in diff surface"
+    ],
+    "recommended_qa": [
+      "Open Companion with E, press E again → closes; locomotion resumes",
+      "Open Companion, close with E, enter build, LMB place preview → Confirm enables",
+      "Open Companion during active build preview, Esc → Companion closes first (defined); second Esc cancels preview; build idle Esc still no-pause",
+      "Zero new Godot errors; headed evidence with active art style / world profile"
+    ]
+  },
+  "self_audit": {
+    "lease_respected": true,
+    "product_writes_count": 1,
+    "product_writes_only_main_gd": true,
+    "out_of_lease_writes_empty": true,
+    "confirm_gate_untouched": true,
+    "glb_catalog_untouched": true,
+    "no_self_accept": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "no_c5_purple": true,
+    "no_nori_redesign": true,
+    "no_p2e002": true,
+    "durable_uuid_three_refs_match": true,
+    "authority_token": "PATCH_DRAFT",
+    "human_authorized_narrow_override": true,
+    "findings": []
+  },
+  "evidence_refs": [
+    "orchestration/logs/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.log",
+    "orchestration/control/HUMAN_GATE_FINDINGS_UCBV_001_H1_001.md",
+    "orchestration/work_orders/WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001.md",
+    "game/scripts/main/main.gd"
+  ],
+  "trace_ref": "orchestration/logs/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.log",
+  "forbidden_actions_respected": [
+    "edit any game/** file outside game/scripts/main/main.gd",
+    "change manual-build Confirm gating logic",
+    "touch any GLB, catalog, or behavior block",
+    "rewrite any prior correction receipt/log/evidence",
+    "write outside exact lease",
+    "self-accept or claim Human or Codex acceptance",
+    "dispatch P2E-002 or character-backbone production",
+    "new top-level Grok session or parent"
+  ],
+  "queued_not_authorized_note": "Nori-7 visual redesign remains queued until after this fix and a Human timing decision; Finding 2 not in Blue scope."
+}

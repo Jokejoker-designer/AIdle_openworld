@@ -1,0 +1,138 @@
+{
+  "schema_version": "block_dna_adapt_001/1.0",
+  "request_id": "req_cozy_village_001",
+  "build_graph_id": "graph_cozy_village_v1",
+  "world_profile": "cozy_cyber_pixel",
+  "expected_world_revision": 0,
+  "current_world_revision": 0,
+  "idempotency_key": "idem_graph_cozy_village_v1",
+  "bounds": {
+    "min": {
+      "x": -32,
+      "y": -32,
+      "z": 0
+    },
+    "max": {
+      "x": 32,
+      "y": 32,
+      "z": 16
+    }
+  },
+  "nodes": [
+    {
+      "node_id": "house",
+      "module_id": "cluster_cozy_house_small_A",
+      "transform": {
+        "x": -10.0,
+        "y": 5.0,
+        "elevation": 0.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": -20,
+        "cy": 10,
+        "cz": 0
+      },
+      "material_slot": "structure"
+    },
+    {
+      "node_id": "greenhouse",
+      "module_id": "cluster_cozy_greenhouse_droplet_A",
+      "transform": {
+        "x": 10.0,
+        "y": 5.0,
+        "elevation": 0.0,
+        "rotation_deg": 15.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": 20,
+        "cy": 10,
+        "cz": 0
+      },
+      "material_slot": "glass",
+      "p1e_material_id": "MAT_CozyGlass"
+    },
+    {
+      "node_id": "farm",
+      "module_id": "cluster_cozy_farm_A",
+      "transform": {
+        "x": 8.0,
+        "y": -12.0,
+        "elevation": 0.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": 16,
+        "cy": -24,
+        "cz": 0
+      },
+      "material_slot": "soil",
+      "p1e_material_id": "MAT_CozySoil"
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "e_house_path",
+      "from_node": "house",
+      "from_socket": "path_endpoint",
+      "from_polarity": "peer",
+      "to_node": "farm",
+      "to_socket": "path_endpoint",
+      "to_polarity": "peer"
+    }
+  ],
+  "generators": [
+    {
+      "generator_id": "gen_terrain_gentle_hills_v1",
+      "seed": 123,
+      "parameters": {
+        "bounds_width": 64,
+        "bounds_depth": 64
+      }
+    },
+    {
+      "generator_id": "gen_village_layout_v1",
+      "seed": 123
+    }
+  ],
+  "world_rules": [
+    {
+      "rule_id": "rule_day_night_v1",
+      "config": {}
+    },
+    {
+      "rule_id": "rule_crop_growth_v1",
+      "config": {}
+    }
+  ],
+  "manifestation": {
+    "stages": [
+      "wireframe",
+      "hologram",
+      "materializing",
+      "complete"
+    ],
+    "requires_confirmation": true,
+    "presentation_duration_seconds": 4
+  },
+  "validation": {
+    "collision": true,
+    "occupancy": true,
+    "sockets": true,
+    "cycle": true,
+    "snap": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  },
+  "adapter_proposal": {
+    "kind": "structured_world_prompt_proposal",
+    "confirmation_state": "pending",
+    "preview_required": true
+  },
+  "payload_fingerprint": "76cacee41e92aa0c778e761a142bec5cf21f629f913ff9849ad83359493b4827"
+}

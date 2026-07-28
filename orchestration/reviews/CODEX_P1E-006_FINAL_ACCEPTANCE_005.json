@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-P1E-006-FINAL-ACCEPTANCE-005",
+  "reviewed_at": "2026-07-22T04:32:05+07:00",
+  "reviewed_by": "codex",
+  "task_id": "P1E-006",
+  "directive_ids_reviewed": [51, 52, 53, 54, 55],
+  "verdict": "ACCEPTED",
+  "accepted": true,
+  "accepted_by": "codex",
+  "acceptance_scope": "World 1 kit per-world-profile palette variants plus product-owned headless-safe Starter Realm lifecycle",
+  "evidence": {
+    "maf_schema": "All final R0-R3, L0-L2 and P0 receipts validated against agent_step_contract.schema.json",
+    "product_matrix": {
+      "p1e006_variants": "exit=0 marker=true errors=0",
+      "hsl_demo": "exit=0 PASS",
+      "p1e003_density": "exit=0 marker=true errors=0",
+      "p1e004_art_style": "exit=0 marker=true errors=0",
+      "p1e004_elemental": "exit=0 marker=true errors=0",
+      "p1e002_intake_save_reload": "exit=0 marker=true errors=0",
+      "g8_ux002_fence": "exit=0 marker=true errors=0",
+      "g8_input_collision": "exit=0 marker=true errors=0",
+      "clean_boot": "exit=0 marker=true errors=0"
+    },
+    "headed": {
+      "cozy_1280x720_sha256": "E761B3DA0B686BB37FEC91172B0C58F86E8C8CD7D821543392EEA60E0D6BBA77",
+      "surrealism_1280x720_sha256": "BFB9CE17F08305D3268F80BD14B6E68B86B79FC68F66FC3335A16B7E278A014E",
+      "distinct": true
+    },
+    "purple": "P1E_006_lifecycle_l2_purple_004.json VERIFIED with accepted=false",
+    "provenance": "P1E_006_l1_provenance_schema_005.json binds both the original L1 runner and unauthorized correction writer without retroactive authorization",
+    "durable_p0_child": "019f8690-3f9e-7290-bff4-bf3538d868e1"
+  },
+  "findings": {
+    "F05": "CLOSED",
+    "F06": "CLOSED",
+    "F07": "CLOSED",
+    "F08": "CLOSED",
+    "F09": "CLOSED",
+    "F10": "CLOSED_BY_APPEND_ONLY_PROVENANCE_LEDGER"
+  },
+  "limitations": [
+    "The Directive-54 fourth child remains recorded as unauthorized history and is not retroactively approved.",
+    "Acceptance is local 2.5D World 1 scope only; it does not authorize networked or shipping work.",
+    "Red F01 remains a hard blocker before any networked or shipping work."
+  ],
+  "next_route": "CTRL-1B-001"
+}

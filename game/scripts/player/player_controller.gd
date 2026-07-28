@@ -1,6 +1,7 @@
 ## Cozy 2.5D player controller (MVP shell).
 ## CharacterBody3D on ground plane; camera-relative XZ locomotion; soft gravity.
 ## Not free-fly / FPS / combat-twitch.
+## CTRL-1B B1: context-aware locomotion suppress; sprint hold/toggle from a11y.
 class_name PlayerController
 extends CharacterBody3D
 
@@ -18,6 +19,8 @@ extends CharacterBody3D
 
 var _camera_rig: Node3D
 var _gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var _locomotion_suppressed: bool = false
+var _sprint_toggled_on: bool = false
 
 
 func _ready() -> void:
@@ -53,14 +56,36 @@ func set_camera_rig(rig: Node3D) -> void:
 		camera_rig_path = get_path_to(rig)
 
 
+func set_locomotion_suppressed(suppressed: bool) -> void:
+	## Companion composer / modal focus — no silent multi-context fire (C1B-CTX / CF-04).
+	_locomotion_suppressed = suppressed
+	if suppressed:
+		velocity.x = 0.0
+		velocity.z = 0.0
+
+
+func is_locomotion_suppressed() -> bool:
+	return _locomotion_suppressed
+
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= _gravity * delta
 
+	# Suppress world movement while composer owns focus.
+	if _locomotion_suppressed or _should_suppress_from_router():
+		velocity.x = move_toward(velocity.x, 0.0, friction * delta)
+		velocity.z = move_toward(velocity.z, 0.0, friction * delta)
+		move_and_slide()
+		return
+
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction := _camera_relative_direction(input_dir)
 
-	var target_speed := sprint_speed if Input.is_action_pressed("sprint") else walk_speed
+	var target_speed := walk_speed
+	if _is_sprinting():
+		target_speed = sprint_speed
+
 	if direction.length_squared() > 0.001:
 		var target_vel := direction * target_speed
 		# XZ only — 2.5D ground plane navigation (no free 3D flight).
@@ -71,10 +96,66 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0.0, friction * delta)
 		velocity.z = move_toward(velocity.z, 0.0, friction * delta)
 
-	if allow_jump and Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	# Dedicated gameplay jump — never ui_accept (Space/Enter also activate UI focus).
+	if allow_jump and Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 
 	move_and_slide()
+
+
+func _autoload_node(node_name: String) -> Node:
+	## SceneTree-root relative lookup — never absolute "/root/..." (H1-CODEX-F01).
+	if not is_inside_tree():
+		return null
+	var tree := get_tree()
+	if tree == null:
+		return null
+	var r := tree.root
+	if r == null:
+		return null
+	var direct := r.get_node_or_null(node_name)
+	if direct != null:
+		return direct
+	for c in r.get_children():
+		if str(c.name) == node_name:
+			return c
+	return null
+
+
+func _control_router() -> Node:
+	return _autoload_node("ControlContextRouter")
+
+
+func _control_a11y() -> Node:
+	return _autoload_node("ControlAccessibilitySettings")
+
+
+func _should_suppress_from_router() -> bool:
+	var router := _control_router()
+	if router == null:
+		return false
+	if not router.has_method("get_primary_context"):
+		return false
+	var ctx := str(router.call("get_primary_context"))
+	if ctx != "companion":
+		return false
+	if router.has_method("get_cancel_targets"):
+		var t: Dictionary = router.call("get_cancel_targets") as Dictionary
+		return bool(t.get("prompt_composer_or_dialogue", false))
+	return true
+
+
+func _is_sprinting() -> bool:
+	var mode := "hold"
+	var a11y := _control_a11y()
+	if a11y != null and "sprint_mode" in a11y:
+		mode = str(a11y.sprint_mode)
+	if mode == "toggle":
+		if Input.is_action_just_pressed("sprint"):
+			_sprint_toggled_on = not _sprint_toggled_on
+		return _sprint_toggled_on
+	_sprint_toggled_on = false
+	return Input.is_action_pressed("sprint")
 
 
 func _camera_relative_direction(input_dir: Vector2) -> Vector3:

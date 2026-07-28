@@ -1,0 +1,303 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-q2-qa-001-2026-07-22",
+  "step_id": "CTRL-1B-002-q2-qa-001",
+  "work_order_id": "WO-CTRL-1B-002-CONTROL-FOUNDATION-IMPLEMENTATION",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-CONTROL-FOUNDATION-IMPLEMENTATION.md",
+  "directive_id": 58,
+  "directive_supersedes": 57,
+  "milestone": "Control 1B foundation Q2 full clean evidence matrix",
+  "agent_id": "aidle-worldgen-qa-evidence",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "profile_name": "aidle-worldgen-qa-evidence",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_sha256": "bd9f7f941be811b1d81b35cc58fe06fba8bbd3768c04a49f41af626cc09f890a",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "tests/logs/screenshots/receipts only under leased evidence paths; no product patches; no contract edits; no Character Foundry/World 2/network",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:1e7c0b2ff73b307b457b26144c9e0168f2e8748618f609709f8153154051e984",
+  "input_context_hash_16": "1e7c0b2ff73b307b",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002 + CONTROL_1B_ACCEPTANCE_CONTRACT.md + aidle-worldgen-qa-evidence.md",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "CHANGES_REQUESTED",
+  "verdict_detail": "Full clean regression + validator + headed capture matrix executed under VERIFY_ONLY. Contract harness HARNESS_RESULT=PASS. Control smokes (router/a11y/integration/headed dry-run) all exit 0 PASS with error_line_count=0. G8 + P1E regression suite exit 0 PASS. Clean boot exit 0 zero ERROR. Headed dual-viewport captures 14 distinct PNGs (1280x720 + 868x517) with hashes, art_style_id_active=cozy_cyber_pixel, capture_source=godot_headed, isolated temp user data. H-01..H-33 matrix complete with honesty: 25 PASS / 8 FAIL. FAIL gaps: H-03 send/newline smoke, H-07 inspect provenance UI, H-12 Q rotate smoke, H-17 Proposal Card path, H-19 confirm-hold UX, H-20 post-confirm durable commit path, H-26 observable sensitivity, H-28 large cursor readability. Not product acceptance. next_owner=A3_A11Y.",
+  "child_task_ref": "2b857b73-3622-49ef-8747-4974b05b6ce6",
+  "transcript_ref": "2b857b73-3622-49ef-8747-4974b05b6ce6",
+  "writer_transcript_ref": "2b857b73-3622-49ef-8747-4974b05b6ce6",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_b0_ref": "019f86c1-854c-76a3-a36b-004cc8e39216",
+  "prior_b0_receipt": "orchestration/receipts/control/CTRL_1B_002_b0_control_001.json",
+  "prior_b1_spawn_ref": "019f86ca-008a-7bd2-ba32-3c5ec9858e51",
+  "prior_b1_receipt_child_task_ref": "e85e1802-24f4-41a1-9968-8371bd39317d",
+  "prior_b1_receipt": "orchestration/receipts/control/CTRL_1B_002_b1_runtime_001.json",
+  "b1_child_task_ref_note": "Durable spawn id from parent directive: 019f86ca-008a-7bd2-ba32-3c5ec9858e51; B1 receipt embeds alternate writer id e85e1802-24f4-41a1-9968-8371bd39317d — both recorded.",
+  "next_owner": "A3_A11Y",
+  "next_route": "A3_A11Y",
+  "character_binding": {
+    "trustlayer": "purple-team-finding-triage",
+    "trustlayer_file": "E:/agents/characters/12-purple-team-finding-triage.md",
+    "trustlayer_sha256": "5ee9279e67793b135675725f0d6060b3bb749df6a169bbb43cb071372ea394a8",
+    "ui": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "role": "Q2 VERIFY_ONLY full evidence matrix + H-01..H-33 honest triage (no self-accept)"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, WO, directive 58, acceptance contract, B0/B1 receipts, character cards, skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ALWAYS",
+      "source": "required by profile; ledger applied via receipt+h_matrix+visual_claim_meta",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/evidence/control_1b_002/**",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_q2_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-q2-qa-001.log"
+  ],
+  "product_writes": [],
+  "contract_writes": [],
+  "result": {
+    "verdict": "CHANGES_REQUESTED",
+    "h_matrix_pass": 25,
+    "h_matrix_fail": 8,
+    "h_matrix_total": 33,
+    "headed_captures": 14,
+    "validator": "HARNESS_RESULT=PASS",
+    "accepted": false,
+    "self_accept": false
+  },
+  "smoke_test": {
+    "validator": {
+      "cmd": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "exit": 0,
+      "marker": "HARNESS_RESULT=PASS",
+      "valid": "PASS",
+      "invalid_rejected": "12/12",
+      "error_line_count": 0
+    },
+    "control_suite": [
+      {
+        "test": "res://tests/control_1b_context_router_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS",
+        "checks": 12,
+        "error_line_count": 0
+      },
+      {
+        "test": "res://tests/control_1b_accessibility_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS",
+        "checks": 11,
+        "error_line_count": 0
+      },
+      {
+        "test": "res://tests/control_1b_integration_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS",
+        "checks": 15,
+        "error_line_count": 0
+      },
+      {
+        "test": "res://tests/control_1b_headed_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_CTRL_1B_HEADED_SMOKE=PASS",
+        "mode": "dry_run",
+        "checks": 19,
+        "states": 17,
+        "error_line_count": 0
+      }
+    ],
+    "headed_capture": {
+      "runner": "orchestration/evidence/control_1b_002/run_capture.py",
+      "script": "orchestration/evidence/control_1b_002/capture_control_1b_states.gd",
+      "exit": 0,
+      "marker": "AIDLE_CTRL_1B_Q2_HEADED_CAPTURE=PASS",
+      "error_line_count": 0,
+      "captures": 14,
+      "viewports": ["1280x720", "868x517"],
+      "art_style_id_active": "cozy_cyber_pixel",
+      "capture_source": "godot_headed",
+      "user_data_isolation": "C:/Users/phant/AppData/Local/Temp/ctrl1b_q2_userdata_20260722_054447",
+      "live_parity": true
+    },
+    "clean_boot": {
+      "cmd": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game --quit-after 3",
+      "exit": 0,
+      "error_line_count": 0,
+      "note": "Control 1B UI mounted message present; navigation mesh WARNINGs only"
+    }
+  },
+  "regression_matrix": [
+    {
+      "test": "res://tests/g8_ux_input_collision_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_G8_UX_SMOKE=PASS",
+      "checks": 6,
+      "error_line_count": 0
+    },
+    {
+      "test": "res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_G8_UX002_SMOKE=PASS",
+      "checks": 2,
+      "error_line_count": 0
+    },
+    {
+      "test": "res://tests/p1e006_world_profile_variants_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_P1E006_VARIANTS_SMOKE=PASS",
+      "error_line_count": 0
+    },
+    {
+      "test": "res://tests/p1e003_density_exposure_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_P1E003_SMOKE=PASS",
+      "error_line_count": 0
+    },
+    {
+      "test": "res://tests/p1e004_art_style_manager_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_P1E004_ASM_SMOKE=PASS",
+      "error_line_count": 0
+    },
+    {
+      "test": "res://tests/p1e004_elemental_pilot_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_P1E004_ELEMENTAL_SMOKE=PASS",
+      "error_line_count": 0
+    },
+    {
+      "test": "res://tests/p1e002_glb_intake_smoke.gd",
+      "exit": 0,
+      "marker": "AIDLE_P1E002_SMOKE=PASS",
+      "error_line_count": 0
+    }
+  ],
+  "h_matrix": {
+    "path": "orchestration/evidence/control_1b_002/h_matrix_status.json",
+    "PASS": ["H-01", "H-02", "H-04", "H-05", "H-06", "H-08", "H-09", "H-10", "H-11", "H-13", "H-14", "H-15", "H-16", "H-18", "H-21", "H-22", "H-23", "H-24", "H-25", "H-27", "H-29", "H-30", "H-31", "H-32", "H-33"],
+    "FAIL": ["H-03", "H-07", "H-12", "H-17", "H-19", "H-20", "H-26", "H-28"],
+    "fail_summaries": {
+      "H-03": "No smoke: Ctrl+Enter send vs Shift+Enter newline",
+      "H-07": "No inspect provenance UI evidence",
+      "H-12": "Q/build_rotate_left not smoke-rotated",
+      "H-17": "Proposal Card / understanding not captured",
+      "H-19": "Confirm hold UX path not end-to-end smoked",
+      "H-20": "Post-confirm durable commit path not control-smoke closed",
+      "H-26": "Sensitivity not observationally proven",
+      "H-28": "Large cursor readability not visual-proven"
+    }
+  },
+  "headed_png_sha256": {
+    "H-01_exploration_1280x720.png": "d7a6113890b8823a75f5e13d5176eae51f0d70703f41af2378b0bddc9f1c979a",
+    "H-01_exploration_868x517.png": "34bf7b2ba859d7ed1426b4d4dfc7ff99999d81a336ad6c95d760ab382cf4a7ac",
+    "H-02_composer_focused_1280x720.png": "ff3de39da30ab2c3d33cf47c8537aea784549dfbb2c4bcc6c6ac95d188b8df20",
+    "H-02_composer_focused_868x517.png": "5656553bbc673f5d371046462249c6c43702899f087bbfa6360a859fbe5ade70",
+    "H-04_esc_composer_closed_1280x720.png": "1578aaa15c5e50958099693a4f98523c10279881aeb30dd9d2a21c21979dd456",
+    "H-05_build_mode_1280x720.png": "591b29dd66d00a73fc3e332ab491b291c0a640f048a049310192a8513af22e86",
+    "H-08_helper_pulse_1280x720.png": "264b0647abe3b0f651b2260d710880ca6680c5dc91721700d2ff61638ab6e64d",
+    "H-09_homestead_panel_1280x720.png": "0a6a70354b41a5b071c81e51adadb5c0c6c1ef47eec6afd3e3d6a595daf5ce4d",
+    "H-09_homestead_panel_868x517.png": "5c5964311357e05a4a15ff563d79e943eb457e45cef459fe40fbfe16556e1fb9",
+    "H-11_build_preview_rotate_1280x720.png": "35ffde45d2513f9d127797d37afdfe85be964ed7a3c38a90fdfb9bc7e7f755e4",
+    "H-13_esc_preview_cancelled_1280x720.png": "548114a54aca9b9b10b2abcffef180c2c4b1ff0069f82311c560010c236cf99d",
+    "H-15_delete_proposal_1280x720.png": "71b13b40633c5c056d49867159aa71547a2d5824677b9d71ed576b4b4970a28b",
+    "H-22_control_settings_1280x720.png": "d4ecbf69b772b58fa6b39daf4348f5c9715316b168cc73db6448da80cc8989a8",
+    "H-22_control_settings_868x517.png": "ce9dab73237079f253e64cc1379d383cd74746c1fbb464907b0fb80583d7f882"
+  },
+  "evidence_refs": [
+    "orchestration/evidence/control_1b_002/visual_claim_meta.json",
+    "orchestration/evidence/control_1b_002/h_matrix_status.json",
+    "orchestration/evidence/control_1b_002/headed_runner_summary.json",
+    "orchestration/evidence/control_1b_002/png_sha256.json",
+    "orchestration/evidence/control_1b_002/headless_exits.json",
+    "orchestration/evidence/control_1b_002/p1e_regression_exits.json",
+    "orchestration/evidence/control_1b_002/clean_boot.log",
+    "orchestration/evidence/control_1b_002/godot_headed.log",
+    "orchestration/evidence/control_1b_002/runner.log",
+    "orchestration/logs/ctrl-1b-002-q2-qa-001.log",
+    "orchestration/receipts/control/CTRL_1B_002_q2_qa_001.json"
+  ],
+  "self_audit": {
+    "authority_respected": true,
+    "no_product_patches": true,
+    "no_contract_edits": true,
+    "no_self_accept": true,
+    "accepted_false": true,
+    "human_world_meta_untouched": true,
+    "isolation": "APPDATA/LOCALAPPDATA temp + ArtStyleManager world_meta_path_override user://ctrl1b_q2_isolated/world_meta.cfg",
+    "hard_stops_ok": true,
+    "completion_honesty": "FAIL rows left FAIL; not claimed FULL_MATRIX acceptance"
+  },
+  "findings_for_a3_a11y": [
+    {
+      "id": "Q2-F01",
+      "severity": "medium",
+      "h_rows": ["H-03"],
+      "summary": "Add headless assertion for prompt_send (Ctrl+Enter) vs prompt_newline (Shift+Enter) non-send"
+    },
+    {
+      "id": "Q2-F02",
+      "severity": "medium",
+      "h_rows": ["H-07"],
+      "summary": "Inspect context needs visible provenance panel evidence without durable mutation"
+    },
+    {
+      "id": "Q2-F03",
+      "severity": "low",
+      "h_rows": ["H-12"],
+      "summary": "Smoke build_rotate_left (Q) rotation parity with R"
+    },
+    {
+      "id": "Q2-F04",
+      "severity": "high",
+      "h_rows": ["H-17", "H-19", "H-20"],
+      "summary": "Proposal Card + confirm-hold + post-confirm manifestation/commit path need executable headed/headless evidence"
+    },
+    {
+      "id": "Q2-F05",
+      "severity": "low",
+      "h_rows": ["H-26", "H-28"],
+      "summary": "Observational a11y proofs: mouse sensitivity effect + large cursor readability capture"
+    }
+  ],
+  "timestamp_utc": "2026-07-21T22:45:00Z"
+}

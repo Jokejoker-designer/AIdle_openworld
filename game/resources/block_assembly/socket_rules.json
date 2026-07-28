@@ -1,0 +1,104 @@
+{
+  "schema_version": "block_dna_adapt_001_socket_rules_runtime/1.0",
+  "source_contract": "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json",
+  "rules": {
+    "connections_require_opposite_polarity": true,
+    "connections_require_mutual_compatibility_both_directions": true,
+    "same_polarity_connection": "REJECT",
+    "one_way_compatibility": "REJECT",
+    "peer_launder_directed_without_pair_bound_norm": "REJECT",
+    "normalization_must_match_pair_and_orientation": true
+  },
+  "socket_types": [
+    {"socket_type": "snap_grid", "default_polarity": "peer", "compatible_with": ["snap_grid"]},
+    {"socket_type": "terrain_edge", "default_polarity": "peer", "compatible_with": ["terrain_edge", "path_endpoint", "bridge_anchor"]},
+    {"socket_type": "terrain_surface", "default_polarity": "output", "compatible_with": ["plant_root", "prop_base", "building_foundation"]},
+    {"socket_type": "building_foundation", "default_polarity": "input", "compatible_with": ["terrain_surface", "vertical_stack"]},
+    {"socket_type": "wall_edge", "default_polarity": "peer", "compatible_with": ["wall_edge", "door_opening", "window_opening", "roof_edge"]},
+    {"socket_type": "door_opening", "default_polarity": "output", "compatible_with": ["door_leaf", "path_endpoint", "wall_edge"]},
+    {"socket_type": "door_leaf", "default_polarity": "input", "compatible_with": ["door_opening"]},
+    {"socket_type": "window_opening", "default_polarity": "output", "compatible_with": ["window_frame", "wall_edge"]},
+    {"socket_type": "window_frame", "default_polarity": "input", "compatible_with": ["window_opening"]},
+    {"socket_type": "roof_edge", "default_polarity": "peer", "compatible_with": ["wall_edge", "roof_edge", "solar_mount", "green_roof_mount"]},
+    {"socket_type": "vertical_stack", "default_polarity": "peer", "compatible_with": ["vertical_stack", "building_foundation"]},
+    {"socket_type": "path_endpoint", "default_polarity": "peer", "compatible_with": ["path_endpoint", "door_opening", "bridge_anchor", "terrain_edge"]},
+    {"socket_type": "bridge_anchor", "default_polarity": "peer", "compatible_with": ["bridge_anchor", "terrain_edge", "path_endpoint"]},
+    {"socket_type": "prop_surface", "default_polarity": "output", "compatible_with": ["prop_base", "plant_pot", "seat_mount"]},
+    {"socket_type": "prop_base", "default_polarity": "input", "compatible_with": ["prop_surface", "terrain_surface"]},
+    {"socket_type": "plant_pot", "default_polarity": "peer", "compatible_with": ["plant_root", "prop_surface"]},
+    {"socket_type": "plant_root", "default_polarity": "input", "compatible_with": ["plant_pot", "terrain_surface"]},
+    {"socket_type": "pipe_port", "default_polarity": "peer", "compatible_with": ["pipe_port"]},
+    {"socket_type": "energy_port", "default_polarity": "peer", "compatible_with": ["energy_port"]},
+    {"socket_type": "water_port", "default_polarity": "peer", "compatible_with": ["water_port"]},
+    {"socket_type": "magic_port", "default_polarity": "peer", "compatible_with": ["magic_port"]},
+    {"socket_type": "portal_frame", "default_polarity": "output", "compatible_with": ["portal_link"]},
+    {"socket_type": "portal_link", "default_polarity": "input", "compatible_with": ["portal_frame"]},
+    {"socket_type": "vfx_anchor", "default_polarity": "output", "compatible_with": ["vfx_emitter"]},
+    {"socket_type": "vfx_emitter", "default_polarity": "input", "compatible_with": ["vfx_anchor"]},
+    {"socket_type": "audio_anchor", "default_polarity": "output", "compatible_with": ["audio_emitter"]},
+    {"socket_type": "audio_emitter", "default_polarity": "input", "compatible_with": ["audio_anchor"]},
+    {"socket_type": "seat_mount", "default_polarity": "input", "compatible_with": ["prop_surface"]},
+    {"socket_type": "solar_mount", "default_polarity": "input", "compatible_with": ["roof_edge"]},
+    {"socket_type": "green_roof_mount", "default_polarity": "input", "compatible_with": ["roof_edge"]},
+    {"socket_type": "rail_endpoint", "default_polarity": "peer", "compatible_with": ["rail_endpoint"]},
+    {"socket_type": "character_hand", "default_polarity": "output", "compatible_with": ["tool_grip", "carry_grip"]},
+    {"socket_type": "tool_grip", "default_polarity": "input", "compatible_with": ["character_hand"]},
+    {"socket_type": "carry_grip", "default_polarity": "input", "compatible_with": ["character_hand"]},
+    {"socket_type": "character_back", "default_polarity": "output", "compatible_with": ["back_attachment"]},
+    {"socket_type": "back_attachment", "default_polarity": "input", "compatible_with": ["character_back"]},
+    {"socket_type": "character_head", "default_polarity": "output", "compatible_with": ["head_attachment"]},
+    {"socket_type": "head_attachment", "default_polarity": "input", "compatible_with": ["character_head"]},
+    {"socket_type": "character_saddle", "default_polarity": "output", "compatible_with": ["rider_mount"]},
+    {"socket_type": "rider_mount", "default_polarity": "input", "compatible_with": ["character_saddle"]}
+  ],
+  "adapter_normalizations": [
+    {
+      "normalization_id": "norm_terrain_surface_prop_base_v1",
+      "pair": ["terrain_surface", "prop_base"],
+      "allowed_orientations": [
+        {
+          "from_socket": "terrain_surface",
+          "to_socket": "prop_base",
+          "from_polarity": "output",
+          "to_polarity": "input"
+        }
+      ]
+    },
+    {
+      "normalization_id": "norm_building_foundation_vertical_stack_v1",
+      "pair": ["building_foundation", "vertical_stack"],
+      "allowed_orientations": [
+        {
+          "from_socket": "vertical_stack",
+          "to_socket": "building_foundation",
+          "from_polarity": "output",
+          "to_polarity": "input"
+        }
+      ]
+    },
+    {
+      "normalization_id": "norm_wall_edge_window_opening_v1",
+      "pair": ["wall_edge", "window_opening"],
+      "allowed_orientations": [
+        {
+          "from_socket": "wall_edge",
+          "to_socket": "window_opening",
+          "from_polarity": "peer",
+          "to_polarity": "peer"
+        }
+      ]
+    },
+    {
+      "normalization_id": "norm_wall_edge_door_opening_v1",
+      "pair": ["wall_edge", "door_opening"],
+      "allowed_orientations": [
+        {
+          "from_socket": "wall_edge",
+          "to_socket": "door_opening",
+          "from_polarity": "peer",
+          "to_polarity": "peer"
+        }
+      ]
+    }
+  ]
+}

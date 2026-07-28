@@ -1,0 +1,73 @@
+{
+  "agent_step_id": "G8-001-V002-V4_EXECUTOR_ACTION_CAPTURE-2026-07-21",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "input_context_hash": "sha256:8733c8c3a8fdc7ed",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-UI-VISUAL-CORRECTION-002",
+    "directive_id": 23,
+    "wave": "V4_EXECUTOR_ACTION_CAPTURE",
+    "profile": "executor",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "Demo flow advance_to_stage + runtime_stage reporting; two-row action bar; staged captures after runtime reports.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-test-writer",
+      "ui_character_id": "ui-component-craftsman",
+      "maf_role": "agent",
+      "authority_token": "PATCH_DRAFT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full"
+      },
+      {
+        "skill_id": "game-ui-icons",
+        "source": "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+        "mode": "full"
+      }
+    ],
+    "trace_ref": "orchestration/logs/g8-ui-visual-correction-002.log#V4_EXECUTOR_ACTION_CAPTURE",
+    "handoff_ref": "V5_ASSET_VISUAL_AUDIT",
+    "product_writes": [
+      "game/scripts/modules/executor/headed_demo_flow.gd",
+      "game/scripts/ui/playable_action_bar.gd",
+      "game/scenes/ui/playable_action_bar.tscn"
+    ],
+    "children": [],
+    "findings": [],
+    "residual_risks": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "runtime_stage_ok=wireframe"
+      },
+      {
+        "marker": "runtime_stage_ok=hologram"
+      },
+      {
+        "marker": "G3_E2E_SMOKE=PASS checks=76"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "character_skill_trace_present": true,
+    "no_catalog_false_claim": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ui-visual-correction-002.log",
+    "orchestration/evidence/g8_ui_visual_correction_002/",
+    "orchestration/reviews/CODEX_G8-001_UI_VISUAL_REVIEW_002.json"
+  ],
+  "next_route": "V5_ASSET_VISUAL_AUDIT"
+}

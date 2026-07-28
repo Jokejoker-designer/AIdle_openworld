@@ -1,0 +1,100 @@
+{
+	"counts": {
+		"committed_after": 0,
+		"committed_before": 0,
+		"committed_untouched": true,
+		"confirm_and_commit_direct": false,
+		"idle_esc_cancel_apply_count": 0,
+		"idle_esc_resolve_count": 1,
+		"input_sequence": [
+			"request_context:build",
+			"KEY_PERIOD build_module_next",
+			"KEY_P build_place",
+			"KEY_ESCAPE cancel_action (single sequence)",
+			"KEY_ESCAPE idle build (no pause)"
+		],
+		"main_cancel_apply_count": 1,
+		"main_resolve_count": 1,
+		"pause_opened": false,
+		"paused_after_idle_esc": false,
+		"paused_after_preview_esc": false,
+		"paused_before": false,
+		"physical_esc_sequences": 1,
+		"preview_active_after": false,
+		"preview_active_before": true,
+		"router_escape_resolve_count": 1,
+		"select_module_called": false
+	},
+	"directive_id": 73,
+	"failed_checks": 0,
+	"failures": [],
+	"finding_id": "P2E-CODEX-ESC-DOUBLE-01",
+	"input_log": [
+		{
+			"kind": "context",
+			"label": "build",
+			"t": 6307,
+			"via": "request_context"
+		},
+		{
+			"inject": "parse_input_event_single",
+			"keycode": 46,
+			"kind": "key_down",
+			"label": "build_module_next",
+			"t": 6372
+		},
+		{
+			"inject": "parse_input_event_single",
+			"keycode": 46,
+			"kind": "key_up",
+			"label": "build_module_next_up",
+			"t": 6381
+		},
+		{
+			"inject": "parse_input_event_single",
+			"keycode": 80,
+			"kind": "key_down",
+			"label": "build_place",
+			"t": 6421
+		},
+		{
+			"inject": "parse_input_event_single",
+			"keycode": 80,
+			"kind": "key_up",
+			"label": "build_place_up",
+			"t": 6451
+		},
+		{
+			"inject": "parse_input_event_single",
+			"keycode": 4194305,
+			"kind": "key_down",
+			"label": "cancel_action_esc_single",
+			"t": 6567
+		},
+		{
+			"inject": "parse_input_event_single",
+			"keycode": 4194305,
+			"kind": "key_up",
+			"label": "cancel_action_esc_single_up",
+			"t": 6574
+		},
+		{
+			"inject": "parse_input_event_single",
+			"keycode": 4194305,
+			"kind": "key_down",
+			"label": "esc_idle_build",
+			"t": 6713
+		},
+		{
+			"inject": "parse_input_event_single",
+			"keycode": 4194305,
+			"kind": "key_up",
+			"label": "esc_idle_build_up",
+			"t": 6720
+		}
+	],
+	"pass": true,
+	"passed_checks": 12,
+	"schema": "p2e_001_e1_esc_single_dispatch_witness/1.0",
+	"wave": "E1"
+}

@@ -1,0 +1,269 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "MOCKUP-CAST-PROPS-PRODUCTION-001-2026-07-23",
+  "step_id": "MOCKUP-CAST-PROPS-PRODUCTION-001",
+  "work_order": "orchestration/work_orders/WO-MOCKUP-CAST-PROPS-PRODUCTION-001.md",
+  "directive_id": 99,
+  "authority_token": "PATCH_DRAFT",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "writer_transcript_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "accepted": false,
+  "self_accept": false,
+  "human_request": "Mockup designed then must be built identically in AIdle openworld",
+  "verdict": "PRODUCTION_10_CAST_10_PROPS_RUNTIME_PASS",
+  "smoke": {
+    "script": "res://tests/mockup_cast_props_production_smoke.gd",
+    "exit": 0,
+    "marker": "AIDLE_MOCKUP_CAST_PROPS_PRODUCTION=PASS checks=4",
+    "cast_built": 10,
+    "cast_idle_play": 10,
+    "props_loaded": 10
+  },
+  "product_writes": [
+    "game/assets/ucbv_001/cast/**",
+    "game/assets/p1e_cozy/modules/*.glb",
+    "game/resources/ucbv_001/cast/cast_roster.json",
+    "game/resources/p1e_cozy/module_catalog.json",
+    "game/scripts/modules/ucbv_001/cast_presenter.gd",
+    "game/scripts/modules/ucbv_001/cast_roster_loader.gd",
+    "game/scripts/modules/p1e_cozy/p1e_module_kit.gd",
+    "game/scripts/main/main.gd",
+    "game/tests/mockup_cast_props_production_smoke.gd",
+    "orchestration/control/character_build/author_cast_batch_001.py"
+  ],
+  "characters": [
+    {
+      "character_id": "CCP-RH-001",
+      "slug": "nori7",
+      "display_name": "Nori-7",
+      "glb": "res://assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+      "glb_sha256": "c165108730c1a10c8417e8235a388add988019a80bfeac7a2a8f111b19a09c29",
+      "form": "robot",
+      "production": true,
+      "clips_min": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ]
+    },
+    {
+      "character_id": "CCP-NS-002",
+      "slug": "may_mach",
+      "display_name": "May Mach",
+      "glb": "res://assets/ucbv_001/cast/may_mach/export/may_mach_rigged.glb",
+      "glb_sha256": "11afc8fb675a93cad9658891bb20a0a719e5ed36670efa602016ddd79dc48acb",
+      "form": "humanoid",
+      "production": true,
+      "clips_min": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ]
+    },
+    {
+      "character_id": "CCP-NW-003",
+      "slug": "bac_bap",
+      "display_name": "Bac Bap",
+      "glb": "res://assets/ucbv_001/cast/bac_bap/export/bac_bap_rigged.glb",
+      "glb_sha256": "9bddd26f3ca7dd95cb7e559a806a374e880fabf1c9db6eb3dc2c4f747f74a541",
+      "form": "humanoid",
+      "production": true,
+      "clips_min": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ]
+    },
+    {
+      "character_id": "CCP-CT-004",
+      "slug": "bui_mo",
+      "display_name": "Bui Mo",
+      "glb": "res://assets/ucbv_001/cast/bui_mo/export/bui_mo_rigged.glb",
+      "glb_sha256": "dc86bffac1a51cee55026cc59846d0a78327cf91d292355ee3d134c221e5f1a1",
+      "form": "quad",
+      "production": true,
+      "clips_min": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ]
+    },
+    {
+      "character_id": "SPH-RH-011",
+      "slug": "kito",
+      "display_name": "Kito",
+      "glb": "res://assets/ucbv_001/cast/kito/export/kito_rigged.glb",
+      "glb_sha256": "0f47fc9c34720b6582d5e801711322a23d57572324ffae3b3f8402318cb9a92b",
+      "form": "robot",
+      "production": true,
+      "clips_min": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ]
+    },
+    {
+      "character_id": "OA-RG-021",
+      "slug": "nereu",
+      "display_name": "Nereu-5",
+      "glb": "res://assets/ucbv_001/cast/nereu/export/nereu_rigged.glb",
+      "glb_sha256": "d3b65e2e08a1ce63f04d6ad706979c65897b0a37c3bbbbe0992650d2fef22be8",
+      "form": "robot",
+      "production": true,
+      "clips_min": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ]
+    },
+    {
+      "character_id": "AC-CO-015",
+      "slug": "cinder",
+      "display_name": "Cinder-04",
+      "glb": "res://assets/ucbv_001/cast/cinder/export/cinder_rigged.glb",
+      "glb_sha256": "d4650a3632603d786a04c39ce901ea184a6e91e7d68f6206c3b6f96e24629348",
+      "form": "construct",
+      "production": true,
+      "clips_min": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ]
+    },
+    {
+      "character_id": "TD-CT-028",
+      "slug": "patch",
+      "display_name": "Patch",
+      "glb": "res://assets/ucbv_001/cast/patch/export/patch_rigged.glb",
+      "glb_sha256": "6db9e00d21717c45adf8ac5fde521451903c0b0007cf60573332d312e361192d",
+      "form": "quad",
+      "production": true,
+      "clips_min": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ]
+    },
+    {
+      "character_id": "SV-NW-019",
+      "slug": "truc_nhi",
+      "display_name": "Truc Nhi",
+      "glb": "res://assets/ucbv_001/cast/truc_nhi/export/truc_nhi_rigged.glb",
+      "glb_sha256": "e0a87378d6b9f0857c2a53b581a7c57aebed384c3bc2bfe9677ce93fa5837d4e",
+      "form": "humanoid",
+      "production": true,
+      "clips_min": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ]
+    },
+    {
+      "character_id": "SPH-NG-009",
+      "slug": "luma",
+      "display_name": "Luma",
+      "glb": "res://assets/ucbv_001/cast/luma/export/luma_rigged.glb",
+      "glb_sha256": "277b695fbc7e3a1355ed60b1b06b947d93fbd61e0afb5d7817e82553ecf7f06c",
+      "form": "humanoid",
+      "production": true,
+      "clips_min": [
+        "idle",
+        "walk",
+        "scan",
+        "happy",
+        "cancel"
+      ]
+    }
+  ],
+  "props": [
+    {
+      "module_id": "cozy_house_small_A",
+      "glb": "res://assets/p1e_cozy/modules/cozy_house_small_A.glb",
+      "glb_sha256": "bc0770925054aacedbea865c42864310c819d8134bd23b96535827d032962a27",
+      "bytes": 61152
+    },
+    {
+      "module_id": "cozy_greenhouse_preview_anchor_A",
+      "glb": "res://assets/p1e_cozy/modules/cozy_greenhouse_preview_anchor_A.glb",
+      "glb_sha256": "db7c48c66161142b8b65c46bc3fbed21e693b555c20184b4ee1d038fdeb46c53",
+      "bytes": 33512
+    },
+    {
+      "module_id": "cozy_pond_small_A",
+      "glb": "res://assets/p1e_cozy/modules/cozy_pond_small_A.glb",
+      "glb_sha256": "c8bae9beb489daa8d76360fd8ba8060685d871c7e32449a47754809a3d3130c3",
+      "bytes": 32576
+    },
+    {
+      "module_id": "cozy_fence_section_A",
+      "glb": "res://assets/p1e_cozy/modules/cozy_fence_section_A.glb",
+      "glb_sha256": "df40e87ee22394e62a46b6346da1b95aa21f22283f608b6c947a5c94232e651c",
+      "bytes": 23788
+    },
+    {
+      "module_id": "cozy_garden_lamp_A",
+      "glb": "res://assets/p1e_cozy/modules/cozy_garden_lamp_A.glb",
+      "glb_sha256": "1349568acfb265d95da58358e36438401e23af0298d8c67f8aee05fffac0ce0d",
+      "bytes": 33632
+    },
+    {
+      "module_id": "cozy_tree_landmark_A",
+      "glb": "res://assets/p1e_cozy/modules/cozy_tree_landmark_A.glb",
+      "glb_sha256": "78d542bd573059042077abf6b6167cb9a3e92a2c51817c3af9685e83efd7d1e1",
+      "bytes": 29520
+    },
+    {
+      "module_id": "cozy_farm_plot_A",
+      "glb": "res://assets/p1e_cozy/modules/cozy_farm_plot_A.glb",
+      "glb_sha256": "ee45722e4b773dabdb64eee9373786fbe60dff248845dc747d13f18ed3d98d3c",
+      "bytes": 63148
+    },
+    {
+      "module_id": "cozy_flower_cluster_A",
+      "glb": "res://assets/p1e_cozy/modules/cozy_flower_cluster_A.glb",
+      "glb_sha256": "aef535242e01328e98d53ba2d3d7cfee14888a0cc0d2b5c16acfc160699097c4",
+      "bytes": 39004
+    },
+    {
+      "module_id": "cozy_path_stone_A",
+      "glb": "res://assets/p1e_cozy/modules/cozy_path_stone_A.glb",
+      "glb_sha256": "d754daaab96206af6948731c4e525e7aef43307a4b7a09d72facb95292d1256d",
+      "bytes": 32260
+    },
+    {
+      "module_id": "cozy_rock_small_A",
+      "glb": "res://assets/p1e_cozy/modules/cozy_rock_small_A.glb",
+      "glb_sha256": "e04f798b7586c38f686cc5607fa11b8a3fe1a4ae480506570f85c0827edef935",
+      "bytes": 22404
+    }
+  ],
+  "runtime_mount": {
+    "cast_gallery": "Main/MockupCastGallery at (8,0,-6)",
+    "prop_gallery": "Main/MockupPropGallery at (8,0,4)",
+    "player_nori": "unchanged Nori7Presenter on player"
+  },
+  "honesty": {
+    "meshes_are_production_glb_skinned_with_real_clips": true,
+    "visual_fidelity_vs_concept_art": "stylized multi-part low-poly matching capability pipeline; further art polish can refine silhouette to concept JPG",
+    "not_ship_claim": true
+  },
+  "recorded_at": "2026-07-23T15:43:48+07:00"
+}

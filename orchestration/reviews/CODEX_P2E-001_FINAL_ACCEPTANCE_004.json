@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-P2E-001-FINAL-ACCEPTANCE-004",
+  "reviewed_at": "2026-07-22T14:55:00+07:00",
+  "reviewed_by": "codex",
+  "task_id": "P2E-001",
+  "directive_id": 73,
+  "state": "ACCEPTED",
+  "verdict": "MACHINE_ACCEPTED_OFFLINE_BLOCK_ASSEMBLY_SLICE",
+  "accepted": true,
+  "accepted_by": "codex",
+  "accepted_scope": "First playable offline Block Assembly preview slice only",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "child_lineage": {
+    "E0": "019f88c0-e98f-7c92-9f21-97554f3bb5ed",
+    "E1": "019f88c5-04bc-75d2-bf2d-a65ff3a740fc",
+    "E2": "019f88cb-57e3-7582-90f5-4a10076d22b1"
+  },
+  "machine_evidence": {
+    "block_dna": "PASS: 14/14 valid, 42/42 invalid",
+    "p2e_core": "PASS checks=14",
+    "p2e_authority": "PASS checks=8",
+    "p2e_qr": "PASS checks=8",
+    "p2e_playable_select": "PASS checks=5",
+    "p2e_correction": "PASS checks=4",
+    "p2e_player_input": "PASS checks=5",
+    "control_router": "PASS checks=16",
+    "headed_dual_resolution": "PASS: 14 distinct PNGs at 1280x720 and 868x517; hashes and dimensions independently verified",
+    "headed_teardown": "PASS: Godot exit 0 and zero ERROR/USER ERROR/SCRIPT ERROR/RID leak/null RenderingServer",
+    "build_r": "PASS: preview rotation 0 to 60 at both resolutions; camera yaw exactly unchanged",
+    "real_input": "PASS: select, place, rotate, elevate, confirm and cancel without direct controller fallback",
+    "esc_single_dispatch": "PASS: physical=1 resolve=1 cancel_apply=1 duplicate=0 pause=0",
+    "world_commit": "PASS: confirmation reports issuer=world_commit_service and client_world_commit=false",
+    "product_hashes": "PASS: all current E0 product/test hashes match receipt"
+  },
+  "evidence_refs": [
+    "orchestration/evidence/p2e_001/003/evidence_manifest.json",
+    "orchestration/evidence/p2e_001/004/evidence_manifest.json",
+    "orchestration/evidence/p2e_001/004/esc_single_dispatch_witness.json",
+    "orchestration/receipts/p2e_001/correction_003/E0_esc_single_dispatch_004.json",
+    "orchestration/receipts/p2e_001/correction_003/E1_qa_evidence_004.json"
+  ],
+  "receipt_validation": {
+    "E0": "PASS",
+    "E1": "PASS",
+    "E2": "REJECTED_AS_RECEIPT: missing required smoke_test",
+    "schema": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "validator": "Draft202012Validator",
+    "agentwork_runtime_note": "not importable in pinned MAF venv; no dependency installed"
+  },
+  "external_transcript_binding": {
+    "policy": "CODEX_EXTERNAL_TRANSCRIPT_BINDING",
+    "human_authorization_precedent": "Human Product Lead explicitly selected this route; false receipts remain rejected and are never rewritten",
+    "E2_meta_sha256": "e2ec72a11f4b1eb5c0f247168293ef8b0e28bfa287b366e1ec9015a5406129c4",
+    "E2_output_sha256": "5c3dc17f5032cda09f25143c1df46e159086871b96e3cfb188e17a5154879e48",
+    "parent_chat_snapshot_sha256": "8bc33cd6b6d66f2efc86a7d6deb5d6b42c42d1a42992ece39bfbc1ea70452040",
+    "canonical_started_at": "2026-07-22T07:47:35.526377900Z",
+    "canonical_completed_at": "2026-07-22T07:51:25.328154200Z",
+    "decision": "E2 receipt excluded; immutable parent-owned meta/output and independent Codex reruns bind the verification result"
+  },
+  "lease_decision": {
+    "canonical_router": "game/autoload/control_context_router.gd",
+    "directive_72_path_typo": "not used as exact-lease acceptance",
+    "directive_73_exact_lease": "PASS",
+    "one_product_writer": true
+  },
+  "non_blocking_residuals_for_consolidation": [
+    "QA labels/debug witness overlays must not appear in normal human gameplay",
+    "Normal runtime HUD and Companion presentation need product-level visual consolidation",
+    "Human five-minute first-session gate has not yet run"
+  ],
+  "explicitly_not_accepted": [
+    "network or shipping",
+    "Red F01",
+    "DNA v1.2 or Tier 3 runtime",
+    "Scene expansion",
+    "Character mesh rig animation or behavior runtime",
+    "voice or live provider",
+    "multiplayer release",
+    "final visual polish"
+  ],
+  "red_f01_network_shipping_hard_stop": true,
+  "next_route": "H1-CONSOLIDATE-001"
+}

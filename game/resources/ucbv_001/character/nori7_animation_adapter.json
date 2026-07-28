@@ -1,0 +1,400 @@
+{
+  "schema_version": "ucbv_001_nori7_animation_adapter/1.0",
+  "adapter_id": "nori7_animation_adapter_v1",
+  "wave": "NORI7_MOCKUP_PARITY_V1",
+  "directive_id": 99,
+  "work_order_id": "WO-OBJECT-DNA-NORI7-ANIM-VERTICAL-SLICE-001",
+  "work_order_addendum": "WO-UCBV-001-MOTION-KIT-ADDENDUM-003",
+  "authority_token": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "character_binding": {
+    "display_name": "Nori-7",
+    "character_id": "CCP-RH-001",
+    "recipe_id": "recipe_nori7_v1",
+    "root_module_id": "char_nori7_base",
+    "style_lock_id": "ucbv_001_style_lock_v1",
+    "world_profile_id": "cozy_cyber_pixel"
+  },
+  "base_tier3_set": {
+    "animation_set_id": "anim_robot_gardener_v1",
+    "role": "public_names_and_compatibility_contract_only",
+    "tier3_payload_present": false,
+    "honesty": "Tier3 anim_robot_gardener_v1 is reused as names/compatibility only. All keyed animation payload was authored offline in C1 GLB. Do not claim extension clips came from Tier3."
+  },
+  "extension": {
+    "extension_id": "ucbv_nori7_build_extension_v1",
+    "extension_version": "1.0.0",
+    "source": "game_local_offline_authoring",
+    "not_from_tier3": true,
+    "clips": [
+      "turn_left",
+      "turn_right",
+      "build_place",
+      "build_place_hold",
+      "confirm"
+    ]
+  },
+  "skeleton": {
+    "skeleton_id": "skel_small_biped_robot_v1",
+    "bone_count": 14,
+    "root_motion": false,
+    "blend_profile": "cozy_bouncy",
+    "bones": [
+      {
+        "name": "root",
+        "parent": null
+      },
+      {
+        "name": "pelvis",
+        "parent": "root"
+      },
+      {
+        "name": "spine",
+        "parent": "pelvis"
+      },
+      {
+        "name": "chest",
+        "parent": "spine"
+      },
+      {
+        "name": "head",
+        "parent": "chest"
+      },
+      {
+        "name": "sprout_ctrl",
+        "parent": "head"
+      },
+      {
+        "name": "arm_L",
+        "parent": "chest"
+      },
+      {
+        "name": "hand_L",
+        "parent": "arm_L"
+      },
+      {
+        "name": "arm_R",
+        "parent": "chest"
+      },
+      {
+        "name": "hand_R",
+        "parent": "arm_R"
+      },
+      {
+        "name": "leg_L",
+        "parent": "pelvis"
+      },
+      {
+        "name": "foot_L",
+        "parent": "leg_L"
+      },
+      {
+        "name": "leg_R",
+        "parent": "pelvis"
+      },
+      {
+        "name": "foot_R",
+        "parent": "leg_R"
+      }
+    ],
+    "sockets": {
+      "character_hand": "hand_R",
+      "character_back": "chest",
+      "character_head": "sprout_ctrl",
+      "vfx_anchor": "chest"
+    }
+  },
+  "glb": {
+    "path": "res://assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "filesystem_path": "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "sha256": "8af77c042f336b1377aaacfb746c7c0198fdbec022f808baed15dea309d65f2b",
+    "bytes": 1669588,
+    "root_node_name": "Nori7",
+    "skinned": true,
+    "bridge_job_id": "NORI7_MOCKUP_UPGRADE_V4_CUTE_WATER",
+    "package_hash_sha256": "561a543aac9efbe4da93ab3479616970279a42c91f293d8965ba276ee33015d9",
+    "blend_sha256": "6023f65fd5913df5d56704239fafca1102094ba3d73fa6471862f10606e2a9a5",
+    "blend_bytes": 354904
+  },
+  "materials": {
+    "canonical_cream_hex": "#fdf3e2",
+    "canonical_cream_shade_hex": "#efe0c8",
+    "leaf_hex": "#7fc98f",
+    "face_socket_hex": "#3d3226",
+    "iris_hex": "#a8dced",
+    "named_slots": [
+      "MAT_CozyCeramic",
+      "MAT_CozyCeramic_Shade",
+      "MAT_CozyFaceSocket",
+      "MAT_CozyGlass",
+      "MAT_CozyBlush",
+      "MAT_CozyLeaf",
+      "MAT_CozyMetal",
+      "MAT_CozyStoneWarm",
+      "MAT_CozyWood"
+    ],
+    "cyan_policy": "manifestation_accent_only_not_complete_body_fill",
+    "dna_cream_f7e9c6": "NON_AUTHORITATIVE_ALIAS_ONLY"
+  },
+  "layer_a_tier3_names": {
+    "note": "Public IDs match Tier3 gardener set; payload is C1-authored GLB actions",
+    "actions": {
+      "idle": {
+        "duration_s": 3.0,
+        "loop": true,
+        "channels": 42,
+        "clip_hash_sha256": "f804415af71f3975b9c98ef29602472632ba8e7654ae14f44bb995b10d4440a4",
+        "runtime_trigger": "default_loop_or_movement_stop",
+        "from_tier3_payload": false,
+        "fcurve_count": 21,
+        "real_keys": true
+      },
+      "walk": {
+        "duration_s": 1.0,
+        "loop": true,
+        "channels": 42,
+        "clip_hash_sha256": "3a75da6f6a5ede0b9ccc2b4aaf8df1bc37fbf05d4577d274e2fab39235521327",
+        "runtime_trigger": "movement_starts",
+        "from_tier3_payload": false,
+        "fcurve_count": 33,
+        "real_keys": true
+      },
+      "scan": {
+        "duration_s": 1.3,
+        "loop": false,
+        "channels": 42,
+        "clip_hash_sha256": "8bd86cffabe41eb0c97ad175b8c52375745e6d70b12dd991b6af33d97e226960",
+        "runtime_trigger": "manual_build_or_delete_targeting",
+        "from_tier3_payload": false,
+        "fcurve_count": 9,
+        "real_keys": true
+      },
+      "happy": {
+        "duration_s": 1.1,
+        "loop": false,
+        "channels": 42,
+        "clip_hash_sha256": "9bd242cb1ae7d25fee8a4d17b67998f24f5d671539dd67a116e499566f7c37de",
+        "runtime_trigger": "after_authoritative_complete_observed",
+        "from_tier3_payload": false,
+        "fcurve_count": 15,
+        "real_keys": true
+      },
+      "cancel": {
+        "duration_s": 0.7,
+        "loop": false,
+        "channels": 42,
+        "clip_hash_sha256": "9d834e38971f63fd642c92144b5f70ebc6958136e91e138e7347d77a6d551866",
+        "runtime_trigger": "esc_rmb_or_refusal_preview_clear",
+        "from_tier3_payload": false,
+        "fcurve_count": 12,
+        "real_keys": true
+      }
+    }
+  },
+  "layer_b_ucbv_extension": {
+    "note": "Honest game-local extension. NOT present in Tier3 catalog payload.",
+    "actions": {
+      "turn_left": {
+        "duration_s": 0.55,
+        "loop": false,
+        "channels": 42,
+        "clip_hash_sha256": "615998f87129ecb1ffac7e8e8e23cd9cda48f43b8e6488497c98c6ea255847d3",
+        "runtime_trigger": "orientation_change_left",
+        "from_tier3_payload": false,
+        "ucbv_extension": true,
+        "fcurve_count": 18,
+        "real_keys": true
+      },
+      "turn_right": {
+        "duration_s": 0.55,
+        "loop": false,
+        "channels": 42,
+        "clip_hash_sha256": "06dd3b3b9220d4598fb73ed03385913e4188cee02e75b83edb66b8b4864109cf",
+        "runtime_trigger": "orientation_change_right",
+        "from_tier3_payload": false,
+        "ucbv_extension": true,
+        "fcurve_count": 18,
+        "real_keys": true
+      },
+      "build_place": {
+        "duration_s": 0.75,
+        "loop": false,
+        "channels": 42,
+        "clip_hash_sha256": "e29f0723506c7e670021ca1f8eb4a6c74f7f2764a9cf5f36a17f97f69d9e5c39",
+        "runtime_trigger": "preview_place_active",
+        "from_tier3_payload": false,
+        "ucbv_extension": true,
+        "fcurve_count": 12,
+        "real_keys": true
+      },
+      "build_place_hold": {
+        "duration_s": 1.2,
+        "loop": true,
+        "channels": 42,
+        "clip_hash_sha256": "44be9d8d6265d8f9ff3be9a617d69b29eab95e0363739f94f140f666c6221e46",
+        "runtime_trigger": "preview_hold_awaiting_confirm_cancel",
+        "from_tier3_payload": false,
+        "ucbv_extension": true,
+        "fcurve_count": 9,
+        "real_keys": true
+      },
+      "confirm": {
+        "duration_s": 0.8,
+        "loop": false,
+        "channels": 42,
+        "clip_hash_sha256": "b3d2b66bc8bad00c6da04b0394f948072d308b61f19691ebf9b966ee5932ea2f",
+        "runtime_trigger": "player_confirm_gesture_presentation_only",
+        "from_tier3_payload": false,
+        "ucbv_extension": true,
+        "authority_note": "Animation never calls World Commit",
+        "fcurve_count": 9,
+        "real_keys": true
+      }
+    }
+  },
+  "required_actions_all": [
+    "idle",
+    "walk",
+    "scan",
+    "happy",
+    "cancel",
+    "turn_left",
+    "turn_right",
+    "build_place",
+    "build_place_hold",
+    "confirm",
+    "water",
+    "plant_seed",
+    "harvest",
+    "charge",
+    "low_energy"
+  ],
+  "deferred_optional_gardener_clips": {
+    "policy": "keyed_in_full_anim_v1",
+    "clips": {
+      "water": {
+        "status": "REAL_KEYS_IN_GLB",
+        "reason": "NORI7_ANIM_REALISM_V2"
+      },
+      "plant_seed": {
+        "status": "REAL_KEYS_IN_GLB",
+        "reason": "NORI7_ANIM_REALISM_V2"
+      },
+      "harvest": {
+        "status": "REAL_KEYS_IN_GLB",
+        "reason": "NORI7_ANIM_REALISM_V2"
+      },
+      "charge": {
+        "status": "REAL_KEYS_IN_GLB",
+        "reason": "NORI7_ANIM_REALISM_V2"
+      },
+      "low_energy": {
+        "status": "REAL_KEYS_IN_GLB",
+        "reason": "NORI7_ANIM_REALISM_V2"
+      }
+    }
+  },
+  "motion_kit_planning": {
+    "path": "orchestration/control/motion_kit/",
+    "status": "READ_ONLY_STAGING_INPUT",
+    "validator_exit_code": 0,
+    "validator_result": "ALL CHECKS GREEN",
+    "scope": "Nori-7 / skel_small_biped_robot_v1 only; not all 172 clips or 14 skeletons",
+    "signature_unique_must_author": "35/35 remain fail-closed must_author=true",
+    "reference_adapter_gd": "not_copied_into_game_C2_territory"
+  },
+  "runtime_triggers_summary": {
+    "idle_walk": "movement starts/stops; no root motion",
+    "turn_left_right": "orientation change; rotation gameplay-owned",
+    "scan_build_hold": "Manual Build preview active path",
+    "confirm": "player confirm; presentation only",
+    "happy": "after authoritative complete observed",
+    "cancel": "Esc/RMB clears non-durable preview",
+    "delete_mode": "scan one-shot then idle/hold; confirm only after authoritative delete path"
+  },
+  "c2_validator_expectations": [
+    "adapter skeleton_id equals imported GLB skeleton identity",
+    "exact 14 bone names and parents",
+    "every required action exists once, duration > 0, non-root transform tracks",
+    "loop flags match adapter",
+    "root motion absent",
+    "AnimationTree states resolve to imported actions",
+    "no World Commit / mutation method tracks",
+    "missing animation fails visibly without procedural fallback in normal play"
+  ],
+  "provenance": {
+    "child_task_ref": "019f8c08-d346-7250-b834-1887b51713c6",
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "c0_child_ref": "019f8bf6-ac4c-7012-911d-06750ea92812",
+    "bridge_job_id": "BLD-UCBV-C1-NORI7-019F8C08",
+    "blender": "E:/blender.exe 5.2.0 LTS offline factory-startup disable-autoexec"
+  },
+  "gardener_clips": {
+    "status": "REAL_KEYS_IN_GLB",
+    "not_metadata": true,
+    "clips": [
+      "water",
+      "plant_seed",
+      "harvest",
+      "charge",
+      "low_energy"
+    ],
+    "source": "NORI7_ANIM_REALISM_V2"
+  },
+  "visual_parity": {
+    "target": "mockup_ssot_v2/chars/char_01_nori7.jpg",
+    "status": "rebuilt_multi_part_cream_teardrop",
+    "not_white_blob": true
+  },
+  "layer_c_gardener": {
+    "note": "Gardener set keyed offline",
+    "actions": {
+      "water": {
+        "duration_s": 1.5,
+        "loop": false,
+        "fcurve_count": 15,
+        "from_tier3_payload": false,
+        "real_keys": true,
+        "gardener_extension": true,
+        "runtime_trigger": "gardener_water"
+      },
+      "plant_seed": {
+        "duration_s": 1.3,
+        "loop": false,
+        "fcurve_count": 18,
+        "from_tier3_payload": false,
+        "real_keys": true,
+        "gardener_extension": true,
+        "runtime_trigger": "gardener_plant_seed"
+      },
+      "harvest": {
+        "duration_s": 1.2,
+        "loop": false,
+        "fcurve_count": 15,
+        "from_tier3_payload": false,
+        "real_keys": true,
+        "gardener_extension": true,
+        "runtime_trigger": "gardener_harvest"
+      },
+      "charge": {
+        "duration_s": 2.0,
+        "loop": true,
+        "fcurve_count": 15,
+        "from_tier3_payload": false,
+        "real_keys": true,
+        "gardener_extension": true,
+        "runtime_trigger": "gardener_charge"
+      },
+      "low_energy": {
+        "duration_s": 2.4,
+        "loop": true,
+        "fcurve_count": 18,
+        "from_tier3_payload": false,
+        "real_keys": true,
+        "gardener_extension": true,
+        "runtime_trigger": "gardener_low_energy"
+      }
+    }
+  }
+}

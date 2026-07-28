@@ -1,0 +1,60 @@
+operations:
+  template:
+    - load_environment_template
+    - inspect_template_capabilities
+
+  terrain:
+    - create_flat_chunk
+    - create_diorama_block
+    - apply_height_profile
+    - cut_lake_basin
+    - cut_river_path
+    - create_island_shell
+    - create_ocean_floor_tiers
+
+  assembly:
+    - append_registered_module
+    - place_module
+    - rotate_module
+    - scale_module_within_limits
+    - attach_to_registered_socket
+    - create_build_plot_marker
+    - create_navigation_hint
+    - create_collision_hint
+    - create_camera_marker
+
+  nature:
+    - place_tree_cluster
+    - place_bush_cluster
+    - place_grass_patch
+    - place_rock_cluster
+    - place_bamboo_cluster
+    - place_kelp_cluster
+    - place_coral_cluster
+
+  optimization:
+    - generate_module_lod
+    - generate_static_hlod_cluster
+    - apply_visibility_tags
+    - apply_export_collections
+
+  preview:
+    - apply_registered_lighting_rig
+    - apply_registered_camera_rig
+    - render_registered_views
+
+  export:
+    - save_job_blend
+    - export_registered_glb_modules
+    - export_scene_manifest
+    - generate_validation_report
+
+forbidden:
+  - execute_arbitrary_python
+  - run_shell
+  - install_addon
+  - download_external_asset
+  - open_unregistered_blend
+  - overwrite_template
+  - write_approved_catalog
+  - mutate_godot_world_state

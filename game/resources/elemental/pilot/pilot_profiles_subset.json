@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "note": "Subset only — 5 elements + 4 profiles + sim_lod_pc_balanced_v1. Not a full DNA import.",
+  "elements": [
+	"element_stone",
+	"element_wood",
+	"element_soil",
+	"element_water"
+  ],
+  "physical_profiles": {
+	"phys_stone_soft_v1": {
+	  "mass_density": 0.72,
+	  "water_resistance": 0.75,
+	  "water_absorption": 0.1
+	},
+	"phys_stone_hard_v1": {
+	  "mass_density": 0.88,
+	  "water_resistance": 0.9,
+	  "water_absorption": 0.05
+	},
+	"phys_wood_soft_v1": {
+	  "mass_density": 0.28,
+	  "water_resistance": 0.35,
+	  "water_absorption": 0.45
+	},
+	"phys_soil_loam_v1": {
+	  "mass_density": 0.5,
+	  "water_resistance": 0.05,
+	  "water_absorption": 0.84,
+	  "fertility": 0.82
+	},
+	"phys_water_v1": {
+	  "mass_density": 0.5,
+	  "viscosity": 0.15,
+	  "wetness_emit_radius_m": 8.0,
+	  "wetness_emit_rate": 0.12
+	}
+  },
+  "sim_lod_pc_balanced_v1": {
+	"tiers": [
+	  {"tier": 0, "distance_m": [0, 32], "update_hz": 60, "mode": "FULL"},
+	  {"tier": 1, "distance_m": [32, 96], "update_hz": 15, "mode": "FULL_LIMITED"},
+	  {"tier": 2, "distance_m": [96, 256], "update_hz": 2, "mode": "STATISTICAL"},
+	  {"tier": 3, "distance_m": [256, 999999], "update_hz": 0.2, "mode": "TIME_DELTA_ONLY"}
+	]
+  }
+}

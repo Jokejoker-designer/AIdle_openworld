@@ -1,0 +1,193 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "COMMERCIAL-HARDENING-VERIFY-001-2026-07-23",
+  "step_id": "COMMERCIAL-HARDENING-VERIFY-001",
+  "directive_id": 99,
+  "task_id": "COMMERCIAL-HARDENING-VERIFY",
+  "authority_token": "VERIFY_ONLY",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_HUMAN_BATCH",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "COMMERCIAL_VERIFY_16_16_PASS_AFTER_P1E003_FIX_GAPS_DOCUMENTED",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "writer_transcript_ref": "a1f3db8e-52b0-461e-939b-4546b296e2f7",
+  "product_writes_this_wave": [
+    "game/tests/p1e003_density_exposure_smoke.gd"
+  ],
+  "human_playtest": {
+    "verbatim": "Da choi thu thay ok day bam sat theo ke hoach va hoan thien commercial grade",
+    "batch_accept": "orchestration/receipts/BATCH_TIER1_001/HUMAN_ACCEPT_BATCH_TIER1_001.json"
+  },
+  "suite": [
+    {
+      "name": "c5h1",
+      "script": "res://tests/ucbv_001_c5h1_companion_deadlock_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "h1_flow",
+      "script": "res://tests/h1_consolidation_flow_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "h1_error_free",
+      "script": "res://tests/h1_consolidation_error_free_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "h1_chrome",
+      "script": "res://tests/h1_consolidation_chrome_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "ucbv_int",
+      "script": "res://tests/ucbv_001_integration_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "ucbv_inputmap",
+      "script": "res://tests/ucbv_001_inputmap_e2e_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "ucbv_nav",
+      "script": "res://tests/ucbv_001_navigation_warning_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "ctrl_1b_ctx",
+      "script": "res://tests/control_1b_context_router_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "ctrl_1b_a11y",
+      "script": "res://tests/control_1b_accessibility_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "ctrl_1b_int",
+      "script": "res://tests/control_1b_integration_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "p1e003",
+      "script": "res://tests/p1e003_density_exposure_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": "",
+      "note": "rerun after allowlist for approved Nori GLB"
+    },
+    {
+      "name": "p1e004_art",
+      "script": "res://tests/p1e004_art_style_manager_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "p1e006",
+      "script": "res://tests/p1e006_world_profile_variants_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "p2e_core",
+      "script": "res://tests/p2e001_block_assembly_core_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "p2e_playable",
+      "script": "res://tests/p2e001_block_assembly_playable_select_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    },
+    {
+      "name": "bridge",
+      "script": "res://scripts/modules/bridge/desktop_bridge_smoke.gd",
+      "exit": 0,
+      "status": "PASS",
+      "pass": "",
+      "fail_snip": ""
+    }
+  ],
+  "suite_after_fixes": {
+    "p1e003_rerun": "PASS",
+    "c5h1_after_ux002": 0,
+    "ctrl_1b_after_ux002": 0
+  },
+  "gaps": [
+    {
+      "id": "SAVE_SOAK",
+      "severity": "MEDIUM",
+      "title": "Dedicated save/idempotency/revision soak suite thin",
+      "route": "TIER2"
+    },
+    {
+      "id": "PERF_BUDGET",
+      "severity": "MEDIUM",
+      "title": "Performance budgets not measured",
+      "route": "TIER1 measure next"
+    },
+    {
+      "id": "A11Y_FULL",
+      "severity": "LOW",
+      "title": "Full a11y product audit open",
+      "route": "TIER2 Control 1B"
+    },
+    {
+      "id": "ONBOARDING",
+      "severity": "LOW",
+      "title": "First-run polish open",
+      "route": "TIER2"
+    },
+    {
+      "id": "ART_COHERENCE",
+      "severity": "LOW",
+      "title": "Full art coherence pass open",
+      "route": "TIER2 P1E"
+    }
+  ],
+  "checklist": "orchestration/control/COMMERCIAL_READY_SHIP_CHECKLIST_001.md",
+  "red_f01_ship": false,
+  "recorded_at": "2026-07-23T15:13:20+07:00"
+}

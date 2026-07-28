@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "reaction_id",
+    "name",
+    "inputs",
+    "conditions",
+    "outputs",
+    "state_changes",
+    "gameplay_effect",
+    "visual_effect",
+    "priority",
+    "cooldown_s",
+    "world_profiles",
+    "runtime_owner",
+    "ai_authority"
+  ],
+  "properties": {
+    "reaction_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conditions": {
+      "type": "object"
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "state_changes": {
+      "type": "object"
+    },
+    "gameplay_effect": {
+      "type": "boolean"
+    },
+    "visual_effect": {
+      "type": "boolean"
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "cooldown_s": {
+      "type": "number",
+      "minimum": 0
+    },
+    "world_profiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "runtime_owner": {
+      "const": "GODOT_4_3"
+    },
+    "ai_authority": {
+      "const": "CONFIGURE_ONLY"
+    }
+  },
+  "additionalProperties": false
+}

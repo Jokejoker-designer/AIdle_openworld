@@ -1,0 +1,72 @@
+{
+  "case_id": "INV-18-batch-root-additional-properties",
+  "description": "F05: batch envelope additionalProperties:false must reject extra_backdoor and tool_authority at batch root",
+  "expected_reject": [
+    "additionalProperties",
+    "batch",
+    "extra_backdoor",
+    "tool_authority",
+    "unknown"
+  ],
+  "codex_finding": "CHAR1C-CODEX-F05",
+  "payload": {
+    "schema_version": "character_foundry_1c_intake_batch/1.0",
+    "character_count": 28,
+    "world_count": 7,
+    "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+    "extra_backdoor": true,
+    "tool_authority": true,
+    "records": [
+      {
+        "schema_version": "character_spec/1.0",
+        "character_id": "CCP-RH-001",
+        "display_name": "Nori-7",
+        "world_profile_id": "cozy_cyber_pixel",
+        "world_profile_display": "Cozy Cyber-Pixel / Dreamy Low-Poly",
+        "character_class": "ROBOT_HELPER",
+        "species_form": "Robot làm vườn hình giọt nước",
+        "gameplay_role": "Chăm sóc nông trại và hướng dẫn công cụ cơ bản",
+        "world_ability": "Tưới cây, thu gom sản phẩm nhỏ, báo cây bệnh và đánh dấu ô đất chưa được chăm sóc.",
+        "limitation": "Không tự nhổ cây, đổi lịch trồng hoặc tiêu tài nguyên nếu chưa được người chơi xác nhận.",
+        "behavior_allowlist": [
+          "Tưới cây",
+          "thu gom sản phẩm nhỏ",
+          "báo cây bệnh",
+          "đánh dấu ô đất chưa được chăm sóc"
+        ],
+        "behavior_denylist": [
+          "Không tự nhổ cây",
+          "đổi lịch trồng hoặc tiêu tài nguyên nếu chưa được người chơi xác nhận",
+          "direct_world_commit",
+          "mutate_canonical_inventory",
+          "mutate_ownership",
+          "mutate_economy",
+          "execute_arbitrary_code",
+          "trustlayer_tool_invocation",
+          "replace_or_merge_aida",
+          "provider_credential_access"
+        ],
+        "authority": {
+          "can_world_commit": false,
+          "tool_authority": false,
+          "trustlayer_worker": false,
+          "is_system_companion": false,
+          "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+        },
+        "identity_boundary": {
+          "is_aida": false,
+          "aida_merge_or_replace": false,
+          "replaces_system_companion": false
+        },
+        "provenance": {
+          "package": "AIdle Character Foundry MD",
+          "pack_version": "1.0",
+          "source_path": "01_cozy_cyber_pixel/01_nori_7.md",
+          "source_sha256": "c59808565ea3a523bf8714e45e0048557f4c08b3454698326d56c420f7177be4",
+          "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+        },
+        "cozy_cast": true
+      }
+    ]
+  }
+}

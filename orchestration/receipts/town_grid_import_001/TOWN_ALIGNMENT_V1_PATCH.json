@@ -1,0 +1,86 @@
+{
+  "schema_version": "town_alignment_patch/1.0",
+  "receipt_id": "TOWN_ALIGNMENT_V1_PATCH",
+  "patches": "TOWN_ALIGNMENT_V1",
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "directive_ref": "object_level_human_decisions.CONFLICT_WD_GAZEBO_VS_HOME_BLD",
+  "decision": "HUMAN_RULED_MOVE_DECK",
+  "decided_at": "2026-07-24T12:07:00+07:00",
+  "decided_by": "human_product_lead",
+  "agent": "grok",
+  "timestamp_utc": "2026-07-24T05:20:00Z",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "scope": {
+    "mode": "single_wood_platform_reposition",
+    "only_moved": "WD-GAZEBO",
+    "not_moved": [
+      "HOME.BLD",
+      "GARDEN.BLD",
+      "MARKET.BLD",
+      "WELL.BLD",
+      "WINDMILL.BLD",
+      "BRIDGE.BLD",
+      "LOOKOUT.BLD",
+      "all_other_plots",
+      "all_other_wood_platforms"
+    ],
+    "remesh": false,
+    "full_alignment_rerun": false
+  },
+  "change": {
+    "wood_platform_id": "WD-GAZEBO",
+    "serves": "cozy_gazebo_A",
+    "rect_size_unchanged": [3.2, 3.2],
+    "old_center_xz": [0.0, 0.0],
+    "old_rect_xz": [-1.6, 1.6, -1.6, 1.6],
+    "old_district": "PLAZA",
+    "new_center_xz": [2.0, 10.0],
+    "new_rect_xz": [0.4, 3.6, 8.4, 11.6],
+    "new_district": "GARDEN",
+    "aligned_to": {
+      "plot_id": "GARDEN.BLD",
+      "object_id": "cozy_gazebo_A",
+      "transform_xz": [2.0, 10.0],
+      "grid_cell": "H12",
+      "ssot": "game/resources/town/town_grid_plan_v1.json"
+    },
+    "files_edited": [
+      "game/resources/town/town_fairy_street_plan_v1.json",
+      "orchestration/control/visual_reference/town_plan/TOWN_FAIRY_STREET_PLAN_V1.json",
+      "game/scripts/modules/town/town_street_loader.gd"
+    ]
+  },
+  "conflict_status": {
+    "id": "CONFLICT_WD_GAZEBO_VS_HOME_BLD",
+    "status": "RESOLVED",
+    "resolution": "HUMAN_RULED_MOVE_DECK — WD-GAZEBO deck recentered on GARDEN.BLD (2.0, 10.0) / H12; no longer under HOME.BLD (0,0) / G7"
+  },
+  "confirmation": {
+    "other_plots_moved": false,
+    "buildings_remeshed": false,
+    "home_bld_untouched": true,
+    "garden_bld_mesh_untouched": true,
+    "six_need_human_buildings_untouched": true
+  },
+  "headed_evidence": {
+    "log": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/godot_headed_qa_wd_gazebo_h12.log",
+    "marker": "AIDLE_TOWN_GRID_HEADED_QA=PASS checks=11 captures=29",
+    "street_marker": "AIDLE_TOWN_STREET_IMPORT=PASS wood=12/12",
+    "topdown": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/town_alignment_topdown_v1_1600x900.png",
+    "close_gazebo": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/close_gazebo_bld_1280x720.png",
+    "close_home": "E:/AIdle_openworld/orchestration/evidence/town_grid_import_001/close_home_1280x720.png",
+    "visual_confirm": {
+      "gazebo_deck_under_garden_bld": true,
+      "home_bld_no_wd_gazebo_underfoot": true,
+      "note": "close_gazebo shows WD-GAZEBO plank under GARDEN.BLD; close_home shows only WD-COTTAGE porch deck (not WD-GAZEBO)"
+    }
+  },
+  "runtime_plan_verify": {
+    "game_resources_rect": [0.4, 3.6, 8.4, 11.6],
+    "center_xz": [2.0, 10.0],
+    "HOME.BLD_transform_xz_unchanged": [0.0, 0.0],
+    "GARDEN.BLD_transform_xz_unchanged": [2.0, 10.0]
+  }
+}

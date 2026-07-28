@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_CTRL-1B-002-MACHINE-REVIEW-001",
+  "task_id": "CTRL-1B-002",
+  "reviewed_at": "2026-07-21T23:02:54.5477397Z",
+  "reviewed_by": "codex",
+  "directive_reviewed": 58,
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "machine_acceptor": "codex",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "independent_checks": {
+    "exact_five_children": true,
+    "strict_sequence": true,
+    "maf_receipt_schema_errors": 0,
+    "contract_validator": "PASS valid + 12/12 invalid rejected",
+    "control_smokes": "4/4 PASS, zero ERROR/parse lines",
+    "affected_regressions": "7/7 PASS, zero ERROR/parse lines",
+    "clean_boot": "PASS, zero ERROR/parse lines",
+    "headed_images_present": 14,
+    "headed_gate_result": "25/33 PASS"
+  },
+  "durable_children": [
+    {"wave":"B0","child_task_ref":"019f86c1-854c-76a3-a36b-004cc8e39216","created_at":"2026-07-21T22:17:37.361619600Z","completed_at":"2026-07-21T22:26:34.822488800Z"},
+    {"wave":"B1","child_task_ref":"019f86ca-008a-7bd2-ba32-3c5ec9858e51","created_at":"2026-07-21T22:26:53.200803700Z","completed_at":"2026-07-21T22:39:42.601113200Z"},
+    {"wave":"Q2","child_task_ref":"019f86d6-91f6-7091-9456-0c3da2173af7","created_at":"2026-07-21T22:40:36.859856500Z","completed_at":"2026-07-21T22:47:48.870020400Z"},
+    {"wave":"A3","child_task_ref":"019f86dd-5eba-7db3-bb7a-f9437c720100","created_at":"2026-07-21T22:48:02.495061500Z","completed_at":"2026-07-21T22:52:02.549764700Z"},
+    {"wave":"P4","child_task_ref":"019f86e1-343c-7d00-9f41-6784b41c02c5","created_at":"2026-07-21T22:52:13.762742700Z","completed_at":"2026-07-21T22:56:02.600089900Z"}
+  ],
+  "provenance_blockers": [
+    {"wave":"B1","receipt_child_task_ref":"e85e1802-24f4-41a1-9968-8371bd39317d","durable_child_task_ref":"019f86ca-008a-7bd2-ba32-3c5ec9858e51"},
+    {"wave":"Q2","receipt_child_task_ref":"2b857b73-3622-49ef-8747-4974b05b6ce6","durable_child_task_ref":"019f86d6-91f6-7091-9456-0c3da2173af7"}
+  ],
+  "product_evidence_blockers": [
+    "H-03 prompt_send versus prompt_newline executable behavior",
+    "H-07 read-only inspect provenance surface",
+    "H-12 Q/build_rotate_left smoke",
+    "H-17 Companion understanding plus Proposal Card",
+    "H-19 confirmation-hold end-to-end behavior",
+    "H-20 confirmed handoff and complete-only collision without client authority",
+    "H-26 observable sensitivity behavior",
+    "H-28 applied large cursor readability",
+    "A3-F09 full remappable foundation catalog in settings UI",
+    "A3-F10 action label near cursor runtime consumer"
+  ],
+  "responsive_observation": "At 868x517 the bottom action/help layers visibly compete for space; correction must prove no clipping or overlap rather than relying only on image dimensions.",
+  "next_route": "DIRECTIVE_59_CORRECTION"
+}

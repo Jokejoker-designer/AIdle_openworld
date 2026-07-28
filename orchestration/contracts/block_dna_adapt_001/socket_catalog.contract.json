@@ -1,0 +1,487 @@
+{
+  "schema_version": "block_dna_adapt_001_socket_catalog/1.0",
+  "catalog_version": "1.0",
+  "source_socket_types_sha256": "37f0522e03048529b041b47c700f6ad48f3739ac5f94863706b1acabb3f3ef41",
+  "source_path": "world_DNA/.../foundation_core/AIdle_Block_Module_Foundation_v1.0/catalogs/socket_types.json",
+  "rules": {
+    "connections_require_opposite_polarity": true,
+    "connections_require_mutual_compatibility_both_directions": true,
+    "same_polarity_connection": "REJECT",
+    "one_way_compatibility": "REJECT",
+    "source_asymmetric_without_adapter_normalization": "REJECT_SOURCE_AUDIT",
+    "dna_sources_immutable": true,
+    "catalog_default_polarity_required_without_normalization": true,
+    "peer_launder_directed_without_pair_bound_norm": "REJECT",
+    "normalization_must_match_pair_and_orientation": true
+  },
+  "polarity_model": {
+    "description": "Each socket end on a connection must declare polarity input or output. A valid edge joins output→input (opposite polarity). Symmetric peer sockets may use peer polarity with explicit mutual peer rules.",
+    "allowed_polarities": [
+      "input",
+      "output",
+      "peer"
+    ]
+  },
+  "socket_types": [
+    {
+      "socket_type": "snap_grid",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "snap_grid"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "terrain_edge",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "terrain_edge",
+        "path_endpoint",
+        "bridge_anchor"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "terrain_surface",
+      "default_polarity": "output",
+      "compatible_with": [
+        "plant_root",
+        "prop_base",
+        "building_foundation"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "building_foundation",
+      "default_polarity": "input",
+      "compatible_with": [
+        "terrain_surface",
+        "vertical_stack"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "wall_edge",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "wall_edge",
+        "door_opening",
+        "window_opening",
+        "roof_edge"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "door_opening",
+      "default_polarity": "output",
+      "compatible_with": [
+        "door_leaf",
+        "path_endpoint",
+        "wall_edge"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "door_leaf",
+      "default_polarity": "input",
+      "compatible_with": [
+        "door_opening"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "window_opening",
+      "default_polarity": "output",
+      "compatible_with": [
+        "window_frame",
+        "wall_edge"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "window_frame",
+      "default_polarity": "input",
+      "compatible_with": [
+        "window_opening"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "roof_edge",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "wall_edge",
+        "roof_edge",
+        "solar_mount",
+        "green_roof_mount"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "vertical_stack",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "vertical_stack",
+        "building_foundation"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "path_endpoint",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "path_endpoint",
+        "door_opening",
+        "bridge_anchor",
+        "terrain_edge"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "bridge_anchor",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "bridge_anchor",
+        "terrain_edge",
+        "path_endpoint"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "prop_surface",
+      "default_polarity": "output",
+      "compatible_with": [
+        "prop_base",
+        "plant_pot",
+        "seat_mount"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "prop_base",
+      "default_polarity": "input",
+      "compatible_with": [
+        "prop_surface",
+        "terrain_surface"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "plant_pot",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "plant_root",
+        "prop_surface"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "plant_root",
+      "default_polarity": "input",
+      "compatible_with": [
+        "plant_pot",
+        "terrain_surface"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "pipe_port",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "pipe_port"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "energy_port",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "energy_port"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "water_port",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "water_port"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "magic_port",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "magic_port"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "portal_frame",
+      "default_polarity": "output",
+      "compatible_with": [
+        "portal_link"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "portal_link",
+      "default_polarity": "input",
+      "compatible_with": [
+        "portal_frame"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "vfx_anchor",
+      "default_polarity": "output",
+      "compatible_with": [
+        "vfx_emitter"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "vfx_emitter",
+      "default_polarity": "input",
+      "compatible_with": [
+        "vfx_anchor"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "audio_anchor",
+      "default_polarity": "output",
+      "compatible_with": [
+        "audio_emitter"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "audio_emitter",
+      "default_polarity": "input",
+      "compatible_with": [
+        "audio_anchor"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "seat_mount",
+      "default_polarity": "input",
+      "compatible_with": [
+        "prop_surface"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "solar_mount",
+      "default_polarity": "input",
+      "compatible_with": [
+        "roof_edge"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "green_roof_mount",
+      "default_polarity": "input",
+      "compatible_with": [
+        "roof_edge"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "rail_endpoint",
+      "default_polarity": "peer",
+      "compatible_with": [
+        "rail_endpoint"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "character_hand",
+      "default_polarity": "output",
+      "compatible_with": [
+        "tool_grip",
+        "carry_grip"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "tool_grip",
+      "default_polarity": "input",
+      "compatible_with": [
+        "character_hand"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "carry_grip",
+      "default_polarity": "input",
+      "compatible_with": [
+        "character_hand"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "character_back",
+      "default_polarity": "output",
+      "compatible_with": [
+        "back_attachment"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "back_attachment",
+      "default_polarity": "input",
+      "compatible_with": [
+        "character_back"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "character_head",
+      "default_polarity": "output",
+      "compatible_with": [
+        "head_attachment"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "head_attachment",
+      "default_polarity": "input",
+      "compatible_with": [
+        "character_head"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "character_saddle",
+      "default_polarity": "output",
+      "compatible_with": [
+        "rider_mount"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    },
+    {
+      "socket_type": "rider_mount",
+      "default_polarity": "input",
+      "compatible_with": [
+        "character_saddle"
+      ],
+      "rotation_snap_deg": 15,
+      "scale_delta_max": 0.25
+    }
+  ],
+  "adapter_normalizations": [
+    {
+      "normalization_id": "norm_terrain_surface_prop_base_v1",
+      "pair": [
+        "terrain_surface",
+        "prop_base"
+      ],
+      "allowed_orientations": [
+        {
+          "from_socket": "terrain_surface",
+          "to_socket": "prop_base",
+          "from_polarity": "output",
+          "to_polarity": "input"
+        }
+      ],
+      "effect": "Mutual without DNA rewrite; directed output->input only",
+      "dna_rewrite": false
+    },
+    {
+      "normalization_id": "norm_building_foundation_vertical_stack_v1",
+      "pair": [
+        "building_foundation",
+        "vertical_stack"
+      ],
+      "allowed_orientations": [
+        {
+          "from_socket": "vertical_stack",
+          "to_socket": "building_foundation",
+          "from_polarity": "output",
+          "to_polarity": "input"
+        }
+      ],
+      "effect": "Pair-bound: vertical_stack effective output -> building_foundation input",
+      "dna_rewrite": false
+    },
+    {
+      "normalization_id": "norm_wall_edge_window_opening_v1",
+      "pair": [
+        "wall_edge",
+        "window_opening"
+      ],
+      "allowed_orientations": [
+        {
+          "from_socket": "wall_edge",
+          "to_socket": "window_opening",
+          "from_polarity": "peer",
+          "to_polarity": "peer"
+        }
+      ],
+      "effect": "Pair-bound peer/peer only for wall_edge/window_opening",
+      "dna_rewrite": false
+    },
+    {
+      "normalization_id": "norm_wall_edge_door_opening_v1",
+      "pair": [
+        "wall_edge",
+        "door_opening"
+      ],
+      "allowed_orientations": [
+        {
+          "from_socket": "wall_edge",
+          "to_socket": "door_opening",
+          "from_polarity": "peer",
+          "to_polarity": "peer"
+        }
+      ],
+      "effect": "Pair-bound peer/peer only for wall_edge/door_opening",
+      "dna_rewrite": false
+    }
+  ],
+  "source_audit": {
+    "fail_closed_without_normalization": true,
+    "asymmetric_pairs_must_declare_normalization_id_on_edge_or_connection": true
+  }
+}

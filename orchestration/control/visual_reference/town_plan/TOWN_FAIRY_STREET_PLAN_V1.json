@@ -1,0 +1,2473 @@
+{
+  "schema_version": "town_fairy_street_plan/1.1",
+  "plan_id": "TOWN_FAIRY_STREET_PLAN_V1",
+  "title": "Thị trấn Cổ tích Thân thiện — Storybook Street Town",
+  "title_en": "Friendly Fairy-Tale Street Town (flat stone paths + wood decks)",
+  "status": "DESIGN_FAIRY_STREET_ACTIVE",
+  "accepted": false,
+  "self_accept": false,
+  "authority": "REPORT_ONLY | design parent — no game/** patch",
+  "mockup_ssot": "MOCKUP_SSOT_V2",
+  "world_profile": "cozy_cyber_pixel",
+  "planning_style": "modular_fairy_street_with_flat_stone_and_wood_surfaces",
+  "planning_style_vi": "Phố cổ tích modular + mạng đường đá lát phẳng 0° + bệ/ván gỗ trước cửa & ven nước. Segment 3DStreet-style · family kiến trúc lặp · palette xen kẽ · plaza mềm.",
+  "revision_note": "v1.1: add STONE_PATH_NETWORK + WOOD_PLATFORMS + surface materials (user request flat paved stone + wood decks)",
+  "coordinate_convention": "game_godot: x=east, z=north, y=up; rotation_deg about y",
+  "fits_map": {
+    "content_bounds": {
+      "min": {
+        "x": -11.5,
+        "z": -11.5
+      },
+      "max": {
+        "x": 11.5,
+        "z": 11.5
+      }
+    },
+    "cadastre_bounds": {
+      "min": {
+        "x": -12,
+        "z": -12
+      },
+      "max": {
+        "x": 12,
+        "z": 12
+      }
+    },
+    "note": "Fits current starter realm ±12."
+  },
+  "grid": {
+    "pattern": "soft_grid_with_street_segments",
+    "cell_size_units": 2.0,
+    "cols": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L"
+    ],
+    "rows": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "origin": "A1 = NW (-11,+11); L12 = SE (+11,-11)",
+    "label_format": "COLROW e.g. G7"
+  },
+  "reference_3dstreet": {
+    "repo": "https://github.com/3DStreet/3dstreet",
+    "license_note": "AGPL-3.0 codebase; assets often CC-BY-NC — do NOT vendor into AIdle commercial tree without counsel",
+    "methods_adopted": [
+      "Street as layered segments (path / sidewalk / edge objects)",
+      "Building variants along street edge",
+      "Modular street furniture density",
+      "Rapid layout from plan JSON → 3D instances"
+    ],
+    "methods_NOT_copied": [
+      "A-Frame components / source",
+      "3DStreet GLB/texture assets",
+      "Streetmix JSON import pipeline"
+    ],
+    "aidle_mapping": {
+      "street_segments": "game town path modules + future street_segment schema",
+      "building_variants": "arch_family + palette_variant on plot",
+      "runtime": "Godot P1E cozy modules / Foundry IDs — not A-Frame"
+    }
+  },
+  "architecture_families": {
+    "ARCH_COTTAGE": {
+      "name_vi": "Nhà tranh cổ tích (cottage)",
+      "name_en": "Storybook cottage",
+      "silhouette": "steep_peak_roof_soft_corners",
+      "height_tier": "1.5_story",
+      "mood": "home_warm",
+      "repeatable": true,
+      "ssot_primary": "cozy_house_small_A",
+      "palette_variants": [
+        "cream_rose",
+        "butter_peach",
+        "mint_soft",
+        "sky_lilac"
+      ],
+      "roof_variants": [
+        "terracotta_soft",
+        "slate_blue",
+        "moss_green"
+      ],
+      "door_variants": [
+        "arched_wood",
+        "round_window_door"
+      ],
+      "harmony_rules": [
+        "Cùng độ dốc mái trong 1 dãy phố",
+        "Đổi palette xen kẽ (không 2 nhà liền kề cùng màu)",
+        "Cửa sổ tròn nhỏ + hộp hoa mặt tiền"
+      ]
+    },
+    "ARCH_SHOP": {
+      "name_vi": "Mặt phố cửa hàng",
+      "name_en": "Friendly shop front",
+      "silhouette": "flat_shop_awning_peak_accent",
+      "height_tier": "1_story",
+      "mood": "market_cheerful",
+      "repeatable": true,
+      "ssot_primary": "cozy_market_stall_A",
+      "palette_variants": [
+        "strawberry_awning",
+        "honey_awning",
+        "blueberry_awning"
+      ],
+      "roof_variants": [
+        "striped_awning"
+      ],
+      "door_variants": [
+        "open_stall",
+        "half_door"
+      ],
+      "harmony_rules": [
+        "Nhịp 1 module / 2m mặt tiền dọc Storybook Lane",
+        "Mái che cùng cao độ",
+        "Biển hiệu cùng font silhouette (không neon)"
+      ]
+    },
+    "ARCH_WORKSHOP": {
+      "name_vi": "Xưởng thợ",
+      "name_en": "Craft workshop",
+      "silhouette": "boxy_chimney_soft",
+      "height_tier": "1_story",
+      "mood": "craft_warm",
+      "repeatable": true,
+      "ssot_primary": "cozy_workshop_A",
+      "palette_variants": [
+        "clay_umber",
+        "warm_sand"
+      ],
+      "roof_variants": [
+        "dark_shingle"
+      ],
+      "door_variants": [
+        "wide_barn_door_soft"
+      ],
+      "harmony_rules": [
+        "Cùng chimney language với cottage",
+        "Sân trước có rack props"
+      ]
+    },
+    "ARCH_GAZEBO": {
+      "name_vi": "Chòi vườn",
+      "name_en": "Garden gazebo",
+      "silhouette": "open_hex_or_round_roof",
+      "height_tier": "open",
+      "mood": "rest_soft",
+      "repeatable": false,
+      "ssot_primary": "cozy_gazebo_A",
+      "palette_variants": [
+        "cream_wood"
+      ],
+      "roof_variants": [
+        "soft_cone"
+      ],
+      "door_variants": [
+        "open"
+      ],
+      "harmony_rules": [
+        "Tâm village green — landmark nhẹ, không che nhà"
+      ]
+    },
+    "ARCH_GREENHOUSE": {
+      "name_vi": "Nhà kính",
+      "name_en": "Glass greenhouse",
+      "silhouette": "gable_glass",
+      "height_tier": "1_story",
+      "mood": "grow_fresh",
+      "repeatable": true,
+      "ssot_primary": "cozy_greenhouse_A",
+      "palette_variants": [
+        "mint_frame",
+        "white_frame"
+      ],
+      "roof_variants": [
+        "glass_gable"
+      ],
+      "door_variants": [
+        "glass_door"
+      ],
+      "harmony_rules": [
+        "Khung mỏng, trong suốt — không tranh sáng cottage"
+      ]
+    },
+    "ARCH_WELL": {
+      "name_vi": "Nhà giếng",
+      "name_en": "Well house",
+      "silhouette": "round_stone_peak_cap",
+      "height_tier": "low",
+      "mood": "water_calm",
+      "repeatable": false,
+      "ssot_primary": "cozy_well_house_A",
+      "palette_variants": [
+        "stone_warm"
+      ],
+      "roof_variants": [
+        "wood_cap"
+      ],
+      "door_variants": [
+        "arch_open"
+      ],
+      "harmony_rules": [
+        "Gần ao / path nước — scale nhỏ hơn cottage"
+      ]
+    },
+    "ARCH_WINDMILL": {
+      "name_vi": "Cối xay gió",
+      "name_en": "Windmill landmark",
+      "silhouette": "tower_blades",
+      "height_tier": "landmark_tall",
+      "mood": "story_icon",
+      "repeatable": false,
+      "ssot_primary": "cozy_windmill_A",
+      "palette_variants": [
+        "cream_tower_blue_blades"
+      ],
+      "roof_variants": [
+        "cone_cap"
+      ],
+      "door_variants": [
+        "small_door"
+      ],
+      "harmony_rules": [
+        "1 landmark / map — neo tầm nhìn SW"
+      ]
+    },
+    "ARCH_BARN": {
+      "name_vi": "Kho / chuồng",
+      "name_en": "Soft barn",
+      "silhouette": "wide_gable",
+      "height_tier": "1.5_story",
+      "mood": "farm_friendly",
+      "repeatable": true,
+      "ssot_primary": "cozy_barn_small_A",
+      "palette_variants": [
+        "soft_red",
+        "soft_cream"
+      ],
+      "roof_variants": [
+        "dark_gable"
+      ],
+      "door_variants": [
+        "double_soft"
+      ],
+      "harmony_rules": [
+        "Mái gable cùng góc cottage nhưng rộng hơn"
+      ]
+    },
+    "ARCH_BRIDGE": {
+      "name_vi": "Cầu vòm",
+      "name_en": "Story arch bridge",
+      "silhouette": "gentle_arch",
+      "height_tier": "low_span",
+      "mood": "journey",
+      "repeatable": false,
+      "ssot_primary": "cozy_bridge_arch_A",
+      "palette_variants": [
+        "stone_warm"
+      ],
+      "roof_variants": [
+        "none"
+      ],
+      "door_variants": [
+        "none"
+      ],
+      "harmony_rules": [
+        "Vòm mềm — bắc suối/path, không industrial"
+      ]
+    },
+    "ARCH_LOOKOUT": {
+      "name_vi": "Tháp vọng",
+      "name_en": "Lookout tower",
+      "silhouette": "slim_round_tower",
+      "height_tier": "landmark_mid",
+      "mood": "wonder",
+      "repeatable": false,
+      "ssot_primary": "cozy_watchtower_A",
+      "palette_variants": [
+        "stone_ivy"
+      ],
+      "roof_variants": [
+        "cone_flag"
+      ],
+      "door_variants": [
+        "small_door"
+      ],
+      "harmony_rules": [
+        "1 tháp SE — complement windmill (không 2 tháp cạnh nhau)"
+      ]
+    }
+  },
+  "surface_materials": {
+    "STONE_PAVER_FLAT": {
+      "name_vi": "Đá lát phẳng",
+      "name_en": "Flat stone pavers",
+      "kind": "paved_path",
+      "flat": true,
+      "slope_deg": 0.0,
+      "module_hint": "cozy_path_stone_A",
+      "finish": "rounded_flagstone_or_square_paver_soft",
+      "edge": "grass_or_flower_soft_shoulder",
+      "color_map": "stone_paver",
+      "use_vi": "Trục chính, vành đai, hẻm chợ — đi êm, đọc rõ hướng",
+      "harmony": [
+        "Mặt phẳng 0° (không gồ ghề gameplay)",
+        "Viền bo mềm + 1 hàng hoa/cỏ hai bên",
+        "Khớp nối segment liên tục — không gãy giữa cell"
+      ]
+    },
+    "STONE_RING_PLAZA": {
+      "name_vi": "Vòng đá quảng trường",
+      "name_en": "Plaza stone ring",
+      "kind": "paved_plaza_ring",
+      "flat": true,
+      "slope_deg": 0.0,
+      "module_hint": "cozy_path_stone_A",
+      "finish": "concentric_flat_pavers",
+      "edge": "lawn_inside_flower_outside",
+      "color_map": "stone_paver_light",
+      "use_vi": "Vòng quanh gazebo — lát đá phẳng trên nền cỏ"
+    },
+    "WOOD_DECK_FLAT": {
+      "name_vi": "Bệ gỗ phẳng",
+      "name_en": "Flat wood deck / platform",
+      "kind": "wood_platform",
+      "flat": true,
+      "slope_deg": 0.0,
+      "module_hint": "future_cozy_wood_deck_A | placeholder: wood plank plane",
+      "finish": "soft_planks_parallel_to_long_edge",
+      "edge": "rounded_beam_or_low_rail",
+      "color_map": "wood_deck",
+      "use_vi": "Sàn đứng trước nhà / shop / giếng / chân tháp — thân thiện, ấm",
+      "harmony": [
+        "Cao hơn path đá ~0.05–0.12 unit (gần như phẳng, có mép đọc được)",
+        "Thớ gỗ song song trục dài bệ",
+        "Góc bo tròn storybook — không pallet thô industrial"
+      ]
+    },
+    "WOOD_BOARDWALK": {
+      "name_vi": "Cầu ván / lối gỗ dài",
+      "name_en": "Wood boardwalk",
+      "kind": "wood_path",
+      "flat": true,
+      "slope_deg": 0.0,
+      "module_hint": "future_cozy_boardwalk_A",
+      "finish": "plank_run_along_path",
+      "edge": "low_soft_rail_optional",
+      "color_map": "wood_boardwalk",
+      "use_vi": "Ven nước, tiếp cận cầu, đoạn trên cỏ ẩm — thay đá nơi cần cảm giác ấm"
+    },
+    "WOOD_BRIDGE_DECK": {
+      "name_vi": "Mặt sàn gỗ cầu",
+      "name_en": "Bridge wood decking",
+      "kind": "wood_bridge_surface",
+      "flat": true,
+      "slope_deg": 0.0,
+      "module_hint": "part_of cozy_bridge_arch_A",
+      "finish": "planks_across_span",
+      "edge": "soft_handrail",
+      "color_map": "wood_deck_dark",
+      "use_vi": "Mặt cầu vòm — phẳng an toàn, lan can mềm"
+    }
+  },
+  "surface_layering": {
+    "order_bottom_to_top": [
+      "terrain_lawn",
+      "STONE_PAVER_FLAT / STONE_RING_PLAZA",
+      "WOOD_BOARDWALK / WOOD_DECK_FLAT",
+      "WOOD_BRIDGE_DECK",
+      "props_and_furniture",
+      "buildings"
+    ],
+    "rule_vi": "Đá lát luôn mặt phẳng 0° làm lớp đi chính. Bệ gỗ nằm trên / sát path, cao thêm chút để đọc mép, vẫn coi là walkable flat. Boardwalk ven nước thay đá ở đoạn WELL. Junction: đá–gỗ dùng mép bo tròn, không bậc cao.",
+    "ssot_modules": {
+      "stone": "cozy_path_stone_A (+ future path strip variants)",
+      "wood_deck": "design: cozy_wood_deck_A (chưa có GLB — design slot)",
+      "boardwalk": "design: cozy_boardwalk_A (chưa có GLB — design slot)",
+      "bridge_wood": "part of cozy_bridge_arch_A mesh"
+    }
+  },
+  "street_segments": {
+    "seg_plaza_green": {
+      "width_m": 4.0,
+      "layers": [
+        "soft_lawn",
+        "flower_ring",
+        "path_stone_ring"
+      ],
+      "surface": "STONE_RING_PLAZA",
+      "surface_secondary": "WOOD_DECK_FLAT",
+      "feel": "village_heart",
+      "vi": "Quảng trường cỏ + vòng đá phẳng + bệ gỗ dưới gazebo"
+    },
+    "seg_storybook_lane": {
+      "width_m": 3.0,
+      "layers": [
+        "building_face_L",
+        "sidewalk_L_1.0",
+        "path_center_stone_flat_1.0",
+        "sidewalk_R_1.0",
+        "building_face_R",
+        "wood_deck_shopfront"
+      ],
+      "surface": "STONE_PAVER_FLAT",
+      "surface_secondary": "WOOD_DECK_FLAT",
+      "feel": "main_street_friendly",
+      "vi": "Phố chính — lòng đường đá lát phẳng + bệ gỗ trước shop"
+    },
+    "seg_cottage_row": {
+      "width_m": 2.5,
+      "layers": [
+        "garden_strip_0.5",
+        "path_stone_flat_1.0",
+        "wood_porch_deck",
+        "cottage_face"
+      ],
+      "surface": "STONE_PAVER_FLAT",
+      "surface_secondary": "WOOD_DECK_FLAT",
+      "feel": "residential_soft",
+      "vi": "Lối đá phẳng dọc cottage + bệ gỗ hiên nhà"
+    },
+    "seg_craft_alley": {
+      "width_m": 2.0,
+      "layers": [
+        "path_stone_flat_1.2",
+        "wood_work_pad",
+        "prop_strip"
+      ],
+      "surface": "STONE_PAVER_FLAT",
+      "surface_secondary": "WOOD_DECK_FLAT",
+      "feel": "workshop_cozy",
+      "vi": "Hẻm xưởng — đá phẳng + bệ gỗ để dụng cụ"
+    },
+    "seg_orchard_lane": {
+      "width_m": 2.0,
+      "layers": [
+        "tree_edge",
+        "path_stone_soft",
+        "fence_soft"
+      ],
+      "surface": "STONE_PAVER_FLAT",
+      "feel": "nature_walk",
+      "vi": "Lối vườn — đá lát phẳng hẹp"
+    },
+    "seg_water_path": {
+      "width_m": 2.0,
+      "layers": [
+        "water_edge",
+        "wood_boardwalk",
+        "bench_nook"
+      ],
+      "surface": "WOOD_BOARDWALK",
+      "surface_secondary": "STONE_PAVER_FLAT",
+      "feel": "calm_water",
+      "vi": "Ven nước: ván gỗ boardwalk + đoạn đá nối plaza"
+    },
+    "seg_mill_road": {
+      "width_m": 2.0,
+      "layers": [
+        "path_stone_flat",
+        "grass_shoulder"
+      ],
+      "surface": "STONE_PAVER_FLAT",
+      "feel": "landmark_approach",
+      "vi": "Đường đá phẳng tới cối xay / tháp"
+    },
+    "seg_bridge_approach": {
+      "width_m": 2.0,
+      "layers": [
+        "path_stone_to_arch",
+        "wood_bridge_deck",
+        "rail_soft"
+      ],
+      "surface": "STONE_PAVER_FLAT",
+      "surface_secondary": "WOOD_BRIDGE_DECK",
+      "feel": "crossing",
+      "vi": "Tiếp cận đá phẳng + mặt sàn gỗ trên cầu"
+    }
+  },
+  "streets": {
+    "Storybook_Lane": {
+      "class": "main_street",
+      "segment_type": "seg_storybook_lane",
+      "surface": "STONE_PAVER_FLAT",
+      "surface_secondary": "WOOD_DECK_FLAT",
+      "width_m": 3.0,
+      "flat": true,
+      "axis": "z",
+      "at_x": 5.0,
+      "z0": -5.0,
+      "z1": 7.0,
+      "name": "Storybook Lane (phố chính — đá lát phẳng)",
+      "feel": "friendly_shop_rhythm"
+    },
+    "Cottage_Walk": {
+      "class": "residential",
+      "segment_type": "seg_cottage_row",
+      "surface": "STONE_PAVER_FLAT",
+      "surface_secondary": "WOOD_DECK_FLAT",
+      "width_m": 2.5,
+      "flat": true,
+      "axis": "x",
+      "at_z": 5.0,
+      "x0": -5.0,
+      "x1": 5.0,
+      "name": "Cottage Walk (đá phẳng + hiên gỗ)",
+      "feel": "home_garden_front"
+    },
+    "Craft_Alley": {
+      "class": "alley",
+      "segment_type": "seg_craft_alley",
+      "surface": "STONE_PAVER_FLAT",
+      "surface_secondary": "WOOD_DECK_FLAT",
+      "width_m": 2.0,
+      "flat": true,
+      "axis": "x",
+      "at_z": -3.0,
+      "x0": 3.0,
+      "x1": 11.0,
+      "name": "Craft Alley (đá + bệ gỗ xưởng)",
+      "feel": "workshop_cozy"
+    },
+    "Water_Path": {
+      "class": "path",
+      "segment_type": "seg_water_path",
+      "surface": "WOOD_BOARDWALK",
+      "surface_secondary": "STONE_PAVER_FLAT",
+      "width_m": 2.0,
+      "flat": true,
+      "axis": "z",
+      "at_x": -5.0,
+      "z0": -5.0,
+      "z1": 5.0,
+      "name": "Water Path (ván gỗ boardwalk)",
+      "feel": "calm"
+    },
+    "Mill_Road": {
+      "class": "path",
+      "segment_type": "seg_mill_road",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 2.0,
+      "flat": true,
+      "axis": "x",
+      "at_z": -7.0,
+      "x0": -11.0,
+      "x1": 1.0,
+      "name": "Mill Road (đá lát phẳng)",
+      "feel": "landmark_approach"
+    },
+    "Bridge_Approach": {
+      "class": "path",
+      "segment_type": "seg_bridge_approach",
+      "surface": "STONE_PAVER_FLAT",
+      "surface_secondary": "WOOD_BRIDGE_DECK",
+      "width_m": 2.0,
+      "flat": true,
+      "axis": "z",
+      "at_x": 0.0,
+      "z0": -11.0,
+      "z1": -5.0,
+      "name": "Bridge Approach (đá + sàn gỗ cầu)",
+      "feel": "journey_in"
+    },
+    "Cross_Plaza_EW": {
+      "class": "connector",
+      "segment_type": "seg_storybook_lane",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 2.5,
+      "flat": true,
+      "axis": "x",
+      "at_z": 0.0,
+      "x0": -5.0,
+      "x1": 5.0,
+      "name": "Trục đá ngang qua plaza",
+      "feel": "plaza_cross"
+    },
+    "Cross_Plaza_NS": {
+      "class": "connector",
+      "segment_type": "seg_storybook_lane",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 2.5,
+      "flat": true,
+      "axis": "z",
+      "at_x": 0.0,
+      "z0": -5.0,
+      "z1": 5.0,
+      "name": "Trục đá dọc qua plaza",
+      "feel": "plaza_cross"
+    },
+    "Garden_Spur": {
+      "class": "spur",
+      "segment_type": "seg_orchard_lane",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 1.5,
+      "flat": true,
+      "axis": "x",
+      "at_z": 7.0,
+      "x0": 0.0,
+      "x1": 7.0,
+      "name": "Nhánh đá tới vườn nghỉ",
+      "feel": "garden_soft"
+    },
+    "Greenhouse_Spur": {
+      "class": "spur",
+      "segment_type": "seg_orchard_lane",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 1.5,
+      "flat": true,
+      "axis": "x",
+      "at_z": 6.0,
+      "x0": -9.0,
+      "x1": -5.0,
+      "name": "Nhánh đá tới nhà kính",
+      "feel": "farm_soft"
+    },
+    "Lookout_Spur": {
+      "class": "spur",
+      "segment_type": "seg_mill_road",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 1.5,
+      "flat": true,
+      "axis": "x",
+      "at_z": -8.0,
+      "x0": 5.0,
+      "x1": 10.0,
+      "name": "Nhánh đá tới tháp vọng",
+      "feel": "landmark_approach"
+    },
+    "Ring_Soft": {
+      "class": "ring",
+      "segment_type": "seg_orchard_lane",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 1.8,
+      "flat": true,
+      "shape": "soft_rectangle",
+      "bounds": {
+        "min_x": -9,
+        "max_x": 9,
+        "min_z": -9,
+        "max_z": 9
+      },
+      "name": "Vành đai đá phẳng (soft ring)",
+      "feel": "connect_all_districts",
+      "note": "Lát đá bằng phẳng bo góc — cảm giác làng cổ tích, không asphalt"
+    }
+  },
+  "stone_path_network": [
+    {
+      "id": "SP-01",
+      "name_vi": "Storybook Lane — đá lát phẳng",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 3.0,
+      "flat": true,
+      "geometry": "axis_aligned",
+      "x0": 3.5,
+      "x1": 6.5,
+      "z0": -5.0,
+      "z1": 7.0,
+      "joins": [
+        "SP-03",
+        "SP-04",
+        "WP-03"
+      ]
+    },
+    {
+      "id": "SP-02",
+      "name_vi": "Cottage Walk — đá lát phẳng",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 2.5,
+      "flat": true,
+      "geometry": "axis_aligned",
+      "x0": -5.0,
+      "x1": 5.0,
+      "z0": 3.75,
+      "z1": 6.25,
+      "joins": [
+        "SP-04",
+        "SP-08"
+      ]
+    },
+    {
+      "id": "SP-03",
+      "name_vi": "Craft Alley — đá lát phẳng",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 2.0,
+      "flat": true,
+      "geometry": "axis_aligned",
+      "x0": 3.0,
+      "x1": 11.0,
+      "z0": -4.0,
+      "z1": -2.0,
+      "joins": [
+        "SP-01",
+        "SP-11"
+      ]
+    },
+    {
+      "id": "SP-04",
+      "name_vi": "Trục đá ngang plaza (Đông–Tây)",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 2.5,
+      "flat": true,
+      "geometry": "axis_aligned",
+      "x0": -5.0,
+      "x1": 5.0,
+      "z0": -1.25,
+      "z1": 1.25,
+      "joins": [
+        "SP-05",
+        "SP-01",
+        "SP-06",
+        "SP-RING"
+      ]
+    },
+    {
+      "id": "SP-05",
+      "name_vi": "Trục đá dọc plaza (Bắc–Nam)",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 2.5,
+      "flat": true,
+      "geometry": "axis_aligned",
+      "x0": -1.25,
+      "x1": 1.25,
+      "z0": -5.0,
+      "z1": 5.0,
+      "joins": [
+        "SP-04",
+        "SP-02",
+        "SP-07",
+        "SP-09"
+      ]
+    },
+    {
+      "id": "SP-06",
+      "name_vi": "Nối đá plaza → boardwalk giếng",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 1.8,
+      "flat": true,
+      "geometry": "axis_aligned",
+      "x0": -7.0,
+      "x1": -5.0,
+      "z0": -1.0,
+      "z1": 1.0,
+      "joins": [
+        "SP-04",
+        "WB-01"
+      ]
+    },
+    {
+      "id": "SP-07",
+      "name_vi": "Mill Road — đá lát phẳng",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 2.0,
+      "flat": true,
+      "geometry": "axis_aligned",
+      "x0": -11.0,
+      "x1": 1.0,
+      "z0": -8.0,
+      "z1": -6.0,
+      "joins": [
+        "SP-05",
+        "SP-09",
+        "SP-RING"
+      ]
+    },
+    {
+      "id": "SP-08",
+      "name_vi": "Nhánh đá vườn nghỉ",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 1.5,
+      "flat": true,
+      "geometry": "axis_aligned",
+      "x0": 0.0,
+      "x1": 7.0,
+      "z0": 6.25,
+      "z1": 7.75,
+      "joins": [
+        "SP-02",
+        "SP-01"
+      ]
+    },
+    {
+      "id": "SP-09",
+      "name_vi": "Bridge Approach — đá phẳng",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 2.0,
+      "flat": true,
+      "geometry": "axis_aligned",
+      "x0": -1.0,
+      "x1": 1.0,
+      "z0": -11.0,
+      "z1": -5.0,
+      "joins": [
+        "SP-05",
+        "SP-07",
+        "WD-BRIDGE"
+      ]
+    },
+    {
+      "id": "SP-10",
+      "name_vi": "Nhánh đá nhà kính",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 1.5,
+      "flat": true,
+      "geometry": "axis_aligned",
+      "x0": -9.0,
+      "x1": -5.0,
+      "z0": 5.25,
+      "z1": 6.75,
+      "joins": [
+        "SP-RING",
+        "WB-01"
+      ]
+    },
+    {
+      "id": "SP-11",
+      "name_vi": "Nhánh đá tháp vọng",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 1.5,
+      "flat": true,
+      "geometry": "axis_aligned",
+      "x0": 5.0,
+      "x1": 10.0,
+      "z0": -8.75,
+      "z1": -7.25,
+      "joins": [
+        "SP-01",
+        "SP-03",
+        "SP-RING"
+      ]
+    },
+    {
+      "id": "SP-RING",
+      "name_vi": "Vành đai đá phẳng (4 cạnh soft rect)",
+      "surface": "STONE_PAVER_FLAT",
+      "width_m": 1.8,
+      "flat": true,
+      "geometry": "ring_rect",
+      "bounds": {
+        "min_x": -9.0,
+        "max_x": 9.0,
+        "min_z": -9.0,
+        "max_z": 9.0
+      },
+      "joins": [
+        "SP-01",
+        "SP-04",
+        "SP-07",
+        "SP-10",
+        "SP-11"
+      ],
+      "note": "Bo góc cảm giác làng — vẫn mặt phẳng 0°"
+    },
+    {
+      "id": "SP-PLAZA-RING",
+      "name_vi": "Vòng đá quanh gazebo",
+      "surface": "STONE_RING_PLAZA",
+      "width_m": 1.2,
+      "flat": true,
+      "geometry": "ring_ellipse",
+      "center": {
+        "x": 0.0,
+        "z": 0.0
+      },
+      "rx": 3.2,
+      "rz": 2.6,
+      "joins": [
+        "SP-04",
+        "SP-05",
+        "WD-GAZEBO"
+      ]
+    }
+  ],
+  "wood_platforms": [
+    {
+      "id": "WD-GAZEBO",
+      "name_vi": "Bệ gỗ dưới gazebo (H12 / GARDEN.BLD)",
+      "surface": "WOOD_DECK_FLAT",
+      "flat": true,
+      "geometry": "rect",
+      "x0": 0.4,
+      "x1": 3.6,
+      "z0": 8.4,
+      "z1": 11.6,
+      "plank_axis": "x",
+      "height_above_path_m": 0.08,
+      "district": "GARDEN",
+      "serves": "cozy_gazebo_A",
+      "human_ruling": "HUMAN_RULED_MOVE_DECK 2026-07-24T12:07:00+07:00 — recentered on cadastre GARDEN.BLD (2,10) H12; was plaza origin (0,0) overlapping HOME.BLD"
+    },
+    {
+      "id": "WD-COTTAGE",
+      "name_vi": "Bệ gỗ hiên cottage",
+      "surface": "WOOD_DECK_FLAT",
+      "flat": true,
+      "geometry": "rect",
+      "x0": -1.2,
+      "x1": 1.2,
+      "z0": 3.2,
+      "z1": 4.4,
+      "plank_axis": "x",
+      "height_above_path_m": 0.1,
+      "district": "HOME",
+      "serves": "cozy_house_small_A"
+    },
+    {
+      "id": "WD-SHOP",
+      "name_vi": "Bệ gỗ mặt tiền chợ",
+      "surface": "WOOD_DECK_FLAT",
+      "flat": true,
+      "geometry": "rect",
+      "x0": 6.6,
+      "x1": 8.4,
+      "z0": 3.4,
+      "z1": 6.6,
+      "plank_axis": "z",
+      "height_above_path_m": 0.08,
+      "district": "MARKET",
+      "serves": "cozy_market_stall_A"
+    },
+    {
+      "id": "WD-WORKSHOP",
+      "name_vi": "Bệ gỗ sân xưởng",
+      "surface": "WOOD_DECK_FLAT",
+      "flat": true,
+      "geometry": "rect",
+      "x0": 7.6,
+      "x1": 10.4,
+      "z0": -4.8,
+      "z1": -3.2,
+      "plank_axis": "x",
+      "height_above_path_m": 0.1,
+      "district": "WORKSHOP",
+      "serves": "cozy_workshop_A"
+    },
+    {
+      "id": "WD-WELL",
+      "name_vi": "Bệ gỗ quanh nhà giếng",
+      "surface": "WOOD_DECK_FLAT",
+      "flat": true,
+      "geometry": "rect",
+      "x0": -8.2,
+      "x1": -5.8,
+      "z0": -1.2,
+      "z1": 1.2,
+      "plank_axis": "z",
+      "height_above_path_m": 0.08,
+      "district": "WELL",
+      "serves": "cozy_well_house_A"
+    },
+    {
+      "id": "WB-01",
+      "name_vi": "Boardwalk gỗ ven nước (N–S)",
+      "surface": "WOOD_BOARDWALK",
+      "flat": true,
+      "geometry": "rect",
+      "x0": -6.0,
+      "x1": -4.0,
+      "z0": -5.0,
+      "z1": 5.0,
+      "plank_axis": "x",
+      "height_above_path_m": 0.06,
+      "district": "WELL",
+      "serves": "water_edge_walk"
+    },
+    {
+      "id": "WD-GREENHOUSE",
+      "name_vi": "Bệ gỗ cửa nhà kính",
+      "surface": "WOOD_DECK_FLAT",
+      "flat": true,
+      "geometry": "rect",
+      "x0": -8.4,
+      "x1": -5.6,
+      "z0": 4.0,
+      "z1": 5.2,
+      "plank_axis": "x",
+      "height_above_path_m": 0.08,
+      "district": "GREENHOUSE",
+      "serves": "cozy_greenhouse_A"
+    },
+    {
+      "id": "WD-WINDMILL",
+      "name_vi": "Bệ gỗ chân cối xay",
+      "surface": "WOOD_DECK_FLAT",
+      "flat": true,
+      "geometry": "rect",
+      "x0": -9.2,
+      "x1": -6.8,
+      "z0": -8.2,
+      "z1": -6.0,
+      "plank_axis": "x",
+      "height_above_path_m": 0.1,
+      "district": "WINDMILL",
+      "serves": "cozy_windmill_A"
+    },
+    {
+      "id": "WD-BARN",
+      "name_vi": "Bệ gỗ sân barn",
+      "surface": "WOOD_DECK_FLAT",
+      "flat": true,
+      "geometry": "rect",
+      "x0": -1.4,
+      "x1": 1.4,
+      "z0": -8.4,
+      "z1": -7.0,
+      "plank_axis": "x",
+      "height_above_path_m": 0.1,
+      "district": "BARN",
+      "serves": "cozy_barn_small_A"
+    },
+    {
+      "id": "WD-BRIDGE",
+      "name_vi": "Mặt sàn gỗ cầu vòm",
+      "surface": "WOOD_BRIDGE_DECK",
+      "flat": true,
+      "geometry": "rect",
+      "x0": -1.4,
+      "x1": 1.4,
+      "z0": -11.2,
+      "z1": -9.6,
+      "plank_axis": "x",
+      "height_above_path_m": 0.12,
+      "district": "BRIDGE",
+      "serves": "cozy_bridge_arch_A"
+    },
+    {
+      "id": "WD-LOOKOUT",
+      "name_vi": "Bệ gỗ chân tháp vọng",
+      "surface": "WOOD_DECK_FLAT",
+      "flat": true,
+      "geometry": "rect",
+      "x0": 8.0,
+      "x1": 10.4,
+      "z0": -9.4,
+      "z1": -7.2,
+      "plank_axis": "z",
+      "height_above_path_m": 0.1,
+      "district": "LOOKOUT",
+      "serves": "cozy_watchtower_A"
+    },
+    {
+      "id": "WD-GARDEN",
+      "name_vi": "Bệ gỗ góc vườn nghỉ",
+      "surface": "WOOD_DECK_FLAT",
+      "flat": true,
+      "geometry": "rect",
+      "x0": 3.0,
+      "x1": 5.0,
+      "z0": 6.2,
+      "z1": 7.8,
+      "plank_axis": "x",
+      "height_above_path_m": 0.08,
+      "district": "GARDEN",
+      "serves": "bench_nook"
+    }
+  ],
+  "modular_repeat": {
+    "principle_vi": "Một family kiến trúc = 1 skeleton + nhiều instance. Bố trí theo nhịp phố (3DStreet street-edge rhythm), không rải ngẫu nhiên. Xen palette / cửa / mái để thân thiện, không đơn điệu, không hỗn loạn.",
+    "cottage_row_example": {
+      "family": "ARCH_COTTAGE",
+      "ssot_module": "cozy_house_small_A",
+      "pattern": "row_along_z_or_x",
+      "spacing_cells": 2,
+      "setback_from_path_m": 1.0,
+      "palette_sequence": [
+        "cream_rose",
+        "butter_peach",
+        "mint_soft",
+        "sky_lilac"
+      ],
+      "rule": "Không 2 palette giống nhau liền kề; cùng roof slope; cửa sổ tròn + flower box",
+      "future_instances_beyond_mvp": [
+        "HOME row west of F4 (cells D4–E5)",
+        "HOME row east of G4 (cells H4–I5)"
+      ],
+      "mvp_instance_count": 1,
+      "note": "MVP 10 building slots = 1 cottage prototype; wave sau nhân bản cùng GLB/family"
+    },
+    "shop_lane_example": {
+      "family": "ARCH_SHOP",
+      "ssot_module": "cozy_market_stall_A",
+      "pattern": "frontage_along_storybook_lane",
+      "spacing_cells": 2,
+      "awning_height_lock_m": 2.2,
+      "palette_sequence": [
+        "strawberry_awning",
+        "honey_awning",
+        "blueberry_awning"
+      ],
+      "mvp_instance_count": 1
+    },
+    "street_furniture_rhythm": {
+      "lamp": {
+        "module": "cozy_garden_lamp_A",
+        "every_m": 5.0,
+        "side": "sidewalk"
+      },
+      "bench": {
+        "module": "cozy_bench_A",
+        "every_m": 8.0,
+        "side": "plaza_and_market"
+      },
+      "flower": {
+        "module": "cozy_flower_cluster_A",
+        "cluster_every_m": 4.0
+      },
+      "method_source": "3DStreet sidewalk object density idea — original AIdle modules only"
+    }
+  },
+  "harmony": {
+    "title_vi": "Quy tắc bố trí hài hòa & thân thiện",
+    "rules": [
+      {
+        "id": "H1",
+        "vi": "Cùng family → cùng silhouette mái / tỉ lệ cửa sổ — chỉ đổi màu & chi tiết nhỏ"
+      },
+      {
+        "id": "H2",
+        "vi": "Nhịp mặt phố: building–gap–building đều (2m cell) — không dồn cụm rồi để trống"
+      },
+      {
+        "id": "H3",
+        "vi": "Vỉa hè + cây/đèn/hoa tạo “đệm thân thiện” giữa path và tường nhà"
+      },
+      {
+        "id": "H4",
+        "vi": "Landmark (cối xay, tháp) đối xứng góc — không cạnh nhau che tầm nhìn"
+      },
+      {
+        "id": "H5",
+        "vi": "Tâm plaza mở — gazebo thấp, sightline xuyên 4 hướng"
+      },
+      {
+        "id": "H6",
+        "vi": "Palette pastel ấm; tránh neon / harsh cyber trên facade (cyber chỉ accent nhỏ)"
+      },
+      {
+        "id": "H7",
+        "vi": "Scale trẻ em/storybook: cửa cao ~1.1–1.3 unit relative, không brutalist"
+      },
+      {
+        "id": "H8",
+        "vi": "Lặp module có chủ đích (production-friendly) nhưng cảm giác “ngôi làng sống”, không clone cứng"
+      },
+      {
+        "id": "H9",
+        "vi": "Mọi đường đi = mặt phẳng 0°; trục chính/vành đai/hẻm = đá lát; bệ gỗ trước cửa & boardwalk ven nước — mép bo, không bậc cao"
+      },
+      {
+        "id": "H10",
+        "vi": "Đá–gỗ nối liền mạch (junction soft); thớ gỗ song song cạnh dài bệ; paver không gồ gameplay"
+      }
+    ],
+    "disney_feel_without_ip": [
+      "Storybook proportions (mái dốc, cửa sổ tròn, chimney soft)",
+      "Village green + main street + cottage row archetypes (public domain urban form)",
+      "Warm friendly lighting mood",
+      "KHÔNG: logo, nhân vật, tên phim, castle replica Disney"
+    ]
+  },
+  "palette": {
+    "sky": "#c9e4f5",
+    "lawn": "#9fd4a3",
+    "lawn_deep": "#72A96B",
+    "path": "#e8d5b5",
+    "path_edge": "#d4c4a0",
+    "stone_paver": "#c5b8a4",
+    "stone_paver_light": "#d8cfc0",
+    "stone_joint": "#a89880",
+    "wood_deck": "#c4a574",
+    "wood_boardwalk": "#b8956a",
+    "wood_deck_dark": "#9a7a52",
+    "wood_plank_line": "#8a6a42",
+    "water": "#9ED7E5",
+    "plaza": "#b8e0b0",
+    "cottage": "#f5c451",
+    "shop": "#e88b7a",
+    "workshop": "#c98a5e",
+    "garden": "#7fc98f",
+    "greenhouse": "#8fd4b0",
+    "well": "#7eb8c9",
+    "windmill": "#6b8cae",
+    "barn": "#c47a6a",
+    "bridge": "#a89f90",
+    "lookout": "#b08d57",
+    "ring": "#dcc9a8",
+    "ink": "#3d3a36",
+    "paper": "#fbf6ee",
+    "accent_rose": "#f2a7b0",
+    "accent_lilac": "#c4b0e0",
+    "accent_butter": "#f6e27a"
+  },
+  "districts": [
+    {
+      "district_id": "PLAZA",
+      "name": "Quảng trường Cỏ Làng",
+      "name_en": "Village Green",
+      "function_vi": "Tâm xã hội — gazebo + vòng hoa + chỗ tụ họp",
+      "color": "#b8e0b0",
+      "center": {
+        "x": 0.0,
+        "z": 0.0
+      },
+      "street_segment": "seg_plaza_green",
+      "arch_primary": "ARCH_GAZEBO"
+    },
+    {
+      "district_id": "HOME",
+      "name": "Dãy Cottage",
+      "name_en": "Cottage Row",
+      "function_vi": "Cư trú — nhiều nhà cùng family ARCH_COTTAGE, palette xen kẽ",
+      "color": "#f5c451",
+      "center": {
+        "x": 0.0,
+        "z": 6.0
+      },
+      "street_segment": "seg_cottage_row",
+      "arch_primary": "ARCH_COTTAGE"
+    },
+    {
+      "district_id": "MARKET",
+      "name": "Phố Chợ Storybook",
+      "name_en": "Storybook Lane Market",
+      "function_vi": "Thương mại thân thiện — shop front lặp nhịp",
+      "color": "#e88b7a",
+      "center": {
+        "x": 7.0,
+        "z": 2.0
+      },
+      "street_segment": "seg_storybook_lane",
+      "arch_primary": "ARCH_SHOP"
+    },
+    {
+      "district_id": "WORKSHOP",
+      "name": "Hẻm Xưởng",
+      "name_en": "Craft Alley",
+      "function_vi": "Thủ công — workshop + prop rack",
+      "color": "#c98a5e",
+      "center": {
+        "x": 7.0,
+        "z": -4.0
+      },
+      "street_segment": "seg_craft_alley",
+      "arch_primary": "ARCH_WORKSHOP"
+    },
+    {
+      "district_id": "GARDEN",
+      "name": "Vườn Nghỉ",
+      "name_en": "Rest Garden",
+      "function_vi": "Hoa + bụi + ghế — đệm giữa cottage và chợ",
+      "color": "#7fc98f",
+      "center": {
+        "x": 4.0,
+        "z": 7.0
+      },
+      "street_segment": "seg_orchard_lane",
+      "arch_primary": "ARCH_GAZEBO"
+    },
+    {
+      "district_id": "GREENHOUSE",
+      "name": "Khu Kính Xanh",
+      "name_en": "Glass Garden",
+      "function_vi": "Nhà kính + luống — nhịp farm thân thiện",
+      "color": "#8fd4b0",
+      "center": {
+        "x": -7.0,
+        "z": 6.0
+      },
+      "street_segment": "seg_orchard_lane",
+      "arch_primary": "ARCH_GREENHOUSE"
+    },
+    {
+      "district_id": "WELL",
+      "name": "Góc Nước",
+      "name_en": "Water Nook",
+      "function_vi": "Giếng + ao nhỏ + chim tắm",
+      "color": "#7eb8c9",
+      "center": {
+        "x": -7.0,
+        "z": 0.0
+      },
+      "street_segment": "seg_water_path",
+      "arch_primary": "ARCH_WELL"
+    },
+    {
+      "district_id": "WINDMILL",
+      "name": "Đồi Cối Xay",
+      "name_en": "Windmill Knoll",
+      "function_vi": "Landmark SW — silhouette cổ tích",
+      "color": "#6b8cae",
+      "center": {
+        "x": -7.0,
+        "z": -7.0
+      },
+      "street_segment": "seg_mill_road",
+      "arch_primary": "ARCH_WINDMILL"
+    },
+    {
+      "district_id": "BARN",
+      "name": "Sân Kho Mềm",
+      "name_en": "Soft Barn Yard",
+      "function_vi": "Barn + cây ăn quả — farm edge",
+      "color": "#c47a6a",
+      "center": {
+        "x": 0.0,
+        "z": -7.0
+      },
+      "street_segment": "seg_orchard_lane",
+      "arch_primary": "ARCH_BARN"
+    },
+    {
+      "district_id": "BRIDGE",
+      "name": "Cầu Vòm",
+      "name_en": "Arch Crossing",
+      "function_vi": "Cầu + cây liễu — hành trình vào làng",
+      "color": "#a89f90",
+      "center": {
+        "x": 2.0,
+        "z": -9.0
+      },
+      "street_segment": "seg_bridge_approach",
+      "arch_primary": "ARCH_BRIDGE"
+    },
+    {
+      "district_id": "LOOKOUT",
+      "name": "Tháp Vọng",
+      "name_en": "Wonder Lookout",
+      "function_vi": "Tháp SE — nhìn ra map",
+      "color": "#b08d57",
+      "center": {
+        "x": 8.0,
+        "z": -8.0
+      },
+      "street_segment": "seg_mill_road",
+      "arch_primary": "ARCH_LOOKOUT"
+    }
+  ],
+  "counts": {
+    "building": 10,
+    "prop": 30,
+    "character_spawn": 10,
+    "stone_path_segments": 13,
+    "wood_platforms": 12
+  },
+  "plots": [
+    {
+      "plot_id": "P-B01",
+      "role": "building",
+      "object_id": "cozy_house_small_A",
+      "district": "HOME",
+      "cells": [
+        "F4",
+        "F5",
+        "G4",
+        "G5"
+      ],
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 4.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "F4",
+        "F5",
+        "G4",
+        "G5"
+      ],
+      "notes_vi": "Cottage hub — prototype family ARCH_COTTAGE (có thể lặp dọc hàng F–H).",
+      "arch_family": "ARCH_COTTAGE",
+      "architecture": {
+        "family": "ARCH_COTTAGE",
+        "palette_variant": "cream_rose",
+        "instance_of": "ARCH_COTTAGE",
+        "street_face": "south_to_plaza",
+        "modular_repeat": true
+      }
+    },
+    {
+      "plot_id": "P-B02",
+      "role": "building",
+      "object_id": "cozy_workshop_A",
+      "district": "WORKSHOP",
+      "cells": [
+        "J8",
+        "J9",
+        "K8",
+        "K9"
+      ],
+      "position": {
+        "x": 8.0,
+        "y": 0.0,
+        "z": -4.0
+      },
+      "rotation_deg": 270,
+      "occupancy_cells": [
+        "J8",
+        "J9",
+        "K8",
+        "K9"
+      ],
+      "notes_vi": "Xưởng thợ — cùng chimney language cottage.",
+      "arch_family": "ARCH_WORKSHOP",
+      "architecture": {
+        "family": "ARCH_WORKSHOP",
+        "palette_variant": "clay_umber",
+        "instance_of": "ARCH_WORKSHOP",
+        "street_face": "west_to_craft_alley",
+        "modular_repeat": true
+      }
+    },
+    {
+      "plot_id": "P-B03",
+      "role": "building",
+      "object_id": "cozy_market_stall_A",
+      "district": "MARKET",
+      "cells": [
+        "J5",
+        "J6",
+        "K5",
+        "K6"
+      ],
+      "position": {
+        "x": 8.0,
+        "y": 0.0,
+        "z": 2.0
+      },
+      "rotation_deg": 270,
+      "occupancy_cells": [
+        "J5",
+        "J6",
+        "K5",
+        "K6"
+      ],
+      "notes_vi": "Shop module — nhịp lặp dọc Storybook Lane (awning cùng cao độ).",
+      "arch_family": "ARCH_SHOP",
+      "architecture": {
+        "family": "ARCH_SHOP",
+        "palette_variant": "strawberry_awning",
+        "instance_of": "ARCH_SHOP",
+        "street_face": "west_to_storybook_lane",
+        "modular_repeat": true
+      }
+    },
+    {
+      "plot_id": "P-B04",
+      "role": "building",
+      "object_id": "cozy_gazebo_A",
+      "district": "PLAZA",
+      "cells": [
+        "F6",
+        "F7",
+        "G6",
+        "G7"
+      ],
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "F6",
+        "F7",
+        "G6",
+        "G7"
+      ],
+      "notes_vi": "Tâm Village Green — chòi mở, không che sightline.",
+      "arch_family": "ARCH_GAZEBO",
+      "architecture": {
+        "family": "ARCH_GAZEBO",
+        "palette_variant": "cream_wood",
+        "instance_of": "ARCH_GAZEBO",
+        "street_face": "center",
+        "modular_repeat": false
+      }
+    },
+    {
+      "plot_id": "P-B05",
+      "role": "building",
+      "object_id": "cozy_greenhouse_A",
+      "district": "GREENHOUSE",
+      "cells": [
+        "B3",
+        "B4",
+        "C3",
+        "C4"
+      ],
+      "position": {
+        "x": -8.0,
+        "y": 0.0,
+        "z": 6.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "B3",
+        "B4",
+        "C3",
+        "C4"
+      ],
+      "notes_vi": "Nhà kính NW — khung mỏng, lặp được nếu farm mở rộng.",
+      "arch_family": "ARCH_GREENHOUSE",
+      "architecture": {
+        "family": "ARCH_GREENHOUSE",
+        "palette_variant": "mint_frame",
+        "instance_of": "ARCH_GREENHOUSE",
+        "street_face": "south",
+        "modular_repeat": true
+      }
+    },
+    {
+      "plot_id": "P-B06",
+      "role": "building",
+      "object_id": "cozy_well_house_A",
+      "district": "WELL",
+      "cells": [
+        "B6",
+        "B7",
+        "C6",
+        "C7"
+      ],
+      "position": {
+        "x": -8.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation_deg": 90,
+      "occupancy_cells": [
+        "B6",
+        "B7",
+        "C6",
+        "C7"
+      ],
+      "notes_vi": "Nhà giếng — scale thấp hơn cottage.",
+      "arch_family": "ARCH_WELL",
+      "architecture": {
+        "family": "ARCH_WELL",
+        "palette_variant": "stone_warm",
+        "instance_of": "ARCH_WELL",
+        "street_face": "east_to_plaza",
+        "modular_repeat": false
+      }
+    },
+    {
+      "plot_id": "P-B07",
+      "role": "building",
+      "object_id": "cozy_windmill_A",
+      "district": "WINDMILL",
+      "cells": [
+        "B10",
+        "B11",
+        "C10",
+        "C11"
+      ],
+      "position": {
+        "x": -8.0,
+        "y": 0.0,
+        "z": -8.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "B10",
+        "B11",
+        "C10",
+        "C11"
+      ],
+      "notes_vi": "Landmark duy nhất SW — silhouette cổ tích.",
+      "arch_family": "ARCH_WINDMILL",
+      "architecture": {
+        "family": "ARCH_WINDMILL",
+        "palette_variant": "cream_tower_blue_blades",
+        "instance_of": "ARCH_WINDMILL",
+        "street_face": "east",
+        "modular_repeat": false
+      }
+    },
+    {
+      "plot_id": "P-B08",
+      "role": "building",
+      "object_id": "cozy_barn_small_A",
+      "district": "BARN",
+      "cells": [
+        "F10",
+        "F11",
+        "G10",
+        "G11"
+      ],
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -8.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "F10",
+        "F11",
+        "G10",
+        "G11"
+      ],
+      "notes_vi": "Barn S — gable rộng, cùng góc mái cottage.",
+      "arch_family": "ARCH_BARN",
+      "architecture": {
+        "family": "ARCH_BARN",
+        "palette_variant": "soft_red",
+        "instance_of": "ARCH_BARN",
+        "street_face": "north",
+        "modular_repeat": true
+      }
+    },
+    {
+      "plot_id": "P-B09",
+      "role": "building",
+      "object_id": "cozy_bridge_arch_A",
+      "district": "BRIDGE",
+      "cells": [
+        "F12",
+        "G12"
+      ],
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -11.0
+      },
+      "rotation_deg": 90,
+      "occupancy_cells": [
+        "F12",
+        "G12"
+      ],
+      "notes_vi": "Cầu vòm nam — tách barn/lookout, không overlap.",
+      "arch_family": "ARCH_BRIDGE",
+      "architecture": {
+        "family": "ARCH_BRIDGE",
+        "palette_variant": "stone_warm",
+        "instance_of": "ARCH_BRIDGE",
+        "street_face": "span_ew",
+        "modular_repeat": false
+      }
+    },
+    {
+      "plot_id": "P-B10",
+      "role": "building",
+      "object_id": "cozy_watchtower_A",
+      "district": "LOOKOUT",
+      "cells": [
+        "K11",
+        "K12",
+        "L11",
+        "L12"
+      ],
+      "position": {
+        "x": 10.0,
+        "y": 0.0,
+        "z": -10.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "K11",
+        "K12",
+        "L11",
+        "L12"
+      ],
+      "notes_vi": "Tháp vọng SE — complement windmill, không cạnh nhau.",
+      "arch_family": "ARCH_LOOKOUT",
+      "architecture": {
+        "family": "ARCH_LOOKOUT",
+        "palette_variant": "stone_ivy",
+        "instance_of": "ARCH_LOOKOUT",
+        "street_face": "west",
+        "modular_repeat": false
+      }
+    },
+    {
+      "plot_id": "P-P01",
+      "role": "prop",
+      "object_id": "cozy_path_stone_A",
+      "district": "HOME",
+      "cells": [
+        "F6"
+      ],
+      "position": {
+        "x": -1.0,
+        "y": 0.0,
+        "z": 1.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "F6"
+      ],
+      "notes_vi": "Lối đá ra plaza"
+    },
+    {
+      "plot_id": "P-P02",
+      "role": "prop",
+      "object_id": "cozy_garden_lamp_A",
+      "district": "HOME",
+      "cells": [
+        "E5"
+      ],
+      "position": {
+        "x": -3.0,
+        "y": 0.0,
+        "z": 3.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "E5"
+      ],
+      "notes_vi": "Đèn vườn — nhịp 4–6m"
+    },
+    {
+      "plot_id": "P-P03",
+      "role": "prop",
+      "object_id": "cozy_mailbox_A",
+      "district": "HOME",
+      "cells": [
+        "E4"
+      ],
+      "position": {
+        "x": -3.0,
+        "y": 0.0,
+        "z": 5.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "E4"
+      ],
+      "notes_vi": "Hộp thư cottage"
+    },
+    {
+      "plot_id": "P-P04",
+      "role": "prop",
+      "object_id": "cozy_tool_rack_A",
+      "district": "WORKSHOP",
+      "cells": [
+        "I8"
+      ],
+      "position": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": -3.0
+      },
+      "rotation_deg": 270,
+      "occupancy_cells": [
+        "I8"
+      ],
+      "notes_vi": "Giá dụng cụ mặt hẻm"
+    },
+    {
+      "plot_id": "P-P05",
+      "role": "prop",
+      "object_id": "cozy_crate_small_A",
+      "district": "WORKSHOP",
+      "cells": [
+        "I9"
+      ],
+      "position": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": -5.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "I9"
+      ],
+      "notes_vi": "Thùng gỗ"
+    },
+    {
+      "plot_id": "P-P06",
+      "role": "prop",
+      "object_id": "cozy_barrel_A",
+      "district": "WORKSHOP",
+      "cells": [
+        "J10"
+      ],
+      "position": {
+        "x": 7.0,
+        "y": 0.0,
+        "z": -7.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "J10"
+      ],
+      "notes_vi": "Thùng tròn"
+    },
+    {
+      "plot_id": "P-P07",
+      "role": "prop",
+      "object_id": "cozy_bench_A",
+      "district": "MARKET",
+      "cells": [
+        "I5"
+      ],
+      "position": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": 3.0
+      },
+      "rotation_deg": 270,
+      "occupancy_cells": [
+        "I5"
+      ],
+      "notes_vi": "Ghế vỉa hè chợ"
+    },
+    {
+      "plot_id": "P-P08",
+      "role": "prop",
+      "object_id": "cozy_cart_A",
+      "district": "MARKET",
+      "cells": [
+        "I6"
+      ],
+      "position": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": 1.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "I6"
+      ],
+      "notes_vi": "Xe kéo chợ"
+    },
+    {
+      "plot_id": "P-P09",
+      "role": "prop",
+      "object_id": "cozy_signpost_A",
+      "district": "MARKET",
+      "cells": [
+        "I4"
+      ],
+      "position": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": 5.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "I4"
+      ],
+      "notes_vi": "Biển chỉ đường thân thiện"
+    },
+    {
+      "plot_id": "P-P10",
+      "role": "prop",
+      "object_id": "cozy_flower_cluster_A",
+      "district": "GARDEN",
+      "cells": [
+        "H3"
+      ],
+      "position": {
+        "x": 3.0,
+        "y": 0.0,
+        "z": 7.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "H3"
+      ],
+      "notes_vi": "Cụm hoa — soft color"
+    },
+    {
+      "plot_id": "P-P11",
+      "role": "prop",
+      "object_id": "cozy_flower_bed_B",
+      "district": "GARDEN",
+      "cells": [
+        "G3"
+      ],
+      "position": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 7.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "G3"
+      ],
+      "notes_vi": "Luống hoa"
+    },
+    {
+      "plot_id": "P-P12",
+      "role": "prop",
+      "object_id": "cozy_bush_round_A",
+      "district": "GARDEN",
+      "cells": [
+        "H4"
+      ],
+      "position": {
+        "x": 3.0,
+        "y": 0.0,
+        "z": 5.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "H4"
+      ],
+      "notes_vi": "Bụi tròn"
+    },
+    {
+      "plot_id": "P-P13",
+      "role": "prop",
+      "object_id": "cozy_farm_plot_A",
+      "district": "GREENHOUSE",
+      "cells": [
+        "A3"
+      ],
+      "position": {
+        "x": -11.0,
+        "y": 0.0,
+        "z": 7.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "A3"
+      ],
+      "notes_vi": "Luống canh tác"
+    },
+    {
+      "plot_id": "P-P14",
+      "role": "prop",
+      "object_id": "cozy_crop_row_A",
+      "district": "GREENHOUSE",
+      "cells": [
+        "A4"
+      ],
+      "position": {
+        "x": -11.0,
+        "y": 0.0,
+        "z": 5.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "A4"
+      ],
+      "notes_vi": "Hàng rau"
+    },
+    {
+      "plot_id": "P-P15",
+      "role": "prop",
+      "object_id": "cozy_scarecrow_A",
+      "district": "GREENHOUSE",
+      "cells": [
+        "C2"
+      ],
+      "position": {
+        "x": -7.0,
+        "y": 0.0,
+        "z": 9.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "C2"
+      ],
+      "notes_vi": "Bù nhìn dễ thương"
+    },
+    {
+      "plot_id": "P-P16",
+      "role": "prop",
+      "object_id": "cozy_pond_small_A",
+      "district": "WELL",
+      "cells": [
+        "A6"
+      ],
+      "position": {
+        "x": -11.0,
+        "y": 0.0,
+        "z": 1.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "A6"
+      ],
+      "notes_vi": "Ao nhỏ"
+    },
+    {
+      "plot_id": "P-P17",
+      "role": "prop",
+      "object_id": "cozy_water_pump_A",
+      "district": "WELL",
+      "cells": [
+        "A7"
+      ],
+      "position": {
+        "x": -11.0,
+        "y": 0.0,
+        "z": -1.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "A7"
+      ],
+      "notes_vi": "Bơm nước"
+    },
+    {
+      "plot_id": "P-P18",
+      "role": "prop",
+      "object_id": "cozy_birdbath_A",
+      "district": "WELL",
+      "cells": [
+        "C6"
+      ],
+      "position": {
+        "x": -7.0,
+        "y": 0.0,
+        "z": 1.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "C6"
+      ],
+      "notes_vi": "Bồn tắm chim"
+    },
+    {
+      "plot_id": "P-P19",
+      "role": "prop",
+      "object_id": "cozy_fence_section_A",
+      "district": "WINDMILL",
+      "cells": [
+        "A10"
+      ],
+      "position": {
+        "x": -11.0,
+        "y": 0.0,
+        "z": -7.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "A10"
+      ],
+      "notes_vi": "Hàng rào mềm"
+    },
+    {
+      "plot_id": "P-P20",
+      "role": "prop",
+      "object_id": "cozy_grass_tuft_A",
+      "district": "WINDMILL",
+      "cells": [
+        "C10"
+      ],
+      "position": {
+        "x": -7.0,
+        "y": 0.0,
+        "z": -7.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "C10"
+      ],
+      "notes_vi": "Cỏ trang trí"
+    },
+    {
+      "plot_id": "P-P21",
+      "role": "prop",
+      "object_id": "cozy_rock_cluster_A",
+      "district": "WINDMILL",
+      "cells": [
+        "C11"
+      ],
+      "position": {
+        "x": -7.0,
+        "y": 0.0,
+        "z": -9.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "C11"
+      ],
+      "notes_vi": "Đá chân tháp cối"
+    },
+    {
+      "plot_id": "P-P22",
+      "role": "prop",
+      "object_id": "cozy_tree_fruit_A",
+      "district": "BARN",
+      "cells": [
+        "E10"
+      ],
+      "position": {
+        "x": -3.0,
+        "y": 0.0,
+        "z": -7.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "E10"
+      ],
+      "notes_vi": "Cây ăn quả"
+    },
+    {
+      "plot_id": "P-P23",
+      "role": "prop",
+      "object_id": "cozy_rock_small_A",
+      "district": "BARN",
+      "cells": [
+        "H10"
+      ],
+      "position": {
+        "x": 3.0,
+        "y": 0.0,
+        "z": -7.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "H10"
+      ],
+      "notes_vi": "Đá nhỏ"
+    },
+    {
+      "plot_id": "P-P24",
+      "role": "prop",
+      "object_id": "cozy_rock_stacked_A",
+      "district": "BARN",
+      "cells": [
+        "H11"
+      ],
+      "position": {
+        "x": 3.0,
+        "y": 0.0,
+        "z": -9.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "H11"
+      ],
+      "notes_vi": "Đá xếp"
+    },
+    {
+      "plot_id": "P-P25",
+      "role": "prop",
+      "object_id": "cozy_tree_willow_A",
+      "district": "BRIDGE",
+      "cells": [
+        "E12"
+      ],
+      "position": {
+        "x": -3.0,
+        "y": 0.0,
+        "z": -11.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "E12"
+      ],
+      "notes_vi": "Liễu bên cầu"
+    },
+    {
+      "plot_id": "P-P26",
+      "role": "prop",
+      "object_id": "cozy_tree_blossom_A",
+      "district": "BRIDGE",
+      "cells": [
+        "H12"
+      ],
+      "position": {
+        "x": 3.0,
+        "y": 0.0,
+        "z": -11.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "H12"
+      ],
+      "notes_vi": "Cây hoa — fairy soft"
+    },
+    {
+      "plot_id": "P-P27",
+      "role": "prop",
+      "object_id": "cozy_fence_section_A",
+      "district": "BRIDGE",
+      "cells": [
+        "G11"
+      ],
+      "position": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": -9.0
+      },
+      "rotation_deg": 90,
+      "occupancy_cells": [
+        "G11"
+      ],
+      "notes_vi": "Lan can mềm tiếp cận cầu"
+    },
+    {
+      "plot_id": "P-P28",
+      "role": "prop",
+      "object_id": "cozy_garden_lamp_A",
+      "district": "LOOKOUT",
+      "cells": [
+        "J11"
+      ],
+      "position": {
+        "x": 7.0,
+        "y": 0.0,
+        "z": -9.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "J11"
+      ],
+      "notes_vi": "Đèn tháp vọng"
+    },
+    {
+      "plot_id": "P-P29",
+      "role": "prop",
+      "object_id": "cozy_bench_A",
+      "district": "PLAZA",
+      "cells": [
+        "E7"
+      ],
+      "position": {
+        "x": -3.0,
+        "y": 0.0,
+        "z": -1.0
+      },
+      "rotation_deg": 90,
+      "occupancy_cells": [
+        "E7"
+      ],
+      "notes_vi": "Ghế quảng trường"
+    },
+    {
+      "plot_id": "P-P30",
+      "role": "prop",
+      "object_id": "cozy_flower_cluster_A",
+      "district": "PLAZA",
+      "cells": [
+        "H7"
+      ],
+      "position": {
+        "x": 3.0,
+        "y": 0.0,
+        "z": -1.0
+      },
+      "rotation_deg": 0,
+      "occupancy_cells": [
+        "H7"
+      ],
+      "notes_vi": "Vòng hoa plaza"
+    },
+    {
+      "plot_id": "P-C01",
+      "role": "character_spawn",
+      "object_id": "CCP-RH-001",
+      "district": "HOME",
+      "cells": [
+        "G5"
+      ],
+      "position": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 3.0
+      },
+      "rotation_deg": 0.0,
+      "occupancy_cells": [
+        "G5"
+      ],
+      "notes_vi": "Nori / home hub"
+    },
+    {
+      "plot_id": "P-C02",
+      "role": "character_spawn",
+      "object_id": "CCP-NW-003",
+      "district": "WORKSHOP",
+      "cells": [
+        "I7"
+      ],
+      "position": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": -1.0
+      },
+      "rotation_deg": 0.0,
+      "occupancy_cells": [
+        "I7"
+      ],
+      "notes_vi": "Thợ xưởng"
+    },
+    {
+      "plot_id": "P-C03",
+      "role": "character_spawn",
+      "object_id": "CCP-NS-002",
+      "district": "MARKET",
+      "cells": [
+        "J4"
+      ],
+      "position": {
+        "x": 7.0,
+        "y": 0.0,
+        "z": 5.0
+      },
+      "rotation_deg": 0.0,
+      "occupancy_cells": [
+        "J4"
+      ],
+      "notes_vi": "Người bán chợ"
+    },
+    {
+      "plot_id": "P-C04",
+      "role": "character_spawn",
+      "object_id": "CCP-CT-004",
+      "district": "PLAZA",
+      "cells": [
+        "G7"
+      ],
+      "position": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": -1.0
+      },
+      "rotation_deg": 0.0,
+      "occupancy_cells": [
+        "G7"
+      ],
+      "notes_vi": "Bạn ở gazebo"
+    },
+    {
+      "plot_id": "P-C05",
+      "role": "character_spawn",
+      "object_id": "SPH-RH-011",
+      "district": "GREENHOUSE",
+      "cells": [
+        "C4"
+      ],
+      "position": {
+        "x": -7.0,
+        "y": 0.0,
+        "z": 5.0
+      },
+      "rotation_deg": 0.0,
+      "occupancy_cells": [
+        "C4"
+      ],
+      "notes_vi": "Người làm vườn"
+    },
+    {
+      "plot_id": "P-C06",
+      "role": "character_spawn",
+      "object_id": "OA-RG-021",
+      "district": "WELL",
+      "cells": [
+        "C7"
+      ],
+      "position": {
+        "x": -7.0,
+        "y": 0.0,
+        "z": -1.0
+      },
+      "rotation_deg": 0.0,
+      "occupancy_cells": [
+        "C7"
+      ],
+      "notes_vi": "Gác giếng"
+    },
+    {
+      "plot_id": "P-C07",
+      "role": "character_spawn",
+      "object_id": "AC-CO-015",
+      "district": "WINDMILL",
+      "cells": [
+        "C9"
+      ],
+      "position": {
+        "x": -7.0,
+        "y": 0.0,
+        "z": -5.0
+      },
+      "rotation_deg": 0.0,
+      "occupancy_cells": [
+        "C9"
+      ],
+      "notes_vi": "Gác cối xay"
+    },
+    {
+      "plot_id": "P-C08",
+      "role": "character_spawn",
+      "object_id": "TD-CT-028",
+      "district": "BARN",
+      "cells": [
+        "G9"
+      ],
+      "position": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": -5.0
+      },
+      "rotation_deg": 0.0,
+      "occupancy_cells": [
+        "G9"
+      ],
+      "notes_vi": "Chăm barn"
+    },
+    {
+      "plot_id": "P-C09",
+      "role": "character_spawn",
+      "object_id": "SV-NW-019",
+      "district": "BRIDGE",
+      "cells": [
+        "G12"
+      ],
+      "position": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": -11.0
+      },
+      "rotation_deg": 0.0,
+      "occupancy_cells": [
+        "G12"
+      ],
+      "notes_vi": "Cạnh cầu"
+    },
+    {
+      "plot_id": "P-C10",
+      "role": "character_spawn",
+      "object_id": "CCP-RH-001",
+      "district": "LOOKOUT",
+      "cells": [
+        "J10"
+      ],
+      "position": {
+        "x": 7.0,
+        "y": 0.0,
+        "z": -7.0
+      },
+      "rotation_deg": 0.0,
+      "occupancy_cells": [
+        "J10"
+      ],
+      "notes_vi": "Nhìn từ tháp (instance B)"
+    }
+  ],
+  "relation_to_prior_plans": {
+    "TOWN_GRID_PLAN_V1": "legal cadastre 50 plots — still SSOT for cells if Human keeps",
+    "TOWN_MASTERPLAN_MOCKUP_V1": "district illustration on grid",
+    "TOWN_CHESSBOARD_PLAN_V1": "orthogonal city — harsher; this plan is softer storybook",
+    "TOWN_FAIRY_STREET_PLAN_V1": "recommended design direction for friendly fairy-tale town"
+  },
+  "html": "TOWN_FAIRY_STREET_PLAN_V1.html",
+  "svg": "TOWN_FAIRY_STREET_PLAN_V1.svg",
+  "readme": "TOWN_FAIRY_STREET_PLAN_V1_README.md",
+  "content_sha256": "5b0c58372e02708c"
+}

@@ -1,0 +1,56 @@
+{
+  "agent_step_id": "G8-001-HEADED-H7-network-2026-07-21",
+  "agent_type": "aidle-network",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-HEADED-CORRECTION-001",
+    "directive_id": 21,
+    "wave": "H7_NETWORK_PURPLE",
+    "profile": "network",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY Purple: Free Desktop Bridge mounted and smoke PASS (no API); edition smoke refuses client secrets; no public bind; demo flow uses existing commit handoff stub only — no client-authoritative durable mutation.",
+    "product_writes": 0,
+    "children": [],
+    "purple_notes": {
+      "free_bridge_no_api": true,
+      "paid_fixture_no_client_secret": true,
+      "no_public_bind": true,
+      "no_authority_bypass": true
+    }
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "G2-005_GODOT_SMOKE=PASS checks=11"
+      },
+      {
+        "marker": "G2-007_GODOT_SMOKE=PASS"
+      },
+      {
+        "marker": "bridge_mounted"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_product_patch": true,
+    "no_self_accept": true,
+    "residual_risks": [
+      "G6 multiplayer still local POC only"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-headed-correction-001.log",
+    "orchestration/work_orders/WO-G8-001-HEADED-CORRECTION-001.md",
+    "orchestration/work_orders/G8-001_HEADED_DISPATCH_MAP.md",
+    "orchestration/reviews/G8-001_HEADED_ACCEPTANCE_MATRIX.md",
+    "orchestration/evidence/g8_headed_correction/"
+  ],
+  "next_route": "PARENT_REVIEW_REQUESTED_WAITING_CODEX"
+}

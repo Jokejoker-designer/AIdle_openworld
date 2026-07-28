@@ -1,0 +1,36 @@
+{
+  "schema_version": "town_grid_claude_verify/1.0",
+  "directive_id": 99,
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "agent": "claude",
+  "role": "independent-verifier",
+  "authority": "READ_ONLY_AUDIT",
+  "accepted": false,
+  "self_accept": false,
+  "method": "Re-derived claims from source, not trusted from receipts. No hash in this note was copied from a receipt without recomputation.",
+  "checks_passed": {
+    "payload_fingerprint_round_trip": "game/resources/town/town_grid_plan_v1.json payload_fingerprint == orchestration/control/visual_reference/town_plan/TOWN_GRID_PLAN_V1.json payload_fingerprint == ca8223b1c400199dd2adc71a14668601cb0f2a8f8c23bf8d6f2c0cc687057bcd; plots count 50 in both. Confirmed by direct field read, not trusted from BLUE receipt alone.",
+    "town_layout_10phase_json_untouched": "File present, git-untracked from before this wave, mtime 2026-07-23T16:40 predates all 6 new-wave file writes (~22:18-22:19). Not edited in place.",
+    "starter_realm_builder_gd_additive_only": "attach_town_cadastre flag confirmed default false; original content signature Vector3(-4.0, 0.0, -6.0) (house) still present; addition is a guarded static func, nothing deleted.",
+    "main_gd_narrow_addition": "ENABLE_TOWN_GRID_CADASTRE / ENABLE_TOWN_10PHASE_LEGACY consts + one preload + one conditional call; legacy 10phase path kept, disabled not deleted.",
+    "town_grid_loader_gd_honesty_logic": "Read in full. Real GLB path only taken when FileAccess.file_exists() true on the resolved absolute glb path (character via cast_roster, module via module_catalog incl. alias table); placeholder path is a distinctly-styled box + Label3D literally reading 'concept — not yet authored'; no forced idle alias (idle only counted if play_clip('idle') actually returns true). Code matches the honesty rule; not just a claim.",
+    "smoke_script_logic_sound": "town_grid_import_smoke.gd read in full. PASS marker is gated on real computed booleans (plots==50, coords_ok, max_abs<=12, real_glb+placeholders==50, report.ok), not a hardcoded string."
+  },
+  "gap_found": {
+    "id": "TG-V01",
+    "severity": "blocking_for_batch_accept",
+    "title": "QA phase (headed) never ran — no QA receipt exists",
+    "detail": "MAF flow for this WO is Blue -> Red -> QA -> Purple. Only BLUE_IMPORT_001.json and RED_FINDINGS_001.json exist; there is no QA_*.json in orchestration/receipts/town_grid_import_001/. PURPLE_WAITING_001.json's own evidence list cites only Blue, Red, the smoke script, and the headless SMOKE=PASS marker -- no headed screenshot. The status report itself states 'QA: Headless PASS; headed screenshot = Human next', i.e. this was never produced.",
+    "why_it_blocks": "WO-TOWN-GRID-IMPORT-001's own acceptance criteria require: 'a headed screenshot shows the gridded town within the current realm footprint', 'Real GLBs appear at their plots ... every unauthored plot shows an honest placeholder', 'art-style/world-profile recorded in evidence'. None of that exists yet -- only a headless smoke print inside Blue's own receipt.",
+    "secondary_gap": "No raw execution log backs the printed SMOKE=PASS marker (unlike every prior wave, e.g. C5H1, where an actual Godot log file existed and I could decode it myself). I cannot independently confirm the smoke test was genuinely executed in Godot versus transcribed into the receipt.",
+    "new_standing_requirement": "Human Product Lead has now set a 100%-mockup-fidelity law (see AIDLE_GAME_VISION_LOCK_001.md addendum) -- any wave placing a 'real GLB' against a MOCKUP_SSOT_V2 entry must show headed evidence of that placement compared against the mockup art before its wave can close. This wave (21 real GLBs claimed placed) falls squarely under that law and cannot close without it."
+  },
+  "verdict": "CHANGES_REQUESTED_QA_INCOMPLETE",
+  "required_before_resubmit": [
+    "Run QA (headed): launch the realm with attach_town_cadastre=true (or the cadastre's own scene entry), capture a real screenshot showing all 50 plots (footprints+labels visible), zero new Godot errors in the headed log.",
+    "For each of the >=21 plots claiming a real production GLB, capture or reference a close-up frame and note visual match against its MOCKUP_SSOT_V2 concept art (silhouette, palette, key details) per the new fidelity law -- flag any mismatch rather than closing over it.",
+    "Attach the raw headed Godot log file path in the QA receipt so Claude can decode and independently confirm zero-error + PASS marker (do not only restate the marker as text).",
+    "File QA_town_grid_headed_001.json under orchestration/receipts/town_grid_import_001/ before Purple can move off WAITING."
+  ],
+  "not_blocking": "Blue's resource+loader authorship and Red's audit are sound and do not need rework -- only the missing QA evidence step blocks progress."
+}

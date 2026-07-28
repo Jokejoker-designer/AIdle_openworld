@@ -1,0 +1,117 @@
+{
+  "phase": 2,
+  "phase_id": "TOWN_PHASE_02",
+  "district_id": "market_square",
+  "district_role_vi": "Quảng trường chợ",
+  "status": "BLOCKED_UNTIL_PREV_PARITY_100",
+  "mockup_ssot": "MOCKUP_SSOT_V2",
+  "parity_gate": "MOCKUP_PARITY_100",
+  "character": {
+    "character_id": "CCP-NS-002",
+    "slug": "may_mach",
+    "name": "Mây Mạch",
+    "class": "NPC_SOCIAL",
+    "form": "humanoid",
+    "clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "motion": "bob",
+    "signature": "letter_flutter",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_02_maymach.jpg",
+    "mockup_video": null,
+    "prod_hint": "runtime_glb",
+    "spawn": {
+      "x": 7.8,
+      "y": 0,
+      "z": 1.6,
+      "rotation_deg": 0
+    }
+  },
+  "building": {
+    "module_id": "cozy_market_stall_A",
+    "name": "Sạp chợ",
+    "cat": "social",
+    "anim": "cloth_sway",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/buildings/bld_05_market.jpg",
+    "spawn": {
+      "x": 9,
+      "y": 0,
+      "z": 0,
+      "rotation_deg": 0
+    }
+  },
+  "props": [
+    {
+      "module_id": "cozy_bench_A",
+      "name": "Ghế dài",
+      "cat": "furn",
+      "anim": "idle_static",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_bench.jpg",
+      "spawn": {
+        "x": 7.2,
+        "y": 0,
+        "z": -1.4,
+        "rotation_deg": -12
+      }
+    },
+    {
+      "module_id": "cozy_cart_A",
+      "name": "Xe kéo",
+      "cat": "utility",
+      "anim": "idle_static",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_cart.jpg",
+      "spawn": {
+        "x": 10.4,
+        "y": 0,
+        "z": 1.2,
+        "rotation_deg": 0
+      }
+    },
+    {
+      "module_id": "cozy_signpost_A",
+      "name": "Biển chỉ đường",
+      "cat": "infra",
+      "anim": "sway_small",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_signpost.jpg",
+      "spawn": {
+        "x": 9.0,
+        "y": 0,
+        "z": -2.2,
+        "rotation_deg": 12
+      }
+    }
+  ],
+  "acceptance": {
+    "rule": "Do NOT mark complete until MOCKUP_PARITY_100 passes for this phase",
+    "mockup_delta_max": 0.0,
+    "require_idle_play": true,
+    "require_clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "require_building_load": true,
+    "require_props_load": 3,
+    "require_town_no_overlap": true,
+    "require_district_role_readable": true,
+    "self_accept": false,
+    "human_accept_required": true
+  },
+  "subagent_pipeline": [
+    "town-orchestrator",
+    "mockup-parity-guardian",
+    "character-animation-designer",
+    "building-module-designer",
+    "prop-set-designer",
+    "town-layout-planner",
+    "godot-runtime-integrator",
+    "red-mockup-delta-reviewer",
+    "purple-parity-gate"
+  ]
+}

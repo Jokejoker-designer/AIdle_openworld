@@ -1,0 +1,286 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidle.local/dna-platform-vnext/schemas/dna_catalog_entry.schema.json",
+  "title": "AIdle DNA Catalog Entry vNext",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "entry_id",
+    "entry_kind",
+    "semantic_version",
+    "lifecycle_status",
+    "compatibility",
+    "capabilities",
+    "artifacts",
+    "authority",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "dna_platform_vnext/catalog_entry/0.1"
+    },
+    "entry_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9_\\-]+$"
+    },
+    "entry_kind": {
+      "enum": [
+        "MODULE",
+        "SOCKET",
+        "SKELETON",
+        "ANIMATION_SET",
+        "MATERIAL_THEME",
+        "BEHAVIOR",
+        "GENERATOR",
+        "WORLD_RULE",
+        "MOTION_PRIMITIVE",
+        "PHYSICS_PROFILE",
+        "REACTION_RULE",
+        "VFX",
+        "AUDIO"
+      ]
+    },
+    "semantic_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "lifecycle_status": {
+      "enum": [
+        "DESIGN_ONLY",
+        "AUTHORING_REQUIRED",
+        "QUARANTINED",
+        "VERIFIED",
+        "APPROVED",
+        "DEPRECATED"
+      ]
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "world_profiles",
+        "requires",
+        "conflicts_with"
+      ],
+      "properties": {
+        "world_profiles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          }
+        },
+        "requires": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "conflicts_with": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "traits",
+        "inputs",
+        "outputs"
+      ],
+      "properties": {
+        "traits": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
+        },
+        "inputs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_id",
+          "artifact_kind",
+          "uri",
+          "sha256",
+          "qa_status",
+          "license_id"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "artifact_kind": {
+            "enum": [
+              "GLB",
+              "BLEND",
+              "JSON",
+              "PNG",
+              "AUDIO",
+              "GODOT_RESOURCE",
+              "GDSCRIPT_ALLOWLISTED_RUNTIME"
+            ]
+          },
+          "uri": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "qa_status": {
+            "enum": [
+              "PENDING",
+              "QUARANTINED",
+              "VERIFIED",
+              "REJECTED"
+            ]
+          },
+          "license_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ai_mode",
+        "runtime_owner",
+        "catalog_write_allowed",
+        "generated_code_allowed"
+      ],
+      "properties": {
+        "ai_mode": {
+          "enum": [
+            "CONFIGURE_ONLY",
+            "REQUEST_AUTHORING_ONLY"
+          ]
+        },
+        "runtime_owner": {
+          "enum": [
+            "GODOT",
+            "BLENDER_OFFLINE",
+            "WORLD_COMMIT",
+            "CONTRACT_ONLY"
+          ]
+        },
+        "catalog_write_allowed": {
+          "const": false
+        },
+        "generated_code_allowed": {
+          "const": false
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_path",
+        "source_sha256",
+        "license_id",
+        "created_by",
+        "promotion_receipt"
+      ],
+      "properties": {
+        "source_path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "license_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "created_by": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "promotion_receipt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 512
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "lifecycle_status": {
+            "enum": [
+              "VERIFIED",
+              "APPROVED"
+            ]
+          }
+        },
+        "required": [
+          "lifecycle_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "artifacts": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}
+

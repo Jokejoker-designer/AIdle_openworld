@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_CHAR-1C-001_UNICODE_PROVENANCE_REVIEW_003",
+  "task_id": "CHAR-1C-001",
+  "directive_reviewed": 66,
+  "reviewed_at": "2026-07-22T10:26:00+07:00",
+  "reviewed_by": "codex",
+  "verdict": "NEED_HUMAN",
+  "accepted": false,
+  "technical_result": {
+    "verdict": "PASS",
+    "source_manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+    "source_records_valid": "28/28",
+    "valid_fixtures_passed": "3/3",
+    "invalid_fixtures_rejected": "21/21",
+    "source_hash_identity": "PASS",
+    "foundry_source_diff": "zero",
+    "unicode_probes": {
+      "fullwidth_aida": "REJECT",
+      "cyrillic_i_aida": "REJECT",
+      "cyrillic_a_aida": "REJECT",
+      "greek_iota_aida": "REJECT",
+      "ascii_hyphen_aida": "REJECT",
+      "zero_width_aida": "REJECT"
+    },
+    "directive_65_probes": {
+      "F01": "REJECT",
+      "F03": "REJECT",
+      "F04": "REJECT",
+      "F05": "REJECT",
+      "F06": "REJECT"
+    },
+    "maf_schema_errors": 0,
+    "pycache_preserved_mtime": "2026-07-22T09:16:57+07:00"
+  },
+  "governance_blocker": {
+    "signature": "SKILL_FULL_EOF_CLAIM_NOT_TRANSCRIPT_BACKED",
+    "reason": "U0 and U2 receipts claim loaded_full_eof=true and transcript ranges that are absent from their durable child chat histories.",
+    "u0": {
+      "child_task_ref": "019f87c7-5788-7761-8ee1-4b969bd0861e",
+      "chat_history_sha256": "69f54e93a78b2bd33024958bebaf221e79e33508eb2440eb96a5bc49c2790b4a",
+      "meta_sha256": "c314a6fe4a411adb73664b3fdc653f7482d62f9c271dd7f001c148a35db133e9",
+      "observed": "curiosity-engine read_file only offset=1 limit=400; receipt claims offsets 1,401,801 through line 1123",
+      "receipt": "orchestration/receipts/character_1c/CHAR_1C_001_u0_unicode_correction_003.json",
+      "receipt_status": "REJECTED_AS_ACCEPTANCE_EVIDENCE"
+    },
+    "u1": {
+      "child_task_ref": "019f87cb-63f5-7a72-b05b-27808614b8ae",
+      "chat_history_sha256": "b69445185a0e3a8d658f5806da449760c97069c30bb3bcc70e074073dc1177be",
+      "meta_sha256": "028b6b42aee77b913cc2a12f25d77caee98952db97894b676ba10ca033b4eed9",
+      "observed": "curiosity-engine offsets 1,401,801 are present and mandatory/routed skill reads are transcript-backed",
+      "receipt_status": "PROVENANCE_PASS"
+    },
+    "u2": {
+      "child_task_ref": "019f87d0-7034-7ff2-9c11-dd9ed4911559",
+      "chat_history_sha256": "4501853aec10d604c965209a4d5a82d16de5a43afb70d35eed02d46bae450ce5",
+      "meta_sha256": "82c7f7945b083e91685fec400c7f507c19a8b960f3fdad36b6386f6fa373c2ae",
+      "observed": "no semantic read_file calls for the five mandatory skills, routed skills, TrustLayer card or UI card; hash and line-count commands do not constitute full reads",
+      "receipt": "orchestration/receipts/character_1c/CHAR_1C_001_u2_purple_unicode_003.json",
+      "receipt_status": "REJECTED_AS_ACCEPTANCE_EVIDENCE"
+    }
+  },
+  "repeat_threshold": {
+    "prior_occurrence": "Directive 62; CONDUCTOR_JOURNAL Entry 037 explicitly states a repeated full-EOF signature routes to NEED_HUMAN",
+    "current_occurrences": ["Directive 66 U0", "Directive 66 U2"],
+    "threshold_reached": true
+  },
+  "human_options": [
+    {
+      "id": "CODEX_EXTERNAL_TRANSCRIPT_BINDING",
+      "recommended": true,
+      "effect": "Human authorizes Codex to reject the false U0/U2 receipts, bind the durable transcripts and independent technical evidence directly, and decide CHAR-1C-001 without another Grok retry."
+    },
+    {
+      "id": "STRICT_PROVENANCE_RETRY",
+      "recommended": false,
+      "effect": "Human explicitly overrides the retry stop and permits a narrowly scoped evidence-only retry with real EOF reads."
+    },
+    {
+      "id": "KEEP_BLOCKED",
+      "recommended": false,
+      "effect": "Keep CHAR-1C-001 and all dependent Block-DNA/P2E work blocked."
+    }
+  ],
+  "blocked": [
+    "CHAR-1C-001 acceptance",
+    "Character Foundry visual/runtime waves",
+    "BLOCK-DNA-ADAPT",
+    "P2E Block Assembly",
+    "Scene 2 and later worlds"
+  ]
+}

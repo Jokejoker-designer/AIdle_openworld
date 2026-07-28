@@ -1,0 +1,46 @@
+{
+  "config_version": "1.0",
+  "max_offline_seconds": 28800.0,
+  "provisional_tier_distances_m": [
+    12.0,
+    32.0,
+    96.0
+  ],
+  "floating_point_tolerance": 1e-09,
+  "farm_solver": {
+    "wetness_decay_per_second": 2e-05,
+    "pond_replenish_per_second": 1e-05,
+    "growth_rate_per_second": 2e-05,
+    "default_light": 0.9,
+    "default_fertility": 0.8,
+    "default_temperature_fit": 0.85,
+    "wet_variant_threshold": 0.6
+  },
+  "authority": {
+    "requires_canonical_committed": true,
+    "allowed_state_fields": [
+      "wetness",
+      "growth",
+      "health",
+      "temperature",
+      "integrity",
+      "charge",
+      "pressure",
+      "states"
+    ],
+    "forbidden_operations": [
+      "create",
+      "destroy",
+      "reparent",
+      "replace_module",
+      "change_transform",
+      "change_ownership"
+    ]
+  },
+  "bounded_cost": {
+    "solver": "closed_form_piecewise_linear",
+    "max_breakpoints_per_farm": 5,
+    "max_segments_per_farm": 4,
+    "elapsed_proportional_loop": false
+  }
+}

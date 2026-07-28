@@ -1,5 +1,11 @@
 # AIdle Openworld 2.5D Design System
 
+> **Official visual mockup SSOT (binding for character / prop / building art):**  
+> `orchestration/control/visual_reference/mockup_ssot_v2/MOCKUP_SSOT_V2.html`  
+> Lock: `orchestration/control/visual_reference/mockup_ssot_v2/MOCKUP_DESIGN_LOCK.md`  
+> Index: `MOCKUP_SSOT_V2.json` — **15 cast · 30 props · 10 buildings**.  
+> All in-game art and animation must pass the mockup delta check in that lock.
+
 ## 1. Visual Theme & Atmosphere
 
 Cozy Cyber-Pixel / Dreamy Low-Poly 2.5D. Warm, tactile and playful; technology

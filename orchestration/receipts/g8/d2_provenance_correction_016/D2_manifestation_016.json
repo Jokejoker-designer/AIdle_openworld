@@ -1,0 +1,886 @@
+{
+  "agent_step_id": "G8-001-D2-manifestation-provenance-correction-016-2026-07-21",
+  "agent_type": "aidle-manifestation",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "accepted": false,
+  "self_accept": false,
+  "product_writes": [],
+  "input_context_hash": "sha256:529bae9eb2bf886c21ada4d319305d228d80926fbc579cd322ea7b48233411f0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f830a-e078-7291-868d-63c406c499a4",
+  "transcript_ref": "019f830a-e078-7291-868d-63c406c499a4",
+  "writer_transcript_ref": "019f830a-e078-7291-868d-63c406c499a4",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "trace_ref": "orchestration/logs/g8-d2-manifestation-016.log",
+  "handoff_ref": "D3_BLOCKED",
+  "start_time": "2026-07-21T04:59:40.0000000Z",
+  "end_time": "2026-07-21T05:01:32.0917892Z",
+  "timing_note": "Honest receipt-writer timestamps only. No predicted durable completed_at. Codex binds completed_at from immutable child metadata + artifact LastWriteTimeUtc + SHA-256 after exit.",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/manifestation.md",
+  "profile_binding_evidence": "FULL read: name=aidle-manifestation; trustlayer_character=blue-team-p0-remediator; ui_character=ui-component-craftsman; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop, game-asset-core, game-ui-icons. WO-016 + Dir37 force VERIFY_ONLY (profile PATCH_DRAFT overridden). Object-level stages wireframe→hologram→materializing→complete; preview no durable collision.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/g8/d2_provenance_correction_016/D2_manifestation_016.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-manifestation-016.log"
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/manifestation.md",
+    "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/AIdle_Openworld_Blueprint_v1.1/00_README.md",
+    "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+    "E:/AIdle_openworld/orchestration/workflow.json",
+    "E:/AIdle_openworld/orchestration/tasks.json",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md",
+    "E:/AIdle_openworld/DESIGN.md",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+    "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_manifestation_012.json",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_stages.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_module.gd",
+    "E:/AIdle_openworld/orchestration/logs/g8_headed_smoke_godot.log",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_wireframe.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_hologram.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_materializing.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_cancel_preview.png",
+    "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/after_cancel.png"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/g8/d2_provenance_correction_016/D2_manifestation_016.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-d2-manifestation-016.log"
+  ],
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_character_source": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "ui_character_id": "ui-component-craftsman",
+    "ui_character_source": "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+    "maf_role": "agent",
+    "authority_token": "VERIFY_ONLY"
+  },
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "mode": "full",
+      "total_lines": 46,
+      "bytes": 1741,
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "chunks": [{"range": "1-46", "coverage": "FULL_EOF"}],
+      "transcript_refs": [
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/15",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/2"
+      ],
+      "load_evidence": "FULL EOF read: MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no inventing evidence / no exceed authority; bootstrap path known parser-limited"
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "mode": "full",
+      "total_lines": 53,
+      "bytes": 1938,
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "chunks": [{"range": "1-53", "coverage": "FULL_EOF"}],
+      "transcript_refs": [
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/16",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/2"
+      ],
+      "load_evidence": "FULL EOF: registry x16; slot 09 blue-team-p0-remediator; Red finds never fixes; Blue fixes only from approved WOs; Purple never patches; WO-016 overrides profile PATCH_DRAFT to VERIFY_ONLY"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "mode": "full",
+      "total_lines": 36,
+      "bytes": 982,
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "chunks": [{"range": "1-36", "coverage": "FULL_EOF"}],
+      "transcript_refs": [
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/17",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/2"
+      ],
+      "load_evidence": "FULL EOF: Canonical hub E:\\; Always MASTER_PLAN + JOURNAL_LATEST; journal-entry after milestones; Do not skip handoff when switching agents"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "mode": "full",
+      "total_lines": 65,
+      "bytes": 1681,
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "chunks": [{"range": "1-65", "coverage": "FULL_EOF_65_OF_65"}],
+      "transcript_refs": [
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/18",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/2",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/3"
+      ],
+      "load_evidence": "FULL 65/65 lines through last line '- Docs: `E:\\agents\\projects\\README.md`'. Prior D2-012 rejection D2-SKILL-001 claimed 40_of_65; this child proves 65_of_65."
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "mode": "full",
+      "total_lines": 1123,
+      "bytes": 34306,
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "chunks": [
+        {"range": "1-200", "lines_out": 200, "chunk_sha256": "e986533fd989da9a141fd4af22db0564a3de878dfa9f00820e29a2b84db5990a", "first": "---", "last": "---"},
+        {"range": "201-400", "lines_out": 200, "chunk_sha256": "729fa7a5131f587fe016e9f5d5f078c1b9c2eac44feec289833bf635b842814c", "first": "(blank)", "last": "8. The requested implementation passes the defined acceptance tests."},
+        {"range": "401-600", "lines_out": 200, "chunk_sha256": "a6e61c177652439a643449a99668c5916242e6f904c532893f8e689a800e0796", "first": "(blank)", "last": "- `UNKNOWN`"},
+        {"range": "601-800", "lines_out": 200, "chunk_sha256": "2f160f5eb514b3306216c55c90e27ae780cd7cf7d39d06dfbf3ca1ce77ee9576", "first": "(blank)", "last": "(blank)"},
+        {"range": "801-1000", "lines_out": 200, "chunk_sha256": "54616f44f48cedd38779ca53e1f3587a94d6e1e9976976e93a1006265faf09a9", "first": "What must be true before execution.", "last": "- Run safe tests"},
+        {"range": "1001-1123", "lines_out": 123, "chunk_sha256": "c9c83a289591e985ebf512b0d34e93832a72349fb4201436c1f64e972a0d9c62", "first": "- Modify authorized repository files", "last": "Your goal is to produce a trustworthy, testable result; understand why it is tru"}
+      ],
+      "coverage": "1123_of_1123_FULL_EOF",
+      "transcript_refs": [
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/21",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/22",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/23",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/24",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/25",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/26",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/2",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/3"
+      ],
+      "load_evidence": "FULL non-overlapping chunks 1-200,201-400,401-600,601-800,801-1000,1001-1123 via read_file + PowerShell Get-Content range dumps. Prior D2-012 rejection D2-SKILL-001 claimed 40_of_1123; this child proves 1123_of_1123. Doctrine: do not invent facts; classify FACT/INFERENCE; record exit codes; do not claim smoke re-run when only existing evidence was inspected."
+    },
+    {
+      "skill_id": "game-asset-core",
+      "source": "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+      "mode": "full",
+      "total_lines": 57,
+      "bytes": 3324,
+      "sha256": "7b7ab3024067a0eb239ba75fc414b312d007022d897d1a0b519a09e9c1225f37",
+      "chunks": [{"range": "1-57", "coverage": "FULL_EOF"}],
+      "transcript_refs": [
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/27",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/2"
+      ],
+      "load_evidence": "FULL WO-routed: Engine-ready defaults; UI panels scale-survivable; verify by blind describe+diff; stage captures treated as visual evidence artifacts not world truth"
+    },
+    {
+      "skill_id": "game-ui-icons",
+      "source": "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+      "mode": "full",
+      "total_lines": 55,
+      "bytes": 2235,
+      "sha256": "f55828fd6e62640ab2a9ec8d2e72fb5fd8079b529ac21cd5d7b61347654b77b9",
+      "chunks": [{"range": "1-55", "coverage": "FULL_EOF"}],
+      "transcript_refs": [
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/28",
+        "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/2"
+      ],
+      "load_evidence": "FULL WO-routed: Interaction states geometry-identical; object-level stage language not banner-only; non-color stage labels preserved"
+    }
+  ],
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "routed_manifestation": [
+      "game-asset-core",
+      "game-ui-icons"
+    ]
+  },
+  "ui_skill_dispatch_map_read": {
+    "path": "E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md",
+    "required_by": "WO-016 mandatory full context; corrects D2-CONTEXT-001 from review 015",
+    "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/7",
+    "U4_manifestation_row": "manifestation | PATCH_DRAFT historical | blue-team-p0-remediator | ui-component-craftsman | game-asset-core (full), game-ui-icons (full) | manifestation_instance.gd + U4 receipt",
+    "this_wave_authority_override": "VERIFY_ONLY (WO-016 / Dir37)"
+  },
+  "input_context_hash_method": {
+    "algorithm": "sha256",
+    "inputs_in_order": [
+      "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md",
+      "E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json",
+      "E:/AIdle_openworld/DESIGN.md",
+      "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+      "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_stages.gd",
+      "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_module.gd"
+    ],
+    "concat": "raw file bytes joined with no separator",
+    "format": "sha256: + full 64-char lowercase hex",
+    "FULL_SHA256": "529bae9eb2bf886c21ada4d319305d228d80926fbc579cd322ea7b48233411f0",
+    "BYTE_LEN": 48178,
+    "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/3"
+  },
+  "tool_provenance": {
+    "namespace": "transcript://019f830a-e078-7291-868d-63c406c499a4/<tool-kind>/<one-based-ordinal>",
+    "ordinal_rule": "one-based ordinal per tool-kind from this child transcript; no gaps; no invented calls; final receipt/trace write excluded (Codex binds externally)",
+    "failed_attempts": [],
+    "failed_attempts_note": "No failed terminal or tool exits observed in this child before final write. Empty array is honest, not omission.",
+    "pre_final_calls": [
+      {
+        "ordinal_global": 1,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/todo_write/1",
+        "tool_kind": "todo_write",
+        "exact_tool_input": {"merge": false, "todos": [{"id": "1", "content": "Load profile, characters, WO-016, Dir37, review 015, dispatch map", "status": "in_progress"}, {"id": "2", "content": "Mandatory reads: AGENTS, Blueprint, ARCH_LOCK, workflow, tasks, DESIGN", "status": "pending"}, {"id": "3", "content": "FULL skill EOF: 5 shared + 2 routed with sha256/chunks", "status": "pending"}, {"id": "4", "content": "Gates verify (read-only existing evidence)", "status": "pending"}, {"id": "5", "content": "Write D2_manifestation_016.json + log receipt", "status": "pending"}]},
+        "exit_code": 0,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 2,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/1",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/.grok/agents/manifestation.md"},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/.grok/agents/manifestation.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 3,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/list_dir/1",
+        "tool_kind": "list_dir",
+        "exact_tool_input": {"target_directory": "E:/AIdle_openworld/orchestration/receipts/g8"},
+        "exit_code": 0,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 4,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/grep/1",
+        "tool_kind": "grep",
+        "exact_tool_input": {"pattern": "WO-G8-001-D2-PROVENANCE-CORRECTION-016|Directive 37|Dir37|d2_provenance_correction_016", "path": "E:/AIdle_openworld", "glob": "*.{md,json,yml,yaml}", "head_limit": 50},
+        "exit_code": 0,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 5,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/2",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md"},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 6,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/3",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json"},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 7,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/list_dir/2",
+        "tool_kind": "list_dir",
+        "exact_tool_input": {"target_directory": "E:/AIdle_openworld/orchestration/receipts/g8/d2_provenance_correction_016"},
+        "exit_code": 0,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 8,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/grep/2",
+        "tool_kind": "grep",
+        "exact_tool_input": {"pattern": "Directive 37|DIR.?37|directive.?37", "path": "E:/AIdle_openworld/orchestration", "glob": "*.{md,json}", "head_limit": 30},
+        "exit_code": 0,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 9,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/4",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/agents/characters/09-blue-team-p0-remediator.md", "limit": 100},
+        "exit_code": 0,
+        "files_read": ["E:/agents/characters/09-blue-team-p0-remediator.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 10,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/5",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/agents/ui-design/characters/10-ui-component-craftsman.md", "limit": 100},
+        "exit_code": 0,
+        "files_read": ["E:/agents/ui-design/characters/10-ui-component-craftsman.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 11,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/list_dir/3",
+        "tool_kind": "list_dir",
+        "exact_tool_input": {"target_directory": "E:/AIdle_openworld/orchestration/control"},
+        "exit_code": 0,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 12,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/6",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_manifestation_012.json", "limit": 200},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_manifestation_012.json"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 13,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/grep/3",
+        "tool_kind": "grep",
+        "exact_tool_input": {"pattern": "directive.?37|Directive 37|DIR37|dir_37", "path": "E:/AIdle_openworld", "glob": "*.{md,json,txt}", "head_limit": 40},
+        "exit_code": 0,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 14,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/7",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md"},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md"],
+        "files_written": [],
+        "corrects_blocker": "D2-CONTEXT-001"
+      },
+      {
+        "ordinal_global": 15,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/8",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/orchestration/skills_manifest.yaml"},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/orchestration/skills_manifest.yaml"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 16,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/1",
+        "tool_kind": "run_terminal_command",
+        "exact_command": "Write-Output \"PSVersion: $($PSVersionTable.PSVersion)\"; Get-Location; if ($env:GROK_CHILD_TASK_REF) { \"GROK_CHILD_TASK_REF=$env:GROK_CHILD_TASK_REF\" }; if ($env:CHILD_TASK_REF) { \"CHILD_TASK_REF=$env:CHILD_TASK_REF\" }; Get-ChildItem Env: | Where-Object { $_.Name -match 'GROK|TASK|AGENT|SESSION|CHILD' } | Format-Table Name,Value -AutoSize",
+        "exit_code": 0,
+        "result_summary": "PSVersion 5.1.22621.1778; cwd E:\\AIdle_openworld; GROK_AGENT=1; no GROK_CHILD_TASK_REF env (child_task_ref later bound from grok_status.json)",
+        "files_read": [],
+        "files_written": [],
+        "mutated_shared_evidence": false
+      },
+      {
+        "ordinal_global": 17,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/9",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/orchestration/control/codex_directive.json"},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/orchestration/control/codex_directive.json"],
+        "files_written": [],
+        "note": "Directive 37 EXECUTE state loaded from this file"
+      },
+      {
+        "ordinal_global": 18,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/10",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/orchestration/control/grok_status.json"},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/orchestration/control/grok_status.json"],
+        "files_written": [],
+        "result_summary": "Bound child_task_ref=019f830a-e078-7291-868d-63c406c499a4 for profile manifestation"
+      },
+      {
+        "ordinal_global": 19,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/11",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/Agents.md"},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/Agents.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 20,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/12",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/AIdle_Openworld_Blueprint_v1.1/00_README.md", "limit": 150},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/AIdle_Openworld_Blueprint_v1.1/00_README.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 21,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/13",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md", "limit": 150},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 22,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/14",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/standards/maf/schemas/agent_step_contract.schema.json", "limit": 200},
+        "exit_code": 0,
+        "files_read": ["E:/standards/maf/schemas/agent_step_contract.schema.json"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 23,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/2",
+        "tool_kind": "run_terminal_command",
+        "exact_command": "$paths = @(\n  'E:\\shared\\skills\\library\\maf-mandatory-standard\\SKILL.md',\n  'E:\\shared\\skills\\library\\trustlayer-x16-crew\\SKILL.md',\n  'E:\\shared\\skills\\library\\agentwork-knowledge-loop\\SKILL.md',\n  'E:\\shared\\skills\\library\\project-room-collab\\SKILL.md',\n  'E:\\shared\\skills\\library\\curiosity-engine\\SKILL.md',\n  'C:\\Users\\phant\\.grok\\bundled\\skills\\game-asset-core\\SKILL.md',\n  'C:\\Users\\phant\\.grok\\bundled\\skills\\game-ui-icons\\SKILL.md'\n)\nforeach ($p in $paths) {\n  if (Test-Path -LiteralPath $p) {\n    $bytes = [System.IO.File]::ReadAllBytes($p)\n    $sha = [System.Security.Cryptography.SHA256]::Create().ComputeHash($bytes)\n    $hex = ([BitConverter]::ToString($sha) -replace '-','').ToLowerInvariant()\n    $lines = [System.IO.File]::ReadAllLines($p).Length\n    Write-Output (\"PATH={0}\" -f $p)\n    Write-Output (\"BYTES={0}\" -f $bytes.Length)\n    Write-Output (\"LINES={0}\" -f $lines)\n    Write-Output (\"SHA256={0}\" -f $hex)\n    Write-Output '---'\n  } else {\n    Write-Output (\"MISSING={0}\" -f $p)\n  }\n}",
+        "exit_code": 0,
+        "result_summary": "All 7 skill paths present; project-room-collab LINES=65; curiosity-engine LINES=1123; hashes recorded in skills_loaded",
+        "files_read": [
+          "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+          "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+          "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+          "E:/shared/skills/library/project-room-collab/SKILL.md",
+          "E:/shared/skills/library/curiosity-engine/SKILL.md",
+          "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md",
+          "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md"
+        ],
+        "files_written": [],
+        "mutated_shared_evidence": false
+      },
+      {
+        "ordinal_global": 24,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/15",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md"},
+        "exit_code": 0,
+        "files_read": ["E:/shared/skills/library/maf-mandatory-standard/SKILL.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 25,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/16",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md"},
+        "exit_code": 0,
+        "files_read": ["E:/shared/skills/library/trustlayer-x16-crew/SKILL.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 26,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/17",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md"},
+        "exit_code": 0,
+        "files_read": ["E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 27,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/18",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/shared/skills/library/project-room-collab/SKILL.md"},
+        "exit_code": 0,
+        "files_read": ["E:/shared/skills/library/project-room-collab/SKILL.md"],
+        "files_written": [],
+        "result_summary": "FULL 65 lines EOF observed"
+      },
+      {
+        "ordinal_global": 28,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/19",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/orchestration/workflow.json", "limit": 100},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/orchestration/workflow.json"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 29,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/20",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/orchestration/tasks.json", "limit": 80},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/orchestration/tasks.json"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 30,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/21",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/shared/skills/library/curiosity-engine/SKILL.md", "offset": 1, "limit": 200},
+        "exit_code": 0,
+        "files_read": ["E:/shared/skills/library/curiosity-engine/SKILL.md"],
+        "files_written": [],
+        "chunk": "1-200"
+      },
+      {
+        "ordinal_global": 31,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/22",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/shared/skills/library/curiosity-engine/SKILL.md", "offset": 201, "limit": 200},
+        "exit_code": 0,
+        "files_read": ["E:/shared/skills/library/curiosity-engine/SKILL.md"],
+        "files_written": [],
+        "chunk": "201-400",
+        "tool_note": "read_file returned full-file content for some offset reads; non-overlapping coverage independently proven by run_terminal_command/3 Get-Content ranges"
+      },
+      {
+        "ordinal_global": 32,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/23",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/shared/skills/library/curiosity-engine/SKILL.md", "offset": 401, "limit": 200},
+        "exit_code": 0,
+        "files_read": ["E:/shared/skills/library/curiosity-engine/SKILL.md"],
+        "files_written": [],
+        "chunk": "401-600"
+      },
+      {
+        "ordinal_global": 33,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/24",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/shared/skills/library/curiosity-engine/SKILL.md", "offset": 601, "limit": 200},
+        "exit_code": 0,
+        "files_read": ["E:/shared/skills/library/curiosity-engine/SKILL.md"],
+        "files_written": [],
+        "chunk": "601-800"
+      },
+      {
+        "ordinal_global": 34,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/25",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/shared/skills/library/curiosity-engine/SKILL.md", "offset": 801, "limit": 200},
+        "exit_code": 0,
+        "files_read": ["E:/shared/skills/library/curiosity-engine/SKILL.md"],
+        "files_written": [],
+        "chunk": "801-1000"
+      },
+      {
+        "ordinal_global": 35,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/26",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/shared/skills/library/curiosity-engine/SKILL.md", "offset": 1001, "limit": 130},
+        "exit_code": 0,
+        "files_read": ["E:/shared/skills/library/curiosity-engine/SKILL.md"],
+        "files_written": [],
+        "chunk": "1001-1123",
+        "result_summary": "EOF observed at line 1123 Prime Directive"
+      },
+      {
+        "ordinal_global": 36,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/27",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md"},
+        "exit_code": 0,
+        "files_read": ["C:/Users/phant/.grok/bundled/skills/game-asset-core/SKILL.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 37,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/28",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md"},
+        "exit_code": 0,
+        "files_read": ["C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 38,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/29",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/DESIGN.md", "limit": 120},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/DESIGN.md"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 39,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/30",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json"},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 40,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/grep/4",
+        "tool_kind": "grep",
+        "exact_tool_input": {"pattern": "wireframe|hologram|materializing|complete|allows_durable_collision|entity_absent|free_cleanup|cancel", "path": "E:/AIdle_openworld/game/scripts/modules/manifestation", "glob": "*.gd", "head_limit": 80},
+        "exit_code": 0,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 41,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/3",
+        "tool_kind": "run_terminal_command",
+        "exact_command": "$child = '019f830a-e078-7291-868d-63c406c499a4'\n# Prove curiosity-engine non-overlapping line coverage via shell line-range dumps\n$p = 'E:\\shared\\skills\\library\\curiosity-engine\\SKILL.md'\n$all = Get-Content -LiteralPath $p\nWrite-Output (\"curiosity_engine_total_lines={0}\" -f $all.Count)\n$ranges = @(@(1,200),@(201,400),@(401,600),@(601,800),@(801,1000),@(1001,1123))\nforeach ($r in $ranges) {\n  $a=$r[0]; $b=$r[1]\n  $chunk = $all[($a-1)..($b-1)]\n  $text = ($chunk -join \"`n\")\n  $bytes = [System.Text.Encoding]::UTF8.GetBytes($text)\n  $sha = [System.Security.Cryptography.SHA256]::Create().ComputeHash($bytes)\n  $hex = ([BitConverter]::ToString($sha) -replace '-','').ToLowerInvariant()\n  Write-Output (\"CHUNK={0}-{1} LINES_OUT={2} FIRST='{3}' LAST='{4}' SHA256={5}\" -f $a,$b,$chunk.Count, ($chunk[0].Substring(0,[Math]::Min(60,$chunk[0].Length))), ($chunk[-1].Substring(0,[Math]::Min(80,$chunk[-1].Length))), $hex)\n}\n# project-room-collab full 65\n$p2 = 'E:\\shared\\skills\\library\\project-room-collab\\SKILL.md'\n$all2 = Get-Content -LiteralPath $p2\nWrite-Output (\"project_room_collab_total_lines={0}\" -f $all2.Count)\nWrite-Output (\"project_room_collab_last_line='{0}'\" -f $all2[-1])\n# input_context_hash per prior method inputs + WO-016\n$inputs = @(\n  'E:\\AIdle_openworld\\orchestration\\work_orders\\WO-G8-001-D2-PROVENANCE-CORRECTION-016.md',\n  'E:\\AIdle_openworld\\orchestration\\reviews\\CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json',\n  'E:\\AIdle_openworld\\DESIGN.md',\n  'E:\\AIdle_openworld\\game\\scripts\\modules\\manifestation\\manifestation_instance.gd',\n  'E:\\AIdle_openworld\\game\\scripts\\modules\\manifestation\\manifestation_stages.gd',\n  'E:\\AIdle_openworld\\game\\scripts\\modules\\manifestation\\manifestation_module.gd'\n)\n$ms = New-Object System.IO.MemoryStream\nforeach ($ip in $inputs) {\n  $b = [System.IO.File]::ReadAllBytes($ip)\n  $ms.Write($b,0,$b.Length)\n  Write-Output (\"INPUT={0} BYTES={1}\" -f $ip,$b.Length)\n}\n$sha2 = [System.Security.Cryptography.SHA256]::Create().ComputeHash($ms.ToArray())\n$hex2 = ([BitConverter]::ToString($sha2) -replace '-','').ToLowerInvariant()\nWrite-Output (\"input_context_hash_sha256={0}\" -f $hex2)\nWrite-Output (\"input_context_BYTE_LEN={0}\" -f $ms.Length)\nWrite-Output (\"child_task_ref={0}\" -f $child)\nWrite-Output (\"utc_now={0}\" -f ([DateTime]::UtcNow.ToString('o')))",
+        "exit_code": 0,
+        "result_summary": "curiosity_engine_total_lines=1123; six non-overlapping chunks LINES_OUT 200+200+200+200+200+123; project_room_collab_total_lines=65; input_context_hash_sha256=529bae9eb2bf886c21ada4d319305d228d80926fbc579cd322ea7b48233411f0 BYTE_LEN=48178",
+        "files_read": [
+          "E:/shared/skills/library/curiosity-engine/SKILL.md",
+          "E:/shared/skills/library/project-room-collab/SKILL.md",
+          "E:/AIdle_openworld/orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md",
+          "E:/AIdle_openworld/orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json",
+          "E:/AIdle_openworld/DESIGN.md",
+          "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+          "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_stages.gd",
+          "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_module.gd"
+        ],
+        "files_written": [],
+        "mutated_shared_evidence": false
+      },
+      {
+        "ordinal_global": 42,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/31",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_stages.gd", "limit": 120},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_stages.gd"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 43,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/read_file/32",
+        "tool_kind": "read_file",
+        "exact_tool_input": {"target_file": "E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_manifestation_012.json", "offset": 198, "limit": 120},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/orchestration/receipts/g8/subagent_workflow_remediation_004/D2_manifestation_012.json"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 44,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/4",
+        "tool_kind": "run_terminal_command",
+        "exact_command": "$ev = 'E:\\AIdle_openworld\\orchestration\\evidence\\g8_ui_visual_correction_003'\n$files = @('stage_wireframe.png','stage_hologram.png','stage_materializing.png','stage_complete_confirmed.png','stage_cancel_preview.png','after_cancel.png')\n$expected = @{\n  'stage_wireframe.png'='ab9de225d8f94acde5648a390747e05f3e31533806c5d4c43160534fb7504659'\n  'stage_hologram.png'='80a35df6631d10167006547af9a2bb8f913c4b556941ade980967c4dd418a9a9'\n  'stage_materializing.png'='2ade3ec0421217e6667bb3fc142576de2f5c94ae9449761feefc475ea9114a19'\n  'stage_complete_confirmed.png'='8cc169fd93d7783acfd406cceb7d8201180cfc93db6feec4b5a6f410be69c2ae'\n  'stage_cancel_preview.png'='51410a35690aecb8619a23b2c462e4e1c550076db68c7f89c6be62a1da5c9c9a'\n  'after_cancel.png'='2038185699f8249d34c0a34c8fa3796e2190308c40ec313133a1f88fe4381cc7'\n}\n$hashes = @()\nforeach ($f in $files) {\n  $path = Join-Path $ev $f\n  $bytes = [System.IO.File]::ReadAllBytes($path)\n  $sha = [System.Security.Cryptography.SHA256]::Create().ComputeHash($bytes)\n  $hex = ([BitConverter]::ToString($sha) -replace '-','').ToLowerInvariant()\n  $match = ($hex -eq $expected[$f])\n  $hashes += $hex\n  Write-Output (\"FILE={0} BYTES={1} SHA256={2} MATCH_MANIFEST={3}\" -f $f,$bytes.Length,$hex,$match)\n}\n$uniq = ($hashes | Select-Object -Unique).Count\nWrite-Output (\"four_stage_unique={0} (need 4 from first 4)\" -f (($hashes[0..3] | Select-Object -Unique).Count))\n# non-mutating cancel proof line from existing log\n$log = 'E:\\AIdle_openworld\\orchestration\\logs\\g8_headed_smoke_godot.log'\nif (Test-Path $log) {\n  Select-String -LiteralPath $log -Pattern 'CANCEL_PROOF|entity_absent|wireframe|hologram|materializing' | Select-Object -First 30 | ForEach-Object { $_.Line }\n} else { Write-Output 'LOG_MISSING' }",
+        "exit_code": 0,
+        "result_summary": "All 6 stage PNGs MATCH_MANIFEST=True; four_stage_unique=4; CANCEL_PROOF after cancel entity_absent=true for headed-demo-7720",
+        "files_read": [
+          "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_wireframe.png",
+          "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_hologram.png",
+          "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_materializing.png",
+          "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png",
+          "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/stage_cancel_preview.png",
+          "E:/AIdle_openworld/orchestration/evidence/g8_ui_visual_correction_003/after_cancel.png",
+          "E:/AIdle_openworld/orchestration/logs/g8_headed_smoke_godot.log"
+        ],
+        "files_written": [],
+        "mutated_shared_evidence": false
+      },
+      {
+        "ordinal_global": 45,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/grep/5",
+        "tool_kind": "grep",
+        "exact_tool_input": {"pattern": "free_cleanup|has_durable_collision|cancel_preview|mark_cancelled|cancel_manifestation", "path": "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd", "glob": "*.gd", "A": 3},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 46,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/grep/6",
+        "tool_kind": "grep",
+        "exact_tool_input": {"pattern": "cancel_preview|cancel_manifestation|has_durable_collision|durable_mutation_applied", "path": "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_module.gd", "glob": "*.gd", "A": 2, "head_limit": 40},
+        "exit_code": 0,
+        "files_read": ["E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_module.gd"],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 47,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/list_dir/4",
+        "tool_kind": "list_dir",
+        "exact_tool_input": {"target_directory": "E:/AIdle_openworld/orchestration/logs"},
+        "exit_code": 0,
+        "files_read": [],
+        "files_written": []
+      },
+      {
+        "ordinal_global": 48,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/5",
+        "tool_kind": "run_terminal_command",
+        "exact_command": "# Capture start-ish and pre-write times; ensure lease dir exists; dry-run JSON validity check tool\n$start = '2026-07-21T04:59:40Z'\n$now = [DateTime]::UtcNow.ToString('o')\nWrite-Output (\"writer_now_utc={0}\" -f $now)\nNew-Item -ItemType Directory -Force -Path 'E:\\AIdle_openworld\\orchestration\\receipts\\g8\\d2_provenance_correction_016' | Out-Null\n# Confirm 012 not overwritten later by checking exists\nWrite-Output (\"prior_012_exists={0}\" -f (Test-Path 'E:\\AIdle_openworld\\orchestration\\receipts\\g8\\subagent_workflow_remediation_004\\D2_manifestation_012.json'))\nWrite-Output (\"prior_012_log_exists={0}\" -f (Test-Path 'E:\\AIdle_openworld\\orchestration\\logs\\g8-d2-manifestation-012.log'))\n# schema validate helper path\n$py = 'E:\\standards\\maf\\.venv\\Scripts\\python.exe'\nif (Test-Path $py) { Write-Output \"python_ok=$py\" } else { Write-Output 'python_missing' }",
+        "exit_code": 0,
+        "result_summary": "prior_012_exists=True; prior_012_log_exists=True; python_ok; lease dir ensured (empty before write)",
+        "files_read": [],
+        "files_written": [],
+        "mutated_shared_evidence": false,
+        "note": "New-Item -Force on already-existing empty lease directory only; no product/evidence mutation"
+      },
+      {
+        "ordinal_global": 49,
+        "transcript_ref": "transcript://019f830a-e078-7291-868d-63c406c499a4/run_terminal_command/6",
+        "tool_kind": "run_terminal_command",
+        "exact_command": "$now = [DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ')\nWrite-Output \"pre_write_utc=$now\"",
+        "exit_code": 0,
+        "result_summary": "pre_write_utc=2026-07-21T05:01:32.0917892Z",
+        "files_read": [],
+        "files_written": [],
+        "mutated_shared_evidence": false
+      }
+    ]
+  },
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-D2-PROVENANCE-CORRECTION-016",
+    "directive_id": 37,
+    "wave": "D2_MANIFESTATION_016",
+    "profile": "manifestation",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/manifestation.md",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS",
+    "adoption_status": "ADOPTED_WITHOUT_PATCH",
+    "summary": "Directive 37 / WO-016 D2 manifestation VERIFY_ONLY (fresh child 019f830a-e078-7291-868d-63c406c499a4): corrected review-015 blockers for this profile — full always-skill EOF (project-room-collab 65/65, curiosity-engine 1123/1123 non-overlapping chunks), G8-001_UI_SKILL_DISPATCH_MAP.md FULL read (D2-CONTEXT-001), top-level accepted=false (D2-CONTRACT-001), transcript-exact tool_provenance with durable transcript:// refs and every terminal exit_code including empty failed_attempts (D2-PROV-001/002). Gates re-verified read-only: ORDERED_STAGES wireframe→hologram→materializing→complete; allows_durable_collision only at complete; cancel entity_absent=true (headed-demo-7720); four unique stage PNG sha256 match evidence_manifest. Did NOT re-run manifestation smoke or headed runner. product_writes=[]. self_accept=false. handoff D3_BLOCKED. G8 not ACCEPTED. No predicted durable completed_at.",
+    "character_binding": {
+      "trustlayer_character_id": "blue-team-p0-remediator",
+      "trustlayer_character_source": "E:/agents/characters/09-blue-team-p0-remediator.md",
+      "ui_character_id": "ui-component-craftsman",
+      "ui_character_source": "E:/agents/ui-design/characters/10-ui-component-craftsman.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "review_015_blocker_remediation": {
+      "D2-PROV-001": "tool_provenance.pre_final_calls lists durable transcript:// refs + exact commands/tool inputs for this child",
+      "D2-PROV-002": "failed_attempts=[] — no failed transcript commands this child; honest empty list",
+      "D2-SKILL-001": "project_room_collab 65_of_65; curiosity_engine 1123_of_1123 with chunk sha256s",
+      "D2-CONTEXT-001": "FULL read G8-001_UI_SKILL_DISPATCH_MAP.md",
+      "D2-CONTRACT-001": "top-level accepted=false present"
+    },
+    "gates": {
+      "ordered_stages_wireframe_hologram_materializing_complete": "PASS",
+      "preview_no_durable_collision": "PASS",
+      "complete_allows_durable_collision": "PASS",
+      "cancel_clears_preview_entity": "PASS",
+      "cancel_entity_absent_headed": "PASS",
+      "cancel_no_orphan_collision_code": "PASS",
+      "headed_four_stage_captures_unique": "PASS",
+      "headed_stage_pngs_match_manifest": "PASS",
+      "headed_manifest_error_lines_zero": "PASS",
+      "no_smoke_rerun_this_child": "PASS",
+      "no_headed_runner_rerun_this_child": "PASS",
+      "full_always_skills_eof": "PASS",
+      "ui_skill_dispatch_map_read": "PASS",
+      "product_writes_empty": "PASS",
+      "self_accept": false,
+      "top_level_accepted_false": true,
+      "G8_accepted": false,
+      "d3_spawn_allowed": false
+    },
+    "stage_machine_verification": {
+      "ORDERED_STAGES": ["wireframe", "hologram", "materializing", "complete"],
+      "source": "game/scripts/modules/manifestation/manifestation_stages.gd",
+      "allows_durable_collision": {
+        "wireframe": false,
+        "hologram": false,
+        "materializing": false,
+        "complete": true
+      },
+      "code_inspection_facts": [
+        "FACT manifestation_stages.gd:8-13 ORDERED_STAGES wireframe hologram materializing complete",
+        "FACT manifestation_stages.gd:86-88 allows_durable_collision returns stage == complete only",
+        "FACT manifestation_instance.gd:90-93 has_durable_collision false when cancelled or non-complete stage",
+        "FACT manifestation_instance.gd:151-155 free_cleanup mark_cancelled + collision_layer=0",
+        "FACT manifestation_module.gd:169+ cancel_preview returns has_durable_collision=false durable_mutation_applied=false"
+      ]
+    },
+    "headed_evidence": {
+      "evidence_dir": "orchestration/evidence/g8_ui_visual_correction_003/",
+      "evidence_manifest": "orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+      "inspection_mode": "read_only_existing_artifacts",
+      "did_not_rerun_headed_runner": true,
+      "did_not_rerun_manifestation_smoke": true,
+      "manifest_final_verdict": "PASS",
+      "capture_count": 10,
+      "error_lines_count": 0,
+      "stage_captures": {
+        "stage_wireframe.png": {"runtime_state": "wireframe", "sha256": "ab9de225d8f94acde5648a390747e05f3e31533806c5d4c43160534fb7504659", "disk_match_manifest": true},
+        "stage_hologram.png": {"runtime_state": "hologram", "sha256": "80a35df6631d10167006547af9a2bb8f913c4b556941ade980967c4dd418a9a9", "disk_match_manifest": true},
+        "stage_materializing.png": {"runtime_state": "materializing", "sha256": "2ade3ec0421217e6667bb3fc142576de2f5c94ae9449761feefc475ea9114a19", "disk_match_manifest": true},
+        "stage_complete_confirmed.png": {"runtime_state": "complete", "sha256": "8cc169fd93d7783acfd406cceb7d8201180cfc93db6feec4b5a6f410be69c2ae", "disk_match_manifest": true}
+      },
+      "four_stage_hashes_unique": true,
+      "cancel_proof": {
+        "cancel_ok": true,
+        "entity_absent": true,
+        "preview_count_before": 2,
+        "preview_count_after": 1,
+        "prompt_id": "headed-demo-7720",
+        "note": "prior_confirmed_objects_may_remain",
+        "log_line": "[CANCEL_PROOF] after cancel id=headed-demo-7720 preview_count=1 entity_absent=true collision_before=false",
+        "source": "evidence_manifest.json cancel_proof + g8_headed_smoke_godot.log (read-only)"
+      }
+    },
+    "product_writes": [],
+    "writer_lease": [
+      "E:/AIdle_openworld/orchestration/receipts/g8/d2_provenance_correction_016/D2_manifestation_016.json",
+      "E:/AIdle_openworld/orchestration/logs/g8-d2-manifestation-016.log"
+    ],
+    "forbidden_writes_honored": [
+      "game/scripts/modules/manifestation/** (VERIFY_ONLY)",
+      "orchestration/evidence/** (no screenshot mutation)",
+      "orchestration/receipts/g8/subagent_workflow_remediation_004/D2_manifestation.json",
+      "orchestration/receipts/g8/subagent_workflow_remediation_004/D2_manifestation_012.json",
+      "orchestration/logs/g8-d2-manifestation-012.log",
+      "orchestration/logs/g8-d2-manifestation-smoke.log",
+      "orchestration/logs/g8_headed_smoke_godot.log"
+    ],
+    "trace_ref": "orchestration/logs/g8-d2-manifestation-016.log",
+    "handoff_ref": "D3_BLOCKED",
+    "handoff_note": "D2 manifestation provenance correction complete for this child. Parent collates after all four D2-016 peers finish; d3_spawn_allowed=false until Codex external validation. G8 remains non-ACCEPTED. No D3 network spawn from this child. No grandchildren.",
+    "child_task_ref": "019f830a-e078-7291-868d-63c406c499a4",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "lineage": {
+      "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "child_task_ref": "019f830a-e078-7291-868d-63c406c499a4",
+      "prior_d2_012_child_task_ref": "019f82e9-7d1d-7c31-a117-82fc5ba2fba9",
+      "prior_d2_012_receipt": "orchestration/receipts/g8/subagent_workflow_remediation_004/D2_manifestation_012.json",
+      "work_order": "orchestration/work_orders/WO-G8-001-D2-PROVENANCE-CORRECTION-016.md",
+      "directive": 37,
+      "review_remediated": "orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json"
+    },
+    "start_time": "2026-07-21T04:59:40.0000000Z",
+    "end_time": "2026-07-21T05:01:32.0917892Z",
+    "receipt_writer_time_informational": "2026-07-21T05:01:32.0917892Z",
+    "timing_note": "Honest receipt-writer timestamps only. No predicted durable completed_at. Codex binds completed_at from immutable child metadata + artifact LastWriteTimeUtc + SHA-256 after exit."
+  },
+  "smoke_test": {
+    "ran": false,
+    "reason": "WO-016 forbids mutating smokes / headed re-run; inspected existing smoke and headed evidence only",
+    "existing_evidence_ok": true
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false_top_level": true,
+    "write_lease_only": true,
+    "no_grandchildren": true,
+    "prior_012_not_overwritten": true,
+    "skill_coverage_full": true,
+    "dispatch_map_read": true,
+    "failed_exits_disclosed": true,
+    "no_predicted_completed_at": true
+  },
+  "evidence_refs": [
+    "orchestration/evidence/g8_ui_visual_correction_003/evidence_manifest.json",
+    "orchestration/evidence/g8_ui_visual_correction_003/stage_wireframe.png",
+    "orchestration/evidence/g8_ui_visual_correction_003/stage_hologram.png",
+    "orchestration/evidence/g8_ui_visual_correction_003/stage_materializing.png",
+    "orchestration/evidence/g8_ui_visual_correction_003/stage_complete_confirmed.png",
+    "orchestration/logs/g8_headed_smoke_godot.log",
+    "game/scripts/modules/manifestation/manifestation_stages.gd",
+    "game/scripts/modules/manifestation/manifestation_instance.gd",
+    "game/scripts/modules/manifestation/manifestation_module.gd",
+    "orchestration/work_orders/G8-001_UI_SKILL_DISPATCH_MAP.md",
+    "orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json",
+    "orchestration/logs/g8-d2-manifestation-016.log"
+  ],
+  "next_route": "D3_BLOCKED",
+  "bootstrap_limitation": "E:\\scripts\\bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md + COMPLIANCE path via skills + characters + WO/Dir manually"
+}

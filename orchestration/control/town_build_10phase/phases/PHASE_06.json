@@ -1,0 +1,117 @@
+{
+  "phase": 6,
+  "phase_id": "TOWN_PHASE_06",
+  "district_id": "water_edge",
+  "district_role_vi": "Khu nước",
+  "status": "BLOCKED_UNTIL_PREV_PARITY_100",
+  "mockup_ssot": "MOCKUP_SSOT_V2",
+  "parity_gate": "MOCKUP_PARITY_100",
+  "character": {
+    "character_id": "OA-RG-021",
+    "slug": "nereu",
+    "name": "Nereu-5",
+    "class": "ROBOT_HELPER",
+    "form": "robot",
+    "clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "motion": "bob_small",
+    "signature": "sonar_pulse",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/chars/char_06_nereu.jpg",
+    "mockup_video": null,
+    "prod_hint": "runtime_glb",
+    "spawn": {
+      "x": -9.2,
+      "y": 0,
+      "z": 1.2,
+      "rotation_deg": 45
+    }
+  },
+  "building": {
+    "module_id": "cozy_well_house_A",
+    "name": "Nhà giếng",
+    "cat": "utility",
+    "anim": "idle_static",
+    "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/buildings/bld_07_well.jpg",
+    "spawn": {
+      "x": -11,
+      "y": 0,
+      "z": 0,
+      "rotation_deg": 45
+    }
+  },
+  "props": [
+    {
+      "module_id": "cozy_pond_small_A",
+      "name": "Ao nhỏ",
+      "cat": "water",
+      "anim": "ripple",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_pond.jpg",
+      "spawn": {
+        "x": -12.6,
+        "y": 0,
+        "z": 1.6,
+        "rotation_deg": 33
+      }
+    },
+    {
+      "module_id": "cozy_water_pump_A",
+      "name": "Bơm nước",
+      "cat": "utility",
+      "anim": "idle_static",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_water_pump.jpg",
+      "spawn": {
+        "x": -9.8,
+        "y": 0,
+        "z": -1.6,
+        "rotation_deg": 45
+      }
+    },
+    {
+      "module_id": "cozy_birdbath_A",
+      "name": "Bồn tắm chim",
+      "cat": "decor",
+      "anim": "ripple",
+      "mockup_img": "orchestration/control/visual_reference/mockup_ssot_v2/props/prop_birdbath.jpg",
+      "spawn": {
+        "x": -12.0,
+        "y": 0,
+        "z": -1.2,
+        "rotation_deg": 57
+      }
+    }
+  ],
+  "acceptance": {
+    "rule": "Do NOT mark complete until MOCKUP_PARITY_100 passes for this phase",
+    "mockup_delta_max": 0.0,
+    "require_idle_play": true,
+    "require_clips": [
+      "idle",
+      "walk",
+      "scan",
+      "happy",
+      "cancel"
+    ],
+    "require_building_load": true,
+    "require_props_load": 3,
+    "require_town_no_overlap": true,
+    "require_district_role_readable": true,
+    "self_accept": false,
+    "human_accept_required": true
+  },
+  "subagent_pipeline": [
+    "town-orchestrator",
+    "mockup-parity-guardian",
+    "character-animation-designer",
+    "building-module-designer",
+    "prop-set-designer",
+    "town-layout-planner",
+    "godot-runtime-integrator",
+    "red-mockup-delta-reviewer",
+    "purple-parity-gate"
+  ]
+}

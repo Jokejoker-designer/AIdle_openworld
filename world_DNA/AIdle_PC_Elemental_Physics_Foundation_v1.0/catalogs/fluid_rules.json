@@ -1,0 +1,85 @@
+{
+  "catalog_version": "1.0",
+  "rules": [
+    {
+      "rule_id": "fluid_network_flow_v1",
+      "method": "DIRECTED_CAPACITY_GRAPH",
+      "inputs": [
+        "sources",
+        "consumers",
+        "pipe_capacity",
+        "loss"
+      ],
+      "outputs": [
+        "delivered_flow",
+        "unserved_consumers"
+      ]
+    },
+    {
+      "rule_id": "fluid_river_chunk_flow_v1",
+      "method": "SPLINE_VECTOR_FIELD",
+      "inputs": [
+        "control_points",
+        "slope",
+        "width",
+        "obstacles"
+      ],
+      "outputs": [
+        "flow_vectors",
+        "flow_strength"
+      ]
+    },
+    {
+      "rule_id": "fluid_leak_v1",
+      "method": "PRESSURE_LEAK_RATE",
+      "inputs": [
+        "pressure",
+        "opening_size",
+        "seal_quality"
+      ],
+      "outputs": [
+        "leak_rate",
+        "water_ingress"
+      ]
+    },
+    {
+      "rule_id": "fluid_buoyancy_v1",
+      "method": "FIXED_SAMPLE_POINTS",
+      "inputs": [
+        "sample_points",
+        "fluid_level",
+        "density"
+      ],
+      "outputs": [
+        "buoyant_force",
+        "submersion"
+      ]
+    },
+    {
+      "rule_id": "fluid_irrigation_v1",
+      "method": "PLOT_DISTRIBUTION",
+      "inputs": [
+        "flow",
+        "plot_needs",
+        "priority"
+      ],
+      "outputs": [
+        "plot_moisture_delta",
+        "unused_flow"
+      ]
+    },
+    {
+      "rule_id": "fluid_visual_quality_v1",
+      "method": "RENDER_PROFILE_MAPPING",
+      "inputs": [
+        "pc_profile",
+        "flow_strength"
+      ],
+      "outputs": [
+        "shader_tier",
+        "foam_density",
+        "particle_budget"
+      ]
+    }
+  ]
+}

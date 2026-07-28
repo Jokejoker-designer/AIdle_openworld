@@ -1,0 +1,313 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P1E-006-l1-provenance-schema-005-2026-07-22",
+  "step_id": "P1E-006-l1-provenance-schema-005",
+  "work_order_id": "WO-P1E-006-L1-PROVENANCE-CORRECTION-004",
+  "work_order": "orchestration/work_orders/WO-P1E-006-L1-PROVENANCE-CORRECTION-004.md",
+  "directive_id": 55,
+  "directive_supersedes": 54,
+  "review_source": "orchestration/reviews/CODEX_P1E-006_REVIEW_004.json",
+  "review_id": "CODEX-P1E-006-REVIEW-004",
+  "findings_addressed": [
+    "P1E006-CODEX-F10"
+  ],
+  "findings_context": [
+    "P1E006-CODEX-F08",
+    "P1E006-CODEX-F09",
+    "P1E006-CODEX-F10"
+  ],
+  "agent_id": "aidle-schema",
+  "agent_type": "schema",
+  "profile_name": "aidle-schema",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "p1e006-l1-prov-schema-005-592b9f0dbaa18b92",
+  "status": "WAITING_CODEX",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "product_gate": "PASS_PENDING_PROVENANCE",
+  "verdict": "L1_PROVENANCE_LEDGER_BOUND_F10_PROVENANCE_NO_ACCEPT",
+  "verdict_detail": "Append-only ledger binds original L1 runner 019f8679-e256-7643-bf4c-7511adbdd4a2 and unauthorized correction writer 019f867d-c1d4-7dc3-9eac-5a0d8d5e5027 with durable meta.json paths, SHA-256, started_at/completed_at, parent, and prompts. Directive 54 three-child violation recorded and NOT retroactively authorized. L0/L1/L2 receipts pass agent_step_contract validation. Product gates F08/F09 remain CLOSED_PRODUCT; product_gate PASS_PENDING_PROVENANCE; accepted=false.",
+  "child_task_ref": "019f8690-3f9e-7290-bff4-bf3538d868e1",
+  "transcript_ref": "019f8690-3f9e-7290-bff4-bf3538d868e1",
+  "writer_transcript_ref": "019f8690-3f9e-7290-bff4-bf3538d868e1",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "next_owner": "CODEX",
+  "next_route": "WAITING_CODEX",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+  "character_binding": {
+    "trustlayer": "devil-advocate",
+    "ui": "ui-brief-writer",
+    "role": "P0 schema append-only L1 provenance ledger (VERIFY_ONLY; F10 provenance only; no product patch)"
+  },
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_l1_provenance_schema_005.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-l1-provenance-schema-005.log"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_l1_provenance_schema_005.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-l1-provenance-schema-005.log"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_l1_provenance_schema_005.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-l1-provenance-schema-005.log"
+  ],
+  "original_evidence_preserved": true,
+  "no_old_receipt_rewrite": true,
+  "no_old_log_rewrite": true,
+  "no_product_patch": true,
+  "f10_provenance": {
+    "status": "CLOSED_PROVENANCE_LEDGER_BOUND",
+    "finding_id": "P1E006-CODEX-F10",
+    "product_portion": "not_reopened",
+    "f08_status": "CLOSED_PRODUCT",
+    "f09_status": "CLOSED_PRODUCT",
+    "note": "Closes only provenance portion of F10 via append-only dual-lineage bind; does not authorize fourth child; does not claim task acceptance."
+  },
+  "directive_54_three_child_violation": {
+    "recorded": true,
+    "directive_required_exactly_three_children": true,
+    "authorized_children": {
+      "L0": "019f8675-c7bc-75c1-8bc1-3a652f89aff2",
+      "L1": "019f8679-e256-7643-bf4c-7511adbdd4a2",
+      "L2": "019f867e-9d2f-7361-a737-d788abf63667"
+    },
+    "unauthorized_fourth_child": "019f867d-c1d4-7dc3-9eac-5a0d8d5e5027",
+    "retroactively_authorized": false,
+    "statement": "Directive 54 required exactly three children (L0, L1, L2). Parent spawned unauthorized fourth child 019f867d-c1d4-7dc3-9eac-5a0d8d5e5027. This ledger does NOT retroactively authorize that fourth child. Product output is not rejected; L1 receipt cannot be final acceptance evidence until both lineages are bound (this WO)."
+  },
+  "l1_lineages_bound": {
+    "both_bound": true,
+    "original_runner": {
+      "subagent_id": "019f8679-e256-7643-bf4c-7511adbdd4a2",
+      "role": "original_L1_runner",
+      "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8679-e256-7643-bf4c-7511adbdd4a2/meta.json",
+      "meta_sha256": "9cd897962baa051af0d4b64258d4e751a25d9a524b94e1abd742596465a79237",
+      "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "description": "L1 full clean QA matrix",
+      "prompt_summary": "L1 for WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003 under Directive 54; VERIFY_ONLY full 9-suite matrix; exclusive lease P1E_006_lifecycle_l1_qa_004.json + p1e-006-lifecycle-l1-qa-004.log",
+      "status": "completed",
+      "started_at": "2026-07-21T20:59:22.585139300Z",
+      "completed_at": "2026-07-21T21:03:01.561604Z",
+      "duration_ms": 218976,
+      "effective_context_source": "new",
+      "effective_model_id": "grok-4.5"
+    },
+    "unauthorized_correction_writer": {
+      "subagent_id": "019f867d-c1d4-7dc3-9eac-5a0d8d5e5027",
+      "role": "unauthorized_correction_writer",
+      "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f867d-c1d4-7dc3-9eac-5a0d8d5e5027/meta.json",
+      "meta_sha256": "f803c6a43b1f91a16fbb17b065217982579d77725d94c48a1c327df756af2cea",
+      "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "description": "L1 fix durable child ref",
+      "prompt_summary": "RESUME L1 receipt correction only. You are the SAME child 019f8679-e256-7643-bf4c-7511adbdd4a2. (FALSE claim — distinct fourth child.) Fix child_task_ref/transcript_ref to original UUID within exclusive two-file lease.",
+      "false_same_child_claim": true,
+      "claimed_identity": "019f8679-e256-7643-bf4c-7511adbdd4a2",
+      "actual_identity": "019f867d-c1d4-7dc3-9eac-5a0d8d5e5027",
+      "status": "completed",
+      "started_at": "2026-07-21T21:03:36.417469100Z",
+      "completed_at": "2026-07-21T21:04:15.549239700Z",
+      "duration_ms": 39143,
+      "effective_context_source": "resumed",
+      "resumed_from": "019f8679-e256-7643-bf4c-7511adbdd4a2",
+      "effective_model_id": "grok-4.5"
+    }
+  },
+  "l1_receipt_log_truth": {
+    "l1_receipt_path": "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+    "l1_receipt_sha256": "fda2d3b043c518e1d7788d7bae6e70b1c24a54d15a3e8cd785c07502465eff84",
+    "l1_receipt_bytes": 21277,
+    "l1_log_path": "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l1-qa-004.log",
+    "l1_log_sha256": "0cb2d3ee3513e2c2510dbf8ba38db6798aa47ad79e06628be31d06e01c038a65",
+    "l1_log_bytes": 23470,
+    "explicit_rewrite_statement": "The L1 receipt was rewritten by the correction child (019f867d-c1d4-7dc3-9eac-5a0d8d5e5027) even though its child_task_ref names the original runner (019f8679-e256-7643-bf4c-7511adbdd4a2).",
+    "observed_child_task_ref_on_receipt": "019f8679-e256-7643-bf4c-7511adbdd4a2",
+    "actual_last_writer_lineage": "019f867d-c1d4-7dc3-9eac-5a0d8d5e5027",
+    "this_child_did_not_rewrite_l1": true
+  },
+  "contract_validation": {
+    "schema_path": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "schema_sha256": "7956f32a7ffe9173c226e60857cfb9dc3d9d5de4810369fe2ae7f571abd4d2e7",
+    "method": "required-field + type + authority_token enum; optional jsonschema if installed",
+    "L0": {
+      "path": "orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+      "absolute_path": "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+      "sha256": "e28c2918f466b7e9bf702f78bc573f56ada916414d4ce4d0c9b1632011e53bd4",
+      "pass": true,
+      "agent_step_id": "P1E-006-lifecycle-l0-asset-004-2026-07-22",
+      "agent_type": "aidle-worldgen-asset-art",
+      "authority_token": "PATCH_DRAFT",
+      "next_route": "L1_QA",
+      "child_task_ref": "019f8675-c7bc-75c1-8bc1-3a652f89aff2",
+      "missing_required": []
+    },
+    "L1": {
+      "path": "orchestration/receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+      "absolute_path": "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+      "sha256": "fda2d3b043c518e1d7788d7bae6e70b1c24a54d15a3e8cd785c07502465eff84",
+      "pass": true,
+      "agent_step_id": "P1E-006-lifecycle-l1-qa-004-2026-07-22",
+      "agent_type": "aidle-worldgen-qa-evidence",
+      "authority_token": "VERIFY_ONLY",
+      "next_route": "L2_PURPLE",
+      "child_task_ref": "019f8679-e256-7643-bf4c-7511adbdd4a2",
+      "missing_required": []
+    },
+    "L2": {
+      "path": "orchestration/receipts/p1e/P1E_006_lifecycle_l2_purple_004.json",
+      "absolute_path": "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l2_purple_004.json",
+      "sha256": "72738ed411b5fda62e5719872b0bea037759205d892a7be374396084ab359f30",
+      "pass": true,
+      "agent_step_id": "P1E-006-lifecycle-l2-purple-004-2026-07-22",
+      "agent_type": "aidle-worldgen-purple-acceptance",
+      "authority_token": "VERIFY_ONLY",
+      "next_route": "WAITING_CODEX",
+      "child_task_ref": "019f867e-9d2f-7361-a737-d788abf63667",
+      "missing_required": []
+    },
+    "all_pass": true
+  },
+  "result": {
+    "verdict": "L1_PROVENANCE_LEDGER_BOUND_F10_PROVENANCE_NO_ACCEPT",
+    "summary": "Schema VERIFY_ONLY child bound both L1 lineages (original runner + unauthorized correction writer) from durable meta.json without rewriting prior evidence. Recorded Directive 54 three-child violation without retroactive authorization. Validated L0/L1/L2 against agent_step_contract. product_gate=PASS_PENDING_PROVENANCE; accepted=false; F10 provenance portion closed via ledger only.",
+    "product_gate": "PASS_PENDING_PROVENANCE",
+    "f10_provenance_status": "CLOSED_PROVENANCE_LEDGER_BOUND",
+    "both_lineages_bound": true,
+    "task_acceptance_claimed": false,
+    "product_writes": [],
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+        "bytes": 1741,
+        "total_lines": 46,
+        "load_evidence": "FULL EOF hash+line count for schema L1 provenance child 005"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+        "bytes": 1938,
+        "total_lines": 53,
+        "load_evidence": "FULL EOF hash+line count for schema L1 provenance child 005"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+        "bytes": 982,
+        "total_lines": 36,
+        "load_evidence": "FULL EOF hash+line count for schema L1 provenance child 005"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+        "bytes": 1681,
+        "total_lines": 65,
+        "load_evidence": "FULL EOF hash+line count for schema L1 provenance child 005"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+        "bytes": 34306,
+        "total_lines": 1123,
+        "load_evidence": "FULL EOF hash+line count for schema L1 provenance child 005"
+      },
+      {
+        "skill_id": "od-design-brief",
+        "source": "E:/shared/skills/library/od-design-brief/SKILL.md",
+        "sha256": "ddcb70ae1ba4688ee948a3a0f8d3fb7888ad89a49d3e71c2e97661de7d81ae5b",
+        "bytes": 13426,
+        "total_lines": 252,
+        "load_evidence": "FULL EOF hash+line count for schema L1 provenance child 005"
+      },
+      {
+        "skill_id": "od-reference-design-contract",
+        "source": "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+        "sha256": "8b5e62a123a180e5f1b8e0b7f97605d257f85bf0a2b0ca7f8c7475b54e007775",
+        "bytes": 5367,
+        "total_lines": 130,
+        "load_evidence": "FULL EOF hash+line count for schema L1 provenance child 005"
+      }
+    ],
+    "profile_load_evidence": {
+      "path": "E:/AIdle_openworld/.grok/agents/schema.md",
+      "load": "FULL_EOF",
+      "sha256": "6e82036136eb462cf07d37304a1aec812cdf21b9ddff479bc8ffa8e3d8373777",
+      "bytes": 955,
+      "total_lines": 18,
+      "trustlayer": "devil-advocate",
+      "ui": "ui-brief-writer",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "schema_load_evidence": {
+      "path": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+      "load": "FULL_EOF",
+      "sha256": "7956f32a7ffe9173c226e60857cfb9dc3d9d5de4810369fe2ae7f571abd4d2e7",
+      "bytes": 875,
+      "total_lines": 20
+    },
+    "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; COMPLIANCE/registry/profile/skills/WO/review/directive/schema loaded manually."
+  },
+  "smoke_test": {
+    "provenance_ledger_complete": true,
+    "both_meta_json_read": true,
+    "both_meta_sha256_recorded": true,
+    "l1_receipt_hashed": true,
+    "l1_log_hashed": true,
+    "directive_54_violation_recorded": true,
+    "contract_validation_l0_l1_l2": true,
+    "product_tests_rerun": false,
+    "product_patches": false,
+    "old_evidence_rewritten": false,
+    "full_capture_log": "orchestration/logs/p1e-006-l1-provenance-schema-005.log"
+  },
+  "self_audit": {
+    "authority_verify_only": true,
+    "no_product_patches": true,
+    "no_test_rerun": true,
+    "no_old_receipt_rewrite": true,
+    "no_old_log_rewrite": true,
+    "no_screenshot_rewrite": true,
+    "no_directive_or_status_patch": true,
+    "no_second_child": true,
+    "writer_lease_exact_two_paths": true,
+    "files_written_exact_two_paths": true,
+    "product_writes_empty": true,
+    "no_temp_files_outside_lease": true,
+    "accepted_false": true,
+    "self_accept_false": true,
+    "verdict_non_null": true,
+    "child_task_ref_is_real_uuid": true,
+    "both_lineages_bound": true,
+    "fourth_child_not_retroactively_authorized": true,
+    "did_not_claim_task_acceptance": true,
+    "notes": [
+      "VERIFY_ONLY append-only provenance ledger only.",
+      "Did not rewrite L0/L1/L2 receipts or logs.",
+      "Did not authorize unauthorized fourth child 019f867d-c1d4-7dc3-9eac-5a0d8d5e5027.",
+      "Did not claim accepted=true or product_gate acceptance.",
+      "Exclusive lease: P1E_006_l1_provenance_schema_005.json + p1e-006-l1-provenance-schema-005.log only."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/receipts/p1e/P1E_006_l1_provenance_schema_005.json",
+    "orchestration/logs/p1e-006-l1-provenance-schema-005.log",
+    "orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+    "orchestration/receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+    "orchestration/receipts/p1e/P1E_006_lifecycle_l2_purple_004.json",
+    "orchestration/logs/p1e-006-lifecycle-l1-qa-004.log",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_004.json",
+    "orchestration/work_orders/WO-P1E-006-L1-PROVENANCE-CORRECTION-004.md",
+    "orchestration/control/codex_directive.json"
+  ],
+  "issued_at_utc": "2026-07-21T21:27:44.949217+00:00"
+}

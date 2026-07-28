@@ -1,0 +1,50 @@
+{
+  "agent_step_id": "G8-001-HEADED-H3-companion-2026-07-21",
+  "agent_type": "aidle-companion",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-HEADED-CORRECTION-001",
+    "directive_id": 21,
+    "wave": "H3_COMPANION_TEXT",
+    "profile": "companion",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "PATCH_DRAFT: companion chat panel responsive anchors for small windows; toggle via E/action bar; still text-only no commit tool. G2-003 smoke green.",
+    "product_writes": [
+      "game/scripts/modules/companion/companion_chat_panel.gd"
+    ],
+    "children": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "G2-003_GODOT_SMOKE=PASS"
+      },
+      {
+        "marker": "chat_panel"
+      },
+      {
+        "marker": "companion_toggle_invoked"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_voice": true,
+    "no_self_accept": true,
+    "residual_risks": []
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-headed-correction-001.log",
+    "orchestration/work_orders/WO-G8-001-HEADED-CORRECTION-001.md",
+    "orchestration/work_orders/G8-001_HEADED_DISPATCH_MAP.md",
+    "orchestration/reviews/G8-001_HEADED_ACCEPTANCE_MATRIX.md",
+    "orchestration/evidence/g8_headed_correction/"
+  ],
+  "next_route": "H4_MANIFESTATION_VISUAL"
+}

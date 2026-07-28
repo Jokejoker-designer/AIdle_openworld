@@ -1,0 +1,342 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "H1-CONSOLIDATE-001-c0-runtime-002-2026-07-22T085837Z",
+  "step_id": "H1-CONSOLIDATE-001-c0-runtime-002",
+  "work_order_id": "WO-H1-CONSOLIDATE-001-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-CORRECTION-001.md",
+  "work_order_sha256": "a85e84b9eb77ac572359de1622e747170ccbcf793ccc0c0b53ef692b30841d9d",
+  "directive_id": 75,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "236ed1b9decd51cd48ff0f86ee46792e97441943795483508de43c4ab2abbd8e",
+  "directive_state": "CHANGES_REQUESTED",
+  "directive_verdict": "H1_HEADED_AND_PROVENANCE_CORRECTION_REQUIRED",
+  "supersedes_directive_id": 74,
+  "permitted_task_ids": ["H1-CONSOLIDATE-001"],
+  "review": "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_MACHINE_REVIEW_001.json",
+  "review_sha256": "b20cae86f546c69df30f128bb42e019245df6743abd8af2074eb6af20683ced4",
+  "milestone": "H1 vertical-slice correction — C0 runtime F01 absolute get_node + F03 fixture chrome",
+  "agent_id": "aidle-worldgen-godot-runtime",
+  "agent_type": "aidle-worldgen-godot-runtime",
+  "profile_name": "aidle-worldgen-godot-runtime",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-godot-runtime.md",
+  "profile_sha256": "220c643ab23e3d62de8252cfdfc75f8c8f99db383bfc69235ab4e25c5d5a22b9",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-godot-runtime; trustlayer_character=blue-team-p0-remediator; ui_character=ui-app-dashboard; authority_token=PATCH_DRAFT; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set correction_sole_product_writer under WO-CORRECTION-001 exact lease.",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "C0 sole product/test writer under exact lease only; orchestration log+receipt only outside game; no DNA/Scene/Character/network/shipping/evidence; never ACCEPTED; no grandchildren",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:7974db40779792169140abdca3e33e9b6c2935f7f24fee1ee2bd2df11bb2107b",
+  "input_context_hash_16": "7974db4077979216",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-H1-CONSOLIDATE-001-CORRECTION-001.md + codex_directive.json + aidle-worldgen-godot-runtime.md + CODEX_H1-CONSOLIDATE-001_MACHINE_REVIEW_001.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C0_COMPLETE_ROUTE_C1_CONTROL",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C0_RUNTIME_F01_F03_PATCHED_NO_ACCEPT",
+  "child_task_ref": "019f8903-a70a-7242-b8e4-05e359cebe12",
+  "transcript_ref": "019f8903-a70a-7242-b8e4-05e359cebe12",
+  "writer_transcript_ref": "019f8903-a70a-7242-b8e4-05e359cebe12",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_h0": "019f88d4-0d38-7162-8bbd-de4b3e86aaa9",
+  "prior_h1": "019f88d8-715a-76e3-9792-bfa7663e0bf8",
+  "prior_h2": "019f88e4-19d6-7c52-9b4f-699e62a9d2c6",
+  "prior_h3": "019f88e9-6abd-7300-958b-5f316e9fbc82",
+  "prior_h4": "019f88f6-fb14-7162-9db2-e030dc182e2d",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8903-a70a-7242-b8e4-05e359cebe12/meta.json",
+  "started_at": "2026-07-22T08:49:05.804858600Z",
+  "completed_at_utc": "2026-07-22T08:58:37Z",
+  "next_owner": "C1_CONTROL",
+  "next_route": "C1_CONTROL",
+  "human_gate_open": false,
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-app-dashboard",
+    "ui_file": "E:/agents/ui-design/characters/08-ui-app-dashboard.md",
+    "ui_sha256": "20ab5ba77ed1fd3f410de284f70d27ca1b7379a5c0d00c0f3a83eef11d5f990d",
+    "ui_read": "full_eof",
+    "role": "C0 PATCH_DRAFT sole product/test writer — F01 absolute get_node + F03 fixture chrome; no self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO-CORRECTION-001, Directive 75, ARCHITECTURE_LOCK, machine review, headed godot log, skills full EOF manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "read_mode": "full_file_size_hash_verify",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "bytes": 828,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "also_read_project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027"
+    }
+  ],
+  "writer_lease": [
+    "game/scripts/main/main.gd",
+    "game/scripts/modules/companion/companion_chat_panel.gd",
+    "game/scripts/ui/playable_action_bar.gd",
+    "game/tests/h1_consolidation_error_free_smoke.gd",
+    "orchestration/logs/h1-consolidate-c0-runtime-002.log",
+    "orchestration/receipts/h1_consolidate_001/correction_001/C0_runtime_002.json"
+  ],
+  "product_writes": [
+    {
+      "path": "game/scripts/main/main.gd",
+      "sha256": "7d35ea79877c0fdb58fadabdd2836c81583d6586941edebde9dbbe8acac9e4c1",
+      "bytes": 56007,
+      "change": "H1-CODEX-F01: _control_router/_control_a11y use _autoload_node SceneTree-root relative; no absolute /root/ paths"
+    },
+    {
+      "path": "game/scripts/modules/companion/companion_chat_panel.gd",
+      "sha256": "9aeaa3e43b5460668a1c486858187032da26874a280d9862794ce1ebb2aeb1bf",
+      "bytes": 12710,
+      "change": "H1-CODEX-F01: delete_proposal path uses _resolve_control_router tree.root relative"
+    },
+    {
+      "path": "game/scripts/ui/playable_action_bar.gd",
+      "sha256": "b504e1600ff0967b92c5a750e7dc57fa8e7c60164d2d3ed8689542d41fe8fd3c",
+      "bytes": 7860,
+      "change": "H1-CODEX-F03: edition chip Free Bridge / API Gateway / Private Reality; removed Paid (fixture)"
+    },
+    {
+      "path": "game/tests/h1_consolidation_error_free_smoke.gd",
+      "sha256": "bfc75cdd90e22514951c8d31ecc2108b494443558b4a86873ff7647750ee1d87",
+      "bytes": 8473,
+      "change": "new error-free smoke: static absolute-path + fixture chrome gates + runtime tree.root resolve"
+    }
+  ],
+  "evidence_writes": [
+    "orchestration/logs/h1-consolidate-c0-runtime-002.log",
+    "orchestration/receipts/h1_consolidate_001/correction_001/C0_runtime_002.json"
+  ],
+  "log_sha256": "ea00b5a4bd6182d0a5e83eb1e1a9034508b00d3df53185e9b22724e7cb9374c7",
+  "findings_closed": [
+    {
+      "id": "H1-CODEX-F01",
+      "status": "PATCHED_UNDER_LEASE",
+      "note": "Safe SceneTree-root relative lookups in main.gd + companion_chat_panel.gd. Headed dual-resolution zero-error re-proof is C2 evidence lease, not C0."
+    },
+    {
+      "id": "H1-CODEX-F03",
+      "status": "PATCHED_UNDER_LEASE",
+      "note": "Removed Paid (fixture) from playable_action_bar first-session edition chip."
+    },
+    {
+      "id": "H1-CODEX-F02",
+      "status": "OUT_OF_C0_SCOPE",
+      "note": "Provenance/control audit is C1 VERIFY_ONLY lease."
+    }
+  ],
+  "result": {
+    "verdict": "C0_RUNTIME_F01_F03_PATCHED_NO_ACCEPT",
+    "summary": "C0 runtime correction patches absolute-path get_node USER ERROR sources under lease (main + companion) with SceneTree-root relative autoload resolve, and removes Paid (fixture) first-session action-bar chrome. New h1_consolidation_error_free_smoke PASS (6). H1 flow/chrome, P2E core/auth/qr, Control router, Block-DNA 14/14 42/42 all PASS. No evidence write; accepted=false; next_route=C1_CONTROL.",
+    "implementation_highlights": [
+      "main.gd: _autoload_node(name) with is_inside_tree short-circuit + tree.root.get_node_or_null",
+      "companion_chat_panel.gd: _resolve_control_router same safe family",
+      "playable_action_bar.gd: Free Bridge (manual) | API Gateway | Private Reality",
+      "h1_consolidation_error_free_smoke.gd: static + runtime gates for F01/F03"
+    ],
+    "preserved_invariants": [
+      "Companion proposal-only authority (no World Commit tool)",
+      "World Commit sole durable mutation",
+      "Q/R isolation, Esc single-dispatch",
+      "save/reload/undo/cancel paths",
+      "responsive UI",
+      "evidence 001 + H0-H4 receipts immutable"
+    ],
+    "forbidden_scope_confirmation": {
+      "evidence_written": false,
+      "h0_h4_receipts_rewritten": false,
+      "dna_v1_2_authorized": false,
+      "scene_expansion_authorized": false,
+      "character_foundry_runtime_authorized": false,
+      "network_authorized": false,
+      "self_accept_authorized": false,
+      "grandchildren_spawned": false
+    }
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "headless_godot_and_python_gates",
+    "godot": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+    "project": "E:/AIdle_openworld/game",
+    "checks": [
+      {
+        "id": "ERROR_FREE",
+        "pass": true,
+        "detail": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6 exit=0"
+      },
+      {
+        "id": "H1_FLOW",
+        "pass": true,
+        "detail": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13 exit=0"
+      },
+      {
+        "id": "H1_CHROME",
+        "pass": true,
+        "detail": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS checks=6 exit=0"
+      },
+      {
+        "id": "P2E_CORE",
+        "pass": true,
+        "detail": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14 exit=0"
+      },
+      {
+        "id": "P2E_AUTH",
+        "pass": true,
+        "detail": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8 exit=0"
+      },
+      {
+        "id": "P2E_QR",
+        "pass": true,
+        "detail": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8 exit=0"
+      },
+      {
+        "id": "CTRL_ROUTER",
+        "pass": true,
+        "detail": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16 exit=0"
+      },
+      {
+        "id": "BLOCK_DNA",
+        "pass": true,
+        "detail": "valid 14/14 invalid 42/42 rejected; exit=0"
+      }
+    ],
+    "exit_code": 0,
+    "overall_pass": true,
+    "error_lines": 0
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "sole_product_writer": true,
+    "lease_only": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "one_writer_per_file": true,
+    "skills_full_eof": true,
+    "schema_required_fields_present": true,
+    "child_task_ref_is_durable_uuid": true,
+    "transcript_ref_matches_child": true,
+    "parent_session_ref_bound": true,
+    "no_evidence_write": true,
+    "h0_h4_immutable": true,
+    "next_route_set": "C1_CONTROL",
+    "f01_patched": true,
+    "f03_patched": true,
+    "f02_deferred_to_c1": true,
+    "honesty_notes": [
+      "C0 does not claim headed dual-resolution zero-error re-proof (C2 evidence lease)",
+      "C0 does not claim H1 package ACCEPTED or human five-minute gate open",
+      "H1-CODEX-F02 provenance is C1 ownership",
+      "Product chrome residual in non-leased hud.gd Paid API (fixture) not in C0 lease — action bar F03 closed under lease"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/h1-consolidate-c0-runtime-002.log",
+    "orchestration/receipts/h1_consolidate_001/correction_001/C0_runtime_002.json",
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-H1-CONSOLIDATE-001-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_MACHINE_REVIEW_001.json",
+    "orchestration/evidence/h1_consolidate_001/001/godot_headed.log",
+    "orchestration/ARCHITECTURE_LOCK.md"
+  ],
+  "commands": [
+    {
+      "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/h1_consolidation_error_free_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6"
+    },
+    {
+      "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/h1_consolidation_flow_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13"
+    },
+    {
+      "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/h1_consolidation_chrome_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS checks=6"
+    },
+    {
+      "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_core_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14"
+    },
+    {
+      "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_authority_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8"
+    },
+    {
+      "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8"
+    },
+    {
+      "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16"
+    },
+    {
+      "cmd": "python -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit": 0,
+      "result": "valid 14/14 invalid 42/42"
+    }
+  ]
+}

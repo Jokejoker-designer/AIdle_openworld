@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0.0",
+  "package_id": "ucbv_001_cozy_architecture_kit_v1",
+  "family_id": "ucbv_001_cozy_architecture_kit_v1",
+  "wave": "U3_BLOCK_FAMILY_ART",
+  "directive_id": 81,
+  "work_order_id": "WO-UCBV-001-UNIFIED-CHARACTER-BLOCK-VISUAL-FOUNDATION",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "author_wave": "U3_BLOCK_FAMILY_ART",
+  "authority_token": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "world_profile_id": "cozy_cyber_pixel",
+  "silhouette_family": "ucbv_cozy_rounded_readable_v1",
+  "shape_language": "rounded_readable",
+  "paired_character": {
+    "display_name": "Nori-7",
+    "character_id": "CCP-RH-001",
+    "root_module_id": "char_nori7_base",
+    "style_lock_id": "ucbv_001_style_lock_v1",
+    "from_u0": "019f8a9c-e24f-7571-b057-186550c97383",
+    "from_u1": "019f8aa1-a648-7ed2-84d9-46d982d79e7a",
+    "from_u2": "019f8aa8-4de9-7f02-97f7-b61f28cdb3b8"
+  },
+  "catalog_authority": {
+    "accepted_ids_ssot": "orchestration/contracts/block_dna_adapt_001/catalog_allowlists.json",
+    "runtime_mirror": "game/resources/block_assembly/runtime_catalog.json",
+    "socket_ssot": "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json",
+    "material_ssot": "orchestration/contracts/block_dna_adapt_001/material_slot_mapping.contract.json",
+    "state_variants_ssot": "game/resources/world_profiles/state_visual_variants.json",
+    "tokens_ssot": "game/resources/art_styles/tokens/ucbv_001_shared_character_block_tokens.json",
+    "invent_module_ids": false,
+    "invent_recipes": false,
+    "invent_socket_grammar": false
+  },
+  "grid": {
+    "snap_m": 0.5,
+    "elevation_snap_m": 0.25,
+    "rotation_snap_deg": 15,
+    "scale_delta_max": 0.25,
+    "source": "catalog_allowlists.grid"
+  },
+  "module_count": 10,
+  "roles_covered": [
+    "foundation",
+    "floor",
+    "wall",
+    "corner",
+    "door",
+    "window",
+    "roof",
+    "fence",
+    "prop",
+    "wall_door"
+  ],
+  "modules": [
+    {
+      "role": "foundation",
+      "module_id": "block_platform",
+      "definition_path": "modules/block_platform.json",
+      "mesh_descriptor_path": "mesh_descriptors/block_platform.meshdesc.json",
+      "u1_preferred_if_present": "arch_foundation_square",
+      "selection_note": "arch_foundation_square exists in DNA module_catalog but is NOT in adapter allowlist; block_platform is allowlisted and DNA-tagged foundation."
+    },
+    {
+      "role": "floor",
+      "module_id": "arch_floor_round_4m",
+      "definition_path": "modules/arch_floor_round_4m.json",
+      "mesh_descriptor_path": "mesh_descriptors/arch_floor_round_4m.meshdesc.json",
+      "u1_preferred_if_present": "arch_floor_round_4m",
+      "selection_note": "Accepted allowlist + DNA architecture floor; fixtures use as foundation stack target."
+    },
+    {
+      "role": "wall",
+      "module_id": "block_panel",
+      "definition_path": "modules/block_panel.json",
+      "mesh_descriptor_path": "mesh_descriptors/block_panel.meshdesc.json",
+      "u1_preferred_if_present": "arch_wall_solid_4m",
+      "selection_note": "arch_wall_solid_4m in DNA but not adapter allowlist; block_panel is solid wall mass proxy."
+    },
+    {
+      "role": "corner",
+      "module_id": "block_cube_round",
+      "definition_path": "modules/block_cube_round.json",
+      "mesh_descriptor_path": "mesh_descriptors/block_cube_round.meshdesc.json",
+      "u1_preferred_if_present": null,
+      "selection_note": "U1 left corner empty; block_cube_round is allowlisted rounded primitive for corner mass."
+    },
+    {
+      "role": "door",
+      "module_id": "arch_door_round",
+      "definition_path": "modules/arch_door_round.json",
+      "mesh_descriptor_path": "mesh_descriptors/arch_door_round.meshdesc.json",
+      "u1_preferred_if_present": "arch_door_round",
+      "selection_note": "Door leaf; pairs with arch_wall_door_4m door_opening via socket catalog."
+    },
+    {
+      "role": "window",
+      "module_id": "arch_window_frame_simple",
+      "definition_path": "modules/arch_window_frame_simple.json",
+      "mesh_descriptor_path": "mesh_descriptors/arch_window_frame_simple.meshdesc.json",
+      "u1_preferred_if_present": "arch_window_frame_simple",
+      "selection_note": "Allowlisted frame; used in VALID-06 / VALID-14 with wall_edge↔window_opening normalization."
+    },
+    {
+      "role": "roof",
+      "module_id": "arch_roof_dome_4m",
+      "definition_path": "modules/arch_roof_dome_4m.json",
+      "mesh_descriptor_path": "mesh_descriptors/arch_roof_dome_4m.meshdesc.json",
+      "u1_preferred_if_present": "arch_roof_dome_4m",
+      "selection_note": "Accepted dome roof; arch_roof_gable_4m not in allowlist."
+    },
+    {
+      "role": "fence",
+      "module_id": "block_beam",
+      "definition_path": "modules/block_beam.json",
+      "mesh_descriptor_path": "mesh_descriptors/block_beam.meshdesc.json",
+      "u1_preferred_if_present": "cozy_fence_section_A",
+      "selection_note": "cozy_fence_section_A is P1E pilot aidle_module_id only (not DNA adapter allowlist). block_beam is allowlisted rail/post section mass; materials use MAT_CozyFencePost/Rail."
+    },
+    {
+      "role": "prop",
+      "module_id": "prop_crate_small",
+      "definition_path": "modules/prop_crate_small.json",
+      "mesh_descriptor_path": "mesh_descriptors/prop_crate_small.meshdesc.json",
+      "u1_preferred_if_present": "prop_crate_small",
+      "selection_note": "Allowlisted prop; fixtures VALID-07/VALID-14 use prop_base + terrain_surface norm."
+    },
+    {
+      "role": "wall_door",
+      "module_id": "arch_wall_door_4m",
+      "definition_path": "modules/arch_wall_door_4m.json",
+      "mesh_descriptor_path": "mesh_descriptors/arch_wall_door_4m.meshdesc.json",
+      "u1_preferred_if_present": "arch_wall_door_4m",
+      "selection_note": "Tenth module: wall with door opening. Completes U0 ten-module wording; pairs with arch_door_round."
+    }
+  ],
+  "companion_allowlisted_not_in_ten": [
+    {
+      "module_id": "arch_wall_window_4m",
+      "reason": "Window wall opening available for later kit expansion; window role covered by arch_window_frame_simple in first ten."
+    },
+    {
+      "module_id": "prop_lamp_post",
+      "reason": "Warm light prop available; first prop is crate for mass readability next to Nori legs."
+    },
+    {
+      "module_id": "prop_bench_simple",
+      "reason": "Seat prop available; deferred."
+    }
+  ],
+  "visual_states_path": "visual_states.json",
+  "material_bindings_path": "material_bindings.json",
+  "physics_residuals_path": "physics_residuals.json",
+  "kit_sheet_path": "kit_sheet/module_kit_sheet.svg",
+  "kit_index_path": "kit_sheet/module_kit_index.json",
+  "provenance_path": "provenance.json",
+  "export_policy": {
+    "glb": "SKIPPED",
+    "reason": "No offline Blender bridge export invoked this wave; Godot-ready mesh descriptors authored for U5 integration.",
+    "mesh_descriptor_format": "ucbv_meshdesc_v1"
+  },
+  "manifestation_stages": ["wireframe", "hologram", "materializing", "complete"],
+  "build_interaction_states": ["preview", "valid", "invalid", "selected", "materializing", "complete"],
+  "lod_policy": {
+    "LOD0": "full_bevels_secondary_planes_openings",
+    "LOD1": "massing_primary_openings",
+    "LOD2_or_billboard": "box_wedge_mass_roof_pitch",
+    "triangle_soft_caps": {
+      "starter_part": 96,
+      "starter_entity": 1200
+    },
+    "source": "ucbv_001_shared_character_block_tokens.lod_policy.block"
+  },
+  "edge_bevel": {
+    "profile": "soft_continuous",
+    "architecture_bevel_face_fraction_range": [0.03, 0.06],
+    "hard_90_outer_corners": false
+  },
+  "value_hierarchy_note": "Wall cream slightly darker than Nori body cream so character does not read as wall piece (U1/U2 lock).",
+  "next_wave": "U4_CHARACTER_MESH_RIG",
+  "out_of_scope": [
+    "character_mesh_or_rig",
+    "runtime_script_patch",
+    "game_scenes_patch",
+    "dna_package_rewrite",
+    "tier3_physics_invention",
+    "p2e_002",
+    "invented_module_ids"
+  ]
+}

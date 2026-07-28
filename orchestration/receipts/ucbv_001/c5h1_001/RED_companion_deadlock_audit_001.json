@@ -1,0 +1,331 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "UCBV-001-c5h1-red-companion-deadlock-audit-001-2026-07-23",
+  "step_id": "UCBV-001-c5h1-red-companion-deadlock-audit-001",
+  "work_order_id": "WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001",
+  "work_order": "orchestration/work_orders/WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001.md",
+  "work_order_sha256": "b4cd867db45b50d748f45e7f21de7fc34a1cfab7d6c7e6d5f4b965ee79683091",
+  "base_work_order": "orchestration/work_orders/WO-UCBV-001-C5-PURPLE-RELEASE-011.md",
+  "directive_id": 97,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "cf0dcef83fcedcf656f63e0af9670128b9a54328cb2ffa3cbb5ff06c2d9e9b95",
+  "directive_state": "CHANGES_REQUESTED",
+  "directive_verdict": "HUMAN_GATE_RETURNED_BLOCKER_DEADLOCK",
+  "root_cause_ref": "orchestration/control/HUMAN_GATE_FINDINGS_UCBV_001_H1_001.md",
+  "root_cause_sha256": "0475f70fc37d70f25d123f5f898e2b726ce167fde1d4d0f522fe67dc452d8a14",
+  "prior_blue_ref": "019f8db8-3aad-72b0-ae67-00859eae694a",
+  "prior_blue_receipt": "orchestration/receipts/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.json",
+  "prior_blue_receipt_sha256": "e89c16aaa2108f9526fe2cbbe73a1e2017e8056e31810f96510909f2366ed426",
+  "milestone": "UCBV-001 C5/H1 Human-gate correction — companion deadlock Red findings-only audit",
+  "agent_id": "aidle-worldgen-red-scope",
+  "agent_type": "aidle-worldgen-red-scope",
+  "profile_name": "aidle-worldgen-red-scope",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "profile_sha256": "7faf2b2b6bc07d18a1de109ccffd29279e7c7e060a24545e0fa2ee2bed1bebe5",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-red-scope; trustlayer_character=red-team-source-auditor; ui_character=ui-visual-critic; authority_token=READ_ONLY_AUDIT; parent_spawn_only=true; no_grandchildren=true; self_accept=false; findings only never patch; required_skills include adversarial-review + architecture-lock",
+  "authority_token": "READ_ONLY_AUDIT",
+  "authority": "READ_ONLY_AUDIT",
+  "authority_scope": "exact lease only: orchestration/receipts/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.json + orchestration/logs/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.log; product_writes=[]; findings only; never ACCEPTED; no product/test patch; no grandchildren; no C5 acceptance; no Purple; no Nori redesign; no P2E-002",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:8beabcf1597bf116dc6f4a7b8d44e46aa2e3176618e35b31ad609baaba87ec48",
+  "input_context_hash_16": "8beabcf1597bf116",
+  "input_context_hash_method": "sha256 of concatenated file bytes: codex_directive.json + WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001.md + HUMAN_GATE_FINDINGS_UCBV_001_H1_001.md + BLUE_companion_deadlock_fix_001.json + main.gd + aidle-worldgen-red-scope.md + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C5H1_RED_COMPLETE_WAITING_QA",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "PASS_WITH_RESIDUALS_STATIC_CODE_AUDIT",
+  "verdict_detail": "Independent READ_ONLY_AUDIT of Blue C5H1 main.gd patch (child 019f8db8). Static analysis confirms: (1) companion_call and prompt_quick_open branch on _chat_visible and close via _close_companion_composer which sets set_locomotion_suppressed(false); (2) Confirm gate _ba_can_confirm / handle_player_confirm body not modified; (3) Esc when _chat_visible closes companion first with early return before preview set_cancel_target/resolve_escape — defined first-Esc-close / second-Esc-preview path; (4) build_esc_no_pause clamp (pause forced false when ctx_esc==build) retained on companion-closed path; (5) Blue product write surface is main.gd only; post_sha256 matches disk 7aad920aaca451da9ae73da5249ba9a2fcf75ab6fa37b33792b4328501a6fe24; Blue write window under game/ only touched main.gd. No Red product writes. Headed acceptance not claimed — next QA. accepted=false.",
+  "need_human": false,
+  "child_task_ref": "019f8dbb-58ee-7d21-b30b-18e3e5a42fa9",
+  "transcript_ref": "019f8dbb-58ee-7d21-b30b-18e3e5a42fa9",
+  "writer_transcript_ref": "019f8dbb-58ee-7d21-b30b-18e3e5a42fa9",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8dbb-58ee-7d21-b30b-18e3e5a42fa9/meta.json",
+  "c5_spawned": false,
+  "next_owner": "QA",
+  "next_route": "QA_HEADED_EVIDENCE_C5H1_ACCEPTANCE_CRITERIA",
+  "human_gate_open": true,
+  "character_binding": {
+    "trustlayer_character_id": "red-team-source-auditor",
+    "trustlayer_file": "E:/agents/characters/05-red-team-source-auditor.md",
+    "trustlayer_sha256": "6d809c350b34e4512e886e582d555235bf85361884c05c8e4e2f7c6e5f838951",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_eof",
+    "role": "C5H1 Red READ_ONLY_AUDIT findings-only of Blue companion deadlock fix; never patch; never self-accept; route QA"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded Agents.md, directive 97, WO C5H1, HUMAN_GATE_FINDINGS H1, Blue receipt/log, main.gd companion/Esc paths, control_context_router.gd resolve_escape (read-only), control_action_catalog.gd (read-only), project.godot InputMap (read-only), agent_step_contract schema, profile aidle-worldgen-red-scope, TrustLayer red-team-source-auditor, UI ui-visual-critic, ALWAYS five skills + adversarial-review + architecture-lock manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "PROFILE_REQUIRED",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "bytes": 1766,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "REQUIRED_PROJECT",
+      "source": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027",
+      "bytes": 3317,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001.md",
+    "E:/AIdle_openworld/orchestration/control/HUMAN_GATE_FINDINGS_UCBV_001_H1_001.md",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.log",
+    "E:/AIdle_openworld/game/scripts/main/main.gd",
+    "E:/AIdle_openworld/game/autoload/control_context_router.gd",
+    "E:/AIdle_openworld/game/scripts/input/control_action_catalog.gd",
+    "E:/AIdle_openworld/game/project.godot",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+    "E:/AIdle_openworld/Agents.md"
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.log"
+  ],
+  "product_writes": [],
+  "product_writes_sha256": {},
+  "orchestration_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.log"
+  ],
+  "out_of_lease_writes": [],
+  "blue_lease_audit": {
+    "claimed_product_writes": ["E:/AIdle_openworld/game/scripts/main/main.gd"],
+    "claimed_post_sha256": "7aad920aaca451da9ae73da5249ba9a2fcf75ab6fa37b33792b4328501a6fe24",
+    "disk_main_gd_sha256": "7aad920aaca451da9ae73da5249ba9a2fcf75ab6fa37b33792b4328501a6fe24",
+    "hash_match": true,
+    "blue_window_game_writes_observed": ["E:/AIdle_openworld/game/scripts/main/main.gd"],
+    "out_of_lease_product_writes_by_blue": [],
+    "confirm_gate_claimed_unchanged": true,
+    "confirm_gate_static_unchanged": true
+  },
+  "audit_matrix": [
+    {
+      "id": "C5H1-R-A01",
+      "criterion": "companion_call / prompt_quick_open open→close releases locomotion",
+      "severity": "PASS_STATIC",
+      "evidence": "main.gd ~237-257: if _chat_visible → _close_companion_composer(); _close_companion_composer ~887-900 sets _chat_visible=false, release_focus_input, set_cancel_target prompt_composer_or_dialogue false, request_context exploration when primary==companion, set_locomotion_suppressed(false). Open path retains is_action_allowed + try_dispatch + _open_companion_composer(true).",
+      "blocking": false
+    },
+    {
+      "id": "C5H1-R-A02",
+      "criterion": "Confirm gate not weakened",
+      "severity": "PASS_STATIC",
+      "evidence": "_ba_can_confirm (~740-745) still delegates to block_assembly.can_confirm / preview active; _on_confirm (~1298+) still routes handle_player_confirm; no Blue edits to gate predicates. Confirm still requires placed preview (Human H1 consequence path, not gate bug).",
+      "blocking": false
+    },
+    {
+      "id": "C5H1-R-A03",
+      "criterion": "Esc with preview + companion: defined non-deadlock outcome",
+      "severity": "PASS_STATIC",
+      "evidence": "main.gd ~213-219: after control_settings close, if _chat_visible then _close_companion_composer(); handle; return — before set_cancel_target(preview_hologram) and resolve_escape. Documented outcome: first Esc closes Companion (locomotion release); second Esc uses existing preview cancel / build_esc_no_pause path. Router resolve_escape still ranks preview_hologram above prompt_composer_or_dialogue; Main short-circuit makes companion dismissible even when preview cancel_target would win.",
+      "blocking": false
+    },
+    {
+      "id": "C5H1-R-A04",
+      "criterion": "build_esc_no_pause not regressed",
+      "severity": "PASS_STATIC",
+      "evidence": "When companion closed, Esc still reaches resolve_escape; main.gd ~226-228 forces pause=false and resolved=build_esc_no_pause when ctx_esc==build. control_context_router.gd build_esc_no_pause branch (~422-430) untouched (read-only). Companion-open Esc never reaches pause path (early close return).",
+      "blocking": false
+    },
+    {
+      "id": "C5H1-R-A05",
+      "criterion": "No out-of-lease product writes by Blue",
+      "severity": "PASS",
+      "evidence": "Disk hash of main.gd matches Blue post_sha256. game/ LastWriteTime window ~13:40-13:50 only lists main.gd. Blue orch writes confined to c5h1_001 BLUE receipt+log. Red product_writes=[].",
+      "blocking": false
+    },
+    {
+      "id": "C5H1-R-A06",
+      "criterion": "Residual risks recorded for QA",
+      "severity": "PASS_WITH_RESIDUALS",
+      "evidence": "See findings[] residuals C5H1-R-OBS01..OBS04. No static re-open of Human H1 HARD BLOCKER. Headed proof still required.",
+      "blocking": false
+    }
+  ],
+  "findings": [
+    {
+      "id": "C5H1-R-OBS01",
+      "severity": "LOW",
+      "blocking": false,
+      "title": "HUD label says E; InputMap companion_call is KEY_C",
+      "detail": "starter_realm_panel.gd still prints 'Companion: press E to chat' while project.godot / control_action_catalog bind companion_call to physical KEY_C (67) and prompt_quick_open to KEY_SLASH (47). Pre-existing label mismatch outside Blue lease (main.gd only). QA must exercise companion_call (C) and/or prompt_quick_open (/) and action-bar toggle — not only a literal E key unless rebound.",
+      "owner": "QA_note_preexisting",
+      "in_blue_diff": false
+    },
+    {
+      "id": "C5H1-R-OBS02",
+      "severity": "MEDIUM",
+      "blocking": false,
+      "title": "Close forces exploration context, not prior build",
+      "detail": "_close_companion_composer always request_context('exploration') when primary==companion. Opening companion from build (via prompt_quick_open or action bar) replaces build primary with companion; close returns to exploration and _on_context_changed hides build HUD/picker even if preview remains active. Esc path is still defined (second Esc can cancel preview via _ba_preview_active set_cancel_target). Residual for QA: after companion close mid-build, re-enter build if needed before place/Confirm; verify no stuck locomotion and no orphan deadlock.",
+      "owner": "QA_verify",
+      "in_blue_diff": false,
+      "note": "Close helper pre-existed; Blue reuses it for E-close and Esc-first"
+    },
+    {
+      "id": "C5H1-R-OBS03",
+      "severity": "INFO",
+      "blocking": false,
+      "title": "No headed smoke executed by Blue or Red",
+      "detail": "Blue smoke_test.ran=false (product lease main.gd only). Red is READ_ONLY_AUDIT findings-only. Acceptance criteria in WO remain QA-owned under orchestration/evidence/ucbv_001/c5h1_001/**.",
+      "owner": "QA",
+      "in_blue_diff": false
+    },
+    {
+      "id": "C5H1-R-OBS04",
+      "severity": "LOW",
+      "blocking": false,
+      "title": "build context allow-list: prompt_quick_open yes, companion_call no",
+      "detail": "control_action_catalog build context includes prompt_quick_open but not companion_call. Open-with-C while primary==build may be rejected by is_action_allowed on open path; close path correctly bypasses allow check when _chat_visible. Pre-existing catalog policy; not a Blue regression. QA: open companion during build via / or action bar, not only C.",
+      "owner": "QA_note_preexisting",
+      "in_blue_diff": false
+    }
+  ],
+  "blocking_findings_count": 0,
+  "result": {
+    "ok": true,
+    "audit_class": "C5H1_RED_COMPANION_DEADLOCK_AUDIT",
+    "human_h1_finding1_code_fix_static": "ADDRESSED_IN_MAIN_GD_NOT_ACCEPTED",
+    "summary": "Blue C5H1 patch static-audited PASS_WITH_RESIDUALS. Toggle close on companion_call/prompt_quick_open releases locomotion; Esc companion-first defines non-deadlock; Confirm gate unweakened; build_esc_no_pause retained; Blue lease clean. Residuals OBS01-04 non-blocking. No product patch by Red. Next QA headed evidence; accepted=false.",
+    "line_refs_audited": {
+      "esc_companion_first": "main.gd ~213-219",
+      "prompt_quick_open_toggle": "main.gd ~237-246",
+      "companion_call_toggle": "main.gd ~248-257",
+      "build_esc_no_pause_clamp": "main.gd ~226-228",
+      "close_releases_locomotion": "main.gd ~887-900",
+      "open_suppresses_locomotion": "main.gd ~867-882",
+      "toggle_action_bar": "main.gd ~1207-1211",
+      "ba_can_confirm": "main.gd ~740-745",
+      "on_confirm": "main.gd ~1298+"
+    },
+    "main_gd_sha256_audited": "7aad920aaca451da9ae73da5249ba9a2fcf75ab6fa37b33792b4328501a6fe24"
+  },
+  "smoke_test": {
+    "ran": false,
+    "reason": "Red READ_ONLY_AUDIT is findings-only static code/lease audit. Headed acceptance is QA lease under orchestration/evidence/ucbv_001/c5h1_001 and game/tests or game/scripts smoke per WO.",
+    "static_checks": [
+      "C5H1-R-A01 companion toggle close locomotion release PASS_STATIC",
+      "C5H1-R-A02 confirm gate unweakened PASS_STATIC",
+      "C5H1-R-A03 Esc companion-first defined PASS_STATIC",
+      "C5H1-R-A04 build_esc_no_pause retained PASS_STATIC",
+      "C5H1-R-A05 Blue product lease only main.gd PASS",
+      "C5H1-R-A06 residuals documented PASS_WITH_RESIDUALS"
+    ],
+    "recommended_qa": [
+      "Open Companion via companion_call (C) or prompt_quick_open (/) or action bar; press same open action again → Companion closes; player can move (locomotion unsuppressed)",
+      "Open Companion, close, enter build, LMB place preview → Confirm enables; confirm commits via World Commit path",
+      "Open Companion during active build preview, Esc → Companion closes first (defined); second Esc cancels preview; build idle Esc still no-pause",
+      "Zero new Godot ERROR/USER ERROR/SCRIPT ERROR; headed dual-res evidence with active art style / world profile (pond-white rule)",
+      "Document key used (C vs / vs action bar) because HUD still says E (OBS01)"
+    ]
+  },
+  "self_audit": {
+    "lease_respected": true,
+    "product_writes_count": 0,
+    "product_writes_empty": true,
+    "out_of_lease_writes_empty": true,
+    "findings_only_no_patch": true,
+    "no_self_accept": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "no_c5_acceptance": true,
+    "no_purple": true,
+    "no_nori_redesign": true,
+    "no_p2e002": true,
+    "durable_uuid_three_refs_match": true,
+    "authority_token": "READ_ONLY_AUDIT",
+    "blocking_findings": 0,
+    "findings": []
+  },
+  "evidence_refs": [
+    "orchestration/logs/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.log",
+    "orchestration/receipts/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.json",
+    "orchestration/logs/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.log",
+    "orchestration/control/HUMAN_GATE_FINDINGS_UCBV_001_H1_001.md",
+    "orchestration/work_orders/WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001.md",
+    "game/scripts/main/main.gd"
+  ],
+  "trace_ref": "orchestration/logs/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.log",
+  "forbidden_actions_respected": [
+    "patch product/scene/controls/characters/tests",
+    "change Confirm gating logic",
+    "touch GLB/catalog/behavior",
+    "rewrite prior correction receipts outside lease",
+    "write outside exact Red lease",
+    "self-accept or claim Human/Codex acceptance",
+    "spawn grandchildren or C5 Purple",
+    "dispatch P2E-002 or Nori redesign"
+  ],
+  "queued_not_authorized_note": "Nori-7 visual redesign (Human Finding 2) remains queued; not in C5H1 Red scope."
+}

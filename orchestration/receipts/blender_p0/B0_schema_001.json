@@ -1,0 +1,431 @@
+{
+  "agent_step_id": "B0-001-schema-001-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:6e2f198d14471598dc3167d33447ee2853448c6b7f41401c162de7d58d36800b",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8373-dc17-7b02-914f-073b4ae5c03a",
+  "transcript_ref": "019f8373-dc17-7b02-914f-073b4ae5c03a",
+  "writer_transcript_ref": "019f8373-dc17-7b02-914f-073b4ae5c03a",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/blender-p0-schema-001.log",
+  "handoff_ref": "B0_RIG_OR_QA",
+  "start_time": "2026-07-21T06:53:58Z",
+  "end_time": "2026-07-21T06:55:37.011124+00:00",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+  "profile_binding_evidence": "FULL read: name=aidle-schema; trustlayer_character=devil-advocate; ui_character=ui-brief-writer; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop, od-design-brief, od-reference-design-contract. WO-B0-001 authority for schema child = VERIFY_ONLY (overrides profile PATCH_DRAFT default).",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "routed_design": [
+      "od-reference-design-contract",
+      "od-design-md"
+    ],
+    "profile_routed": [
+      "od-design-brief",
+      "od-reference-design-contract"
+    ]
+  },
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/schema.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-B0-001-BLENDER-BRIDGE-P0-GATE.md",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/agents/characters/14-devil-advocate.md",
+    "E:/agents/ui-design/characters/02-ui-brief-writer.md",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "E:/shared/skills/library/od-design-brief/SKILL.md",
+    "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+    "E:/AIdle_Blender_Bridge_P0/app/models.py",
+    "E:/AIdle_Blender_Bridge_P0/app/main.py",
+    "E:/AIdle_Blender_Bridge_P0/app/config.py",
+    "E:/AIdle_Blender_Bridge_P0/app/dependencies.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/jobs.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/templates.py",
+    "E:/AIdle_Blender_Bridge_P0/app/api/health.py",
+    "E:/AIdle_Blender_Bridge_P0/app/security/path_policy.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/operation_policy.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/template_registry.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/job_service.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/job_store.py",
+    "E:/AIdle_Blender_Bridge_P0/app/services/blender_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/blender_scripts/worker_entry.py",
+    "E:/AIdle_Blender_Bridge_P0/config/operation_allowlist.yaml",
+    "E:/AIdle_Blender_Bridge_P0/config/templates.yaml",
+    "E:/AIdle_Blender_Bridge_P0/config/validation_limits.yaml",
+    "E:/AIdle_Blender_Bridge_P0/Grok/tool_definitions.json",
+    "E:/AIdle_Blender_Bridge_P0/Grok/GROK_BLENDER_PRODUCTION_AGENT.md",
+    "E:/AIdle_Blender_Bridge_P0/docs/SECURITY.md",
+    "E:/AIdle_Blender_Bridge_P0/docs/P0_ACCEPTANCE_CHECKLIST.md",
+    "E:/AIdle_Blender_Bridge_P0/docs/GROK_ADAPTER_MAP.md",
+    "E:/AIdle_Blender_Bridge_P0/tests/conftest.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_api.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_security.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_runner.py",
+    "E:/AIdle_Blender_Bridge_P0/examples/p0_probe_request.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_schema_001.json",
+    "E:/AIdle_openworld/orchestration/logs/blender-p0-schema-001.log",
+    "E:/AIdle_openworld/orchestration/logs/blender-p0-schema-001-hash.txt"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "B0-001",
+    "directive_id": 46,
+    "work_order": "orchestration/work_orders/WO-B0-001-BLENDER-BRIDGE-P0-GATE.md",
+    "wave": "B0_SCHEMA",
+    "profile": "schema",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+    "bridge_root": "E:/AIdle_Blender_Bridge_P0",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS",
+    "summary": "Schema/policy VERIFY_ONLY gate for Blender Bridge P0: request models extra=forbid; validation report cannot be disabled (Literal[True]); registry-only template/profile; path boundary via resolve_within/safe_child; operation allowlist + globally_denied; Grok tool surface is three read/build/status tools only; server-generated quarantine paths; exit-0 missing artifacts fail with exit 65. pytest 11 passed; compileall 0. No product patch.",
+    "character_binding": {
+      "trustlayer_character_id": "devil-advocate",
+      "trustlayer_card": "E:/agents/characters/14-devil-advocate.md",
+      "ui_character_id": "ui-brief-writer",
+      "ui_card": "E:/agents/ui-design/characters/02-ui-brief-writer.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read EOF: Load COMPLIANCE.md + registry; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no inventing evidence / no exceeding authority"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read EOF: slot 14 devil-advocate VERIFY_ONLY; Red finds never fixes; Blue patches only approved WOs; Purple never patches product"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read EOF: hub E:\\; MASTER_PLAN/JOURNAL; journal-entry after milestones; do not skip handoff"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read EOF: shared project rooms; respect authority tokens; Red does not patch"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read chunk through EOF (~1124 lines): do not claim commands without observation; classify FACT/INFERENCE; stop conditions; verification gate"
+      },
+      {
+        "skill_id": "od-design-brief",
+        "source": "E:/shared/skills/library/od-design-brief/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: I-Lang 8 dimensions; outputs DESIGN.md; profile-routed design skill (schema wave uses for binding evidence only, no UI artifact emit)"
+      },
+      {
+        "skill_id": "od-reference-design-contract",
+        "source": "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: DESIGN.md + design-contract.md + implementation-handoff; keep/change/do-not-copy; nine-section contract (binding only this wave)"
+      }
+    ],
+    "character_card_evidence": {
+      "devil-advocate": "E:/agents/characters/14-devil-advocate.md — VERIFY_ONLY; false-positive challenge until evidence; no invent evidence; no product patch",
+      "ui-brief-writer": "E:/agents/ui-design/characters/02-ui-brief-writer.md — discovery slot 2; REPORT_ONLY on card; used only for binding evidence this VERIFY_ONLY wave"
+    },
+    "input_context_hash": "sha256:6e2f198d14471598dc3167d33447ee2853448c6b7f41401c162de7d58d36800b",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-B0-001-BLENDER-BRIDGE-P0-GATE.md",
+        "E:/AIdle_Blender_Bridge_P0/app/models.py",
+        "E:/AIdle_Blender_Bridge_P0/Grok/tool_definitions.json",
+        "E:/AIdle_Blender_Bridge_P0/config/operation_allowlist.yaml",
+        "E:/AIdle_Blender_Bridge_P0/config/templates.yaml",
+        "E:/AIdle_Blender_Bridge_P0/config/validation_limits.yaml"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "6e2f198d14471598dc3167d33447ee2853448c6b7f41401c162de7d58d36800b",
+      "BYTE_LEN": 8485,
+      "result_file": "orchestration/logs/blender-p0-schema-001-hash.txt"
+    },
+    "child_task_ref": "019f8373-dc17-7b02-914f-073b4ae5c03a",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "trace_ref": "orchestration/logs/blender-p0-schema-001.log",
+    "handoff_ref": "B0_RIG_OR_QA",
+    "handoff_note": "Schema child complete. Handoff to B0_RIG (aidle-character-rig-animation VERIFY_ONLY) and/or B0_QA (aidle-worldgen-qa-evidence). Purple after children 1-3. No grandchildren.",
+    "product_writes": [],
+    "gate_matrix": [
+      {
+        "gate_id": "B0-S1",
+        "claim": "extra fields rejected",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "app/models.py StrictModel ConfigDict(extra='forbid')",
+          "tests/test_api.py::test_strict_schema_rejects_extra asserts 422 on python_code",
+          "ad-hoc: server_output_dir top-level -> 422; outputs.output_path -> 422"
+        ]
+      },
+      {
+        "gate_id": "B0-S2",
+        "claim": "disabled validation blocked",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "app/models.py OutputRequest.generate_validation_report: Literal[True] = True",
+          "tests/test_api.py::test_validation_evidence_cannot_be_disabled asserts 422 when False"
+        ]
+      },
+      {
+        "gate_id": "B0-S3",
+        "claim": "unknown template fail-closed",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "app/services/template_registry.py KeyError on missing id",
+          "app/api/jobs.py maps KeyError -> HTTP 422 Unknown registry identifier",
+          "tests/test_api.py::test_unknown_template_rejected"
+        ]
+      },
+      {
+        "gate_id": "B0-S4",
+        "claim": "unknown operation profile fail-closed",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "app/services/operation_policy.py get_profile KeyError",
+          "ad-hoc TestClient POST operation_profile=not_a_profile -> 422"
+        ]
+      },
+      {
+        "gate_id": "B0-S5",
+        "claim": "path escape blocked",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "app/security/path_policy.py resolve_within + safe_child blocks .. and non-root paths",
+          "tests/test_security.py::test_resolve_within_blocks_escape",
+          "tests/test_security.py::test_safe_child_blocks_traversal",
+          "job_service sets server_output_dir via safe_child(quarantine_root, job_id); client cannot supply path"
+        ]
+      },
+      {
+        "gate_id": "B0-S6",
+        "claim": "duplicate request handling",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "job_service create lock + find_by_request_id raises DuplicateRequestError",
+          "api/jobs.py maps to HTTP 409 with existing_job_id",
+          "tests/test_api.py::test_duplicate_request_id"
+        ]
+      },
+      {
+        "gate_id": "B0-S7",
+        "claim": "exit-zero/missing artifacts fail-closed",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "blender_runner._verify_real_outputs returns error when required files missing/empty",
+          "returncode 0 + verification_error -> RunnerResult exit_code=65",
+          "tests/test_runner.py::test_real_exit_zero_without_required_artifacts_fails_closed"
+        ]
+      },
+      {
+        "gate_id": "B0-S8",
+        "claim": "operation allowlist + globally denied ops",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "config/operation_allowlist.yaml globally_denied includes execute_arbitrary_python, execute_shell, install_addon, download_external_asset, network_access, modify_template_source, publish_to_godot",
+          "profiles.p0_probe.allowed_operations limited to probe create/material/save/export/render/validation",
+          "operation_policy rejects profile that intersects globally_denied"
+        ]
+      },
+      {
+        "gate_id": "B0-S9",
+        "claim": "no shell/Python/download/add-on/output-path tool exposed to Grok",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "Grok/tool_definitions.json names: inspect_character_template, build_character_from_template, get_character_job_status only",
+          "additionalProperties:false on all tool parameter objects",
+          "forbidden keyword scan of tool_definitions: shell/python/download/addon/output_path/execute/godot all False",
+          "docs/GROK_ADAPTER_MAP.md maps three tools only; no filesystem path in Grok surface"
+        ]
+      },
+      {
+        "gate_id": "B0-S10",
+        "claim": "quarantine-only outputs; no Godot copy/catalog/state mutation",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "JobReceipt.output_zone Literal['generated_quarantine']",
+          "job_service writes only under settings.quarantine_root + jobs_root",
+          "globally_denied includes publish_to_godot",
+          "no Godot copy path in app/ services (code search); docs state Godot import is separate gated phase"
+        ]
+      },
+      {
+        "gate_id": "B0-S11",
+        "claim": "template registry locked to P0 probe",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "config/templates.yaml only p0_probe_empty_scene status=P0_PROBE_ONLY",
+          "tool_definitions const template_id=p0_probe_empty_scene and operation_profile=p0_probe",
+          "incompatible template/profile raises IncompatibleTemplateProfileError -> 422"
+        ]
+      },
+      {
+        "gate_id": "B0-S12",
+        "claim": "runner security flags present (schema/command surface)",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "blender_runner.build_command includes --background --factory-startup --disable-autoexec --python-exit-code 20 and fixed worker_entry.py",
+          "subprocess.run shell=False",
+          "tests/test_runner.py::test_real_command_contains_security_flags"
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "B0-S-F1",
+        "severity": "info",
+        "classification": "CODE_QUALITY",
+        "title": "Tool schema allows boolean generate_validation_report; API requires True",
+        "statement": "Grok/tool_definitions.json types generate_validation_report as boolean without const:true, while app/models.py uses Literal[True]. Submitting false is still rejected 422 at API — fail-closed preserved. Tightening the tool schema to const:true would reduce client-side false starts.",
+        "blocks_schema_pass": false
+      },
+      {
+        "finding_id": "B0-S-F2",
+        "severity": "info",
+        "classification": "CODE_QUALITY",
+        "title": "Unknown operation_profile not covered by named pytest",
+        "statement": "Code path KeyError->422 verified ad-hoc; residual test-coverage gap only, not a policy hole.",
+        "blocks_schema_pass": false
+      }
+    ],
+    "residual_risks": [
+      "docs/SECURITY.md: AIDLE_DISABLE_NETWORK is a policy marker in P0; OS-level Blender process isolation (ACL/firewall/job object) is explicitly not complete — out of schema gate scope but relevant to Purple/release.",
+      "Real Blender probe artifacts and preview visual signal are owned by B0_RIG / B0_QA children, not this schema receipt.",
+      "Network/auth on FastAPI surface not part of this VERIFY_ONLY schema matrix (localhost bridge assumed)."
+    ],
+    "out_of_scope_this_child": [
+      "Blender 5.2 version check (rig/QA)",
+      "Fresh real-mode probe QUARANTINED_COMPLETE (rig/QA)",
+      "Preview visual inspection (QA)",
+      "Purple acceptance",
+      "Any product patch"
+    ],
+    "children": [],
+    "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE concepts via skills + registry path + profile/cards manually."
+  },
+  "smoke_test": {
+    "passed": true,
+    "attributed_to_transcript_ref": "019f8373-dc17-7b02-914f-073b4ae5c03a",
+    "commands": [
+      {
+        "command": "python -m pytest -q",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "summary": "11 passed",
+        "mutating": false
+      },
+      {
+        "command": "python -m compileall -q app tests blender_scripts",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "mutating": false
+      },
+      {
+        "command": "python -c <sha256 concat of WO + models + tool_definitions + yaml configs>",
+        "cwd": "E:/AIdle_openworld",
+        "exit_code": 0,
+        "FULL_SHA256": "6e2f198d14471598dc3167d33447ee2853448c6b7f41401c162de7d58d36800b",
+        "INPUT_CONTEXT_HASH": "sha256:6e2f198d14471598dc3167d33447ee2853448c6b7f41401c162de7d58d36800b",
+        "BYTE_LEN": 8485,
+        "result_file": "orchestration/logs/blender-p0-schema-001-hash.txt"
+      },
+      {
+        "command": "python ad-hoc TestClient probes: unknown profile, extra outputs.output_path, top-level server_output_dir; tool_definitions forbidden keyword scan",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "observed": {
+          "unknown_profile_status": 422,
+          "extra_output_path_status": 422,
+          "top_level_server_output_dir_status": 422,
+          "tool_names": [
+            "inspect_character_template",
+            "build_character_from_template",
+            "get_character_job_status"
+          ],
+          "forbidden_hits_all_false": true
+        },
+        "mutating": false,
+        "note": "Temporary _schema_verify_tmp under bridge removed after probes; no product source changed."
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "VERIFY_ONLY",
+    "no_self_accept": true,
+    "accepted": false,
+    "self_accept": false,
+    "no_product_patch": true,
+    "product_writes_empty": true,
+    "no_nested_grandchildren": true,
+    "character_skill_trace_present": true,
+    "no_invented_gate_pass": true,
+    "no_invented_hash": true,
+    "exclusive_writes_only": [
+      "orchestration/receipts/blender_p0/B0_schema_001.json",
+      "orchestration/logs/blender-p0-schema-001.log"
+    ],
+    "hash_helper_also_written": "orchestration/logs/blender-p0-schema-001-hash.txt",
+    "devil_advocate_challenge": "Steelman: bridge looks fail-closed. Challenge: tool boolean vs Literal[True] mismatch could look like a hole — disproved by API 422. Challenge: missing named test for unknown profile — code path confirmed live 422. No material schema blocker found."
+  },
+  "evidence_refs": [
+    "orchestration/logs/blender-p0-schema-001.log",
+    "orchestration/logs/blender-p0-schema-001-hash.txt",
+    "orchestration/work_orders/WO-B0-001-BLENDER-BRIDGE-P0-GATE.md",
+    "orchestration/skills_manifest.yaml",
+    ".grok/agents/schema.md",
+    "E:/AIdle_Blender_Bridge_P0/app/models.py",
+    "E:/AIdle_Blender_Bridge_P0/Grok/tool_definitions.json",
+    "E:/AIdle_Blender_Bridge_P0/config/operation_allowlist.yaml",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_api.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_security.py",
+    "E:/AIdle_Blender_Bridge_P0/tests/test_runner.py",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "B0_RIG_OR_QA"
+}

@@ -1,0 +1,307 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "UCBV-001-c5h1-qa-companion-deadlock-evidence-001-2026-07-23",
+  "step_id": "UCBV-001-c5h1-qa-companion-deadlock-evidence-001",
+  "work_order_id": "WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001",
+  "work_order": "orchestration/work_orders/WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001.md",
+  "work_order_sha256": "b4cd867db45b50d748f45e7f21de7fc34a1cfab7d6c7e6d5f4b965ee79683091",
+  "base_work_order": "orchestration/work_orders/WO-UCBV-001-C5-PURPLE-RELEASE-011.md",
+  "directive_id": 97,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "cf0dcef83fcedcf656f63e0af9670128b9a54328cb2ffa3cbb5ff06c2d9e9b95",
+  "directive_state": "CHANGES_REQUESTED",
+  "directive_verdict": "HUMAN_GATE_RETURNED_BLOCKER_DEADLOCK",
+  "root_cause_ref": "orchestration/control/HUMAN_GATE_FINDINGS_UCBV_001_H1_001.md",
+  "prior_blue_ref": "019f8db8-3aad-72b0-ae67-00859eae694a",
+  "prior_blue_receipt": "orchestration/receipts/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.json",
+  "prior_red_ref": "019f8dbb-58ee-7d21-b30b-18e3e5a42fa9",
+  "prior_red_receipt": "orchestration/receipts/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.json",
+  "milestone": "UCBV-001 C5/H1 Human-gate correction — companion deadlock QA headed evidence",
+  "agent_id": "aidle-worldgen-qa-evidence",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "profile_name": "aidle-worldgen-qa-evidence",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_sha256": "bd9f7f941be811b1d81b35cc58fe06fba8bbd3768c04a49f41af626cc09f890a",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-qa-evidence; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set tests_logs_screenshots_receipts_only under lease",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "QA evidence only; exact lease receipt+log+evidence/c5h1_001/** + optional game/tests/ucbv_001_c5h1_companion_deadlock_smoke.gd; product_writes=[] for product code; never ACCEPTED; no C5 release accept; no grandchildren; no main.gd edit",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:06395cc74122c781ad9da8e55d2c8d5072b1b05602c8b9c00f1473fae69c31e7",
+  "input_context_hash_16": "06395cc74122c781",
+  "input_context_hash_method": "sha256 of concatenated file bytes: codex_directive.json + WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001.md + BLUE_companion_deadlock_fix_001.json + RED_companion_deadlock_audit_001.json + aidle-worldgen-qa-evidence.md + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C5H1_QA_COMPLETE_WAITING_PURPLE_OR_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C5H1_QA_HEADED_AND_HEADLESS_ACCEPTANCE_CRITERIA_PASS_ROUTE_PURPLE",
+  "need_human": false,
+  "child_task_ref": "019f8dbf-44a6-7cb2-9ace-0e4965d14d15",
+  "transcript_ref": "019f8dbf-44a6-7cb2-9ace-0e4965d14d15",
+  "writer_transcript_ref": "019f8dbf-44a6-7cb2-9ace-0e4965d14d15",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8dbf-44a6-7cb2-9ace-0e4965d14d15/meta.json",
+  "c5_spawned": false,
+  "next_owner": "PURPLE_OR_CODEX",
+  "next_route": "PURPLE_VERIFY_THEN_CODEX_OR_HUMAN_ACCEPT_C5H1_THEN_RESUME_C5_IF_AUTHORIZED",
+  "human_gate_open": true,
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-finding-triage",
+    "trustlayer_file": "E:/agents/characters/12-purple-team-finding-triage.md",
+    "trustlayer_sha256": "5ee9279e67793b135675725f0d6060b3bb749df6a169bbb43cb071372ea394a8",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "ui_read": "full_eof",
+    "role": "C5H1 VERIFY_ONLY headed+headless acceptance evidence for companion deadlock fix; never patch product; never self-accept; no C5 release accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded Agents.md, directive 97, WO C5H1, Blue+Red receipts, main.gd companion/Esc paths (read-only), agent_step_contract schema, profile aidle-worldgen-qa-evidence full EOF, TrustLayer purple-team-finding-triage, UI ui-a11y-auditor, ALWAYS five skills + evidence-memory-ledger full EOF manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "bytes": 8484,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-UCBV-001-C5H1-COMPANION-DEADLOCK-FIX-001.md",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.json",
+    "E:/AIdle_openworld/game/scripts/main/main.gd",
+    "E:/AIdle_openworld/game/autoload/control_context_router.gd",
+    "E:/AIdle_openworld/game/scripts/input/control_action_catalog.gd",
+    "E:/AIdle_openworld/game/scripts/player/player_controller.gd",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "E:/AIdle_openworld/Agents.md"
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/c5h1_001/QA_companion_deadlock_evidence_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/c5h1_001/QA_companion_deadlock_evidence_001.log",
+    "E:/AIdle_openworld/orchestration/evidence/ucbv_001/c5h1_001/**",
+    "E:/AIdle_openworld/game/tests/ucbv_001_c5h1_companion_deadlock_smoke.gd"
+  ],
+  "product_writes": [],
+  "product_writes_sha256": {},
+  "tests_created": [
+    "E:/AIdle_openworld/game/tests/ucbv_001_c5h1_companion_deadlock_smoke.gd"
+  ],
+  "tests_created_sha256": {
+    "E:/AIdle_openworld/game/tests/ucbv_001_c5h1_companion_deadlock_smoke.gd": "de6d4e395ac8a34036750eba2c5ead36be906771bf3268ad9720eb80b596bf62"
+  },
+  "orchestration_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/c5h1_001/QA_companion_deadlock_evidence_001.json",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/c5h1_001/QA_companion_deadlock_evidence_001.log",
+    "E:/AIdle_openworld/orchestration/evidence/ucbv_001/c5h1_001/**"
+  ],
+  "out_of_lease_writes": [],
+  "main_gd_untouched_by_qa": true,
+  "main_gd_sha256_verified": "7aad920aaca451da9ae73da5249ba9a2fcf75ab6fa37b33792b4328501a6fe24",
+  "result": {
+    "ok": true,
+    "audit_class": "C5H1_QA_COMPANION_DEADLOCK_EVIDENCE",
+    "zero_error": true,
+    "summary": "Headed+headless QA proves Human H1 companion deadlock fix acceptance criteria. Control documented=companion_call KEY_C (plus prompt_quick_open KEY_SLASH). Esc order=first closes Companion (preview retained), second cancels preview. Confirm World Commit path green. build_esc_no_pause unregressed. art_style_id=cozy_cyber_pixel. accepted=false; route Purple/Codex.",
+    "acceptance_criteria": {
+      "c1_open_close_same_control_locomotion": {
+        "verdict": "PASS",
+        "control_used": "companion_call",
+        "binding": "KEY_C physical C",
+        "secondary_control_proven": "prompt_quick_open KEY_SLASH",
+        "locomotion_restored": true,
+        "hud_e_label_note": "Red OBS01 pre-existing: HUD may still say E; InputMap is C"
+      },
+      "c2_close_then_manual_build_confirm_world_commit": {
+        "verdict": "PASS",
+        "confirm_disabled_before_place": true,
+        "confirm_enabled_after_place": true,
+        "committed_delta": "0→1",
+        "issuer": "world_commit_service",
+        "client_world_commit": false
+      },
+      "c3_esc_with_preview_plus_companion_non_deadlock": {
+        "verdict": "PASS",
+        "open_during_preview_via": "prompt_quick_open",
+        "esc_order": "first_esc_closes_companion_preview_retained",
+        "second_esc": "cancels_preview resolve_escape preview_hologram pause=false",
+        "stuck": false
+      },
+      "c4_zero_error_and_build_esc_no_pause": {
+        "verdict": "PASS",
+        "zero_error": true,
+        "build_esc_resolved": "build_esc_no_pause pause=false",
+        "game_manager_state_after": 2,
+        "game_manager_state_meaning": "IN_WORLD (PAUSED would be 3)"
+      },
+      "c5_art_style_world_profile": {
+        "verdict": "PASS",
+        "art_style_id": "cozy_cyber_pixel",
+        "world_profile": "cozy_cyber_pixel",
+        "pond_white_rule": "recorded via active ArtStyleManager style + StarterRealmBuilder profile"
+      }
+    },
+    "png_count": 9,
+    "viewports": ["1280x720", "868x517"],
+    "headed_marker": "AIDLE_UCBV001_C5H1_COMPANION_DEADLOCK_SMOKE=PASS checks=21 inputs=30 control=companion_call art=cozy_cyber_pixel headed=true captures=9",
+    "headless_marker": "AIDLE_UCBV001_C5H1_COMPANION_DEADLOCK_SMOKE=PASS checks=20 inputs=26 control=companion_call art=cozy_cyber_pixel headed=false captures=0"
+  },
+  "smoke_test": {
+    "ran": true,
+    "ok": true,
+    "godot": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+    "godot_version": "4.3.stable.official",
+    "primary": {
+      "script": "res://tests/ucbv_001_c5h1_companion_deadlock_smoke.gd",
+      "path": "game/tests/ucbv_001_c5h1_companion_deadlock_smoke.gd",
+      "sha256": "de6d4e395ac8a34036750eba2c5ead36be906771bf3268ad9720eb80b596bf62",
+      "headless_exit": 0,
+      "headed_exit": 0,
+      "headless_marker": "AIDLE_UCBV001_C5H1_COMPANION_DEADLOCK_SMOKE=PASS checks=20 inputs=26",
+      "headed_marker": "AIDLE_UCBV001_C5H1_COMPANION_DEADLOCK_SMOKE=PASS checks=21 inputs=30 captures=9"
+    },
+    "regressions": [
+      {
+        "script": "res://tests/h1_consolidation_flow_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13"
+      },
+      {
+        "script": "res://tests/ucbv_001_inputmap_e2e_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_UCBV001_INPUTMAP_E2E_SMOKE=PASS checks=17 inputs=34"
+      },
+      {
+        "script": "res://tests/h1_human_ux_manual_build_smoke.gd",
+        "exit": 0,
+        "marker": "AIDLE_H1_HUMAN_UX_MANUAL_BUILD_SMOKE=PASS checks=13"
+      }
+    ],
+    "zero_error": true,
+    "zero_error_gate": "PASS",
+    "static_checks": [
+      "main.gd post_sha256 matches Blue/Red 7aad920aaca451da9ae73da5249ba9a2fcf75ab6fa37b33792b4328501a6fe24",
+      "QA did not edit main.gd or other product",
+      "Confirm gate exercised not weakened (can_confirm false before place, true after)"
+    ]
+  },
+  "self_audit": {
+    "lease_respected": true,
+    "product_writes_count": 0,
+    "product_writes_empty": true,
+    "optional_test_write_only": "game/tests/ucbv_001_c5h1_companion_deadlock_smoke.gd",
+    "out_of_lease_writes_empty": true,
+    "no_self_accept": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "no_c5_release_accept": true,
+    "no_main_gd_edit": true,
+    "durable_uuid_three_refs_match": true,
+    "authority_token": "VERIFY_ONLY",
+    "evidence_refs_is_array_of_strings": true,
+    "findings": []
+  },
+  "evidence_refs": [
+    "orchestration/logs/ucbv_001/c5h1_001/QA_companion_deadlock_evidence_001.log",
+    "orchestration/evidence/ucbv_001/c5h1_001/evidence_manifest.json",
+    "orchestration/evidence/ucbv_001/c5h1_001/smoke_summary.json",
+    "orchestration/evidence/ucbv_001/c5h1_001/png_sha256.json",
+    "orchestration/evidence/ucbv_001/c5h1_001/godot_headed_c5h1.log",
+    "orchestration/evidence/ucbv_001/c5h1_001/godot_headless_c5h1.log",
+    "orchestration/evidence/ucbv_001/c5h1_001/c1_companion_open_1280x720.png",
+    "orchestration/evidence/ucbv_001/c5h1_001/c1_companion_closed_locomotion_1280x720.png",
+    "orchestration/evidence/ucbv_001/c5h1_001/c2_preview_confirm_enabled_1280x720.png",
+    "orchestration/evidence/ucbv_001/c5h1_001/c2_confirmed_world_commit_1280x720.png",
+    "orchestration/evidence/ucbv_001/c5h1_001/c3_companion_over_preview_1280x720.png",
+    "orchestration/evidence/ucbv_001/c5h1_001/c3_after_esc_sequence_1280x720.png",
+    "orchestration/evidence/ucbv_001/c5h1_001/idle_style_record_1280x720.png",
+    "orchestration/evidence/ucbv_001/c5h1_001/companion_open_868x517.png",
+    "orchestration/evidence/ucbv_001/c5h1_001/companion_closed_868x517.png",
+    "orchestration/evidence/ucbv_001/c5h1_001/smokes/H1_FLOW.log",
+    "orchestration/evidence/ucbv_001/c5h1_001/smokes/UCBV_INPUTMAP_E2E.log",
+    "orchestration/evidence/ucbv_001/c5h1_001/smokes/H1_MANUAL_BUILD.log",
+    "game/tests/ucbv_001_c5h1_companion_deadlock_smoke.gd",
+    "orchestration/receipts/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.json",
+    "orchestration/receipts/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.json"
+  ],
+  "evidence_index": {
+    "manifest": "orchestration/evidence/ucbv_001/c5h1_001/evidence_manifest.json",
+    "headed_log": "orchestration/evidence/ucbv_001/c5h1_001/godot_headed_c5h1.log",
+    "headless_log": "orchestration/evidence/ucbv_001/c5h1_001/godot_headless_c5h1.log",
+    "png_sha256": "orchestration/evidence/ucbv_001/c5h1_001/png_sha256.json",
+    "control_used": "companion_call KEY_C",
+    "esc_order": "first_esc_closes_companion_preview_retained",
+    "art_style_id": "cozy_cyber_pixel",
+    "zero_error": true
+  },
+  "trace_ref": "orchestration/logs/ucbv_001/c5h1_001/QA_companion_deadlock_evidence_001.log",
+  "forbidden_actions_respected": [
+    "edit main.gd or other product code",
+    "self-accept or claim C5 release accept",
+    "spawn grandchildren or Purple worker",
+    "write outside exact QA lease",
+    "weaken Confirm gate",
+    "touch GLB/catalog/behavior",
+    "reuse prior C4 evidence as C5H1 proof"
+  ],
+  "queued_not_authorized_note": "Nori-7 visual redesign (Human Finding 2) remains queued; not in C5H1 QA scope. C5 Purple release still blocked until C5H1 accepted by Codex/Human."
+}

@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "UCBV-001-c4f01-h1-flow-zero-error-006-2026-07-23",
+  "step_id": "UCBV-001-c4f01-h1-flow-zero-error-006",
+  "work_order_id": "WO-UCBV-001-C4F01-H1-FLOW-ZERO-ERROR-CORRECTION-007",
+  "work_order": "orchestration/work_orders/WO-UCBV-001-C4F01-H1-FLOW-ZERO-ERROR-CORRECTION-007.md",
+  "directive_id": 92,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "review_closed": "C4-F01",
+  "review_source": "orchestration/reviews/CODEX_UCBV-001_C4_QA_GATE_011.json",
+  "milestone": "UCBV-001 C4-F01 H1 flow zero-error correction",
+  "agent_id": "aidle-worldgen-godot-runtime",
+  "agent_type": "aidle-worldgen-godot-runtime",
+  "profile_name": "aidle-worldgen-godot-runtime",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "status": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C4F01_H1_FLOW_ZERO_ERROR_CORRECTION_COMPLETE_ROUTE_CODEX_C4_RERUN_STILL_BLOCKED",
+  "need_human": false,
+  "child_task_ref": "76544dba-05bc-4960-bce8-45f316f4fae3",
+  "transcript_ref": "76544dba-05bc-4960-bce8-45f316f4fae3",
+  "writer_transcript_ref": "76544dba-05bc-4960-bce8-45f316f4fae3",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "c4_qa_child_ref": "019f8c85-1f28-7502-9632-48bece015355",
+  "next_owner": "CODEX",
+  "next_route": "WAITING_CODEX_THEN_C4_RERUN_IF_C4F01_ACCEPTED",
+  "c4_c5_spawned": false,
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "ui_character_id": "ui-app-dashboard",
+    "role": "C4F01R PATCH_DRAFT sole writer for H1 flow bool(Dictionary) SCRIPT ERROR zero-error correction; closes only C4-F01; no self-accept; no C4/C5 spawn"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Manual load of Agents.md, ARCHITECTURE_LOCK, directive 92, WO-007, C4 QA gate 011, h1_consolidation_flow_smoke.gd, agent_step_contract schema, prior C3F01 receipt format.",
+  "skills_loaded": [
+    {"skill_id": "maf-mandatory-standard", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "trustlayer-x16-crew", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "agentwork-knowledge-loop", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "project-room-collab", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "curiosity-engine", "mode": "ALWAYS", "loaded_full_eof": true},
+    {"skill_id": "architecture-lock", "mode": "ALWAYS", "source": "orchestration/ARCHITECTURE_LOCK.md", "loaded_full_eof": true}
+  ],
+  "result": {
+    "finding_closed": "C4-F01",
+    "finding_not_touched": ["C4-F02"],
+    "root_cause": {
+      "file": "game/tests/h1_consolidation_flow_smoke.gd",
+      "line_before": 196,
+      "bad_expression": "var rotated := bool(_ctrl.call(\"rotate_preview_degrees\", 15.0))",
+      "engine_error": "SCRIPT ERROR: Invalid call. Nonexistent 'bool' constructor.",
+      "api_return_type": "Dictionary {ok, rotated, rotation_deg, ...} from block_assembly_controller.rotate_preview_degrees",
+      "why": "Godot 4.3 GDScript has no bool(Dictionary) constructor; rotate_preview_degrees returns a detail Dictionary, not a bool"
+    },
+    "patch": {
+      "approach": "Godot 4.3-compatible Variant typed conversion matching h1_human_ux_manual_build_smoke.gd pattern",
+      "conversion": "var rotated_v: Variant = _ctrl.call(...); if Dictionary then flag = rd.get(\"rotated\", rd.get(\"ok\", false)); rotated = flag == true; else rotated_v == true",
+      "assertions_preserved": [
+        "build_r_rotate requires rotated true",
+        "build_r_rot_changed requires rotation_deg delta",
+        "build_r_collision_still_off requires collision false",
+        "build_r_still_preview_stage requires wireframe|hologram|materializing",
+        "build_r_preview_only PASS marker path unchanged"
+      ],
+      "assertions_weakened": false,
+      "assertions_skipped": false,
+      "other_bool_patterns_in_file": "left unchanged — remaining bool(...) apply to bool/Dictionary.get results that do not emit SCRIPT ERROR on this smoke path; only bool(Dictionary-from-call) was C4-F01"
+    },
+    "outcomes": {
+      "h1_flow_zero_error": {
+        "ok": true,
+        "test": "res://tests/h1_consolidation_flow_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13",
+        "build_r_preview_only": "OK",
+        "ERROR_lines": 0,
+        "USER_ERROR_lines": 0,
+        "SCRIPT_ERROR_lines": 0,
+        "bool_constructor_error": 0,
+        "invalid_call": 0,
+        "parse_error": 0,
+        "missing_resource": 0,
+        "rid_leak": 0
+      },
+      "inputmap_e2e_preserved": {
+        "ok": true,
+        "test": "res://tests/ucbv_001_inputmap_e2e_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_UCBV001_INPUTMAP_E2E_SMOKE=PASS checks=17 inputs=34",
+        "c3f01_signatures": 0
+      },
+      "navigation_warning_preserved": {
+        "ok": true,
+        "test": "res://tests/ucbv_001_navigation_warning_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_UCBV001_NAVIGATION_WARNING_SMOKE=PASS checks=16",
+        "c3f01_signatures": 0
+      },
+      "c4_f02_untouched": {
+        "note": "C4-F02 evidence hygiene note remains OPEN; not edited under this narrow correction lease."
+      }
+    }
+  },
+  "smoke_test": {
+    "ok": true,
+    "godot": "tools/Godot_v4.3-stable_win64_console.exe 4.3.stable.official.77dcf97d8",
+    "mode": "headless -s",
+    "log": "orchestration/logs/ucbv_001/correction_006/C4F01_h1_flow_zero_error_006.log",
+    "log_sha256": "4152cb7eb4011ce105a8b217f6eb053444f5488ca7dfdf0ac76b74cdfb4737a4",
+    "log_bytes": 12072,
+    "results": [
+      {
+        "test": "res://tests/h1_consolidation_flow_smoke.gd",
+        "class": "H1_consolidation_flow",
+        "marker": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13",
+        "checks": 13,
+        "exit_code": 0,
+        "script_error": 0,
+        "error": 0,
+        "user_error": 0,
+        "bool_constructor_error": 0
+      },
+      {
+        "test": "res://tests/ucbv_001_inputmap_e2e_smoke.gd",
+        "class": "InputMap_E2E",
+        "marker": "AIDLE_UCBV001_INPUTMAP_E2E_SMOKE=PASS checks=17 inputs=34",
+        "checks": 17,
+        "inputs": 34,
+        "exit_code": 0,
+        "c3f01_signatures": 0
+      },
+      {
+        "test": "res://tests/ucbv_001_navigation_warning_smoke.gd",
+        "class": "UNIT_nav_source_voxel",
+        "marker": "AIDLE_UCBV001_NAVIGATION_WARNING_SMOKE=PASS checks=16",
+        "checks": 16,
+        "exit_code": 0,
+        "c3f01_signatures": 0
+      }
+    ]
+  },
+  "self_audit": {
+    "exclusive_lease": true,
+    "product_lease_only": true,
+    "orchestration_lease_only": true,
+    "out_of_lease_writes": [],
+    "helper_tmp_under_repo": false,
+    "os_temp_outside_repo_only": true,
+    "product_files_written": ["game/tests/h1_consolidation_flow_smoke.gd"],
+    "assertions_weakened": false,
+    "assertions_skipped": false,
+    "c4_f02_edited": false,
+    "c4_receipt_log_evidence_rewritten": false,
+    "c3f02_provenance_edited": false,
+    "self_accept": false,
+    "accepted": false,
+    "c4_rerun_spawned": false,
+    "c5_spawned": false,
+    "c4_c5_spawned": false,
+    "grandchildren": false,
+    "support_profiles": false,
+    "p2e002_touched": false,
+    "network_install_godot_change": false,
+    "push_deploy_publish": false,
+    "red_f01_hard_stop_respected": true,
+    "world_commit_sole_mutator": true,
+    "correction_002_immutable": true,
+    "correction_003_immutable": true,
+    "correction_004_immutable": true,
+    "correction_005_immutable": true
+  },
+  "product_writes": [
+    {
+      "path": "game/tests/h1_consolidation_flow_smoke.gd",
+      "bytes": 16422,
+      "sha256": "d5ceb518650e78254a16606c8f69e5ca661068fb2a95f99889c172f762550d96",
+      "role": "fix_bool_dictionary_constructor_c4f01_preserve_build_r_assertions"
+    }
+  ],
+  "product_reads_not_written": [
+    "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+    "game/tests/h1_human_ux_manual_build_smoke.gd",
+    "game/tests/ucbv_001_inputmap_e2e_smoke.gd",
+    "game/tests/ucbv_001_navigation_warning_smoke.gd",
+    "game/scripts/modules/asset/glb_intake_runtime_builder.gd",
+    "game/project.godot"
+  ],
+  "orchestration_writes": [
+    {
+      "path": "orchestration/receipts/ucbv_001/correction_006/C4F01_h1_flow_zero_error_006.json",
+      "role": "receipt"
+    },
+    {
+      "path": "orchestration/logs/ucbv_001/correction_006/C4F01_h1_flow_zero_error_006.log",
+      "bytes": 12072,
+      "sha256": "4152cb7eb4011ce105a8b217f6eb053444f5488ca7dfdf0ac76b74cdfb4737a4",
+      "role": "log"
+    }
+  ],
+  "evidence_refs": [
+    "orchestration/logs/ucbv_001/correction_006/C4F01_h1_flow_zero_error_006.log",
+    "orchestration/reviews/CODEX_UCBV-001_C4_QA_GATE_011.json",
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-UCBV-001-C4F01-H1-FLOW-ZERO-ERROR-CORRECTION-007.md"
+  ],
+  "forbidden_actions_respected": [
+    "no weaken or skip H1 flow assertions",
+    "no edit outside exact lease",
+    "no rewrite C4 receipt/log/evidence or C3-F02 provenance",
+    "no dispatch C4 C5 P2E-002",
+    "no grandchildren",
+    "no support profiles",
+    "no self-accept",
+    "no network/install/Godot version change",
+    "no push/deploy/publish"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "town_grid_redo_loop_ack/1.0",
+  "directive_id": 99,
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "agent": "grok",
+  "accepted": false,
+  "self_accept": false,
+  "mode": "ITERATE_TO_MATCH_NOT_REPORT_AND_STOP",
+  "binding": "orchestration/control/GROK_TOWN_MOCKUP_REDO_LOOP_PROMPT_001.md",
+  "done_when": [
+    "100% visual match MOCKUP_SSOT_V2 (silhouette/proportions/palette/key details) via headed screenshot comparison",
+    "exact plan transform at named plot in town_grid_plan_v1.json"
+  ],
+  "strikes_rule": "3 identical failure signatures on SAME object → NEED_HUMAN; else keep iterating",
+  "assessment_at_start_of_redo": {
+    "matching_100_pct": [],
+    "needing_rework_all_21": [
+      {"plot_id": "HOME.BLD", "object_id": "cozy_house_small_A", "priority": 1},
+      {"plot_id": "HOME.P3", "object_id": "cozy_mailbox_A", "priority": 1},
+      {"plot_id": "HOME.P2", "object_id": "cozy_garden_lamp_A", "priority": 1},
+      {"plot_id": "HOME.P1", "object_id": "cozy_path_stone_A", "priority": 1},
+      {"plot_id": "HOME.CHAR", "object_id": "CCP-RH-001", "priority": 2},
+      {"plot_id": "GREENHOUSE.BLD", "object_id": "cozy_greenhouse_A", "priority": 1, "note": "preview_anchor only"},
+      {"plot_id": "GARDEN.P1", "object_id": "cozy_flower_cluster_A", "priority": 2},
+      {"plot_id": "GREENHOUSE.P1", "object_id": "cozy_farm_plot_A", "priority": 2},
+      {"plot_id": "WELL.P1", "object_id": "cozy_pond_small_A", "priority": 2},
+      {"plot_id": "WINDMILL.P1", "object_id": "cozy_fence_section_A", "priority": 2},
+      {"plot_id": "BARN.P2", "object_id": "cozy_rock_small_A", "priority": 2},
+      {"plot_id": "LOOKOUT.P1", "object_id": "cozy_tree_landmark_A", "priority": 2},
+      {"plot_id": "WORKSHOP.CHAR", "object_id": "CCP-NW-003", "priority": 3},
+      {"plot_id": "MARKET.CHAR", "object_id": "CCP-NS-002", "priority": 3},
+      {"plot_id": "GARDEN.CHAR", "object_id": "CCP-CT-004", "priority": 3},
+      {"plot_id": "GREENHOUSE.CHAR", "object_id": "SPH-RH-011", "priority": 3},
+      {"plot_id": "WELL.CHAR", "object_id": "OA-RG-021", "priority": 3},
+      {"plot_id": "WINDMILL.CHAR", "object_id": "AC-CO-015", "priority": 3},
+      {"plot_id": "BARN.CHAR", "object_id": "TD-CT-028", "priority": 3},
+      {"plot_id": "BRIDGE.CHAR", "object_id": "SV-NW-019", "priority": 3},
+      {"plot_id": "LOOKOUT.CHAR", "object_id": "SPH-NG-009", "priority": 3}
+    ],
+    "matching_count": 0,
+    "rework_count": 21
+  }
+}

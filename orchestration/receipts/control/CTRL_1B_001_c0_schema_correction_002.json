@@ -1,0 +1,454 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-001-c0-schema-correction-002-2026-07-22",
+  "step_id": "CTRL-1B-001-c0-schema-correction-002",
+  "work_order_id": "WO-CTRL-1B-001-CONTRACT-CORRECTION-002",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-001-CONTRACT-CORRECTION-002.md",
+  "directive_id": 57,
+  "directive_supersedes": 56,
+  "review_id": "CODEX_CTRL-1B-001_CONTRACT_REVIEW_001",
+  "milestone": "Control 1B contract evidence correction",
+  "agent_id": "aidle-schema",
+  "agent_type": "schema",
+  "profile_name": "aidle-schema",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+  "profile_sha256": "6e82036136eb462cf07d37304a1aec812cdf21b9ddff479bc8ffa8e3d8373777",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "exclusive lease only — CONTROL_1B_ACCEPTANCE_CONTRACT.md, input_context.schema.json, invalid_context_fixture.json, validate_control_1b_fixtures.py, C0 receipt, C0 log; no Godot product/test/scene; no rewrite of A0/S1 receipts/logs; valid fixture hash-locked",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:bf8dbea37794be2483f69e133df2d0501dd70b4d2bbf0074c60e40c24e54dbe3",
+  "input_context_hash_16": "bf8dbea37794be24",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-001-CONTRACT-CORRECTION-002 + CODEX_CTRL-1B-001_CONTRACT_REVIEW_001.json + codex_directive.json + schema.md + agent_step_contract.schema.json",
+  "status": "WAITING_CODEX",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C0_CONTROL_CONTRACT_CORRECTION_COMPLETE_NO_ACCEPT",
+  "verdict_detail": "Closed Codex F01 (final durable A0/S1 meta bound; original receipts/logs byte-preserved), F02 (executable validate_control_1b_fixtures.py: valid PASS + 12/12 invalid FAIL for intended root/subschema/semantic reasons including INV-08 multi-context R and INV-09 Esc priority), F03 (contexts cardinality exactly one of each closed context_id via schema contains + semantic rule). No Godot product patch. CTRL-1B-002 not started. accepted=false.",
+  "child_task_ref": "019f86b0-4f51-7ff1-b4c8-2b0bb3a34908",
+  "transcript_ref": "019f86b0-4f51-7ff1-b4c8-2b0bb3a34908",
+  "writer_transcript_ref": "019f86b0-4f51-7ff1-b4c8-2b0bb3a34908",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_refs": {
+    "A0": "019f869a-55bb-7210-b2e7-4396cb276a41",
+    "S1": "019f869f-21c3-7513-9d70-c91361eae08a"
+  },
+  "next_owner": "CODEX",
+  "next_route": "CODEX_REVIEW_CONTROL_1B_CONTRACT_CORRECTION",
+  "character_binding": {
+    "trustlayer": "devil-advocate",
+    "trustlayer_file": "E:/agents/characters/14-devil-advocate.md",
+    "trustlayer_sha256": "21b9193731c92a623e5b5837f364d61f24cea1a7cb2189c20cb84e77f89ba125",
+    "trustlayer_lines_loaded": 52,
+    "ui": "ui-brief-writer",
+    "ui_file": "E:/agents/ui-design/characters/02-ui-brief-writer.md",
+    "ui_sha256": "52ad2986accd81c93fb2630ed07a2f1732edb637df875d1e1884e27769262b5c",
+    "ui_lines_loaded": 49,
+    "role": "C0 schema/evidence correction (PATCH_DRAFT exclusive lease; devil-advocate non-claims; ui-brief falsifiable acceptance criteria)"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, WO, directive 57, review 001, schema, character cards, skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "lines": 46,
+      "eof_tail": "No production destructive tests, no exfil, no auto-merge, no unredacted public reports, no exceeding authority, no inventing evidence.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "lines": 53,
+      "eof_tail": "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "lines": 36,
+      "eof_tail": "Full protocol: `E:\\shared\\LOOP.md`",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "lines": 65,
+      "eof_tail": "Docs: `E:\\agents\\projects\\README.md`",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "lines": 1123,
+      "eof_tail": "Your goal is to produce a trustworthy, testable result; understand why it is trustworthy; preserve validated learning when authorized; and make the next relevant task better than the last one.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "od-design-brief",
+      "mode": "ROUTED",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/od-design-brief/SKILL.md",
+      "sha256": "ddcb70ae1ba4688ee948a3a0f8d3fb7888ad89a49d3e71c2e97661de7d81ae5b",
+      "lines": 252,
+      "eof_tail": "This transparency prevents silent assumptions from propagating into the final design.",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "od-reference-design-contract",
+      "mode": "ROUTED",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/od-reference-design-contract/SKILL.md",
+      "sha256": "8b5e62a123a180e5f1b8e0b7f97605d257f85bf0a2b0ca7f8c7475b54e007775",
+      "lines": 130,
+      "eof_tail": "first, then hand off to the appropriate artifact skill in the next step.",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/input_context.schema.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_c0_schema_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-c0-schema-correction-002.log"
+  ],
+  "product_writes": [],
+  "governance_contract_writes": [
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/input_context.schema.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py"
+  ],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_c0_schema_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-c0-schema-correction-002.log"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/input_context.schema.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_c0_schema_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-c0-schema-correction-002.log"
+  ],
+  "files_written_hashes": {
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md": "3540bfe9f4f8fe1d7ddd69df41efa1d54ed74e51024a354c072b800ad339c6ad",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/input_context.schema.json": "a88e7b15d7117d85391d1f6ec0a83c591da5e0799ac3489aa9c1af00a7c3a398",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json": "3397d359b0084b8761a65e2140465bb239134d7b3abef74d0a7b86fafb0c0050",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py": "3abf7495ad96c315e61d1ee8f4d855d585cfbe1b648a99fd113f871bad81ec3b",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json": "d707bb32c43c005948599987fffa782d9206fb6ac2e04a623820d8b58427200a"
+  },
+  "read_only_preserved": {
+    "valid_context_fixture.json": {
+      "path": "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json",
+      "sha256": "d707bb32c43c005948599987fffa782d9206fb6ac2e04a623820d8b58427200a",
+      "locked": true,
+      "modified": false
+    },
+    "A0_receipt": {
+      "path": "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_a0_a11y_001.json",
+      "sha256": "27c48a1f84af1399f7007a09273e91d3c4217f6df1bda035fd7a30856fb51a7d",
+      "byte_preserved": true
+    },
+    "S1_receipt": {
+      "path": "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_s1_schema_001.json",
+      "sha256": "4edde0d355287d7a65f0ef5abb9731e7fa926dd3c342f28de2018aba5062d44e",
+      "byte_preserved": true
+    },
+    "A0_log": {
+      "path": "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-a0-a11y-001.log",
+      "sha256": "3e9f9a597854551829a19b8ecbcd9a6a24a79bafe0971d1ea0fc3cd39126654a",
+      "byte_preserved": true
+    },
+    "S1_log": {
+      "path": "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-s1-schema-001.log",
+      "sha256": "531cf1ed4e092e1c2b70c289f95c60c03eef4527fb5bc32cf0256ef424d136fb",
+      "byte_preserved": true
+    }
+  },
+  "durable_a0_s1_meta": {
+    "A0": {
+      "child_task_ref": "019f869a-55bb-7210-b2e7-4396cb276a41",
+      "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f869a-55bb-7210-b2e7-4396cb276a41/meta.json",
+      "durable_meta_sha256": "81173ba39b46c44621946ad8bcc689cf111360db14e38f839c4a17c9d97ea52c",
+      "matches_review_001_expected": true,
+      "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "status": "completed",
+      "started_at": "2026-07-21T21:34:49.279081800Z",
+      "completed_at": "2026-07-21T21:39:50.396677800Z",
+      "duration_ms": 301118,
+      "description": "A0 control a11y audit"
+    },
+    "S1": {
+      "child_task_ref": "019f869f-21c3-7513-9d70-c91361eae08a",
+      "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f869f-21c3-7513-9d70-c91361eae08a/meta.json",
+      "durable_meta_sha256": "8b35efb84333ca374f8f0856744bc102836469172410e19fafb7b4e8c9647831",
+      "matches_review_001_expected": true,
+      "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "status": "completed",
+      "started_at": "2026-07-21T21:40:03.653673400Z",
+      "completed_at": "2026-07-21T21:48:52.468699100Z",
+      "duration_ms": 528815,
+      "description": "S1 Control 1B contract"
+    },
+    "note": "Final completed durable meta.json bindings for F01. Original A0/S1 receipts intentionally retained pre-completion meta hashes; this correction receipt is append-only provenance."
+  },
+  "findings_closed": {
+    "CTRL1B-CODEX-F01-DURABLE-META": {
+      "status": "CLOSED",
+      "evidence": "durable_a0_s1_meta final hashes match review 001; originals byte-preserved"
+    },
+    "CTRL1B-CODEX-F02-INVALID-HARNESS": {
+      "status": "CLOSED",
+      "evidence": "validate_control_1b_fixtures.py executes valid + each of 12 invalid payloads against intended targets; suite-root rejection not used as proof"
+    },
+    "CTRL1B-CODEX-F03-CONTEXT-CARDINALITY": {
+      "status": "CLOSED",
+      "evidence": "input_context.schema.json contexts allOf contains each required context_id with minItems=maxItems=5; semantic context_cardinality in harness"
+    }
+  },
+  "fixture_validator_results": {
+    "harness": "orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "harness_sha256": "3abf7495ad96c315e61d1ee8f4d855d585cfbe1b648a99fd113f871bad81ec3b",
+    "exit_code": 0,
+    "harness_result": "PASS",
+    "valid_fixture_sha256": "d707bb32c43c005948599987fffa782d9206fb6ac2e04a623820d8b58427200a",
+    "valid_fixture_hash_lock_ok": true,
+    "valid": {
+      "case_id": "VALID-01",
+      "result": "PASS",
+      "detail": "schema+semantic OK"
+    },
+    "invalid": [
+      {
+        "case_id": "INV-01-unknown_context_id",
+        "declared_reason": ["unknown_context_id", "schema_enum"],
+        "validation_target": "root",
+        "result": "FAIL",
+        "ok": true
+      },
+      {
+        "case_id": "INV-02-unknown_action_id",
+        "declared_reason": ["unknown_action_id", "schema_enum"],
+        "validation_target": "subschema",
+        "schema_pointer": "#/properties/actions/items",
+        "result": "FAIL",
+        "ok": true
+      },
+      {
+        "case_id": "INV-03-hud_more_than_four",
+        "declared_reason": ["hud_max_actions", "schema_maxItems"],
+        "validation_target": "subschema",
+        "schema_pointer": "#/properties/contexts/items",
+        "result": "FAIL",
+        "ok": true
+      },
+      {
+        "case_id": "INV-04-direct_durable_delete_allowed",
+        "declared_reason": ["safety_const_false", "schema_const"],
+        "validation_target": "subschema",
+        "schema_pointer": "#/properties/safety",
+        "result": "FAIL",
+        "ok": true
+      },
+      {
+        "case_id": "INV-05-preview_owns_collision",
+        "declared_reason": ["preview_collision_forbidden", "schema_const"],
+        "validation_target": "subschema",
+        "schema_pointer": "#/properties/safety",
+        "result": "FAIL",
+        "ok": true
+      },
+      {
+        "case_id": "INV-06-preview_owns_ownership",
+        "declared_reason": ["preview_ownership_forbidden", "schema_const"],
+        "validation_target": "subschema",
+        "schema_pointer": "#/properties/safety",
+        "result": "FAIL",
+        "ok": true
+      },
+      {
+        "case_id": "INV-07-pipeline_skips_preview",
+        "declared_reason": ["pipeline_incomplete", "missing_preview_stage"],
+        "validation_target": "subschema",
+        "schema_pointer": "#/properties/safety/properties/pipeline",
+        "result": "FAIL",
+        "ok": true
+      },
+      {
+        "case_id": "INV-08-multi_context_r_binding",
+        "declared_reason": ["conflict_rule_C1B-CF-01", "build_only_r_violation"],
+        "validation_target": "semantic",
+        "semantic_rule": "multi_context_r",
+        "result": "FAIL",
+        "ok": true,
+        "detail": "physical R dispatches rotate_camera_right and build_rotate_right without context isolation"
+      },
+      {
+        "case_id": "INV-09-esc_pause_before_cancel",
+        "declared_reason": ["esc_priority_violation"],
+        "validation_target": "semantic",
+        "semantic_rule": "esc_priority",
+        "result": "FAIL",
+        "ok": true,
+        "detail": "pause_menu is order-first; cancel must precede pause"
+      },
+      {
+        "case_id": "INV-10-unknown_top_level_field",
+        "declared_reason": ["additionalProperties", "unknown_field"],
+        "validation_target": "root",
+        "result": "FAIL",
+        "ok": true
+      },
+      {
+        "case_id": "INV-11-wrong_schema_version",
+        "declared_reason": ["schema_version_const"],
+        "validation_target": "subschema",
+        "schema_pointer": "#/properties/schema_version",
+        "result": "FAIL",
+        "ok": true
+      },
+      {
+        "case_id": "INV-12-confirmation_hold_not_configurable",
+        "declared_reason": ["a11y_confirmation_hold", "schema_const"],
+        "validation_target": "subschema",
+        "schema_pointer": "#/properties/accessibility/properties/confirmation_hold",
+        "result": "FAIL",
+        "ok": true
+      }
+    ],
+    "invalid_rejected_count": 12,
+    "invalid_expected_count": 12,
+    "suite_root_not_used_as_proof": true
+  },
+  "no_godot_product_patch": true,
+  "no_game_patch": true,
+  "no_test_patch": true,
+  "no_scene_patch": true,
+  "no_character_foundry": true,
+  "no_ctrl_1b_002": true,
+  "no_network_install_push_deploy": true,
+  "no_resume_a0_s1": true,
+  "no_grandchild": true,
+  "result": {
+    "status": "WAITING_CODEX",
+    "verdict": "C0_CONTROL_CONTRACT_CORRECTION_COMPLETE_NO_ACCEPT",
+    "F01_closed": true,
+    "F02_closed": true,
+    "F03_closed": true,
+    "valid_fixture_pass": true,
+    "invalid_rejected": "12/12",
+    "product_implementation_started": false,
+    "ctrl_1b_002_started": false,
+    "self_accept": false,
+    "accepted": false,
+    "summary": "Directive 57 C0 closed F01 durable meta binding, F02 executable per-payload invalid harness, F03 exact context_id cardinality. Original A0/S1 evidence preserved. WAITING_CODEX."
+  },
+  "smoke_test": {
+    "executed": true,
+    "method": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "valid_fixture_pass": true,
+    "valid_fixture_errors": 0,
+    "invalid_cases_executed": 12,
+    "invalid_cases_rejected": 12,
+    "inv08_multi_context_r_fail": true,
+    "inv09_esc_priority_fail": true,
+    "suite_root_rejection_not_used_as_proof": true,
+    "valid_hash_lock_ok": true,
+    "godot_runtime_executed": false,
+    "reason_no_godot": "PATCH_DRAFT governance contracts only — no product smoke authorized",
+    "exit_code": 0,
+    "pass": true
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "patch_draft_exclusive_lease_only": true,
+    "no_godot_product_patch": true,
+    "no_game_directory_writes": true,
+    "no_character_foundry": true,
+    "no_ctrl_1b_002_implementation": true,
+    "no_rewrite_a0_s1_receipts_or_logs": true,
+    "valid_fixture_unmodified": true,
+    "exclusive_lease_only": true,
+    "files_written_count": 6,
+    "writer_lease_count": 6,
+    "product_writes_count": 0,
+    "governance_contract_writes_count": 4,
+    "evidence_writes_count": 2,
+    "undeclared_temps": false,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "child_task_ref_is_real_fresh_uuid": true,
+    "child_task_ref_not_a0_or_s1": true,
+    "bootstrap_manual": true,
+    "no_network_install_push_deploy": true,
+    "no_resume_followup_child": true
+  },
+  "maf_validation": {
+    "schema_path": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "schema_sha256": "7956f32a7ffe9173c226e60857cfb9dc3d9d5de4810369fe2ae7f571abd4d2e7",
+    "method": "jsonschema Draft202012Validator",
+    "A0_receipt": {
+      "path": "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_a0_a11y_001.json",
+      "jsonschema_errors": 0,
+      "authority_token_ok": true
+    },
+    "S1_receipt": {
+      "path": "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_s1_schema_001.json",
+      "jsonschema_errors": 0,
+      "authority_token_ok": true
+    },
+    "C0_receipt": {
+      "path": "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_c0_schema_correction_002.json",
+      "jsonschema_errors": 0,
+      "required_fields_present": [
+        "agent_step_id",
+        "agent_type",
+        "authority_token",
+        "result",
+        "smoke_test",
+        "self_audit",
+        "next_route"
+      ],
+      "authority_token_enum_ok": true,
+      "jsonschema_revalidated": true
+    }
+  },
+  "evidence_refs": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_c0_schema_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-001-c0-schema-correction-002.log",
+    "E:/AIdle_openworld/Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/input_context.schema.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/valid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/invalid_context_fixture.json",
+    "E:/AIdle_openworld/orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_a0_a11y_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_001_s1_schema_001.json",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_CTRL-1B-001_CONTRACT_REVIEW_001.json",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f869a-55bb-7210-b2e7-4396cb276a41/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f869f-21c3-7513-9d70-c91361eae08a/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f86b0-4f51-7ff1-b4c8-2b0bb3a34908/meta.json"
+  ],
+  "child_meta": {
+    "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f86b0-4f51-7ff1-b4c8-2b0bb3a34908/meta.json",
+    "description": "C0 Control contract correction",
+    "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "child_session_id": "019f86b0-4f51-7ff1-b4c8-2b0bb3a34908",
+    "status_at_write": "running",
+    "started_at": "2026-07-21T21:58:49.427885700Z",
+    "note": "Final completed meta sha256 available only after child completion; do not use pre-completion hash as durable final."
+  }
+}

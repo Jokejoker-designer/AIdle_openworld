@@ -2,6 +2,11 @@
 
 Status: ACTIVE · Owner: Human Product Lead · Date: 2026-07-20
 
+> Vision anchor: read `orchestration/control/AIDLE_GAME_VISION_LOCK_001.md`
+> before planning or editing. This Architecture Lock remains the binding
+> technical/authority lock; the vision lock is the standing product north star
+> every agent follows until the game is complete.
+
 ## Runtime spine
 
 - Client/visual runtime: Godot 4.x, version pinned before the first code wave.

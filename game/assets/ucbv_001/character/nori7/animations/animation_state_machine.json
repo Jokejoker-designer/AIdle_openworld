@@ -1,0 +1,437 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_nori7_anim_state_machine_v1",
+  "animation_set_id": "anim_robot_gardener_v1",
+  "skeleton_id": "skel_small_biped_robot_v1",
+  "author_wave": "U4_CHARACTER_MESH_RIG",
+  "authority_token": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "character_id": "CCP-RH-001",
+  "godot_target": "AnimationTree (optional) or AnimationPlayer + scripted transitions in U5",
+  "default_state": "idle",
+  "states": [
+	{
+	  "id": "idle",
+	  "clip_id": "idle",
+	  "loop": true
+	},
+	{
+	  "id": "walk",
+	  "clip_id": "walk",
+	  "loop": true
+	},
+	{
+	  "id": "turn_left",
+	  "clip_id": "turn_left",
+	  "loop": false,
+	  "on_finished": "idle"
+	},
+	{
+	  "id": "turn_right",
+	  "clip_id": "turn_right",
+	  "loop": false,
+	  "on_finished": "idle"
+	},
+	{
+	  "id": "build_place",
+	  "clip_id": "build_place",
+	  "loop": false,
+	  "on_finished": "build_place_hold"
+	},
+	{
+	  "id": "build_place_hold",
+	  "clip_id": "build_place_hold",
+	  "loop": true
+	},
+	{
+	  "id": "confirm",
+	  "clip_id": "confirm",
+	  "loop": false,
+	  "on_finished": "idle"
+	},
+	{
+	  "id": "cancel",
+	  "clip_id": "cancel",
+	  "loop": false,
+	  "on_finished": "idle"
+	},
+	{
+	  "id": "water",
+	  "clip_id": "water",
+	  "loop": false,
+	  "on_finished": "idle"
+	},
+	{
+	  "id": "plant_seed",
+	  "clip_id": "plant_seed",
+	  "loop": false,
+	  "on_finished": "idle"
+	},
+	{
+	  "id": "harvest",
+	  "clip_id": "harvest",
+	  "loop": false,
+	  "on_finished": "idle"
+	},
+	{
+	  "id": "charge",
+	  "clip_id": "charge",
+	  "loop": true,
+	  "on_finished": "idle"
+	},
+	{
+	  "id": "low_energy",
+	  "clip_id": "low_energy",
+	  "loop": true,
+	  "on_finished": "low_energy"
+	},
+	{
+	  "id": "scan",
+	  "clip_id": "scan",
+	  "loop": false,
+	  "on_finished": "idle"
+	},
+	{
+	  "id": "happy",
+	  "clip_id": "happy",
+	  "loop": false,
+	  "on_finished": "idle"
+	}
+  ],
+  "transitions": [
+	{
+	  "from": "idle",
+	  "to": "walk",
+	  "trigger": "move_start",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "walk",
+	  "to": "idle",
+	  "trigger": "move_stop",
+	  "blend_s": 0.15
+	},
+	{
+	  "from": "idle",
+	  "to": "turn_left",
+	  "trigger": "orient_left",
+	  "blend_s": 0.08
+	},
+	{
+	  "from": "idle",
+	  "to": "turn_right",
+	  "trigger": "orient_right",
+	  "blend_s": 0.08
+	},
+	{
+	  "from": "walk",
+	  "to": "turn_left",
+	  "trigger": "orient_left",
+	  "blend_s": 0.08
+	},
+	{
+	  "from": "walk",
+	  "to": "turn_right",
+	  "trigger": "orient_right",
+	  "blend_s": 0.08
+	},
+	{
+	  "from": "idle",
+	  "to": "build_place",
+	  "trigger": "preview_place",
+	  "blend_s": 0.1
+	},
+	{
+	  "from": "walk",
+	  "to": "build_place",
+	  "trigger": "preview_place",
+	  "blend_s": 0.1
+	},
+	{
+	  "from": "build_place",
+	  "to": "build_place_hold",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.05
+	},
+	{
+	  "from": "build_place_hold",
+	  "to": "confirm",
+	  "trigger": "confirm",
+	  "blend_s": 0.08
+	},
+	{
+	  "from": "build_place",
+	  "to": "confirm",
+	  "trigger": "confirm",
+	  "blend_s": 0.08
+	},
+	{
+	  "from": "build_place_hold",
+	  "to": "cancel",
+	  "trigger": "cancel",
+	  "blend_s": 0.06
+	},
+	{
+	  "from": "build_place",
+	  "to": "cancel",
+	  "trigger": "cancel",
+	  "blend_s": 0.06
+	},
+	{
+	  "from": "confirm",
+	  "to": "cancel",
+	  "trigger": "cancel_before_peak",
+	  "blend_s": 0.06,
+	  "condition": "t_norm < 0.35"
+	},
+	{
+	  "from": "confirm",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "cancel",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "*",
+	  "to": "cancel",
+	  "trigger": "hard_cancel",
+	  "blend_s": 0.05,
+	  "priority": 100
+	},
+	{
+	  "from": "idle",
+	  "to": "water",
+	  "trigger": "water",
+	  "blend_s": 0.1,
+	  "note": "presentation-only gardener action"
+	},
+	{
+	  "from": "water",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "water",
+	  "to": "cancel",
+	  "trigger": "hard_cancel",
+	  "blend_s": 0.05,
+	  "priority": 100
+	},
+	{
+	  "from": "idle",
+	  "to": "plant_seed",
+	  "trigger": "plant_seed",
+	  "blend_s": 0.1,
+	  "note": "presentation-only gardener action"
+	},
+	{
+	  "from": "plant_seed",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "plant_seed",
+	  "to": "cancel",
+	  "trigger": "hard_cancel",
+	  "blend_s": 0.05,
+	  "priority": 100
+	},
+	{
+	  "from": "idle",
+	  "to": "harvest",
+	  "trigger": "harvest",
+	  "blend_s": 0.1,
+	  "note": "presentation-only gardener action"
+	},
+	{
+	  "from": "harvest",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "harvest",
+	  "to": "cancel",
+	  "trigger": "hard_cancel",
+	  "blend_s": 0.05,
+	  "priority": 100
+	},
+	{
+	  "from": "idle",
+	  "to": "charge",
+	  "trigger": "charge",
+	  "blend_s": 0.1,
+	  "note": "presentation-only gardener action"
+	},
+	{
+	  "from": "charge",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "charge",
+	  "to": "cancel",
+	  "trigger": "hard_cancel",
+	  "blend_s": 0.05,
+	  "priority": 100
+	},
+	{
+	  "from": "idle",
+	  "to": "low_energy",
+	  "trigger": "low_energy",
+	  "blend_s": 0.1,
+	  "note": "presentation-only gardener action"
+	},
+	{
+	  "from": "low_energy",
+	  "to": "cancel",
+	  "trigger": "hard_cancel",
+	  "blend_s": 0.05,
+	  "priority": 100
+	},
+	{
+	  "from": "idle",
+	  "to": "water",
+	  "trigger": "water",
+	  "blend_s": 0.1
+	},
+	{
+	  "from": "water",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "idle",
+	  "to": "plant_seed",
+	  "trigger": "plant_seed",
+	  "blend_s": 0.1
+	},
+	{
+	  "from": "plant_seed",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "idle",
+	  "to": "harvest",
+	  "trigger": "harvest",
+	  "blend_s": 0.1
+	},
+	{
+	  "from": "harvest",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "idle",
+	  "to": "charge",
+	  "trigger": "charge",
+	  "blend_s": 0.1
+	},
+	{
+	  "from": "charge",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "idle",
+	  "to": "low_energy",
+	  "trigger": "low_energy",
+	  "blend_s": 0.1
+	},
+	{
+	  "from": "idle",
+	  "to": "water",
+	  "trigger": "water",
+	  "blend_s": 0.1
+	},
+	{
+	  "from": "water",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "idle",
+	  "to": "plant_seed",
+	  "trigger": "plant_seed",
+	  "blend_s": 0.1
+	},
+	{
+	  "from": "plant_seed",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "idle",
+	  "to": "harvest",
+	  "trigger": "harvest",
+	  "blend_s": 0.1
+	},
+	{
+	  "from": "harvest",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "idle",
+	  "to": "charge",
+	  "trigger": "charge",
+	  "blend_s": 0.1
+	},
+	{
+	  "from": "charge",
+	  "to": "idle",
+	  "trigger": "auto_on_finished",
+	  "blend_s": 0.12
+	},
+	{
+	  "from": "idle",
+	  "to": "low_energy",
+	  "trigger": "low_energy",
+	  "blend_s": 0.1
+	}
+  ],
+  "runtime_input_bindings_u5": {
+	"preview_place": "Block Assembly enters non-durable preview / place mode",
+	"confirm": "UI Confirm / action bar confirm — must still go through World Commit service for durability",
+	"cancel": "UI Cancel / escape — clears preview only",
+	"move_start": "locomotion input",
+	"move_stop": "locomotion release",
+	"orient_left": "face left / snap yaw",
+	"orient_right": "face right / snap yaw"
+  },
+  "block_interaction_alignment": {
+	"preview": "build_place → build_place_hold",
+	"valid": "build_place_hold (pose retained)",
+	"invalid": "build_place_hold + caution eyes/sprout (visual only)",
+	"selected": "build_place_hold",
+	"materializing": "confirm clip may overlap stage chrome; character not cyan-skinned",
+	"complete": "return idle after confirm; ceramic complete palette"
+  },
+  "forbidden": [
+	"animation_event_world_commit",
+	"client_authoritative_ownership",
+	"skip_cancel_clip"
+  ],
+  "provenance": {
+	"asset_id": "ucbv_001_nori7_anim_state_machine_v1",
+	"character_id": "CCP-RH-001",
+	"author_wave": "U4_CHARACTER_MESH_RIG"
+  }
+}

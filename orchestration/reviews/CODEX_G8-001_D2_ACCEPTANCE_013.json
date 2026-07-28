@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-G8-001-D2-ACCEPTANCE-013",
+  "reviewed_at": "2026-07-21T11:32:37+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "G8-001",
+  "directive_reviewed": 33,
+  "work_order_reviewed": "orchestration/work_orders/WO-G8-001-D2-VERIFICATION-012.md",
+  "wave_verdict": "D2_ACCEPTED_RELEASE_D3",
+  "g8_accepted": false,
+  "state": "CHANGES_REQUESTED",
+  "human_timing_protocol_applied": true,
+  "independent_checks": {
+    "four_real_desktop_children": "PASS",
+    "same_parent": "PASS",
+    "no_grandchildren_or_support_profiles": "PASS",
+    "authority_and_character_bindings": "PASS",
+    "always_and_routed_skills": "PASS",
+    "maf_jsonschema": "PASS_4_OF_4",
+    "input_context_hash_recomputed": "PASS_4_OF_4",
+    "one_writer_and_exact_lease": "PASS",
+    "product_writes_empty": "PASS",
+    "receipt_and_trace_before_durable_child_completion": "PASS_4_OF_4",
+    "headed_manifest_and_disk_hashes": "PASS",
+    "four_runtime_manifestation_states": "PASS",
+    "cancel_entity_absent": "PASS",
+    "companion_text_only_and_no_commit_tool": "PASS",
+    "free_bridge_manual_only": "PASS",
+    "g3_76_and_g4_22_existing_markers": "PASS_READ_ONLY",
+    "visual_inspection_1280x720_and_868x517": "PASS_FOR_D2_WITH_HUMAN_VISUAL_GATE_REMAINING"
+  },
+  "external_machine_bindings": [
+    {
+      "profile": "companion",
+      "child_task_ref": "019f82e9-7d1d-7c31-a117-82eaba247544",
+      "started_at": "2026-07-21T04:22:47.842015900Z",
+      "completed_at": "2026-07-21T04:25:59.636882400Z",
+      "tool_calls": 51,
+      "receipt_last_write_utc": "2026-07-21T04:25:19.8299210Z",
+      "receipt_sha256": "b63d0effc0d448952ad114706d032913015d3ea391b5d0bd69f29a4f141ceea2",
+      "trace_last_write_utc": "2026-07-21T04:25:39.9519959Z",
+      "trace_sha256": "fc25b8da41d3a2ed55bd9bc34090e1d29822d76fbdb54b6d82c9c05514dca23c"
+    },
+    {
+      "profile": "manifestation",
+      "child_task_ref": "019f82e9-7d1d-7c31-a117-82fc5ba2fba9",
+      "started_at": "2026-07-21T04:22:47.846379500Z",
+      "completed_at": "2026-07-21T04:26:14.879159600Z",
+      "tool_calls": 40,
+      "receipt_last_write_utc": "2026-07-21T04:25:51.1807470Z",
+      "receipt_sha256": "840532084fab5fc9703617018b372abb73e28edd3077f854d89d4c8dfd29bc9b",
+      "trace_last_write_utc": "2026-07-21T04:25:51.1817542Z",
+      "trace_sha256": "04ae5350735f5f169ea5f79f8f5bcf2a5a447d151bcf668bb0b7ca3a94efc06b"
+    },
+    {
+      "profile": "asset",
+      "child_task_ref": "019f82e9-7d1d-7c31-a117-830bc5fc1576",
+      "started_at": "2026-07-21T04:22:47.850160800Z",
+      "completed_at": "2026-07-21T04:26:35.252325200Z",
+      "tool_calls": 44,
+      "receipt_last_write_utc": "2026-07-21T04:26:13.6785791Z",
+      "receipt_sha256": "8e80d471ba7987d9acbe56964b877f6ab3c53c632188afa6ad6c865e4f12027a",
+      "trace_last_write_utc": "2026-07-21T04:26:23.8750404Z",
+      "trace_sha256": "eeb2992db3a2cbd0948f6db1f0693cb7805659d25ab5e173990de1a23291df21"
+    },
+    {
+      "profile": "persist",
+      "child_task_ref": "019f82e9-7d1d-7c31-a117-8312770efd93",
+      "started_at": "2026-07-21T04:22:47.854069Z",
+      "completed_at": "2026-07-21T04:27:17.837100400Z",
+      "tool_calls": 47,
+      "receipt_last_write_utc": "2026-07-21T04:26:52.8507020Z",
+      "receipt_sha256": "bda585b92e6d229990a69330543fa120f87f6d4a63aa7132af6c9c72d2606941",
+      "trace_last_write_utc": "2026-07-21T04:26:52.8507020Z",
+      "trace_sha256": "deaf80376c7d7794cef323c953263451548c1088a2cd04cd5772e2bcd796303e"
+    }
+  ],
+  "provenance_notes": [
+    "Durable Grok child metadata exposes total tool-call counts but not a durable per-command toolCallId ledger for child sessions.",
+    "The D2 receipts contain command summaries and exit results but no per-command tool-call IDs; Codex did not use those self-attested commands as product acceptance evidence.",
+    "Three receipts omit a standalone accepted=false field, but their outputs, parent control state, self_accept=false and G8 task state all explicitly remain non-accepted.",
+    "The persist informational writer time is not canonical. Human-approved meta.json completed_at plus filesystem LastWriteTimeUtc and SHA-256 are canonical.",
+    "D2 is accepted only because every substantive gate was independently inspected from primary repository evidence and all four workers were verification-only with zero product writes."
+  ],
+  "visual_observations_for_d3_and_human": [
+    "The functional states are distinct and readable, but the scene remains visually prototype-grade with primitive geometry.",
+    "Compact 868x517 text is dense and some helper text is small; D3 visual critic and Human Product Lead still own the alpha presentation decision.",
+    "The Character Foundry Scene 1C plan is queued and intentionally not part of this D2 acceptance."
+  ],
+  "next_route": "D3_NETWORK_PURPLE_VERIFY_ONLY",
+  "self_accept": false
+}

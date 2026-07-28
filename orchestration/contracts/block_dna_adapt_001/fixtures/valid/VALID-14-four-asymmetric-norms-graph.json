@@ -1,0 +1,206 @@
+{
+  "schema_version": "block_dna_adapt_001/1.0",
+  "request_id": "req_four_norms_001",
+  "build_graph_id": "graph_four_norms_v1",
+  "world_profile": "cozy_cyber_pixel",
+  "expected_world_revision": 0,
+  "current_world_revision": 0,
+  "idempotency_key": "idem_graph_four_norms_v1",
+  "bounds": {
+    "min": {
+      "x": -32,
+      "y": -32,
+      "z": 0
+    },
+    "max": {
+      "x": 32,
+      "y": 32,
+      "z": 16
+    }
+  },
+  "nodes": [
+    {
+      "node_id": "t",
+      "module_id": "terrain_flat_8m",
+      "transform": {
+        "x": 0.0,
+        "y": 0.0,
+        "elevation": 0.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": 0,
+        "cy": 0,
+        "cz": 0
+      },
+      "material_slot": "ground",
+      "p1e_material_id": "MAT_CozyGround"
+    },
+    {
+      "node_id": "p",
+      "module_id": "prop_crate_small",
+      "transform": {
+        "x": 0.5,
+        "y": 0.5,
+        "elevation": 0.25,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": 1,
+        "cy": 1,
+        "cz": 1
+      },
+      "material_slot": "wood",
+      "p1e_material_id": "MAT_CozyWood"
+    },
+    {
+      "node_id": "f",
+      "module_id": "arch_floor_round_4m",
+      "transform": {
+        "x": 2.0,
+        "y": 0.0,
+        "elevation": 0.25,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": 4,
+        "cy": 0,
+        "cz": 1
+      },
+      "material_slot": "structure",
+      "p1e_material_id": "MAT_CozyStoneWarm"
+    },
+    {
+      "node_id": "w",
+      "module_id": "arch_wall_window_4m",
+      "transform": {
+        "x": 4.0,
+        "y": 0.0,
+        "elevation": 0.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": 8,
+        "cy": 0,
+        "cz": 0
+      },
+      "material_slot": "structure",
+      "p1e_material_id": "MAT_CozyStoneWarm"
+    },
+    {
+      "node_id": "win",
+      "module_id": "arch_window_frame_simple",
+      "transform": {
+        "x": 4.5,
+        "y": 0.0,
+        "elevation": 1.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": 9,
+        "cy": 0,
+        "cz": 4
+      },
+      "material_slot": "glass",
+      "p1e_material_id": "MAT_CozyGlass"
+    },
+    {
+      "node_id": "d",
+      "module_id": "arch_door_round",
+      "transform": {
+        "x": 4.0,
+        "y": -1.0,
+        "elevation": 0.0,
+        "rotation_deg": 0.0,
+        "scale": 1.0
+      },
+      "occupancy_cell": {
+        "cx": 8,
+        "cy": -2,
+        "cz": 0
+      },
+      "material_slot": "door",
+      "p1e_material_id": "MAT_CozyDoor"
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "e_tp",
+      "from_node": "t",
+      "from_socket": "terrain_surface",
+      "from_polarity": "output",
+      "to_node": "p",
+      "to_socket": "prop_base",
+      "to_polarity": "input",
+      "adapter_normalization_id": "norm_terrain_surface_prop_base_v1"
+    },
+    {
+      "edge_id": "e_vf",
+      "from_node": "t",
+      "from_socket": "vertical_stack",
+      "from_polarity": "output",
+      "to_node": "f",
+      "to_socket": "building_foundation",
+      "to_polarity": "input",
+      "adapter_normalization_id": "norm_building_foundation_vertical_stack_v1"
+    },
+    {
+      "edge_id": "e_ww",
+      "from_node": "w",
+      "from_socket": "wall_edge",
+      "from_polarity": "peer",
+      "to_node": "win",
+      "to_socket": "window_opening",
+      "to_polarity": "peer",
+      "adapter_normalization_id": "norm_wall_edge_window_opening_v1"
+    },
+    {
+      "edge_id": "e_wd",
+      "from_node": "w",
+      "from_socket": "wall_edge",
+      "from_polarity": "peer",
+      "to_node": "d",
+      "to_socket": "door_opening",
+      "to_polarity": "peer",
+      "adapter_normalization_id": "norm_wall_edge_door_opening_v1"
+    }
+  ],
+  "generators": [],
+  "world_rules": [
+    {
+      "rule_id": "rule_day_night_v1"
+    }
+  ],
+  "manifestation": {
+    "stages": [
+      "wireframe",
+      "hologram",
+      "materializing",
+      "complete"
+    ],
+    "requires_confirmation": true,
+    "presentation_duration_seconds": 4
+  },
+  "validation": {
+    "collision": true,
+    "occupancy": true,
+    "sockets": true,
+    "cycle": true,
+    "snap": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  },
+  "adapter_proposal": {
+    "kind": "structured_world_prompt_proposal",
+    "confirmation_state": "pending",
+    "preview_required": true
+  },
+  "payload_fingerprint": "52af3b6a494dea2d879d899b860300c9eb31a9ab1004b74f00988239825b25e3"
+}

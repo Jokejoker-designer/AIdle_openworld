@@ -1,0 +1,98 @@
+# AIdle module pipeline v2 — expanded with AI-GDT tool stages
+# Compatible with cast_roster / p1e_cozy / Blender Bridge quarantine
+
+schema_version: "2.0.0"
+pipeline_id: aidle_module_pipeline_v2
+directive_id: 99
+accepted: false
+self_accept: false
+
+inputs:
+  - foundry_character_spec   # character_foundry_1c
+  - prop_module_request      # module_id + style_lock
+  - asset_request            # typed AssetRequest when mesh missing
+
+stages:
+  - id: S0_SPEC
+    owner: aidle-worldgen-character-foundry | human
+    write: orchestration/contracts/** | work_orders/**
+    tools: [maf_trustlayer]
+    fail_closed: true
+
+  - id: S1_TOOL_SELECT
+    owner: parent_coordinator
+    read: orchestration/control/ai_gdt/tool_catalog.json
+    output: selected_tool_ids[]
+    fail_closed: true
+
+  - id: S2_GENERATE
+    owner: offline_worker
+    tools_allowed: [triposr, meshy, hunyuan3d_2, shap_e, blender_offline, motiongpt, hy_motion_1]
+    write: "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/<JOB_ID>/**"
+    forbidden: ["game/**", "write_approved_catalog"]
+    network: HITL_REQUIRED_IF_REMOTE
+
+  - id: S3_VALIDATE
+    owner: aidle-worldgen-qa-evidence
+    tools: [validate_ai_gdt_intake.py, gltf_parse]
+    checks:
+      - glb_or_gltf_parse
+      - file_size_bounds
+      - sha256_recorded
+      - optional_skeleton_policy
+      - no_executable_payload
+    write: quarantine validation.json
+
+  - id: S4_STYLE_COZY
+    owner: blender_offline
+    action: remesh_or_palette_to_cozy_cyber_pixel
+    palette_ssot: "#fdf3e2"
+    tools: [blender_offline]
+
+  - id: S5_RED
+    owner: aidle-worldgen-red-scope
+    authority: READ_ONLY_AUDIT
+    write: orchestration/receipts/**/RED_*.json
+
+  - id: S6_PROMOTE
+    owner: aidle-worldgen-godot-runtime | blue
+    requires: named_wo_exact_lease
+    write:
+      - game/assets/ucbv_001/cast/**
+      - game/assets/p1e_cozy/modules/**
+      - game/resources/ucbv_001/cast/cast_roster.json
+      - game/resources/p1e_cozy/module_catalog.json
+    one_writer_per_file: true
+
+  - id: S7_RUNTIME_BIND
+    owner: runtime
+    components:
+      - cast_presenter.gd
+      - cast_roster_loader.gd
+      - p1e_module_kit.gd
+      - glb_intake.gd
+      - nori7_presenter.gd
+
+  - id: S8_VERIFY
+    owner: aidle-worldgen-qa-evidence
+    smokes:
+      - res://tests/mockup_cast_props_production_smoke.gd
+      - res://tests/commercial_outline_foundation_001.gd
+    authority: VERIFY_ONLY
+
+  - id: S9_HUMAN_BATCH
+    owner: human_product_lead
+    self_accept: false
+    ship: RED_F01_HARD_STOP
+
+godot_mcp:
+  stage_hooks: [S3_VALIDATE, S7_RUNTIME_BIND, S8_VERIFY]
+  allowlist_ops:
+    - run_headless_script
+    - capture_viewport
+    - inspect_scene_tree
+    - apply_material_under_lease
+  denylist_ops:
+    - world_commit
+    - network_publish
+    - dependency_install

@@ -1,0 +1,394 @@
+{
+    "schema_version":  "1.0.0",
+    "agent_step_id":  "P1E-006-lifecycle-l2-purple-004-2026-07-22",
+    "step_id":  "P1E-006-lifecycle-l2-purple-004",
+    "work_order_id":  "WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003",
+    "work_order":  "orchestration/work_orders/WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003.md",
+    "directive_id":  54,
+    "directive_supersedes":  53,
+    "review_source":  "orchestration/reviews/CODEX_P1E-006_REVIEW_003.json",
+    "findings_addressed":  [
+                               "P1E006-CODEX-F08",
+                               "P1E006-CODEX-F09",
+                               "P1E006-CODEX-F10"
+                           ],
+    "agent_id":  "aidle-worldgen-purple-acceptance",
+    "agent_type":  "aidle-worldgen-purple-acceptance",
+    "profile_name":  "aidle-worldgen-purple-acceptance",
+    "authority_token":  "VERIFY_ONLY",
+    "authority":  "VERIFY_ONLY",
+    "skill_id":  "maf-mandatory-standard",
+    "skill_version":  "1.0",
+    "output_schema_version":  "agent_step_contract/1.0",
+    "input_context_hash":  "p1e006-lifecycle-l2-f08f10-2026-07-22",
+    "status":  "WAITING_CODEX",
+    "completion_signal":  "WAITING_CODEX",
+    "accepted":  false,
+    "self_accept":  false,
+    "purple_verdict":  "VERIFIED",
+    "verdict":  "VERIFIED",
+    "verdict_detail":  "F08_F09_F10_CLOSED_INDEPENDENT_CLEAN_LEASE_DISCIPLINE",
+    "child_task_ref":  "019f867e-9d2f-7361-a737-d788abf63667",
+    "transcript_ref":  "019f867e-9d2f-7361-a737-d788abf63667",
+    "writer_transcript_ref":  "019f867e-9d2f-7361-a737-d788abf63667",
+    "spawned_by_parent_ref":  "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "prior_wave_child_task_refs":  {
+                                       "L0":  "019f8675-c7bc-75c1-8bc1-3a652f89aff2",
+                                       "L1":  "019f8679-e256-7643-bf4c-7511adbdd4a2",
+                                       "L2":  "019f867e-9d2f-7361-a737-d788abf63667",
+                                       "R0_clean":  "019f8651-8cdb-7642-98b3-4712a3568cc1",
+                                       "R1_clean":  "019f865d-4942-73e0-8966-0908429fd9f3",
+                                       "R2_clean":  "019f8661-3f8d-7d81-9d6e-b446f1920393",
+                                       "R3_clean":  "019f8665-4841-7400-9bef-af7071f41a82"
+                                   },
+    "ref_crosscheck":  {
+                           "parent":  "019f7ffd-3995-71c0-aca1-51078e24a852",
+                           "L0":  "019f8675-c7bc-75c1-8bc1-3a652f89aff2",
+                           "L1":  "019f8679-e256-7643-bf4c-7511adbdd4a2",
+                           "L2":  "019f867e-9d2f-7361-a737-d788abf63667",
+                           "all_distinct":  true,
+                           "all_under_parent":  true,
+                           "L1_durable_ref_correction":  {
+                                                             "corrected":  true,
+                                                             "previous_non_durable_placeholder":  "P1E-006-lifecycle-l1-qa-004",
+                                                             "corrected_to":  "019f8679-e256-7643-bf4c-7511adbdd4a2",
+                                                             "note":  "L1 initially wrote non-durable step-id string as child_task_ref; corrected within two-file lease to real UUID 019f8679-e256-7643-bf4c-7511adbdd4a2 (resume child 019f867d-c1d4-7dc3-9eac-5a0d8d5e5027). Report honestly; not a Purple blocker when corrected before handoff."
+                                                         },
+                           "note":  "Three real sequential children L0-L2 under unique Desktop parent; L2 is this fresh Purple (not R3)."
+                       },
+    "prior_l0_receipt":  "orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+    "prior_l1_receipt":  "orchestration/receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+    "prior_r3_receipt_not_acceptance":  "orchestration/receipts/p1e/P1E_006_clean_r3_purple_003.json",
+    "next_owner":  "CODEX",
+    "next_route":  "WAITING_CODEX",
+    "handoff_ref":  "CODEX",
+    "trace_ref":  "orchestration/logs/p1e-006-lifecycle-l2-purple-004.log",
+    "profile_source":  "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+    "character_binding":  {
+                              "trustlayer":  "purple-team-release-gate",
+                              "ui":  "ui-visual-critic",
+                              "role":  "L2 fresh Purple independent acceptance recommendation VERIFY_ONLY â€” never ACCEPTED"
+                          },
+    "writer_lease":  [
+                         "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l2_purple_004.json",
+                         "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l2-purple-004.log"
+                     ],
+    "product_writes":  [
+
+                       ],
+    "product_diff_zero":  true,
+    "evidence_writes":  [
+                            "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l2_purple_004.json",
+                            "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l2-purple-004.log"
+                        ],
+    "files_written":  [
+                          "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l2_purple_004.json",
+                          "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l2-purple-004.log"
+                      ],
+    "original_evidence_preserved":  true,
+    "r3_out_of_lease_artifacts_preserved":  true,
+    "r3_out_of_lease_not_acceptance_evidence":  true,
+    "error_filtering_used":  false,
+    "findings_closure":  {
+                             "P1E006-CODEX-F08":  {
+                                                      "status":  "CLOSED",
+                                                      "severity":  "BLOCKER",
+                                                      "summary":  "Full Directive-53 matrix error-clean after product lifecycle; L1 9/9 clean + L2 independent residual/regression reruns clean.",
+                                                      "evidence":  "L1 P1E_006_lifecycle_l1_qa_004.json regression_all_clean=true (9 suites); L2 independent re-run p1e003,g8_ux002,p1e006 variants,p1e002,clean_boot all exit=0 PASS error_line_count=0 param_m_null=0."
+                                                  },
+                             "P1E006-CODEX-F09":  {
+                                                      "status":  "CLOSED",
+                                                      "severity":  "BLOCKER",
+                                                      "summary":  "Product-owned headless-safe Starter Realm rebuild/teardown lifecycle (not test-only cleanup).",
+                                                      "evidence":  "mesh_presentation_lifecycle.gd sha256=ceedc41bfb4f182de195bb6d679534c4ffe4e1fef66a698f519bffc74c3e6241 wired into starter_realm_builder.gd (safe_free rebuild + ensure_headless_free_safe post-build) and glb_intake_runtime_builder.gd (safe_free free/replace/nav/cancel + ensure_headless_free_safe). L0 did not modify p1e003/g8_ux002 tests for dispose; residual ERROR cleared by product path.",
+                                                      "product_owned":  true,
+                                                      "test_only_cleanup":  false
+                                                  },
+                             "P1E006-CODEX-F10":  {
+                                                      "status":  "CLOSED",
+                                                      "severity":  "HIGH",
+                                                      "summary":  "R3 out-of-lease _r3_* preserved as rejected evidence; L0/L1/L2 lease discipline audited; L2 created no undeclared temps.",
+                                                      "evidence":  "r3_count=30 preserved under orchestration/logs; not used as acceptance. L0 product allowlist + two evidence files; L1 exact two evidence paths; L2 exact two evidence paths. L1 child_task_ref initially non-durable then corrected to 019f8679-e256-7643-bf4c-7511adbdd4a2 within lease. L2 child_task_ref is real UUID 019f867e-9d2f-7361-a737-d788abf63667. undeclared_l2_temps=0.",
+                                                      "r3_artifact_count":  30,
+                                                      "r3_not_acceptance":  true,
+                                                      "l2_undeclared_temps":  0
+                                                  }
+                         },
+    "result":  {
+                   "verdict":  "VERIFIED",
+                   "purple_verdict":  "VERIFIED",
+                   "summary":  "L2 Purple VERIFY_ONLY independent acceptance audit after L0 product lifecycle + L1 full matrix. Independent re-runs of formerly residual suites (p1e003 density, g8_ux002 fence) plus p1e006 variants, p1e002 intake, and clean boot: all exit=0, expected markers present, error_line_count=0 (no Parameter m is null). F08 closed via L1 9-suite matrix + L2 residual reruns. F09 closed: product mesh_presentation_lifecycle wired into builders, not test-only. F10 closed: R3 _r3_* still present (30) as rejected evidence; L2 lease exact two files; L1 durable-ref correction noted honestly. accepted=false; self_accept=false; next_owner=CODEX.",
+                   "independent_all_clean":  true,
+                   "residual_blockers":  [
+
+                                         ],
+                   "product_patches":  "none (VERIFY_ONLY)",
+                   "f08_status":  "CLOSED",
+                   "f09_status":  "CLOSED",
+                   "f10_status":  "CLOSED",
+                   "skills_loaded":  [
+                                         {
+                                             "source":  "E:\\shared\\skills\\library\\maf-mandatory-standard\\SKILL.md",
+                                             "load_evidence":  "FULL EOF hash+line count for L2 lifecycle Purple child",
+                                             "total_lines":  33,
+                                             "sha256":  "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+                                             "skill_id":  "maf-mandatory-standard",
+                                             "bytes":  1741
+                                         },
+                                         {
+                                             "source":  "E:\\shared\\skills\\library\\trustlayer-x16-crew\\SKILL.md",
+                                             "load_evidence":  "FULL EOF hash+line count for L2 lifecycle Purple child",
+                                             "total_lines":  42,
+                                             "sha256":  "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+                                             "skill_id":  "trustlayer-x16-crew",
+                                             "bytes":  1938
+                                         },
+                                         {
+                                             "source":  "E:\\shared\\skills\\library\\agentwork-knowledge-loop\\SKILL.md",
+                                             "load_evidence":  "FULL EOF hash+line count for L2 lifecycle Purple child",
+                                             "total_lines":  25,
+                                             "sha256":  "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+                                             "skill_id":  "agentwork-knowledge-loop",
+                                             "bytes":  982
+                                         },
+                                         {
+                                             "source":  "E:\\shared\\skills\\library\\project-room-collab\\SKILL.md",
+                                             "load_evidence":  "FULL EOF hash+line count for L2 lifecycle Purple child",
+                                             "total_lines":  48,
+                                             "sha256":  "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+                                             "skill_id":  "project-room-collab",
+                                             "bytes":  1681
+                                         },
+                                         {
+                                             "source":  "E:\\shared\\skills\\library\\curiosity-engine\\SKILL.md",
+                                             "load_evidence":  "FULL EOF hash+line count for L2 lifecycle Purple child",
+                                             "total_lines":  804,
+                                             "sha256":  "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+                                             "skill_id":  "curiosity-engine",
+                                             "bytes":  34306
+                                         },
+                                         {
+                                             "source":  "E:\\shared\\skills\\library\\evidence-memory-ledger\\SKILL.md",
+                                             "load_evidence":  "FULL EOF hash+line count for L2 lifecycle Purple child",
+                                             "total_lines":  218,
+                                             "sha256":  "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+                                             "skill_id":  "evidence-memory-ledger",
+                                             "bytes":  8484
+                                         },
+                                         {
+                                             "source":  "E:\\shared\\skills\\library\\adversarial-review\\SKILL.md",
+                                             "load_evidence":  "FULL EOF hash+line count for L2 lifecycle Purple child",
+                                             "total_lines":  38,
+                                             "sha256":  "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+                                             "skill_id":  "adversarial-review",
+                                             "bytes":  1766
+                                         }
+                                     ],
+                   "profile_load_evidence":  {
+                                                 "path":  "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+                                                 "load":  "FULL_EOF",
+                                                 "sha256":  "9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2",
+                                                 "bytes":  1816,
+                                                 "total_lines":  34,
+                                                 "trustlayer":  "purple-team-release-gate",
+                                                 "ui":  "ui-visual-critic",
+                                                 "authority_token":  "VERIFY_ONLY"
+                                             },
+                   "schema_load_evidence":  {
+                                                "path":  "E:/standards/maf/schemas/agent_step_contract.schema.json",
+                                                "load":  "FULL_EOF",
+                                                "sha256":  "7956f32a7ffe9173c226e60857cfb9dc3d9d5de4810369fe2ae7f571abd4d2e7",
+                                                "bytes":  875,
+                                                "total_lines":  20
+                                            },
+                   "product_lifecycle_audit":  {
+                                                   "mesh_presentation_lifecycle_present":  true,
+                                                   "mesh_presentation_lifecycle_sha256":  "ceedc41bfb4f182de195bb6d679534c4ffe4e1fef66a698f519bffc74c3e6241",
+                                                   "starter_realm_builder_wired":  true,
+                                                   "glb_intake_runtime_builder_wired":  true,
+                                                   "product_owned_not_test_only":  true,
+                                                   "l0_tests_modified_for_dispose":  false
+                                               },
+                   "bootstrap_limitation":  "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; COMPLIANCE/profile/skills/WO/review/schema loaded manually."
+               },
+    "smoke_test":  {
+                       "all_required_commands_executed":  true,
+                       "any_skipped":  false,
+                       "independent_all_exit_zero":  true,
+                       "independent_all_clean":  true,
+                       "suites_run":  5,
+                       "suites_clean":  5,
+                       "suites_unclean":  0,
+                       "full_capture_log":  "orchestration/logs/p1e-006-lifecycle-l2-purple-004.log",
+                       "full_capture_log_sha256": "e01b2c5352961160ed0bb124379a9be87aeffd2719026a4cf66137454f8055e8",
+                       "full_capture_log_bytes": 16184,
+                       "godot":  "tools/Godot_v4.3-stable_win64_console.exe",
+                       "l1_full_matrix_reference":  {
+                                                        "receipt":  "orchestration/receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+                                                        "regression_all_clean":  true,
+                                                        "suites_clean":  9,
+                                                        "note":  "F08 full-matrix close uses L1 9-suite matrix + L2 independent residual/regression suites listed below."
+                                                    },
+                       "independent_suites":  {
+                                                  "g8_ux002_fence_rail_collision":  {
+                                                                                        "pass_marker_present":  true,
+                                                                                        "script_error_count":  0,
+                                                                                        "parse_compile_error_count":  0,
+                                                                                        "prior_codex_residual":  "Parameter m is null at mesh_get_surface_count (REVIEW_003)",
+                                                                                        "error_line_count":  0,
+                                                                                        "command":  "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+                                                                                        "skipped":  false,
+                                                                                        "clean":  true,
+                                                                                        "param_m_null_count":  0,
+                                                                                        "exit_code":  0,
+                                                                                        "prior_residual_cleared_on_l2":  true,
+                                                                                        "pass_marker":  "AIDLE_G8_UX002_SMOKE=PASS checks=2"
+                                                                                    },
+                                                  "clean_boot":  {
+                                                                     "pass_marker_present":  true,
+                                                                     "script_error_count":  0,
+                                                                     "parse_compile_error_count":  0,
+                                                                     "error_line_count":  0,
+                                                                     "command":  "tools/Godot_v4.3-stable_win64_console.exe --headless --path game --quit-after 3",
+                                                                     "skipped":  false,
+                                                                     "clean":  true,
+                                                                     "param_m_null_count":  0,
+                                                                     "exit_code":  0,
+                                                                     "boot_proof":  [
+                                                                                        "Godot Engine v4.3.stable.official",
+                                                                                        "[GameManager] AIdle Core",
+                                                                                        "[PersistModule]",
+                                                                                        "[Main]"
+                                                                                    ],
+                                                                     "pass_marker":  "Godot Engine v4.3 + Main/GameManager/PersistModule boot"
+                                                                 },
+                                                  "p1e002_glb_intake":  {
+                                                                            "pass_marker_present":  true,
+                                                                            "script_error_count":  0,
+                                                                            "parse_compile_error_count":  0,
+                                                                            "error_line_count":  0,
+                                                                            "command":  "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_tests.gd",
+                                                                            "skipped":  false,
+                                                                            "clean":  true,
+                                                                            "param_m_null_count":  0,
+                                                                            "required_check_ok":  true,
+                                                                            "exit_code":  0,
+                                                                            "required_check":  "save_reload_no_duplicate",
+                                                                            "pass_marker":  "AIDLE_P1E002_TESTS=PASS checks=14"
+                                                                        },
+                                                  "p1e006_world_profile_variants":  {
+                                                                                        "pass_marker_present":  true,
+                                                                                        "script_error_count":  0,
+                                                                                        "parse_compile_error_count":  0,
+                                                                                        "error_line_count":  0,
+                                                                                        "command":  "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+                                                                                        "skipped":  false,
+                                                                                        "clean":  true,
+                                                                                        "param_m_null_count":  0,
+                                                                                        "exit_code":  0,
+                                                                                        "pass_marker":  "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5"
+                                                                                    },
+                                                  "p1e003_density_exposure":  {
+                                                                                  "pass_marker_present":  true,
+                                                                                  "script_error_count":  0,
+                                                                                  "parse_compile_error_count":  0,
+                                                                                  "prior_codex_residual":  "Parameter m is null at mesh_get_surface_count (REVIEW_003)",
+                                                                                  "error_line_count":  0,
+                                                                                  "command":  "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e003_density_exposure_smoke.gd",
+                                                                                  "skipped":  false,
+                                                                                  "clean":  true,
+                                                                                  "param_m_null_count":  0,
+                                                                                  "exit_code":  0,
+                                                                                  "prior_residual_cleared_on_l2":  true,
+                                                                                  "pass_marker":  "AIDLE_P1E003_SMOKE=PASS checks=9"
+                                                                              }
+                                              }
+                   },
+    "self_audit":  {
+                       "no_error_filtering":  true,
+                       "no_stderr_suppression":  true,
+                       "no_skip_as_pass":  true,
+                       "no_product_patches":  true,
+                       "no_product_writes_under_game":  true,
+                       "product_diff_zero":  true,
+                       "original_evidence_preserved":  true,
+                       "r3_artifacts_not_deleted":  true,
+                       "r3_out_of_lease_not_used_as_acceptance":  true,
+                       "only_allowlist_written":  true,
+                       "allowlist_respected":  true,
+                       "writer_lease_exact_two_paths":  true,
+                       "files_written_exact_two_paths":  true,
+                       "undeclared_temps_created":  false,
+                       "no_undeclared_temps":  true,
+                       "no_l2_bat_or_temp_logs":  true,
+                       "no_self_accept":  true,
+                       "accepted_false":  true,
+                       "self_accept_false":  true,
+                       "did_not_claim_accepted":  true,
+                       "capture_technique":  "cmd append stdout+stderr into single declared log only; no _l2_* temps, no extra .bat, no extra orchestration/logs",
+                       "scorecard_note":  "Initial clean_boot pass_marker false was analysis-slice bug; corrected by re-parse of raw log; suite itself exit=0 error_line_count=0 with boot proofs present.",
+                       "notes":  [
+                                     "Did not filter ERROR lines; residual Parameter m is null would have been counted as unclean if present.",
+                                     "Did not treat exit=0 + PASS alone as clean without error_line_count==0 check.",
+                                     "Did not write game/** or any path outside the two-file writer lease.",
+                                     "Did not delete or rewrite R3 _r3_* out-of-lease artifacts; not acceptance evidence.",
+                                     "L1 durable child_task_ref correction acknowledged (placeholder then real UUID within lease).",
+                                     "accepted=false; self_accept=false; next_owner=CODEX status=WAITING_CODEX.",
+                                     "VERIFIED is Purple recommendation only â€” never ACCEPTED."
+                                 ]
+                   },
+    "files_read":  [
+                       "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+                       "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003.md",
+                       "E:/AIdle_openworld/orchestration/reviews/CODEX_P1E-006_REVIEW_003.json",
+                       "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+                       "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+                       "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l0-asset-004.log",
+                       "E:/AIdle_openworld/orchestration/logs/p1e-006-lifecycle-l1-qa-004.log",
+                       "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_clean_r3_purple_003.json",
+                       "E:/AIdle_openworld/game/scripts/modules/asset/mesh_presentation_lifecycle.gd",
+                       "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+                       "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake_runtime_builder.gd",
+                       "E:/standards/maf/schemas/agent_step_contract.schema.json"
+                   ],
+    "commands":  [
+                     {
+                         "cmd":  "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e003_density_exposure_smoke.gd",
+                         "clean":  true,
+                         "error_line_count":  0,
+                         "exit_code":  0
+                     },
+                     {
+                         "cmd":  "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd",
+                         "clean":  true,
+                         "error_line_count":  0,
+                         "exit_code":  0
+                     },
+                     {
+                         "cmd":  "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+                         "clean":  true,
+                         "error_line_count":  0,
+                         "exit_code":  0
+                     },
+                     {
+                         "cmd":  "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_tests.gd",
+                         "clean":  true,
+                         "error_line_count":  0,
+                         "exit_code":  0
+                     },
+                     {
+                         "cmd":  "tools/Godot_v4.3-stable_win64_console.exe --headless --path game --quit-after 3",
+                         "clean":  true,
+                         "error_line_count":  0,
+                         "exit_code":  0
+                     }
+                 ],
+    "evidence_refs":  [
+                          "orchestration/receipts/p1e/P1E_006_lifecycle_l2_purple_004.json",
+                          "orchestration/logs/p1e-006-lifecycle-l2-purple-004.log",
+                          "orchestration/receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+                          "orchestration/receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+                          "orchestration/reviews/CODEX_P1E-006_REVIEW_003.json",
+                          "orchestration/work_orders/WO-P1E-006-STARTER-REALM-LIFECYCLE-CORRECTION-003.md"
+                      ]
+}

@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIdle Agent Step Contract",
+  "type": "object",
+  "required": [
+    "step_id",
+    "work_order_id",
+    "agent_id",
+    "authority",
+    "status",
+    "inputs",
+    "outputs",
+    "evidence_refs",
+    "writer_lease",
+    "self_accept",
+    "next_owner"
+  ],
+  "properties": {
+    "step_id": {
+      "type": "string"
+    },
+    "work_order_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "authority": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "READY",
+        "CLAIMED",
+        "IN_PROGRESS",
+        "REVIEW_REQUESTED",
+        "CHANGES_REQUESTED",
+        "VERIFIED",
+        "NEED_HUMAN"
+      ]
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "commands": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exit_codes": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "writer_lease": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "self_accept": {
+      "const": false
+    },
+    "open_risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "failure_signature": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "next_owner": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

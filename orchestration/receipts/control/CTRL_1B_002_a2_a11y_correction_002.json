@@ -1,0 +1,494 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-a2-a11y-correction-002-2026-07-22",
+  "step_id": "CTRL-1B-002-a2-a11y-correction-002",
+  "work_order_id": "WO-CTRL-1B-002-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-CORRECTION-001.md",
+  "directive_id": 59,
+  "directive_supersedes": 58,
+  "milestone": "Control 1B A2 a11y+safety re-audit after Q1 dual-viewport correction evidence",
+  "agent_id": "aidle-support-control-a11y",
+  "agent_type": "support-control-a11y",
+  "profile_name": "aidle-support-control-a11y",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/support-control-a11y.md",
+  "profile_sha256": "4f5e52d8a6d3e9558ef1287f31529934546856e5a609102956c8db1433f78440",
+  "authority_token": "READ_ONLY_AUDIT",
+  "authority": "READ_ONLY_AUDIT",
+  "authority_scope": "findings-only re-audit of source + Q1 evidence vs CONTROL_1B_ACCEPTANCE_CONTRACT; exclusive writes only receipt+log; NEVER product/contracts/tests/scenes/evidence_bundle",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:9c937a4ca00716211df942f03b8e45344d4a465dc8cd4618207cd031ee80f007",
+  "input_context_hash_16": "9c937a4ca0071621",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002-CORRECTION-001.md + CONTROL_1B_ACCEPTANCE_CONTRACT.md + support-control-a11y.md",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "REVIEW_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "A11Y_GATES_CLOSED_WITH_RESIDUAL",
+  "verdict_detail": "READ_ONLY_AUDIT re-audit of Control 1B correction after Q1 FULL_33_PASS. Ten correction findings H-03/07/12/17/19/20/26/28 + A3-F09/F10 CLOSED_EVIDENCE with real source + integration/headed dual-viewport evidence. Focus locomotion suppress PASS. Esc cancel-before-pause PASS. Safety proposal-only delete / preview non-authority / complete-only durable collision PASS. Dual 1280x720 + 868x517 panels (settings/inspect/proposal/homestead/HUD) show no hard clipping. Residual A2-R01 OPEN low: large cursor + action-label visual contrast modest on light terrain in H-28 dual PNGs (functional consumer closed; readability polish). Not product acceptance. next_owner=P3_PURPLE.",
+  "child_task_ref": "019f86ff-2dcd-7043-b4bf-f72a6bab12cd",
+  "transcript_ref": "019f86ff-2dcd-7043-b4bf-f72a6bab12cd",
+  "writer_transcript_ref": "019f86ff-2dcd-7043-b4bf-f72a6bab12cd",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_session_dir": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f86ff-2dcd-7043-b4bf-f72a6bab12cd",
+  "prior_q1_ref": "019f86f8-27e7-7c00-986c-f260c89f99df",
+  "prior_q1_receipt": "orchestration/receipts/control/CTRL_1B_002_q1_qa_correction_002.json",
+  "prior_c0_ref": "019f86ee-11d9-7363-ae7b-db36d1d69801",
+  "prior_c0_receipt": "orchestration/receipts/control/CTRL_1B_002_c0_runtime_correction_002.json",
+  "prior_a3_ref": "019f86dd-5eba-7db3-bb7a-f9437c720100",
+  "prior_a3_receipt": "orchestration/receipts/control/CTRL_1B_002_a3_a11y_001.json",
+  "historical_mismatches": [
+    {
+      "wave": "B1",
+      "receipt_child_task_ref": "e85e1802-24f4-41a1-9968-8371bd39317d",
+      "durable_child_task_ref": "019f86ca-008a-7bd2-ba32-3c5ec9858e51",
+      "immutable": true,
+      "note": "Do not rewrite D58 receipts; recorded as historical lineage evidence only."
+    },
+    {
+      "wave": "Q2",
+      "receipt_child_task_ref": "2b857b73-3622-49ef-8747-4974b05b6ce6",
+      "durable_child_task_ref": "019f86d6-91f6-7091-9456-0c3da2173af7",
+      "immutable": true,
+      "note": "Do not rewrite D58 receipts; recorded as historical lineage evidence only."
+    }
+  ],
+  "next_owner": "P3_PURPLE",
+  "next_route": "P3_PURPLE",
+  "character_binding": {
+    "trustlayer": "code-reader",
+    "trustlayer_file": "E:/agents/characters/03-code-reader.md",
+    "trustlayer_sha256": "db49a9c994f97aa9d5f6b5992c63b4ae0ba7296360cafcbc808751f45442edc2",
+    "ui": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "role": "A2 READ_ONLY_AUDIT control a11y + safety re-audit after Q1 correction (no product/contract patch; no self-accept)"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded profile, WO-CTRL-1B-002-CORRECTION-001, CONTROL_1B_ACCEPTANCE_CONTRACT, Q1/C0/A3 receipts, evidence pack, character cards, and skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED_PROFILE",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "game-ui-icons",
+      "mode": "ROUTED_PROFILE",
+      "source": "C:/Users/phant/.grok/bundled/skills/game-ui-icons/SKILL.md",
+      "sha256": "f55828fd6e62640ab2a9ec8d2e72fb5fd8079b529ac21cd5d7b61347654b77b9",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_a2_a11y_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-a2-a11y-correction-002.log"
+  ],
+  "product_writes": [],
+  "contract_writes": [],
+  "test_writes": [],
+  "scene_writes": [],
+  "evidence_writes": [],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_a2_a11y_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-a2-a11y-correction-002.log"
+  ],
+  "no_product_patch": true,
+  "no_contract_patch": true,
+  "no_test_patch": true,
+  "no_scene_patch": true,
+  "no_evidence_rewrite": true,
+  "no_d58_receipt_rewrite": true,
+  "child_meta": {
+    "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f86ff-2dcd-7043-b4bf-f72a6bab12cd/meta.json",
+    "description": "A2 a11y safety re-audit",
+    "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "started_at": "2026-07-21T23:24:58.191913Z",
+    "effective_model_id": "grok-4.5",
+    "status": "running"
+  },
+  "result": {
+    "verdict": "A11Y_GATES_CLOSED_WITH_RESIDUAL",
+    "audit_kind": "a11y_safety_readonly_correction_reaudit",
+    "correction_findings_closed": 10,
+    "open_finding_count": 1,
+    "open_finding_ids": ["A2-R01"],
+    "q1_h_matrix_pass": 33,
+    "q1_h_matrix_fail": 0,
+    "mission_gate_summary": {
+      "focus_no_movement_leak": "PASS",
+      "esc_cancel_before_pause": "PASS",
+      "no_raw_key_bypass_foundation": "PASS",
+      "non_color_cues_hud_le_4": "PASS",
+      "remap_full_catalog_ui": "PASS",
+      "dual_viewport_1280_868_no_hard_clip": "PASS",
+      "delete_proposal_only": "PASS",
+      "undo_compensation_only": "PASS",
+      "preview_no_collision_ownership": "PASS",
+      "complete_only_durable_collision": "PASS",
+      "confirm_hold_not_demo_only": "PASS",
+      "cursor_action_label_consumer": "PASS",
+      "h28_visual_contrast_readable": "RESIDUAL"
+    },
+    "accepted": false,
+    "self_accept": false,
+    "next_owner": "P3_PURPLE"
+  },
+  "smoke_test": {
+    "note": "A2 READ_ONLY_AUDIT did not re-execute Godot; consumed Q1 VERIFY_ONLY pack + source audit + dual PNG visual review.",
+    "q1_validator": {
+      "cmd": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "exit": 0,
+      "marker": "HARNESS_RESULT=PASS",
+      "source": "CTRL_1B_002_q1_qa_correction_002.json"
+    },
+    "q1_control_suite": {
+      "router": {"exit": 0, "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS", "checks": 12, "error_line_count": 0},
+      "a11y": {"exit": 0, "marker": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS", "checks": 11, "error_line_count": 0},
+      "integration": {"exit": 0, "marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS", "checks": 25, "error_line_count": 0},
+      "headed_dry_run": {"exit": 0, "marker": "AIDLE_CTRL_1B_HEADED_SMOKE=PASS", "mode": "dry_run", "checks": 37, "states": 26, "error_line_count": 0}
+    },
+    "q1_headed_capture": {
+      "exit": 0,
+      "marker": "AIDLE_CTRL_1B_Q1_HEADED_CAPTURE=PASS",
+      "captures": 38,
+      "viewports": ["1280x720", "868x517"],
+      "art_style_id_active": "cozy_cyber_pixel",
+      "capture_source": "godot_headed",
+      "error_line_count": 0,
+      "teardown_noise_count": 4,
+      "teardown_noise_note": "Post-PASS custom-cursor RID leak filtered non-product"
+    },
+    "a2_source_static": {
+      "method": "read-only source audit + Q1 evidence cross-check + dual-viewport PNG visual a11y review",
+      "product_files_touched": 0
+    }
+  },
+  "mission_gates": [
+    {
+      "id": "M-01",
+      "title": "Focus does not leak movement when composer focused",
+      "status": "PASS",
+      "contract_gates": ["C1B-CF-04", "C1B-CTX-03", "H-02"],
+      "evidence": [
+        "game/scripts/player/player_controller.gd:set_locomotion_suppressed + _physics_process early return",
+        "game/scripts/main/main.gd:_open_companion_composer sets locomotion_suppressed=true",
+        "Q1 dual H-02_composer_focused_1280x720.png + 868x517.png"
+      ]
+    },
+    {
+      "id": "M-02",
+      "title": "Esc priority (cancel before pause)",
+      "status": "PASS",
+      "contract_gates": ["C1B-ESC-01", "C1B-ESC-02", "C1B-ESC-03", "H-04", "H-13"],
+      "evidence": [
+        "game/autoload/control_context_router.gd:resolve_escape ordered cancel targets",
+        "game/scripts/main/main.gd:_input cancel_action/pause_menu → resolve_escape + set_input_as_handled",
+        "Q1 dual H-04_esc_composer_closed + H-13_esc_preview_cancelled"
+      ]
+    },
+    {
+      "id": "M-03",
+      "title": "Dual viewport no hard clip (1280 + 868)",
+      "status": "PASS",
+      "contract_gates": ["responsive HUD", "H-01 dual"],
+      "evidence": [
+        "Visual review H-07/09/17/22/28 inspect/homestead/proposal/settings/HUD at 868x517 in-bounds",
+        "Q1 38 headed captures dual viewport; required PNGs distinct hashes",
+        "H-03 868 density high but composer+proposal+HUD remain on-screen without hard clip"
+      ],
+      "note": "Bottom Free Bridge manual bar + CTX HUD remain dense at 868; not judged as hard clip of primary a11y surfaces."
+    },
+    {
+      "id": "M-04",
+      "title": "Safety: proposal-only delete; preview non-authority; complete-only collision",
+      "status": "PASS",
+      "contract_gates": ["C1B-SAFE-01", "C1B-SAFE-04", "C1B-SAFE-05", "H-15", "H-18", "H-20"],
+      "evidence": [
+        "router delete_proposal mutation_class=proposal_only",
+        "manifestation preview owns_collision=false (H-11 meta)",
+        "integration H-20 cancel clean + complete collision + client_world_commit=false"
+      ]
+    },
+    {
+      "id": "M-05",
+      "title": "Confirm hold not demo-only; 0 immediate / >=0.8 no early",
+      "status": "PASS",
+      "contract_gates": ["C1B-A11Y-12", "H-19", "H-29"],
+      "evidence": [
+        "main.gd:_begin_confirm_hold / _process hold path via _has_significant_confirm_target (not demo_flow-only)",
+        "integration H-19_confirmation_hold_0_and_0_8",
+        "Q1 dual H-19_confirm_preview"
+      ]
+    }
+  ],
+  "correction_findings": [
+    {
+      "id": "H-03",
+      "prior_a3": "A3-F01",
+      "status": "CLOSED_EVIDENCE",
+      "severity_prior": "medium",
+      "summary": "Ctrl+Enter (prompt_send) sends; Shift+Enter (prompt_newline) inserts newline and never sends.",
+      "source": [
+        "game/scripts/main/main.gd:199-217 prompt_send / prompt_newline InputMap branches",
+        "game/scripts/modules/companion/companion_chat_panel.gd:289-325 send_current_input + insert_newline",
+        "game/scripts/input/control_action_catalog.gd:255-256 KEY defaults"
+      ],
+      "evidence": [
+        "integration:H-03_prompt_send_vs_newline",
+        "headed_smoke:H-03",
+        "headed:H-03_prompt_newline_1280x720.png",
+        "headed:H-03_prompt_newline_868x517.png",
+        "headed:H-03_prompt_send_proposal_1280x720.png",
+        "headed:H-03_prompt_send_proposal_868x517.png"
+      ]
+    },
+    {
+      "id": "H-07",
+      "prior_a3": "A3-F02",
+      "status": "CLOSED_EVIDENCE",
+      "severity_prior": "medium",
+      "summary": "Inspect opens read-only provenance surface; durable_mutation=false.",
+      "source": [
+        "game/scripts/ui/control_1b_inspect_panel.gd:open_inspect read_only payload",
+        "game/scripts/main/main.gd:_open_inspect_panel + inspect_entity hotkey"
+      ],
+      "evidence": [
+        "integration:H-07_inspect_read_only_provenance",
+        "headed:H-07_inspect_provenance_1280x720.png",
+        "headed:H-07_inspect_provenance_868x517.png",
+        "visual:868 panel shows read_only=true durable_mutation=false"
+      ]
+    },
+    {
+      "id": "H-12",
+      "prior_a3": "A3-F03",
+      "status": "CLOSED_EVIDENCE",
+      "severity_prior": "low",
+      "summary": "Q/build_rotate_left rotates hologram left in Build only.",
+      "source": [
+        "game/scripts/main/main.gd:192-197 build_rotate_left|right InputMap dispatch",
+        "game/autoload/control_context_router.gd build_rotate_left direction handling"
+      ],
+      "evidence": [
+        "integration:H-12_q_build_rotate_left",
+        "headed:H-12_build_rotate_left_1280x720.png",
+        "headed:H-12_build_rotate_left_868x517.png",
+        "visual_claim_meta yaw left"
+      ]
+    },
+    {
+      "id": "H-17",
+      "prior_a3": "A3-F04",
+      "status": "CLOSED_EVIDENCE",
+      "severity_prior": "high",
+      "summary": "Proposal Card surfaces Companion understanding; mutation_class=proposal_only never direct mutation.",
+      "source": [
+        "game/scripts/ui/control_1b_proposal_card.gd:present_proposal",
+        "game/scripts/modules/companion/companion_chat_panel.gd:_on_proposal_ready"
+      ],
+      "evidence": [
+        "integration:H-17_proposal_card_understanding",
+        "headed:H-17_proposal_card_1280x720.png",
+        "headed:H-17_proposal_card_868x517.png",
+        "visual:868 shows Proposal Card · pending confirm + proposal_only"
+      ]
+    },
+    {
+      "id": "H-19",
+      "prior_a3": "A3-F05",
+      "status": "CLOSED_EVIDENCE",
+      "severity_prior": "high",
+      "summary": "Significant confirm uses configurable hold: 0 immediate; >=0.8 cannot confirm early; not demo-only.",
+      "source": [
+        "game/scripts/main/main.gd:90-105 _process hold",
+        "game/scripts/main/main.gd:219-236 confirm_action press/release",
+        "game/scripts/main/main.gd:853-881 _has_significant_confirm_target + _begin_confirm_hold"
+      ],
+      "evidence": [
+        "integration:H-19_confirmation_hold_0_and_0_8",
+        "headed:H-19_confirm_preview_1280x720.png",
+        "headed:H-19_confirm_preview_868x517.png"
+      ]
+    },
+    {
+      "id": "H-20",
+      "prior_a3": "A3-F06",
+      "status": "CLOSED_EVIDENCE",
+      "severity_prior": "high",
+      "summary": "Confirm is handoff-only (client_world_commit=false); cancel mid-path leaves no durable collision; complete enables local collision only.",
+      "source": [
+        "game/scripts/main/main.gd confirm result client_world_commit=false",
+        "game/scripts/modules/manifestation/manifestation_stages.gd allows_durable_collision complete-only",
+        "integration:H-20_handoff_complete_collision_cancel_clean"
+      ],
+      "evidence": [
+        "integration:H-20",
+        "headed:H-20_confirm_complete_1280x720.png",
+        "headed:H-20_confirm_complete_868x517.png",
+        "visual_claim_meta handoff_only + client_world_commit=false"
+      ]
+    },
+    {
+      "id": "H-26",
+      "prior_a3": "A3-F07",
+      "status": "CLOSED_EVIDENCE",
+      "severity_prior": "low",
+      "summary": "Mouse sensitivity change observable and bounded via camera probe.",
+      "source": [
+        "game/scripts/camera/cozy_camera.gd sensitivity from ControlAccessibilitySettings",
+        "game/scripts/ui/control_settings_panel.gd Mouse sensitivity slider"
+      ],
+      "evidence": [
+        "integration:H-26_sensitivity_observable_bounded",
+        "viewport_proxy:H-22_control_settings dual"
+      ]
+    },
+    {
+      "id": "H-28",
+      "prior_a3": "A3-F08",
+      "status": "CLOSED_EVIDENCE",
+      "severity_prior": "medium",
+      "summary": "cursor_size_scale applied by runtime consumer (proxy + DisplayServer custom cursor); large scale runtime snapshot readable_large=true.",
+      "source": [
+        "game/scripts/ui/control_1b_cursor_label.gd Input.set_custom_mouse_cursor + proxy + readable_large",
+        "game/autoload/control_accessibility_settings.gd set_cursor_size_scale"
+      ],
+      "evidence": [
+        "integration:H-28_cursor_and_A3_F10_action_label_consumer",
+        "headed:H-28_cursor_large_label_1280x720.png",
+        "headed:H-28_cursor_large_label_868x517.png",
+        "visual_claim_meta cursor_snapshot scale=1.75 proxy_px=31.5"
+      ],
+      "residual_ref": "A2-R01"
+    },
+    {
+      "id": "A3-F09",
+      "status": "CLOSED_EVIDENCE",
+      "severity_prior": "medium",
+      "summary": "Settings remap UI exposes full remappable foundation catalog (45 = ACTION_IDS minus toggle_debug).",
+      "source": [
+        "game/scripts/ui/control_settings_panel.gd:_remappable_catalog_actions",
+        "game/scripts/input/control_action_catalog.gd ACTION_IDS count 46"
+      ],
+      "evidence": [
+        "integration:A3-F09_full_remappable_catalog_ui",
+        "headed:H-22_control_settings_1280x720.png remap_catalog_count=45",
+        "headed:H-22_control_settings_868x517.png shows full foundation catalog dropdown"
+      ]
+    },
+    {
+      "id": "A3-F10",
+      "status": "CLOSED_EVIDENCE",
+      "severity_prior": "low",
+      "summary": "action_label_near_cursor has runtime consumer drawing label near cursor when enabled.",
+      "source": [
+        "game/scripts/ui/control_1b_cursor_label.gd label visible when action_label_near_cursor",
+        "control_accessibility_settings set_action_label_near_cursor"
+      ],
+      "evidence": [
+        "integration:H-28_cursor_and_A3_F10_action_label_consumer",
+        "headed dual H-28 cursor_snapshot action_label_near_cursor=true label_visible=true"
+      ],
+      "residual_ref": "A2-R01"
+    }
+  ],
+  "residual_findings": [
+    {
+      "id": "A2-R01",
+      "severity": "low",
+      "status": "OPEN",
+      "h_rows": ["H-28"],
+      "related_closed": ["H-28", "A3-F10"],
+      "contract_gates": ["C1B-A11Y-09", "C1B-A11Y-10"],
+      "summary": "Large cursor proxy and action label remain low-contrast on light mint terrain in dual headed PNGs; human visual audit cannot clearly resolve cursor/label despite runtime snapshot scale=1.75, proxy_px=31.5, readable_large=true, label_visible=true.",
+      "evidence": [
+        "orchestration/evidence/control_1b_002_correction_001/H-28_cursor_large_label_1280x720.png",
+        "orchestration/evidence/control_1b_002_correction_001/H-28_cursor_large_label_868x517.png",
+        "visual_claim_meta cursor_snapshot"
+      ],
+      "remediation_hint": "Increase outline/contrast or non-color marker for large cursor + action label against light terrain; re-capture H-28 dual for visual readability. Functional consumer remains closed — polish residual only.",
+      "does_not_reopen": ["H-03", "H-07", "H-12", "H-17", "H-19", "H-20", "H-26", "A3-F09"]
+    }
+  ],
+  "gate_matrix_delta_from_a3": {
+    "H-03": {"a3": "FAIL", "a2": "PASS"},
+    "H-07": {"a3": "FAIL", "a2": "PASS"},
+    "H-12": {"a3": "FAIL", "a2": "PASS"},
+    "H-17": {"a3": "FAIL", "a2": "PASS"},
+    "H-19": {"a3": "FAIL", "a2": "PASS"},
+    "H-20": {"a3": "FAIL", "a2": "PASS"},
+    "H-26": {"a3": "FAIL", "a2": "PASS"},
+    "H-28": {"a3": "FAIL", "a2": "PASS_WITH_RESIDUAL"},
+    "C1B-A11Y-01": {"a3": "PASS_PARTIAL", "a2": "PASS"},
+    "C1B-A11Y-09": {"a3": "FAIL_EVIDENCE", "a2": "PASS_WITH_RESIDUAL"},
+    "C1B-A11Y-10": {"a3": "PASS_PARTIAL", "a2": "PASS_WITH_RESIDUAL"},
+    "C1B-A11Y-12": {"a3": "PASS_PARTIAL", "a2": "PASS"},
+    "C1B-HK-02": {"a3": "FAIL_EVIDENCE", "a2": "PASS"}
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "contract_untouched": true,
+    "evidence_not_rewritten": true,
+    "d58_receipts_not_rewritten": true,
+    "child_task_ref_real_durable_spawn": true,
+    "historical_mismatches_recorded": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "findings_honest": true,
+    "exclusive_paths_only": true
+  },
+  "evidence_refs": [
+    "orchestration/evidence/control_1b_002_correction_001/",
+    "orchestration/evidence/control_1b_002_correction_001/h_matrix_status.json",
+    "orchestration/evidence/control_1b_002_correction_001/visual_claim_meta.json",
+    "orchestration/evidence/control_1b_002_correction_001/headed_runner_summary.json",
+    "orchestration/evidence/control_1b_002_correction_001/correction_findings.json",
+    "orchestration/evidence/control_1b_002_correction_001/headless_exits.json",
+    "orchestration/receipts/control/CTRL_1B_002_q1_qa_correction_002.json",
+    "orchestration/receipts/control/CTRL_1B_002_a3_a11y_001.json",
+    "orchestration/receipts/control/CTRL_1B_002_c0_runtime_correction_002.json",
+    "Control/CONTROL_1B_ACCEPTANCE_CONTRACT.md",
+    "game/scripts/ui/control_1b_cursor_label.gd",
+    "game/scripts/ui/control_1b_inspect_panel.gd",
+    "game/scripts/ui/control_1b_proposal_card.gd",
+    "game/scripts/ui/control_settings_panel.gd",
+    "game/scripts/main/main.gd",
+    "game/scripts/modules/companion/companion_chat_panel.gd",
+    "game/autoload/control_context_router.gd",
+    "game/tests/control_1b_integration_smoke.gd"
+  ],
+  "log_path": "orchestration/logs/ctrl-1b-002-a2-a11y-correction-002.log",
+  "log_sha256": "71f8f4f318fb38a1b4dc5b57e6f745915670a9b6adeda6f64e94fd2699470b2e",
+  "p3_handoff_notes": [
+    "Ten correction findings closed with source+Q1 dual evidence; do not self-accept.",
+    "Triage residual A2-R01 (H-28 visual contrast) as polish vs reopen; functional cursor/label consumer remains source-backed.",
+    "Q1 FULL_33_PASS matrix + headless exits are independent VERIFY_ONLY evidence under control_1b_002_correction_001.",
+    "Historical B1/Q2 child_task_ref mismatches preserved; durable IDs recorded."
+  ]
+}

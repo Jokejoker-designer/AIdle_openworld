@@ -1,0 +1,399 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "H1-CONSOLIDATE-001-c1-control-002-2026-07-22T090300Z",
+  "step_id": "H1-CONSOLIDATE-001-c1-control-002",
+  "work_order_id": "WO-H1-CONSOLIDATE-001-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-CORRECTION-001.md",
+  "work_order_sha256": "a85e84b9eb77ac572359de1622e747170ccbcf793ccc0c0b53ef692b30841d9d",
+  "directive_id": 75,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "236ed1b9decd51cd48ff0f86ee46792e97441943795483508de43c4ab2abbd8e",
+  "directive_state": "CHANGES_REQUESTED",
+  "directive_verdict": "H1_HEADED_AND_PROVENANCE_CORRECTION_REQUIRED",
+  "supersedes_directive_id": 74,
+  "permitted_task_ids": ["H1-CONSOLIDATE-001"],
+  "review": "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_MACHINE_REVIEW_001.json",
+  "review_sha256": "b20cae86f546c69df30f128bb42e019245df6743abd8af2074eb6af20683ced4",
+  "milestone": "H1 vertical-slice correction — C1 Control/provenance VERIFY_ONLY audit after C0",
+  "agent_id": "aidle-worldgen-control-input",
+  "agent_type": "aidle-worldgen-control-input",
+  "profile_name": "aidle-worldgen-control-input",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+  "profile_sha256": "c6b718fb24ea7e1b9ca2453b25cff077c023a582b652307572fbe5184450fe6e",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-control-input; trustlayer_character=blue-team-p0-remediator; ui_character=ui-a11y-auditor; profile_default_authority=PATCH_DRAFT; THIS WAVE authority REDUCED to VERIFY_ONLY (directive 75 authority_reduced=true); required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,architecture-lock + routed adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set exclusive_control_receipt_log only (two files).",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_reduced": true,
+  "authority_scope": "findings-only Control/provenance audit after C0; exclusive log+receipt only; product_writes=[]; never ACCEPTED; no grandchildren; no product/test/DNA/Scene/Character/network patches; no auxiliary logs",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:358f266a186dff0d4539c6d4e84af5bb87cb10d6ac8a8f49edf56304a49bef67",
+  "input_context_hash_16": "358f266a186dff0d",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-H1-CONSOLIDATE-001-CORRECTION-001.md + codex_directive.json + aidle-worldgen-control-input.md + CODEX_H1-CONSOLIDATE-001_MACHINE_REVIEW_001.json + C0_runtime_002.json + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C1_COMPLETE_ROUTE_C2_QA",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "CONTROL_PROVENANCE_PASS_WITH_RESIDUALS_NO_ACCEPT",
+  "child_task_ref": "019f890e-28df-71f2-b298-457c58071804",
+  "transcript_ref": "019f890e-28df-71f2-b298-457c58071804",
+  "writer_transcript_ref": "019f890e-28df-71f2-b298-457c58071804",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_c0": "019f8903-a70a-7242-b8e4-05e359cebe12",
+  "prior_c0_receipt": "orchestration/receipts/h1_consolidate_001/correction_001/C0_runtime_002.json",
+  "prior_c0_sha256": "43ae58ccfb1528153d0578ab9896d06e2eaf6bde8e444dfebb422bcc7a5bcc9d",
+  "prior_h0": "019f88d4-0d38-7162-8bbd-de4b3e86aaa9",
+  "prior_h1": "019f88d8-715a-76e3-9792-bfa7663e0bf8",
+  "prior_h2": "019f88e4-19d6-7c52-9b4f-699e62a9d2c6",
+  "prior_h3": "019f88e9-6abd-7300-958b-5f316e9fbc82",
+  "prior_h4": "019f88f6-fb14-7162-9db2-e030dc182e2d",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f890e-28df-71f2-b298-457c58071804/meta.json",
+  "started_at": "2026-07-22T09:00:34.401790900Z",
+  "completed_at_utc": "2026-07-22T09:03:15Z",
+  "next_owner": "C2_QA",
+  "next_route": "C2_QA",
+  "human_gate_open": false,
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "ui_read": "full_eof",
+    "role": "C1 VERIFY_ONLY Control/provenance audit after C0; findings only; never patch product; exclusive two-file lease"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO-CORRECTION-001, Directive 75, ARCHITECTURE_LOCK, machine review, C0 receipt, H2 rejected receipt, skills ALWAYS full EOF + adversarial-review manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 47,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Hard stops"
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 54,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "agent_step_contract.schema.json"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 37,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "E:\\shared\\LOOP.md"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 66,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "E:\\agents\\projects\\README.md"
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "full_file_size_hash_verify",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Prime Directive / trustworthy testable result"
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "bytes": 828,
+      "line_count": 27,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "also_read_project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027"
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "bytes": 1766,
+      "line_count": 51,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "orchestration/logs/h1-consolidate-c1-control-002.log",
+    "orchestration/receipts/h1_consolidate_001/correction_001/C1_control_002.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "orchestration/logs/h1-consolidate-c1-control-002.log",
+    "orchestration/receipts/h1_consolidate_001/correction_001/C1_control_002.json"
+  ],
+  "log_sha256": "2619bf45b019b772f8c846d40a651bd560d77550bd3c22c50d614b48ce713b6a",
+  "findings_audit": {
+    "H1-CODEX-F01": {
+      "status": "C0_PATCH_VERIFIED_CODE_AND_HEADLESS",
+      "blocking_for_c1": false,
+      "code_audit": {
+        "main_gd_sha256": "7d35ea79877c0fdb58fadabdd2836c81583d6586941edebde9dbbe8acac9e4c1",
+        "companion_chat_panel_gd_sha256": "9aeaa3e43b5460668a1c486858187032da26874a280d9862794ce1ebb2aeb1bf",
+        "absolute_root_get_node_in_c0_lease": 0,
+        "pattern": "SceneTree-root relative via _autoload_node / _resolve_control_router; no get_node(\"/root/...\")"
+      },
+      "smoke": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6",
+      "note": "Headed dual-resolution zero-error re-proof remains C2 evidence lease. Residual absolute get_node_or_null(\"/root/...\") still present outside C0 lease (player_controller, cozy_camera, hud, control_1b_*, block_assembly_controller, manifestation_instance, headed_demo_flow) — not patched by C0; C2 must re-prove headed ERROR=0 honestly.",
+      "c1_residual_id": "C1-R01"
+    },
+    "H1-CODEX-F02": {
+      "status": "CLOSED_BY_THIS_RECEIPT_PROVENANCE",
+      "blocking_for_c1": false,
+      "original_h2_rejected": true,
+      "original_h2_path": "orchestration/receipts/h1_consolidate_001/H2_control_ux_001.json",
+      "original_h2_immutable": true,
+      "rejection_reasons": [
+        "child_task_ref and transcript_ref were fabricated labels (h2-control-ux-wave-h1-consolidate-001) rather than durable child 019f88e4-19d6-7c52-9b4f-699e62a9d2c6",
+        "exclusive-lease self-audit false: H2 created auxiliary h2-*.log files outside its exact two-file lease"
+      ],
+      "this_receipt_provenance": {
+        "child_task_ref": "019f890e-28df-71f2-b298-457c58071804",
+        "transcript_ref": "019f890e-28df-71f2-b298-457c58071804",
+        "refs_match_durable_meta": true,
+        "exclusive_lease_only_two_files": true,
+        "auxiliary_logs_created_by_c1": false,
+        "product_writes_empty": true
+      },
+      "note": "C1 does not rewrite H2. F02 provenance duty is satisfied by this C1 receipt using real durable UUID for both refs under exact lease."
+    },
+    "H1-CODEX-F03": {
+      "status": "C0_PATCH_VERIFIED_ACTION_BAR_HEADLESS",
+      "blocking_for_c1": false,
+      "code_audit": {
+        "playable_action_bar_gd_sha256": "b504e1600ff0967b92c5a750e7dc57fa8e7c60164d2d3ed8689542d41fe8fd3c",
+        "paid_fixture_in_action_bar": false,
+        "fixture_token_in_action_bar": false,
+        "labels_present": ["Free Bridge (manual)", "API Gateway", "Private Reality"]
+      },
+      "smoke": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE + H1_CHROME PASS",
+      "residual": "game/scripts/ui/hud.gd still contains Paid API (fixture) — outside C0 exact lease; C0 honesty residual. C2 headed chrome must confirm first-session primary chrome is action-bar path without fixture wording.",
+      "c1_residual_id": "C1-R02"
+    }
+  },
+  "control_invariants_audit": {
+    "esc_single_dispatch": {
+      "code_ok": true,
+      "evidence": "main.gd _input Esc path: just_pressed gate, _esc_dispatch_guard, single resolve_escape + _handle_cancel_resolved, set_input_as_handled",
+      "smoke_ok": true,
+      "smokes": ["CTRL_ROUTER", "H1_FLOW"]
+    },
+    "qr_exploration_vs_build": {
+      "code_ok": true,
+      "evidence": "build_rotate_right/left via router is_action_allowed + camera yaw freeze; build_mode_toggle routed",
+      "smoke_ok": true,
+      "smoke": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8"
+    },
+    "c0_no_regression_control": {
+      "hashes_match_c0_product_writes": true,
+      "h1_flow_pass": true,
+      "h1_chrome_pass": true,
+      "error_free_pass": true,
+      "ctrl_router_pass": true
+    }
+  },
+  "findings_open": [
+    {
+      "id": "C1-R01",
+      "severity": "P2",
+      "axis": "absolute_get_node_residuals_outside_c0_lease",
+      "finding": "Non-leased scripts still call get_node_or_null(\"/root/...\") (player_controller, cozy_camera, hud, control_1b_cursor_label, control_1b_inspect_panel, block_assembly_controller, manifestation_instance, headed_demo_flow). C0 closed the Companion-proposal path under lease; headed zero-error across full dual-res capture is C2.",
+      "impact": "May reintroduce USER ERROR if those nodes are invoked outside tree during headed teardown/flow.",
+      "blocking_control_c1_pass": false,
+      "owner": "C2_QA"
+    },
+    {
+      "id": "C1-R02",
+      "severity": "P3",
+      "axis": "fixture_wording_hud_residual",
+      "finding": "hud.gd still returns Paid API (fixture) for edition label; playable_action_bar first-session chrome is clean (F03 under C0 lease).",
+      "impact": "If HUD edition chip is visible as primary first-session chrome in headed captures, F03 residual may remain.",
+      "blocking_control_c1_pass": false,
+      "owner": "C2_QA"
+    }
+  ],
+  "h2_rejection_ack": {
+    "path": "orchestration/receipts/h1_consolidate_001/H2_control_ux_001.json",
+    "status": "REJECTED_IMMUTABLE_HISTORICAL",
+    "do_not_rewrite": true,
+    "reasons_from_codex_review": [
+      "fabricated child_task_ref/transcript_ref labels",
+      "lease violation via auxiliary h2-*.log files"
+    ],
+    "real_h2_durable_id_unused_in_h2_receipt": "019f88e4-19d6-7c52-9b4f-699e62a9d2c6"
+  },
+  "result": {
+    "verdict": "CONTROL_PROVENANCE_PASS_WITH_RESIDUALS_NO_ACCEPT",
+    "summary": "C1 VERIFY_ONLY re-audited C0 F01/F03 patches under exact two-file lease: C0 product hashes match, absolute /root/ get_node absent from leased product, action-bar fixture chrome removed. Original H2 receipt remains rejected/immutable for fabricated refs + lease violation; this receipt binds real durable UUID for child_task_ref and transcript_ref with exclusive lease honesty. Focused smokes ERROR_FREE/H1_FLOW/H1_CHROME/P2E_QR/CTRL_ROUTER all PASS. Esc single-dispatch and Q/R isolation not regressed. Residuals C1-R01 (out-of-lease absolute lookups) and C1-R02 (hud fixture residual) deferred to C2 headed evidence. accepted=false; next_route=C2_QA.",
+    "blocker_status": {
+      "H1-CODEX-F01": "C0_PATCHED_C1_CODE_HEADLESS_VERIFIED_HEADED_DEFERRED_C2",
+      "H1-CODEX-F02": "CLOSED_BY_C1_REAL_DURABLE_PROVENANCE_H2_NOT_REWRITTEN",
+      "H1-CODEX-F03": "C0_PATCHED_ACTION_BAR_VERIFIED_HUD_RESIDUAL_C2"
+    },
+    "forbidden_scope_confirmation": {
+      "product_written": false,
+      "tests_written": false,
+      "evidence_002_written": false,
+      "h0_h4_receipts_rewritten": false,
+      "h2_rewritten": false,
+      "auxiliary_logs_created": false,
+      "dna_v1_2_authorized": false,
+      "scene_expansion_authorized": false,
+      "character_foundry_runtime_authorized": false,
+      "network_authorized": false,
+      "self_accept_authorized": false,
+      "grandchildren_spawned": false
+    }
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "headless_godot_focused_control_and_h1_gates",
+    "godot": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+    "project": "E:/AIdle_openworld/game",
+    "stdout_sink": "orchestration/logs/h1-consolidate-c1-control-002.log",
+    "checks": [
+      {
+        "id": "ERROR_FREE",
+        "pass": true,
+        "detail": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6 exit=0"
+      },
+      {
+        "id": "H1_FLOW",
+        "pass": true,
+        "detail": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS exit=0"
+      },
+      {
+        "id": "H1_CHROME",
+        "pass": true,
+        "detail": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS exit=0"
+      },
+      {
+        "id": "P2E_QR",
+        "pass": true,
+        "detail": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS exit=0"
+      },
+      {
+        "id": "CTRL_ROUTER",
+        "pass": true,
+        "detail": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS exit=0"
+      }
+    ],
+    "exit_code": 0,
+    "overall_pass": true,
+    "error_lines": 0
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "authority_token": "VERIFY_ONLY",
+    "product_writes_empty": true,
+    "lease_only": true,
+    "exclusive_lease_self_audit": true,
+    "exclusive_lease_files": [
+      "orchestration/logs/h1-consolidate-c1-control-002.log",
+      "orchestration/receipts/h1_consolidate_001/correction_001/C1_control_002.json"
+    ],
+    "auxiliary_logs_created": false,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "one_writer_per_file": true,
+    "skills_full_eof": true,
+    "schema_required_fields_present": true,
+    "child_task_ref_is_durable_uuid": true,
+    "transcript_ref_matches_child": true,
+    "parent_session_ref_bound": true,
+    "h2_not_rewritten": true,
+    "h0_h4_immutable": true,
+    "c0_product_not_modified": true,
+    "next_route_set": "C2_QA",
+    "f01_code_verified": true,
+    "f02_provenance_this_receipt": true,
+    "f03_action_bar_verified": true,
+    "esc_qr_not_regressed": true,
+    "honesty_notes": [
+      "C1 does not claim headed dual-resolution zero-error re-proof (C2)",
+      "C1 does not claim H1 package ACCEPTED or human five-minute gate open",
+      "Original H2 remains rejected historical evidence; not repaired in place",
+      "C1-R01/C1-R02 residuals honest for C2 headed chrome/error gates",
+      "log_sha256 is pre-footer smoke log hash; footer append is lease-legal same file only"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/h1-consolidate-c1-control-002.log",
+    "orchestration/receipts/h1_consolidate_001/correction_001/C1_control_002.json",
+    "orchestration/receipts/h1_consolidate_001/correction_001/C0_runtime_002.json",
+    "orchestration/receipts/h1_consolidate_001/H2_control_ux_001.json",
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-H1-CONSOLIDATE-001-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_MACHINE_REVIEW_001.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "commands": [
+    {
+      "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/h1_consolidation_error_free_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6"
+    },
+    {
+      "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/h1_consolidation_flow_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS"
+    },
+    {
+      "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/h1_consolidation_chrome_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS"
+    },
+    {
+      "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p2e001_block_assembly_qr_context_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS"
+    },
+    {
+      "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/control_1b_context_router_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS"
+    }
+  ]
+}

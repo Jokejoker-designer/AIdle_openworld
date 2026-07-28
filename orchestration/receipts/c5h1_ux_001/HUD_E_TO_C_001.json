@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "C5H1-UX-001-hud-label-2026-07-23",
+  "step_id": "C5H1-UX-001-HUD-E-TO-C",
+  "work_order_id": "WO-C5H1-UX-001-HUD-E-TO-C-LABEL",
+  "work_order": "orchestration/work_orders/WO-C5H1-UX-001-HUD-E-TO-C-LABEL.md",
+  "directive_id": 99,
+  "milestone": "C5H1 residual R-C5H1-01 HUD press E -> press C (KEY_C truth)",
+  "agent_id": "aidle-parent-coordinator",
+  "authority_token": "PATCH_DRAFT",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_HUMAN_BATCH",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "MACHINE_COMPLETE_HUD_LABEL_FIXED",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "writer_transcript_ref": "233b5ef9-2117-441f-ae7c-71ecd6021c5c",
+  "child_task_ref": null,
+  "product_writes": [
+    "game/scripts/modules/g3_ui/starter_realm_panel.gd"
+  ],
+  "evidence_refs": [
+    "game/scripts/modules/g3_ui/starter_realm_panel.gd",
+    "orchestration/work_orders/WO-C5H1-UX-001-HUD-E-TO-C-LABEL.md"
+  ],
+  "grep_proof": {
+    "press_E_to_chat_count_in_game": 0,
+    "press_C_to_chat_lines": [
+      "Companion: press C to chat",
+      "Companion: press C to chat (text-only)"
+    ]
+  },
+  "binding_truth": {
+    "companion_call": "KEY_C",
+    "interact_primary": "KEY_E",
+    "note": "Label only; no InputMap rebind this wave"
+  },
+  "residual_closed_machine": [
+    "R-C5H1-01"
+  ],
+  "residual_still_open": [
+    "R-C5H1-02",
+    "R-C5H1-03"
+  ],
+  "next_owner": "HUMAN_BATCH",
+  "recorded_at": "2026-07-23T15:01:58+07:00"
+}

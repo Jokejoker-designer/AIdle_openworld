@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "description": "WO-P1E-004 pilot mapping. Our module IDs stay canonical; DNA ids are values only.",
+  "incumbent": "aidle_openworld",
+  "dna_package": "AIdle_PC_Elemental_Physics_Foundation_v1.0",
+  "simulation_lod_profile_id": "sim_lod_pc_balanced_v1",
+  "bindings": [
+	{
+	  "aidle_module_id": "cozy_rock_small_A",
+	  "dna_module_id": "nature_rock_soft",
+	  "element_id": "element_stone",
+	  "physical_profile_id": "phys_stone_soft_v1",
+	  "simulates": false,
+	  "role": "static_pilot"
+	},
+	{
+	  "aidle_module_id": "cozy_path_stone_A",
+	  "dna_module_id": "path_stone_straight",
+	  "element_id": "element_stone",
+	  "physical_profile_id": "phys_stone_hard_v1",
+	  "simulates": false,
+	  "role": "static_pilot",
+	  "dna_gap": "DNA shipped phys_stone_soft_v1 on path_stone_straight; pilot maps hard per WO table (DNA catalog adjusted)."
+	},
+	{
+	  "aidle_module_id": "cozy_fence_section_A",
+	  "dna_module_id": "aidle_fence_wood_section_pilot",
+	  "element_id": "element_wood",
+	  "physical_profile_id": "phys_wood_soft_v1",
+	  "simulates": false,
+	  "role": "static_pilot",
+	  "dna_gap": "No fence binding in DNA package; added aidle_fence_wood_section_pilot on DNA side."
+	},
+	{
+	  "aidle_module_id": "cozy_farm_plot_A",
+	  "dna_module_id": "prop_farm_plot_2x2",
+	  "element_id": "element_soil",
+	  "physical_profile_id": "phys_soil_loam_v1",
+	  "simulates": true,
+	  "role": "dynamic_pilot",
+	  "state_fields": ["wetness", "growth"]
+	},
+	{
+	  "aidle_module_id": "cozy_pond_small_A",
+	  "dna_module_id": "water_pond_small",
+	  "element_id": "element_water",
+	  "physical_profile_id": "phys_water_v1",
+	  "simulates": true,
+	  "role": "dynamic_pilot",
+	  "state_fields": ["wetness"],
+	  "network": "wetness_source_for_soil"
+	}
+  ]
+}

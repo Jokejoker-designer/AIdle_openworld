@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_nori7_skin_weight_policy_v1",
+  "skeleton_id": "skel_small_biped_robot_v1",
+  "author_wave": "U4_CHARACTER_MESH_RIG",
+  "authority_token": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "character_id": "CCP-RH-001",
+  "recipe_id": "recipe_nori7_v1",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "binding_mode_primary": "modular_bone_attachment",
+  "binding_mode_secondary": "optional_linear_blend_skin",
+  "rationale": "Nori-7 is a modular teardrop robot with recipe attachments. Primary production_slice_v1 uses BoneAttachment3D rigid parts (no Blender skin export available offline). Optional LBS skin allowed when a future offline GLB replaces the slice.",
+  "max_influences_per_vertex": 4,
+  "normalize_weights": true,
+  "mirror_policy": "x_mirror_L_R_pairs",
+  "regions": [
+	{
+	  "region_id": "body_shell_lower",
+	  "module_id": "char_nori7_base",
+	  "material_slot": "body",
+	  "mat_id": "MAT_CozyCeramic",
+	  "bind": {
+		"mode": "rigid_or_soft",
+		"primary_bone": "spine",
+		"secondary_bones": [
+		  {"bone": "pelvis", "weight_cap": 0.35},
+		  {"bone": "chest", "weight_cap": 0.25}
+		]
+	  },
+	  "production_slice": "MeshInstance3D parented via BoneAttachment3D to spine"
+	},
+	{
+	  "region_id": "body_shell_upper_head",
+	  "module_id": "char_nori7_base",
+	  "material_slot": "body",
+	  "mat_id": "MAT_CozyCeramic",
+	  "bind": {
+		"mode": "rigid_or_soft",
+		"primary_bone": "chest",
+		"secondary_bones": [
+		  {"bone": "head", "weight_cap": 0.55},
+		  {"bone": "spine", "weight_cap": 0.2}
+		]
+	  },
+	  "production_slice": "upper Sphere/Capsule under chest; face plane under head"
+	},
+	{
+	  "region_id": "face_eyes",
+	  "module_id": "char_nori7_base",
+	  "material_slots": ["glass_eyes"],
+	  "mat_id": "MAT_CozyGlass",
+	  "bind": {
+		"mode": "rigid",
+		"primary_bone": "head"
+	  },
+	  "notes": "Eye socket #3d3226 + iris #a8dced; blink via scale track not bone collapse"
+	},
+	{
+	  "region_id": "joint_rings_leaf",
+	  "module_id": "char_nori7_base",
+	  "material_slot": "leaf_joints",
+	  "mat_id": "MAT_CozyLeaf",
+	  "bind": {
+		"mode": "blend",
+		"pairs": [
+		  {"a": "chest", "b": "arm_L"},
+		  {"a": "chest", "b": "arm_R"},
+		  {"a": "pelvis", "b": "leg_L"},
+		  {"a": "pelvis", "b": "leg_R"},
+		  {"a": "arm_R", "b": "hand_R"}
+		],
+		"falloff_m": 0.04
+	  }
+	},
+	{
+	  "region_id": "arm_L_mesh",
+	  "module_id": "char_nori7_base",
+	  "bind": {"mode": "rigid", "primary_bone": "arm_L"}
+	},
+	{
+	  "region_id": "hand_L_mesh",
+	  "module_id": "char_nori7_base",
+	  "bind": {"mode": "rigid", "primary_bone": "hand_L"}
+	},
+	{
+	  "region_id": "arm_R_mesh",
+	  "module_id": "char_nori7_base",
+	  "bind": {"mode": "rigid", "primary_bone": "arm_R"}
+	},
+	{
+	  "region_id": "hand_R_mesh",
+	  "module_id": "char_nori7_base",
+	  "bind": {"mode": "rigid", "primary_bone": "hand_R"}
+	},
+	{
+	  "region_id": "leg_L_mesh",
+	  "module_id": "char_nori7_base",
+	  "bind": {"mode": "rigid", "primary_bone": "leg_L"}
+	},
+	{
+	  "region_id": "foot_L_pad",
+	  "module_id": "char_nori7_base",
+	  "material_slot": "stone_foot_pads",
+	  "mat_id": "MAT_CozyStoneWarm",
+	  "bind": {"mode": "rigid", "primary_bone": "foot_L"}
+	},
+	{
+	  "region_id": "leg_R_mesh",
+	  "module_id": "char_nori7_base",
+	  "bind": {"mode": "rigid", "primary_bone": "leg_R"}
+	},
+	{
+	  "region_id": "foot_R_pad",
+	  "module_id": "char_nori7_base",
+	  "material_slot": "stone_foot_pads",
+	  "mat_id": "MAT_CozyStoneWarm",
+	  "bind": {"mode": "rigid", "primary_bone": "foot_R"}
+	},
+	{
+	  "region_id": "tank_shell",
+	  "module_id": "attach_water_tank_small",
+	  "bind": {
+		"mode": "socket_attachment",
+		"socket_id": "character_back",
+		"follow_bone": "chest"
+	  },
+	  "materials": ["MAT_CozyCeramic", "MAT_CozyWood", "MAT_CozyMetal"]
+	},
+	{
+	  "region_id": "nozzle_tool",
+	  "module_id": "attach_watering_nozzle_A",
+	  "bind": {
+		"mode": "socket_attachment",
+		"socket_id": "character_hand",
+		"follow_bone": "hand_R",
+		"state_driven": ["stowed", "extended"]
+	  },
+	  "materials": ["MAT_CozyMetal", "MAT_CozyWood", "MAT_CozyLeaf"]
+	},
+	{
+	  "region_id": "sprout_crown",
+	  "module_id": "attach_mechanical_sprout_A",
+	  "bind": {
+		"mode": "socket_attachment",
+		"socket_id": "character_head",
+		"follow_bone": "sprout_ctrl"
+	  },
+	  "materials": ["MAT_CozyLeaf", "MAT_CozyMetal"]
+	}
+  ],
+  "deformation_limits": {
+	"max_joint_bend_deg": 55,
+	"prevent_mesh_explode": true,
+	"no_fabric_simulation": true,
+	"no_photoreal_softbody": true
+  },
+  "lod_skin_policy": {
+	"LOD0": "full modular parts + joint rings",
+	"LOD1": "merge arm/hand meshes; keep tank + sprout + eyes",
+	"LOD2_or_billboard": "single teardrop mass on spine/chest + sprout tip only"
+  },
+  "triangle_budget_hypothesis": {
+	"status": "HYPOTHESIS_NOT_HARDWARE_MEASURED",
+	"LOD0_character_entity": 900,
+	"LOD1_character_entity": 420,
+	"LOD2_character_entity": 96,
+	"starter_part_soft_cap_from_u1": 96,
+	"starter_entity_soft_cap_from_u1": 1200
+  },
+  "forbidden": [
+	"treat_polygon_budget_as_measured_fact",
+	"game_authority_in_skin_events",
+	"dna_theme_as_paint_ssot"
+  ],
+  "provenance": {
+	"asset_id": "ucbv_001_nori7_skin_weight_policy_v1",
+	"character_id": "CCP-RH-001",
+	"recipe_id": "recipe_nori7_v1",
+	"style_lock_id": "ucbv_001_style_lock_v1",
+	"author_wave": "U4_CHARACTER_MESH_RIG"
+  }
+}

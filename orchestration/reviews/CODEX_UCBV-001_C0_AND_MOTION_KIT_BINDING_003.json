@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_UCBV-001_C0_AND_MOTION_KIT_BINDING_003",
+  "task_id": "UCBV-001",
+  "directive_reviewed": 83,
+  "reviewed_at": "2026-07-23T05:48:43+07:00",
+  "reviewed_by": "codex",
+  "verdict": "C0_BOUND_ROUTE_C1_WITH_MOTION_KIT_ADDENDUM",
+  "accepted": false,
+  "self_accept": false,
+  "c0": {
+    "child_task_ref": "019f8bf6-ac4c-7012-911d-06750ea92812",
+    "status": "COMPLETED_NOT_ACCEPTED",
+    "declared_product_hashes_verified": "14/14",
+    "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8bf6-ac4c-7012-911d-06750ea92812/meta.json",
+    "durable_started_at": "2026-07-22T22:33:46.833014200Z",
+    "durable_completed_at": "2026-07-22T22:41:23.343060600Z",
+    "receipt_meta_path_status": "INCORRECT_REJECTED_AS_CANONICAL_BINDING",
+    "receipt_worker_timestamps_status": "ARTIFACT_CLAIMS_ONLY",
+    "lease_result": "C0_DECLARED_WRITES_MATCH_EXACT_LEASE",
+    "note": "The concurrently written motion_kit files are Human-attributed Claude advisory staging input and are not attributed to C0. C0 receipt remains immutable; this review supplies the external durable binding."
+  },
+  "writer_conflict_resolution": {
+    "detected": true,
+    "paths": ["orchestration/control/motion_kit/**", "orchestration/control/CONDUCTOR_JOURNAL.md"],
+    "overlap_window": "during C0 durable execution window",
+    "attribution": "Human Product Lead explicitly states Claude produced the motion kit",
+    "grok_parent_transcript_match": "no motion_kit write tool call found",
+    "resolution": "Treat the immutable hashed files as post-C0 Human-supplied staging input; no C0 rerun. No writer may edit them during C1-C5."
+  },
+  "motion_kit_validation": {
+    "command": "python validate_motion_primitives.py",
+    "cwd": "E:/AIdle_openworld/orchestration/control/motion_kit",
+    "exit_code": 0,
+    "result": "ALL CHECKS GREEN",
+    "source_clip_coverage": "172/172",
+    "signature_unique_must_author": "35/35",
+    "hashes": {
+      "motion_primitives.json": "f18b09fdb2698038cea3433c735996eaeed01d744c74e4e536a89ad0cd892d74",
+      "motion_primitives.schema.json": "146912e5fca5c2a650a6c02255331e5b758176c106018e3cff79493b1e9ae047",
+      "validate_motion_primitives.py": "cc03642c2043c6da92d423f31913316314e2037c14449109eb156c108bc041f5",
+      "gen_motion_primitives.py": "4a4478d1fbdfefF3b108b0b8490bdf76b92167f0b546df75e189a7be58e69d35",
+      "reference/motion_primitive_adapter.gd": "da4d95de778d99f59d8cb00fe711ca5dd871a7d290940c5b3892ae36c1832f2c",
+      "reference/animation_tree_wiring.md": "ab9ecbeb61843e21ac88387f977f0b596809d0c19f3bb70a381f1da2e19c002c",
+      "README_BUILD_GUIDE.md": "2156e3d4c8339f9951207d2054b06a1ebf1ddb1923308a5c0915faddbb5328c8"
+    }
+  },
+  "binding_decision": {
+    "status": "READ_ONLY_STAGING_INPUT_FOR_C1_C2",
+    "authoritative_for": ["coverage and primitive classification", "must_author fail-closed rule", "catalog-to-primitive planning"],
+    "not_authoritative_for": ["verified Godot 4.3 API calls", "runtime integration", "real keyed animation payload", "World Commit mutation"],
+    "scope_limit": "UCBV remains a Nori-7 production slice. Do not expand C1 into authoring all 172 clips or all 14 skeleton families."
+  },
+  "next_route": "C1_CHARACTER_PRODUCTION_UNDER_DIRECTIVE_84"
+}

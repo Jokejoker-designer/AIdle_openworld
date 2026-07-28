@@ -1,0 +1,87 @@
+{
+    "schema_version":  "ucbv_meshdesc_v1",
+    "format":  "godot_meshinstance_descriptor",
+    "module_id":  "arch_door_round",
+    "module_role":  "door",
+    "asset_id":  "ucbv_001_arch_door_round_mesh_v1",
+    "engine_target":  "Godot 4.x",
+    "units":  "meters",
+    "coordinate_space":  "y_up_godot",
+    "style_lock_id":  "ucbv_001_style_lock_v1",
+    "world_profile_id":  "cozy_cyber_pixel",
+    "author_wave":  "U3_BLOCK_FAMILY_ART",
+    "primary_primitive":  "BoxMesh",
+    "overall_size_m":  {
+                           "y":  2.1,
+                           "z":  0.1,
+                           "x":  1.2
+                       },
+    "origin":  "center_bottom",
+    "bevel_face_fraction":  0.04,
+    "hard_90_outer_corners":  false,
+    "triangle_budget_soft":  40,
+    "material_slots":  [
+                           {
+                               "mat":  "MAT_CozyDoor",
+                               "name":  "structure"
+                           },
+                           {
+                               "mat":  "MAT_CozyWood",
+                               "name":  "trim"
+                           }
+                       ],
+    "parts":  [
+                  {
+                      "top_radius":  0.55,
+                      "part_id":  "leaf",
+                      "primitive":  "BoxMesh",
+                      "material_slot":  "structure",
+                      "offset":  [
+                                     0,
+                                     1.05,
+                                     0
+                                 ],
+                      "size":  [
+                                   1.2,
+                                   2.1,
+                                   0.1
+                               ]
+                  },
+                  {
+                      "offset":  [
+                                     0.45,
+                                     1,
+                                     0.08
+                                 ],
+                      "size":  [
+                                   0.08,
+                                   0.08,
+                                   0.08
+                               ],
+                      "primitive":  "SphereMesh",
+                      "part_id":  "handle",
+                      "material_slot":  "trim"
+                  }
+              ],
+    "lod":  {
+                "LOD1":  "merge secondary trim",
+                "LOD0":  "full parts list",
+                "LOD2":  "single primary mass primitive"
+            },
+    "manifestation":  {
+                          "stages":  [
+                                         "wireframe",
+                                         "hologram",
+                                         "materializing",
+                                         "complete"
+                                     ],
+                          "collision_active_from":  "complete"
+                      },
+    "u5_integration_hints":  {
+                                 "node_type":  "MeshInstance3D",
+                                 "csg_fallback":  "CSGBox3D / CSGSphere3D acceptable for offline placeholders",
+                                 "material_override_from":  "material_bindings.json",
+                                 "glb_path_when_available":  null
+                             },
+    "world_truth":  "not_mesh_authority"
+}

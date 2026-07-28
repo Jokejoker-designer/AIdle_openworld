@@ -1,0 +1,50 @@
+work_order_id: WO-BLENDER-ENV-P0E-001
+scope: blender_bridge_environment
+objective: >
+  Extend AIdle Blender Bridge P0 with strict environment endpoints, a registered
+  starter-realm probe template, mock runner, real Blender headless probe,
+  quarantine outputs, preview render and scene manifest.
+authority: PATCH_DRAFT
+dependencies:
+  - B0-001 ACCEPTED
+  - AIdle Blender Bridge P0 character regression green
+allowed_files:
+  - E:/AIdle_Blender_Bridge_P0/app/api/environment_jobs.py
+  - E:/AIdle_Blender_Bridge_P0/app/environment_models.py
+  - E:/AIdle_Blender_Bridge_P0/app/services/environment_job_service.py
+  - E:/AIdle_Blender_Bridge_P0/app/dependencies.py
+  - E:/AIdle_Blender_Bridge_P0/app/main.py
+  - E:/AIdle_Blender_Bridge_P0/blender_scripts/environment_worker_entry.py
+  - E:/AIdle_Blender_Bridge_P0/config/environment_*.yaml
+  - E:/AIdle_Blender_Bridge_P0/templates/environments/**
+  - E:/AIdle_Blender_Bridge_P0/libraries/environments/**
+  - E:/AIdle_Blender_Bridge_P0/tests/test_environment_*.py
+forbidden:
+  - arbitrary Python endpoint
+  - external downloads
+  - Godot product scene patch
+  - approved asset catalog write
+  - separate or client-controlled worker concurrency
+  - Godot manifestation or World Commit state mutation
+acceptance_tests:
+  - character API regression remains green
+  - strict schema rejects unknown properties
+  - unknown template/module rejected
+  - deterministic mock scene manifest
+  - path traversal rejected
+  - real Blender probe exports blend, GLB, preview and validation
+  - all artifact references are quarantine-relative
+  - character and environment jobs share global max_active_jobs=1
+  - identical idempotency replay is stable; changed payload conflicts
+  - client budgets cannot exceed server caps
+  - server-mediated receipt reaches QUARANTINED_COMPLETE
+  - direct CLI output is not used as lifecycle proof
+required_evidence:
+  - child receipt
+  - commands and exit codes
+  - pytest output
+  - Blender stdout/stderr
+  - artifact hashes
+  - preview dimensions
+  - validation report
+self_accept: false

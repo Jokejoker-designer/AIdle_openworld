@@ -1,0 +1,78 @@
+{
+  "contract_version": "1.0",
+  "node_groups": [
+    {
+      "node_group_id": "GN_AIDLE_ModularBuilding_v1",
+      "inputs": [
+        "footprint_x",
+        "footprint_y",
+        "floors",
+        "roof_profile",
+        "window_density",
+        "seed"
+      ],
+      "outputs": [
+        "geometry",
+        "socket_markers"
+      ],
+      "deterministic_seed_required": true
+    },
+    {
+      "node_group_id": "GN_AIDLE_VegetationCluster_v1",
+      "inputs": [
+        "bounds",
+        "density",
+        "variation",
+        "wind_profile",
+        "seed"
+      ],
+      "outputs": [
+        "instanced_geometry",
+        "lod_groups"
+      ],
+      "deterministic_seed_required": true
+    },
+    {
+      "node_group_id": "GN_AIDLE_PipeNetwork_v1",
+      "inputs": [
+        "spline",
+        "diameter",
+        "material_profile",
+        "socket_spacing"
+      ],
+      "outputs": [
+        "geometry",
+        "pipe_ports"
+      ],
+      "deterministic_seed_required": false
+    },
+    {
+      "node_group_id": "GN_AIDLE_DestructionStateVariants_v1",
+      "inputs": [
+        "base_geometry",
+        "damage_stage",
+        "seed"
+      ],
+      "outputs": [
+        "intact",
+        "damaged",
+        "broken"
+      ],
+      "deterministic_seed_required": true
+    },
+    {
+      "node_group_id": "GN_AIDLE_TerrainDetail_v1",
+      "inputs": [
+        "base_terrain",
+        "detail_strength",
+        "rock_density",
+        "seed"
+      ],
+      "outputs": [
+        "terrain_geometry",
+        "scatter_points"
+      ],
+      "deterministic_seed_required": true
+    }
+  ]
+}

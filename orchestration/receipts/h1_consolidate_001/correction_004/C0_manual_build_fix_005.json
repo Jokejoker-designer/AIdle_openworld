@@ -1,0 +1,341 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "H1-CONSOLIDATE-001-c0-manual-build-fix-005-2026-07-22T154527Z",
+  "step_id": "H1-CONSOLIDATE-001-c0-manual-build-fix-005",
+  "work_order_id": "WO-H1-CONSOLIDATE-001-MANUAL-BUILD-CORRECTION-004",
+  "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-MANUAL-BUILD-CORRECTION-004.md",
+  "work_order_sha256": "80512fa37bb6c9b2247d5658a71e50c95c4c4bd5e30990c87df606b459d60a86",
+  "directive_id": 79,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "846dd7ba404e00fc6b321ff5733a27df5a9393fa824532ae42560dfa35ada84a",
+  "directive_state": "IN_PROGRESS",
+  "directive_verdict": "CHANGES_REQUESTED_ZERO_ERROR_REGRESSION_SCHEMA_AND_LEASE",
+  "supersedes_directive_id": 78,
+  "permitted_task_ids": ["H1-CONSOLIDATE-001"],
+  "review": "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_MANUAL_BUILD_REVIEW_005.json",
+  "review_sha256": "a6f450f7ffaf1d141094a7898389492a857299e70c62455a2a3c3d1da5bad3f4",
+  "milestone": "H1 Manual Build strict regression and provenance correction — C0 product/test writer",
+  "agent_id": "aidle-worldgen-control-input",
+  "agent_type": "aidle-worldgen-control-input",
+  "profile_name": "aidle-worldgen-control-input",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-control-input.md",
+  "profile_sha256": "c6b718fb24ea7e1b9ca2453b25cff077c023a582b652307572fbe5184450fe6e",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-control-input; trustlayer_character=blue-team-p0-remediator; ui_character=ui-a11y-auditor; authority_token=PATCH_DRAFT; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set control_and_input under exact WO lease only.",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "C0 sole product/test writer under exact eight product/test paths + two orch files only; no DNA/Scene/Character/network/shipping/headed-evidence; never ACCEPTED; no grandchildren; no P2E-002/UCBV-001; no rewrite of evidence 001-004 or correction_003/**",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:4a5197e0e8e8dbde638b2adb4201797bbc900e0a83c80fcd2fafe3ffac73d0b0",
+  "input_context_hash_16": "4a5197e0e8e8dbde",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-H1-CONSOLIDATE-001-MANUAL-BUILD-CORRECTION-004.md + codex_directive.json + aidle-worldgen-control-input.md + CODEX_H1-CONSOLIDATE-001_MANUAL_BUILD_REVIEW_005.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C0_COMPLETE_ROUTE_C1_QA",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C0_MANUAL_BUILD_FIX_PATCHED_NO_ACCEPT",
+  "child_task_ref": "019f8a7b-ee32-7b31-960b-2f634530e6f9",
+  "transcript_ref": "019f8a7b-ee32-7b31-960b-2f634530e6f9",
+  "writer_transcript_ref": "019f8a7b-ee32-7b31-960b-2f634530e6f9",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8a7b-ee32-7b31-960b-2f634530e6f9/meta.json",
+  "started_at": "2026-07-22T15:40:05.557287500Z",
+  "completed_at_utc": "2026-07-22T15:45:27Z",
+  "timestamp_note": "Worker artifact time only. Codex binds durable parent-owned meta completion timestamps. Receipt timing is never canonical session completion evidence.",
+  "next_owner": "C1_QA",
+  "next_route": "C1_QA",
+  "human_gate_open": false,
+  "human_result": "NOT_RUN_AFTER_CORRECTION",
+  "human_pass_inferred": false,
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "ui_read": "full_eof",
+    "role": "C0 PATCH_DRAFT sole product/test writer — close H1-CODEX-MB-F01/F02/F06; no self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO MANUAL-BUILD-CORRECTION-004, Directive 79, ARCHITECTURE_LOCK, MANUAL_BUILD_REVIEW_005, skills full EOF manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "read_mode": "full_file_size_hash_verify",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "finding_ids_closed": [
+    "H1-CODEX-MB-F01",
+    "H1-CODEX-MB-F02",
+    "H1-CODEX-MB-F06"
+  ],
+  "finding_closures": [
+    {
+      "id": "H1-CODEX-MB-F01",
+      "status": "fixed_not_retested_headed",
+      "summary": "block_assembly_hud.gd: cursor_hit_present: bool + cursor_valid: bool replace untyped Variant inference on st.get('cursor_hit_valid') so warnings-as-errors compiles cleanly."
+    },
+    {
+      "id": "H1-CODEX-MB-F02",
+      "status": "fixed_not_retested_headed",
+      "summary": "playable_action_bar.tscn text Small Build→Manual Build; h1_consolidation_chrome_smoke.gd and h1_consolidation_flow_smoke.gd assert Manual Build and reject Small Build residual."
+    },
+    {
+      "id": "H1-CODEX-MB-F06",
+      "status": "fixed_not_retested_headed",
+      "summary": "Manual Build can_confirm requires _intentional_place_done after valid LMB/place; place_at_cursor fails closed with not_build_context outside Build (never silently enables Manual Build); force_custom_cursor wired into control_1b_cursor_label as optional non-square a11y tip; default remains OS pointer."
+    }
+  ],
+  "not_closed_this_wave": [
+    {
+      "id": "H1-CODEX-MB-F03",
+      "note": "W2 correction_003 schema-invalid receipt remains immutable rejected evidence — not rewritten."
+    },
+    {
+      "id": "H1-CODEX-MB-F04",
+      "note": "W0 correction_003 out-of-lease auxiliaries preserved; C0 used exact two-file orch lease only."
+    },
+    {
+      "id": "H1-CODEX-MB-F05",
+      "note": "Receipt timestamps are worker artifact times only; Codex binds durable meta."
+    }
+  ],
+  "product_writes": [
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_hud.gd",
+      "sha256": "c07fe741d6c04746a111e1a5ea62633630d0cde17b0f56f6c07e1bf6c0057c5b",
+      "bytes": 6651
+    },
+    {
+      "path": "game/scenes/ui/playable_action_bar.tscn",
+      "sha256": "90246f9b5ae69faaf2ba815ac05e17719c2e4959aebe854f3dfc54fb404f059a",
+      "bytes": 2372
+    },
+    {
+      "path": "game/tests/h1_consolidation_chrome_smoke.gd",
+      "sha256": "81c37150a9bb57f72ca5eb14a61bca308333d903626d5e87b59a8709de98c5b6",
+      "bytes": 6528
+    },
+    {
+      "path": "game/tests/h1_consolidation_flow_smoke.gd",
+      "sha256": "e78a27ed2602815e59090ff3de0feaaf4dac4c8f1bba0ea203ea12838fa730d9",
+      "bytes": 16024
+    },
+    {
+      "path": "game/scripts/ui/control_1b_cursor_label.gd",
+      "sha256": "36d52b44f41dab62f6fa6074783e0cc1f5e554f6a0e46c3af20fad0d5cd174b2",
+      "bytes": 9300
+    },
+    {
+      "path": "game/autoload/control_accessibility_settings.gd",
+      "sha256": "cb5c384a2f816571eeaaf4697e27375c38620525eafb8d53b9514368244e01b4",
+      "bytes": 10691
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+      "sha256": "d8a6cc9f40f529bee992675cea9d2c53afb0539bb14a9b133cc08c06dd29628d",
+      "bytes": 47809
+    },
+    {
+      "path": "game/tests/h1_human_ux_manual_build_smoke.gd",
+      "sha256": "1fafbfe54d876550156907c2fe60398071a59cc621d74a8a0c5433b1388b6d93",
+      "bytes": 23635
+    }
+  ],
+  "orch_writes": [
+    {
+      "path": "orchestration/receipts/h1_consolidate_001/correction_004/C0_manual_build_fix_005.json",
+      "role": "this_receipt"
+    },
+    {
+      "path": "orchestration/logs/h1_consolidate_001/correction_004/C0_manual_build_fix_005.log",
+      "role": "primary_smoke_log_single_lease"
+    }
+  ],
+  "lease_respected": true,
+  "out_of_lease_writes": [],
+  "preserve_immutable": [
+    "orchestration/evidence/h1_consolidate_001/001/**",
+    "orchestration/evidence/h1_consolidate_001/002/**",
+    "orchestration/evidence/h1_consolidate_001/003/**",
+    "orchestration/evidence/h1_consolidate_001/004/**",
+    "orchestration/receipts/h1_consolidate_001/correction_003/**",
+    "orchestration/logs/h1_consolidate_001/correction_003/**"
+  ],
+  "evidence_writes": [],
+  "result": {
+    "ok": true,
+    "wave": "C0",
+    "product_goal": "Close H1-CODEX-MB-F01 (HUD typed cursor_valid), F02 (Manual Build label scene+tests), F06 partial (intentional LMB before confirm, place_at_cursor fail-closed outside Build, force_custom_cursor wired, OS pointer default preserved)",
+    "godot_pin": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+    "godot_version": "4.3.stable.official",
+    "invariants_held": [
+      "World Commit sole canonical mutator",
+      "preview non-durable until receipt; LMB preview-only",
+      "no free-float placement; snap required",
+      "single Esc/RMB cancel preserved",
+      "no absolute /root get_node reintroduced in lease",
+      "Exploration R remains camera; Build R rotates preview",
+      "default OS pointer; ring pulse prior work preserved",
+      "no P2E-002 or UCBV-001 dispatch",
+      "no rewrite of immutable evidence 001-004 or correction_003"
+    ]
+  },
+  "smoke_test": {
+    "required": true,
+    "all_green": true,
+    "primary": {
+      "path": "game/tests/h1_human_ux_manual_build_smoke.gd",
+      "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/h1_human_ux_manual_build_smoke.gd",
+      "result": "PASS",
+      "checks": 13,
+      "marker": "AIDLE_H1_HUMAN_UX_MANUAL_BUILD_SMOKE=PASS checks=13",
+      "log": "orchestration/logs/h1_consolidate_001/correction_004/C0_manual_build_fix_005.log"
+    },
+    "regressions": [
+      {
+        "path": "game/tests/h1_consolidation_chrome_smoke.gd",
+        "result": "PASS",
+        "checks": 6,
+        "marker": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS checks=6"
+      },
+      {
+        "path": "game/tests/h1_consolidation_flow_smoke.gd",
+        "result": "PASS",
+        "checks": 13,
+        "marker": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13"
+      },
+      {
+        "path": "game/tests/p2e001_block_assembly_qr_context_smoke.gd",
+        "result": "PASS",
+        "checks": 8,
+        "marker": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8"
+      },
+      {
+        "path": "game/tests/p2e001_block_assembly_player_input_smoke.gd",
+        "result": "PASS",
+        "checks": 5,
+        "marker": "AIDLE_P2E001_PLAYER_INPUT_SMOKE=PASS checks=5"
+      },
+      {
+        "path": "game/tests/control_1b_context_router_smoke.gd",
+        "result": "PASS",
+        "checks": 16,
+        "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16"
+      }
+    ],
+    "log_single_lease": "orchestration/logs/h1_consolidate_001/correction_004/C0_manual_build_fix_005.log",
+    "note": "Initial run of human_ux failed F06 place_at_cursor until gate tightened to always require Build context; re-run section in same leased log is all-green with zero ERROR lines."
+  },
+  "self_audit": {
+    "lease_only_writes": true,
+    "orch_writes_count": 2,
+    "product_writes_count": 8,
+    "out_of_lease_writes_empty": true,
+    "auxiliary_logs_created": false,
+    "hash_sidecars_created": false,
+    "absolute_root_lookup_reintroduced": false,
+    "self_accept": false,
+    "accepted": false,
+    "human_pass_inferred": false,
+    "canonical_completion_time_claim": false,
+    "p2e002_dispatched": false,
+    "ucbv001_dispatched": false,
+    "evidence_001_004_immutable": true,
+    "correction_003_immutable": true,
+    "world_commit_sole_mutator": true,
+    "dual_esc_dispatch": false,
+    "free_float_allowed": false,
+    "os_pointer_default_preserved": true,
+    "force_custom_cursor_wired": true,
+    "intentional_lmb_before_manual_confirm": true,
+    "place_at_cursor_fail_closed_outside_build": true,
+    "residuals": [
+      {
+        "id": "C0-RES-01",
+        "severity": "low",
+        "item": "Headed dual-resolution visual proof (1280x720 + 868x517) for OS pointer, ring pulse, Manual Build label, intentional LMB, invalid surface, Q/R, cancel, World Commit deferred to C1 QA under evidence/005.",
+        "owner": "C1_QA",
+        "in_c0_lease": false
+      },
+      {
+        "id": "C0-RES-02",
+        "severity": "info",
+        "item": "Full C1 regression suite (H1 error-free, P2E core/authority/correction, Control a11y/fixtures, G3, G4, Block-DNA) not executed in C0; C0 ran primary + six targeted regressions all green.",
+        "owner": "C1_QA",
+        "in_c0_lease": false
+      }
+    ],
+    "blocked_actions_not_taken": [
+      "self-accept",
+      "infer Human PASS",
+      "dispatch P2E-002",
+      "dispatch UCBV-001",
+      "network/live provider/credentials",
+      "install/Godot version change",
+      "push/deploy/publish",
+      "rewrite/delete evidence 001-004",
+      "rewrite correction_003 receipts/logs",
+      "create auxiliary logs or hash sidecars",
+      "parent product patch"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/h1_consolidate_001/correction_004/C0_manual_build_fix_005.log",
+    "orchestration/receipts/h1_consolidate_001/correction_004/C0_manual_build_fix_005.json"
+  ],
+  "next_route": "C1_QA"
+}

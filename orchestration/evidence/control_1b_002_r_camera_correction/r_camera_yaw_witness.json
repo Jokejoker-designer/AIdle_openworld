@@ -1,0 +1,95 @@
+{
+	"agent": "aidle-worldgen-qa-evidence",
+	"all_pass": true,
+	"authority": "VERIFY_ONLY",
+	"capture_source": "godot_headless_real_inputmap_router_camera_path",
+	"child_task_ref": "019f873b-a575-76e0-a153-f6d57cfb3fe9",
+	"directive_id": 60,
+	"failed_checks": 0,
+	"failures": [],
+	"godot": "tools/Godot_v4.3-stable_win64_console.exe",
+	"human_locked_behavior": {
+		"build_Q": "build_rotate_left",
+		"build_R": "build_rotate_right",
+		"build_R_never_camera": true,
+		"dual_fire": false,
+		"exploration_Q": "rotate_camera_left",
+		"exploration_R": "rotate_camera_right",
+		"exploration_R_never_hologram": true,
+		"remappable_inputmap_only": true
+	},
+	"passed_checks": 3,
+	"prior_r1_ref": "019f8735-2780-7530-8584-1c8711e18a9a",
+	"prior_s0_ref": "019f8731-3c78-7ed1-a029-292167b919ba",
+	"schema": "control_1b_r_camera_yaw_witness/1.0",
+	"spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+	"timestamp_utc": "2026-07-22T00:34:05",
+	"witnesses": {
+		"build_physical_R": {
+			"build_rotate_dispatch_ok": true,
+			"camera_action_delta_if_forced": 0,
+			"camera_action_router_just_pressed": false,
+			"camera_yaw_after": 0,
+			"camera_yaw_before": 0,
+			"camera_yaw_delta_abs": 0,
+			"context": "build",
+			"dual_fire": false,
+			"expects": {
+				"camera_unchanged": true,
+				"dual_fire": false,
+				"preview_only": true,
+				"rotate_camera_right_fail_closed": true
+			},
+			"ok": true,
+			"path": "context_router gates rotate_camera_right fail-closed; build_rotate_right only",
+			"physical_key": "R",
+			"preview_rotate_dir": 1,
+			"preview_yaw_changed": true,
+			"simulate_physical_r_fired": [
+				"build_rotate_right"
+			]
+		},
+		"exploration_physical_R": {
+			"camera_yaw_after": -0.78539816339745,
+			"camera_yaw_before": 0,
+			"camera_yaw_delta_abs": 0.785398163397448,
+			"camera_yaw_signed_delta": -0.78539816339745,
+			"catalog_allows_rotate_camera_right": true,
+			"context": "exploration",
+			"dual_fire": false,
+			"expects": {
+				"camera_yaw_changes_right": true,
+				"dual_fire": false,
+				"fired_contains": "rotate_camera_right",
+				"hologram_unchanged": true
+			},
+			"hologram_rotated": false,
+			"inputmap_has_physical_R": true,
+			"ok": true,
+			"path": "InputMap.action_press(rotate_camera_right) → ControlContextRouter.is_action_just_pressed → CozyCamera._process",
+			"physical_key": "R",
+			"router_allows_rotate_camera_right": true,
+			"router_just_pressed": true,
+			"simulate_physical_r_fired": [
+				"rotate_camera_right"
+			]
+		},
+		"remap_compatibility": {
+			"camera_yaw_after": -1.5707963267949,
+			"camera_yaw_before": -0.03727499683484,
+			"camera_yaw_delta_abs": 1.53352132996005,
+			"camera_yaw_signed_delta": -1.53352132996005,
+			"context": "exploration",
+			"expects": {
+				"logical_action_still_yaws": true,
+				"no_hardcoded_physical_R": true
+			},
+			"logical_action": "rotate_camera_right",
+			"ok": true,
+			"path": "InputMap remap → router.is_action_just_pressed → CozyCamera._process",
+			"physical_rebinding": "KEY_R → KEY_T",
+			"router_just_pressed": true
+		}
+	},
+	"work_order": "WO-CTRL-1B-002-R-CAMERA-CORRECTION-002"
+}

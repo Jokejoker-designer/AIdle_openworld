@@ -1,0 +1,392 @@
+{
+  "agent_step_id": "G8-UX-001-W2-red-001-2026-07-21",
+  "agent_type": "aidle-worldgen-red-scope",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "READ_ONLY_AUDIT",
+  "input_context_hash": "sha256:20ab4297d3db0f0ead48ab84a400c8ec5da7668e53313c91b99dbae89abef47f",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f841e-3871-7962-85e3-543623b98a9b",
+  "transcript_ref": "019f841e-3871-7962-85e3-543623b98a9b",
+  "writer_transcript_ref": "019f841e-3871-7962-85e3-543623b98a9b",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_ref": "019f841a-444f-7ac2-afc6-d851a6b3b687",
+  "prior_wave_receipt": "orchestration/receipts/g8_ux/G8_UX_w1_blue_001.json",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/g8-ux-w2-red-001.log",
+  "handoff_ref": "G8_UX_W3_QA",
+  "start_time": "2026-07-21T10:00:00Z",
+  "end_time": "2026-07-21T10:03:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-red-scope; trustlayer_character=red-team-source-auditor; ui_character=ui-visual-critic; authority_token=READ_ONLY_AUDIT; required_skills include adversarial-review + architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; findings only never patch; one_writer_per_file=true.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "adversarial-review",
+      "architecture-lock"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; not retried; loaded Agents.md, profile aidle-worldgen-red-scope, WO-G8-UX-001, W1 blue receipt, product sources, agent_step_contract schema manually. No bootstrap loop.",
+  "authorization_note": "READ_ONLY_AUDIT only. Did not patch product/tests/harness/contracts. Human Product Lead Dir50 override applies to Blue product surface only; Red never uses that override to write product. Control-1B still BLOCKED; P1E blocked; G8-001 HITL_REQUIRED. codex_directive.json and Blender/ENV0 untouched.",
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-G8-UX-001-INPUT-FOCUS-AND-COLLISION.md",
+    "E:/AIdle_openworld/orchestration/evidence/g8_human_gate/HUMAN_PLAYTEST_FINDING_001_UI_FOCUS_TRAP.md",
+    "E:/AIdle_openworld/orchestration/receipts/g8_ux/G8_UX_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-ux-w1-blue-001.log",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/game/scripts/ui/playable_action_bar.gd",
+    "E:/AIdle_openworld/game/scripts/player/player_controller.gd",
+    "E:/AIdle_openworld/game/scenes/player/player.tscn",
+    "E:/AIdle_openworld/game/project.godot",
+    "E:/AIdle_openworld/game/tests/g8_ux_input_collision_smoke.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_instance.gd",
+    "E:/AIdle_openworld/game/scripts/modules/manifestation/manifestation_stages.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+    "E:/AIdle_openworld/game/scenes/ui/playable_action_bar.tscn",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/agents/characters/05-red-team-source-auditor.md",
+    "E:/agents/ui-design/characters/11-ui-visual-critic.md"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/g8_ux/G8_UX_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/logs/g8-ux-w2-red-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "G8-UX-001",
+    "work_order": "orchestration/work_orders/WO-G8-UX-001-INPUT-FOCUS-AND-COLLISION.md",
+    "wave": "G8_UX_W2_RED",
+    "profile": "aidle-worldgen-red-scope",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+    "authority_token": "READ_ONLY_AUDIT",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "FINDINGS_REPORTED",
+    "summary": "READ_ONLY_AUDIT of W1 Blue 019f841a patches against defects 1-7. Source+smoke re-verify: all six product defects PASS; allowlist integrity PASS for W1 product_writes; residual non-blocking notes for W3 (headed evidence still required by WO, AC1 emit_signal path weaker than real mouse, ui_accept still default-binds Space). Independent smoke AIDLE_G8_UX_SMOKE=PASS checks=6 with transform deltas; manifestation_smoke PASS checks=8. product_writes=[]. Handoff G8_UX_W3_QA. accepted=false.",
+    "character_binding": {
+      "trustlayer_character_id": "red-team-source-auditor",
+      "trustlayer_card": "E:/agents/characters/05-red-team-source-auditor.md",
+      "ui_character_id": "ui-visual-critic",
+      "ui_card": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+      "maf_role": "agent",
+      "authority_token": "READ_ONLY_AUDIT"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; READ_ONLY_AUDIT findings only; no self-accept; no inventing evidence"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: Red finds only; Blue patches; Purple verifies; handoff W3 QA; no grandchildren"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: exclusive receipt+log writes; evidence-backed claims only"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: parent_spawn_only; one_writer_per_file; no product writes"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: residual dual Space binding and AC1 emit_signal weakness probed"
+      },
+      {
+        "skill_id": "adversarial-review",
+        "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: challenged Blue claims vs source+independent Godot re-run; workspace dirt separated from W1 allowlist"
+      },
+      {
+        "skill_id": "architecture-lock",
+        "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL: no World Commit/camera/companion creep; Offline Private Reality collision local; manifestation complete-only solid preserved"
+      }
+    ],
+    "defect_audit": [
+      {
+        "id": 1,
+        "title": "FOCUS_NONE on all action-bar buttons; no residual FOCUS_ALL",
+        "verdict": "PASS",
+        "evidence": [
+          "game/scripts/ui/playable_action_bar.gd:_style_all_buttons sets focus_mode=Control.FOCUS_NONE for six buttons (companion/export/import/demo/confirm/cancel)",
+          "repo product gd/tscn: no assignment of FOCUS_ALL remains (comment-only mention of future a11y)",
+          "independent smoke: action_bar_buttons_focus_none=6; has_focus false after pressed"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Jump uses jump action not ui_accept",
+        "verdict": "PASS",
+        "evidence": [
+          "player_controller.gd:75 Input.is_action_just_pressed(\"jump\") — no ui_accept jump path",
+          "project.godot jump={physical_keycode:32 Space}",
+          "git diff HEAD player_controller: ui_accept → jump only"
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Arrow ownership single; documented",
+        "verdict": "PASS",
+        "evidence": [
+          "move_* retain WASD + arrow physical keycodes (4194320/4194322/4194319/4194321)",
+          "ui_left/ui_right/ui_up/ui_down events=[] overrides (clears Godot default focus-nav arrows)",
+          "arrow_owner documented in W1 receipt + smoke evidence: move_* only"
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Player mask includes manifestation layer 4; complete solid; wireframe/hologram non-solid",
+        "verdict": "PASS",
+        "evidence": [
+          "player.tscn collision_layer=2 collision_mask=5 (1|4)",
+          "manifestation_instance.gd COLLISION_LAYER_MANIFESTATION:=4; _set_collision_enabled sets layer 4 only when enabled+complete",
+          "manifestation_stages.allows_durable_collision only stage==complete",
+          "smoke AC4: manifestation_layer=4 player_mask=5 penetrated=false after.z≈-1.65",
+          "smoke AC5: wireframe/hologram/materializing non-solid layer=0"
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Starter realm solidity unchanged",
+        "verdict": "PASS",
+        "evidence": [
+          "W1 product_writes exclude starter_realm_builder.gd (audit only) — confirmed",
+          "solid layer1: House/Body, Trees/*/Trunk, Fence/Post*, Stones/Rock*, Lamps/*/Pole",
+          "non-solid: Roof/Door/WinL/WinR/Chimney, Path/Seg*, FarmPlots Soil/Crop, Pond Water/Rim, Flowers Stem/Bloom, GroundVariation Patch*, Trees Canopy, Fence Rail*, Lamps Bulb",
+          "distribution matches WO defect-5 intentional table; no unjustified change"
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Regression exists and asserts transform deltas",
+        "verdict": "PASS",
+        "evidence": [
+          "game/tests/g8_ux_input_collision_smoke.gd present",
+          "AC1 records ac1_transform_delta before/after + delta_xz; asserts delta_xz>=0.05",
+          "AC4 records ac4_collision before/after + penetrated",
+          "Red re-run EXIT=0 AIDLE_G8_UX_SMOKE=PASS checks=6; delta_xz≈0.9389; penetrated=false"
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Allowlist integrity — only listed product files",
+        "verdict": "PASS",
+        "evidence": [
+          "W1 claimed product_writes: playable_action_bar.gd, player_controller.gd, player.tscn, project.godot, g8_ux_input_collision_smoke.gd — all on WO allowlist",
+          "git diff HEAD project.godot: input map only (+jump +ui_* empty); layer_names untouched",
+          "git diff HEAD player_controller + player.tscn match claimed jump/mask edits",
+          "manifestation_instance.gd dirty in workspace from prior G8 visual U4 work; W1 correctly did not claim it; collision path already correct — not a W1 allowlist breach",
+          "workspace has many non-allowlist dirty paths from prior waves — NOT attributed to W1 product_writes set"
+        ]
+      }
+    ],
+    "finding_counts": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 2,
+      "info": 3,
+      "blocking_reopen": 0,
+      "defects_pass": 7,
+      "defects_fail": 0
+    },
+    "findings": [
+      {
+        "id": "R-INFO-01",
+        "severity": "info",
+        "title": "Headed visual evidence still required for full WO close",
+        "detail": "WO acceptance criteria 1 and 4 require headed screenshot or recorded transform delta as human-visible proof. W1 Blue correctly recorded headless transform deltas and deferred headed playtest to W3. Defect-6 regression bar is satisfied; full WO acceptance remains W3/Purple + Human Product Lead — not a W1 reopen.",
+        "handoff": "G8_UX_W3_QA"
+      },
+      {
+        "id": "R-LOW-02",
+        "severity": "low",
+        "title": "AC1 smoke uses emit_signal('pressed') not real mouse/focus grab",
+        "detail": "Regression proves FOCUS_NONE + Input.action_press movement, which matches the chosen fix strategy. It would not catch a future FOCUS_ALL+release_focus half-implementation where mouse click steals focus. Acceptable residual for current FOCUS_NONE design; W3 may strengthen with headed click path.",
+        "blocking": false
+      },
+      {
+        "id": "R-LOW-03",
+        "severity": "low",
+        "title": "ui_accept still engine-default includes Space while jump also binds Space",
+        "detail": "project.godot does not override ui_accept. With action-bar FOCUS_NONE this does not reproduce the human focus-trap report. Other focused Controls could still receive ui_accept on Space while jump also fires. Out of strict defect-2 scope (gameplay no longer reads ui_accept). Optional harden: clear Space from ui_accept or keep gameplay exclusive.",
+        "blocking": false
+      },
+      {
+        "id": "R-INFO-04",
+        "severity": "info",
+        "title": "Action-bar tscn relies on script _ready for FOCUS_NONE",
+        "detail": "playable_action_bar.tscn buttons do not set focus_mode in scene; Button default is FOCUS_ALL until _style_all_buttons. Current path is correct after _ready. Future buttons added outside that loop would regress.",
+        "blocking": false
+      },
+      {
+        "id": "R-INFO-05",
+        "severity": "info",
+        "title": "Workspace dirt is multi-wave; do not treat as W1 scope creep",
+        "detail": "git status shows many modified/untracked paths outside allowlist from G8-001/ENV0 prior work. W1 product_writes set is allowlist-clean. Red did not patch and does not require Blue to clean unrelated dirt for this WO.",
+        "blocking": false
+      }
+    ],
+    "solidity_table_starter_realm": {
+      "unchanged": true,
+      "solid_collision_layer_1": [
+        "House/Body",
+        "Trees/*/Trunk",
+        "Fence/Post*",
+        "Stones/Rock*",
+        "Lamps/*/Pole"
+      ],
+      "non_solid_visual_only": [
+        "House/Roof",
+        "House/Door",
+        "House/WinL",
+        "House/WinR",
+        "House/Chimney",
+        "Path/Seg*",
+        "FarmPlots/Soil_*",
+        "FarmPlots/Crop_*",
+        "Pond/Water",
+        "Pond/Rim",
+        "Flowers/Stem*",
+        "Flowers/Bloom*",
+        "GroundVariation/Patch*",
+        "Trees/*/Canopy",
+        "Fence/Rail*",
+        "Lamps/*/Bulb"
+      ]
+    },
+    "collision_layer_notes": {
+      "project_layer_names": {
+        "1": "world",
+        "2": "player",
+        "3": "manifestation",
+        "4": "companion",
+        "5": "interactable"
+      },
+      "bit_values": {
+        "world": 1,
+        "player": 2,
+        "manifestation": 4,
+        "companion": 8,
+        "interactable": 16
+      },
+      "player": {
+        "layer": 2,
+        "mask": 5,
+        "collides_with": ["world", "manifestation"]
+      },
+      "manifestation_instance": {
+        "preview_stages": "collision_layer=0 (wireframe/hologram/materializing)",
+        "complete": "collision_layer=4",
+        "w1_product_edit": false
+      }
+    },
+    "arrow_owner_document": "Arrows owned by move_* only (WASD+arrows retained). ui_left/ui_right/ui_up/ui_down explicitly overridden with empty events so Godot default focus-nav no longer binds arrows.",
+    "w1_product_writes_audited": [
+      "E:/AIdle_openworld/game/scripts/ui/playable_action_bar.gd",
+      "E:/AIdle_openworld/game/scripts/player/player_controller.gd",
+      "E:/AIdle_openworld/game/scenes/player/player.tscn",
+      "E:/AIdle_openworld/game/project.godot",
+      "E:/AIdle_openworld/game/tests/g8_ux_input_collision_smoke.gd"
+    ],
+    "handoff_ref": "G8_UX_W3_QA",
+    "next_wave": "G8_UX_W3_QA",
+    "next_profile": "aidle-worldgen-qa-evidence",
+    "next_authority": "VERIFY_ONLY",
+    "product_writes": []
+  },
+  "smoke_test": {
+    "ran": true,
+    "authority": "READ_ONLY_AUDIT independent re-verify (no product mutation)",
+    "commands": [
+      {
+        "cmd": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://tests/g8_ux_input_collision_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_G8_UX_SMOKE=PASS checks=6",
+        "evidence": {
+          "action_bar_buttons_focus_none": 6,
+          "arrow_owner": "move_* (WASD+arrows); ui_left/right/up/down events empty",
+          "ac1_transform_delta": {
+            "before": {"x": 0.0, "y": 0.0466666668653488, "z": 0.0},
+            "after": {"x": 0.0, "y": 0.000768569181673229, "z": -0.93888890743256},
+            "delta_xz": 0.938888907432556
+          },
+          "ac4_collision": {
+            "before": {"x": 0.0, "y": 0.05, "z": -0.6},
+            "after": {"x": 0.0, "y": 0.0000471936073154211, "z": -1.64984464645386},
+            "manifestation_layer": 4,
+            "player_mask": 5,
+            "penetrated": false
+          }
+        }
+      },
+      {
+        "cmd": "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:\\AIdle_openworld\\game -s res://scripts/modules/manifestation/manifestation_smoke.gd",
+        "exit_code": 0,
+        "marker": "AIDLE_MANIFESTATION_SMOKE=PASS checks=8",
+        "note": "pre-existing manifestation regression; no fail after W1 mask fix"
+      }
+    ],
+    "acceptance_criteria_map_red": {
+      "AC1_movement_after_action_bar_click": "PASS_SOURCE+HEADLESS (headed still for W3)",
+      "AC2_space_jump_not_ui_accept": "PASS",
+      "AC3_arrow_single_owner": "PASS (owner=move_*; ui_* empty)",
+      "AC4_player_collides_complete_manifestation": "PASS_SOURCE+HEADLESS (headed still for W3)",
+      "AC5_preview_non_solid": "PASS",
+      "AC6_starter_solidity_unchanged": "PASS",
+      "AC7_regression_exists_and_passes": "PASS",
+      "AC8_no_preexisting_test_regress": "PASS (manifestation_smoke)",
+      "AC9_allowlist_only": "PASS (W1 product_writes set)"
+    }
+  },
+  "self_audit": {
+    "allowlist_respected": true,
+    "product_writes_empty": true,
+    "self_accept": false,
+    "accepted": false,
+    "codex_directive_untouched": true,
+    "blender_bridge_untouched": true,
+    "env0_untouched": true,
+    "control_1b_not_claimed": true,
+    "g8_001_still_hitl_required": true,
+    "one_writer_per_file": true,
+    "no_grandchildren": true,
+    "findings_only_no_patch": true,
+    "child_task_ref_durable": "019f841e-3871-7962-85e3-543623b98a9b",
+    "child_task_ref_source": "Grok Desktop subagent folder under parent 019f7ffd; newest after W1 019f841a",
+    "issues": []
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ux-w2-red-001.log",
+    "orchestration/receipts/g8_ux/G8_UX_w1_blue_001.json",
+    "orchestration/logs/g8-ux-w1-blue-001.log",
+    "orchestration/work_orders/WO-G8-UX-001-INPUT-FOCUS-AND-COLLISION.md",
+    "orchestration/evidence/g8_human_gate/HUMAN_PLAYTEST_FINDING_001_UI_FOCUS_TRAP.md",
+    "game/tests/g8_ux_input_collision_smoke.gd"
+  ],
+  "next_route": "G8_UX_W3_QA"
+}

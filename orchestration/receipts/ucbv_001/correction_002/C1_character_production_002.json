@@ -1,0 +1,354 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "UCBV-001-c1-character-production-002-2026-07-23",
+  "step_id": "UCBV-001-c1-character-production-002",
+  "work_order_id": "WO-UCBV-001-STRICT-CORRECTION-002",
+  "work_order": "orchestration/work_orders/WO-UCBV-001-STRICT-CORRECTION-002.md",
+  "work_order_addendum": "orchestration/work_orders/WO-UCBV-001-MOTION-KIT-ADDENDUM-003.md",
+  "directive_id": 84,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_state": "READY",
+  "directive_verdict": "C0_EXTERNAL_BINDING_PASS_ROUTE_C1_WITH_MOTION_KIT",
+  "human_decision": "AUTHORIZE_STRICT_UCBV_CORRECTION",
+  "waiver": false,
+  "permitted_task_ids": ["UCBV-001"],
+  "queued_not_authorized": ["P2E-002 AI Build Zone drag-selection and text-to-build intake - after Codex and Human accept UCBV-001"],
+  "milestone": "UCBV-001 C1 real character mesh/skin/rig/animation production",
+  "agent_id": "aidle-worldgen-asset-art",
+  "agent_type": "aidle-worldgen-asset-art",
+  "profile_name": "aidle-worldgen-asset-art",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+  "profile_sha256": "58589f36dc42758ea9fce3f058ec5323351a086ae1cd06185ab39bb6624c6c28",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-asset-art; trustlayer_character=blue-team-p0-remediator; ui_character=ui-color-type-specialist; authority_token=PATCH_DRAFT; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,od-reference-design-contract; parent_spawn_only=true; no_grandchildren=true; self_accept=false.",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "exact lease: game/assets/ucbv_001/character/nori7/** + game/resources/ucbv_001/character/** + orchestration/design/ucbv_001/character/nori7/** + orch receipt/log correction_002 C1 only; no motion_kit edit; no C2 runtime; no P2E-002; no grandchildren; never ACCEPTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:8120c8b150002ba92f77e61d46f5f734f58d9e7d540a71e7cbad03ec59d70a9e",
+  "input_context_hash_16": "8120c8b150002ba9",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-UCBV-001-STRICT-CORRECTION-002.md + WO-UCBV-001-MOTION-KIT-ADDENDUM-003.md + codex_directive.json + aidle-worldgen-asset-art.md + UCBV_ANIMATION_BLOCK_INTEGRATION_MAP_001.md + CODEX_UCBV-001_C0_AND_MOTION_KIT_BINDING_003.json + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C1_COMPLETE_ROUTE_C2_RUNTIME_BUILD_CONTROLS",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C1_UCBV_CHARACTER_PRODUCTION_PASS_ROUTE_C2_NO_ACCEPT",
+  "need_human": false,
+  "child_task_ref": "019f8c08-d346-7250-b834-1887b51713c6",
+  "transcript_ref": "019f8c08-d346-7250-b834-1887b51713c6",
+  "writer_transcript_ref": "019f8c08-d346-7250-b834-1887b51713c6",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_lineage_note": "C0 child 019f8bf6-ac4c-7012-911d-06750ea92812 completed not accepted; motion kit Human/Claude staging bound by CODEX review 003; U0-U8 immutable",
+  "c0_child_ref": "019f8bf6-ac4c-7012-911d-06750ea92812",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f8c08-d346-7250-b834-1887b51713c6/",
+  "started_at": "2026-07-22T22:53:00Z",
+  "completed_at_utc": "2026-07-22T23:05:00Z",
+  "next_owner": "C2_RUNTIME_BUILD_CONTROLS",
+  "next_route": "C2_RUNTIME_BUILD_CONTROLS",
+  "character_binding": {
+    "trustlayer_character_id": "blue-team-p0-remediator",
+    "trustlayer_file": "E:/agents/characters/09-blue-team-p0-remediator.md",
+    "trustlayer_sha256": "5d661ddd4b442ec0e95c13ecded24e15d252453f2c62f0ecb11cd90ed095e572",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-color-type-specialist",
+    "ui_file": "E:/agents/ui-design/characters/06-ui-color-type-specialist.md",
+    "ui_sha256": "c4a6b6e7c541c0d8be7f0b66a010955a58133fc9d44dbc3577d0fdf8b8d4c169",
+    "ui_read": "full_eof",
+    "role": "C1 PATCH_DRAFT sole writer for offline Blender production GLB + adapter + design handoff under exact lease; no self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded Agents.md, profile, TrustLayer/UI cards, Directive 84, WOs, C0 outputs, motion kit (read-only), integration map, skills (5 ALWAYS + od-reference-design-contract), agent_step_contract schema manually with full-EOF skill loads.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "chunked_and_eof_confirm",
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "od-reference-design-contract",
+      "mode": "PROFILE_REQUIRED",
+      "source": "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+      "sha256": "8b5e62a123a180e5f1b8e0b7f97605d257f85bf0a2b0ca7f8c7475b54e007775",
+      "bytes": 5367,
+      "line_count": 130,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/**",
+    "E:/AIdle_openworld/game/resources/ucbv_001/character/**",
+    "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/**",
+    "E:/AIdle_openworld/orchestration/logs/ucbv_001/correction_002/C1_character_production_002.log",
+    "E:/AIdle_openworld/orchestration/receipts/ucbv_001/correction_002/C1_character_production_002.json"
+  ],
+  "product_writes": [
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+      "sha256": "e70cbe35542a45ea8ebffa03308335b9aa271584a62a9971481f8e6ffb235ef0",
+      "bytes": 629156,
+      "role": "production_skinned_glb"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/export/nori7_rigged.blend",
+      "sha256": "60a844c002e3ba47692fcdd2ecb2b69e68ea8d1346cfd99cec60033422c936d0",
+      "bytes": 181886,
+      "role": "offline_blender_source"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/export/nori7_bridge_job_manifest.json",
+      "sha256": "234fb6d2ea90e36e905b282e87185efb91051708c011aa17c176283f7ac9e9eb",
+      "bytes": 1762,
+      "role": "bridge_job_package_manifest"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/export/nori7_glb_validation.json",
+      "sha256": "dde2b5ffef8ce919bd9f6c2fe8aed9740e2b7d34cba9c789c40ed0bf18c1b9d5",
+      "bytes": 5663,
+      "role": "glb_validation"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/export/glb_export_contract.json",
+      "sha256": "6bf6326247be13e710c5bc7725c637bce4fa54516fa9d7f3eda83edb125cfe9f",
+      "bytes": 4058,
+      "role": "export_contract_update"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/package_manifest.json",
+      "sha256": "12a770d4f32356f1632e6409295ca1d46212d66ff4683773d13774e504f64a85",
+      "bytes": 3986,
+      "role": "package_manifest_c1"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/provenance.json",
+      "sha256": "ae2d610a223c33f4527e404fd7aeab139429429c277526dc7b8e876d45a2401b",
+      "bytes": 3081,
+      "role": "provenance_c1"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/assets/ucbv_001/character/nori7/mesh/nori7_mesh_descriptor.json",
+      "sha256": "d47f326a9bbc31223708b8c40fc3588851fd1ec04b6cb45546d1c3223ae86940",
+      "bytes": 7246,
+      "role": "mesh_descriptor_honesty_update"
+    },
+    {
+      "path": "E:/AIdle_openworld/game/resources/ucbv_001/character/nori7_animation_adapter.json",
+      "sha256": "f629cec956aaa830480cabd82517f19c7c5c70bfff4273c4b306810738e674df",
+      "bytes": 9363,
+      "role": "animation_adapter"
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/C1_character_production_handoff.md",
+      "sha256": "c1c44924c9cd29fc5a2975ee451e1d61f9fdb8bc78e9e6fec14a3512b9c75cfa",
+      "bytes": 2684,
+      "role": "design_handoff"
+    },
+    {
+      "path": "E:/AIdle_openworld/orchestration/design/ucbv_001/character/nori7/implementation-handoff.md",
+      "sha256": "55e0165ed586ae6e48ef28b45a697965ec6c7f75d9b2f57f288175a6d4b5c7b5",
+      "bytes": 2224,
+      "role": "implementation_handoff_c2"
+    }
+  ],
+  "out_of_lease_writes": [],
+  "result": {
+    "status": "PASS_NO_ACCEPT",
+    "summary": "Offline Blender 5.2.0 LTS produced real skinned Nori-7 GLB with exact 14-bone hierarchy, warm-cream materials, Layer A gardener names as real keyed actions, and honest Layer B UCBV build extension. Motion kit validator green; kit unedited. Adapter written. Route C2.",
+    "character_id": "CCP-RH-001",
+    "recipe_id": "recipe_nori7_v1",
+    "skeleton_id": "skel_small_biped_robot_v1",
+    "animation_set_id": "anim_robot_gardener_v1",
+    "glb_path": "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "glb_sha256": "e70cbe35542a45ea8ebffa03308335b9aa271584a62a9971481f8e6ffb235ef0",
+    "glb_bytes": 629156,
+    "package_hash_sha256": "11926f543130a58a13d63345406de45526077ffee98e16511f3f754364b14f8d",
+    "bridge_job_id": "BLD-UCBV-C1-NORI7-019F8C08",
+    "bone_count": 14,
+    "skinned": true,
+    "root_motion": false,
+    "layer_a_clips": ["idle", "walk", "scan", "happy", "cancel"],
+    "layer_b_clips": ["turn_left", "turn_right", "build_place", "build_place_hold", "confirm"],
+    "deferred_optional": ["water", "plant_seed", "harvest", "charge", "low_energy"],
+    "cream_hex": "#fdf3e2",
+    "cream_shade_hex": "#efe0c8",
+    "leaf_hex": "#7fc98f",
+    "triangle_count": 3468,
+    "animation_channel_count_per_clip": 42,
+    "tier3_honesty": "names_compatibility_only_not_payload",
+    "extension_honesty": "game_local_not_from_tier3"
+  },
+  "motion_kit": {
+    "path": "orchestration/control/motion_kit/",
+    "edited": false,
+    "command": "python validate_motion_primitives.py",
+    "cwd": "E:/AIdle_openworld/orchestration/control/motion_kit",
+    "exit_code": 0,
+    "result": "ALL CHECKS GREEN",
+    "source_clip_coverage": "172/172",
+    "signature_unique_must_author": "35/35",
+    "hash_integrity_match": true,
+    "hashes_verified_against_binding_review": [
+      "motion_primitives.json",
+      "motion_primitives.schema.json",
+      "validate_motion_primitives.py",
+      "gen_motion_primitives.py",
+      "reference/motion_primitive_adapter.gd",
+      "reference/animation_tree_wiring.md",
+      "README_BUILD_GUIDE.md"
+    ],
+    "scope_limit_honored": "Nori-7 / skel_small_biped_robot_v1 only; not all 172 clips or 14 skeletons",
+    "reference_adapter_copied_to_game": false
+  },
+  "blender_bridge": {
+    "mode": "offline_real",
+    "executable": "E:/blender.exe",
+    "version": "5.2.0 LTS",
+    "flags": ["--background", "--factory-startup", "--disable-autoexec", "--python-exit-code 20"],
+    "worker_script_os_temp": "C:/Users/phant/AppData/Local/Temp/ucbv_c1_nori7_019f8c08/c1_nori7_production.py",
+    "exit_code": 0,
+    "job_id": "BLD-UCBV-C1-NORI7-019F8C08",
+    "post_export_gate": "joints=14 anims=10 skins=1"
+  },
+  "smoke_test": {
+    "executed": true,
+    "checks": [
+      {
+        "id": "motion_kit_validator",
+        "command": "python validate_motion_primitives.py",
+        "exit_code": 0,
+        "result": "ALL CHECKS GREEN"
+      },
+      {
+        "id": "motion_kit_hash_integrity",
+        "result": "PASS_7_of_7"
+      },
+      {
+        "id": "blender_production",
+        "command": "E:/blender.exe --background --factory-startup --disable-autoexec --python-exit-code 20 --python <os_temp_script>",
+        "exit_code": 0,
+        "result": "C1_NORI7_PRODUCTION_COMPLETE"
+      },
+      {
+        "id": "glb_binary_parse",
+        "result": "PASS",
+        "details": "glTF2; 1 skin; 14 joints exact names; 10 animations; each clip duration>0 and 42 channels; 9 material slots; cream MAT_CozyCeramic present"
+      },
+      {
+        "id": "bone_parent_gate",
+        "result": "PASS",
+        "details": "root null; pelvis->root; spine->pelvis; chest->spine; head->chest; sprout_ctrl->head; arms->chest; hands->arms; legs->pelvis; feet->legs"
+      },
+      {
+        "id": "no_neutral_bone",
+        "result": "PASS"
+      },
+      {
+        "id": "adapter_exists",
+        "path": "game/resources/ucbv_001/character/nori7_animation_adapter.json",
+        "result": "PASS",
+        "extension_not_claimed_from_tier3": true
+      },
+      {
+        "id": "lease_hygiene",
+        "result": "PASS",
+        "out_of_lease_writes": [],
+        "motion_kit_unedited": true,
+        "no_helper_tmp_under_orch_logs": true
+      }
+    ],
+    "overall": "PASS"
+  },
+  "self_audit": {
+    "exact_lease_respected": true,
+    "out_of_lease_writes": [],
+    "motion_kit_edited": false,
+    "c0_rewritten": false,
+    "u0_u8_rewritten": false,
+    "p2e_002_touched": false,
+    "network_used": false,
+    "install_performed": false,
+    "grandchildren_spawned": false,
+    "self_accept": false,
+    "accepted": false,
+    "red_f01_network_shipping_hard_stop_honored": true,
+    "tier3_payload_not_claimed": true,
+    "procedural_mesh_not_used_as_production_truth": true,
+    "one_writer_per_file": true,
+    "commands_logged_to_leased_log_or_os_temp": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/ucbv_001/correction_002/C1_character_production_002.log",
+    "game/assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+    "game/assets/ucbv_001/character/nori7/export/nori7_glb_validation.json",
+    "game/assets/ucbv_001/character/nori7/export/nori7_bridge_job_manifest.json",
+    "game/resources/ucbv_001/character/nori7_animation_adapter.json",
+    "orchestration/reviews/CODEX_UCBV-001_C0_AND_MOTION_KIT_BINDING_003.json"
+  ],
+  "do_not_spawn": ["C2", "C3", "C4", "C5"],
+  "forbidden_observed_none": [
+    "motion_kit_edit",
+    "network",
+    "install",
+    "push",
+    "deploy",
+    "publish",
+    "grandchildren",
+    "self_accept",
+    "p2e_002",
+    "dna_v1.2",
+    "tier3_activation"
+  ]
+}

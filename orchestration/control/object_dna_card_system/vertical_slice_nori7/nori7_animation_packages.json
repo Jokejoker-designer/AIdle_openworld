@@ -1,0 +1,36 @@
+{
+  "schema_version": "object_dna_card_system/animation_packages/0.1",
+  "character_id": "CCP-RH-001",
+  "skeleton_family_id": "robot_biped_small_v1",
+  "skeleton_alias": "skel_small_biped_robot_v1",
+  "animation_set_id": "anim_robot_gardener_v1",
+  "packages": [
+    {
+      "package_id": "pkg_robot_core_v1",
+      "title": "Robot Core",
+      "clip_ids": ["idle", "walk", "scan", "happy", "cancel"],
+      "production_status": "REAL_KEYS_IN_GLB",
+      "card_level": 4
+    },
+    {
+      "package_id": "pkg_ucbv_build_v1",
+      "title": "UCBV Build Presentation",
+      "clip_ids": ["turn_left", "turn_right", "build_place", "build_place_hold", "confirm"],
+      "production_status": "REAL_KEYS_IN_GLB",
+      "card_level": 4,
+      "authority_note": "confirm never World Commits"
+    },
+    {
+      "package_id": "pkg_gardener_v1",
+      "title": "Gardener Work",
+      "clip_ids": ["water", "plant_seed", "harvest", "charge", "low_energy"],
+      "production_status": "REAL_KEYS_IN_GLB",
+      "card_level": 4,
+      "was_deferred": true,
+      "job": "NORI7_GARDENER_CLIPS_V1"
+    }
+  ],
+  "multi_select_allowed": true,
+  "accepted": false,
+  "self_accept": false
+}

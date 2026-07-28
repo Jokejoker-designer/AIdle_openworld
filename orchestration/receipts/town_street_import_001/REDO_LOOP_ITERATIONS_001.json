@@ -1,0 +1,76 @@
+{
+  "schema_version": "town_street_redo_loop_iterations/1.0",
+  "work_order": "WO-TOWN-STREET-IMPORT-001",
+  "agent": "grok",
+  "authority": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "need_human": false,
+  "phase": "A_stone_path_only",
+  "phase_b_skipped": {
+    "skipped": true,
+    "reason": "no GLB for cozy_wood_deck_A / cozy_boardwalk_A; no fake placeholder decks"
+  },
+  "home_bld_closed": {
+    "plot_id": "HOME.BLD",
+    "object_id": "cozy_house_small_A",
+    "status": "CLOSED_PERMANENTLY",
+    "decision": "HUMAN_ACCEPTED_RESIDUAL",
+    "decided_by": "Human Product Lead",
+    "relayed_by": "Claude conductor",
+    "ssot_100_pct_match": false,
+    "receipt": "E:/AIdle_openworld/orchestration/receipts/town_grid_import_001/HOME_BLD_HUMAN_ACCEPTED_001.json",
+    "reason": "Human Product Lead accepts residual soft-clay finish as FINAL — no further house passes (not pause; closed)"
+  },
+
+  "iterations": [
+    {
+      "n": 1,
+      "name": "STREET_PHASE_A_LOADER_V1",
+      "action": "Additive town_street_loader.gd: tile cozy_path_stone_A along 13 stone_path_network segments (axis_aligned + ring_rect + ring_ellipse). Mount ENABLE_TOWN_STREET_PATHS from main.gd. Plan copy res://resources/town/town_fairy_street_plan_v1.json. Phase B wood platforms honestly skipped.",
+      "result": "AIDLE_TOWN_STREET_IMPORT=PASS segments=13 ok=13 tiles=284 max_abs=11 phase_b_skipped. Headed QA PASS captures=7. Structural placement PASS. Fidelity: stone clusters present along Storybook Lane / plaza / ring — still HIGH_PARTIAL vs continuous paved street SSOT (path module is stone-cluster not continuous paver sheet).",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_street_import_001/godot_headed_qa_street_v1.log",
+      "failure_signature": "stone_cluster_tiles_not_continuous_paver_sheet",
+      "strikes_on_signature": 1,
+      "matching_100_pct": false
+    },
+    {
+      "n": 2,
+      "name": "STREET_V2A_DENSE_NODES_OOM",
+      "action": "Denser grid step=0.52 full-rect fill as Node3D duplicates + per-tile material boost. Target continuous ribbon.",
+      "result": "Structural place 1875 tiles then D3D12 CreateDescriptorHeap OOM (0x8007000e). Godot EXIT=-805306369. Not a fidelity pass — aborted.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_street_import_001/godot_headed_qa_street_v2.log",
+      "failure_signature": "gpu_descriptor_heap_oom_dense_node_instances",
+      "strikes_on_signature": 1,
+      "matching_100_pct": false
+    },
+    {
+      "n": 3,
+      "name": "STREET_V2C_MULTIMESH_DENSE",
+      "action": "Recover: MultiMeshInstance3D from cozy_path_stone_A mesh parts; step=0.58 full-rect + ring strips + ellipse bands; materials boosted once on template; vulkan headed QA with -s.",
+      "result": "AIDLE_TOWN_STREET_IMPORT=PASS + AIDLE_TOWN_STREET_HEADED_QA=PASS segments=13 tiles=1634 captures=7 max_abs=11. Continuous cream stone ribbons cover Storybook/Cottage/plaza/ring network vs V1 sparse clouds. Still HIGH_PARTIAL: mesh is cobble-cluster puffs not flat SVG paver sheet — needs flat path strip GLB or remesh family for 100%.",
+      "log": "E:/AIdle_openworld/orchestration/evidence/town_street_import_001/godot_headed_qa_street_v2c.log",
+      "failure_signature": "stone_cluster_tiles_not_continuous_paver_sheet",
+      "strikes_on_signature": 2,
+      "matching_100_pct": false
+    }
+  ],
+  "latest_headed_log": "E:/AIdle_openworld/orchestration/evidence/town_street_import_001/godot_headed_qa_street_v2c.log",
+  "assessment": {
+    "structure": "PASS",
+    "segments_13": true,
+    "tiles_placed": 1634,
+    "loader_pass": "STREET_V2C_MULTIMESH",
+    "coords_within_pm12": true,
+    "matching_100_pct_segments": [],
+    "matching_100_pct_count": 0,
+    "high_partial": "Network topology continuous and denser (MultiMesh). Asset family still stone-cluster cobbles — not flat continuous paver sheet per SVG pattern id=paver.",
+    "next": [
+      "Strike 3 or NEED_HUMAN if flat paver sheet required without new GLB (cozy_path_stone_A cannot become flat sheet by tiling alone)",
+      "Optional: author flat path strip module (future) then rebind PATH_MODULE_ID",
+      "Continue non-house HIGH_PARTIAL (greenhouse/cast/props) — not HOME.BLD",
+      "Phase B still blocked until wood deck GLBs exist"
+    ]
+  }
+}

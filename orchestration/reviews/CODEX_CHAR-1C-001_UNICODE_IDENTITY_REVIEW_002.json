@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_CHAR-1C-001_UNICODE_IDENTITY_REVIEW_002",
+  "task_id": "CHAR-1C-001",
+  "directive_reviewed": 65,
+  "reviewed_at": "2026-07-22T09:56:00+07:00",
+  "reviewed_by": "codex",
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "machine_baseline": {
+    "source_manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+    "source_hash_identity": "PASS",
+    "source_records_valid": "28/28",
+    "invalid_fixtures_rejected": "19/19",
+    "valid_fixtures_passed": "3/3",
+    "maf_receipt_schema_errors": 0,
+    "original_five_direct_probes": "REJECTED",
+    "foundry_source_diff": "zero",
+    "pycache_last_write_preserved": "2026-07-22T09:16:57+07:00",
+    "child_sequence": [
+      "019f87a9-ccba-7222-8364-742e7cb40be6",
+      "019f87af-f8af-7be2-9e72-08003e9b2c0e",
+      "019f87b4-6cb3-7260-b85c-e3e628a12625"
+    ]
+  },
+  "independent_adversarial_results": [
+    {
+      "id": "CHAR1C-CODEX-F08",
+      "severity": "P1",
+      "input": "display_name=FULLWIDTH AIDA (U+FF21 U+FF29 U+FF44 U+FF41)",
+      "observed": "ACCEPTED with zero errors",
+      "required": "Apply Unicode NFKC before the existing AIda identity collision gate"
+    },
+    {
+      "id": "CHAR1C-CODEX-F09",
+      "severity": "P1",
+      "input": "display_name=Aida with Cyrillic i or Cyrillic A, and Aida with Greek iota",
+      "observed": "ACCEPTED with zero errors",
+      "required": "Apply a documented minimal confusable fold on identity-bearing fields before AIda comparison"
+    }
+  ],
+  "non_blocking_note": "Natural-language capability prose is not treated as an authority token unless its normalized action token matches a denied capability; this correction must not broaden into semantic moderation.",
+  "reason": "Directive 65 closes its five original bypasses, but the same protected AIda identity surface remains fail-open under compatibility and mixed-script confusables. Identity separation is an acceptance invariant, so Purple VERIFIED wording is insufficient.",
+  "next_work_order": "orchestration/work_orders/WO-CHAR-1C-001-UNICODE-IDENTITY-CORRECTION-002.md",
+  "next_directive": 66,
+  "blocked": [
+    "Character Foundry visual/runtime waves",
+    "Block-DNA-ADAPT",
+    "P2E Block Assembly",
+    "Scene 2 and later worlds"
+  ]
+}

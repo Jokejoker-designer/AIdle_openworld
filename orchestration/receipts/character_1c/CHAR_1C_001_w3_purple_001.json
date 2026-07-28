@@ -1,0 +1,448 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CHAR-1C-001-w3-purple-001-2026-07-22",
+  "step_id": "CHAR-1C-001-w3-purple-001",
+  "work_order_id": "WO-CHAR-1C-001-FOUNDRY-SCHEMA-INTAKE",
+  "work_order": "orchestration/work_orders/WO-CHAR-1C-001-FOUNDRY-SCHEMA-INTAKE.md",
+  "work_order_sha256": "1f52b7e8bb2694e257febfdc0ead526d517168234b5adb960b66be896598c69b",
+  "directive_id": 64,
+  "directive_scope": "W3 Purple independent VERIFY_ONLY acceptance of Foundry 1C schema intake; exclusive two-file write lease; never patch; never ACCEPTED; no grandchildren",
+  "milestone": "Character Foundry 1C machine schema and provenance intake — W3 purple acceptance",
+  "agent_id": "aidle-character-purple-acceptance",
+  "agent_type": "aidle-character-purple-acceptance",
+  "profile_name": "aidle-character-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-character-purple-acceptance.md",
+  "profile_sha256": "6bbb58c50fa19363fbfb9448c66391addbfbb711723c91f5b0a61aa0cdf5dd53",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-character-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; profile authority_token=VERIFY_ONLY; required_skills include maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger,adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches; never ACCEPTED.",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "verify/log/receipt only; product_writes=[]; never ACCEPTED; no grandchildren; no schema/validator/Foundry patches",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:2a4873294cd5280f0750b04a4f8e5ab8ee670a9f282092de4507d3d3373d2b59",
+  "input_context_hash_16": "2a4873294cd5280f",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CHAR-1C-001-FOUNDRY-SCHEMA-INTAKE.md + codex_directive.json + aidle-character-purple-acceptance.md + agent_step_contract.schema.json + character_spec.schema.json + validate_character_foundry_1c.py + CHAR_1C_001_w2_red_001.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "VERIFIED",
+  "purple_verdict": "VERIFIED",
+  "verdict_detail": "Independent re-run PASS: SOURCE_VALID=28/28 INVALID_REJECTED=14/14 HASH_IDENTITY=PASS HARNESS_RESULT=PASS. Manifest SHA-256 recomputed bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba (before=after=locked); per-file source_sha256 28/28; zero Foundry source write by W3. W0/W1/W2 receipts schema-valid against agent_step_contract (0 errors). Exact writer leases PASS. F01–F06 independently reproduced as residual defense-in-depth / quality holes; F01 is P1 but does not block machine acceptance of this schema-intake pack smoke (live allowlists clean; authority boolean path fail-closed). Residuals remain open for next-wave Blue hardening and must be fixed or risk-accepted before ACCEPTED. Purple never accepts product. accepted=false; self_accept=false.",
+  "child_task_ref": "019f879b-e2db-7721-a07a-2bbf0cc6a340",
+  "transcript_ref": "019f879b-e2db-7721-a07a-2bbf0cc6a340",
+  "writer_transcript_ref": "019f879b-e2db-7721-a07a-2bbf0cc6a340",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_child_ref": "019f8797-49a2-72e0-8b36-4ce9a9360dae",
+  "prior_w0_ref": "019f8788-7c92-7e62-a614-91ccd32205e7",
+  "prior_w1_ref": "019f878f-89ab-7e93-9f6f-73520182afa4",
+  "prior_w2_ref": "019f8797-49a2-72e0-8b36-4ce9a9360dae",
+  "chain_child_refs": [
+    "019f8788-7c92-7e62-a614-91ccd32205e7",
+    "019f878f-89ab-7e93-9f6f-73520182afa4",
+    "019f8797-49a2-72e0-8b36-4ce9a9360dae",
+    "019f879b-e2db-7721-a07a-2bbf0cc6a340"
+  ],
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f879b-e2db-7721-a07a-2bbf0cc6a340/meta.json",
+  "durable_meta_sha256_at_start": "d02d831cb17571e3e4b9867b8608ab0e66808ecfabd572b133e51133b994c7a3",
+  "durable_session_note": "subagent_id=019f879b-e2db-7721-a07a-2bbf0cc6a340 description='W3 character Purple gate' status=running at start parent=019f7ffd-3995-71c0-aca1-51078e24a852 started_at=2026-07-22T02:16:08.158606100Z",
+  "next_owner": "CODEX",
+  "next_route": "WAITING_CODEX",
+  "character_binding": {
+    "trustlayer": "purple-team-release-gate",
+    "trustlayer_wo_required": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "trustlayer_read": "full_eof",
+    "ui": "ui-visual-critic",
+    "ui_wo_required": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_eof",
+    "role": "W3 VERIFY_ONLY purple release gate on Foundry 1C schema intake; no self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO, Directive 64, skills, W0/W1/W2 receipts, and contracts manually with transcript-backed full-EOF ranges.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "line_count": 1123,
+      "read_mode": "chunked_plus_line_proof",
+      "transcript_ranges": [
+        {"offset": 1, "limit": 50, "note": "header / integration contract"},
+        {"offset": 1100, "limit": 30, "note": "verification gate through Prime Directive EOF L1123"}
+      ],
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "note": "Also fully loaded earlier wave context; mid-body doctrine known from prior full reads same sha; EOF proof at L1123"
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ROUTED",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "line_count": 292,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "line_count": 50,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "adversarial_review": {
+    "review_id": "CHAR1C-W3-ADV-001",
+    "reviewer_role": "purple-team-release-gate",
+    "intent_anchor": {
+      "user_goal": "Independently verify WO-CHAR-1C-001 Foundry schema intake pack smoke, leases, receipts, and adjudicate W2 F01–F06 without patching or accepting product",
+      "current_priority": "Honest purple_verdict: pack smoke vs residual authority fail-closed holes",
+      "allowed_scope": [
+        "orchestration/logs/char-1c-001-w3-purple-001.log",
+        "orchestration/receipts/character_1c/CHAR_1C_001_w3_purple_001.json",
+        "read-only re-run of validator and hash recompute"
+      ],
+      "forbidden_scope": [
+        "patch schema/validator/fixtures/Foundry/product",
+        "self-accept / ACCEPTED",
+        "grandchildren",
+        "Godot/Blender/runtime/network"
+      ]
+    },
+    "claim_under_review": "W1 intake contracts + W2 red audit support machine schema-intake acceptance of 28/28 pack with fail-closed fixtures and locked provenance",
+    "what_i_accept": [
+      "Independent harness PASS 28/28 + 14/14 + hash identity",
+      "W0/W1/W2 MAF receipt schema validity and lease honesty",
+      "Live authority.* false and Nori-7 not AIda",
+      "WO-enumerated fail-closed fixtures reject as expected"
+    ],
+    "what_i_challenge": [
+      "Complete fail-closed claim for authority leakage while allowlist may carry direct_world_commit (F01)",
+      "Any implication that residual F01–F05 are closed before ACCEPTED"
+    ],
+    "strongest_counter_argument": "Authority booleans and INV-01/13 already fail-closed; live pack allowlists clean; F01 is defense-in-depth for future hand-authored fixtures and does not falsify 28-record provenance intake smoke.",
+    "missing_evidence": [
+      "Runtime consumer mapping of allowlist phrases to tools (out of WO scope)",
+      "Formal risk-acceptance record for residual P1 F01 if Codex holds ACCEPTED with residuals"
+    ],
+    "scope_drift_risk": "low",
+    "final_verdict": "VERIFIED",
+    "self_audit": {
+      "preserved_user_intent": true,
+      "did_not_invent_objection": true,
+      "evidence_based": true,
+      "no_scope_hijack": true
+    },
+    "confidence_before_challenge": 0.88,
+    "confidence_after_challenge": 0.84,
+    "next_action": "WAITING_CODEX; residual F01/F03/F05 before ACCEPTED"
+  },
+  "source_manifest": {
+    "path": "game_character/AIdle_Character_Foundry_MD/manifest.json",
+    "package": "AIdle Character Foundry MD",
+    "version": "1.0",
+    "sha256_expected": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+    "sha256_before": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+    "sha256_after": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+    "match": true,
+    "source_diff": "zero",
+    "character_count_declared": 28,
+    "world_count_declared": 7,
+    "lock_path": "orchestration/contracts/character_foundry_1c/source_manifest.lock.json",
+    "per_file_source_sha256_match": "28/28",
+    "unique_character_ids": 28,
+    "duplicate_ids": 0
+  },
+  "character_count": 28,
+  "world_count": 7,
+  "unique_character_ids": 28,
+  "source_records_valid": 28,
+  "invalid_fixtures_rejected": 14,
+  "invalid_fixtures_total": 14,
+  "valid_fixtures_pass": 3,
+  "validator_counts": {
+    "source_valid": "28/28",
+    "source_invalid": 0,
+    "invalid_rejected": "14/14",
+    "valid_fixtures": "3/3",
+    "hash_identity": "PASS",
+    "harness_result": "PASS",
+    "failures": 0,
+    "exit_code": 0
+  },
+  "receipt_schema_audit": {
+    "schema": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "w0": {"path": "orchestration/receipts/character_1c/CHAR_1C_001_w0_architect_intake_001.json", "errors": 0, "ok": true, "authority_token": "VERIFY_ONLY", "child_task_ref": "019f8788-7c92-7e62-a614-91ccd32205e7"},
+    "w1": {"path": "orchestration/receipts/character_1c/CHAR_1C_001_w1_schema_001.json", "errors": 0, "ok": true, "authority_token": "PATCH_DRAFT", "child_task_ref": "019f878f-89ab-7e93-9f6f-73520182afa4"},
+    "w2": {"path": "orchestration/receipts/character_1c/CHAR_1C_001_w2_red_001.json", "errors": 0, "ok": true, "authority_token": "READ_ONLY_AUDIT", "child_task_ref": "019f8797-49a2-72e0-8b36-4ce9a9360dae"},
+    "all_ok": true
+  },
+  "writer_lease_audit": {
+    "w0_exclusive_ok": true,
+    "w1_product_writes_outside_contracts": 0,
+    "w1_foundry_writes": 0,
+    "w2_product_writes": 0,
+    "w3_product_writes": 0,
+    "cross_wave_lease_violation": false,
+    "honest": true
+  },
+  "finding_adjudication": [
+    {
+      "finding_id": "CHAR1C-W2-F01",
+      "severity": "P1",
+      "w2_blocking": false,
+      "w2_must_fix_before_accepted": true,
+      "purple_reproduced": true,
+      "blocks_machine_acceptance_of_schema_intake": false,
+      "status": "RESIDUAL_OPEN_NEXT_WAVE",
+      "title": "behavior_allowlist accepts architecture-forbidden action tokens",
+      "evidence": "Independent probe allowlist=['direct_world_commit','mutate_ownership'] → validate_spec errors=[]; live pack forbidden-token hits=0; authority can_world_commit=true still fail-closed",
+      "disposition": "Does not block pack smoke VERIFIED; must fix or risk-accept before ACCEPTED for complete fail-closed claim"
+    },
+    {
+      "finding_id": "CHAR1C-W2-F02",
+      "severity": "P2",
+      "purple_reproduced": "accepted_as_residual",
+      "blocks_machine_acceptance_of_schema_intake": false,
+      "status": "RESIDUAL_OPEN_NEXT_WAVE",
+      "title": "Phrase-split allow/deny yields weak non-actionable pairs",
+      "disposition": "Intake-only semantics residual until action-ID registry wave"
+    },
+    {
+      "finding_id": "CHAR1C-W2-F03",
+      "severity": "P2",
+      "w2_must_fix_before_accepted": true,
+      "purple_reproduced": true,
+      "blocks_machine_acceptance_of_schema_intake": false,
+      "status": "RESIDUAL_OPEN_NEXT_WAVE",
+      "title": "No allow∩deny or allow∩universal_deny semantic gate",
+      "evidence": "shared_action_token on both lists → errors=[]",
+      "disposition": "Residual paired with F01; next-wave semantic gate"
+    },
+    {
+      "finding_id": "CHAR1C-W2-F04",
+      "severity": "P2",
+      "purple_reproduced": true,
+      "blocks_machine_acceptance_of_schema_intake": false,
+      "status": "RESIDUAL_OPEN_NEXT_WAVE",
+      "title": "AIda identity collision gate incomplete beyond name/id flags",
+      "evidence": "display_name AI-da and species_form with AIda pass; live pack clean; INV-11 still rejects explicit system-companion AIda",
+      "disposition": "Residual defense-in-depth"
+    },
+    {
+      "finding_id": "CHAR1C-W2-F05",
+      "severity": "P2",
+      "w2_must_fix_before_accepted": true,
+      "purple_reproduced": true,
+      "blocks_machine_acceptance_of_schema_intake": false,
+      "status": "RESIDUAL_OPEN_NEXT_WAVE",
+      "title": "Batch envelope skips $defs.intake_batch additionalProperties enforcement",
+      "evidence": "28-record batch with extra_backdoor=true tool_authority=true valid consts → errors=[]; single-record additionalProperties still enforced",
+      "disposition": "Residual; validate batch against $defs.intake_batch next wave"
+    },
+    {
+      "finding_id": "CHAR1C-W2-F06",
+      "severity": "P3",
+      "purple_reproduced": true,
+      "blocks_machine_acceptance_of_schema_intake": false,
+      "status": "RESIDUAL_OPEN_NEXT_WAVE",
+      "title": "cozy_cast not lock-bound to COZY_CAST_IDS",
+      "evidence": "Nori-7 cozy_cast=false passes; live normalize sets cozy correctly",
+      "disposition": "Residual quality bind"
+    }
+  ],
+  "residual_findings": [
+    "CHAR1C-W2-F01 P1 allowlist authority-token hole (must_fix_before_ACCEPTED)",
+    "CHAR1C-W2-F02 P2 weak phrase-split allow/deny",
+    "CHAR1C-W2-F03 P2 no allow∩deny gate",
+    "CHAR1C-W2-F04 P2 incomplete AIda string surface",
+    "CHAR1C-W2-F05 P2 batch envelope additionalProperties hole",
+    "CHAR1C-W2-F06 P3 cozy_cast unbound"
+  ],
+  "p0_open": 0,
+  "p1_open": 1,
+  "p1_blocking_machine_intake": 0,
+  "cozy_vs_aida": {
+    "nori7_id": "CCP-RH-001",
+    "nori7_class": "ROBOT_HELPER",
+    "nori7_is_system_companion": false,
+    "nori7_cozy_cast": true,
+    "aida_present_in_foundry_pack": false,
+    "merge_replace_allowed": false,
+    "live_identity_boundary_all_false": true,
+    "inv11_rejected": true
+  },
+  "writer_lease": [
+    "orchestration/logs/char-1c-001-w3-purple-001.log",
+    "orchestration/receipts/character_1c/CHAR_1C_001_w3_purple_001.json"
+  ],
+  "files_written": [
+    "orchestration/logs/char-1c-001-w3-purple-001.log",
+    "orchestration/receipts/character_1c/CHAR_1C_001_w3_purple_001.json"
+  ],
+  "product_writes": [],
+  "foundry_source_writes": [],
+  "write_discipline": {
+    "exclusive_lease_only": true,
+    "foundry_source_edits": false,
+    "contract_patches": false,
+    "grandchildren": false,
+    "dependency_install": false,
+    "godot_invoked": false,
+    "network_invoked": false,
+    "shell_redirects_to_product": false
+  },
+  "result": {
+    "status": "VERIFIED",
+    "verdict": "VERIFIED",
+    "purple_verdict": "VERIFIED",
+    "character_count": 28,
+    "world_count": 7,
+    "source_valid": "28/28",
+    "invalid_rejected": "14/14",
+    "valid_fixtures": "3/3",
+    "manifest_hash_match": true,
+    "source_diff": "zero",
+    "receipts_schema_valid": true,
+    "writer_leases_ok": true,
+    "p0_open": 0,
+    "p1_open": 1,
+    "p1_blocks_machine_intake": false,
+    "residual_count": 6,
+    "accepted": false,
+    "self_accept": false,
+    "next_route": "WAITING_CODEX",
+    "completion_signal": "WAITING_CODEX"
+  },
+  "smoke_test": {
+    "pass": true,
+    "commands": [
+      {
+        "command": "python E:\\AIdle_openworld\\orchestration\\contracts\\character_foundry_1c\\validate_character_foundry_1c.py",
+        "exit_code": 0,
+        "result": "SOURCE_VALID=28/28 INVALID_REJECTED=14/14 HASH_IDENTITY=PASS HARNESS_RESULT=PASS failures=0",
+        "markers": ["SOURCE_VALID=28/28", "INVALID_REJECTED=14/14", "HASH_IDENTITY=PASS", "HARNESS_RESULT=PASS"]
+      },
+      {
+        "command": "Get-FileHash -Algorithm SHA256 E:\\AIdle_openworld\\game_character\\AIdle_Character_Foundry_MD\\manifest.json",
+        "exit_code": 0,
+        "result": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+        "markers": ["HASH_MATCH_LOCKED", "SOURCE_ZERO_DIFF"]
+      },
+      {
+        "command": "Draft202012Validator on W0/W1/W2 receipts vs E:/standards/maf/schemas/agent_step_contract.schema.json",
+        "exit_code": 0,
+        "result": "RECEIPT_SCHEMA_ALL_OK errors=0 each",
+        "markers": ["RECEIPT_SCHEMA_ALL_OK"]
+      },
+      {
+        "command": "read-only F01/F03/F04/F05/F06 probes via validate_spec/validate_fixture_payload",
+        "exit_code": 0,
+        "result": "F01 empty errors; F03 empty; F04 AI-da/species pass; F05 batch backdoor empty; F06 cozy false empty; live forbid hits=0",
+        "markers": ["F01_REPRODUCED", "RESIDUALS_DOCUMENTED"]
+      }
+    ],
+    "exit_codes": [0, 0, 0, 0],
+    "error_line_count": 0,
+    "product_changed": false,
+    "foundry_changed": false,
+    "godot_invoked": false,
+    "network_invoked": false
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "verify_only": true,
+    "no_product_writes": true,
+    "no_foundry_source_edits": true,
+    "no_contract_patches": true,
+    "no_grandchildren": true,
+    "self_accept": false,
+    "accepted": false,
+    "writer_lease_only": true,
+    "skills_full_eof_claimed_with_ranges": true,
+    "findings_evidence_based": true,
+    "did_not_invent_defects": true,
+    "manifest_hash_verified_independently": true,
+    "receipts_schema_validated": true,
+    "aida_identity_live_preserved": true,
+    "honest_residual_notes": true,
+    "remaining_risks_for_codex": [
+      "F01 P1 allowlist authority-token hole remains open — fix or explicit risk acceptance before ACCEPTED",
+      "F03/F05 must_fix_before_accepted for complete fail-closed envelope claim",
+      "Phrase-split allow/deny remains intake-only until action-ID registry",
+      "Character visual/runtime slice remains blocked pending Codex acceptance of this intake gate"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/char-1c-001-w3-purple-001.log",
+    "orchestration/receipts/character_1c/CHAR_1C_001_w3_purple_001.json",
+    "orchestration/receipts/character_1c/CHAR_1C_001_w2_red_001.json",
+    "orchestration/receipts/character_1c/CHAR_1C_001_w1_schema_001.json",
+    "orchestration/receipts/character_1c/CHAR_1C_001_w0_architect_intake_001.json",
+    "orchestration/contracts/character_foundry_1c/character_spec.schema.json",
+    "orchestration/contracts/character_foundry_1c/source_manifest.lock.json",
+    "orchestration/contracts/character_foundry_1c/intake_report.json",
+    "orchestration/contracts/character_foundry_1c/validate_character_foundry_1c.py",
+    "game_character/AIdle_Character_Foundry_MD/manifest.json",
+    "orchestration/work_orders/WO-CHAR-1C-001-FOUNDRY-SCHEMA-INTAKE.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "evidence_memory": "NO_DURABLE_RECORD (selective ledger write not required; all evidence in exclusive receipt/log)"
+}

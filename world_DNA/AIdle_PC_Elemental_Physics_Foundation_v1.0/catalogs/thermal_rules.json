@@ -1,0 +1,71 @@
+{
+  "catalog_version": "1.0",
+  "rules": [
+    {
+      "rule_id": "thermal_lumped_body_v1",
+      "method": "LUMPED_CAPACITANCE",
+      "inputs": [
+        "temperature",
+        "ambient",
+        "heat_capacity",
+        "conductivity",
+        "heat_sources"
+      ],
+      "outputs": [
+        "next_temperature"
+      ]
+    },
+    {
+      "rule_id": "thermal_phase_water_v1",
+      "method": "THRESHOLD_PHASE",
+      "inputs": [
+        "temperature",
+        "water",
+        "ice",
+        "steam"
+      ],
+      "outputs": [
+        "phase_changes"
+      ]
+    },
+    {
+      "rule_id": "thermal_fire_cell_v1",
+      "method": "CELLULAR_SPREAD",
+      "inputs": [
+        "fuel",
+        "wetness",
+        "temperature",
+        "wind",
+        "neighbors"
+      ],
+      "outputs": [
+        "fire_intensity",
+        "spread_events"
+      ]
+    },
+    {
+      "rule_id": "thermal_insulation_v1",
+      "method": "NORMALIZED_RESISTANCE",
+      "inputs": [
+        "inside_temperature",
+        "outside_temperature",
+        "insulation"
+      ],
+      "outputs": [
+        "heat_loss"
+      ]
+    },
+    {
+      "rule_id": "thermal_visual_mapping_v1",
+      "method": "STATE_TO_VFX",
+      "inputs": [
+        "temperature",
+        "state"
+      ],
+      "outputs": [
+        "vfx_profile",
+        "material_parameters"
+      ]
+    }
+  ]
+}

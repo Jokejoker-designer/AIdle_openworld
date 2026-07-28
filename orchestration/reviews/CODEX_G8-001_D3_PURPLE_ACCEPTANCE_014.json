@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-G8-001-D3-PURPLE-ACCEPTANCE-014",
+  "reviewed_at": "2026-07-21T11:41:30+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "G8-001",
+  "directive_reviewed": 34,
+  "work_order_reviewed": "orchestration/work_orders/WO-G8-001-D3-PURPLE-GATE-013.md",
+  "machine_verdict": "PASS_FOR_HUMAN_REVIEW",
+  "g8_accepted": false,
+  "next_state": "HITL_REQUIRED",
+  "child_binding": {
+    "child_task_ref": "019f82f4-f08a-7720-9a49-fb14adc52279",
+    "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "profile": "network",
+    "authority": "VERIFY_ONLY",
+    "trustlayer": "purple-team-release-gate",
+    "ui_character": "ui-visual-critic",
+    "started_at_machine": "2026-07-21T04:35:18.285232500Z",
+    "completed_at_machine": "2026-07-21T04:39:25.846887500Z",
+    "tool_calls_machine": 47
+  },
+  "external_artifact_binding": {
+    "receipt": "orchestration/receipts/g8/subagent_workflow_remediation_004/D3_network_013.json",
+    "receipt_last_write_utc": "2026-07-21T04:39:07.1536374Z",
+    "receipt_sha256": "03cc599dd5b538dca52685576d27cb2697ebfaf92e3c1e1fcd177e1aef5e72aa",
+    "trace": "orchestration/logs/g8-d3-network-013.log",
+    "trace_last_write_utc": "2026-07-21T04:39:07.1536374Z",
+    "trace_sha256": "115c088d046eb08c57e564ca79f8215d14272d0a7ee56ee03972f80de5ec0273"
+  },
+  "independent_checks": {
+    "maf_jsonschema": "PASS",
+    "input_context_hash_recomputed": "PASS",
+    "same_parent_real_child": "PASS",
+    "character_and_skill_bindings": "PASS",
+    "no_grandchildren": "PASS",
+    "one_writer_exact_lease": "PASS",
+    "product_writes_empty": "PASS",
+    "self_accept_false_and_accepted_false": "PASS",
+    "ten_capture_hashes_and_dimensions": "PASS",
+    "four_manifestation_states_and_cancel": "PASS",
+    "companion_and_bridge_boundaries": "PASS",
+    "g3_76_g4_22_six_exports": "PASS_READ_ONLY",
+    "zero_godot_error_lines": "PASS",
+    "character_foundry_not_injected_into_d3": "PASS"
+  },
+  "visual_residuals": [
+    "Starter Realm remains prototype-grade primitive geometry rather than finished alpha art.",
+    "Text is dense and small at 868x517, especially helper and status copy.",
+    "Wireframe, hologram and materializing use similar cyan box geometry and rely partly on labels/opacity.",
+    "Some status copy uses internal jargon such as awaiting AGM onboarding slice.",
+    "After cancel, a previously confirmed building remains by design; first-time users may need clearer storytelling."
+  ],
+  "timing_note": "Worker start/end fields are informational and are not canonical. Human-approved machine metadata and filesystem timestamps are canonical.",
+  "human_checklist": "orchestration/evidence/g8_human_gate/HUMAN_ACCEPTANCE_CHECKLIST_014.md",
+  "self_accept": false
+}

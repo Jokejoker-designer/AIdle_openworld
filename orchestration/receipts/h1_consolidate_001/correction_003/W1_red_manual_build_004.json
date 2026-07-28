@@ -1,0 +1,509 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "H1-CONSOLIDATE-001-w1-red-manual-build-004-2026-07-22T150117Z",
+  "step_id": "H1-CONSOLIDATE-001-w1-red-manual-build-004",
+  "work_order_id": "WO-H1-CONSOLIDATE-001-HUMAN-UX-MANUAL-BUILD-CORRECTION-003",
+  "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-HUMAN-UX-MANUAL-BUILD-CORRECTION-003.md",
+  "work_order_sha256": "7f09ebd863997cc916e874dc039ab1a9cc822ef008c7823971643e5fedabc183",
+  "directive_id": 78,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "897441c22b736bae6da44376bd8e41172e0017dc419723ab64d0d06469181559",
+  "directive_state": "IN_PROGRESS",
+  "directive_verdict": "HUMAN_PLAYTEST_FINDINGS_CORRECTION_AUTHORIZED",
+  "supersedes_directive_id": 77,
+  "permitted_task_ids": ["H1-CONSOLIDATE-001"],
+  "review": "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_HUMAN_FINDINGS_004.json",
+  "review_sha256": "8a241faf8cd4d0c7bab1dd54ec3258b3b53551ee65b954a9503f10477ec525b0",
+  "milestone": "H1 Human UX and Manual Build correction — W1 Red findings-only verification",
+  "agent_id": "aidle-worldgen-red-scope",
+  "agent_type": "aidle-worldgen-red-scope",
+  "profile_name": "aidle-worldgen-red-scope",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-red-scope.md",
+  "profile_sha256": "7faf2b2b6bc07d18a1de109ccffd29279e7c7e060a24545e0fa2ee2bed1bebe5",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-red-scope; trustlayer_character=red-team-source-auditor; ui_character=ui-visual-critic; authority_token=READ_ONLY_AUDIT reduced this wave to VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,adversarial-review,architecture-lock; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set review_findings_only under exact lease.",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_reduced": true,
+  "authority_scope": "W1 Red findings-only after W0; exclusive log+receipt only; product_writes=[]; never ACCEPTED; no grandchildren; no product/test/DNA/Scene/Character/network patches",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:9f21afe09201993ffba6b4254680c79895bbb3a7223dae7f0b59af1782f49a58",
+  "input_context_hash_16": "9f21afe09201993f",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-H1-CONSOLIDATE-001-HUMAN-UX-MANUAL-BUILD-CORRECTION-003.md + codex_directive.json + aidle-worldgen-red-scope.md + CODEX_H1-CONSOLIDATE-001_HUMAN_FINDINGS_004.json + W0_control_manual_build_004.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "W1_COMPLETE_ROUTE_W2_QA",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "RED_FINDINGS_WITH_RESIDUALS_NO_ACCEPT",
+  "child_task_ref": "019f8a56-2d2b-7b63-b33f-03c5f2d4384a",
+  "transcript_ref": "019f8a56-2d2b-7b63-b33f-03c5f2d4384a",
+  "writer_transcript_ref": "019f8a56-2d2b-7b63-b33f-03c5f2d4384a",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_w0": "019f8a48-853f-7ec0-8bf1-0608170af2be",
+  "prior_w0_receipt": "orchestration/receipts/h1_consolidate_001/correction_003/W0_control_manual_build_004.json",
+  "prior_w0_sha256": "3226860d6c931599d2da26dd8f51570e02831f7711f1cef495c78e1868010796",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8a56-2d2b-7b63-b33f-03c5f2d4384a/meta.json",
+  "started_at": "2026-07-22T14:58:51.310453700Z",
+  "completed_at_utc": "2026-07-22T15:01:17Z",
+  "next_owner": "W2_QA",
+  "next_route": "W2_QA",
+  "human_gate_open": false,
+  "human_result": "PLAYTEST_COMPLETED_WITH_FINDINGS_AND_CORRECTION_AUTHORIZED",
+  "human_pass_inferred": false,
+  "character_binding": {
+    "trustlayer_character_id": "red-team-source-auditor",
+    "trustlayer_file": "E:/agents/characters/05-red-team-source-auditor.md",
+    "trustlayer_sha256": "6d809c350b34e4512e886e582d555235bf85361884c05c8e4e2f7c6e5f838951",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "ui_read": "full_eof",
+    "role": "W1 VERIFY_ONLY Red findings-only after W0 Manual Build patch; never patch product; never self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO HUMAN-UX-MANUAL-BUILD-CORRECTION-003, Directive 78, HUMAN_FINDINGS_004, W0 receipt, skills full EOF + adversarial-review + architecture-lock manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "full_file_size_hash_verify",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "bytes": 1766,
+      "line_count": 50,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "bytes": 828,
+      "line_count": 26,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "product_writes": [],
+  "orch_writes": [
+    {
+      "path": "orchestration/receipts/h1_consolidate_001/correction_003/W1_red_manual_build_004.json",
+      "role": "this_receipt"
+    },
+    {
+      "path": "orchestration/logs/h1_consolidate_001/correction_003/W1_red_manual_build_004.log",
+      "role": "primary_probe_log"
+    }
+  ],
+  "lease_respected": true,
+  "out_of_lease_writes": [],
+  "evidence_writes": [],
+  "w0_product_hash_verify": [
+    {
+      "path": "game/scripts/ui/cozy_helper_pulse.gd",
+      "sha256": "ec0d391f5551693be6f809cc5c64c860d8434cac21d66ba156280c8a55dfe685",
+      "match_w0": true
+    },
+    {
+      "path": "game/scripts/ui/control_1b_cursor_label.gd",
+      "sha256": "109d81611c575f67508df2cdcf33549e0030446ac715f665b51146252f6abbc0",
+      "match_w0": true
+    },
+    {
+      "path": "game/scripts/ui/playable_action_bar.gd",
+      "sha256": "13c45b2019db3e986db8ba4a69994882ef1c6aa710fcc11406b97172ce60d85c",
+      "match_w0": true
+    },
+    {
+      "path": "game/scripts/main/main.gd",
+      "sha256": "93c4a3ee618ed2a78921be1992be9a3002659377a78c2180b08856b46ca9a2ca",
+      "match_w0": true
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_controller.gd",
+      "sha256": "96efc5a131a516031528c51a11bffea2c52000f04617410a2f2c874b576c648f",
+      "match_w0": true
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_preview_entity.gd",
+      "sha256": "b6b98744e03f9145f1462b02313b5cb91ee3c2332749d3b559f4859e78f7cc1b",
+      "match_w0": true
+    },
+    {
+      "path": "game/scripts/modules/block_assembly/block_assembly_hud.gd",
+      "sha256": "a5bcac38983b8dc1a971ef3207b43801e4ee159987a366f71a2dee31e1678739",
+      "match_w0": true
+    },
+    {
+      "path": "game/autoload/control_accessibility_settings.gd",
+      "sha256": "590eafd4d4af695fa1e512729d2dd6e53b39aed3f12f10d175b5df4279a9948d",
+      "match_w0": true
+    },
+    {
+      "path": "game/tests/h1_human_ux_manual_build_smoke.gd",
+      "sha256": "ce705a0586fa466aea54734b9d016e809349ea7c5d8a39d88b5f7801c0868aae",
+      "match_w0": true
+    },
+    {
+      "path": "game/scenes/ui/playable_action_bar.tscn",
+      "sha256": "d559d65060308000391f1fc21f4486e5e1a1fa89e1356fa371ce38354e98ddc4",
+      "match_w0": false,
+      "note": "out_of_w0_lease; residual text Small Build"
+    }
+  ],
+  "probe_axes": [
+    {
+      "axis": 1,
+      "name": "context_leakage_exploration_vs_build",
+      "result": "PASS",
+      "evidence_type": "source-code evidence",
+      "summary": "Manual Build mouse gated to primary_context==build; request_context(build) on entry; end_manual_build_mode on leave; build_rotate rejected outside build; Exploration R remains camera."
+    },
+    {
+      "axis": 2,
+      "name": "direct_commit_bypass_client_forged_success",
+      "result": "PASS",
+      "evidence_type": "source-code evidence",
+      "summary": "handle_player_confirm→confirm_and_commit→AuthorityClient; reject_client_authored_success; LMB place flags preview_only/client_world_commit=false."
+    },
+    {
+      "axis": 3,
+      "name": "duplicate_click_escape_dispatch",
+      "result": "PASS",
+      "evidence_type": "source-code evidence",
+      "summary": "Esc just_pressed + _esc_dispatch_guard; cancel_preview single-cancel + awaiting_place_click; second cancel no-op."
+    },
+    {
+      "axis": 4,
+      "name": "invalid_ray_free_float_off_surface",
+      "result": "PASS",
+      "evidence_type": "source-code evidence",
+      "summary": "Ray fails closed; snap forced; set_snap_enabled(false) free_float_forbidden; budget-invalid blocks can_confirm with warm-invalid visual."
+    },
+    {
+      "axis": 5,
+      "name": "cursor_trapping_square_proxy_forced",
+      "result": "PASS",
+      "evidence_type": "source-code evidence",
+      "summary": "Default OS pointer; forced_square_proxy=false; custom cursor only a11y scale>1.01 arrow tip; Main clears custom cursor on context change."
+    },
+    {
+      "axis": 6,
+      "name": "accessibility_regressions",
+      "result": "PASS_WITH_RESIDUAL",
+      "evidence_type": "source-code evidence",
+      "summary": "Defaults safe; reduced_motion on pulse; residual force_custom_cursor not wired into cursor consumer (W1-RES-02)."
+    },
+    {
+      "axis": 7,
+      "name": "world_commit_sole_confirm_path",
+      "result": "PASS",
+      "evidence_type": "source-code evidence",
+      "summary": "Explicit confirm only; WorldAuthorityLocal commit; Main authority_path=world_commit_service; no client-forged acceptance."
+    },
+    {
+      "axis": 8,
+      "name": "w0_residual_small_build_tscn_chrome_flow",
+      "result": "OPEN",
+      "evidence_type": "runtime evidence",
+      "summary": "tscn still Small Build; chrome smoke FAIL action_bar_small_build_label; primary Manual Build smoke PASS checks=9."
+    }
+  ],
+  "findings": [
+    {
+      "id": "W1-RES-01",
+      "severity": "medium",
+      "axis": 8,
+      "status": "open",
+      "title": "Small Build residual in tscn + H1 chrome/flow smokes",
+      "finding": "playable_action_bar.tscn still ships text=\"Small Build\". Runtime gd overrides to Manual Build in _apply_responsive_layout, but h1_consolidation_chrome_smoke (and flow smoke per W0) still assert source string Small Build and FAIL. tscn + those tests were out of W0 lease.",
+      "evidence": [
+        "game/scenes/ui/playable_action_bar.tscn text = \"Small Build\"",
+        "game/scripts/ui/playable_action_bar.gd btn_demo.text = \"Manual Build\"",
+        "Re-run chrome smoke: AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=FAIL failed=1 passed=5 action_bar_small_build_label",
+        "W0 self_audit residual W0-RES-01"
+      ],
+      "evidence_type": "runtime evidence",
+      "owner": "parent_or_followup_test_tscn_lease",
+      "blocks_human_pass": false,
+      "blocks_regression_green": true,
+      "in_w1_lease": false,
+      "product_patch_by_w1": false
+    },
+    {
+      "id": "W1-RES-02",
+      "severity": "low",
+      "axis": 6,
+      "status": "open",
+      "title": "force_custom_cursor a11y flag not consumed by cursor runtime",
+      "finding": "control_accessibility_settings exposes force_custom_cursor (default false) and emits accessibility_changed, but control_1b_cursor_label only reacts to cursor_size_scale and action_label_near_cursor. Default OS path remains correct; explicit force_custom_cursor=true is a dead wire.",
+      "evidence": [
+        "game/autoload/control_accessibility_settings.gd force_custom_cursor default false + set_force_custom_cursor",
+        "game/scripts/ui/control_1b_cursor_label.gd _on_a11y_changed keys limited to cursor_size_scale, action_label_near_cursor"
+      ],
+      "evidence_type": "source-code evidence",
+      "owner": "followup_if_a11y_force_cursor_required",
+      "blocks_human_pass": false,
+      "blocks_regression_green": false,
+      "in_w1_lease": false,
+      "product_patch_by_w1": false
+    },
+    {
+      "id": "W1-RES-03",
+      "severity": "low",
+      "axis": 4,
+      "status": "open",
+      "title": "begin_manual_build origin hologram is immediately confirmable",
+      "finding": "begin_manual_build select_module at (0,0) with _cursor_hit_valid=true so can_confirm may succeed without an intentional LMB place click. Still preview-only until World Commit; not a forge path. Mild contract tightness vs WO wording that LMB creates/moves preview.",
+      "evidence": [
+        "block_assembly_controller.gd begin_manual_build sets _cursor_hit_valid=true and select_module(...,0,0,0,0)",
+        "can_confirm only gates _manual_build and not _cursor_hit_valid / awaiting intentional place"
+      ],
+      "evidence_type": "source-code evidence",
+      "owner": "optional_followup_product",
+      "blocks_human_pass": false,
+      "blocks_regression_green": false,
+      "in_w1_lease": false,
+      "product_patch_by_w1": false
+    },
+    {
+      "id": "W1-RES-04",
+      "severity": "low",
+      "axis": 1,
+      "status": "open",
+      "title": "place_at_cursor API can enable manual_build outside build context",
+      "finding": "If place_at_cursor is invoked when not _manual_build and not _is_build_context(), it sets _manual_build/_cursor_follow true. Main mouse path correctly returns false unless ctx==build; residual is API/test surface only.",
+      "evidence": [
+        "block_assembly_controller.gd place_at_cursor lines enabling _manual_build when not build",
+        "main.gd _handle_manual_build_mouse ctx != build → return false"
+      ],
+      "evidence_type": "source-code evidence",
+      "owner": "optional_followup_product",
+      "blocks_human_pass": false,
+      "blocks_regression_green": false,
+      "in_w1_lease": false,
+      "product_patch_by_w1": false
+    },
+    {
+      "id": "W1-RES-05",
+      "severity": "info",
+      "axis": 8,
+      "status": "deferred",
+      "title": "Headed dual-resolution visual proof deferred to W2",
+      "finding": "W0 headless only. Ring pulse, OS pointer, and cursor-led placement visual proof at 1280×720 / 868×517 remain W2 QA scope (W0-RES-02).",
+      "evidence": [
+        "W0 self_audit residual W0-RES-02",
+        "WO W2 headed evidence requirements"
+      ],
+      "evidence_type": "docs evidence",
+      "owner": "W2_QA",
+      "blocks_human_pass": false,
+      "blocks_regression_green": false,
+      "in_w1_lease": false,
+      "product_patch_by_w1": false
+    }
+  ],
+  "closed_human_findings_source_status": [
+    {
+      "id": "H1-HUMAN-UX-01",
+      "w0_status": "fixed_not_retested",
+      "w1_red_status": "source_closed_headed_pending_w2",
+      "summary": "Pulse uses TextureRect annular ring; presentation=ring_pulse; is_square=false; no ColorRect square path in source."
+    },
+    {
+      "id": "H1-HUMAN-UX-02",
+      "w0_status": "fixed_not_retested",
+      "w1_red_status": "source_closed_headed_pending_w2",
+      "summary": "Default OS pointer; no forced square proxy; label optional via a11y."
+    },
+    {
+      "id": "H1-HUMAN-BUILD-01",
+      "w0_status": "fixed_not_retested",
+      "w1_red_status": "source_closed_with_tscn_residual",
+      "summary": "Manual Build gd path: ray, snap follow, LMB preview, Q/R preview-only in build, RMB/Esc cancel once, Confirm→World Commit. tscn string residual open."
+    }
+  ],
+  "result": {
+    "ok": true,
+    "wave": "W1",
+    "product_goal": "VERIFY_ONLY Red probe of W0 Manual Build / UX correction on eight axes; findings only",
+    "godot_pin": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+    "godot_version": "4.3.stable.official",
+    "critical_open": 0,
+    "high_open": 0,
+    "medium_open": 1,
+    "low_open": 3,
+    "info_deferred": 1,
+    "axes_pass": 6,
+    "axes_pass_with_residual": 1,
+    "axes_open": 1,
+    "invariants_held": [
+      "World Commit sole canonical mutator on confirm path",
+      "preview non-durable until receipt",
+      "no free-float placement",
+      "Esc single-dispatch preserved",
+      "no absolute /root get_node reintroduced in W0 lease hashes",
+      "Exploration R remains camera; Build R rotates preview",
+      "no P2E-002 or UCBV-001 dispatch",
+      "W1 never patched product"
+    ]
+  },
+  "smoke_test": {
+    "required": true,
+    "role": "reconfirm_only_no_product_change",
+    "primary": {
+      "path": "game/tests/h1_human_ux_manual_build_smoke.gd",
+      "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/h1_human_ux_manual_build_smoke.gd",
+      "result": "PASS",
+      "checks": 9,
+      "marker": "AIDLE_H1_HUMAN_UX_MANUAL_BUILD_SMOKE=PASS checks=9"
+    },
+    "residual_reconfirm": [
+      {
+        "path": "game/tests/h1_consolidation_chrome_smoke.gd",
+        "result": "FAIL",
+        "failed": 1,
+        "passed": 5,
+        "reason": "action_bar_small_build_label — stale Small Build assert / tscn residual (W1-RES-01)"
+      }
+    ]
+  },
+  "adversarial_review": {
+    "review_id": "H1-CONSOLIDATE-001-w1-adv-004",
+    "reviewer_role": "red-team-source-auditor",
+    "intent_anchor": {
+      "user_goal": "VERIFY_ONLY Red findings on W0 Manual Build / UX correction; route W2 QA; never accept; never patch product",
+      "current_priority": "Probe eight axes after Directive 78 W0 patch",
+      "allowed_scope": [
+        "orchestration/receipts/h1_consolidate_001/correction_003/W1_red_manual_build_004.json",
+        "orchestration/logs/h1_consolidate_001/correction_003/W1_red_manual_build_004.log"
+      ],
+      "forbidden_scope": [
+        "product/game scripts and scenes",
+        "tests outside probe reconfirm",
+        "self-accept",
+        "P2E-002",
+        "UCBV-001",
+        "network/credentials/push/deploy"
+      ]
+    },
+    "claim_under_review": "W0 closed H1-HUMAN-UX-01/02 and H1-HUMAN-BUILD-01 with World Commit-only cursor-led Manual Build and no dual Esc / free-float / forced square cursor",
+    "what_i_accept": [
+      "Ring-pulse Helper Pulse source presentation",
+      "OS pointer default and no forced square proxy",
+      "Manual Build rename in playable_action_bar.gd",
+      "Ray/snap/invalid/cancel/confirm authority path structure",
+      "Primary headless smoke PASS checks=9"
+    ],
+    "what_i_challenge": [
+      "tscn still ships Small Build and chrome smoke remains red",
+      "confirmable origin soft-ghost without LMB",
+      "force_custom_cursor dead wire in cursor consumer"
+    ],
+    "strongest_counter_argument": "Runtime label override may make Human retest pass on Manual Build chrome even while tscn/smoke residual fails automated green — residual is regression honesty, not necessarily playtest UX failure.",
+    "missing_evidence": [
+      "Headed dual-resolution screenshots/video (W2)",
+      "Human focused retest (post W0-W3, not machine accept)"
+    ],
+    "scope_drift_risk": "low",
+    "final_verdict": "residual_open_no_accept",
+    "self_audit": {
+      "preserved_user_intent": true,
+      "did_not_invent_objection": true,
+      "evidence_based": true,
+      "no_scope_hijack": true
+    }
+  },
+  "self_audit": {
+    "lease_only_writes": true,
+    "product_writes_empty": true,
+    "absolute_root_lookup_reintroduced": false,
+    "self_accept": false,
+    "accepted": false,
+    "human_pass_inferred": false,
+    "p2e002_dispatched": false,
+    "ucbv001_dispatched": false,
+    "evidence_001_002_003_immutable": true,
+    "world_commit_sole_mutator": true,
+    "dual_esc_dispatch": false,
+    "free_float_allowed": false,
+    "grandchildren": 0,
+    "blocked_actions_not_taken": [
+      "product patch",
+      "self-accept",
+      "infer Human PASS",
+      "dispatch P2E-002",
+      "dispatch UCBV-001",
+      "network/live provider/credentials",
+      "install/Godot version change",
+      "push/deploy/publish",
+      "evidence write under 001/002/003",
+      "parent product patch"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/h1_consolidate_001/correction_003/W1_red_manual_build_004.log",
+    "orchestration/receipts/h1_consolidate_001/correction_003/W1_red_manual_build_004.json",
+    "orchestration/receipts/h1_consolidate_001/correction_003/W0_control_manual_build_004.json"
+  ],
+  "next_route": "W2_QA"
+}

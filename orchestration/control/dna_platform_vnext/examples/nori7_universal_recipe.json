@@ -1,0 +1,287 @@
+{
+  "schema_version": "dna_platform_vnext/universal_entity_recipe/0.1",
+  "recipe_id": "nori7_vnext_staging_001",
+  "request_id": "DNA:NORI7:20260723:001",
+  "entity_kind": "CHARACTER",
+  "world_profile": "cozy_cyber_pixel",
+  "compiler_target": "STRICT_BUILD_RECIPE",
+  "root_instance_id": "root",
+  "instances": [
+    {
+      "instance_id": "root",
+      "module_ref": {
+        "source_id": "module_catalog",
+        "catalog_version": "1.0",
+        "module_id": "char_nori7_base"
+      },
+      "role": "ROOT",
+      "transform": {
+        "position": [0, 0, 0],
+        "rotation_deg": [0, 0, 0],
+        "scale": [1, 1, 1]
+      },
+      "parameter_overrides": {}
+    },
+    {
+      "instance_id": "tank",
+      "module_ref": {
+        "source_id": "module_catalog",
+        "catalog_version": "1.0",
+        "module_id": "attach_water_tank_small"
+      },
+      "role": "ATTACHMENT",
+      "transform": {
+        "position": [0, 0, 0],
+        "rotation_deg": [0, 0, 0],
+        "scale": [1, 1, 1]
+      },
+      "parameter_overrides": {}
+    },
+    {
+      "instance_id": "nozzle",
+      "module_ref": {
+        "source_id": "module_catalog",
+        "catalog_version": "1.0",
+        "module_id": "attach_watering_nozzle_A"
+      },
+      "role": "ATTACHMENT",
+      "transform": {
+        "position": [0, 0, 0],
+        "rotation_deg": [0, 0, 0],
+        "scale": [1, 1, 1]
+      },
+      "parameter_overrides": {}
+    },
+    {
+      "instance_id": "sprout",
+      "module_ref": {
+        "source_id": "module_catalog",
+        "catalog_version": "1.0",
+        "module_id": "attach_mechanical_sprout_A"
+      },
+      "role": "ATTACHMENT",
+      "transform": {
+        "position": [0, 0, 0],
+        "rotation_deg": [0, 0, 0],
+        "scale": [1, 1, 1]
+      },
+      "parameter_overrides": {}
+    }
+  ],
+  "connections": [
+    {
+      "connection_id": "root_to_tank",
+      "from_instance": "root",
+      "from_socket": "character_back",
+      "from_polarity": "output",
+      "to_instance": "tank",
+      "to_socket": "back_attachment",
+      "to_polarity": "input"
+    },
+    {
+      "connection_id": "root_to_nozzle",
+      "from_instance": "root",
+      "from_socket": "character_hand",
+      "from_polarity": "output",
+      "to_instance": "nozzle",
+      "to_socket": "tool_grip",
+      "to_polarity": "input"
+    },
+    {
+      "connection_id": "root_to_sprout",
+      "from_instance": "root",
+      "from_socket": "character_head",
+      "from_polarity": "output",
+      "to_instance": "sprout",
+      "to_socket": "head_attachment",
+      "to_polarity": "input"
+    }
+  ],
+  "facets": {
+    "presentation": {
+      "material_theme_id": "mat_cozy_cream_leaf_v1",
+      "material_bindings": [
+        {
+          "instance_id": "root",
+          "slot": "body",
+          "palette_token": "cream"
+        },
+        {
+          "instance_id": "root",
+          "slot": "secondary",
+          "palette_token": "leaf"
+        },
+        {
+          "instance_id": "*",
+          "slot": "accent",
+          "palette_token": "orange"
+        },
+        {
+          "instance_id": "*",
+          "slot": "emission",
+          "palette_token": "cyan"
+        }
+      ]
+    },
+    "motion": {
+      "skeleton_id": "skel_small_biped_robot_v1",
+      "animation_set_id": "anim_robot_gardener_v1",
+      "motion_catalog_source_id": "motion_primitives",
+      "actions": [
+        {"action_id": "idle", "build_mode": "BASE_POSE_BLEND", "runtime_payload_proven": false},
+        {"action_id": "walk", "build_mode": "BASE_POSE_BLEND", "runtime_payload_proven": false},
+        {"action_id": "scan", "build_mode": "PROCEDURAL_RUNTIME", "runtime_payload_proven": false},
+        {"action_id": "water", "build_mode": "BASE_POSE_BLEND", "runtime_payload_proven": false},
+        {"action_id": "plant_seed", "build_mode": "BASE_POSE_BLEND", "runtime_payload_proven": false},
+        {"action_id": "harvest", "build_mode": "BASE_POSE_BLEND", "runtime_payload_proven": false},
+        {"action_id": "charge", "build_mode": "ASSET_REQUEST_REQUIRED", "runtime_payload_proven": false},
+        {"action_id": "happy", "build_mode": "BASE_POSE_BLEND", "runtime_payload_proven": false},
+        {"action_id": "low_energy", "build_mode": "BASE_POSE_BLEND", "runtime_payload_proven": false},
+        {"action_id": "cancel", "build_mode": "ASSET_REQUEST_REQUIRED", "runtime_payload_proven": false}
+      ]
+    },
+    "behaviors": [
+      {
+        "instance_id": "root",
+        "behavior_id": "behavior_interactable_v1",
+        "ai_authority": "CONFIGURE_ONLY",
+        "config": {}
+      },
+      {
+        "instance_id": "root",
+        "behavior_id": "behavior_follow_v1",
+        "ai_authority": "CONFIGURE_ONLY",
+        "config": {}
+      },
+      {
+        "instance_id": "root",
+        "behavior_id": "behavior_companion_helper_v1",
+        "ai_authority": "CONFIGURE_ONLY",
+        "config": {}
+      }
+    ],
+    "physics": {
+      "bindings": [
+        {
+          "instance_id": "root",
+          "element_ids": [],
+          "physical_profile_id": null,
+          "reaction_rule_ids": []
+        },
+        {
+          "instance_id": "tank",
+          "element_ids": ["element_water"],
+          "physical_profile_id": "phys_water_v1",
+          "reaction_rule_ids": [
+            "react_heat_water_steam_v1",
+            "react_cold_water_ice_v1"
+          ]
+        },
+        {
+          "instance_id": "nozzle",
+          "element_ids": ["element_water"],
+          "physical_profile_id": "phys_water_v1",
+          "reaction_rule_ids": [
+            "react_heat_water_steam_v1",
+            "react_cold_water_ice_v1"
+          ]
+        },
+        {
+          "instance_id": "sprout",
+          "element_ids": [],
+          "physical_profile_id": null,
+          "reaction_rule_ids": []
+        }
+      ],
+      "simulation_lod_policy": "NONE"
+    },
+    "vfx": [],
+    "audio": []
+  },
+  "authority": {
+    "proposal_only": true,
+    "may_commit_world": false,
+    "may_execute_generated_code": false,
+    "may_write_catalog": false,
+    "requires_human_confirmation": true,
+    "world_commit_route": "structured_world_prompt"
+  },
+  "readiness": {
+    "source_status": "AUTHORING_REQUIRED",
+    "runtime_ready": false,
+    "blockers": [
+      "Selected module records are DESIGN_READY and do not contain approved artifact hashes.",
+      "Skeleton catalog declares a 14-bone target but only root/body/head requirements, not a complete rig hierarchy.",
+      "Animation catalog contains clip metadata only; real keyed actions and runtime procedural proof are missing."
+    ],
+    "asset_requests": [
+      {
+        "asset_request_id": "AR:NORI7:MODULES:001",
+        "missing_capability": "verified_character_geometry_materials_lod_colliders",
+        "reason": "The selected base and attachments are design records without promoted artifact hashes.",
+        "deliverable_kind": "MODULE_GLTF",
+        "acceptance_checks": [
+          "GLB contains base plus three recipe attachments.",
+          "Material slots and cozy palette are visually readable and not flat white.",
+          "LOD and collider hints exist and artifact hashes are recorded."
+        ],
+        "quarantine_required": true,
+        "catalog_promotion_allowed": false
+      },
+      {
+        "asset_request_id": "AR:NORI7:RIG:001",
+        "missing_capability": "real_14_bone_skinned_rig",
+        "reason": "The skeleton family is a target contract, not a complete authored hierarchy.",
+        "deliverable_kind": "SKELETON_RIG",
+        "acceptance_checks": [
+          "Exactly 14 real bones satisfy the approved Nori-7 hierarchy.",
+          "Skin weights deform the visible mesh.",
+          "Hand, back, head and VFX sockets resolve to real bones."
+        ],
+        "quarantine_required": true,
+        "catalog_promotion_allowed": false
+      },
+      {
+        "asset_request_id": "AR:NORI7:MOTION:001",
+        "missing_capability": "real_keyed_and_runtime_proven_motion_set",
+        "reason": "All ten catalog actions are metadata-only; charge and cancel explicitly require authoring.",
+        "deliverable_kind": "ANIMATION_ACTIONS",
+        "acceptance_checks": [
+          "Every action has duration and a real authored or proven procedural payload.",
+          "Charge and cancel contain real key tracks.",
+          "Godot witnesses transitions for idle, walk, scan and all signature actions."
+        ],
+        "quarantine_required": true,
+        "catalog_promotion_allowed": false
+      }
+    ]
+  },
+  "validation_expectations": {
+    "schema": true,
+    "source_hashes": true,
+    "catalog_refs": true,
+    "sockets": true,
+    "profile_compatibility": true,
+    "motion_payload": true,
+    "behavior_authority": true,
+    "budget": true,
+    "runtime_evidence": true
+  },
+  "provenance": {
+    "source_registry_id": "aidle_dna_v1_1_tier3_bridge_20260723",
+    "sources": [
+      {"source_id": "module_catalog", "sha256": "257a6a69283881f07703bda43ad36e848deed46a092f3055ea0576cca3e9531d"},
+      {"source_id": "socket_types", "sha256": "37f0522e03048529b041b47c700f6ad48f3739ac5f94863706b1acabb3f3ef41"},
+      {"source_id": "skeleton_families", "sha256": "51688e82295eef9c5e62ed4ca8d37018636f4bfda5188ed70059c524289890cc"},
+      {"source_id": "animation_library", "sha256": "d7b7e22d94a76e0a99657e9fb69bd611adf6be9c44529c70b288078a1c670412"},
+      {"source_id": "material_themes", "sha256": "0c4996dc85d3e44220bcc98a7894b33230d51f0e2da1263a54c5b05defc32877"},
+      {"source_id": "behavior_blocks", "sha256": "857a8b4b560a527a13dae537518be522b5d1a87b8f1e98174e15e8bbdab1d2c6"},
+      {"source_id": "element_catalog", "sha256": "5896498f90ed4b786d675be3242261c332454764d2a77686763905be55facb62"},
+      {"source_id": "module_physics_bindings", "sha256": "178e25725665b41281f4809de0be094ed091aeca22961f39917c11482206849d"},
+      {"source_id": "motion_primitives", "sha256": "f18b09fdb2698038cea3433c735996eaeed01d744c74e4e536a89ad0cd892d74"}
+    ],
+    "generated_by_role": "DNA_COMPOSER",
+    "parent_recipe_ids": ["recipe_nori7_v1"]
+  },
+  "payload_fingerprint": "9527e7de3528bf51ff41e29ac8879021ca74b453a728de26479b63d2c0e05e87"
+}

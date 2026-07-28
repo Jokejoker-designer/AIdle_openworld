@@ -1,0 +1,251 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_skel_small_biped_robot_v1_hierarchy",
+  "skeleton_id": "skel_small_biped_robot_v1",
+  "display_name": "Small Biped Robot — production hierarchy",
+  "author_wave": "U4_CHARACTER_MESH_RIG",
+  "authority_token": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "character_binding": {
+	"display_name": "Nori-7",
+	"character_id": "CCP-RH-001",
+	"recipe_id": "recipe_nori7_v1",
+	"root_module_id": "char_nori7_base",
+	"world_profile_id": "cozy_cyber_pixel",
+	"style_lock_id": "ucbv_001_style_lock_v1"
+  },
+  "dna_catalog_residual": {
+	"source": "world_DNA/.../catalogs/skeleton_families.json",
+	"status": "PLACEHOLDER_RESIDUAL_NOT_PRODUCTION",
+	"dna_required_bones_placeholder": ["root", "body", "head"],
+	"dna_bone_count_target": 14,
+	"dna_attachment_sockets_shared_default": [
+	  "character_hand",
+	  "character_back",
+	  "character_head",
+	  "vfx_anchor"
+	],
+	"note": "DNA catalog stores identical placeholder bones for all 14 families. U4 supersedes placeholder for skel_small_biped_robot_v1 production. Do not treat DNA required_bones as production truth."
+  },
+  "production_status": "PRODUCTION_HIERARCHY_V1",
+  "engine_target": "Godot 4.x Skeleton3D",
+  "units": "meters",
+  "coordinate_space": "y_up_godot",
+  "forward_axis": "+Z face forward",
+  "right_axis": "+X",
+  "scale_basis": {
+	"head_unit_m": 0.6,
+	"body_height_hu": 2.0,
+	"body_height_m": 1.2,
+	"sprout_tip_hu": 2.4,
+	"sprout_tip_m": 1.44,
+	"source": "U2 proportion_guide: 2 HU chibi; wall-relative ~0.45–0.55 of 2.8 m wall → ~1.26–1.54 m; pick 1.2 m ceramic body + 0.24 m sprout"
+  },
+  "bone_count_production": 14,
+  "bone_count_matches_dna_target": true,
+  "root_motion": false,
+  "locomotion": "BIPED",
+  "blend_profile": "cozy_bouncy",
+  "bones": [
+	{
+	  "name": "root",
+	  "parent": null,
+	  "index": 0,
+	  "role": "world_anchor",
+	  "rest_position_m": [0.0, 0.0, 0.0],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.0,
+	  "notes": "Origin at ground contact center between feet. No mesh skin. Animation root; root_motion=false."
+	},
+	{
+	  "name": "pelvis",
+	  "parent": "root",
+	  "index": 1,
+	  "role": "hips_com",
+	  "rest_position_m": [0.0, 0.22, 0.0],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.12,
+	  "notes": "Primary locomotion pivot; walk bob and weight shift origin."
+	},
+	{
+	  "name": "spine",
+	  "parent": "pelvis",
+	  "index": 2,
+	  "role": "lower_body_mass",
+	  "rest_position_m": [0.0, 0.18, 0.02],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.2,
+	  "notes": "Lower teardrop mass Y≈0.40–0.60 m; soft lean for build/confirm."
+	},
+	{
+	  "name": "chest",
+	  "parent": "spine",
+	  "index": 3,
+	  "role": "upper_body_arm_root",
+	  "rest_position_m": [0.0, 0.28, 0.03],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.22,
+	  "notes": "Arm roots + tank mid attach plane. character_back + vfx_anchor parent."
+	},
+	{
+	  "name": "head",
+	  "parent": "chest",
+	  "index": 4,
+	  "role": "face_aim_mass",
+	  "rest_position_m": [0.0, 0.32, 0.04],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.3,
+	  "notes": "Fused head/body silhouette; bone exists for aim/blink/sprout socket. Not a human neck."
+	},
+	{
+	  "name": "arm_L",
+	  "parent": "chest",
+	  "index": 5,
+	  "role": "upper_arm_left",
+	  "rest_position_m": [-0.28, 0.08, 0.02],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 12.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.18,
+	  "notes": "Short chunky arm; no clavicle (chibi budget)."
+	},
+	{
+	  "name": "hand_L",
+	  "parent": "arm_L",
+	  "index": 6,
+	  "role": "left_hand_end",
+	  "rest_position_m": [-0.16, -0.1, 0.04],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.08,
+	  "notes": "Secondary hand; no default tool. Optional dual-hand VFX later."
+	},
+	{
+	  "name": "arm_R",
+	  "parent": "chest",
+	  "index": 7,
+	  "role": "upper_arm_right",
+	  "rest_position_m": [0.28, 0.08, 0.02],
+	  "rest_rotation_euler_deg": [0.0, 0.0, -12.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.18,
+	  "notes": "Primary tool arm (watering nozzle)."
+	},
+	{
+	  "name": "hand_R",
+	  "parent": "arm_R",
+	  "index": 8,
+	  "role": "right_hand_tool",
+	  "rest_position_m": [0.16, -0.1, 0.04],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.08,
+	  "notes": "character_hand socket parent; nozzle stowed along forearm / extended forward-down."
+	},
+	{
+	  "name": "leg_L",
+	  "parent": "pelvis",
+	  "index": 9,
+	  "role": "left_thigh_shank",
+	  "rest_position_m": [-0.12, -0.02, 0.0],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.14,
+	  "notes": "Short biped; single leg bone before foot (no knee mid for budget)."
+	},
+	{
+	  "name": "foot_L",
+	  "parent": "leg_L",
+	  "index": 10,
+	  "role": "left_foot_pad",
+	  "rest_position_m": [0.0, -0.14, 0.02],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.08,
+	  "notes": "Foot pad plant; stone material region."
+	},
+	{
+	  "name": "leg_R",
+	  "parent": "pelvis",
+	  "index": 11,
+	  "role": "right_thigh_shank",
+	  "rest_position_m": [0.12, -0.02, 0.0],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.14,
+	  "notes": "Mirror of leg_L."
+	},
+	{
+	  "name": "foot_R",
+	  "parent": "leg_R",
+	  "index": 12,
+	  "role": "right_foot_pad",
+	  "rest_position_m": [0.0, -0.14, 0.02],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.08,
+	  "notes": "Mirror of foot_L."
+	},
+	{
+	  "name": "sprout_ctrl",
+	  "parent": "head",
+	  "index": 13,
+	  "role": "crown_sprout_control",
+	  "rest_position_m": [0.0, 0.22, -0.02],
+	  "rest_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "rest_scale": [1.0, 1.0, 1.0],
+	  "length_m": 0.18,
+	  "notes": "Control bone for attach_mechanical_sprout_A sway; character_head socket co-located. Counts toward 14-bone target."
+	}
+  ],
+  "name_aliases": {
+	"dna_placeholder_body": {
+	  "maps_to": ["pelvis", "spine", "chest"],
+	  "status": "EXPANDED_FROM_PLACEHOLDER"
+	},
+	"dna_placeholder_head": {
+	  "maps_to": ["head", "sprout_ctrl"],
+	  "status": "EXPANDED_FROM_PLACEHOLDER"
+	},
+	"dna_placeholder_root": {
+	  "maps_to": ["root"],
+	  "status": "RETAINED"
+	}
+  },
+  "optional_non_export_controls": [
+	{
+	  "name": "eye_L_ctrl",
+	  "parent": "head",
+	  "export": false,
+	  "notes": "Blink scale-Y only; may be AnimationPlayer property tracks without bone"
+	},
+	{
+	  "name": "eye_R_ctrl",
+	  "parent": "head",
+	  "export": false,
+	  "notes": "Blink scale-Y only"
+	}
+  ],
+  "compatible_animation_sets": [
+	"anim_robot_gardener_v1",
+	"anim_small_biped_core_v1"
+  ],
+  "forbidden": [
+	"use_dna_placeholder_three_bones_as_production",
+	"humanoid_42_bone_import",
+	"root_motion_true_without_policy_change",
+	"world_grid_snap_on_joints"
+  ],
+  "provenance": {
+	"asset_id": "ucbv_001_skel_small_biped_robot_v1_hierarchy",
+	"character_id": "CCP-RH-001",
+	"recipe_id": "recipe_nori7_v1",
+	"style_lock_id": "ucbv_001_style_lock_v1",
+	"author_wave": "U4_CHARACTER_MESH_RIG"
+  }
+}

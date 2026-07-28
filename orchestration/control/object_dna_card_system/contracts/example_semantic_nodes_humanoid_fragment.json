@@ -1,0 +1,36 @@
+{
+  "schema_version": "object_dna_card_system/semantic_node_id/0.1",
+  "convention_id": "semantic_node_id_v1",
+  "rules": {
+    "marker_for_display_only": true,
+    "semantic_id_for_data": true,
+    "semantic_id_pattern": "^[a-z][a-z0-9_]*$",
+    "no_abc_as_primary_key": true
+  },
+  "nodes": [
+    { "marker": "A", "semantic_id": "root", "parent": null, "required": true },
+    { "marker": "B", "semantic_id": "pelvis", "parent": "root", "required": true },
+    { "marker": "C", "semantic_id": "spine_01", "parent": "pelvis", "required": true },
+    { "marker": "D", "semantic_id": "chest", "parent": "spine_01", "required": true },
+    { "marker": "E", "semantic_id": "neck", "parent": "chest", "required": false },
+    { "marker": "F", "semantic_id": "head", "parent": "neck", "required": true },
+    { "marker": "G", "semantic_id": "upperarm_L", "parent": "chest", "required": true },
+    { "marker": "H", "semantic_id": "elbow_L", "parent": "upperarm_L", "required": true },
+    { "marker": "I", "semantic_id": "hand_L", "parent": "elbow_L", "required": true }
+  ],
+  "contact_markers": [
+    "foot_contact_L",
+    "foot_contact_R",
+    "hand_grip_L",
+    "hand_grip_R",
+    "seat_contact"
+  ],
+  "examples_from_source_doc": [
+    { "marker": "A", "semantic_id": "root", "parent": null, "required": true },
+    { "marker": "B", "semantic_id": "pelvis", "parent": "root", "required": true },
+    { "marker": "C", "semantic_id": "spine_01", "parent": "pelvis", "required": true }
+  ],
+  "note": "Illustrative fragment from SOURCE §4/§7 — not a production humanoid hierarchy.",
+  "accepted": false,
+  "self_accept": false
+}

@@ -1,0 +1,57 @@
+{
+  "case_id": "VALID-03-bac-bap-character-spec",
+  "description": "Cozy cast NPC_WORKER with non-empty allow/deny",
+  "payload": {
+    "schema_version": "character_spec/1.0",
+    "character_id": "CCP-NW-003",
+    "display_name": "Bác Bắp",
+    "world_profile_id": "cozy_cyber_pixel",
+    "world_profile_display": "Cozy Cyber-Pixel / Dreamy Low-Poly",
+    "character_class": "NPC_WORKER",
+    "species_form": "Thợ máy làng",
+    "gameplay_role": "Sửa máy, nâng cấp robot và dạy chế tạo",
+    "world_ability": "Sửa robot, mở khóa tool module, tái chế linh kiện và đánh giá độ bền.",
+    "limitation": "Không cho nâng cấp nếu thiếu điều kiện an toàn hoặc chỉ để tăng thông số vô nghĩa.",
+    "behavior_allowlist": [
+      "Sửa robot",
+      "mở khóa tool module",
+      "tái chế linh kiện",
+      "đánh giá độ bền"
+    ],
+    "behavior_denylist": [
+      "Không cho nâng cấp nếu thiếu điều kiện an toàn hoặc chỉ để tăng thông số vô nghĩa",
+      "direct_world_commit",
+      "mutate_canonical_inventory",
+      "mutate_ownership",
+      "mutate_economy",
+      "execute_arbitrary_code",
+      "trustlayer_tool_invocation",
+      "replace_or_merge_aida",
+      "provider_credential_access"
+    ],
+    "authority": {
+      "can_world_commit": false,
+      "tool_authority": false,
+      "trustlayer_worker": false,
+      "is_system_companion": false,
+      "durable_mutation_path": "proposal->validation->preview->confirm->world_commit"
+    },
+    "identity_boundary": {
+      "is_aida": false,
+      "aida_merge_or_replace": false,
+      "replaces_system_companion": false
+    },
+    "provenance": {
+      "package": "AIdle Character Foundry MD",
+      "pack_version": "1.0",
+      "source_path": "01_cozy_cyber_pixel/03_bac_bap.md",
+      "source_sha256": "070c031275ba4f3cedd86b9ea0c1a7259536aed10709c96a76dbe62bdfbc4bf1",
+      "manifest_sha256": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba"
+    },
+    "cozy_cast": true,
+    "spawn_location": "Xưởng sửa chữa, kho dụng cụ, khu máy móc cũ.",
+    "relationship_hooks": "Là người bảo trì Nori-7; thường nhận linh kiện từ Mây Mạch; để Bụi Mơ ngủ gần lò sưởi.",
+    "source_status": "Concept / Production-ready specification",
+    "rig_family": "Humanoid-stocky-01; găng cơ khí có 3 khớp phụ."
+  }
+}

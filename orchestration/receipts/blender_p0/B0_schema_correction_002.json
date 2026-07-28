@@ -1,0 +1,288 @@
+{
+  "agent_step_id": "B0-001-schema-correction-002-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:88b48c647b92909486250171f381f9a8bd60e29d79ce670c2a278ac2cb2288c0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8387-0769-7232-b022-168056657d0b",
+  "correction_child_ref": "019f8387-0769-7232-b022-168056657d0b",
+  "original_child_task_ref": "019f8373-dc17-7b02-914f-073b4ae5c03a",
+  "transcript_ref": "019f8387-0769-7232-b022-168056657d0b",
+  "writer_transcript_ref": "019f8387-0769-7232-b022-168056657d0b",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "resumed_from": "019f8373-dc17-7b02-914f-073b4ae5c03a",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/blender-p0-schema-correction-002.log",
+  "handoff_ref": "B0_RIG_CORRECTION_002",
+  "start_time": "2026-07-21T07:14:52.403643500Z",
+  "end_time": "2026-07-21T07:16:05Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+  "profile_binding_evidence": "FULL re-read correction: name=aidle-schema; trustlayer_character=devil-advocate; ui_character=ui-brief-writer; required_skills list present. WO-B0-001-EVIDENCE-CORRECTION-001 authority = VERIFY_ONLY.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "od-design-brief",
+      "od-reference-design-contract"
+    ]
+  },
+  "lineage": {
+    "original_child_task_ref": "019f8373-dc17-7b02-914f-073b4ae5c03a",
+    "correction_child_ref": "019f8387-0769-7232-b022-168056657d0b",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "session_kind": "subagent_resume",
+    "parent_session_id_of_correction": "019f8373-dc17-7b02-914f-073b4ae5c03a"
+  },
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/schema.md",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-B0-001-EVIDENCE-CORRECTION-001.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_B0-001_MACHINE_REVIEW_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_schema_001.json",
+    "E:/AIdle_openworld/orchestration/logs/blender-p0-schema-001-hash.txt",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/agents/characters/14-devil-advocate.md",
+    "E:/agents/ui-design/characters/02-ui-brief-writer.md",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "E:/shared/skills/library/od-design-brief/SKILL.md",
+    "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+    "E:/AIdle_Blender_Bridge_P0/app/models.py",
+    "E:/AIdle_Blender_Bridge_P0/Grok/tool_definitions.json",
+    "E:/AIdle_Blender_Bridge_P0/config/operation_allowlist.yaml"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_schema_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/blender-p0-schema-correction-002.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "B0-001",
+    "directive_id": 47,
+    "work_order": "orchestration/work_orders/WO-B0-001-EVIDENCE-CORRECTION-001.md",
+    "codex_review": "orchestration/reviews/CODEX_B0-001_MACHINE_REVIEW_001.json",
+    "wave": "B0_SCHEMA_CORRECTION_002",
+    "profile": "schema",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS_LEASE_CORRECTED",
+    "summary": "Schema lineage evidence correction for blocker B0-SCOPE-001. Original B0_schema_001.json preserved and marked rejected for exact-lease acceptance due to unauthorized out-of-lease write of blender-p0-schema-001-hash.txt (SHA-256 confirmed). This correction pass writes only the two leased paths. Schema fail-closed gates re-verified read-only; no product/test patch.",
+    "character_binding": {
+      "trustlayer_character_id": "devil-advocate",
+      "trustlayer_card": "E:/agents/characters/14-devil-advocate.md",
+      "ui_character_id": "ui-brief-writer",
+      "ui_card": "E:/agents/ui-design/characters/02-ui-brief-writer.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no inventing evidence / no exceeding authority"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: slot 14 devil-advocate VERIFY_ONLY; Purple never patches; Red finds only"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: hub E:\\; journal handoff discipline; do not skip handoff"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: project rooms; respect authority tokens"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read through EOF (~1124 lines): do not claim commands without observation; classify FACT/INFERENCE; verification gate"
+      },
+      {
+        "skill_id": "od-design-brief",
+        "source": "E:/shared/skills/library/od-design-brief/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: I-Lang 8 dimensions; DESIGN.md primary (binding evidence only this wave)"
+      },
+      {
+        "skill_id": "od-reference-design-contract",
+        "source": "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL re-read: DESIGN.md + design-contract + handoff; keep/change/do-not-copy (binding only)"
+      }
+    ],
+    "original_receipt_disposition": {
+      "path": "orchestration/receipts/blender_p0/B0_schema_001.json",
+      "absolute_path": "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_schema_001.json",
+      "status": "rejected_for_exact_lease_acceptance",
+      "preserved": true,
+      "deleted": false,
+      "overwritten": false,
+      "reason": "Codex blocker B0-SCOPE-001: original schema child wrote orchestration/logs/blender-p0-schema-001-hash.txt outside its exact two-file lease (receipt + log only).",
+      "original_child_task_ref": "019f8373-dc17-7b02-914f-073b4ae5c03a",
+      "original_receipt_sha256": "91c80699d7c9e9c5d33b152d65d57d91789517e28480b2edf6ac75f729a9832a",
+      "note": "Technical fail-closed findings inside B0_schema_001 may remain historically useful as rejected evidence, but the receipt is NOT valid for exact-lease acceptance of B0-001."
+    },
+    "unauthorized_out_of_lease_file": {
+      "path": "orchestration/logs/blender-p0-schema-001-hash.txt",
+      "absolute_path": "E:/AIdle_openworld/orchestration/logs/blender-p0-schema-001-hash.txt",
+      "sha256": "63D3E6CD2D1AC9EBA1262AF1FC1C5A58E977C397771B97AE6AF6A6A409B3756B",
+      "sha256_recomputed_this_pass": "63D3E6CD2D1AC9EBA1262AF1FC1C5A58E977C397771B97AE6AF6A6A409B3756B",
+      "sha256_match_codex_blocker": true,
+      "bytes": 1103,
+      "status": "rejected_evidence_preserved",
+      "deleted": false,
+      "modified_this_pass": false,
+      "counts_toward_acceptance": false,
+      "codex_blocker_id": "B0-SCOPE-001"
+    },
+    "write_lease_this_pass": {
+      "leased_paths_exact": [
+        "orchestration/receipts/blender_p0/B0_schema_correction_002.json",
+        "orchestration/logs/blender-p0-schema-correction-002.log"
+      ],
+      "files_written": [
+        "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_schema_correction_002.json",
+        "E:/AIdle_openworld/orchestration/logs/blender-p0-schema-correction-002.log"
+      ],
+      "out_of_lease_writes_this_pass": [],
+      "product_writes": [],
+      "no_new_hash_helper_file": true,
+      "input_context_hash_method": "stdout-only python sha256 of WO+review+B0_schema_001; no secondary hash file written",
+      "proof": "Before write: both leased paths absent. After write: only those two exist as new schema-correction artifacts. Unauthorized hash file still present unchanged (same SHA-256). B0_schema_001.json not overwritten."
+    },
+    "input_context_hash": "sha256:88b48c647b92909486250171f381f9a8bd60e29d79ce670c2a278ac2cb2288c0",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-B0-001-EVIDENCE-CORRECTION-001.md",
+        "E:/AIdle_openworld/orchestration/reviews/CODEX_B0-001_MACHINE_REVIEW_001.json",
+        "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_schema_001.json"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "88b48c647b92909486250171f381f9a8bd60e29d79ce670c2a278ac2cb2288c0",
+      "BYTE_LEN": 26298,
+      "persisted_hash_file": null,
+      "note": "Hash computed to stdout only to honor exact two-file lease."
+    },
+    "schema_fail_closed_reverify_readonly": [
+      {
+        "gate": "extra fields rejected",
+        "status": "PASS",
+        "evidence": "CharacterJobRequest.model_validate with python_code raised ValidationError (EXTRA_FIELD=REJECTED_OK)"
+      },
+      {
+        "gate": "disabled validation blocked",
+        "status": "PASS",
+        "evidence": "OutputRequest generate_validation_report=False raised ValidationError (DISABLE_VALIDATION=REJECTED_OK)"
+      },
+      {
+        "gate": "Grok tool surface limited",
+        "status": "PASS",
+        "evidence": "tool_definitions.json exactly 3 tools: inspect_character_template, build_character_from_template, get_character_job_status"
+      },
+      {
+        "gate": "operation allowlist denies shell/godot publish",
+        "status": "PASS",
+        "evidence": "operation_allowlist.yaml contains execute_shell and publish_to_godot under globally_denied"
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "B0-SCOPE-001-ACK",
+        "severity": "blocking_on_original_receipt",
+        "classification": "FACT",
+        "statement": "Original schema child violated exact write lease by creating blender-p0-schema-001-hash.txt. Acknowledged; file preserved as rejected_evidence_preserved; original receipt rejected_for_exact_lease_acceptance.",
+        "remediated_by": "this correction receipt under exact two-path lease"
+      }
+    ],
+    "residual_risks": [
+      "This correction does not re-run full pytest matrix; prior 11-pass remains historical. Lease compliance is the corrected gate for schema lineage acceptance path.",
+      "Rig and Purple correction children remain sequential next; this child does not accept B0-001."
+    ],
+    "children": [],
+    "product_writes": [],
+    "handoff_ref": "B0_RIG_CORRECTION_002",
+    "handoff_note": "Schema lease correction complete. Next sequential child: aidle-character-rig-animation correction (B0_rig_correction_002). No grandchildren."
+  },
+  "smoke_test": {
+    "passed": true,
+    "attributed_to_transcript_ref": "019f8387-0769-7232-b022-168056657d0b",
+    "commands": [
+      {
+        "command": "Get-FileHash -Algorithm SHA256 -LiteralPath E:\\AIdle_openworld\\orchestration\\logs\\blender-p0-schema-001-hash.txt",
+        "exit_code": 0,
+        "sha256": "63D3E6CD2D1AC9EBA1262AF1FC1C5A58E977C397771B97AE6AF6A6A409B3756B",
+        "mutating": false
+      },
+      {
+        "command": "python -c <stdout-only sha256 of WO+review+B0_schema_001 + unauth reconfirm>",
+        "exit_code": 0,
+        "note": "ModuleNotFoundError for app when cwd not bridge; unauth hash and input_context_hash printed to stdout only; no hash file written",
+        "INPUT_CONTEXT_HASH": "sha256:88b48c647b92909486250171f381f9a8bd60e29d79ce670c2a278ac2cb2288c0",
+        "UNAUTH_MATCH": true,
+        "mutating": false
+      },
+      {
+        "command": "python -c <pydantic re-validate CharacterJobRequest/OutputRequest + tool/allowlist inspect>",
+        "cwd": "E:/AIdle_Blender_Bridge_P0",
+        "exit_code": 0,
+        "EXTRA_FIELD": "REJECTED_OK",
+        "DISABLE_VALIDATION": "REJECTED_OK",
+        "TOOL_COUNT": 3,
+        "mutating": false
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "VERIFY_ONLY",
+    "no_self_accept": true,
+    "accepted": false,
+    "self_accept": false,
+    "no_product_patch": true,
+    "product_writes_empty": true,
+    "no_nested_grandchildren": true,
+    "exact_lease_honored_this_pass": true,
+    "files_written_count": 2,
+    "out_of_lease_writes_this_pass_count": 0,
+    "original_receipt_not_overwritten": true,
+    "unauthorized_hash_file_not_deleted": true,
+    "no_new_hash_helper": true,
+    "character_skill_trace_present": true,
+    "devil_advocate_challenge": "Challenge: is lease correction cosmetic only? No — original acceptance path is explicitly rejected; unauthorized file is listed with recomputed SHA-256 matching Codex; this pass files_written is exactly the two leased paths."
+  },
+  "evidence_refs": [
+    "orchestration/logs/blender-p0-schema-correction-002.log",
+    "orchestration/work_orders/WO-B0-001-EVIDENCE-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_B0-001_MACHINE_REVIEW_001.json",
+    "orchestration/receipts/blender_p0/B0_schema_001.json",
+    "orchestration/logs/blender-p0-schema-001-hash.txt",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "B0_RIG_CORRECTION_002"
+}

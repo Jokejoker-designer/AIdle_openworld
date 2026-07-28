@@ -1,0 +1,31 @@
+{
+  "schema_version": "continuous_work_status/1.0",
+  "receipt_id": "CONTINUOUS_WORK_STATUS_005",
+  "timestamp_utc": "2026-07-24T07:04:51Z",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "pass": "BUILDINGS_FIDELITY_V11",
+  "matching_100_pct": 0,
+  "strategy": "camera_match_silhouette_overlay_pitch42_fov42",
+  "need_human": [],
+  "same_sig_streak_max": 0,
+  "camera_match_tooling": {
+    "fspy_blender": "installed_enabled",
+    "real_scale_references": "installed_enabled",
+    "cozy_camera_gd_modified": false,
+    "addons_in_game_or_glb": false
+  },
+  "angle_mismatch_hypothesis": {
+    "claim": "Prior HIGH_PARTIAL residuals may be partly explained by fidelity comparisons at camera angles/FOV different from cozy_camera.gd lock (pitch=42, fov=42) vs mockup SSOT renders at that lock.",
+    "verification_method": "Installed fSpy-Blender + real_scale_references as artist aids; placed Blender camera at exact locked values; overlayed each building's MOCKUP_SSOT_V2 jpg; re-proportioned silhouettes under that view; exported mesh-only GLBs; headed QA after.",
+    "result": "PARTIAL_SUPPORT",
+    "result_detail": "Angle-lock overlay is a genuine different authoring constraint and changes visible proportions (wider market, flatter gazebo dome, taller windmill sails, higher arch rise, taller lookout shaft). However prior residuals were also material wash under town lighting and soft-clay topology gaps vs mockup finish \u2014 camera mismatch alone does NOT fully explain all HIGH_PARTIAL. Expect improvement in silhouette family; do not claim 100% from angle fix alone.",
+    "cozy_camera_gd_modified": false,
+    "addons_in_game_or_glb": false
+  },
+  "town": "real_glb=50 placeholders=0",
+  "home_bld": "CLOSED_PERMANENTLY",
+  "honesty": "matching_100_pct_count=0; no self-accept",
+  "headed_qa": "AIDLE_TOWN_GRID_HEADED_QA=PASS plots=50 real_glb=50 placeholders=0"
+}

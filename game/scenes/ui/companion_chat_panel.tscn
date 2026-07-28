@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://b71pd7qml8gsv"]
 
 [ext_resource type="Script" path="res://scripts/modules/companion/companion_chat_panel.gd" id="1_panel"]
 
@@ -58,12 +58,11 @@ text = "Delete hist."
 
 [node name="ChatLog" type="RichTextLabel" parent="Panel/VBox"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
 scroll_following = true
-fit_content = false
-custom_minimum_size = Vector2(0, 100)
 
 [node name="ChatInput" type="LineEdit" parent="Panel/VBox"]
 unique_name_in_owner = true

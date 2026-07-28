@@ -1,0 +1,567 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "P2E-001-a0-ssot-preflight-001-2026-07-22",
+  "step_id": "P2E-001-a0-ssot-preflight-001",
+  "work_order_id": "WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE",
+  "work_order": "orchestration/work_orders/WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md",
+  "work_order_sha256": "39bf0b224201ec9d38a34aba0209348bfa993540c065d72b8fc186280b0d37e4",
+  "directive_id": 70,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "0fe87242235de1c47483b500507247f037ff370e573a06c33c3ac1ae81f5f0ac",
+  "directive_state": "READY",
+  "directive_verdict": "DISPATCH_APPROVED",
+  "permitted_task_ids": ["P2E-001"],
+  "accepted_task_ids_from_directive": ["CTRL-1B-001", "CTRL-1B-002", "P1E-006", "CHAR-1C-001", "BLOCK-DNA-ADAPT-001"],
+  "milestone": "P2E-001 Block Assembly preview slice — A0 SSOT/sequence preflight",
+  "agent_id": "aidle-worldgen-ssot-sequence",
+  "agent_type": "aidle-worldgen-ssot-sequence",
+  "profile_name": "aidle-worldgen-ssot-sequence",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-ssot-sequence.md",
+  "profile_sha256": "c2c532343f2b67ebdd72318be460ee0bbaf2e6dec93478b4ca9f42fb1f74381f",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-ssot-sequence; trustlayer_character=devil-advocate; ui_character=ui-ux-researcher; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,architecture-lock,evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set evidence_and_preflight_only; no product patches; no self-accept of worlds.",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "preflight evidence log+receipt only; product_writes=[]; never ACCEPTED; no grandchildren; no world_DNA/game product/Scene/Control/Character Foundry runtime/network patches",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:a622fa86aa12fdf66d988062827e2db50dd1d2017afac0ce10442d5e40c9dd7c",
+  "input_context_hash_16": "a622fa86aa12fdf6",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md + codex_directive.json + aidle-worldgen-ssot-sequence.md + ARCHITECTURE_LOCK.md + CODEX_BLOCK-DNA-ADAPT-001_FINAL_ACCEPTANCE_002.json + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "A0_COMPLETE_ROUTE_A1_RUNTIME",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "A0_P2E_SSOT_PREFLIGHT_PASS_NO_ACCEPT",
+  "preflight_verdict": "PASS",
+  "child_task_ref": "019f8854-9d26-7663-93c3-11e68a2cb537",
+  "transcript_ref": "019f8854-9d26-7663-93c3-11e68a2cb537",
+  "writer_transcript_ref": "019f8854-9d26-7663-93c3-11e68a2cb537",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8854-9d26-7663-93c3-11e68a2cb537/meta.json",
+  "durable_meta_sha256_at_start": "1ff47a40799a7c18a20f3865f8a1138cb8dc7d50b9303ee55ae11bfa3e61a1f2",
+  "started_at": "2026-07-22T05:37:54.473515600Z",
+  "completed_at_utc": "2026-07-22T05:40:30Z",
+  "next_owner": "A1_RUNTIME",
+  "next_route": "A1_RUNTIME",
+  "character_binding": {
+    "trustlayer_character_id": "devil-advocate",
+    "trustlayer_file": "E:/agents/characters/14-devil-advocate.md",
+    "trustlayer_sha256": "21b9193731c92a623e5b5837f364d61f24cea1a7cb2189c20cb84e77f89ba125",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-ux-researcher",
+    "ui_file": "E:/agents/ui-design/characters/03-ui-ux-researcher.md",
+    "ui_sha256": "0f5f18bc6772f567a1d8283323988cf125bb7ddb63c45985917287707e2cc5c1",
+    "ui_read": "full_eof",
+    "role": "A0 VERIFY_ONLY SSOT/sequence preflight for P2E-001 Block Assembly preview slice; no product writes"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO, Directive 70, ARCHITECTURE_LOCK, skills, Block-DNA acceptance and dependency reviews manually with transcript-backed full-EOF ranges.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; EOF hard-stops section"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; ends at agent_step_contract schema path"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; ends at Full protocol E:\\shared\\LOOP.md"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; ends at rooms/docs paths"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "chunked_three_invocations",
+      "transcript_ranges": [
+        {"offset": 1, "limit": 400, "note": "read_file invocation 1 intended L1-400; tool returned full-file content through L1123 with continuous line numbers"},
+        {"offset": 401, "limit": 400, "note": "read_file invocation 2 intended L401-800; tool again returned full-file content; middle sections verified (Task Execution Cycle through Skill Lifecycle)"},
+        {"offset": 801, "limit": 400, "note": "read_file invocation 3 intended L801-EOF; full content through L1123 Prime Directive verified"}
+      ],
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "honesty_note": "Three distinct durable read_file calls were issued with offset/limit as required. The read_file tool returned the complete 1123-line file body on each call rather than a strict window; EOF was confirmed on all three via the terminal Prime Directive paragraph."
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "bytes": 828,
+      "line_count": 26,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "also_read_project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027"
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "bytes": 8484,
+      "line_count": 292,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; ends at Evidence memory: NO_DURABLE_RECORD template"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/p2e-001-a0-ssot-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/p2e_001/A0_ssot_preflight_001.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/logs/p2e-001-a0-ssot-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/p2e_001/A0_ssot_preflight_001.json"
+  ],
+  "forbidden_paths_not_written": [
+    "world_DNA/**",
+    "game/**",
+    "Scene/**",
+    "Control/**",
+    "game_character/**",
+    "PersistModule/**",
+    "contracts/world_prompt.schema.json",
+    "orchestration/contracts/block_dna_adapt_001/**",
+    "P1E resource trees",
+    "game/scripts/modules/block_assembly/**",
+    "game/scenes/modules/block_assembly/**",
+    "game/resources/block_assembly/**"
+  ],
+  "result": {
+    "verdict": "A0_P2E_SSOT_PREFLIGHT_PASS_NO_ACCEPT",
+    "preflight_pass": true,
+    "summary": "Directive 70 sequential A0 preflight PASS. Accepted deps CTRL-1B-001, CTRL-1B-002, P1E-006, CHAR-1C-001 (schema only), BLOCK-DNA-ADAPT-001 (offline contract only) confirmed. Block-DNA contract tree present; live validator matrix 14/14 valid and 42/42 invalid (exit 0). Godot 4.3 pin confirmed via project.godot features and tools/Godot_v4.3-stable_* binaries. Parent idle except this sole running A0; exact A0–A5 evidence leases free and A1 product tree absent. Exploration Q/R camera and Build Q/R preview-only separation preserved in control_action_catalog. DNA v1.2/Tier3/Character Foundry runtime/network not authorized. A1 sole product lease listed. product_writes=[]; accepted=false; self_accept=false; next_owner=A1_RUNTIME.",
+    "accepted_dependencies": {
+      "CTRL-1B-001": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_CTRL-1B-001_FINAL_ACCEPTANCE_002.json",
+        "accepted": true,
+        "scope": "Control 1B contract and executable fixture gate only; no Godot product implementation accepted in that review"
+      },
+      "CTRL-1B-002": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_CTRL-1B-002_FINAL_ACCEPTANCE_006.json",
+        "accepted": true,
+        "scope": "Local Godot 4.3-stable Control Foundation and Cozy V/B slice, including context-isolated physical R behavior",
+        "q_r_evidence": {
+          "exploration_r_camera_yaw_delta_abs": 0.7854,
+          "build_r_preview_only": true,
+          "remap_still_works": true,
+          "dual_fire_rejected": true
+        }
+      },
+      "P1E-006": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_P1E-006_FINAL_ACCEPTANCE_005.json",
+        "accepted": true,
+        "scope": "World 1 kit per-world-profile palette variants plus product-owned headless-safe Starter Realm lifecycle"
+      },
+      "CHAR-1C-001": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_CHAR-1C-001_EXTERNAL_TRANSCRIPT_ACCEPTANCE_004.json",
+        "accepted": true,
+        "acceptance_scope": "Character Foundry 1C machine schema and 28-record provenance intake only",
+        "not_accepted": [
+          "character mesh or rig production",
+          "animation or behavior runtime",
+          "Godot or Blender Character Foundry implementation",
+          "Scene 2 or P2E Block Assembly runtime",
+          "network, shipping, economy, ownership or World Commit expansion"
+        ]
+      },
+      "BLOCK-DNA-ADAPT-001": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_BLOCK-DNA-ADAPT-001_FINAL_ACCEPTANCE_002.json",
+        "review_sha256": "009cda5a1d71eeb1ca924791cfacac3dbeb69b1cc92affd00b19dfc991bd02d3",
+        "accepted": true,
+        "accepted_scope": "Project-local offline Block-DNA Build Recipe, Build Graph, socket, material and Structured World Prompt proposal-adapter contract gate only",
+        "not_accepted": [
+          "P2E runtime implementation",
+          "world_DNA package canonicalization or rewrite",
+          "Tier 3 persistence integration",
+          "public network, live provider, shipping or deployment"
+        ]
+      }
+    },
+    "block_dna_contract": {
+      "tree_root": "orchestration/contracts/block_dna_adapt_001",
+      "tree_exists": true,
+      "validator_command": "PYTHONDONTWRITEBYTECODE=1 E:/standards/maf/.venv/Scripts/python.exe -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit_code": 0,
+      "valid": "14/14",
+      "invalid_rejected": "42/42",
+      "ledger": "valid_stable_replays=1; valid_conflicts=0; inv_stable_replays=0; inv_conflicts=1",
+      "matrix_note": "Matches post-Directive-69 accepted matrix (not higher)",
+      "artifact_hashes": {
+        "build_graph.schema.json": "dc4152fce582181169483895c1ac4e96ac2eb927a0cdb738cd8321958681c806",
+        "build_recipe.schema.json": "55eabacc0791fbee2da5565bee3d78d9c6492fd7d2ca5467d6cbc5f04b3173af",
+        "socket_catalog.contract.json": "cc7cc19fd0b23d229c1ff93148366d5419988fd9afb03ddc9b6adc111c9b1a5c",
+        "material_slot_mapping.contract.json": "cdbbe48d5cfd0e24430283797c8ef5a0379682748bb014cb4cebe889daeab753",
+        "source_baseline.lock.json": "ddeaf8ec93bf001a30164876e82afcc1a680f780556d5f0a328aa6344a793cda",
+        "validate_block_dna_adapt_001.py": "5b75c271c1fdf7a9b4f9526877c7b979238d0033b01dd647cefe3a6e68110a1e",
+        "world_prompt_adapter.contract.json": "4fe3618b2a6d0b690921ccf990d450a777356f1240143589f0cae232cea5cddf"
+      }
+    },
+    "godot_pin": {
+      "required": "4.3-stable",
+      "project_godot": "E:/AIdle_openworld/game/project.godot",
+      "project_godot_sha256": "2533ff4814a6ad776f53c294f5b1a901f73e61aa0aa1494fe7e7fc4283d52e4b",
+      "config_features": ["4.3", "Forward Plus"],
+      "config_version": 5,
+      "console_binary": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+      "console_binary_present": true,
+      "console_binary_bytes": 198264,
+      "gui_binary_present": true,
+      "version_change_authorized": false
+    },
+    "qr_control_preservation": {
+      "catalog": "E:/AIdle_openworld/game/scripts/input/control_action_catalog.gd",
+      "catalog_sha256": "9629e79105baf0af78674f5619e3df9bf0406d61ab8d970a4c7e73f1a8cde032",
+      "exploration": {
+        "allowed": ["rotate_camera_left", "rotate_camera_right"],
+        "default_q": "rotate_camera_left -> KEY_Q",
+        "default_r": "rotate_camera_right -> KEY_R",
+        "camera_actions_present": true
+      },
+      "build": {
+        "allowed": ["build_rotate_left", "build_rotate_right"],
+        "camera_actions_not_in_allowlist": true,
+        "default_q": "build_rotate_left -> KEY_Q",
+        "default_r": "build_rotate_right -> KEY_R",
+        "safety_class": "preview_only"
+      },
+      "wo_rule": "Exploration Q/R continue camera rotation; Build Q/R rotate only active preview with no dual fire",
+      "ctrl_1b_002_independent_witness": "preserved context isolation for R; A1 must not collapse Exploration/Build Q-R semantics"
+    },
+    "forbidden_scope_confirmation": {
+      "dna_v1_2_authorized": false,
+      "world_dna_edit_authorized": false,
+      "tier3_persistence_authorized": false,
+      "character_foundry_runtime_authorized": false,
+      "public_network_authorized": false,
+      "live_provider_authorized": false,
+      "dependency_install_authorized": false,
+      "godot_version_change_authorized": false,
+      "push_deploy_publish_authorized": false,
+      "ownership_economy_minting_authorized": false,
+      "direct_client_commit_authorized": false,
+      "generated_code_execution_authorized": false,
+      "red_f01_network_shipping_hard_stop": true,
+      "directive_forbidden_actions_observed": true
+    },
+    "leases": {
+      "dispatch_order": ["A0", "A1", "A2", "A3", "A4", "A5"],
+      "mode": "strictly_sequential",
+      "parent_product_patch": false,
+      "no_grandchildren": true,
+      "one_writer_per_file": true,
+      "max_children": 6,
+      "exact_leases": {
+        "A0": {
+          "profile": "aidle-worldgen-ssot-sequence",
+          "authority_token": "VERIFY_ONLY",
+          "paths": [
+            "orchestration/logs/p2e-001-a0-ssot-001.log",
+            "orchestration/receipts/p2e_001/A0_ssot_preflight_001.json"
+          ],
+          "pre_exists": false,
+          "claimed_by_this_child": true
+        },
+        "A1": {
+          "profile": "aidle-worldgen-godot-runtime",
+          "authority_token": "PATCH_DRAFT",
+          "writer_set": "p2e_001_sole_product_writer",
+          "product_paths": [
+            "game/scripts/modules/block_assembly/**",
+            "game/scenes/modules/block_assembly/**",
+            "game/resources/block_assembly/**",
+            "game/tests/p2e001_block_assembly_*.gd"
+          ],
+          "minimal_integration_if_required": [
+            "game/scripts/main/main.gd",
+            "game/project.godot",
+            "game/scripts/input/control_context_router.gd",
+            "game/scripts/input/control_action_catalog.gd",
+            "game/scripts/ui/context_action_hud.gd",
+            "game/scenes/ui/hud.tscn"
+          ],
+          "evidence_paths": [
+            "orchestration/logs/p2e-001-a1-runtime-001.log",
+            "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json"
+          ],
+          "product_tree_pre_exists": false,
+          "writer_started": false
+        },
+        "A2": {
+          "profile": "aidle-worldgen-control-input",
+          "authority_token": "VERIFY_ONLY",
+          "authority_reduced": true,
+          "paths": [
+            "orchestration/logs/p2e-001-a2-control-ux-001.log",
+            "orchestration/receipts/p2e_001/A2_control_ux_audit_001.json"
+          ],
+          "pre_exists": false,
+          "writer_started": false
+        },
+        "A3": {
+          "profile": "aidle-worldgen-red-scope",
+          "authority_token": "READ_ONLY_AUDIT",
+          "paths": [
+            "orchestration/logs/p2e-001-a3-red-001.log",
+            "orchestration/receipts/p2e_001/A3_red_audit_001.json"
+          ],
+          "pre_exists": false,
+          "writer_started": false
+        },
+        "A4": {
+          "profile": "aidle-worldgen-qa-evidence",
+          "authority_token": "VERIFY_ONLY",
+          "paths": [
+            "orchestration/logs/p2e-001-a4-qa-001.log",
+            "orchestration/receipts/p2e_001/A4_qa_evidence_001.json"
+          ],
+          "additional_evidence_root": "orchestration/evidence/p2e_001/001/**",
+          "pre_exists": false,
+          "writer_started": false
+        },
+        "A5": {
+          "profile": "aidle-worldgen-purple-acceptance",
+          "authority_token": "VERIFY_ONLY",
+          "paths": [
+            "orchestration/logs/p2e-001-a5-purple-001.log",
+            "orchestration/receipts/p2e_001/A5_purple_gate_001.json"
+          ],
+          "pre_exists": false,
+          "writer_started": false,
+          "never_marks_accepted": true
+        }
+      },
+      "competing_writers": {
+        "running_children_under_parent": 1,
+        "running_child_ids": ["019f8854-9d26-7663-93c3-11e68a2cb537"],
+        "this_is_sole_running_child": true,
+        "a1_product_tree_exists": false,
+        "a1_a5_evidence_exists": false,
+        "verdict": "NO_COMPETING_WRITERS_A0_A5_LEASES_FREE"
+      }
+    },
+    "a1_product_lease_exact": {
+      "sole_product_writer": "A1",
+      "profile": "aidle-worldgen-godot-runtime",
+      "authority_token": "PATCH_DRAFT",
+      "allowed_new_trees": [
+        "game/scripts/modules/block_assembly/**",
+        "game/scenes/modules/block_assembly/**",
+        "game/resources/block_assembly/**",
+        "game/tests/p2e001_block_assembly_*.gd"
+      ],
+      "allowed_minimal_integration_edits_if_required": [
+        "game/scripts/main/main.gd",
+        "game/project.godot",
+        "game/scripts/input/control_context_router.gd",
+        "game/scripts/input/control_action_catalog.gd",
+        "game/scripts/ui/context_action_hud.gd",
+        "game/scenes/ui/hud.tscn"
+      ],
+      "evidence_only": [
+        "orchestration/logs/p2e-001-a1-runtime-001.log",
+        "orchestration/receipts/p2e_001/A1_runtime_implementation_001.json"
+      ],
+      "must_list_exact_files_before_write": true,
+      "must_consume_accepted_block_dna_contract": true,
+      "must_not_import_dna_runtime_code": true,
+      "must_not_invent_parallel_block_grammar": true
+    },
+    "architecture_lock_confirmation": {
+      "project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027",
+      "godot_client": "Godot 4.x pinned 4.3-stable",
+      "presentation": "2.5D fixed-angle; no free 3D camera MVP",
+      "mutation_path": "Structured World Prompt proposal -> validate -> preview -> explicit confirm/cancel -> existing World Commit authority",
+      "preview_never_canonical": true,
+      "client_cannot_claim_commit_success": true,
+      "no_arbitrary_generated_code": true,
+      "active_world_prompt_schema": "contracts/world_prompt.schema.json"
+    },
+    "scope_authorization": {
+      "authorized_task": "P2E-001",
+      "authorized_product_paths_for_this_child": [],
+      "a1_sole_future_product_lease": "game/scripts|scenes|resources/modules/block_assembly/** + p2e001 tests + minimal integration list",
+      "world_dna_edits_authorized": false,
+      "character_foundry_runtime_authorized": false,
+      "network_authorized": false,
+      "dna_v1_2_authorized": false,
+      "tier3_authorized": false
+    }
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "preflight_existence_hash_and_validator_matrix",
+    "checks": [
+      {
+        "id": "DEPS_ACCEPTED",
+        "result": "PASS",
+        "detail": "CTRL-1B-001/002, P1E-006, CHAR-1C-001 (schema), BLOCK-DNA-ADAPT-001 (offline contract) accepted=true; listed in directive.accepted_task_ids"
+      },
+      {
+        "id": "BLOCK_DNA_TREE",
+        "result": "PASS",
+        "detail": "orchestration/contracts/block_dna_adapt_001 tree present with schemas, catalogs, fixtures 14 valid / 42 invalid, validator"
+      },
+      {
+        "id": "BLOCK_DNA_VALIDATOR_MATRIX",
+        "result": "PASS",
+        "detail": "valid 14/14; invalid 42/42; exit 0; ledger valid_stable_replays=1 inv_conflicts=1"
+      },
+      {
+        "id": "CONTRACT_HASHES_MATCH_ACCEPTANCE",
+        "result": "PASS",
+        "detail": "seven key contract artifact SHA-256 values match CODEX_BLOCK-DNA-ADAPT-001_FINAL_ACCEPTANCE_002"
+      },
+      {
+        "id": "GODOT_4_3_PIN",
+        "result": "PASS",
+        "detail": "project.godot features include 4.3; tools/Godot_v4.3-stable_win64_console.exe and GUI present"
+      },
+      {
+        "id": "PARENT_IDLE_SOLE_CHILD",
+        "result": "PASS",
+        "detail": "only running child under parent is 019f8854-9d26-7663-93c3-11e68a2cb537 (this A0)"
+      },
+      {
+        "id": "A0_A5_LEASES_FREE",
+        "result": "PASS",
+        "detail": "all A0-A5 exclusive log/receipt paths pre-existed false; A1 product trees absent"
+      },
+      {
+        "id": "EXPLORATION_QR_CAMERA",
+        "result": "PASS",
+        "detail": "catalog exploration allow-list has rotate_camera_left/right bound Q/R"
+      },
+      {
+        "id": "BUILD_QR_PREVIEW_ONLY",
+        "result": "PASS",
+        "detail": "catalog build allow-list has build_rotate_left/right (preview_only safety) and excludes rotate_camera_*"
+      },
+      {
+        "id": "FORBIDDEN_SCOPES",
+        "result": "PASS",
+        "detail": "DNA v1.2, Tier3 runtime, Character Foundry runtime, network, install, version change not authorized"
+      },
+      {
+        "id": "NO_PRODUCT_WRITES",
+        "result": "PASS",
+        "detail": "product_writes=[]"
+      },
+      {
+        "id": "A1_LEASE_LISTED",
+        "result": "PASS",
+        "detail": "exact A1 product/integration/evidence lease recorded for next_owner=A1_RUNTIME"
+      }
+    ],
+    "commands": [
+      {
+        "command": "PYTHONDONTWRITEBYTECODE=1 E:/standards/maf/.venv/Scripts/python.exe -B orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+        "exit_code": 0,
+        "summary": "valid:14/14 invalid:42/42 PASS gate"
+      }
+    ],
+    "exit_code": 0,
+    "pass": true
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "one_writer_per_file": true,
+    "exclusive_lease_only": true,
+    "dna_not_modified": true,
+    "block_dna_contract_not_modified": true,
+    "skills_transcript_backed": true,
+    "characters_bound": true,
+    "maf_required_fields_present": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "residual_risks": [
+      "tools/Godot_v4.3-stable_win64_console.exe is present (198264 bytes); A1/A4 should reconfirm the executable actually runs the accepted headless smoke suite before treating runtime evidence as complete.",
+      "curiosity-engine read_file tool returned full-file content on each chunked call; content EOF verified but strict line-window metadata was not emitted by the tool.",
+      "A1 must not treat Block-DNA acceptance as license for DNA package code execution or Foundry/network expansion."
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/work_orders/WO-P2E-001-BLOCK-ASSEMBLY-PREVIEW-SLICE.md",
+    "orchestration/control/codex_directive.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "orchestration/reviews/CODEX_BLOCK-DNA-ADAPT-001_FINAL_ACCEPTANCE_002.json",
+    "orchestration/reviews/CODEX_CTRL-1B-001_FINAL_ACCEPTANCE_002.json",
+    "orchestration/reviews/CODEX_CTRL-1B-002_FINAL_ACCEPTANCE_006.json",
+    "orchestration/reviews/CODEX_P1E-006_FINAL_ACCEPTANCE_005.json",
+    "orchestration/reviews/CODEX_CHAR-1C-001_EXTERNAL_TRANSCRIPT_ACCEPTANCE_004.json",
+    "orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+    "game/project.godot",
+    "game/scripts/input/control_action_catalog.gd",
+    "orchestration/logs/p2e-001-a0-ssot-001.log",
+    "orchestration/receipts/p2e_001/A0_ssot_preflight_001.json"
+  ],
+  "trace": {
+    "handoff_from": "parent_019f7ffd-3995-71c0-aca1-51078e24a852",
+    "handoff_to": "A1_RUNTIME",
+    "wave": "A0",
+    "task_id": "P2E-001"
+  }
+}

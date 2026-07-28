@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-G8-001-D2-EXACT-PROVENANCE-REVIEW-018",
+  "reviewed_at": "2026-07-21T12:34:00+07:00",
+  "reviewer": "codex",
+  "authority_token": "VERIFY_ONLY",
+  "task_id": "G8-001",
+  "directive_reviewed": 38,
+  "work_order_reviewed": "orchestration/work_orders/WO-G8-001-D2-EXACT-PROVENANCE-CORRECTION-017.md",
+  "wave_verdict": "HITL_REQUIRED",
+  "accepted": false,
+  "g8_accepted": false,
+  "d3_spawn_allowed": false,
+  "independent_passes": {
+    "same_unique_desktop_parent": "PASS",
+    "four_real_resumed_profile_children": "PASS",
+    "no_grandchildren": "PASS",
+    "maf_jsonschema": "PASS_4_OF_4",
+    "exclusive_017_receipt_trace_scope": "PASS",
+    "product_test_harness_writes": "NONE",
+    "product_writes_empty": "PASS_4_OF_4",
+    "self_accept_false": "PASS_4_OF_4",
+    "receipt_trace_before_durable_completion": "PASS_4_OF_4",
+    "companion_semantic_curiosity_1_1123": "PASS",
+    "recorded_arguments_json_byte_equality": "PASS_4_OF_4",
+    "companion_correction_call_coverage": "PASS",
+    "manifestation_correction_call_coverage": "PASS"
+  },
+  "profile_verdicts": {
+    "companion": "PASS_FOR_D2_WAVE",
+    "manifestation": "PASS_FOR_D2_WAVE",
+    "asset": "CHANGES_REQUESTED",
+    "persist": "CHANGES_REQUESTED"
+  },
+  "blocking_failures": [
+    {
+      "id": "D2-018-ASSET-CORRECTION-COVERAGE",
+      "severity": "BLOCKER",
+      "profile": "asset",
+      "finding": "D2_asset_017.json contains only original_d2_016_exact_provenance.calls (65 inherited calls). It has no ledger for the new correction-child calls in 019f8322-0e29-7832-947c-35c50405b5c6, despite WO-017 requiring every material correction call before the final receipt/trace write.",
+      "recorded_original_calls": 65,
+      "correction_transcript_calls": 96,
+      "new_correction_calls_after_inherited_history": 31
+    },
+    {
+      "id": "D2-018-PERSIST-CORRECTION-COVERAGE",
+      "severity": "BLOCKER",
+      "profile": "persist",
+      "finding": "D2_persist_017.json contains only original_016_material_calls (60 original calls). It has no ledger for the new correction-child calls in 019f8322-0e29-7832-947c-35d7d61eec46, despite WO-017 requiring every material correction call before the final receipt/trace write.",
+      "recorded_original_material_calls": 60,
+      "correction_transcript_calls": 86,
+      "new_correction_calls_after_inherited_history": 24
+    }
+  ],
+  "repeated_failure_audit": {
+    "signature": "D2_TRANSCRIPT_PROVENANCE_INCOMPLETE",
+    "occurrence_count": 3,
+    "occurrences": [
+      "orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_REJECTION_015.json",
+      "orchestration/reviews/CODEX_G8-001_D2_PROVENANCE_CORRECTION_REVIEW_017.json",
+      "orchestration/reviews/CODEX_G8-001_D2_EXACT_PROVENANCE_REVIEW_018.json"
+    ],
+    "protocol_route": "HITL_REQUIRED",
+    "reason": "The same provenance-completeness class failed three consecutive D2 acceptance attempts. Automatic correction is suspended pending Human Product Lead choice."
+  },
+  "human_choices": {
+    "recommended": "Authorize Codex external transcript binding for Asset and Persist, using immutable chat_history.jsonl plus machine timestamps/hashes, without another Grok correction.",
+    "strict_retry": "Authorize one final Asset/Persist-only receipt correction in the same Desktop parent.",
+    "stop": "Keep G8 and D3 blocked."
+  },
+  "next_route": "WAITING_HUMAN_PRODUCT_LEAD_DECISION",
+  "self_accept": false
+}

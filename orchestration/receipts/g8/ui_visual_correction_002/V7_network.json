@@ -1,0 +1,77 @@
+{
+  "agent_step_id": "G8-001-V002-V7_PURPLE_VISUAL_GATE-2026-07-21",
+  "agent_type": "aidle-network",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:8733c8c3a8fdc7ed",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-UI-VISUAL-CORRECTION-002",
+    "directive_id": 23,
+    "wave": "V7_PURPLE_VISUAL_GATE",
+    "profile": "network",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY Purple: 9 distinct screenshots + evidence_manifest; 0 ERROR lines; Bridge manual capture distinct; Free Bridge smoke PASS. od-design-review catalog_guidance only.",
+    "character_binding": {
+      "trustlayer_character_id": "purple-team-release-gate",
+      "ui_character_id": "ui-visual-critic",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+        "mode": "full"
+      },
+      {
+        "skill_id": "od-impeccable-design-polish",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/od-impeccable-design-polish/SKILL.md",
+        "mode": "character_rules"
+      },
+      {
+        "skill_id": "od-design-review",
+        "source": "C:/Users/phant/.grok/skills/_agentwork-library/od-design-review/SKILL.md",
+        "mode": "catalog_guidance"
+      }
+    ],
+    "trace_ref": "orchestration/logs/g8-ui-visual-correction-002.log#V7_PURPLE_VISUAL_GATE",
+    "handoff_ref": "PARENT_REVIEW_REQUESTED_WAITING_CODEX",
+    "product_writes": [],
+    "children": [],
+    "findings": [],
+    "residual_risks": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "AIDLE_UI_VISUAL_CORRECTION_002=PASS"
+      },
+      {
+        "marker": "DISTINCT_PNG_SHA=PASS"
+      },
+      {
+        "marker": "G2-005_GODOT_SMOKE=PASS"
+      },
+      {
+        "marker": "MANIFEST_CAPTURES 9"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "character_skill_trace_present": true,
+    "no_catalog_false_claim": true
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-ui-visual-correction-002.log",
+    "orchestration/evidence/g8_ui_visual_correction_002/",
+    "orchestration/reviews/CODEX_G8-001_UI_VISUAL_REVIEW_002.json"
+  ],
+  "next_route": "PARENT_REVIEW_REQUESTED_WAITING_CODEX"
+}

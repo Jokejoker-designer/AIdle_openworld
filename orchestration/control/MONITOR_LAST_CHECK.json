@@ -1,0 +1,1429 @@
+{
+  "schema_version": "monitor_last_check/1.0",
+  "created_at": "2026-07-23T23:26:10+07:00",
+  "run_type": "ROUTINE_DIFF_FOUND_NEW_ACTIVITY",
+  "note": "Second run of aidle-grok-monitor. Found new Grok town-grid redo-loop activity since the 343-receipt/entry-74 baseline: QA_town_grid_headed_001.json, REDO_LOOP_ACK_001.json, REDO_LOOP_ITERATIONS_001.json (new) + PURPLE_WAITING_001.json, QA_GAP_NOTE.md (modified), all in orchestration/receipts/town_grid_import_001/. Independently re-verified (raw log decode, screenshot view, catalog parse, file-scope/destructive-edit check) -- honest, real, additive-only, correctly blocked on mockup fidelity (0/21). Filed CLAUDE_MONITOR_20260723T232610.json (verdict CHANGES_REQUESTED_FIDELITY_INCOMPLETE), corrected a stale open_gaps status in codex_directive.json, appended CONDUCTOR_JOURNAL.md entry 077. No game/** patch, no acceptance, no new dispatch by this run.",
+  "directive_snapshot": {
+    "directive_id": 99,
+    "state": "AUTONOMOUS_EXECUTION",
+    "verdict": "UCBV_FOUNDATION_HUMAN_ACCEPTED_OPEN_AUTONOMOUS_PHASE",
+    "accepted": false,
+    "human_gate_open": false,
+    "open_gaps": [
+      {
+        "wave": "WO-TOWN-GRID-IMPORT-001",
+        "status": "CHANGES_REQUESTED_FIDELITY_INCOMPLETE",
+        "detail": "QA headed evidence now filed and independently re-verified; wave remains blocked under the mockup_fidelity_rule -- 0 of 21 real-GLB plots at 100% match to MOCKUP_SSOT_V2. Grok is actively iterating (redo loop); Purple stays WAITING.",
+        "sent_back_at": "2026-07-23T22:40:00+07:00",
+        "updated_at": "2026-07-23T23:26:10+07:00"
+      }
+    ],
+    "parent_sessions_ref": {
+      "build": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "design": "019f8e3c-e53b-74e0-a878-df6b8398338e"
+    }
+  },
+  "journal_state": {
+    "path": "orchestration/control/CONDUCTOR_JOURNAL.md",
+    "byte_length": 253377,
+    "line_count": 3522,
+    "last_entry_number_seen": 77,
+    "last_entry_title_seen": "Entry 077 - 2026-07-23 23:26 +07 - Claude (aidle-grok-monitor scheduled task) - Independently re-verified honest 0/21 fidelity finding + redo-loop start; found and fixed stale open_gaps status"
+  },
+  "receipts_seen_count": 347,
+  "receipts_seen": [
+    {
+      "path": "receipts/BATCH_COMMERCIAL_002.json",
+      "mtime": 1784794400.012
+    },
+    {
+      "path": "receipts/BATCH_COMMERCIAL_003.json",
+      "mtime": 1784795257.151
+    },
+    {
+      "path": "receipts/BATCH_COMMERCIAL_003/HUMAN_ACCEPT_BATCH_COMMERCIAL_003.json",
+      "mtime": 1784795317.517
+    },
+    {
+      "path": "receipts/BATCH_COMMERCIAL_004.json",
+      "mtime": 1784795533.737
+    },
+    {
+      "path": "receipts/BATCH_TIER1_001.json",
+      "mtime": 1784793718.826
+    },
+    {
+      "path": "receipts/BATCH_TIER1_001/HUMAN_ACCEPT_BATCH_TIER1_001.json",
+      "mtime": 1784794236.473
+    },
+    {
+      "path": "receipts/G0-001.json",
+      "mtime": 1784558148.914
+    },
+    {
+      "path": "receipts/G1-001-ACCEPT.json",
+      "mtime": 1784559582.387
+    },
+    {
+      "path": "receipts/G1-001.json",
+      "mtime": 1784559097.144
+    },
+    {
+      "path": "receipts/G1-002-ACCEPT.json",
+      "mtime": 1784559582.387
+    },
+    {
+      "path": "receipts/G1-002.json",
+      "mtime": 1784559157.653
+    },
+    {
+      "path": "receipts/G1-003-ACCEPT.json",
+      "mtime": 1784561063.597
+    },
+    {
+      "path": "receipts/G1-003.json",
+      "mtime": 1784560862.12
+    },
+    {
+      "path": "receipts/G2-001-ACCEPT.json",
+      "mtime": 1784560374.291
+    },
+    {
+      "path": "receipts/G2-001.json",
+      "mtime": 1784563777.179
+    },
+    {
+      "path": "receipts/G2-002-ACCEPT.json",
+      "mtime": 1784560374.291
+    },
+    {
+      "path": "receipts/G2-002.json",
+      "mtime": 1784563777.179
+    },
+    {
+      "path": "receipts/G2-003-ACCEPT.json",
+      "mtime": 1784560374.291
+    },
+    {
+      "path": "receipts/G2-003.json",
+      "mtime": 1784560090.778
+    },
+    {
+      "path": "receipts/G2-004-ACCEPT.json",
+      "mtime": 1784560888.96
+    },
+    {
+      "path": "receipts/G2-004.json",
+      "mtime": 1784560478.965
+    },
+    {
+      "path": "receipts/G2-005.json",
+      "mtime": 1784562965.621
+    },
+    {
+      "path": "receipts/G2-006.json",
+      "mtime": 1784561572.64
+    },
+    {
+      "path": "receipts/G2-007.json",
+      "mtime": 1784561345.441
+    },
+    {
+      "path": "receipts/G3-001-CORRECTION-001.json",
+      "mtime": 1784567720.513
+    },
+    {
+      "path": "receipts/G3-001.json",
+      "mtime": 1784566189.954
+    },
+    {
+      "path": "receipts/G4-001-CORRECTION-001.json",
+      "mtime": 1784571118.937
+    },
+    {
+      "path": "receipts/G4-001.json",
+      "mtime": 1784569222.54
+    },
+    {
+      "path": "receipts/G5-001-CORRECTION-001.json",
+      "mtime": 1784574321.572
+    },
+    {
+      "path": "receipts/G5-001.json",
+      "mtime": 1784572841.684
+    },
+    {
+      "path": "receipts/G6-001-CORRECTION-001.json",
+      "mtime": 1784578044.747
+    },
+    {
+      "path": "receipts/G6-001.json",
+      "mtime": 1784576505.756
+    },
+    {
+      "path": "receipts/G8-001.json",
+      "mtime": 1784596872.34
+    },
+    {
+      "path": "receipts/OPS-001-CORRECTION-001.json",
+      "mtime": 1784615120.956
+    },
+    {
+      "path": "receipts/OPS-001.json",
+      "mtime": 1784614296.668
+    },
+    {
+      "path": "receipts/blender_p0/B0_purple_001.json",
+      "mtime": 1784617480.231
+    },
+    {
+      "path": "receipts/blender_p0/B0_purple_correction_002.json",
+      "mtime": 1784618636.344
+    },
+    {
+      "path": "receipts/blender_p0/B0_qa_001.json",
+      "mtime": 1784617033.669
+    },
+    {
+      "path": "receipts/blender_p0/B0_rig_001.json",
+      "mtime": 1784617252.403
+    },
+    {
+      "path": "receipts/blender_p0/B0_rig_correction_002.json",
+      "mtime": 1784618386.774
+    },
+    {
+      "path": "receipts/blender_p0/B0_schema_001.json",
+      "mtime": 1784617020.747
+    },
+    {
+      "path": "receipts/blender_p0/B0_schema_correction_002.json",
+      "mtime": 1784618207.07
+    },
+    {
+      "path": "receipts/block_dna_adapt_001/B0_ssot_preflight_001.json",
+      "mtime": 1784693363.439
+    },
+    {
+      "path": "receipts/block_dna_adapt_001/B1_schema_contract_001.json",
+      "mtime": 1784693965.497
+    },
+    {
+      "path": "receipts/block_dna_adapt_001/B2_red_audit_001.json",
+      "mtime": 1784694273.647
+    },
+    {
+      "path": "receipts/block_dna_adapt_001/B3_qa_evidence_001.json",
+      "mtime": 1784694628.071
+    },
+    {
+      "path": "receipts/block_dna_adapt_001/B4_purple_gate_001.json",
+      "mtime": 1784694951.773
+    },
+    {
+      "path": "receipts/block_dna_adapt_001/C0_schema_correction_002.json",
+      "mtime": 1784696590.478
+    },
+    {
+      "path": "receipts/block_dna_adapt_001/C1_red_correction_002.json",
+      "mtime": 1784696875.081
+    },
+    {
+      "path": "receipts/block_dna_adapt_001/C2_qa_correction_002.json",
+      "mtime": 1784697263.233
+    },
+    {
+      "path": "receipts/block_dna_adapt_001/C3_purple_correction_002.json",
+      "mtime": 1784697536.012
+    },
+    {
+      "path": "receipts/c5h1_ux_001/HUD_E_TO_C_001.json",
+      "mtime": 1784793718.821
+    },
+    {
+      "path": "receipts/c5h1_ux_001/UX002_build_companion_001.json",
+      "mtime": 1784794400.011
+    },
+    {
+      "path": "receipts/character_1c/CHAR_1C_001_c0_schema_correction_002.json",
+      "mtime": 1784687862.362
+    },
+    {
+      "path": "receipts/character_1c/CHAR_1C_001_c1_red_correction_002.json",
+      "mtime": 1784688142.621
+    },
+    {
+      "path": "receipts/character_1c/CHAR_1C_001_c2_purple_correction_002.json",
+      "mtime": 1784688404.213
+    },
+    {
+      "path": "receipts/character_1c/CHAR_1C_001_u0_unicode_correction_003.json",
+      "mtime": 1784689654.309
+    },
+    {
+      "path": "receipts/character_1c/CHAR_1C_001_u1_red_unicode_003.json",
+      "mtime": 1784689955.787
+    },
+    {
+      "path": "receipts/character_1c/CHAR_1C_001_u2_purple_unicode_003.json",
+      "mtime": 1784690232.205
+    },
+    {
+      "path": "receipts/character_1c/CHAR_1C_001_w0_architect_intake_001.json",
+      "mtime": 1784685729.398
+    },
+    {
+      "path": "receipts/character_1c/CHAR_1C_001_w1_schema_001.json",
+      "mtime": 1784686241.559
+    },
+    {
+      "path": "receipts/character_1c/CHAR_1C_001_w2_red_001.json",
+      "mtime": 1784686541.825
+    },
+    {
+      "path": "receipts/character_1c/CHAR_1C_001_w3_purple_001.json",
+      "mtime": 1784686859.621
+    },
+    {
+      "path": "receipts/commercial_ctrl_1b_001/CTRL_1B_polish_001.json",
+      "mtime": 1784794988.071
+    },
+    {
+      "path": "receipts/commercial_ctrl_1b_001/HIDE_AURA_CONSUMER_001.json",
+      "mtime": 1784795257.151
+    },
+    {
+      "path": "receipts/commercial_foundry_1c_001/FOUNDRY_1C_status_001.json",
+      "mtime": 1784794829.494
+    },
+    {
+      "path": "receipts/commercial_hardening_001/VERIFY_report_001.json",
+      "mtime": 1784794400.012
+    },
+    {
+      "path": "receipts/commercial_p1e_001/P1E_art_status_001.json",
+      "mtime": 1784794851.686
+    },
+    {
+      "path": "receipts/commercial_p1e_001/P1E_outline_foundation_001.json",
+      "mtime": 1784795533.736
+    },
+    {
+      "path": "receipts/commercial_perf_001/PERF_budget_001.json",
+      "mtime": 1784795533.736
+    },
+    {
+      "path": "receipts/commercial_red_001/RED_commercial_findings_001.json",
+      "mtime": 1784795211.925
+    },
+    {
+      "path": "receipts/commercial_save_soak_001/QA_save_soak_001.json",
+      "mtime": 1784794787.545
+    },
+    {
+      "path": "receipts/commercial_save_soak_002/QA_save_soak_002.json",
+      "mtime": 1784795533.736
+    },
+    {
+      "path": "receipts/control/CTRL_1B_001_a0_a11y_001.json",
+      "mtime": 1784669913.384
+    },
+    {
+      "path": "receipts/control/CTRL_1B_001_c0_schema_correction_002.json",
+      "mtime": 1784671531.146
+    },
+    {
+      "path": "receipts/control/CTRL_1B_001_s1_schema_001.json",
+      "mtime": 1784670515.351
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_a2_a11y_correction_002.json",
+      "mtime": 1784676500.313
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_a3_a11y_001.json",
+      "mtime": 1784674307.879
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_b0_control_001.json",
+      "mtime": 1784672782.77
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_b1_runtime_001.json",
+      "mtime": 1784673570.629
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_c0_runtime_correction_002.json",
+      "mtime": 1784675799.051
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_e0_r1_receipt_correction_004.json",
+      "mtime": 1784681128.401
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_e1_purple_receipt_correction_004.json",
+      "mtime": 1784681370.219
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_f0_purple_skill_correction_006.json",
+      "mtime": 1784684742.842
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_p0_purple_scope_correction_005.json",
+      "mtime": 1784684303.253
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_p3_purple_correction_002.json",
+      "mtime": 1784676715.582
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_p3_r_camera_003.json",
+      "mtime": 1784680762.129
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_p4_purple_001.json",
+      "mtime": 1784674544.434
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_q1_qa_correction_002.json",
+      "mtime": 1784676279.531
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_q2_qa_001.json",
+      "mtime": 1784674024.219
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_q2_r_camera_003.json",
+      "mtime": 1784680570.331
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_r1_camera_runtime_003.json",
+      "mtime": 1784680239.161
+    },
+    {
+      "path": "receipts/control/CTRL_1B_002_s0_r_contract_003.json",
+      "mtime": 1784679814.52
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_003_w1_blue_001.json",
+      "mtime": 1784638163.222
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_003_w2_red_001.json",
+      "mtime": 1784638433.657
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_003_w3_qa_001.json",
+      "mtime": 1784638594.167
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_003_w4_purple_001.json",
+      "mtime": 1784638803.319
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_blue_001.json",
+      "mtime": 1784621404.818
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_c1_blue_002.json",
+      "mtime": 1784623622.251
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_c2_red_002.json",
+      "mtime": 1784623925.792
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_c3_qa_002.json",
+      "mtime": 1784624220.592
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_c4_purple_002.json",
+      "mtime": 1784624660.766
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_d50_w1_blue_003.json",
+      "mtime": 1784625478.704
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_d50_w2_red_003.json",
+      "mtime": 1784625780.989
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_d50_w3_qa_003.json",
+      "mtime": 1784626043.887
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_d50_w4_purple_003.json",
+      "mtime": 1784626239.173
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_purple_001.json",
+      "mtime": 1784622798.356
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_qa_001.json",
+      "mtime": 1784622159.576
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_red_001.json",
+      "mtime": 1784622778.384
+    },
+    {
+      "path": "receipts/environment_p0/ENV0_schema_001.json",
+      "mtime": 1784620784.138
+    },
+    {
+      "path": "receipts/g3/C0_schema.json",
+      "mtime": 1784567078.161
+    },
+    {
+      "path": "receipts/g3/C1_executor.json",
+      "mtime": 1784567414.333
+    },
+    {
+      "path": "receipts/g3/C2_persist.json",
+      "mtime": 1784567507.186
+    },
+    {
+      "path": "receipts/g3/C3_network.json",
+      "mtime": 1784567687.421
+    },
+    {
+      "path": "receipts/g3/W0_network.json",
+      "mtime": 1784564353.057
+    },
+    {
+      "path": "receipts/g3/W0_persist.json",
+      "mtime": 1784564340.722
+    },
+    {
+      "path": "receipts/g3/W0_schema.json",
+      "mtime": 1784564382.944
+    },
+    {
+      "path": "receipts/g3/W1_asset.json",
+      "mtime": 1784565170.863
+    },
+    {
+      "path": "receipts/g3/W1_companion.json",
+      "mtime": 1784564693.311
+    },
+    {
+      "path": "receipts/g3/W1_core.json",
+      "mtime": 1784564612.181
+    },
+    {
+      "path": "receipts/g3/W1_manifestation.json",
+      "mtime": 1784564802.192
+    },
+    {
+      "path": "receipts/g3/W2_executor.json",
+      "mtime": 1784565948.435
+    },
+    {
+      "path": "receipts/g4/P0_schema.json",
+      "mtime": 1784568237.951
+    },
+    {
+      "path": "receipts/g4/P1_persist.json",
+      "mtime": 1784568693.976
+    },
+    {
+      "path": "receipts/g4/P2_executor.json",
+      "mtime": 1784568882.389
+    },
+    {
+      "path": "receipts/g4/P3_core.json",
+      "mtime": 1784569014.151
+    },
+    {
+      "path": "receipts/g4/P4_network.json",
+      "mtime": 1784569182.441
+    },
+    {
+      "path": "receipts/g4/R0_schema.json",
+      "mtime": 1784570036.948
+    },
+    {
+      "path": "receipts/g4/R1_persist.json",
+      "mtime": 1784570640.546
+    },
+    {
+      "path": "receipts/g4/R2_core.json",
+      "mtime": 1784570772.541
+    },
+    {
+      "path": "receipts/g4/R3_executor.json",
+      "mtime": 1784570901.893
+    },
+    {
+      "path": "receipts/g4/R4_network.json",
+      "mtime": 1784571082.917
+    },
+    {
+      "path": "receipts/g5/A0_schema.json",
+      "mtime": 1784571936.526
+    },
+    {
+      "path": "receipts/g5/A1_network.json",
+      "mtime": 1784572260.713
+    },
+    {
+      "path": "receipts/g5/A2_executor.json",
+      "mtime": 1784572521.416
+    },
+    {
+      "path": "receipts/g5/A3_core.json",
+      "mtime": 1784572656.229
+    },
+    {
+      "path": "receipts/g5/A4_persist.json",
+      "mtime": 1784572816.478
+    },
+    {
+      "path": "receipts/g5/C0_schema.json",
+      "mtime": 1784573700.876
+    },
+    {
+      "path": "receipts/g5/C1_network.json",
+      "mtime": 1784573988.835
+    },
+    {
+      "path": "receipts/g5/C2_executor.json",
+      "mtime": 1784574096.906
+    },
+    {
+      "path": "receipts/g5/C3_core.json",
+      "mtime": 1784574174.0
+    },
+    {
+      "path": "receipts/g5/C4_persist.json",
+      "mtime": 1784574725.939
+    },
+    {
+      "path": "receipts/g6/M0_schema.json",
+      "mtime": 1784575435.96
+    },
+    {
+      "path": "receipts/g6/M1_network.json",
+      "mtime": 1784575805.939
+    },
+    {
+      "path": "receipts/g6/M2_executor.json",
+      "mtime": 1784576112.061
+    },
+    {
+      "path": "receipts/g6/M3_persist.json",
+      "mtime": 1784576294.584
+    },
+    {
+      "path": "receipts/g6/M4_core.json",
+      "mtime": 1784576469.499
+    },
+    {
+      "path": "receipts/g6/R0_schema.json",
+      "mtime": 1784577631.337
+    },
+    {
+      "path": "receipts/g6/R1_network.json",
+      "mtime": 1784577723.735
+    },
+    {
+      "path": "receipts/g6/R2_executor.json",
+      "mtime": 1784577748.304
+    },
+    {
+      "path": "receipts/g6/R3_persist.json",
+      "mtime": 1784577852.622
+    },
+    {
+      "path": "receipts/g6/R4_core.json",
+      "mtime": 1784578001.413
+    },
+    {
+      "path": "receipts/g8/G8_asset.json",
+      "mtime": 1784578849.811
+    },
+    {
+      "path": "receipts/g8/G8_companion.json",
+      "mtime": 1784578836.068
+    },
+    {
+      "path": "receipts/g8/G8_core.json",
+      "mtime": 1784578821.359
+    },
+    {
+      "path": "receipts/g8/G8_executor.json",
+      "mtime": 1784578838.747
+    },
+    {
+      "path": "receipts/g8/G8_manifestation.json",
+      "mtime": 1784578808.304
+    },
+    {
+      "path": "receipts/g8/G8_network.json",
+      "mtime": 1784578870.424
+    },
+    {
+      "path": "receipts/g8/G8_persist.json",
+      "mtime": 1784578837.495
+    },
+    {
+      "path": "receipts/g8/G8_schema.json",
+      "mtime": 1784578952.703
+    },
+    {
+      "path": "receipts/g8/correction/C0_executor.json",
+      "mtime": 1784579698.904
+    },
+    {
+      "path": "receipts/g8/correction/C1_persist.json",
+      "mtime": 1784579698.904
+    },
+    {
+      "path": "receipts/g8/correction/C2_core.json",
+      "mtime": 1784579698.904
+    },
+    {
+      "path": "receipts/g8/correction/C3_schema.json",
+      "mtime": 1784579720.721
+    },
+    {
+      "path": "receipts/g8/d2_exact_provenance_correction_017/D2_asset_017.json",
+      "mtime": 1784611636.104
+    },
+    {
+      "path": "receipts/g8/d2_exact_provenance_correction_017/D2_companion_017.json",
+      "mtime": 1784611642.316
+    },
+    {
+      "path": "receipts/g8/d2_exact_provenance_correction_017/D2_manifestation_017.json",
+      "mtime": 1784611707.163
+    },
+    {
+      "path": "receipts/g8/d2_exact_provenance_correction_017/D2_persist_017.json",
+      "mtime": 1784611660.573
+    },
+    {
+      "path": "receipts/g8/d2_provenance_correction_016/D2_asset_016.json",
+      "mtime": 1784610369.528
+    },
+    {
+      "path": "receipts/g8/d2_provenance_correction_016/D2_companion_016.json",
+      "mtime": 1784610396.513
+    },
+    {
+      "path": "receipts/g8/d2_provenance_correction_016/D2_manifestation_016.json",
+      "mtime": 1784610348.969
+    },
+    {
+      "path": "receipts/g8/d2_provenance_correction_016/D2_persist_016.json",
+      "mtime": 1784610420.189
+    },
+    {
+      "path": "receipts/g8/d3_fresh_after_external_binding_019/D3_network_019.json",
+      "mtime": 1784613430.405
+    },
+    {
+      "path": "receipts/g8/headed/H0_schema.json",
+      "mtime": 1784593499.873
+    },
+    {
+      "path": "receipts/g8/headed/H1_asset.json",
+      "mtime": 1784593499.873
+    },
+    {
+      "path": "receipts/g8/headed/H2_core.json",
+      "mtime": 1784593499.873
+    },
+    {
+      "path": "receipts/g8/headed/H3_companion.json",
+      "mtime": 1784593499.873
+    },
+    {
+      "path": "receipts/g8/headed/H4_manifestation.json",
+      "mtime": 1784593499.873
+    },
+    {
+      "path": "receipts/g8/headed/H5_executor.json",
+      "mtime": 1784593499.875
+    },
+    {
+      "path": "receipts/g8/headed/H6_persist.json",
+      "mtime": 1784593499.875
+    },
+    {
+      "path": "receipts/g8/headed/H7_network.json",
+      "mtime": 1784593499.875
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D0_schema.json",
+      "mtime": 1784599697.539
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D1_core.json",
+      "mtime": 1784605541.369
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D1_executor.json",
+      "mtime": 1784605541.369
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D1_finalizer.json",
+      "mtime": 1784606352.945
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D1_finalizer_correction.json",
+      "mtime": 1784606468.789
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D1_finalizer_correction_2.json",
+      "mtime": 1784607012.002
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D2_asset.json",
+      "mtime": 1784600512.874
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D2_asset_012.json",
+      "mtime": 1784607973.679
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D2_companion.json",
+      "mtime": 1784600479.396
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D2_companion_012.json",
+      "mtime": 1784607919.83
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D2_manifestation.json",
+      "mtime": 1784600475.72
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D2_manifestation_012.json",
+      "mtime": 1784607951.181
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D2_persist.json",
+      "mtime": 1784600517.725
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D2_persist_012.json",
+      "mtime": 1784608012.851
+    },
+    {
+      "path": "receipts/g8/subagent_workflow_remediation_004/D3_network_013.json",
+      "mtime": 1784608747.154
+    },
+    {
+      "path": "receipts/g8/ui_skill_correction/U0_schema.json",
+      "mtime": 1784594561.135
+    },
+    {
+      "path": "receipts/g8/ui_skill_correction/U1_asset.json",
+      "mtime": 1784594561.135
+    },
+    {
+      "path": "receipts/g8/ui_skill_correction/U2_core.json",
+      "mtime": 1784594561.135
+    },
+    {
+      "path": "receipts/g8/ui_skill_correction/U3_companion.json",
+      "mtime": 1784594561.135
+    },
+    {
+      "path": "receipts/g8/ui_skill_correction/U4_manifestation.json",
+      "mtime": 1784594561.135
+    },
+    {
+      "path": "receipts/g8/ui_skill_correction/U5_executor.json",
+      "mtime": 1784594561.135
+    },
+    {
+      "path": "receipts/g8/ui_skill_correction/U6_persist.json",
+      "mtime": 1784594561.135
+    },
+    {
+      "path": "receipts/g8/ui_skill_correction/U7_network.json",
+      "mtime": 1784594561.135
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_002/V0_schema.json",
+      "mtime": 1784595580.582
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_002/V1_core.json",
+      "mtime": 1784595580.583
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_002/V2_companion.json",
+      "mtime": 1784595580.583
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_002/V3_manifestation.json",
+      "mtime": 1784595580.584
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_002/V4_executor.json",
+      "mtime": 1784595580.584
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_002/V5_asset.json",
+      "mtime": 1784595580.585
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_002/V6_persist.json",
+      "mtime": 1784595580.586
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_002/V7_network.json",
+      "mtime": 1784595580.586
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_003/C0_schema.json",
+      "mtime": 1784596872.708
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_003/C1_core.json",
+      "mtime": 1784596872.709
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_003/C2_executor.json",
+      "mtime": 1784596872.71
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_003/C3_companion.json",
+      "mtime": 1784596872.71
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_003/C4_manifestation.json",
+      "mtime": 1784596872.711
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_003/C5_asset.json",
+      "mtime": 1784596872.711
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_003/C6_persist.json",
+      "mtime": 1784596872.712
+    },
+    {
+      "path": "receipts/g8/ui_visual_correction_003/C7_network.json",
+      "mtime": 1784596872.712
+    },
+    {
+      "path": "receipts/g8_ux/G8_UX002_w1_blue_001.json",
+      "mtime": 1784629323.301
+    },
+    {
+      "path": "receipts/g8_ux/G8_UX002_w2_red_001.json",
+      "mtime": 1784629496.986
+    },
+    {
+      "path": "receipts/g8_ux/G8_UX002_w3_qa_001.json",
+      "mtime": 1784629829.07
+    },
+    {
+      "path": "receipts/g8_ux/G8_UX002_w4_purple_001.json",
+      "mtime": 1784630089.485
+    },
+    {
+      "path": "receipts/g8_ux/G8_UX_w1_blue_001.json",
+      "mtime": 1784627971.502
+    },
+    {
+      "path": "receipts/g8_ux/G8_UX_w2_red_001.json",
+      "mtime": 1784628234.697
+    },
+    {
+      "path": "receipts/g8_ux/G8_UX_w3_qa_001.json",
+      "mtime": 1784628422.653
+    },
+    {
+      "path": "receipts/g8_ux/G8_UX_w4_purple_001.json",
+      "mtime": 1784628617.968
+    },
+    {
+      "path": "receipts/h1_consolidate_001/H0_ssot_preflight_001.json",
+      "mtime": 1784707253.37
+    },
+    {
+      "path": "receipts/h1_consolidate_001/H1_runtime_001.json",
+      "mtime": 1784708022.088
+    },
+    {
+      "path": "receipts/h1_consolidate_001/H2_control_ux_001.json",
+      "mtime": 1784708391.647
+    },
+    {
+      "path": "receipts/h1_consolidate_001/H3_qa_evidence_001.json",
+      "mtime": 1784709283.018
+    },
+    {
+      "path": "receipts/h1_consolidate_001/H4_purple_gate_001.json",
+      "mtime": 1784709582.264
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_001/C0_runtime_002.json",
+      "mtime": 1784710776.668
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_001/C1_control_002.json",
+      "mtime": 1784711055.234
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_001/C2_qa_002.json",
+      "mtime": 1784711552.881
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_001/C3_purple_002.json",
+      "mtime": 1784711789.92
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_002/R0_runtime_003.json",
+      "mtime": 1784712846.924
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_002/R1_qa_003.json",
+      "mtime": 1784713308.934
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_002/R2_purple_003.json",
+      "mtime": 1784713548.691
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_003/W0_control_manual_build_004.json",
+      "mtime": 1784732309.198
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_003/W1_red_manual_build_004.json",
+      "mtime": 1784732584.807
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_003/W2_qa_manual_build_004.json",
+      "mtime": 1784733871.114
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_003/W3_purple_manual_build_004.json",
+      "mtime": 1784734109.04
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_004/C0_manual_build_fix_005.json",
+      "mtime": 1784735192.882
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_004/C1_qa_manual_build_005.json",
+      "mtime": 1784735534.651
+    },
+    {
+      "path": "receipts/h1_consolidate_001/correction_004/C2_purple_manual_build_005.json",
+      "mtime": 1784735851.299
+    },
+    {
+      "path": "receipts/mockup_cast_props_production_001/PRODUCTION_001.json",
+      "mtime": 1784796228.101
+    },
+    {
+      "path": "receipts/nori7_redesign_001/BLUE_redesign_export_001.json",
+      "mtime": 1784793718.822
+    },
+    {
+      "path": "receipts/p1e/P1E_001_w1_blue_001.json",
+      "mtime": 1784640812.511
+    },
+    {
+      "path": "receipts/p1e/P1E_001_w2_red_001.json",
+      "mtime": 1784641111.774
+    },
+    {
+      "path": "receipts/p1e/P1E_001_w3_qa_001.json",
+      "mtime": 1784641305.09
+    },
+    {
+      "path": "receipts/p1e/P1E_001_w4_purple_001.json",
+      "mtime": 1784641560.243
+    },
+    {
+      "path": "receipts/p1e/P1E_002_w1_blue_001.json",
+      "mtime": 1784642981.089
+    },
+    {
+      "path": "receipts/p1e/P1E_002_w2_red_001.json",
+      "mtime": 1784643268.175
+    },
+    {
+      "path": "receipts/p1e/P1E_002_w3_qa_001.json",
+      "mtime": 1784643524.428
+    },
+    {
+      "path": "receipts/p1e/P1E_002_w4_purple_001.json",
+      "mtime": 1784643783.007
+    },
+    {
+      "path": "receipts/p1e/P1E_003_corr_w1_blue_001.json",
+      "mtime": 1784649421.962
+    },
+    {
+      "path": "receipts/p1e/P1E_003_corr_w2_red_001.json",
+      "mtime": 1784649744.05
+    },
+    {
+      "path": "receipts/p1e/P1E_003_corr_w3_qa_001.json",
+      "mtime": 1784650046.832
+    },
+    {
+      "path": "receipts/p1e/P1E_003_corr_w4_purple_001.json",
+      "mtime": 1784650307.448
+    },
+    {
+      "path": "receipts/p1e/P1E_003_w1_blue_001.json",
+      "mtime": 1784647440.838
+    },
+    {
+      "path": "receipts/p1e/P1E_003_w2_red_001.json",
+      "mtime": 1784647730.525
+    },
+    {
+      "path": "receipts/p1e/P1E_003_w3_qa_001.json",
+      "mtime": 1784648002.186
+    },
+    {
+      "path": "receipts/p1e/P1E_003_w4_purple_001.json",
+      "mtime": 1784648275.237
+    },
+    {
+      "path": "receipts/p1e/P1E_004_PARENT_INLINE_LIMITATION.md",
+      "mtime": 1784655524.375
+    },
+    {
+      "path": "receipts/p1e/P1E_004_STYLE_MISMATCH_ROOT_CAUSE_001.json",
+      "mtime": 1784659667.496
+    },
+    {
+      "path": "receipts/p1e/P1E_004_corr_w1_blue_001.json",
+      "mtime": 1784655938.109
+    },
+    {
+      "path": "receipts/p1e/P1E_004_corr_w2_red_001.json",
+      "mtime": 1784656261.424
+    },
+    {
+      "path": "receipts/p1e/P1E_004_corr_w3_qa_001.json",
+      "mtime": 1784656512.77
+    },
+    {
+      "path": "receipts/p1e/P1E_004_corr_w4_purple_001.json",
+      "mtime": 1784656718.431
+    },
+    {
+      "path": "receipts/p1e/P1E_004_w1_blue_001.json",
+      "mtime": 1784656576.059
+    },
+    {
+      "path": "receipts/p1e/P1E_004_w2_red_001.json",
+      "mtime": 1784656576.059
+    },
+    {
+      "path": "receipts/p1e/P1E_004_w3_qa_001.json",
+      "mtime": 1784656576.059
+    },
+    {
+      "path": "receipts/p1e/P1E_004_w4_purple_001.json",
+      "mtime": 1784656576.059
+    },
+    {
+      "path": "receipts/p1e/P1E_006_clean_r0_asset_003.json",
+      "mtime": 1784665655.145
+    },
+    {
+      "path": "receipts/p1e/P1E_006_clean_r1_persist_003.json",
+      "mtime": 1784665909.249
+    },
+    {
+      "path": "receipts/p1e/P1E_006_clean_r2_qa_003.json",
+      "mtime": 1784666169.587
+    },
+    {
+      "path": "receipts/p1e/P1E_006_clean_r3_purple_003.json",
+      "mtime": 1784666917.584
+    },
+    {
+      "path": "receipts/p1e/P1E_006_l1_provenance_schema_005.json",
+      "mtime": 1784669264.95
+    },
+    {
+      "path": "receipts/p1e/P1E_006_lifecycle_l0_asset_004.json",
+      "mtime": 1784667534.554
+    },
+    {
+      "path": "receipts/p1e/P1E_006_lifecycle_l1_qa_004.json",
+      "mtime": 1784667837.803
+    },
+    {
+      "path": "receipts/p1e/P1E_006_lifecycle_l2_purple_004.json",
+      "mtime": 1784668280.728
+    },
+    {
+      "path": "receipts/p1e/P1E_006_provenance_correction_002.json",
+      "mtime": 1784663944.135
+    },
+    {
+      "path": "receipts/p1e/P1E_006_w1_blue_001.json",
+      "mtime": 1784662020.672
+    },
+    {
+      "path": "receipts/p1e/P1E_006_w1_blue_correction_002.json",
+      "mtime": 1784663257.249
+    },
+    {
+      "path": "receipts/p1e/P1E_006_w2_red_001.json",
+      "mtime": 1784662265.326
+    },
+    {
+      "path": "receipts/p1e/P1E_006_w3_headed_correction_002.json",
+      "mtime": 1784663623.211
+    },
+    {
+      "path": "receipts/p1e/P1E_006_w3_qa_001.json",
+      "mtime": 1784662436.573
+    },
+    {
+      "path": "receipts/p1e/P1E_006_w4_purple_001.json",
+      "mtime": 1784662594.551
+    },
+    {
+      "path": "receipts/p1e/P1E_006_w4_purple_correction_002.json",
+      "mtime": 1784664188.538
+    },
+    {
+      "path": "receipts/p1e/P1E_GOVERNANCE_RESTORE_REASONING_001.md",
+      "mtime": 1784662695.187
+    },
+    {
+      "path": "receipts/p2e_001/A0_ssot_preflight_001.json",
+      "mtime": 1784698868.286
+    },
+    {
+      "path": "receipts/p2e_001/A1_runtime_implementation_001.json",
+      "mtime": 1784699872.095
+    },
+    {
+      "path": "receipts/p2e_001/A2_control_ux_audit_001.json",
+      "mtime": 1784700131.946
+    },
+    {
+      "path": "receipts/p2e_001/A3_red_audit_001.json",
+      "mtime": 1784700465.393
+    },
+    {
+      "path": "receipts/p2e_001/A4_qa_evidence_001.json",
+      "mtime": 1784701168.99
+    },
+    {
+      "path": "receipts/p2e_001/A5_purple_gate_001.json",
+      "mtime": 1784701342.328
+    },
+    {
+      "path": "receipts/p2e_001/correction_001/C0_runtime_correction_002.json",
+      "mtime": 1784702277.851
+    },
+    {
+      "path": "receipts/p2e_001/correction_001/C1_control_audit_002.json",
+      "mtime": 1784702538.013
+    },
+    {
+      "path": "receipts/p2e_001/correction_001/C2_qa_evidence_002.json",
+      "mtime": 1784703030.294
+    },
+    {
+      "path": "receipts/p2e_001/correction_001/C3_purple_gate_002.json",
+      "mtime": 1784703322.349
+    },
+    {
+      "path": "receipts/p2e_001/correction_002/D0_runtime_correction_003.json",
+      "mtime": 1784704407.916
+    },
+    {
+      "path": "receipts/p2e_001/correction_002/D1_control_audit_003.json",
+      "mtime": 1784704704.793
+    },
+    {
+      "path": "receipts/p2e_001/correction_002/D2_qa_evidence_003.json",
+      "mtime": 1784705222.384
+    },
+    {
+      "path": "receipts/p2e_001/correction_002/D3_purple_gate_003.json",
+      "mtime": 1784705490.937
+    },
+    {
+      "path": "receipts/p2e_001/correction_003/E0_esc_single_dispatch_004.json",
+      "mtime": 1784706023.773
+    },
+    {
+      "path": "receipts/p2e_001/correction_003/E1_qa_evidence_004.json",
+      "mtime": 1784706433.098
+    },
+    {
+      "path": "receipts/p2e_001/correction_003/E2_purple_gate_004.json",
+      "mtime": 1784706664.237
+    },
+    {
+      "path": "receipts/post_ucbv_selfrun_001/SELFRUN_report_001.json",
+      "mtime": 1784793718.825
+    },
+    {
+      "path": "receipts/town_grid_import_001/BLUE_IMPORT_001.json",
+      "mtime": 1784819989.583
+    },
+    {
+      "path": "receipts/town_grid_import_001/CLAUDE_MONITOR_20260723T232610.json",
+      "mtime": 1784824242.506
+    },
+    {
+      "path": "receipts/town_grid_import_001/CLAUDE_VERIFY_001.json",
+      "mtime": 1784820922.912
+    },
+    {
+      "path": "receipts/town_grid_import_001/PURPLE_WAITING_001.json",
+      "mtime": 1784822988.019
+    },
+    {
+      "path": "receipts/town_grid_import_001/QA_GAP_NOTE.md",
+      "mtime": 1784822988.019
+    },
+    {
+      "path": "receipts/town_grid_import_001/QA_town_grid_headed_001.json",
+      "mtime": 1784824141.222
+    },
+    {
+      "path": "receipts/town_grid_import_001/REDO_LOOP_ACK_001.json",
+      "mtime": 1784823043.749
+    },
+    {
+      "path": "receipts/town_grid_import_001/REDO_LOOP_ITERATIONS_001.json",
+      "mtime": 1784824141.222
+    },
+    {
+      "path": "receipts/town_grid_import_001/RED_FINDINGS_001.json",
+      "mtime": 1784819989.583
+    },
+    {
+      "path": "receipts/ucbv_001/U0_ssot_preflight_001.json",
+      "mtime": 1784737241.2
+    },
+    {
+      "path": "receipts/ucbv_001/U1_style_lock_001.json",
+      "mtime": 1784737677.021
+    },
+    {
+      "path": "receipts/ucbv_001/U2_character_visual_001.json",
+      "mtime": 1784738259.099
+    },
+    {
+      "path": "receipts/ucbv_001/U3_block_family_001.json",
+      "mtime": 1784738793.463
+    },
+    {
+      "path": "receipts/ucbv_001/U4_character_rig_anim_001.json",
+      "mtime": 1784739360.582
+    },
+    {
+      "path": "receipts/ucbv_001/U5_godot_integration_001.json",
+      "mtime": 1784740072.224
+    },
+    {
+      "path": "receipts/ucbv_001/U6_red_originality_001.json",
+      "mtime": 1784740344.841
+    },
+    {
+      "path": "receipts/ucbv_001/U7_qa_evidence_001.json",
+      "mtime": 1784740745.214
+    },
+    {
+      "path": "receipts/ucbv_001/U8_purple_gate_001.json",
+      "mtime": 1784740947.178
+    },
+    {
+      "path": "receipts/ucbv_001/c5h1_001/BLUE_companion_deadlock_fix_001.json",
+      "mtime": 1784789253.87
+    },
+    {
+      "path": "receipts/ucbv_001/c5h1_001/HUMAN_ACCEPT_c5h1_001.json",
+      "mtime": 1784790871.332
+    },
+    {
+      "path": "receipts/ucbv_001/c5h1_001/PURPLE_companion_deadlock_gate_001.json",
+      "mtime": 1784790208.198
+    },
+    {
+      "path": "receipts/ucbv_001/c5h1_001/QA_companion_deadlock_evidence_001.json",
+      "mtime": 1784789994.027
+    },
+    {
+      "path": "receipts/ucbv_001/c5h1_001/RED_companion_deadlock_audit_001.json",
+      "mtime": 1784789505.775
+    },
+    {
+      "path": "receipts/ucbv_001/correction_002/C0_visual_preflight_002.json",
+      "mtime": 1784760053.74
+    },
+    {
+      "path": "receipts/ucbv_001/correction_002/C1_character_production_002.json",
+      "mtime": 1784761521.937
+    },
+    {
+      "path": "receipts/ucbv_001/correction_002/C2_runtime_build_controls_002.json",
+      "mtime": 1784763801.332
+    },
+    {
+      "path": "receipts/ucbv_001/correction_002/C3_red_scope_002.json",
+      "mtime": 1784766773.939
+    },
+    {
+      "path": "receipts/ucbv_001/correction_002/C4_qa_evidence_002.json",
+      "mtime": 1784769705.518
+    },
+    {
+      "path": "receipts/ucbv_001/correction_003/C1R_character_mesh_weight_correction_003.json",
+      "mtime": 1784762413.454
+    },
+    {
+      "path": "receipts/ucbv_001/correction_004/C2R_inputmap_evidence_004.json",
+      "mtime": 1784765466.379
+    },
+    {
+      "path": "receipts/ucbv_001/correction_005/C3F01_navigation_warning_correction_005.json",
+      "mtime": 1784768119.896
+    },
+    {
+      "path": "receipts/ucbv_001/correction_006/C4F01_h1_flow_zero_error_006.json",
+      "mtime": 1784784047.228
+    },
+    {
+      "path": "receipts/ucbv_001/correction_007/C4F01R_lineage_correction_007.json",
+      "mtime": 1784785276.288
+    },
+    {
+      "path": "receipts/ucbv_001/correction_008/C4R_qa_evidence_008.json",
+      "mtime": 1784785963.776
+    },
+    {
+      "path": "receipts/ucbv_001/correction_009/C4S_qa_evidence_009.json",
+      "mtime": 1784786755.298
+    },
+    {
+      "path": "receipts/ucbv_001/correction_010/C5_purple_release_010.json",
+      "mtime": 1784791379.186
+    },
+    {
+      "path": "receipts/ucbv_001/correction_010/HUMAN_ACCEPT_c5_foundation_001.json",
+      "mtime": 1784792917.632
+    }
+  ],
+  "open_items_carried_forward": [
+    "town_build_10phase package still not independently reviewed by Claude (journal entry 076) -- 2nd cycle carried, still not urgent per Human framing but aging.",
+    "Unregistered third Grok session UUID 019f8ded-1cdc-7052-be45-1d519dd5c9b7 (journal entry 074) still needs Human confirmation (self-update session vs real third parent); NOT added to parent_sessions.",
+    "In-flight unreceipted work: cozy_house_small_A.glb + module_catalog.json mtime newer than the latest redo-loop receipt (REDO_LOOP_ITERATIONS_001.json) -- check next cycle for a new iteration/receipt."
+  ]
+}

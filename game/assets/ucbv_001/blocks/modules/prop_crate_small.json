@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_prop_crate_small_v1",
+  "module_id": "prop_crate_small",
+  "module_role": "prop",
+  "display_name": "Crate Small",
+  "world_profile_id": "cozy_cyber_pixel",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "author_wave": "U3_BLOCK_FAMILY_ART",
+  "allowlist_verified": true,
+  "dna_catalog_present": false,
+  "dna_note": "Adapter allowlist + fixtures (VALID-07, VALID-14). Socket usage: prop_base input from terrain_surface via norm_terrain_surface_prop_base_v1.",
+  "domain": "PROP",
+  "category": "PROP",
+  "geometry_family": "prop_crate_small",
+  "bounds_m": {
+    "width": 0.6,
+    "depth": 0.6,
+    "height": 0.55,
+    "origin": "center_bottom",
+    "source": "small prop mass next to Nori legs; min edge >= 0.5m readability gate"
+  },
+  "sockets_from_contract_fixtures": {
+    "as_used_in_valid_fixtures": {
+      "to_socket": "prop_base",
+      "from_socket": "terrain_surface",
+      "adapter_normalization_id": "norm_terrain_surface_prop_base_v1",
+      "fixture_refs": [
+        "fixtures/valid/VALID-07-terrain-prop-norm-graph.json",
+        "fixtures/valid/VALID-14-four-asymmetric-norms-graph.json"
+      ]
+    },
+    "material_slot_fixture_example": {
+      "material_slot": "wood",
+      "p1e_material_id": "MAT_CozyWood"
+    }
+  },
+  "socket_types_contract_ref": "orchestration/contracts/block_dna_adapt_001/socket_catalog.contract.json",
+  "material_slots_production": {
+    "body": {"semantic_slot": "wood", "mat_id": "MAT_CozyWood", "bible_hex": "#c98a5e"},
+    "accent": {"semantic_slot": "leaf", "mat_id": "MAT_CozyLeaf", "bible_hex": "#7fc98f", "usage": "optional_sticker_or_plant_tuft"}
+  },
+  "silhouette": {
+    "family": "ucbv_cozy_rounded_readable_v1",
+    "form": "rounded_crate_cube",
+    "bevel_face_fraction": 0.06,
+    "hard_90_outer_corners": false
+  },
+  "lod": {
+    "LOD0": "plank_lines_soft_corners",
+    "LOD1": "rounded_box",
+    "LOD2_or_billboard": "box"
+  },
+  "mesh_descriptor": "mesh_descriptors/prop_crate_small.meshdesc.json",
+  "visual_states_ref": "visual_states.json"
+}

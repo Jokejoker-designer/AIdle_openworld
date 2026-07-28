@@ -1,0 +1,303 @@
+{
+  "agent_step_id": "P1E-002-w3-qa-001-2026-07-21",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:6efefc89f9d4cfe8b2bfce208481c63ad7026bb83839429f476d5d4e3ceb7c2e",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f8507-9a9a-72c0-aeef-e1fc82d7e06d",
+  "transcript_ref": "019f8507-9a9a-72c0-aeef-e1fc82d7e06d",
+  "writer_transcript_ref": "019f8507-9a9a-72c0-aeef-e1fc82d7e06d",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f8503-3d2a-7ec0-ad9a-85cd9cbfc951",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/p1e-002-w3-qa-001.log",
+  "handoff_ref": "P1E_002_W4_PURPLE",
+  "start_time": "2026-07-21T14:14:55Z",
+  "end_time": "2026-07-21T14:18:30Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-qa-evidence; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; authority_token=VERIFY_ONLY; required_skills include evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches product; writer_set tests_logs_screenshots_receipts_only.",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "profile_routed": [
+      "evidence-memory-ledger"
+    ]
+  },
+  "bootstrap_note": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded Agents.md + aidle-worldgen-qa-evidence profile + WO-P1E-002 + W1 blue / W2 red receipts + evidence/p1e_intake + p1e002/G8 UX tests + project.godot input map + agent_step_contract schema + skills (always×5 + evidence-memory-ledger) manually. No bootstrap loop.",
+  "character_binding": {
+    "trustlayer": "purple-team-finding-triage",
+    "ui": "ui-a11y-auditor"
+  },
+  "skills_loaded": [
+    {"skill_id": "maf-mandatory-standard", "version": "1.0"},
+    {"skill_id": "trustlayer-x16-crew", "version": "1.0"},
+    {"skill_id": "agentwork-knowledge-loop", "version": "1.0"},
+    {"skill_id": "project-room-collab", "version": "1.0"},
+    {"skill_id": "curiosity-engine", "version": "1.0"},
+    {"skill_id": "evidence-memory-ledger", "version": "1.0"}
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-002-GODOT-GLB-INTAKE.md",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_002_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_002_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/game/project.godot",
+    "E:/AIdle_openworld/game/tests/p1e002_glb_intake_tests.gd",
+    "E:/AIdle_openworld/game/tests/p1e002_glb_intake_smoke.gd",
+    "E:/AIdle_openworld/game/tests/g8_ux_input_collision_smoke.gd",
+    "E:/AIdle_openworld/game/tests/g8_ux002_fence_rail_collision_smoke.gd",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_intake/**",
+    "E:/AIdle_Blender_Bridge_P0/storage/generated_quarantine/BLD-E6BCC14D117E/artifact_hashes.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_002_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-002-w3-qa-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "P1E-002",
+    "work_order": "orchestration/work_orders/WO-P1E-002-GODOT-GLB-INTAKE.md",
+    "wave": "P1E_002_W3_QA",
+    "profile": "aidle-worldgen-qa-evidence",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "status": "REVIEW_REQUESTED",
+    "verdict": "PASS_WITH_NOTES",
+    "summary": "VERIFY_ONLY Wave 3 QA for P1E-002 W1 Blue 019f84f9 / W2 Red 019f8503 (package BLD-E6BCC14D117E). Independent re-run: AIDLE_P1E002_TESTS=PASS checks=14 exit=0 GODOT_RUNTIME_LOAD=OK; AIDLE_P1E002_SMOKE=PASS checks=4 exit=0; AIDLE_G8_UX_SMOKE=PASS checks=6 exit=0 (input_map_bindings + jump + preview non-solid); AIDLE_G8_UX002_SMOKE=PASS checks=2 exit=0. GAME_GLB_COUNT=0 under game/ and game/assets/. project.godot mtime 2026-07-21T09:56:48Z pre-W1; jump=Space; ui_left/right/up/down events empty; G8 UX input_map_bindings PASS. Quarantine SHA-256 FAIL=0/13; evidence refs byte-identical to package; tamper refuse proven in suite. Headed visual: godot_seven_modules_runtime.png + godot_house_focus_runtime.png (1280x720) show seven Cozy module classes (house, path×3, greenhouse, farm, lamp, pond, tree) via GLB intake (evidence_manifest modules=9, job=BLD-E6BCC14D117E); high-key washout residual R-LOW-07 non-blocking. Red findings R-MED-01..03 / R-LOW-04..07 carried as honesty notes, not blocking reopens. product_writes=[]. Handoff P1E_002_W4_PURPLE. accepted=false.",
+    "package_job_id": "BLD-E6BCC14D117E",
+    "prior_wave": {
+      "child_task_ref": "019f8503-3d2a-7ec0-ad9a-85cd9cbfc951",
+      "receipt": "orchestration/receipts/p1e/P1E_002_w2_red_001.json",
+      "wave": "P1E_002_W2_RED",
+      "verdict": "FINDINGS_REPORTED",
+      "blocking_reopen": 0
+    },
+    "blue_wave": {
+      "child_task_ref": "019f84f9-8de4-74f1-bcf9-5a480b08dd89",
+      "receipt": "orchestration/receipts/p1e/P1E_002_w1_blue_001.json",
+      "wave": "P1E_002_W1_BLUE",
+      "package": "BLD-E6BCC14D117E",
+      "godot_runtime_load": "OK",
+      "res_promotion": false
+    },
+    "independent_smoke": {
+      "p1e002_tests": {"marker": "AIDLE_P1E002_TESTS=PASS checks=14", "exit": 0, "godot_runtime_load": "OK"},
+      "p1e002_smoke": {"marker": "AIDLE_P1E002_SMOKE=PASS checks=4", "exit": 0, "hash_ok_count": "13/13", "modules": 9},
+      "g8_ux_smoke": {"marker": "AIDLE_G8_UX_SMOKE=PASS checks=6", "exit": 0, "input_map_bindings": "PASS"},
+      "g8_ux002_smoke": {"marker": "AIDLE_G8_UX002_SMOKE=PASS checks=2", "exit": 0},
+      "quarantine_hash": {"ok": 13, "fail": 0},
+      "game_glb_count": 0,
+      "assets_glb_count": 0
+    },
+    "headed_visual": {
+      "status": "SOLID_WITH_HIGH_KEY_NOTE",
+      "re_capture_attempted": false,
+      "reason_no_recapture": "W1 temporary headed harness (res://tests/_p1e*) cleaned; exclusive writes do not include game/tests product path. Existing W1 headed PNGs present and reviewed.",
+      "screenshots": [
+        {
+          "path": "orchestration/evidence/p1e_intake/godot_seven_modules_runtime.png",
+          "size": "1280x720",
+          "bytes": 25356,
+          "sha256": "a402670c3ccac90e70cf90cfac5f2841423b045cda4be15e682f6823c27e65fa",
+          "avg_luma_sample": 230.83,
+          "review": "Isometric Godot runtime view; house, greenhouse, path stones, farm plot, lamp, pond disc, tree landmark, plus procedural fence fillers visible. High-key yellow ground wash residual."
+        },
+        {
+          "path": "orchestration/evidence/p1e_intake/godot_house_focus_runtime.png",
+          "size": "1280x720",
+          "bytes": 19407,
+          "sha256": "57d5a38671b29bc7fa47d2c20fe2b01c710b2a4b4e1f1693be755b4126c2ac6c",
+          "avg_luma_sample": 227.76,
+          "review": "House/greenhouse/path cluster in focus; farm plot left; confirms non-procedural-placeholder house silhouette from quarantine GLB path."
+        },
+        {
+          "path": "orchestration/evidence/p1e_intake/bridge_starter_realm_preview.png",
+          "size": "768x512",
+          "bytes": 396780,
+          "sha256": "e931f75dc22b132c35f268663665d849228de3563e61b97cd82231b34e734282",
+          "avg_luma_sample": 216.34,
+          "review": "Bridge package preview reference; composition matches Godot intake module set (7 classes / 9 instances)."
+        }
+      ],
+      "evidence_manifest_modules": 9,
+      "placed_instance_ids": [
+        "path_01", "path_02", "path_03", "house_01", "pond_01",
+        "farm_01", "light_brush_01", "greenhouse_preview_01", "tree_landmark_01"
+      ],
+      "runtime_load": "OK",
+      "display": "Windows"
+    },
+    "input_map_spot_check": {
+      "project_godot_mtime_utc": "2026-07-21T09:56:48.7049512Z",
+      "project_godot_sha256": "f28af2f7915608e679d885bce921ebed6533b332fb9a3cd6466b4ecdc8362c92",
+      "jump": "present; Space physical_keycode=32",
+      "ui_left": "events=[]",
+      "ui_right": "events=[]",
+      "ui_up": "events=[]",
+      "ui_down": "events=[]",
+      "g8_ux_input_map_bindings": "PASS",
+      "p1e002_w1_touched_project_godot": false,
+      "verdict": "PASS"
+    },
+    "acceptance_criteria_matrix": [
+      {
+        "id": "AC1",
+        "criterion": "All twelve spec intake tests pass",
+        "verdict": "PASS",
+        "evidence": "Independent re-run AIDLE_P1E002_TESTS=PASS checks=14 exit=0 covers all twelve WO/spec tests plus runtime_load_absolute_path + tampered_package_refused: all_glb_import, object_ids_unique, scene_origin_correct, material_slots_resolve, socket_markers_resolve, collision_hint_not_authoritative_before_commit, navigation_bake_succeeds, build_plot_clear, camera_not_occluded, cancel_hologram_no_orphan, save_reload_no_duplicate, revision_conflict_surfaces."
+      },
+      {
+        "id": "AC2",
+        "criterion": "Collision is provably inactive until after explicit confirm plus commit",
+        "verdict": "PASS_WITH_NOTES",
+        "evidence": "Tests: collision_before_commit solid=0; activate path solid=4; smoke preview wireframe/hologram/materializing collision_layer=0; complete blocks player. NOTE (R-MED-01): StarterRealmBuilder boot path defaults enable_collision=true without World Commit receipt bind — kit treated as starter geometry; honesty gap, non-blocking for intake harness gates; World Commit out of WO scope.",
+        "red_finding": "R-MED-01"
+      },
+      {
+        "id": "AC3",
+        "criterion": "Preview stages remain non-solid — no regression of WO-G8-UX-001",
+        "verdict": "PASS",
+        "evidence": "AIDLE_G8_UX_SMOKE=PASS checks=6 including ac5_preview_stages_non_solid; AIDLE_P1E002_SMOKE preview_stages_non_solid PASS; manifestation attach_external_visual path retained."
+      },
+      {
+        "id": "AC4",
+        "criterion": "The seven Cozy modules render in-game in place of the procedural primitives",
+        "verdict": "PASS",
+        "evidence": "Headed PNGs godot_seven_modules_runtime.png / godot_house_focus_runtime.png reviewed; evidence_manifest placed_ids=9 for job BLD-E6BCC14D117E with GODOT_RUNTIME_LOAD=OK via absolute quarantine OS path; smoke starter_builder_glb_path modules=9 missing=[]; no res:// promotion. High-key residual does not block module-presence proof.",
+        "visual_refs": [
+          "orchestration/evidence/p1e_intake/godot_seven_modules_runtime.png",
+          "orchestration/evidence/p1e_intake/godot_house_focus_runtime.png",
+          "orchestration/evidence/p1e_intake/evidence_manifest.json"
+        ]
+      },
+      {
+        "id": "AC5",
+        "criterion": "Artifact hashes re-verified at intake; a tampered package is refused",
+        "verdict": "PASS",
+        "evidence": "Smoke hash_ok_count=13/13; independent disk FAIL=0/13 vs artifact_hashes.json; test tampered_package_refused (hash_reverify_failed, refused=true); evidence artifact_hashes_ref/scene_manifest_ref/validation_ref/bridge preview byte-identical to quarantine package."
+      },
+      {
+        "id": "AC6",
+        "criterion": "No pre-existing test regresses (current suite: 44 / G8 UX)",
+        "verdict": "PASS",
+        "evidence": "AIDLE_G8_UX_SMOKE=PASS checks=6; AIDLE_G8_UX002_SMOKE=PASS checks=2; input_map_bindings + player jump action + complete manifestation block + fence rails all green. No regress of verified G8 UX input/collision gates."
+      },
+      {
+        "id": "AC7",
+        "criterion": "Nothing outside the confirmed writer allowlist is modified",
+        "verdict": "PASS_WITH_NOTES",
+        "evidence": "QA product_writes=[]. W1 surface: glb_intake*.gd, starter_realm_builder.gd, manifestation_instance.gd, main.gd, p1e002 tests only. 0 GLB under game/assets. project.godot not modified by W1. NOTE (R-MED-03): main.gd was outside WO expected-shape list; Blue CONFIRMED_WITH_EDITS process residual, non-blocking.",
+        "red_finding": "R-MED-03"
+      },
+      {
+        "id": "H_NO_GAME_GLB",
+        "criterion": "Confirm 0 glb under game/assets (and game/)",
+        "verdict": "PASS",
+        "evidence": "Independent filesystem scan: GLB_COUNT=0 under game/; ASSETS_GLB=0 under game/assets/. Intake loads absolute quarantine path only."
+      },
+      {
+        "id": "H_INPUT_MAP_NO_REGRESS",
+        "criterion": "Confirm no input map regress (spot-check jump / ui_*)",
+        "verdict": "PASS",
+        "evidence": "project.godot jump Space; ui_* empty events; mtime pre-W1; G8 UX input_map_bindings PASS on independent re-run."
+      }
+    ],
+    "spec_intake_test_matrix": [
+      {"id": "T01", "name": "all_glb_import", "verdict": "PASS"},
+      {"id": "T02", "name": "object_ids_unique", "verdict": "PASS"},
+      {"id": "T03", "name": "scene_origin_correct", "verdict": "PASS"},
+      {"id": "T04", "name": "material_slots_resolve", "verdict": "PASS_WITH_NOTES", "note": "R-LOW-05 weak-positive materials path"},
+      {"id": "T05", "name": "socket_markers_resolve", "verdict": "PASS_WITH_NOTES", "note": "R-LOW-05 kit has no sockets; resolver executed"},
+      {"id": "T06", "name": "collision_hint_not_authoritative_before_commit", "verdict": "PASS"},
+      {"id": "T07", "name": "navigation_bake_succeeds", "verdict": "PASS_WITH_NOTES", "note": "R-LOW-04 bake_deferred possible off-tree"},
+      {"id": "T08", "name": "build_plot_clear", "verdict": "PASS"},
+      {"id": "T09", "name": "camera_not_occluded", "verdict": "PASS"},
+      {"id": "T10", "name": "cancel_hologram_no_orphan", "verdict": "PASS", "orphan_collision_count": 0},
+      {"id": "T11", "name": "save_reload_no_duplicate", "verdict": "PASS_WITH_NOTES", "note": "R-MED-02 rebuild-replace not durable persist journal"},
+      {"id": "T12", "name": "revision_conflict_surfaces", "verdict": "PASS"}
+    ],
+    "red_findings_triage": [
+      {"id": "R-MED-01", "severity": "medium", "blocking": false, "qa_disposition": "CARRY_HONESTY_NOTE — AC2 PASS_WITH_NOTES; starter kit collision default without World Commit bind"},
+      {"id": "R-MED-02", "severity": "medium", "blocking": false, "qa_disposition": "CARRY_HONESTY_NOTE — T11 rebuild-not-persist; do not overclaim AC11 durable serialization"},
+      {"id": "R-MED-03", "severity": "medium", "blocking": false, "qa_disposition": "CARRY_PROCESS_NOTE — main.gd allowlist residual; no product reopen"},
+      {"id": "R-LOW-04", "severity": "low", "blocking": false, "qa_disposition": "CARRY — nav bake skeleton acceptable"},
+      {"id": "R-LOW-05", "severity": "low", "blocking": false, "qa_disposition": "CARRY — socket/material weak-positive"},
+      {"id": "R-LOW-06", "severity": "low", "blocking": false, "qa_disposition": "CARRY — art_style cozy_cyber_pixel SCRIPT ERROR non-fatal still observed on smoke"},
+      {"id": "R-LOW-07", "severity": "low", "blocking": false, "qa_disposition": "CARRY — headed high-key; modules still identifiable; Human may prefer lower exposure later"},
+      {"id": "R-INFO-08", "severity": "info", "blocking": false, "qa_disposition": "CONFIRM — G8 residual prior-confirmed-building-after-later-cancel remains OUT OF SCOPE"},
+      {"id": "R-INFO-09", "severity": "info", "blocking": false, "qa_disposition": "CONFIRM — headless dummy mesh_storage null noise non-fatal"},
+      {"id": "R-INFO-10", "severity": "info", "blocking": false, "qa_disposition": "CONFIRM — activate solid=4 matches advisory policy"}
+    ],
+    "blocking_issues": [],
+    "non_blocking_residuals": [
+      "R-MED-01 starter collision default without World Commit bind",
+      "R-MED-02 save/reload test is rebuild-replace",
+      "R-MED-03 main.gd allowlist process residual",
+      "R-LOW-04..07 nav/sockets/art_style/high-key",
+      "G8 residual prior-confirmed-building-after-later-cancel (out of scope)"
+    ]
+  },
+  "smoke_test": {
+    "commands": [
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_tests.gd",
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e002_glb_intake_smoke.gd",
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux_input_collision_smoke.gd",
+      "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/g8_ux002_fence_rail_collision_smoke.gd"
+    ],
+    "markers": {
+      "AIDLE_P1E002_TESTS": "PASS checks=14",
+      "AIDLE_P1E002_SMOKE": "PASS checks=4",
+      "AIDLE_G8_UX_SMOKE": "PASS checks=6",
+      "AIDLE_G8_UX002_SMOKE": "PASS checks=2",
+      "GODOT_RUNTIME_LOAD": "OK",
+      "QUARANTINE_HASH": "OK=13 FAIL=0",
+      "GAME_GLB_COUNT": "0",
+      "INPUT_MAP_SPOT_CHECK": "PASS"
+    },
+    "exit_codes_all_zero": true,
+    "ran_by": "P1E_002_W3_QA independent re-verify"
+  },
+  "self_audit": {
+    "authority_verify_only": true,
+    "product_writes_empty": true,
+    "no_self_accept": true,
+    "headed_visual_reviewed": true,
+    "hash_reverify_independent": true,
+    "input_map_spot_checked": true,
+    "zero_game_glb": true,
+    "exclusive_writes_only": true,
+    "self_accept": false,
+    "accepted": false
+  },
+  "evidence_refs": [
+    "orchestration/logs/p1e-002-w3-qa-001.log",
+    "orchestration/logs/_p1e002_w3_qa_tests_capture.txt",
+    "orchestration/logs/_p1e002_w3_qa_smoke_capture.txt",
+    "orchestration/logs/_p1e002_w3_qa_g8ux_capture.txt",
+    "orchestration/logs/_p1e002_w3_qa_g8ux002_capture.txt",
+    "orchestration/evidence/p1e_intake/godot_seven_modules_runtime.png",
+    "orchestration/evidence/p1e_intake/godot_house_focus_runtime.png",
+    "orchestration/evidence/p1e_intake/bridge_starter_realm_preview.png",
+    "orchestration/evidence/p1e_intake/evidence_manifest.json",
+    "orchestration/evidence/p1e_intake/headed_run_log.txt",
+    "orchestration/receipts/p1e/P1E_002_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_002_w2_red_001.json"
+  ],
+  "next_route": "P1E_002_W4_PURPLE",
+  "completion_signal": "REVIEW_REQUESTED"
+}

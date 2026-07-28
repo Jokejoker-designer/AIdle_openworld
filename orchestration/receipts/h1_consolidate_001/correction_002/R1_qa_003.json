@@ -1,0 +1,579 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "H1-CONSOLIDATE-001-r1-qa-003-20260722T094148Z",
+  "step_id": "H1-CONSOLIDATE-001-r1-qa-003",
+  "work_order_id": "WO-H1-CONSOLIDATE-001-RUNTIME-ROOT-CORRECTION-002",
+  "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-RUNTIME-ROOT-CORRECTION-002.md",
+  "work_order_sha256": "b429221cbd9f0845560795efb9a71580a51dc5364170afdcdf80623385045e3e",
+  "directive_id": 76,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "6f86b72f1fc247d8988b83a40c1500e03da3b199c68a5af3cbf4c37fb97dd84e",
+  "directive_state": "CHANGES_REQUESTED",
+  "directive_verdict": "H1_ROOT_LOOKUP_FAILURE_OCCURRENCE_2_FINAL_AUTO_RETRY",
+  "supersedes_directive_id": 75,
+  "permitted_task_ids": [
+    "H1-CONSOLIDATE-001"
+  ],
+  "review": "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_CORRECTION_REVIEW_002.json",
+  "review_sha256": "f1b81219f2f5f24b5dc31bf011a133292e189f228690e94b07eb01f642ade44f",
+  "milestone": "H1 final automatic runtime-root correction \u2014 R1 headed dual-res evidence 003 after R0",
+  "agent_id": "aidle-worldgen-qa-evidence",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "profile_name": "aidle-worldgen-qa-evidence",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_sha256": "bd9f7f941be811b1d81b35cc58fe06fba8bbd3768c04a49f41af626cc09f890a",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-qa-evidence; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set exclusive_evidence_003",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "QA evidence only; exclusive R1 log+receipt+evidence/h1_consolidate_001/003/**; product_writes=[]; never patch product/tests; never ACCEPTED; no grandchildren; preserve evidence 001/002 + correction_001 immutable",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:31332ee052b571bae3dbff8db6cad2d8ced3dfcd06e03791ebad44361b8418ec",
+  "input_context_hash_16": "31332ee052b571ba",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-RUNTIME-ROOT-CORRECTION-002 + codex_directive.json + aidle-worldgen-qa-evidence.md + CORRECTION_REVIEW_002 + R0_runtime_003 + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "R1_COMPLETE_ROUTE_R2_PURPLE",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "R1_QA_HEADED_ZERO_ERROR_PASS_ROUTE_R2_NO_ACCEPT",
+  "child_task_ref": "019f892d-4cc8-7a43-b293-48d976e28fc4",
+  "transcript_ref": "019f892d-4cc8-7a43-b293-48d976e28fc4",
+  "writer_transcript_ref": "019f892d-4cc8-7a43-b293-48d976e28fc4",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_r0": "019f8926-02ae-7d81-b722-db1bdfe55f8b",
+  "prior_r0_receipt": "orchestration/receipts/h1_consolidate_001/correction_002/R0_runtime_003.json",
+  "prior_r0_sha256": "8cbdaeccde2da96eb670a17a93064eb720484354c811b9d57e4c06f793b7e85b",
+  "prior_c0": "019f8903-a70a-7242-b8e4-05e359cebe12",
+  "prior_c1": "019f890e-28df-71f2-b298-457c58071804",
+  "prior_c2": "019f8912-87cd-7410-a733-35b0b254b9ac",
+  "prior_c3": "019f8919-8a74-78f1-8618-bc8b32dddaac",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f892d-4cc8-7a43-b293-48d976e28fc4/meta.json",
+  "started_at": "2026-07-22T09:34:35.210941300Z",
+  "completed_at_utc": "2026-07-22T09:41:48Z",
+  "next_owner": "R2_PURPLE",
+  "next_route": "R2_PURPLE",
+  "human_gate_open": false,
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-finding-triage",
+    "trustlayer_file": "E:/agents/characters/12-purple-team-finding-triage.md",
+    "trustlayer_sha256": "5ee9279e67793b135675725f0d6060b3bb749df6a169bbb43cb071372ea394a8",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "ui_read": "full_eof",
+    "role": "R1 VERIFY_ONLY QA/playability evidence after R0; never patch; never self-accept; report F01 signature if repeated"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 \u2014 not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO-RUNTIME-ROOT-CORRECTION-002, Directive 76, ARCHITECTURE_LOCK, CORRECTION_REVIEW_002, R0 receipt, skills ALWAYS full EOF + evidence-memory-ledger full EOF manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "No production destructive tests..."
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "agent_step_contract.schema.json"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "E:\\shared\\LOOP.md"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "E:\\agents\\projects\\README.md"
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "full_file_size_hash_verify",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Prime Directive / trustworthy testable result"
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "bytes": 8484,
+      "line_count": 292,
+      "read_mode": "full_chunked_to_eof",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Evidence memory: NO_DURABLE_RECORD"
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/h1-consolidate-r1-qa-003.log",
+    "E:/AIdle_openworld/orchestration/receipts/h1_consolidate_001/correction_002/R1_qa_003.json",
+    "E:/AIdle_openworld/orchestration/evidence/h1_consolidate_001/003/**"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "orchestration/logs/h1-consolidate-r1-qa-003.log",
+    "orchestration/receipts/h1_consolidate_001/correction_002/R1_qa_003.json",
+    "orchestration/evidence/h1_consolidate_001/003/**"
+  ],
+  "forbidden_paths_not_written": [
+    "game/**",
+    "world_DNA/**",
+    "Scene/**",
+    "orchestration/evidence/h1_consolidate_001/001/**",
+    "orchestration/evidence/h1_consolidate_001/002/**",
+    "orchestration/receipts/h1_consolidate_001/correction_001/**",
+    "orchestration/receipts/h1_consolidate_001/correction_002/R0_runtime_003.json",
+    "orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json",
+    "orchestration/receipts/h1_consolidate_001/H1_runtime_001.json",
+    "orchestration/receipts/h1_consolidate_001/H2_control_ux_001.json",
+    "orchestration/receipts/h1_consolidate_001/H3_qa_evidence_001.json",
+    "orchestration/receipts/h1_consolidate_001/H4_purple_gate_001.json"
+  ],
+  "result": {
+    "verdict": "R1_QA_HEADED_ZERO_ERROR_PASS_ROUTE_R2_NO_ACCEPT",
+    "headed_pass": true,
+    "headed_matrix_complete": true,
+    "zero_error": true,
+    "zero_error_including_teardown": true,
+    "f01_signature_repeated": false,
+    "hitl_required": false,
+    "smoke_all_pass": true,
+    "summary": "R1 VERIFY_ONLY fresh dual-res headed matrix under Directive 76 after R0 absolute-root + HUD fixture patch. Headless: LOOKUP static scan_hits=0 runtime_ok=2, H1 ERROR_FREE/FLOW/CHROME, full P2E suite, Control router/a11y/fixtures, G3 E2E checks=76, G4 persist checks=22, Block-DNA 14/14+42/42 all PASS exit 0. Fresh 13 states x 2 = 26 distinct PNGs; Build-R preview rot 0->60 both viewports with camera_yaw_unchanged=true; marker AIDLE_H1C_R1_HEADED=PASS; real InputMap path Ctrl+Enter_prompt_send both viewports; no select_module/confirm_and_commit_direct sole path. Zero-ERROR-including-teardown=PASS (error_line_count=0); f01_signature_repeated=false; HUD edition API Gateway / Free Bridge (no fixture). product_writes=[]; accepted=false; next R2_PURPLE.",
+    "gates": {
+      "block_dna_14_14_42_42": true,
+      "h1_runtime_autoload_lookup_smoke": true,
+      "h1_error_free_smoke": true,
+      "h1_flow_smoke": true,
+      "h1_chrome_smoke": true,
+      "p2e_suite": true,
+      "control_smokes": true,
+      "g3_g4_smokes": true,
+      "headed_dual_res_26_png": true,
+      "pngs_distinct_hashes": true,
+      "build_r_yaw_unchanged": true,
+      "zero_error_including_teardown": true,
+      "f01_signature_repeated": false,
+      "action_bar_no_paid_fixture": true,
+      "hud_edition_no_fixture": true,
+      "real_inputmap_preferred": true,
+      "no_direct_commit_sole_path": true
+    },
+    "blocker_status": {
+      "H1-CODEX-F01": "CLOSED_ON_EVIDENCE_003_ZERO_USER_ERROR_HEADED",
+      "H1-CODEX-F02": "CLOSED_PRIOR_C1_THIS_R1_USES_REAL_DURABLE_UUID",
+      "H1-CODEX-F03": "CLOSED_ACTION_BAR_AND_HUD_NO_FIXTURE_WORDING"
+    },
+    "forbidden_scope_confirmation": {
+      "product_written": false,
+      "tests_written": false,
+      "evidence_001_rewritten": false,
+      "evidence_002_rewritten": false,
+      "correction_001_rewritten": false,
+      "r0_receipt_rewritten": false,
+      "dna_v1_2_authorized": false,
+      "scene_expansion_authorized": false,
+      "character_foundry_runtime_authorized": false,
+      "network_authorized": false,
+      "self_accept_authorized": false,
+      "grandchildren_spawned": false
+    }
+  },
+  "headed_evidence": {
+    "path": "orchestration/evidence/h1_consolidate_001/003",
+    "manifest": "orchestration/evidence/h1_consolidate_001/003/evidence_manifest.json",
+    "visual_claim_meta": "orchestration/evidence/h1_consolidate_001/003/visual_claim_meta.json",
+    "png_sha256": "orchestration/evidence/h1_consolidate_001/003/png_sha256.json",
+    "godot_log": "orchestration/evidence/h1_consolidate_001/003/godot_headed.log",
+    "runner_log": "orchestration/evidence/h1_consolidate_001/003/runner.log",
+    "capture_script": "orchestration/evidence/h1_consolidate_001/003/capture_h1_consolidate_r1_real_input.gd",
+    "runner_script": "orchestration/evidence/h1_consolidate_001/003/run_capture.py",
+    "smoke_summary": "orchestration/evidence/h1_consolidate_001/003/smoke_summary.json",
+    "godot_exit": 0,
+    "marker_pass": true,
+    "headed_pass": true,
+    "png_count": 26,
+    "required_states": [
+      "launch",
+      "companion_request",
+      "structured_proposal",
+      "preview",
+      "build_R",
+      "confirm",
+      "wireframe",
+      "hologram",
+      "materializing",
+      "complete",
+      "save_reload_identity",
+      "undo",
+      "cancel"
+    ],
+    "viewports": [
+      "1280x720",
+      "868x517"
+    ],
+    "build_R_yaw_proof": [
+      {
+        "camera_yaw_after": 0,
+        "camera_yaw_before": 0,
+        "camera_yaw_unchanged": true,
+        "file": "build_R_1280x720.png",
+        "preview_rotated": true,
+        "rot_after": 60,
+        "rot_before": 0
+      },
+      {
+        "camera_yaw_after": 0,
+        "camera_yaw_before": 0,
+        "camera_yaw_unchanged": true,
+        "file": "build_R_868x517.png",
+        "preview_rotated": true,
+        "rot_after": 60,
+        "rot_before": 0
+      }
+    ],
+    "art_style_id_active": "cozy_cyber_pixel",
+    "capture_source": "godot_headed",
+    "live_parity": true,
+    "error_line_count_including_teardown": 0,
+    "error_samples": [],
+    "f01_signature_repeated": false,
+    "f01_line_count": 0,
+    "select_module_api_injection": false,
+    "confirm_and_commit_direct_used": false,
+    "send_via": "Ctrl+Enter_prompt_send (real InputMap path both viewports)",
+    "harness_banner_note": "H1C evidence banner is harness overlay for state ID only \u2014 not product chrome",
+    "visual_chrome_notes": [
+      "Launch product chrome: product_chrome_mode=true diagnostic_wall_primary=false pass_no_debug_chrome=true",
+      "Structured proposal: Ctrl+Enter_prompt_send both viewports; no scaffold residual",
+      "Build-R: preview rot 0\u219260; camera_yaw_unchanged=true both resolutions",
+      "HUD edition: API Gateway / Free Bridge (manual) \u2014 no fixture wording (R0 F03-HUD closed)"
+    ],
+    "evidence_001_immutable": {
+      "path": "orchestration/evidence/h1_consolidate_001/001",
+      "launch_1280x720_sha256_unchanged": "869635d9b9cb7f0ba00776e0f946fa3de4af9219dd5864c1c2dd35cbe47b0153",
+      "rewritten": false
+    },
+    "evidence_002_immutable": {
+      "path": "orchestration/evidence/h1_consolidate_001/002",
+      "launch_1280x720_sha256_unchanged": "11d1ca34a1bb44424bacd11087343829d04d93709cd22169eca3665abb5483e5",
+      "rewritten": false
+    }
+  },
+  "residuals": [
+    {
+      "id": "R1-R01",
+      "severity": "P3",
+      "axis": "presentation_stage_walk",
+      "finding": "wireframe/hologram/materializing PNGs use BA advance_stage presentation walk for visual distinctness; commit uses KEY_ENTER player confirm only; cancel uses KEY_ESCAPE.",
+      "impact": "Stage visuals proven; not a second commit path.",
+      "blocking_headed_zero_error": false
+    }
+  ],
+  "occurrence_policy": {
+    "f01_occurrence_prior": 2,
+    "f01_signature_repeated_on_003": false,
+    "third_identical_failure_action": "HITL_REQUIRED",
+    "hitl_required_now": false,
+    "note": "If F01 signature repeated on evidence 003, parent stops after R2 without fourth automatic correction."
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "headless_godot_python_gates_and_headed_capture",
+    "status": "PASS",
+    "overall_pass": true,
+    "all_exit_zero": true,
+    "error_lines": 0,
+    "godot": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+    "project": "E:/AIdle_openworld/game",
+    "stdout_sink": "orchestration/logs/h1-consolidate-r1-qa-003.log",
+    "checks": [
+      {
+        "id": "LOOKUP",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_H1_RUNTIME_AUTOLOAD_LOOKUP_SMOKE=PASS checks=6 scan_hits=0 runtime_ok=2",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/LOOKUP.log"
+      },
+      {
+        "id": "ERROR_FREE",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS checks=6",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/ERROR_FREE.log"
+      },
+      {
+        "id": "H1_FLOW",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/H1_FLOW.log"
+      },
+      {
+        "id": "H1_CHROME",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS checks=6",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/H1_CHROME.log"
+      },
+      {
+        "id": "P2E_CORE",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_P2E001_CORE_SMOKE=PASS checks=14",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/P2E_CORE.log"
+      },
+      {
+        "id": "P2E_AUTH",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_P2E001_AUTHORITY_SMOKE=PASS checks=8",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/P2E_AUTH.log"
+      },
+      {
+        "id": "P2E_QR",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_P2E001_QR_CONTEXT_SMOKE=PASS checks=8",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/P2E_QR.log"
+      },
+      {
+        "id": "P2E_PLAY",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_P2E001_PLAYABLE_SELECT_SMOKE=PASS checks=5",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/P2E_PLAY.log"
+      },
+      {
+        "id": "P2E_CORR",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_P2E001_CORRECTION_SMOKE=PASS checks=4",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/P2E_CORR.log"
+      },
+      {
+        "id": "P2E_PIN",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_P2E001_PLAYER_INPUT_SMOKE=PASS checks=5",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/P2E_PIN.log"
+      },
+      {
+        "id": "CTRL_ROUTER",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/CTRL_ROUTER.log"
+      },
+      {
+        "id": "CTRL_A11Y",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "AIDLE_CTRL_1B_A11Y_SMOKE=PASS checks=11",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/CTRL_A11Y.log"
+      },
+      {
+        "id": "G3_E2E",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "G3_E2E_SMOKE=PASS checks=76",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/G3_E2E.log"
+      },
+      {
+        "id": "G4_PERSIST",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "G4_PERSIST_SMOKE=PASS checks=22",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/G4_PERSIST.log"
+      },
+      {
+        "id": "BLOCK_DNA",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "valid 14/14 invalid 42/42 PASS gate",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/block_dna.log"
+      },
+      {
+        "id": "CONTROL_1B_FIXTURES",
+        "exit": 0,
+        "error_lines": 0,
+        "pass": true,
+        "detail": "HARNESS_RESULT=PASS",
+        "log": "orchestration/evidence/h1_consolidate_001/003/smokes/control_1b_fixtures.log"
+      }
+    ],
+    "block_dna": {
+      "pass": true,
+      "valid": "14/14",
+      "invalid": "42/42",
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/block_dna.log"
+    },
+    "static_lookup": {
+      "pass": true,
+      "scan_hits": 0,
+      "scripts_scanned": 95,
+      "runtime_ok": 2,
+      "log": "orchestration/evidence/h1_consolidate_001/003/smokes/LOOKUP.log"
+    },
+    "headed": {
+      "pass": true,
+      "matrix_complete": true,
+      "zero_error": true,
+      "error_line_count": 0,
+      "f01_signature_repeated": false,
+      "png_count": 26,
+      "build_R_ok": true,
+      "exit_code": 0,
+      "runner_exit": 0
+    },
+    "exit_code": 0
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "authority_token": "VERIFY_ONLY",
+    "product_writes_empty": true,
+    "no_product_patch": true,
+    "no_test_patch": true,
+    "lease_only": true,
+    "exclusive_lease_self_audit": true,
+    "exclusive_lease_files": [
+      "orchestration/logs/h1-consolidate-r1-qa-003.log",
+      "orchestration/receipts/h1_consolidate_001/correction_002/R1_qa_003.json",
+      "orchestration/evidence/h1_consolidate_001/003/**"
+    ],
+    "auxiliary_logs_outside_lease": false,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "one_writer_per_file": true,
+    "skills_full_eof": true,
+    "schema_required_fields_present": true,
+    "child_task_ref_is_durable_uuid": true,
+    "transcript_ref_matches_child": true,
+    "parent_session_ref_bound": true,
+    "evidence_001_immutable": true,
+    "evidence_002_immutable": true,
+    "correction_001_immutable": true,
+    "r0_not_rewritten": true,
+    "next_route_set": "R2_PURPLE",
+    "honesty_notes": [
+      "zero_error_including_teardown=true (count=0) \u2014 not filtered/hidden",
+      "f01_signature_repeated=false \u2014 third identical fail policy not triggered",
+      "F03 HUD fixture closed by R0; chrome shows API Gateway / Free Bridge",
+      "R1 does not claim H1 package ACCEPTED or human five-minute gate open",
+      "Evidence memory: NO_DURABLE_RECORD (evidence lives in leased receipt+evidence tree)"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/h1-consolidate-r1-qa-003.log",
+    "orchestration/receipts/h1_consolidate_001/correction_002/R1_qa_003.json",
+    "orchestration/evidence/h1_consolidate_001/003/**",
+    "orchestration/evidence/h1_consolidate_001/003/evidence_manifest.json",
+    "orchestration/evidence/h1_consolidate_001/003/godot_headed.log",
+    "orchestration/evidence/h1_consolidate_001/003/smoke_summary.json",
+    "orchestration/receipts/h1_consolidate_001/correction_002/R0_runtime_003.json",
+    "orchestration/reviews/CODEX_H1-CONSOLIDATE-001_CORRECTION_REVIEW_002.json",
+    "orchestration/work_orders/WO-H1-CONSOLIDATE-001-RUNTIME-ROOT-CORRECTION-002.md",
+    "orchestration/control/codex_directive.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "commands": [
+    {
+      "cmd": "Godot --headless -s res://tests/h1_runtime_autoload_lookup_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_H1_RUNTIME_AUTOLOAD_LOOKUP_SMOKE=PASS checks=6 scan_hits=0"
+    },
+    {
+      "cmd": "Godot --headless -s res://tests/h1_consolidation_error_free_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_H1_CONSOLIDATION_ERROR_FREE_SMOKE=PASS"
+    },
+    {
+      "cmd": "Godot --headless -s res://tests/h1_consolidation_flow_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS"
+    },
+    {
+      "cmd": "Godot --headless -s res://tests/h1_consolidation_chrome_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_H1_CONSOLIDATION_CHROME_SMOKE=PASS"
+    },
+    {
+      "cmd": "Godot --headless -s res://tests/p2e001_block_assembly_core_smoke.gd",
+      "exit": 0,
+      "result": "AIDLE_P2E001_CORE_SMOKE=PASS"
+    },
+    {
+      "cmd": "Godot --headless -s res://scripts/modules/executor/g3_e2e_smoke.gd",
+      "exit": 0,
+      "result": "G3_E2E_SMOKE=PASS checks=76"
+    },
+    {
+      "cmd": "Godot --headless -s res://scripts/modules/persist/g4_persist_smoke.gd",
+      "exit": 0,
+      "result": "G4_PERSIST_SMOKE=PASS checks=22"
+    },
+    {
+      "cmd": "python orchestration/contracts/block_dna_adapt_001/validate_block_dna_adapt_001.py",
+      "exit": 0,
+      "result": "valid 14/14 invalid 42/42 PASS gate"
+    },
+    {
+      "cmd": "python orchestration/evidence/h1_consolidate_001/003/run_capture.py",
+      "exit": 0,
+      "result": "AIDLE_H1C_R1_HEADED=PASS captures=26 error_line_count=0 headed_pass=True"
+    }
+  ],
+  "forbidden_actions_observed": []
+}

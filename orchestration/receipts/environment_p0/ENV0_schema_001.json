@@ -1,0 +1,666 @@
+{
+  "agent_step_id": "ENV0-001-schema-001-2026-07-21",
+  "agent_type": "aidle-schema",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "VERIFY_ONLY",
+  "input_context_hash": "sha256:b806b7fdc4f8890a3ebb7ee0abf9b99f594b9a8faeb5be6cb839c8489f9e5d03",
+  "output_schema_version": "agent_step_contract/1.0",
+  "child_task_ref": "019f83ac-f731-7b53-b280-8eef719d4b3a",
+  "transcript_ref": "019f83ac-f731-7b53-b280-8eef719d4b3a",
+  "writer_transcript_ref": "019f83ac-f731-7b53-b280-8eef719d4b3a",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "trace_ref": "orchestration/logs/environment-p0-schema-001.log",
+  "handoff_ref": "ENV0_E1_ASSET_ART",
+  "start_time": "2026-07-21T07:56:00Z",
+  "end_time": "2026-07-21T07:57:42Z",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+  "profile_binding_evidence": "FULL read: name=aidle-schema; trustlayer_character=devil-advocate; ui_character=ui-brief-writer; required_skills=maf-mandatory-standard, trustlayer-x16-crew, agentwork-knowledge-loop, od-design-brief, od-reference-design-contract. WO-ENV0-001 E0 authority for schema child = VERIFY_ONLY (overrides profile PATCH_DRAFT default).",
+  "skills_manifest_ref": "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+  "skills_manifest_binding": {
+    "manifest_version": "1.0.0",
+    "always": [
+      "maf-mandatory-standard",
+      "trustlayer-x16-crew",
+      "agentwork-knowledge-loop",
+      "project-room-collab",
+      "curiosity-engine"
+    ],
+    "routed_design": [
+      "od-reference-design-contract",
+      "od-design-md"
+    ],
+    "profile_routed": [
+      "od-design-brief",
+      "od-reference-design-contract"
+    ]
+  },
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/schema.md",
+    "E:/AIdle_openworld/Agents.md",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-001-ENVIRONMENT-BRIDGE-P0E.md",
+    "E:/AIdle_openworld/orchestration/control/GROK_AUTONOMOUS_OPERATING_ENVELOPE_ENV0.md",
+    "E:/AIdle_openworld/orchestration/control/grok_status.json",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/agents/characters/14-devil-advocate.md",
+    "E:/agents/ui-design/characters/02-ui-brief-writer.md",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "E:/shared/skills/library/od-design-brief/SKILL.md",
+    "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/00_README.md",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/06_GODOT_INTAKE_AND_RUNTIME_BOUNDARY.md",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/07_SECURITY_QUARANTINE_VALIDATION.md",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/08_GROK_SUBAGENT_WORKFLOW.md",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/contracts/environment_scene_build_spec.schema.json",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/contracts/environment_scene_manifest.schema.json",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/contracts/environment_module_record.schema.json",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/examples/cozy_starter_realm_build_spec.json",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/grok_tools/environment_tool_definitions.json",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/operations/environment_operation_allowlist.yaml",
+    "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/work_orders/WO_BLENDER_ENV_P0E_001.yaml",
+    "E:/AIdle_Blender_Bridge_P0/app/models.py",
+    "E:/AIdle_Blender_Bridge_P0/Grok/tool_definitions.json",
+    "E:/AIdle_openworld/orchestration/receipts/blender_p0/B0_schema_001.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/environment_p0/ENV0_schema_001.json",
+    "E:/AIdle_openworld/orchestration/logs/environment-p0-schema-001.log"
+  ],
+  "product_writes": [],
+  "result": {
+    "task_id": "ENV0-001",
+    "directive_id": 49,
+    "work_order": "orchestration/work_orders/WO-ENV0-001-ENVIRONMENT-BRIDGE-P0E.md",
+    "wave": "E0_SCHEMA",
+    "profile": "schema",
+    "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+    "blueprint_root": "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "verdict": "PASS",
+    "summary": "VERIFY_ONLY schema gate for Environment Bridge P0E Blueprint v1.1: cozy_starter_realm example validates against environment_scene_build_spec; additionalProperties:false + const output_zone/validation/manifest gates; path/traversal patterns on manifest/module blend+glb; tool surface 6 read/build/status/validate/preview tools with no shell/python/download/godot; allowlist forbids arbitrary ops and Godot mutation. Enumerated 12 valid + 16 adversarial cases (all schema-rejected where expressible). Character Bridge models remain separate (schema 1.0 / StrictModel extra=forbid / shared JobState+quarantine+lease policy). No product patch. Handoff ENV0_E1_ASSET_ART. G8 remains HITL_REQUIRED.",
+    "case_counts": {
+      "valid_cases": 12,
+      "adversarial_cases": 16,
+      "valid_minimum_required": 10,
+      "adversarial_minimum_required": 10,
+      "example_build_spec_schema_valid": true
+    },
+    "character_binding": {
+      "trustlayer_character_id": "devil-advocate",
+      "trustlayer_card": "E:/agents/characters/14-devil-advocate.md",
+      "ui_character_id": "ui-brief-writer",
+      "ui_card": "E:/agents/ui-design/characters/02-ui-brief-writer.md",
+      "maf_role": "agent",
+      "authority_token": "VERIFY_ONLY"
+    },
+    "skills_loaded": [
+      {
+        "skill_id": "maf-mandatory-standard",
+        "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read EOF: Load COMPLIANCE.md + registry; MAF Agent/Tools/Session/Middleware/Workflows/Observability/HITL; hard stops no inventing evidence / no exceeding authority"
+      },
+      {
+        "skill_id": "trustlayer-x16-crew",
+        "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read EOF: slot 14 devil-advocate VERIFY_ONLY; Red finds never fixes; Blue patches only approved WOs; Purple never patches product"
+      },
+      {
+        "skill_id": "agentwork-knowledge-loop",
+        "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read EOF: hub E:\\; MASTER_PLAN/JOURNAL; journal-entry after milestones; do not skip handoff"
+      },
+      {
+        "skill_id": "project-room-collab",
+        "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read EOF: shared project rooms; respect authority tokens; Red does not patch"
+      },
+      {
+        "skill_id": "curiosity-engine",
+        "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read chunk through EOF (~1124 lines): do not claim commands without observation; classify FACT/INFERENCE; stop conditions; verification gate"
+      },
+      {
+        "skill_id": "od-design-brief",
+        "source": "E:/shared/skills/library/od-design-brief/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: I-Lang 8 dimensions; outputs DESIGN.md; profile-routed design skill (schema wave uses for binding evidence only, no UI artifact emit)"
+      },
+      {
+        "skill_id": "od-reference-design-contract",
+        "source": "E:/shared/skills/library/od-reference-design-contract/SKILL.md",
+        "mode": "full",
+        "load_evidence": "FULL read: DESIGN.md + design-contract.md + implementation-handoff; keep/change/do-not-copy; nine-section contract (binding only this wave)"
+      }
+    ],
+    "character_card_evidence": {
+      "devil-advocate": "E:/agents/characters/14-devil-advocate.md — VERIFY_ONLY; false-positive challenge until evidence; no invent evidence; no product patch",
+      "ui-brief-writer": "E:/agents/ui-design/characters/02-ui-brief-writer.md — discovery slot 2; REPORT_ONLY on card; used only for binding evidence this VERIFY_ONLY wave"
+    },
+    "input_context_hash": "sha256:b806b7fdc4f8890a3ebb7ee0abf9b99f594b9a8faeb5be6cb839c8489f9e5d03",
+    "input_context_hash_method": {
+      "algorithm": "sha256",
+      "inputs_in_order": [
+        "E:/AIdle_openworld/orchestration/work_orders/WO-ENV0-001-ENVIRONMENT-BRIDGE-P0E.md",
+        "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/contracts/environment_scene_build_spec.schema.json",
+        "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/contracts/environment_scene_manifest.schema.json",
+        "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/contracts/environment_module_record.schema.json",
+        "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/examples/cozy_starter_realm_build_spec.json",
+        "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/grok_tools/environment_tool_definitions.json",
+        "E:/AIdle_openworld/Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/operations/environment_operation_allowlist.yaml"
+      ],
+      "concat": "raw file bytes joined with no separator",
+      "format": "sha256: + full 64-char lowercase hex",
+      "FULL_SHA256": "b806b7fdc4f8890a3ebb7ee0abf9b99f594b9a8faeb5be6cb839c8489f9e5d03",
+      "BYTE_LEN": 22549
+    },
+    "child_task_ref": "019f83ac-f731-7b53-b280-8eef719d4b3a",
+    "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "trace_ref": "orchestration/logs/environment-p0-schema-001.log",
+    "handoff_ref": "ENV0_E1_ASSET_ART",
+    "handoff_note": "Schema child complete. Handoff to E1 aidle-worldgen-asset-art (PATCH_DRAFT sole product writer for Environment Bridge). E1 must implement fail-closed environment models/API/worker under WO-ENV0-001 allowed_files only; preserve character regression; shared max_active_jobs=1. Then E2 red, E3 QA, E4 purple. No grandchildren. G8 remains HITL_REQUIRED; P1E blocked.",
+    "g8_hitl_note": "G8 stays HITL_REQUIRED. ENV0 continuity does not imply G8 acceptance. P1E Cozy Starter Realm, Scene runtime, Control 1B, Character Foundry 1C remain blocked. No Godot/Scene/World Commit mutation.",
+    "product_writes": [],
+    "valid_cases": [
+      {
+        "case_id": "ENV0-V01",
+        "title": "Canonical cozy starter realm example",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "examples/cozy_starter_realm_build_spec.json validates Draft202012 against environment_scene_build_spec.schema.json (0 errors)"
+      },
+      {
+        "case_id": "ENV0-V02",
+        "title": "output_class ENV_MODULE",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "Mutated example output_class=ENV_MODULE schema-valid"
+      },
+      {
+        "case_id": "ENV0-V03",
+        "title": "world_profile tiny_diorama + create_diorama_block",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "Schema-valid enum pairing"
+      },
+      {
+        "case_id": "ENV0-V04",
+        "title": "world_profile oceanpunk_abyss + create_ocean_floor_tiers",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "Schema-valid enum pairing"
+      },
+      {
+        "case_id": "ENV0-V05",
+        "title": "seed boundary 0",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "seed=0 within minimum 0 / maximum 2147483647"
+      },
+      {
+        "case_id": "ENV0-V06",
+        "title": "resource_budget minimum timeout_seconds=10",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "Schema accepts lower bound of server-facing budget fields"
+      },
+      {
+        "case_id": "ENV0-V07",
+        "title": "single render_view isometric_main",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "camera_preview.render_views minItems=1 allowlisted enum"
+      },
+      {
+        "case_id": "ENV0-V08",
+        "title": "placement style_fit ANOMALY",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "style_fit enum NATIVE|ADAPTED|ANOMALY accepted"
+      },
+      {
+        "case_id": "ENV0-V09",
+        "title": "null optional terrain height_profile_id and material_id",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "type [string,null] on optional terrain fields"
+      },
+      {
+        "case_id": "ENV0-V10",
+        "title": "minimal boolean outputs (validation+manifest still forced true)",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "save_blend/export_glb_modules/render_preview may be false; export_scene_manifest and generate_validation_report remain const true"
+      },
+      {
+        "case_id": "ENV0-V11",
+        "title": "single placement STARTER_REALM subset",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "placements minItems=1 satisfied with one module"
+      },
+      {
+        "case_id": "ENV0-V12",
+        "title": "manifest relative .glb package path",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": "environment_scene_manifest modules[].artifact_path=modules/house_01.glb validates; coordinate_system BLENDER_Z_UP_METERS; blender_version const 5.2.0"
+      }
+    ],
+    "adversarial_cases": [
+      {
+        "case_id": "ENV0-A01",
+        "title": "Unknown top-level field / code injection vector (python_code)",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "unknown fields + arbitrary code payload",
+        "evidence": "additionalProperties:false rejects python_code"
+      },
+      {
+        "case_id": "ENV0-A02",
+        "title": "Path escape via template_id ../escape",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "path escape / traversal in template id",
+        "evidence": "template_id pattern ^[a-z0-9][a-z0-9_-]{2,63}$ rejects"
+      },
+      {
+        "case_id": "ENV0-A03",
+        "title": "Absolute path-like module_id C:/Windows/system32",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "path escape / Windows absolute path as module ref",
+        "evidence": "module_id pattern rejects colon/slash"
+      },
+      {
+        "case_id": "ENV0-A04",
+        "title": "Disable validation report",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "disable validation",
+        "evidence": "outputs.generate_validation_report const true — False rejected"
+      },
+      {
+        "case_id": "ENV0-A05",
+        "title": "Disable scene manifest export",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "disable validation / evidence omission",
+        "evidence": "outputs.export_scene_manifest const true — False rejected"
+      },
+      {
+        "case_id": "ENV0-A06",
+        "title": "Non-quarantine output_zone approved_catalog",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "Godot promotion / approved catalog write",
+        "evidence": "output_zone const generated_quarantine"
+      },
+      {
+        "case_id": "ENV0-A07",
+        "title": "Unknown world_profile cyberpunk_open_world",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "unknown template/profile class",
+        "evidence": "world_profile closed enum of 7 profiles"
+      },
+      {
+        "case_id": "ENV0-A08",
+        "title": "Client budget raise timeout_seconds=9999",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "client budget raise",
+        "evidence": "resource_budget.timeout_seconds maximum 180"
+      },
+      {
+        "case_id": "ENV0-A09",
+        "title": "Client budget raise max_triangles=99999999",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "client budget raise",
+        "evidence": "resource_budget.max_triangles maximum 2000000"
+      },
+      {
+        "case_id": "ENV0-A10",
+        "title": "Arbitrary terrain operation execute_shell",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "arbitrary ops",
+        "evidence": "terrain.operation closed enum; allowlist forbidden includes run_shell / execute_arbitrary_python"
+      },
+      {
+        "case_id": "ENV0-A11",
+        "title": "Placement URL/code injection field script_url",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "URL/code injection via unknown placement field",
+        "evidence": "placements items additionalProperties:false"
+      },
+      {
+        "case_id": "ENV0-A12",
+        "title": "Client-supplied outputs.output_path",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "path escape / client-controlled output path",
+        "evidence": "outputs additionalProperties:false rejects output_path"
+      },
+      {
+        "case_id": "ENV0-A13",
+        "title": "Manifest artifact_path traversal ../../etc/passwd.glb",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "traversal",
+        "evidence": "artifact_path regex forbids .. segments, absolute drive, leading /\\"
+      },
+      {
+        "case_id": "ENV0-A14",
+        "title": "Manifest absolute drive path E:/abs/path.glb",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "path escape",
+        "evidence": "artifact_path negative lookahead (?![A-Za-z]:)"
+      },
+      {
+        "case_id": "ENV0-A15",
+        "title": "Manifest output_zone godot_import / wrong blender_version",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "Godot promotion + unpinned Blender",
+        "evidence": "output_zone const generated_quarantine; provenance.blender_version const 5.2.0"
+      },
+      {
+        "case_id": "ENV0-A16",
+        "title": "Module blend_source traversal ../escape.blend",
+        "status": "PASS_REJECT",
+        "classification": "FACT",
+        "threat": "traversal + unregistered open",
+        "evidence": "environment_module_record.blend_source same relative-safe .blend pattern; allowlist forbids open_unregistered_blend / overwrite_template"
+      }
+    ],
+    "runtime_policy_cases_schema_partial": [
+      {
+        "case_id": "ENV0-R01",
+        "title": "Concurrent lease abuse (second job while active)",
+        "status": "SCHEMA_PARTIAL_RUNTIME_REQUIRED",
+        "classification": "INFERENCE",
+        "note": "JSON Schema cannot enforce global max_active_jobs=1 shared with character jobs. WO + blueprint require Bridge-wide single lease; E1 must implement and E2/E3 must test 409/busy without mutation."
+      },
+      {
+        "case_id": "ENV0-R02",
+        "title": "Unknown registered template_id not in registry",
+        "status": "SCHEMA_PARTIAL_RUNTIME_REQUIRED",
+        "classification": "INFERENCE",
+        "note": "Schema only pattern-checks template_id; fail-closed registry lookup is runtime (Character Bridge pattern: template_registry KeyError -> 422). E1 must mirror before Blender spawn."
+      },
+      {
+        "case_id": "ENV0-R03",
+        "title": "Idempotency same key + changed payload conflict",
+        "status": "SCHEMA_PARTIAL_RUNTIME_REQUIRED",
+        "classification": "INFERENCE",
+        "note": "Schema requires idempotency_key shape; conflict semantics are service-level (Character DuplicateRequestError 409). E1 must fingerprint canonical payload."
+      },
+      {
+        "case_id": "ENV0-R04",
+        "title": "Godot/catalog promotion API absence",
+        "status": "SCHEMA_PARTIAL_RUNTIME_REQUIRED",
+        "classification": "FACT",
+        "note": "Tool definitions expose no promote/godot tool; allowlist forbids mutate_godot_world_state and write_approved_catalog. E1 must not add promotion endpoints; E2 audits."
+      }
+    ],
+    "character_bridge_compatibility_notes": [
+      {
+        "topic": "schema versions",
+        "note": "Character CharacterJobRequest uses schema_version Literal['1.0']; Environment build_spec uses const '1.1'. Keep separate Pydantic models (environment_models.py) — do not overload CharacterJobRequest."
+      },
+      {
+        "topic": "strict extras",
+        "note": "Character StrictModel ConfigDict(extra='forbid') is the runtime pattern E1 must apply to Environment request models so Blueprint additionalProperties:false is enforced in API, not only offline jsonschema."
+      },
+      {
+        "topic": "validation evidence",
+        "note": "Character OutputRequest.generate_validation_report is Literal[True]. Env Blueprint forces both generate_validation_report and export_scene_manifest const true — stricter dual evidence gate."
+      },
+      {
+        "topic": "output zone",
+        "note": "Both pin output_zone generated_quarantine. Env must not invent client-writable paths (Character already server-assigns quarantine via safe_child)."
+      },
+      {
+        "topic": "job lifecycle",
+        "note": "Reuse JobState enum (QUEUED/RUNNING/QUARANTINED_COMPLETE/FAILED/CANCELLED). Environment receipts should reach QUARANTINED_COMPLETE via service lifecycle, not direct CLI proof."
+      },
+      {
+        "topic": "shared lease",
+        "note": "WO mandates character and environment share global max_active_jobs=1. E1 must not introduce a separate environment worker pool."
+      },
+      {
+        "topic": "tool surface separation",
+        "note": "Character Grok tools: inspect_character_template, build_character_from_template, get_character_job_status (3). Env tools: 6 environment-specific tools. Do not mix tool names; no shell/python/download/godot keywords in either surface (env scan all false)."
+      },
+      {
+        "topic": "request_id patterns",
+        "note": "Character request_id pattern {2,63}; Env {7,95}. Different intentional hardness — keep separate validators."
+      },
+      {
+        "topic": "no character patch scope",
+        "note": "E1 may only minimally wire router/dependencies/main for environment routes; must not rewrite character models/service/worker/tests except listed wiring. Existing 11 character tests must remain green."
+      }
+    ],
+    "gate_matrix": [
+      {
+        "gate_id": "ENV0-S1",
+        "claim": "extra/unknown fields rejected on build_spec",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "contracts/environment_scene_build_spec.schema.json additionalProperties:false root + nested",
+          "ADV ENV0-A01 python_code rejected",
+          "ADV ENV0-A11 placement script_url rejected",
+          "ADV ENV0-A12 outputs.output_path rejected"
+        ]
+      },
+      {
+        "gate_id": "ENV0-S2",
+        "claim": "validation report and scene manifest cannot be disabled",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "outputs.generate_validation_report const true",
+          "outputs.export_scene_manifest const true",
+          "ENV0-A04/A05 rejected False"
+        ]
+      },
+      {
+        "gate_id": "ENV0-S3",
+        "claim": "unknown world_profile / closed terrain ops fail closed at schema",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "world_profile enum 7 profiles",
+          "terrain.operation enum 7 allowlisted ops",
+          "ENV0-A07/A10 rejected"
+        ]
+      },
+      {
+        "gate_id": "ENV0-S4",
+        "claim": "path escape and traversal blocked on artifact/blend refs",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "manifest artifact_path relative-safe .glb regex",
+          "module blend_source relative-safe .blend regex",
+          "ENV0-A13/A14/A16 rejected"
+        ]
+      },
+      {
+        "gate_id": "ENV0-S5",
+        "claim": "client cannot raise resource budgets beyond schema caps",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "resource_budget maxima: objects 512, triangles 2e6, materials 128, mb 512, timeout 180",
+          "ENV0-A08/A09 rejected"
+        ]
+      },
+      {
+        "gate_id": "ENV0-S6",
+        "claim": "quarantine-only output zone; no Godot promotion field",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "build_spec + manifest output_zone const generated_quarantine",
+          "ENV0-A06/A15 rejected",
+          "operations allowlist forbidden: mutate_godot_world_state, write_approved_catalog"
+        ]
+      },
+      {
+        "gate_id": "ENV0-S7",
+        "claim": "Grok tool surface is environment-only allowlisted tools",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "6 tools: inspect_environment_template, search_environment_modules, build_environment_scene, get_environment_job_status, validate_environment_package, render_environment_preview",
+          "all parameters additionalProperties:false",
+          "forbidden keyword scan shell/python/download/addon/execute/godot/output_path/http(s) all False",
+          "build_environment_scene x-aidle-canonical-schema points at build_spec"
+        ]
+      },
+      {
+        "gate_id": "ENV0-S8",
+        "claim": "operation allowlist forbids arbitrary Blender abuse",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "forbidden: execute_arbitrary_python, run_shell, install_addon, download_external_asset, open_unregistered_blend, overwrite_template, write_approved_catalog, mutate_godot_world_state",
+          "allowed terrain/assembly/nature/optimization/preview/export sets closed"
+        ]
+      },
+      {
+        "gate_id": "ENV0-S9",
+        "claim": "canonical example is schema-valid design fixture",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "cozy_starter_realm_build_spec.json Draft202012 valid",
+          "schema_version 1.1, STARTER_REALM, cozy_cyber_pixel, starter_realm_empty_01"
+        ]
+      },
+      {
+        "gate_id": "ENV0-S10",
+        "claim": "case enumeration meets ≥10 valid and ≥10 adversarial",
+        "status": "PASS",
+        "classification": "FACT",
+        "evidence": [
+          "valid_cases count=12",
+          "adversarial_cases count=16",
+          "plus 4 runtime-partial cases documented for E1/E2"
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "ENV0-S-F1",
+        "severity": "info",
+        "classification": "CODE_QUALITY",
+        "title": "Template registry membership is runtime-only",
+        "statement": "Build-spec schema pattern-validates template_id but cannot prove registry membership. E1 must fail-closed on unknown template before Blender (mirror Character template_registry).",
+        "blocks_schema_pass": false
+      },
+      {
+        "finding_id": "ENV0-S-F2",
+        "severity": "info",
+        "classification": "CODE_QUALITY",
+        "title": "Concurrent lease and idempotency conflict not expressible in JSON Schema",
+        "statement": "WO acceptance criteria 4–5 require shared max_active_jobs=1 and fingerprint conflict. Documented as ENV0-R01/R03 for E1 implementation + E2/E3 evidence. Not a Blueprint contract defect.",
+        "blocks_schema_pass": false
+      },
+      {
+        "finding_id": "ENV0-S-F3",
+        "severity": "info",
+        "classification": "CODE_QUALITY",
+        "title": "Character tool generate_validation_report still boolean (pre-existing)",
+        "statement": "Character Grok/tool_definitions.json still types generate_validation_report as boolean while API Literal[True]. Env build_spec correctly uses const true. Out of ENV0 exclusive write surface; do not patch character tools in E0.",
+        "blocks_schema_pass": false
+      }
+    ],
+    "residual_risks": [
+      "Blueprint is design/contract authority only — Environment Bridge product code not yet implemented (E1).",
+      "OS-level egress isolation for Blender remains TARGET_HARDENING per 07_SECURITY_QUARANTINE_VALIDATION.md.",
+      "G8 HITL_REQUIRED; P1E blocked until P0E VERIFIED + Human G8 decision.",
+      "Real Blender probe and character regression evidence owned by E3 QA, not this schema receipt."
+    ],
+    "out_of_scope_this_child": [
+      "Any product patch under E:/AIdle_Blender_Bridge_P0",
+      "Godot scene/runtime edits",
+      "Real Blender probe QUARANTINED_COMPLETE",
+      "Purple acceptance",
+      "P1E Cozy Starter Realm",
+      "G8 acceptance",
+      "Grandchildren"
+    ],
+    "children": [],
+    "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52; loaded COMPLIANCE concepts via skills + registry path + profile/cards manually."
+  },
+  "smoke_test": {
+    "passed": true,
+    "attributed_to_transcript_ref": "019f83ac-f731-7b53-b280-8eef719d4b3a",
+    "commands": [
+      {
+        "command": "python -c <jsonschema Draft202012 validate example + 10 valid + 16 adversarial + manifest/module path probes + tool keyword scan + sha256 concat>",
+        "cwd": "E:/AIdle_openworld",
+        "exit_code": 0,
+        "summary": "example valid; 12 valid PASS; 16 adversarial PASS_REJECT; tool forbidden keywords all false; HASH b806b7fd... BYTE_LEN 22549",
+        "mutating": false
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "authority_token": "VERIFY_ONLY",
+    "no_self_accept": true,
+    "accepted": false,
+    "self_accept": false,
+    "no_product_patch": true,
+    "product_writes_empty": true,
+    "no_nested_grandchildren": true,
+    "character_skill_trace_present": true,
+    "no_invented_gate_pass": true,
+    "no_invented_hash": true,
+    "codex_directive_untouched": true,
+    "exclusive_writes_only": [
+      "orchestration/receipts/environment_p0/ENV0_schema_001.json",
+      "orchestration/logs/environment-p0-schema-001.log"
+    ],
+    "devil_advocate_challenge": "Steelman: Blueprint contracts look fail-closed for ENV request shape. Challenge: are concurrent lease and Godot promotion actually blocked? Counter: not fully by JSON Schema — correctly documented as runtime-required ENV0-R01/R04; still PASS for E0 schema gate because WO E0 scope is contract validation + case enumeration, not product implementation. Challenge: is cozy example secretly invalid? Disproved by Draft202012 0 errors. No material schema blocker found."
+  },
+  "evidence_refs": [
+    "orchestration/logs/environment-p0-schema-001.log",
+    "orchestration/work_orders/WO-ENV0-001-ENVIRONMENT-BRIDGE-P0E.md",
+    "orchestration/skills_manifest.yaml",
+    ".grok/agents/schema.md",
+    "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/contracts/environment_scene_build_spec.schema.json",
+    "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/contracts/environment_scene_manifest.schema.json",
+    "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/contracts/environment_module_record.schema.json",
+    "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/examples/cozy_starter_realm_build_spec.json",
+    "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/grok_tools/environment_tool_definitions.json",
+    "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/operations/environment_operation_allowlist.yaml",
+    "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/06_GODOT_INTAKE_AND_RUNTIME_BOUNDARY.md",
+    "Scene/AIdle_Blender_Environment_Scene_Blueprint_v1.0/07_SECURITY_QUARANTINE_VALIDATION.md",
+    "E:/AIdle_Blender_Bridge_P0/app/models.py",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "next_route": "ENV0_E1_ASSET_ART"
+}

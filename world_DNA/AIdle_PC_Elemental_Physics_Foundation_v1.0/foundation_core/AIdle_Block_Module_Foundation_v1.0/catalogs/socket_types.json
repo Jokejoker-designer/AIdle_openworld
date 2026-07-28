@@ -1,0 +1,427 @@
+{
+  "catalog_version": "1.0",
+  "socket_types": [
+    {
+      "socket_type": "snap_grid",
+      "compatible_with": [
+        "snap_grid"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "terrain_edge",
+      "compatible_with": [
+        "terrain_edge",
+        "path_endpoint",
+        "bridge_anchor"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "terrain_surface",
+      "compatible_with": [
+        "plant_root",
+        "prop_base",
+        "building_foundation"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "building_foundation",
+      "compatible_with": [
+        "terrain_surface",
+        "vertical_stack"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "wall_edge",
+      "compatible_with": [
+        "wall_edge",
+        "door_opening",
+        "window_opening",
+        "roof_edge"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "door_opening",
+      "compatible_with": [
+        "door_leaf",
+        "path_endpoint"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "door_leaf",
+      "compatible_with": [
+        "door_opening"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "window_opening",
+      "compatible_with": [
+        "window_frame"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "window_frame",
+      "compatible_with": [
+        "window_opening"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "roof_edge",
+      "compatible_with": [
+        "wall_edge",
+        "roof_edge",
+        "solar_mount",
+        "green_roof_mount"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "vertical_stack",
+      "compatible_with": [
+        "vertical_stack"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "path_endpoint",
+      "compatible_with": [
+        "path_endpoint",
+        "door_opening",
+        "bridge_anchor",
+        "terrain_edge"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "bridge_anchor",
+      "compatible_with": [
+        "bridge_anchor",
+        "terrain_edge",
+        "path_endpoint"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "rail_endpoint",
+      "compatible_with": [
+        "rail_endpoint"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "pipe_port",
+      "compatible_with": [
+        "pipe_port"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "energy_port",
+      "compatible_with": [
+        "energy_port"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "water_port",
+      "compatible_with": [
+        "water_port"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "magic_port",
+      "compatible_with": [
+        "magic_port"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "portal_frame",
+      "compatible_with": [
+        "portal_link"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "portal_link",
+      "compatible_with": [
+        "portal_frame"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "prop_surface",
+      "compatible_with": [
+        "prop_base",
+        "plant_pot",
+        "seat_mount"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "prop_base",
+      "compatible_with": [
+        "prop_surface"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "plant_pot",
+      "compatible_with": [
+        "plant_root",
+        "prop_surface"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "plant_root",
+      "compatible_with": [
+        "plant_pot",
+        "terrain_surface"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "character_hand",
+      "compatible_with": [
+        "tool_grip",
+        "carry_grip"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "tool_grip",
+      "compatible_with": [
+        "character_hand"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "carry_grip",
+      "compatible_with": [
+        "character_hand"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "character_back",
+      "compatible_with": [
+        "back_attachment"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "back_attachment",
+      "compatible_with": [
+        "character_back"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "character_head",
+      "compatible_with": [
+        "head_attachment"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "head_attachment",
+      "compatible_with": [
+        "character_head"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "character_saddle",
+      "compatible_with": [
+        "rider_mount"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "rider_mount",
+      "compatible_with": [
+        "character_saddle"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "vfx_anchor",
+      "compatible_with": [
+        "vfx_emitter"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "vfx_emitter",
+      "compatible_with": [
+        "vfx_anchor"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "audio_anchor",
+      "compatible_with": [
+        "audio_emitter"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "audio_emitter",
+      "compatible_with": [
+        "audio_anchor"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "seat_mount",
+      "compatible_with": [
+        "prop_surface"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "solar_mount",
+      "compatible_with": [
+        "roof_edge"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    },
+    {
+      "socket_type": "green_roof_mount",
+      "compatible_with": [
+        "roof_edge"
+      ],
+      "rules": {
+        "rotation_snap_deg": 15,
+        "scale_delta_max": 0.25
+      }
+    }
+  ]
+}

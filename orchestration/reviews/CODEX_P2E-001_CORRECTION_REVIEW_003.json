@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX-P2E-001-CORRECTION-REVIEW-003",
+  "reviewed_at": "2026-07-22T14:35:00+07:00",
+  "reviewed_by": "codex",
+  "task_id": "P2E-001",
+  "directive_id": 72,
+  "state": "CHANGES_REQUESTED",
+  "verdict": "ESC_SINGLE_DISPATCH_CORRECTION_REQUIRED",
+  "accepted": false,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "independent_checks": {
+    "receipts": "PASS: D0-D3 are Draft 2020-12 agent_step_contract valid; accepted=false and self_accept=false",
+    "product_hashes": "PASS: 9/9 current product/test SHA-256 values match D0 receipt",
+    "evidence_integrity": "PASS: 14/14 PNG hashes and dimensions match; all 14 hashes distinct",
+    "headless": "PASS: Block-DNA 14/14 and 42/42; P2E core 14, authority 8, QR 8, playable-select 5, correction 4, player-input 4, Control router 16; zero errors",
+    "headed_teardown": "PASS: Godot exit 0 and zero ERROR including teardown",
+    "real_input": "PASS for select/place/rotate/elevate/confirm/cancel without direct controller fallback",
+    "responsive_visual": "PASS_WITH_NONBLOCKING_QA_LABEL_OVERLAY",
+    "esc_single_dispatch": "FAIL"
+  },
+  "blocking_finding": {
+    "id": "P2E-CODEX-ESC-DOUBLE-01",
+    "severity": "BLOCKER",
+    "finding": "A single physical Esc sequence produces duplicated identical Main resolution lines for preview_hologram and build_esc_no_pause. State remains safe in this run, but duplicate dispatch violates the explicit no-double-fire gate and is an unsafe foundation for later contexts.",
+    "evidence": "orchestration/evidence/p2e_001/003/godot_headed.log"
+  },
+  "lease_clarification": {
+    "finding": "Directive 72 named game/scripts/input/control_context_router.gd, but the canonical registered router is game/autoload/control_context_router.gd.",
+    "decision": "The prior path typo is not treated as accepted exact-lease evidence. Directive 73 names the canonical autoload path literally and permits only the minimal single-dispatch correction there.",
+    "no_competing_writer_observed": true
+  },
+  "preserved_passes": [
+    "F02 teardown zero-error",
+    "Build R rotates preview 0 to 60 at both resolutions with camera yaw unchanged",
+    "World Commit remains sole mutator",
+    "idempotency and revision gates",
+    "responsive dual-resolution evidence",
+    "Red F01 network/shipping hard stop"
+  ],
+  "next_route": "DIRECTIVE_73_ESC_SINGLE_DISPATCH_CORRECTION"
+}

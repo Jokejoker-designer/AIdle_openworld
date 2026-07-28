@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "recipe_id": "recipe_nori7_v1",
+  "recipe_type": "CHARACTER",
+  "world_profile": "cozy_cyber_pixel",
+  "root_module_id": "char_nori7_base",
+  "instances": [
+    {
+      "instance_id": "root",
+      "module_id": "char_nori7_base",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parameters": {}
+    },
+    {
+      "instance_id": "tank",
+      "module_id": "attach_water_tank_small",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parameters": {}
+    },
+    {
+      "instance_id": "nozzle",
+      "module_id": "attach_watering_nozzle_A",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parameters": {}
+    },
+    {
+      "instance_id": "sprout",
+      "module_id": "attach_mechanical_sprout_A",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parameters": {}
+    }
+  ],
+  "connections": [
+    {
+      "from_instance": "root",
+      "from_socket": "character_back",
+      "to_instance": "tank",
+      "to_socket": "back_attachment"
+    },
+    {
+      "from_instance": "root",
+      "from_socket": "character_hand",
+      "to_instance": "nozzle",
+      "to_socket": "tool_grip"
+    },
+    {
+      "from_instance": "root",
+      "from_socket": "character_head",
+      "to_instance": "sprout",
+      "to_socket": "head_attachment"
+    }
+  ],
+  "material_overrides": [
+    {
+      "instance_id": "root",
+      "theme_id": "mat_cozy_cream_leaf_v1",
+      "slot": "body",
+      "color": "#F7E9C6"
+    }
+  ],
+  "animation_bindings": [
+    {
+      "instance_id": "root",
+      "animation_set_id": "anim_robot_gardener_v1"
+    }
+  ],
+  "behavior_bindings": [
+    {
+      "instance_id": "root",
+      "behavior_id": "behavior_companion_helper_v1",
+      "config": {}
+    }
+  ],
+  "validation": {
+    "check_all": true
+  },
+  "outputs": {
+    "glb": true,
+    "godot_import": true
+  }
+}

@@ -1,0 +1,408 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CHAR-1C-001-u0-unicode-correction-003-2026-07-22",
+  "step_id": "CHAR-1C-001-u0-unicode-correction-003",
+  "work_order_id": "WO-CHAR-1C-001-UNICODE-IDENTITY-CORRECTION-002",
+  "work_order": "orchestration/work_orders/WO-CHAR-1C-001-UNICODE-IDENTITY-CORRECTION-002.md",
+  "work_order_sha256": "181d56b08caaf470266b3f34ce115497f3f66106284512428ef50f28b5b1165e",
+  "review_id": "CODEX_CHAR-1C-001_UNICODE_IDENTITY_REVIEW_002",
+  "review_path": "orchestration/reviews/CODEX_CHAR-1C-001_UNICODE_IDENTITY_REVIEW_002.json",
+  "review_sha256": "124fd45ec1f1ed371add3e0acaf53eaa70ad2fd76f5be8dcba7ec103afe1f5e2",
+  "directive_id": 66,
+  "directive_scope": "U0 sole contract/validator/fixture writer PATCH_DRAFT; close Codex F08 fullwidth NFKC and F09 mixed-script confusable AIda identity bypasses; preserve D65 F01/F03/F04/F05/F06 + INV-15..19; no Foundry MD edits; no grandchildren; accepted=false",
+  "milestone": "Character Foundry 1C Unicode identity correction 002 — U0 schema",
+  "agent_id": "aidle-schema",
+  "agent_type": "schema",
+  "profile_name": "aidle-schema",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+  "profile_sha256": "6e82036136eb462cf07d37304a1aec812cdf21b9ddff479bc8ffa8e3d8373777",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-schema; trustlayer_character=devil-advocate; ui_character=ui-brief-writer; authority PATCH_DRAFT (WO sole contract writer); required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,od-design-brief,od-reference-design-contract; self_accept=false; reject unknown fields; no World Commit grant to NPCs; do not replace AIda.",
+  "authority_token": "PATCH_DRAFT",
+  "authority": "PATCH_DRAFT",
+  "authority_scope": "sole writer for validate_character_foundry_1c.py + new INV-20/INV-21 fixtures + lock normalization_rule annotation only; exclusive U0 log/receipt 003; no Foundry source edits; never ACCEPTED; no grandchildren",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:93256569434a630866a587990eae48f2dde4d4f02892c1ec7f0939916e52c5d5",
+  "input_context_hash_16": "93256569434a6308",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CHAR-1C-001-UNICODE-IDENTITY-CORRECTION-002.md + CODEX_CHAR-1C-001_UNICODE_IDENTITY_REVIEW_002.json + schema.md + agent_step_contract.schema.json + manifest.json + validate_character_foundry_1c.py (post-correction product state)",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "U0_COMPLETE_ROUTE_U1_RED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "U0_UNICODE_IDENTITY_CORRECTION_COMPLETE_NO_ACCEPT",
+  "verdict_detail": "Closed Codex F08 (NFKC fullwidth ＡＩｄａ) and F09 (minimal confusable fold for Cyrillic A/a I/i and Greek Alpha/alpha Iota/iota) on AIda identity-bearing fields only (display_name, character_id, species_form, gameplay_role). Comparison-only: never rewrites stored source strings. Retained D65 separator/punctuation/zero-width handling and all F01/F03/F04/F05/F06 gates + INV-15..19. Added INV-20 fullwidth and INV-21 mixed-script fixtures. Harness PASS source_valid=28/28 invalid_rejected=21/21 valid=3/3 hash_identity=PASS. Unicode + D65 probes all reject; relationship_hooks AIda prose control allowed. F07: python -B + PYTHONDONTWRITEBYTECODE=1; pycache_created=false; existing __pycache__ preserved at 09:16:57. accepted=false; self_accept=false.",
+  "child_task_ref": "019f87c7-5788-7761-8ee1-4b969bd0861e",
+  "transcript_ref": "019f87c7-5788-7761-8ee1-4b969bd0861e",
+  "writer_transcript_ref": "019f87c7-5788-7761-8ee1-4b969bd0861e",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_child_ref": "019f87b4-6cb3-7260-b85c-e3e628a12625",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f87c7-5788-7761-8ee1-4b969bd0861e/meta.json",
+  "durable_meta_sha256_at_start": "add2cbf112401afd9229060995be6e46151a35334397619f9e9d42f271f1a3b3",
+  "durable_session_note": "subagent_id=019f87c7-5788-7761-8ee1-4b969bd0861e description='U0 Unicode AIda identity fix' status=running at start parent=019f7ffd-3995-71c0-aca1-51078e24a852 started_at=2026-07-22T03:03:36.076211800Z",
+  "next_owner": "U1_RED",
+  "next_route": "U1_RED",
+  "character_binding": {
+    "trustlayer": "devil-advocate",
+    "trustlayer_wo_required": "devil-advocate",
+    "trustlayer_file": "E:/agents/characters/14-devil-advocate.md",
+    "trustlayer_sha256": "21b9193731c92a623e5b5837f364d61f24cea1a7cb2189c20cb84e77f89ba125",
+    "trustlayer_read": "full_eof",
+    "ui": "ui-brief-writer",
+    "ui_wo_required": "ui-brief-writer",
+    "ui_file": "E:/agents/ui-design/characters/02-ui-brief-writer.md",
+    "ui_sha256": "52ad2986accd81c93fb2630ed07a2f1732edb637df875d1e1884e27769262b5c",
+    "ui_read": "full_eof",
+    "role": "U0 PATCH_DRAFT sole CharacterSpec Unicode identity correction writer; no self-accept"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO, Codex Unicode review Directive 66, ARCHITECTURE_LOCK path via architecture-lock skill, skills, and Foundry pack manually with transcript-backed full-EOF ranges.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "line_count": 1123,
+      "read_mode": "chunked_plus_line_proof",
+      "transcript_ranges": [
+        {"offset": 1, "limit": 400, "note": "chunk L1-400"},
+        {"offset": 401, "limit": 400, "note": "chunk L401-800"},
+        {"offset": 801, "limit": 400, "note": "chunk L801-1123 through Prime Directive EOF"}
+      ],
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "line_count": 26,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "also_read_project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md"
+    },
+    {
+      "skill_id": "securing-agentic-ai-tool-invocation",
+      "mode": "ROUTED",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/securing-agentic-ai-tool-invocation/SKILL.md",
+      "sha256": "92989526f69a2ce9bab565c322686a3126750a183580db70857149daa66b5bc0",
+      "line_count": 264,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "source_manifest": {
+    "path": "game_character/AIdle_Character_Foundry_MD/manifest.json",
+    "package": "AIdle Character Foundry MD",
+    "version": "1.0",
+    "sha256_expected": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+    "sha256_before": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+    "sha256_after": "bdba6b53174e1d6671f28302b4ae67275ad22bf3c2e978603791acd19e6cc4ba",
+    "match": true,
+    "source_diff": "zero",
+    "character_count_declared": 28,
+    "world_count_declared": 7,
+    "lock_path": "orchestration/contracts/character_foundry_1c/source_manifest.lock.json",
+    "lock_annotation_only_change": "normalization_rules.aida_identity_normalize (F04/F08/F09 text); character/source hashes and counts unchanged",
+    "foundry_source_writes": []
+  },
+  "character_count": 28,
+  "world_count": 7,
+  "source_records_valid": 28,
+  "source_records_invalid": 0,
+  "invalid_fixtures_rejected": 21,
+  "invalid_fixtures_total": 21,
+  "invalid_fixtures_original_preserved": 19,
+  "invalid_fixtures_added": 2,
+  "valid_fixtures_pass": 3,
+  "valid_fixtures_total": 3,
+  "identity_gate": {
+    "fields": ["display_name", "character_id", "species_form", "gameplay_role"],
+    "excluded_from_gate": ["relationship_hooks", "world_ability", "limitation", "spawn_location"],
+    "pipeline": [
+      "unicodedata.normalize NFKC",
+      "minimal confusable fold (Cyrillic A/a I/i; Greek Alpha/alpha Iota/iota)",
+      "casefold",
+      "strip separators/punctuation/zero-width (D65 retained)"
+    ],
+    "rewrites_stored_source_strings": false,
+    "comparison_only": true
+  },
+  "codex_bypasses_closed": [
+    {
+      "id": "CHAR1C-CODEX-F08",
+      "severity": "P1",
+      "fix": "unicodedata.normalize('NFKC', value) before casefold on AIda identity comparison path",
+      "fixture": "fixtures/invalid/INV-20-aida-fullwidth-identity-collision.json",
+      "direct_probe_rejected": true,
+      "probe_input": "display_name=ＡＩｄａ (U+FF21 U+FF29 U+FF44 U+FF41)"
+    },
+    {
+      "id": "CHAR1C-CODEX-F09",
+      "severity": "P1",
+      "fix": "documented minimal confusable fold mapping Cyrillic A/a I/i and Greek Alpha/alpha Iota/iota to Latin before AIda compare",
+      "fixture": "fixtures/invalid/INV-21-aida-mixed-script-identity-collision.json",
+      "direct_probe_rejected": true,
+      "probe_inputs": ["Aіda (Cyrillic i U+0456)", "Аida (Cyrillic A U+0410)", "Aιda (Greek iota U+03B9)"]
+    },
+    {
+      "id": "CHAR1C-CODEX-F01",
+      "severity": "P1",
+      "status": "preserved_from_D65",
+      "direct_probe_rejected": true
+    },
+    {
+      "id": "CHAR1C-CODEX-F03",
+      "severity": "P1",
+      "status": "preserved_from_D65",
+      "direct_probe_rejected": true
+    },
+    {
+      "id": "CHAR1C-CODEX-F04",
+      "severity": "P1",
+      "status": "preserved_and_extended_with_NFKC_confusable",
+      "direct_probe_rejected": true,
+      "control_relationship_prose_allowed": true
+    },
+    {
+      "id": "CHAR1C-CODEX-F05",
+      "severity": "P1",
+      "status": "preserved_from_D65",
+      "direct_probe_rejected": true
+    },
+    {
+      "id": "CHAR1C-CODEX-F06",
+      "severity": "P2",
+      "status": "preserved_from_D65",
+      "direct_probe_rejected": true
+    },
+    {
+      "id": "CHAR1C-CODEX-F07",
+      "severity": "P2_GOVERNANCE",
+      "fix": "all Python runs used PYTHONDONTWRITEBYTECODE=1 and python -B; existing __pycache__ preserved; no new pycache this run",
+      "pycache_created": false,
+      "pycache_preserved_evidence": "orchestration/contracts/character_foundry_1c/__pycache__/validate_character_foundry_1c.cpython-311.pyc",
+      "pycache_last_write_preserved": "2026-07-22T09:16:57+07:00"
+    }
+  ],
+  "writer_lease": [
+    "orchestration/contracts/character_foundry_1c/validate_character_foundry_1c.py",
+    "orchestration/contracts/character_foundry_1c/fixtures/invalid/INV-20-*",
+    "orchestration/contracts/character_foundry_1c/fixtures/invalid/INV-21-*",
+    "orchestration/contracts/character_foundry_1c/source_manifest.lock.json (normalization_rules description only; hashes/counts unchanged)",
+    "orchestration/logs/char-1c-001-u0-unicode-correction-003.log",
+    "orchestration/receipts/character_1c/CHAR_1C_001_u0_unicode_correction_003.json"
+  ],
+  "files_written": [
+    "orchestration/contracts/character_foundry_1c/validate_character_foundry_1c.py",
+    "orchestration/contracts/character_foundry_1c/source_manifest.lock.json",
+    "orchestration/contracts/character_foundry_1c/fixtures/invalid/INV-20-aida-fullwidth-identity-collision.json",
+    "orchestration/contracts/character_foundry_1c/fixtures/invalid/INV-21-aida-mixed-script-identity-collision.json",
+    "orchestration/logs/char-1c-001-u0-unicode-correction-003.log",
+    "orchestration/receipts/character_1c/CHAR_1C_001_u0_unicode_correction_003.json"
+  ],
+  "product_writes": [
+    "orchestration/contracts/character_foundry_1c/validate_character_foundry_1c.py",
+    "orchestration/contracts/character_foundry_1c/source_manifest.lock.json",
+    "orchestration/contracts/character_foundry_1c/fixtures/invalid/INV-20-aida-fullwidth-identity-collision.json",
+    "orchestration/contracts/character_foundry_1c/fixtures/invalid/INV-21-aida-mixed-script-identity-collision.json"
+  ],
+  "foundry_source_writes": [],
+  "schema_json_edited": false,
+  "intake_report_rewritten": false,
+  "write_discipline": {
+    "exclusive_lease_only": true,
+    "foundry_source_edits": false,
+    "original_19_invalid_preserved": true,
+    "original_3_valid_preserved": true,
+    "grandchildren": false,
+    "dependency_install": false,
+    "godot_invoked": false,
+    "network_invoked": false,
+    "pycache_created": false,
+    "pycache_deleted": false,
+    "temp_helper_files": false
+  },
+  "result": {
+    "status": "PASS_UNICODE_IDENTITY_CORRECTION",
+    "verdict": "U0_UNICODE_IDENTITY_CORRECTION_COMPLETE_NO_ACCEPT",
+    "character_count": 28,
+    "world_count": 7,
+    "source_valid": "28/28",
+    "invalid_rejected": "21/21",
+    "valid_fixtures": "3/3",
+    "manifest_hash_match": true,
+    "source_diff": "zero",
+    "intake_report_identity": true,
+    "unicode_probes_all_reject": true,
+    "d65_probes_all_reject": true,
+    "pycache_created": false,
+    "accepted": false,
+    "self_accept": false,
+    "next_owner": "U1_RED"
+  },
+  "smoke_test": {
+    "pass": true,
+    "commands": [
+      {
+        "command": "$env:PYTHONDONTWRITEBYTECODE=1; python -B E:\\AIdle_openworld\\orchestration\\contracts\\character_foundry_1c\\validate_character_foundry_1c.py",
+        "exit_code": 0,
+        "result": "SOURCE_VALID=28/28 INVALID_REJECTED=21/21 HASH_IDENTITY=PASS HARNESS_RESULT=PASS",
+        "markers": [
+          "SOURCE_VALID=28/28",
+          "INVALID_REJECTED=21/21",
+          "HASH_IDENTITY=PASS",
+          "HARNESS_RESULT=PASS",
+          "INV-15",
+          "INV-16",
+          "INV-17",
+          "INV-18",
+          "INV-19",
+          "INV-20",
+          "INV-21"
+        ]
+      },
+      {
+        "command": "$env:PYTHONDONTWRITEBYTECODE=1; python -B - (stdin probe script for F08/F09 + D65 AI-da/zwsp + F01/F03/F04/F05/F06 + relationship control)",
+        "exit_code": 0,
+        "result": "all unicode and D65 probes rejected=true; relationship_hooks AIda prose control allowed",
+        "markers": [
+          "F08_fullwidth rejected",
+          "F09_cyr_i rejected",
+          "F09_cyr_A rejected",
+          "F09_greek_iota rejected",
+          "D65_AI-da rejected",
+          "D65_zwsp rejected",
+          "CHAR1C-CODEX-F01 rejected",
+          "CHAR1C-CODEX-F03 rejected",
+          "CHAR1C-CODEX-F04 rejected",
+          "CHAR1C-CODEX-F05 rejected",
+          "CHAR1C-CODEX-F06 rejected",
+          "CONTROL_relationship_prose_aida_ok PASS",
+          "ALL_UNICODE_AND_D65_PROBES_OK"
+        ]
+      }
+    ],
+    "exit_codes": [0, 0],
+    "error_line_count": 0,
+    "product_changed": true,
+    "product_scope": "orchestration/contracts/character_foundry_1c only",
+    "foundry_changed": false,
+    "godot_invoked": false,
+    "network_invoked": false,
+    "pycache_created": false,
+    "harness_counts": {
+      "source_valid": "28/28",
+      "invalid_rejected": "21/21",
+      "valid_pass": "3/3",
+      "hash_identity": "PASS"
+    },
+    "probe_results": {
+      "F08_fullwidth": "REJECT",
+      "F09_cyr_i": "REJECT",
+      "F09_cyr_A": "REJECT",
+      "F09_greek_iota": "REJECT",
+      "D65_AI-da": "REJECT",
+      "D65_zwsp": "REJECT",
+      "F01": "REJECT",
+      "F03": "REJECT",
+      "F04": "REJECT",
+      "F05": "REJECT",
+      "F06": "REJECT",
+      "CONTROL_relationship_prose": "ALLOW"
+    }
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "patch_draft_contract_only": true,
+    "no_foundry_source_edits": true,
+    "no_godot_blender_scene_runtime": true,
+    "no_grandchildren": true,
+    "self_accept": false,
+    "accepted": false,
+    "writer_lease_only": true,
+    "skills_full_eof_claimed_with_ranges": true,
+    "manifest_hash_locked": true,
+    "aida_identity_preserved": true,
+    "original_fixtures_preserved": true,
+    "bytecode_discipline": true,
+    "pycache_created": false,
+    "schema_json_untouched": true,
+    "remaining_risks": [
+      "U1 Red must independently reproduce F08/F09 probes and hunt additional confusable scripts beyond the documented minimal fold",
+      "U2 Purple must re-run harness under -B/PYTHONDONTWRITEBYTECODE and confirm MAF receipt + lease fidelity",
+      "Confusable fold is deliberately minimal (Cyrillic A/I + Greek Alpha/Iota only) — other lookalikes remain residual until separately specified",
+      "Natural-language capability prose remains outside authority-token semantic moderation per review non_blocking_note"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/char-1c-001-u0-unicode-correction-003.log",
+    "orchestration/receipts/character_1c/CHAR_1C_001_u0_unicode_correction_003.json",
+    "orchestration/reviews/CODEX_CHAR-1C-001_UNICODE_IDENTITY_REVIEW_002.json",
+    "orchestration/work_orders/WO-CHAR-1C-001-UNICODE-IDENTITY-CORRECTION-002.md",
+    "orchestration/receipts/character_1c/CHAR_1C_001_c0_schema_correction_002.json",
+    "orchestration/contracts/character_foundry_1c/validate_character_foundry_1c.py",
+    "orchestration/contracts/character_foundry_1c/source_manifest.lock.json",
+    "orchestration/contracts/character_foundry_1c/fixtures/invalid/INV-20-aida-fullwidth-identity-collision.json",
+    "orchestration/contracts/character_foundry_1c/fixtures/invalid/INV-21-aida-mixed-script-identity-collision.json",
+    "game_character/AIdle_Character_Foundry_MD/manifest.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "product_sha256": {
+    "validate_character_foundry_1c.py": "674ebacf3b0e3840159bd7fe77dc1cf6c5e7ed72951d90ddd76712acd36a552c",
+    "source_manifest.lock.json": "39bf23c452ac8749335008932cf226f6831665b3347bc8d70d93d73d3359f0f0",
+    "INV-20-aida-fullwidth-identity-collision.json": "5143a74d6cb1b05f962fa46ffa41af4935b9e20127c2a3d874bdbbb06e62a280",
+    "INV-21-aida-mixed-script-identity-collision.json": "da53a7a64b67bf87be7ec6365be89e5a1a8caba089c82073d7b4f73587b4eb8c"
+  }
+}

@@ -1,32 +1,340 @@
 {
   "schema_version": "1.0.0",
-  "agent": "aidle-conductor",
-  "last_directive_id": 20,
-  "state": "HITL_REQUIRED",
-  "active_task_ids": ["G8-001"],
-  "submitted_task_ids": ["G8-001"],
-  "active_wave": "HUMAN_ALPHA_ACCEPTANCE",
-  "machine_verdict": "PASS_FOR_HUMAN_REVIEW",
-  "accepted": false,
+  "agent": "aidle-continuity-conductor",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "last_directive_id": 50,
+  "state": "WAITING_HUMAN",
+  "completion_signal": "WAITING_HUMAN",
   "self_accept": false,
-  "parent_may_self_accept": false,
-  "work_order": "orchestration/work_orders/WO-G8-001-CORRECTION-001.md",
-  "codex_review": "orchestration/reviews/CODEX_G8-001_CORRECTION_ACCEPTANCE.json",
-  "human_checklist": "orchestration/reviews/G8-001_HUMAN_ACCEPTANCE_CHECKLIST.md",
-  "independent_gates": {
-    "g3_e2e": "PASS checks=76",
-    "g4_persist": "PASS checks=22",
-    "validator": "PASS",
-    "clean_boot_2_5d": "PASS",
-    "six_tracked_exports_zero_diff_after_codex_rerun": "PASS",
-    "maf_correction_receipts": "PASS count=4"
+  "accepted": false,
+  "env0_001": {
+    "status": "ACCEPTED",
+    "accepted_by": "human_product_lead",
+    "accepted_at": "2026-07-21T20:00:00+07:00",
+    "accepted_scope": {
+      "git_tag": "env0-d50-verified",
+      "commit": "1322b95",
+      "repo": "E:/AIdle_Blender_Bridge_P0",
+      "commit_full": "1322b95dce0d26a7e9b39673a2e93f6e338c2314"
+    },
+    "note": "Accepted by Human Product Lead only. No machine and no agent accepted ENV0-001."
   },
-  "runtime_isolation": {
-    "g3": "user://g3_e2e_smoke/",
-    "g4": "user://g4_persist_smoke/"
+  "g8_001_status": "PASSED_BY_HUMAN_PRODUCT_LEAD",
+  "g8_001": {
+    "status": "PASSED_BY_HUMAN_PRODUCT_LEAD",
+    "passed_by": "human_product_lead",
+    "passed_at": "2026-07-21T20:21:00+07:00",
+    "checklist": "orchestration/evidence/g8_human_gate/HUMAN_ACCEPTANCE_CHECKLIST_014.md",
+    "note": "Live playtest against HUMAN_ACCEPTANCE_CHECKLIST_014.md. Human Product Lead sole acceptor."
   },
-  "directive_19_scope_honesty": "FAILED_DISCLOSED_AND_CORRECTED",
-  "temporary_baseline_copies": "REMOVED_RECOVERABLE_FROM_60fccdd",
-  "updated_at": "2026-07-21T03:42:00+07:00",
-  "message_to_grok": "Machine correction accepted for human review. Remain idle in this same parent. Do not start new work or mark G8 ACCEPTED until Human Product Lead returns the headed checklist or findings."
+  "world_1_integration_gate_opened": true,
+  "p1e_unblocked": true,
+  "control_1b_unblocked": true,
+  "character_foundry_1c_unblocked": true,
+  "control_1b_note": "Unblocked by G8 human pass / World 1 gate. NOT started.",
+  "character_foundry_1c_note": "Unblocked by G8 human pass / World 1 gate. NOT started.",
+  "human_only_acceptor_while_codex_blocked": true,
+  "codex_usage_hard_blocked_until": "2026-07-28T00:00:00+07:00",
+  "codex_usage_hard_blocked_note": "Directive 50 era: Codex usage exhausted until re-entry. Human Product Lead sole acceptor during block. Codex re-entry docs present 2026-07-22; do not re-litigate human acceptances.",
+  "scoped_godot_overrides_granted_by_human_product_lead": [
+    {
+      "id": "G8-UX-001",
+      "work_order": "orchestration/work_orders/WO-G8-UX-001-INPUT-FOCUS-AND-COLLISION.md",
+      "scope": "input focus trap + manifestation collision / jump binding",
+      "authority": "HUMAN_PRODUCT_LEAD_SCOPED_OVERRIDE_OF_DIRECTIVE_50_NO_GODOT"
+    },
+    {
+      "id": "G8-UX-002",
+      "work_order": "orchestration/work_orders/WO-G8-UX-002-FENCE-COLLISION-GAP.md",
+      "scope": "fence rail collision",
+      "authority": "HUMAN_PRODUCT_LEAD_SCOPED_OVERRIDE_OF_DIRECTIVE_50_NO_GODOT"
+    },
+    {
+      "id": "P1E-002-INTAKE",
+      "work_order": "orchestration/work_orders/WO-P1E-002-GODOT-GLB-INTAKE.md",
+      "scope": "Godot GLB intake runtime load from quarantine, no res:// promotion",
+      "authority": "HUMAN_PRODUCT_LEAD_SCOPED_OVERRIDE_OF_DIRECTIVE_50_NO_GODOT"
+    },
+    {
+      "id": "P1E-ART-WAVES-3-AND-4",
+      "work_order": "orchestration/work_orders/WO-P1E-003-WAVE1-EXPOSURE-PROPS-DENSITY.md",
+      "scope": "P1E art waves 3 and 4 (props/density programme; waves 2-4 out of scope until dispatched)",
+      "authority": "HUMAN_PRODUCT_LEAD_SCOPED_OVERRIDE_OF_DIRECTIVE_50_NO_GODOT",
+      "note": "Override grant recorded; waves 2-4 product work still gate-dispatched separately."
+    }
+  ],
+  "active_work_order": "orchestration/work_orders/WO-P1E-006-PER-STYLE-PALETTE-VARIANTS.md",
+  "work_order": "orchestration/work_orders/WO-P1E-006-PER-STYLE-PALETTE-VARIANTS.md",
+  "active_wave": "P1E_006_COMPLETE",
+  "p1e_006": {
+    "status": "P1E_006_COMPLETE",
+    "decision": "Option B per-world-profile palette variants",
+    "scope": "11 modules x 2 world profiles (cozy_cyber_pixel, surrealism_canvas) = 22 variants",
+    "allowlist_gate": "CONFIRM before product writes",
+    "w1_receipt": "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "mechanism": "STATE_VARIANTS_extended",
+    "variants_smoke": "PASS",
+    "hsl_demo": "PASS",
+    "w2_receipt": "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "w2_verdict": "PASS_WITH_NOTES",
+    "w2_child_task_ref": "019f8625-8258-7683-9773-4b42dfa3aac2",
+    "next_owner": "HUMAN_PRODUCT_LEAD",
+    "w3_receipt": "orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+    "w3_verdict": "PASS_WITH_NOTES",
+    "w3_child_task_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+    "regression_smokes": {
+      "p1e003": "PASS checks=9",
+      "p1e004_asm": "PASS checks=6",
+      "g8_ux002": "PASS checks=2"
+    },
+    "check_governance": "PASS",
+    "env0_001_status": "ACCEPTED",
+    "w1_child_task_ref": null,
+    "w1_child_task_ref_note": "honest parent-inline",
+    "w4_receipt": "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+    "w4_verdict": "VERIFIED",
+    "w4_purple_verdict": "VERIFIED",
+    "w4_child_task_ref": "019f862c-15ac-7b52-940f-9907be1d685b",
+    "hsl_demo_purple_rerun": "PASS",
+    "ref_crosscheck_pass": true,
+    "handoff": "HUMAN_PRODUCT_LEAD_CODEX_REENTRY",
+    "taxonomy_deferred_for_codex": {
+      "status": "OPEN_ARCHITECTURAL_ITEM_FOR_CODEX",
+      "primary_axis": "world_profile",
+      "settled_by_hpl": "Option B — world profiles are content axis; art style future customisation layer",
+      "scope_this_wo": "11 modules x 2 profiles (cozy_cyber_pixel, surrealism_canvas)",
+      "deferred_no_kit": [
+        "tiny_diorama",
+        "solarpunk_haven",
+        "arcane_clockwork",
+        "spirit_valley",
+        "oceanpunk_abyss"
+      ],
+      "deferred_no_world_profile_art": [
+        "cyberpunk_dense",
+        "pastoral_fantasy"
+      ],
+      "nearest_map": "pastoral_fantasy+cyberpunk_dense -> cozy_cyber_pixel presentation",
+      "adr_eventual": "taxonomy reconciliation ADR still eventual; not blocking this WO",
+      "residuals_for_codex_reentry": [
+        "R-NOTE-01 headed live visual evidence both profiles (live_parity=false today)",
+        "R-NOTE-02 DNA v1.1_Tier3 PHYSICS_VISUAL_STATE_VARIANTS.md dual-update",
+        "R-NOTE-03 material_table form vs 11x2 discrete mesh folder wording",
+        "R-LOW-01 surreal high-value wood/ceramic readability under ambient"
+      ]
+    }
+  },
+  "p1e_004": {
+    "package": "BLD-03CB1AADD475",
+    "purple_verdict": "VERIFIED",
+    "style_mismatch_root_cause": "surrealism_canvas live vs cozy-authored kit",
+    "option_b_chosen": true,
+    "receipt_style_mismatch": "orchestration/receipts/p1e/P1E_004_STYLE_MISMATCH_ROOT_CAUSE_001.json"
+  },
+  "package": "BLD-03CB1AADD475",
+  "purple_verdict": "VERIFIED",
+  "ref_crosscheck_pass": true,
+  "governance": {
+    "original_p1e004_waves": "PARENT_INLINE_NO_CHILD_REFS",
+    "limitation_ref": "orchestration/receipts/p1e/P1E_004_PARENT_INLINE_LIMITATION.md",
+    "original_receipts_status": "CHANGES_REQUESTED with child_task_ref null (honest; not fabricated)",
+    "correction_waves_use_real_spawn_subagent_ids": true,
+    "status_file_policy": "MERGE_APPEND_PRESERVE — never rebuild from wave template only",
+    "governance_restore_reasoning_ref": "orchestration/receipts/p1e/P1E_GOVERNANCE_RESTORE_REASONING_001.md"
+  },
+  "completed_children": [
+    {
+      "wave": "CORR_W1",
+      "profile": "aidle-worldgen-asset-art",
+      "child_task_ref": "019f85c3-8de9-7972-8500-40142dfb7b42",
+      "transcript_ref": "019f85c3-8de9-7972-8500-40142dfb7b42",
+      "authority": "PATCH_DRAFT",
+      "status": "COMPLETED",
+      "receipt": "orchestration/receipts/p1e/P1E_004_corr_w1_blue_001.json",
+      "log": "orchestration/logs/p1e-004-corr-w1-blue-001.log",
+      "package": "BLD-03CB1AADD475",
+      "verdict": "WATER_HSL_PASS_CONTRACT_HONEST_NO_ACCEPT"
+    },
+    {
+      "wave": "CORR_W2",
+      "profile": "aidle-worldgen-red-scope",
+      "child_task_ref": "019f85c9-d4bf-76c3-a1e6-a424f2cf9f34",
+      "transcript_ref": "019f85c9-d4bf-76c3-a1e6-a424f2cf9f34",
+      "authority": "READ_ONLY_AUDIT",
+      "status": "COMPLETED",
+      "receipt": "orchestration/receipts/p1e/P1E_004_corr_w2_red_001.json",
+      "log": "orchestration/logs/p1e-004-corr-w2-red-001.log",
+      "verdict": "PASS_WITH_NOTES"
+    },
+    {
+      "wave": "CORR_W3",
+      "profile": "aidle-worldgen-qa-evidence",
+      "child_task_ref": "019f85cd-ed03-7053-8689-122ea7e4e160",
+      "transcript_ref": "019f85cd-ed03-7053-8689-122ea7e4e160",
+      "authority": "VERIFY_ONLY",
+      "status": "COMPLETED",
+      "receipt": "orchestration/receipts/p1e/P1E_004_corr_w3_qa_001.json",
+      "log": "orchestration/logs/p1e-004-corr-w3-qa-001.log",
+      "verdict": "PASS_WITH_NOTES"
+    },
+    {
+      "wave": "CORR_W4",
+      "profile": "aidle-worldgen-purple-acceptance",
+      "child_task_ref": "019f85d1-c4f9-7303-bf26-7e69dd791ce9",
+      "transcript_ref": "019f85d1-c4f9-7303-bf26-7e69dd791ce9",
+      "authority": "VERIFY_ONLY",
+      "status": "COMPLETED",
+      "receipt": "orchestration/receipts/p1e/P1E_004_corr_w4_purple_001.json",
+      "log": "orchestration/logs/p1e-004-corr-w4-purple-001.log",
+      "verdict": "VERIFIED",
+      "purple_verdict": "VERIFIED"
+    },
+    {
+      "wave": "P1E_006_W2_RED",
+      "profile": "aidle-worldgen-red-scope",
+      "child_task_ref": "019f8625-8258-7683-9773-4b42dfa3aac2",
+      "transcript_ref": "019f8625-8258-7683-9773-4b42dfa3aac2",
+      "authority": "READ_ONLY_AUDIT",
+      "status": "COMPLETED",
+      "receipt": "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+      "log": "orchestration/logs/p1e-006-w2-red-001.log",
+      "verdict": "PASS_WITH_NOTES",
+      "work_order": "WO-P1E-006-PER-STYLE-PALETTE-VARIANTS",
+      "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "prior_wave_child_task_ref": null,
+      "prior_wave_note": "W1 Blue parent-inline child_task_ref=null honest"
+    },
+    {
+      "wave": "P1E_006_W3_QA",
+      "profile": "aidle-worldgen-qa-evidence",
+      "child_task_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+      "transcript_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+      "authority": "VERIFY_ONLY",
+      "status": "COMPLETED",
+      "receipt": "orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+      "log": "orchestration/logs/p1e-006-w3-qa-001.log",
+      "verdict": "PASS_WITH_NOTES",
+      "work_order": "WO-P1E-006-PER-STYLE-PALETTE-VARIANTS",
+      "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "prior_wave_child_task_ref": "019f8625-8258-7683-9773-4b42dfa3aac2"
+    },
+    {
+      "wave": "P1E_006_W4_PURPLE",
+      "profile": "aidle-worldgen-purple-acceptance",
+      "child_task_ref": "019f862c-15ac-7b52-940f-9907be1d685b",
+      "transcript_ref": "019f862c-15ac-7b52-940f-9907be1d685b",
+      "authority": "VERIFY_ONLY",
+      "status": "COMPLETED",
+      "receipt": "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+      "log": "orchestration/logs/p1e-006-w4-purple-001.log",
+      "verdict": "VERIFIED",
+      "purple_verdict": "VERIFIED",
+      "work_order": "WO-P1E-006-PER-STYLE-PALETTE-VARIANTS",
+      "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "prior_wave_child_task_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+      "self_accept": false,
+      "accepted": false
+    }
+  ],
+  "active_children": [],
+  "metrics": {
+    "mean_luma": 153.969,
+    "blown_pct_rec709": 1.837,
+    "shadow_pct": 5.903,
+    "spatial_cluster_share_pct": 40.962,
+    "pond_median_rgb": [
+      191,
+      252,
+      255
+    ],
+    "pond_hue_deg": 182.8125,
+    "pond_sat_pct": 25.098,
+    "pond_rb_spread": 64,
+    "material_integrity_hsl": "PASS",
+    "four_value_hsl_demo": "PASS",
+    "art_style_id_active_note": "Blender evidence n/a_blender_eevee; live human session surrealism_canvas"
+  },
+  "four_value_hsl_demo": {
+    "beige_218_209_195": {
+      "pass": false,
+      "hue": 36.52,
+      "sat": 10.55
+    },
+    "white_255_255_255": {
+      "pass": false,
+      "hue": 0.0,
+      "sat": 0.0
+    },
+    "grey_185_195_189": {
+      "pass": false,
+      "hue": 144.0,
+      "sat": 5.13
+    },
+    "bible_143_212_232": {
+      "pass": true,
+      "hue": 193.48,
+      "sat": 38.36
+    }
+  },
+  "art_style_manager_commit": "1cd0be4",
+  "style_mismatch_root_cause": {
+    "confirmed": true,
+    "possibility": 2,
+    "live_art_style": "surrealism_canvas",
+    "kit_authored_for": "cozy_cyber_pixel",
+    "receipt": "orchestration/receipts/p1e/P1E_004_STYLE_MISMATCH_ROOT_CAUSE_001.json",
+    "qa_standard": "orchestration/standards/HEADED_VISUAL_EVIDENCE_QA.md",
+    "glb_materials_overridden_by_style": false,
+    "option_C_available": true,
+    "human_decision": "Option B chosen — per world profile palette variants (WO-P1E-006)"
+  },
+  "updated_at": "2026-07-21T19:38:21.762228+00:00",
+  "governance_restore": {
+    "restored_at": "2026-07-22T02:15:00+07:00",
+    "reason": "Wave-level full rewrite at ~00:30 dropped human acceptance and gate keys. Restored by merge.",
+    "restored_by": "aidle-continuity-conductor",
+    "accepted_by_human_product_lead": true,
+    "accepted_note": "HPL verified seven governance keys + four scoped Godot overrides; Bridge env0-d50-verified^{} = 1322b95dce0d26a7e9b39673a2e93f6e338c2314 matches.",
+    "reasoning_that_matters_more_than_the_fix": "The danger was never the missing keys themselves; it was that a full-rewrite writer would silently erase them again on the next wave the moment nobody was checking. Therefore status_file_policy=MERGE_APPEND_PRESERVE with wave_merge_test proof is the correct shape of fix.",
+    "status_file_policy": "MERGE_APPEND_PRESERVE",
+    "wave_merge_test": true,
+    "writer_tool": "orchestration/control/merge_grok_status.py",
+    "durable_reasoning_ref": "orchestration/receipts/p1e/P1E_GOVERNANCE_RESTORE_REASONING_001.md",
+    "bridge_tag_verified": {
+      "tag": "env0-d50-verified^{}",
+      "sha": "1322b95dce0d26a7e9b39673a2e93f6e338c2314"
+    }
+  },
+  "message_to_human": "P1E-006 W4 Purple VERIFIED (machine only; accepted=false): chain W1 parent-inline / W2 Red PASS_WITH_NOTES / W3 QA PASS_WITH_NOTES complete. Independent HSL PASS; env0_001 ACCEPTED preserved. Residuals + taxonomy deferred for Codex re-entry. Handoff HUMAN_PRODUCT_LEAD.",
+  "wave_merge_test": true,
+  "next_owner": "HUMAN_PRODUCT_LEAD",
+  "next_route": "HUMAN_PRODUCT_LEAD_CODEX_REENTRY",
+  "message_to_codex": {
+    "at": "2026-07-22T02:40:00+07:00",
+    "from": "aidle-continuity-conductor",
+    "summary": "WO-P1E-006 W1-W4 complete machine path. purple_verdict=VERIFIED is machine only. accepted=false self_accept=false. Human Product Lead owns acceptance. Headed live evidence residual R-NOTE-01 (live_parity=false). Do not start art waves 2-4 / P2E-P6E / World Commit. Use merge_grok_status.py only.",
+    "receipts": [
+      "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+      "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+      "orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+      "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+      "orchestration/receipts/p1e/P1E_GOVERNANCE_RESTORE_REASONING_001.md"
+    ],
+    "child_task_refs": {
+      "parent": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "w1_blue": null,
+      "w1_note": "honest parent-inline PARENT_INLINE_NO_CHILD_REFS pattern",
+      "w2_red": "019f8625-8258-7683-9773-4b42dfa3aac2",
+      "w3_qa": "019f8629-521f-7501-ace3-1b5f29121a05",
+      "w4_purple": "019f862c-15ac-7b52-940f-9907be1d685b"
+    },
+    "verdicts": {
+      "w1": "W1_COMPLETE_STATE_VARIANTS_PROFILE_SELECTOR_NO_ACCEPT",
+      "w2": "PASS_WITH_NOTES",
+      "w3": "PASS_WITH_NOTES",
+      "w4_purple": "VERIFIED"
+    },
+    "active_wave": "P1E_006_COMPLETE",
+    "next_owner": "HUMAN_PRODUCT_LEAD"
+  }
 }

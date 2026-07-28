@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_CTRL-1B-002-R-CAMERA-RECEIPT-SCOPE-REVIEW-004",
+  "task_id": "CTRL-1B-002",
+  "reviewed_at": "2026-07-22T08:33:00+07:00",
+  "reviewed_by": "codex",
+  "directive_reviewed": 61,
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "product_behavior": {
+    "fixture_validator": "PASS; invalid 12/12 rejected",
+    "context_router_smoke": "PASS; checks=16; exit=0; zero ERROR lines",
+    "integration_smoke": "PASS; checks=28; exit=0; zero ERROR lines",
+    "exploration_R_camera_yaw_delta_abs": 0.7854,
+    "build_R_preview_only": true,
+    "dual_fire": false,
+    "remap_compatibility": true,
+    "witness_sha256": "513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f"
+  },
+  "receipt_schema": {
+    "CTRL_1B_002_e0_r1_receipt_correction_004.json": 0,
+    "CTRL_1B_002_e1_purple_receipt_correction_004.json": 0,
+    "validator": "python jsonschema Draft202012Validator",
+    "agentwork_runtime_note": "E:/standards/maf/.venv has no agentwork_runtime module; no dependency installed"
+  },
+  "durable_lineage": {
+    "parent": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "e0_child": "019f8746-e7b9-7bb1-8fe2-dabf46421a22",
+    "e0_status": "completed",
+    "e1_child": "019f8749-4aaf-7bc2-86ca-8d76aa278fd8",
+    "e1_status": "completed",
+    "sequential": true
+  },
+  "blockers": [
+    {
+      "signature": "CTRL1B_E1_PURPLE_TEMP_HELPER_OUT_OF_LEASE",
+      "transcript_ref": "019f8749-4aaf-7bc2-86ca-8d76aa278fd8",
+      "tool_call_line": 44,
+      "unauthorized_path": "orchestration/logs/_e1_write_receipt.py",
+      "action": "created by write tool then deleted by run_terminal_command",
+      "reason": "The work order granted exactly two exclusive output files. A deleted temporary file is still a real out-of-lease write, and it makes exclusive_lease_only=true in the receipt false."
+    }
+  ],
+  "scope_note": "Runtime and R-camera behavior are independently PASS. E0 is accepted as correction evidence. Only E1 Purple provenance must be rerun; no product, test, contract, fixture or prior evidence change is authorized.",
+  "next_route": "DIRECTIVE_62_ONE_FRESH_PURPLE_SCOPE_CORRECTION"
+}

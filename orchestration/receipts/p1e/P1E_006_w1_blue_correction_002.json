@@ -1,0 +1,227 @@
+{
+  "schema_version": "1.0.0",
+  "step_id": "P1E-006-w1-blue-correction-002",
+  "agent_step_id": "P1E-006-w1-blue-correction-002-2026-07-22",
+  "work_order_id": "WO-P1E-006-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+  "directive_id": 52,
+  "finding_closed": "P1E006-CODEX-F01",
+  "agent_id": "aidle-worldgen-asset-art",
+  "agent_type": "aidle-worldgen-asset-art",
+  "authority": "PATCH_DRAFT",
+  "authority_token": "PATCH_DRAFT",
+  "status": "REVIEW_REQUESTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "wave": "C0",
+  "child_task_ref": "019f8636-7653-7572-8eaa-fd306bb8c4ae",
+  "transcript_ref": "019f8636-7653-7572-8eaa-fd306bb8c4ae",
+  "writer_transcript_ref": "019f8636-7653-7572-8eaa-fd306bb8c4ae",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "self_accept": false,
+  "accepted": false,
+  "verdict": "CORRECTION_COMPLETE_SCHEMA_VALID_NO_ACCEPT",
+  "completion_signal": "REVIEW_REQUESTED",
+  "next_owner": "C1_QA_HEADED",
+  "next_route": "C1_QA_HEADED",
+  "handoff_ref": "C1_QA_HEADED",
+  "trace_ref": "orchestration/logs/p1e-006-w1-blue-correction-002.log",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+  "character_binding": {
+    "trustlayer": "blue-team-p0-remediator",
+    "ui": "ui-color-type-specialist",
+    "role": "C0 asset correction and idempotent W1 re-verification"
+  },
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-w1-blue-correction-002.log",
+    "E:/AIdle_openworld/game/resources/world_profiles/state_visual_variants.json",
+    "E:/AIdle_openworld/game/scripts/modules/asset/world_profile_variant_selector.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake.gd",
+    "E:/AIdle_openworld/game/tests/p1e006_world_profile_variants_smoke.gd"
+  ],
+  "product_writes": [],
+  "product_diff_zero": true,
+  "original_w1_path": "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+  "original_w1_sha256": "B7C88618E5B395D16F3CF6EA3DF10C7E4FE9C202BB2D09EC5920122C9930BF3A",
+  "original_w1_child_task_ref_disclosure": "PARENT_INLINE_NO_CHILD_REF",
+  "original_w1_schema_errors": [
+    "agent_step_id",
+    "agent_type",
+    "authority_token",
+    "smoke_test",
+    "self_audit",
+    "next_route"
+  ],
+  "original_w1_schema_errors_note": "P1E006-CODEX-F01: P1E_006_w1_blue_001.json fails agent_step_contract.schema.json with six missing required properties: agent_step_id, agent_type, authority_token, smoke_test, self_audit and next_route. Original preserved; this correction receipt supplies schema-valid lineage from a real installed asset child without fabricating a historical child ref for parent-inline W1.",
+  "chronology_note": "P1E-004 preserved GLB module materials on intake; P1E-006 subsequently introduced world_profile_variant_selector.gd to recolor selected materials AFTER GLB attach. Temporal layering, not architecture reversal.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\maf-mandatory-standard\\SKILL.md",
+      "bytes_or_line_count": "bytes=1741 lines=33",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\trustlayer-x16-crew\\SKILL.md",
+      "bytes_or_line_count": "bytes=1938 lines=42",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\agentwork-knowledge-loop\\SKILL.md",
+      "bytes_or_line_count": "bytes=982 lines=25",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\project-room-collab\\SKILL.md",
+      "bytes_or_line_count": "bytes=1681 lines=48",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\curiosity-engine\\SKILL.md",
+      "bytes_or_line_count": "bytes=34306 lines=804",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "od-reference-design-contract",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\od-reference-design-contract\\SKILL.md",
+      "bytes_or_line_count": "bytes=5367 lines=120",
+      "load_to_eof": true
+    }
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-asset-art.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/AIdle_openworld/orchestration/skills_manifest.yaml",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "E:/AIdle_openworld/game/resources/world_profiles/state_visual_variants.json",
+    "E:/AIdle_openworld/game/scripts/modules/asset/world_profile_variant_selector.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/starter_realm_builder.gd",
+    "E:/AIdle_openworld/game/scripts/modules/asset/glb_intake.gd",
+    "E:/AIdle_openworld/game/tests/p1e006_world_profile_variants_smoke.gd",
+    "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/od-reference-design-contract/SKILL.md"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-w1-blue-correction-002.log"
+  ],
+  "commands": [
+    "Get-FileHash -Algorithm SHA256 E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+    "python E:/AIdle_openworld/orchestration/evidence/p1e_006/_hsl_per_profile_demo.py"
+  ],
+  "exit_codes": [0, 0, 0],
+  "smoke_test": {
+    "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+    "exit_code": 0,
+    "pass": true,
+    "gate_line": "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5",
+    "log_excerpt": "OK catalog_and_art_style_map; OK cozy_identity_no_white; OK surrealism_recolor_chromatic; OK switch_back_to_cozy_no_reload; OK landmarks_present_after_variant; surreal_rewritten=93; surreal_water_albedo=(0.35,0.32,0.62,1); headless dummy ERROR Parameter m is null non-fatal",
+    "secondary": {
+      "command": "python E:/AIdle_openworld/orchestration/evidence/p1e_006/_hsl_per_profile_demo.py",
+      "exit_code": 0,
+      "pass": true,
+      "gate_line": "P1E006_HSL_DEMO=PASS"
+    }
+  },
+  "self_audit": {
+    "schema_required_fields_present": true,
+    "required_fields_checked": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "product_outside_lease": false,
+    "fabricated_refs": false,
+    "original_preserved": true,
+    "original_w1_sha256_match": true,
+    "historical_child_ref_fabricated": false,
+    "self_accept": false,
+    "accepted": false
+  },
+  "result": {
+    "mode": "idempotent_w1_reverify_receipt_only",
+    "f01_closed_from_c0_side": true,
+    "product_diff_zero": true,
+    "product_writes": [],
+    "implementation_status": "allowlisted product already idempotently correct; no product patch applied",
+    "mechanism": "STATE_VARIANTS_extended — world_profile selector; no parallel STYLE_VARIANTS system",
+    "cozy": "identity_register restores cached GLB materials; switch-back matched albedo within tolerance",
+    "surrealism": "93 materials rewritten; water albedo (0.35,0.32,0.62) chromatic purple-water",
+    "hsl_demo": "P1E006_HSL_DEMO=PASS",
+    "variants_smoke": "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5 exit_code=0",
+    "original_w1_binding": {
+      "path": "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+      "sha256": "B7C88618E5B395D16F3CF6EA3DF10C7E4FE9C202BB2D09EC5920122C9930BF3A",
+      "child_task_ref_disclosure": "PARENT_INLINE_NO_CHILD_REF",
+      "schema_errors": [
+        "agent_step_id",
+        "agent_type",
+        "authority_token",
+        "smoke_test",
+        "self_audit",
+        "next_route"
+      ]
+    },
+    "chronology_note": "P1E-004 preserved GLB module materials on intake; P1E-006 subsequently introduced world_profile_variant_selector.gd to recolor selected materials AFTER GLB attach."
+  },
+  "evidence_refs": [
+    "orchestration/logs/p1e-006-w1-blue-correction-002.log",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+    "game/resources/world_profiles/state_visual_variants.json",
+    "game/scripts/modules/asset/world_profile_variant_selector.gd",
+    "game/tests/p1e006_world_profile_variants_smoke.gd",
+    "orchestration/evidence/p1e_006/_hsl_per_profile_demo.py"
+  ],
+  "inputs": [
+    "orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "orchestration/control/codex_directive.json",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "outputs": [
+    "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "orchestration/logs/p1e-006-w1-blue-correction-002.log"
+  ],
+  "not_touched": [
+    "world_meta.cfg",
+    "orchestration/control/codex_directive.json",
+    "orchestration/control/grok_status.json",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "orchestration/evidence/p1e_006/**"
+  ],
+  "hard_stops_honored": [
+    "no_P2E_P6E",
+    "no_art_waves_2_4",
+    "no_control",
+    "no_character_foundry",
+    "no_network_install_push_deploy_publish",
+    "no_grandchildren",
+    "no_historical_receipt_rewrite",
+    "no_fabricated_refs",
+    "no_self_accept"
+  ]
+}

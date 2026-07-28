@@ -1,0 +1,730 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "UCBV-001-c4s-qa-evidence-009-2026-07-23",
+  "step_id": "UCBV-001-c4s-qa-evidence-009",
+  "work_order_id": "WO-UCBV-001-C4-SCHEMA-RERUN-010",
+  "work_order": "orchestration/work_orders/WO-UCBV-001-C4-SCHEMA-RERUN-010.md",
+  "work_order_sha256": "117d20a10bf05bed8a704f72f06f6cd3aaf414797a3411660ad8f6c0882e3815",
+  "base_work_order": "orchestration/work_orders/WO-UCBV-001-STRICT-CORRECTION-002.md",
+  "directive_id": 95,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "37cb730857a9743857525a5128724b86dd6493029c4b64337a0aca27736094eb",
+  "directive_state": "CHANGES_REQUESTED",
+  "directive_verdict": "C4R_RECEIPT_SCHEMA_INVALID_FRESH_C4_REQUIRED_BEFORE_C5",
+  "review": "orchestration/reviews/CODEX_UCBV-001_C4R_SCHEMA_GATE_014.json",
+  "review_sha256": "c3dda6935cd7952541587c6f1fbf1bf5b6b24b2e1f332367e6fa14f948fdc705",
+  "milestone": "UCBV-001 fresh schema-valid C4 QA rerun",
+  "agent_id": "aidle-worldgen-qa-evidence",
+  "agent_type": "aidle-worldgen-qa-evidence",
+  "profile_name": "aidle-worldgen-qa-evidence",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-qa-evidence.md",
+  "profile_sha256": "bd9f7f941be811b1d81b35cc58fe06fba8bbd3768c04a49f41af626cc09f890a",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-qa-evidence; trustlayer_character=purple-team-finding-triage; ui_character=ui-a11y-auditor; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set exclusive_qa_receipt_log_and_evidence_009",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "QA evidence only; exclusive C4S log+receipt+evidence/ucbv_001/009/**; product_writes=[]; never patch product/tests; never ACCEPTED; no C5; no grandchildren; do not reuse correction_008 evidence",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:3a4f2e89880dbe225aaa9b8a72f1d52a14646ca0c025c5c7d37f9c15f214f40d",
+  "input_context_hash_16": "3a4f2e89880dbe22",
+  "input_context_hash_method": "sha256 of concatenated file bytes: codex_directive.json + WO-UCBV-001-C4-SCHEMA-RERUN-010.md + aidle-worldgen-qa-evidence.md + CODEX_UCBV-001_C4R_SCHEMA_GATE_014.json + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "C4S_COMPLETE_WAITING_CODEX_C5_BLOCKED",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "C4S_SCHEMA_VALID_STRICT_QA_AND_HEADED_EVIDENCE_COMPLETE_ROUTE_CODEX_C5_BLOCKED",
+  "need_human": false,
+  "child_task_ref": "019f8d90-59c9-7061-9aa4-a261d4006c94",
+  "transcript_ref": "019f8d90-59c9-7061-9aa4-a261d4006c94",
+  "writer_transcript_ref": "019f8d90-59c9-7061-9aa4-a261d4006c94",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8d90-59c9-7061-9aa4-a261d4006c94/meta.json",
+  "prior_c4r_rejected_schema": "019f8d83-3012-7d13-8e97-4c50c6114982",
+  "prior_c4r_scope": "REJECTED_SCHEMA_INVALID_NOT_REUSED",
+  "c5_spawned": false,
+  "next_owner": "CODEX",
+  "next_route": "WAITING_CODEX_ACCEPT_C4S_THEN_C5_IF_AUTHORIZED",
+  "human_gate_open": false,
+  "character_binding": {
+    "trustlayer_character_id": "purple-team-finding-triage",
+    "trustlayer_file": "E:/agents/characters/12-purple-team-finding-triage.md",
+    "trustlayer_sha256": "5ee9279e67793b135675725f0d6060b3bb749df6a169bbb43cb071372ea394a8",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-a11y-auditor",
+    "ui_file": "E:/agents/ui-design/characters/12-ui-a11y-auditor.md",
+    "ui_sha256": "4ebc4f6546cd3cd10c4a2faf45bcfc82651731c5692f7fd1df7d904aa47554a8",
+    "ui_read": "full_eof",
+    "role": "C4S VERIFY_ONLY fresh schema-valid QA/playability clean headed dual-res evidence after C4R schema reject; never patch; never self-accept; do not spawn C5"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded Agents.md, directive 95, WO C4-SCHEMA-RERUN-010, C4R schema gate 014, agent_step_contract schema, profile, TrustLayer/UI cards, skills ALWAYS full EOF + evidence-memory-ledger full EOF manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Hard stops"
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "agent_step_contract.schema.json"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "E:\\shared\\LOOP.md"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "README"
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "Prime Directive"
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "bytes": 8484,
+      "line_count": 292,
+      "read_mode": "full_no_limit",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "eof_marker": "NO_DURABLE_RECORD"
+    }
+  ],
+  "product_writes": [],
+  "exact_write_lease": {
+    "orchestration": [
+      "orchestration/receipts/ucbv_001/correction_009/C4S_qa_evidence_009.json",
+      "orchestration/logs/ucbv_001/correction_009/C4S_qa_evidence_009.log",
+      "orchestration/evidence/ucbv_001/009/**"
+    ],
+    "product_test": []
+  },
+  "result": {
+    "outcomes": {
+      "headed_dual_res": {
+        "ok": true,
+        "marker": "AIDLE_UCBV001_C4S_HEADED=PASS checks=45 fails=0 captures=38 inputs=126",
+        "exit": 0,
+        "png_count": 38,
+        "png_expected": 38,
+        "viewports": [
+          "1280x720",
+          "868x517"
+        ],
+        "states": 19,
+        "diagnostic_banner": false,
+        "zero_error": true,
+        "nav_warn_count": 0,
+        "duplicate_sha_pairs": [],
+        "dim_fails": [],
+        "missing": [],
+        "art_style_id": "cozy_cyber_pixel",
+        "capture_source": "godot_headed",
+        "seconds": 17.04,
+        "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --path E:/AIdle_openworld/game --resolution 1280x720 --windowed --log-file E:/AIdle_openworld/orchestration/evidence/ucbv_001/009/godot_headed.log -s E:/AIdle_openworld/orchestration/evidence/ucbv_001/009/capture_ucbv_c4s_headed.gd",
+        "evidence_dir": "orchestration/evidence/ucbv_001/009",
+        "input_path": "InputMap/event-first (static_guard_no_direct_controller_action_calls)",
+        "pngs": [
+          {
+            "path": "orchestration/evidence/ucbv_001/009/idle_1280x720.png",
+            "sha256": "32bec77e10e24d5254686a2f5b874a2642f3f84e8c1d9031578cc00547f22b8f",
+            "width": 1280,
+            "height": 720,
+            "state": "idle",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/idle_868x517.png",
+            "sha256": "8e34989f8f8d0d663a9c60af6c95244b1bbf4164e92b37f6abe0597f0c46c056",
+            "width": 868,
+            "height": 517,
+            "state": "idle",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/walk_1280x720.png",
+            "sha256": "d0b16314dd7b320114e610f912a0469953e1ca2967c1d65851239c80d6ab352d",
+            "width": 1280,
+            "height": 720,
+            "state": "walk",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/walk_868x517.png",
+            "sha256": "7101dd4d7e71c5ff24e1447ef9d06f5b7982ab68a6a17b8bae8db071e7724874",
+            "width": 868,
+            "height": 517,
+            "state": "walk",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/turn_1280x720.png",
+            "sha256": "b02be7011041000a97c518ce232f08b17080c562b434dbfbcd150b25b1363f8d",
+            "width": 1280,
+            "height": 720,
+            "state": "turn",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/turn_868x517.png",
+            "sha256": "f450f3cf986cd2045ef82c0e6201d22cf5adf7540f306d01fdea5a021574d871",
+            "width": 868,
+            "height": 517,
+            "state": "turn",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/warm_cream_1280x720.png",
+            "sha256": "37add9674666a24bfa9f905acc4a4ec9bebacbfe7867bd66714482a1562aa780",
+            "width": 1280,
+            "height": 720,
+            "state": "warm_cream",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/warm_cream_868x517.png",
+            "sha256": "64fb879efadfc3d75aabd386738603cbfcdf75ebe4828fd2d19d370394eb8da9",
+            "width": 868,
+            "height": 517,
+            "state": "warm_cream",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/catalog_28_1280x720.png",
+            "sha256": "a7b8dc6cf895f921eccc1511c892cde67b31875bf63b8a8fc90f592edea4fb7a",
+            "width": 1280,
+            "height": 720,
+            "state": "catalog_28",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/catalog_28_868x517.png",
+            "sha256": "358b278f1abd794b43585f94c6c07fa8875fccfb9dfe2b028b224a161b1a38e0",
+            "width": 868,
+            "height": 517,
+            "state": "catalog_28",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/build_place_1280x720.png",
+            "sha256": "061553e30def2dc406c08a510549ee575cb13cf223bd248e6c91f0d39f21057c",
+            "width": 1280,
+            "height": 720,
+            "state": "build_place",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/build_place_868x517.png",
+            "sha256": "d6062408acfe1ecbd4c0949167ff2937dba6940aed80dde56bcca73a402f9a94",
+            "width": 868,
+            "height": 517,
+            "state": "build_place",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/qr_rotate_1280x720.png",
+            "sha256": "81f576f3fc854044c41077e3ebdf28b1f83eb7ea198be3d85284bd86ac1132e4",
+            "width": 1280,
+            "height": 720,
+            "state": "qr_rotate",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/qr_rotate_868x517.png",
+            "sha256": "0e3e98e00aa31b3a1b7ba706cdca52cf6a13e50544ef6f5f84fd771c1389673f",
+            "width": 868,
+            "height": 517,
+            "state": "qr_rotate",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/elevation_1280x720.png",
+            "sha256": "04af251194a6a2ac1d3f00c3fa0feade3bfa3f25be774c8289d473a8e4f69125",
+            "width": 1280,
+            "height": 720,
+            "state": "elevation",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/elevation_868x517.png",
+            "sha256": "6f1183a31dd1d5cc63d7b524dc04b125cf3331c7843b1dc5aede18dda270681b",
+            "width": 868,
+            "height": 517,
+            "state": "elevation",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/invalid_placement_1280x720.png",
+            "sha256": "c40fb8b4d042fc9f53cf054b4dc7d00ab93ebbab475f0280b97011f77363f8a9",
+            "width": 1280,
+            "height": 720,
+            "state": "invalid_placement",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/invalid_placement_868x517.png",
+            "sha256": "55cb562e8a3be9e0fc5339cc9f8ad110ecd3c0f37566f3706726ad01c795261a",
+            "width": 868,
+            "height": 517,
+            "state": "invalid_placement",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/confirm_1280x720.png",
+            "sha256": "157710c4b4b4677ab38e34e112e2aa710ef7fbbd50fd300ca284cad0c8f1d97b",
+            "width": 1280,
+            "height": 720,
+            "state": "confirm",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/confirm_868x517.png",
+            "sha256": "e846acfe36ef40f58b1b2c8724614911f81660d1d344e993eeda6e1f890890b1",
+            "width": 868,
+            "height": 517,
+            "state": "confirm",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/placement_2_1280x720.png",
+            "sha256": "c6c1b26f19eb02980ba104688be7d0247bba80aa33800d33f639ef547f0237b7",
+            "width": 1280,
+            "height": 720,
+            "state": "placement_2",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/placement_2_868x517.png",
+            "sha256": "1712fa3bce84d4273332363895f575ef36e20a2a0f86572852be04851f1be846",
+            "width": 868,
+            "height": 517,
+            "state": "placement_2",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/cancel_1280x720.png",
+            "sha256": "e75a4a9a4ebbd83af6010e7de5c4fe9a42afa5678cb7b6cd9d5416efdbcd4b1e",
+            "width": 1280,
+            "height": 720,
+            "state": "cancel",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/cancel_868x517.png",
+            "sha256": "f423737049f426cc3d6797aeb313983249aa7ae8bf5099d30ec313de470d4225",
+            "width": 868,
+            "height": 517,
+            "state": "cancel",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/delete_select_1280x720.png",
+            "sha256": "84ac682dad56cf387f59c1acd2ed1467691184e78e7f3de69809c15ab1b2cb1f",
+            "width": 1280,
+            "height": 720,
+            "state": "delete_select",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/delete_select_868x517.png",
+            "sha256": "6583c72b62e76bfbf9d56dddf5d8e53e82f3e621f5a00b29286c4f2514955da8",
+            "width": 868,
+            "height": 517,
+            "state": "delete_select",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/delete_cancel_1280x720.png",
+            "sha256": "1bf963a0c0db2a734e3480a17fea3dd62046087e98db74ccad2a4e4c11a7d918",
+            "width": 1280,
+            "height": 720,
+            "state": "delete_cancel",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/delete_cancel_868x517.png",
+            "sha256": "ab11960046b88771d8773f271c20fb0bd14da56fa060ba1a4a6f45e21a213661",
+            "width": 868,
+            "height": 517,
+            "state": "delete_cancel",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/delete_confirm_1280x720.png",
+            "sha256": "3847a596c7f222c4093daa8c3a531f5afc91f1dc93b5cc22efbd8f5f76f5a163",
+            "width": 1280,
+            "height": 720,
+            "state": "delete_confirm",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/delete_confirm_868x517.png",
+            "sha256": "11dd637f7df2695223b2194e5f53d8063e42ba147d35dbae01f148ca007a5eda",
+            "width": 868,
+            "height": 517,
+            "state": "delete_confirm",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/undo_1280x720.png",
+            "sha256": "adafd768735839dcdfe1d5493635f52d68cd096759e9c49e7a793ac66b4995f8",
+            "width": 1280,
+            "height": 720,
+            "state": "undo",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/undo_868x517.png",
+            "sha256": "b7fbbc036fdbf91defcc4d7f5afa5a8b7244d07a9eb12b81525c735b96fcbb22",
+            "width": 868,
+            "height": 517,
+            "state": "undo",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/save_reload_1280x720.png",
+            "sha256": "4d9773a8ca2279b75575710ebc7f6aa2f37321560d29d386e8064fca477af033",
+            "width": 1280,
+            "height": 720,
+            "state": "save_reload",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/save_reload_868x517.png",
+            "sha256": "6889ace8f551fbd412ece60a74a0b5a422c00e6bac12fe2b40f79890f54ede64",
+            "width": 868,
+            "height": 517,
+            "state": "save_reload",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/scan_action_1280x720.png",
+            "sha256": "5cc9e62792aba9c50632e02882c0efe38c18cfd8029c11e0df18ed1235d0e3a2",
+            "width": 1280,
+            "height": 720,
+            "state": "scan_action",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/scan_action_868x517.png",
+            "sha256": "b0ae6653291d3f588ff0e382214f2152a023d0eb0477cc93a3fa2b21020ca26a",
+            "width": 868,
+            "height": 517,
+            "state": "scan_action",
+            "viewport": "868x517"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/happy_action_1280x720.png",
+            "sha256": "200e90a1c94a1bae6d52745c262ca193e318f29587dc6927b07c68d62652549e",
+            "width": 1280,
+            "height": 720,
+            "state": "happy_action",
+            "viewport": "1280x720"
+          },
+          {
+            "path": "orchestration/evidence/ucbv_001/009/happy_action_868x517.png",
+            "sha256": "bddfa3a2b1d73247a88dcb04d140c6eae79a313cefde744d9930a79526084c61",
+            "width": 868,
+            "height": 517,
+            "state": "happy_action",
+            "viewport": "868x517"
+          }
+        ]
+      },
+      "nori7_glb_runtime_proof": {
+        "character_id": "CCP-RH-001",
+        "bones": 14,
+        "mode": "glb_c1r",
+        "production_mode": "glb_c1r",
+        "production_slice": "c1r_glb_skinned",
+        "procedural_fallback": false,
+        "glb_path": "res://assets/ucbv_001/character/nori7/export/nori7_rigged.glb",
+        "not_svg_staging_concept_art": true,
+        "runtime_marker": "nori_runtime_proof character_id=CCP-RH-001 bones=14 mode=glb_c1r",
+        "main_log_marker": "Nori-7 presenter built=true bones=14 character_id=CCP-RH-001 slice=c1r_glb_skinned mode=glb_c1r procedural=false"
+      },
+      "manual_build_catalog": {
+        "ok": true,
+        "multiple_modules": true,
+        "module_count": 28,
+        "distinct_highlighted": [
+          "arch_door_round",
+          "arch_roof_dome_4m",
+          "arch_wall_window_4m",
+          "block_arch",
+          "block_cube_round",
+          "block_dome",
+          "block_pipe_straight",
+          "block_ramp",
+          "block_sphere_segment",
+          "char_nori7_base",
+          "cluster_cozy_greenhouse_droplet_A",
+          "terrain_flat_8m"
+        ],
+        "distinct_count": 12,
+        "not_only_arch_door_round": true,
+        "note": "cycled via build_module_next InputMap path; fresh 009 evidence"
+      },
+      "build_controls": {
+        "qr_rotate_camera_yaw_unchanged": true,
+        "elevation_labelled": true,
+        "elevation_label": "Lift (PgUp/PgDn)",
+        "confirm": true,
+        "cancel": true,
+        "delete_red_x_select": true,
+        "delete_confirm": true,
+        "delete_cancel": true
+      },
+      "motion_kit_honesty": {
+        "status": "read_only_staging_only_if_mentioned",
+        "claim_kit_equals_runtime_animation": false,
+        "claim_asset_creation": false,
+        "runtime_animation_source": "nori7_rigged.glb keyed clips via glb_c1r presenter"
+      },
+      "required_smokes": {
+        "h1_consolidation_flow": {
+          "ok": true,
+          "marker": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13",
+          "exit": 0,
+          "checks": 13
+        },
+        "ucbv_001_inputmap_e2e": {
+          "ok": true,
+          "marker": "AIDLE_UCBV001_INPUTMAP_E2E_SMOKE=PASS checks=17 inputs=34",
+          "exit": 0,
+          "checks": 17,
+          "inputs": 34
+        },
+        "ucbv_001_navigation_warning": {
+          "ok": true,
+          "marker": "AIDLE_UCBV001_NAVIGATION_WARNING_SMOKE=PASS checks=16",
+          "exit": 0,
+          "checks": 16,
+          "c3f01_signatures": 0
+        }
+      },
+      "broader_regression": {
+        "ok": true,
+        "pass_count": 21,
+        "fail_count": 0,
+        "total": 21,
+        "zero_error_all": true,
+        "zero_nav_warn_all": true
+      },
+      "strict_zero_error": {
+        "ok": true,
+        "ERROR_lines": 0,
+        "USER_ERROR_lines": 0,
+        "SCRIPT_ERROR_lines": 0,
+        "parse_error": 0,
+        "missing_resource": 0,
+        "rid_leak": 0,
+        "c3f01_nav_signatures": 0
+      },
+      "schema_fix": {
+        "prior_c4r_failure": "evidence_refs was object; required array[string]",
+        "c4s_evidence_refs_type": "array[string]",
+        "evidence_index_additive": true,
+        "validator": "jsonschema against E:/standards/maf/schemas/agent_step_contract.schema.json"
+      }
+    }
+  },
+  "smoke_test": {
+    "ok": true,
+    "godot": "tools/Godot_v4.3-stable_win64_console.exe 4.3.stable.official",
+    "mode": "headless -s + headed dual-res",
+    "log": "orchestration/logs/ucbv_001/correction_009/C4S_qa_evidence_009.log",
+    "log_sha256": "ca6ef53b18699f8e7bcb1a2a500fd841b2099bf35361fd53a32a8ceb093a4a55",
+    "log_bytes": 24901,
+    "results": [
+      {
+        "test": "res://tests/h1_consolidation_flow_smoke.gd",
+        "class": "H1_consolidation_flow",
+        "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/h1_consolidation_flow_smoke.gd",
+        "marker": "AIDLE_H1_CONSOLIDATION_FLOW_SMOKE=PASS checks=13",
+        "checks": 13,
+        "exit_code": 0,
+        "script_error": 0,
+        "error": 0,
+        "user_error": 0,
+        "parse_error": 0,
+        "missing_resource": 0,
+        "rid_leak": 0
+      },
+      {
+        "test": "res://tests/ucbv_001_inputmap_e2e_smoke.gd",
+        "class": "InputMap_E2E",
+        "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/ucbv_001_inputmap_e2e_smoke.gd",
+        "marker": "AIDLE_UCBV001_INPUTMAP_E2E_SMOKE=PASS checks=17 inputs=34",
+        "checks": 17,
+        "inputs": 34,
+        "exit_code": 0,
+        "c3f01_signatures": 0
+      },
+      {
+        "test": "res://tests/ucbv_001_navigation_warning_smoke.gd",
+        "class": "UNIT_nav_source_voxel",
+        "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/ucbv_001_navigation_warning_smoke.gd",
+        "marker": "AIDLE_UCBV001_NAVIGATION_WARNING_SMOKE=PASS checks=16",
+        "checks": 16,
+        "exit_code": 0,
+        "c3f01_signatures": 0
+      },
+      {
+        "test": "headed_dual_res_capture",
+        "class": "C4S_headed",
+        "cmd": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe --path E:/AIdle_openworld/game --resolution 1280x720 --windowed -s E:/AIdle_openworld/orchestration/evidence/ucbv_001/009/capture_ucbv_c4s_headed.gd",
+        "marker": "AIDLE_UCBV001_C4S_HEADED=PASS checks=45 fails=0 captures=38 inputs=126",
+        "checks": 45,
+        "captures": 38,
+        "inputs": 126,
+        "exit_code": 0,
+        "zero_error": true
+      }
+    ],
+    "broader_pass_count": 21,
+    "broader_fail_count": 0,
+    "broader_total": 21
+  },
+  "self_audit": {
+    "exclusive_lease": true,
+    "product_writes_empty": true,
+    "product_writes": [],
+    "wrote_only_leased_paths": true,
+    "did_not_rewrite_prior_corrections_or_evidence_001_002_008": true,
+    "did_not_reuse_correction_008_evidence": true,
+    "did_not_spawn_c5": true,
+    "did_not_spawn_grandchildren": true,
+    "did_not_self_accept": true,
+    "accepted_false": true,
+    "lineage_uuid_matches_durable_meta": true,
+    "child_task_ref_equals_transcript_ref_equals_writer_transcript_ref": true,
+    "durable_uuid": "019f8d90-59c9-7061-9aa4-a261d4006c94",
+    "evidence_refs_is_array_of_strings": true,
+    "evidence_index_additive_only": true,
+    "schema_validated_pre_submit": true,
+    "inputmap_event_first_acceptance_path": true,
+    "no_direct_controller_fallback_as_acceptance": true,
+    "nori_not_svg_staging_concept_art": true,
+    "motion_kit_not_claimed_as_runtime_animation": true,
+    "zero_error_gate": true,
+    "zero_c3f01_nav": true,
+    "dual_res_fresh_headed": true,
+    "png_count": 38,
+    "required_smokes_literal_in_log": true
+  },
+  "evidence_refs": [
+    "orchestration/receipts/ucbv_001/correction_009/C4S_qa_evidence_009.json",
+    "orchestration/logs/ucbv_001/correction_009/C4S_qa_evidence_009.log",
+    "orchestration/evidence/ucbv_001/009/evidence_manifest.json",
+    "orchestration/evidence/ucbv_001/009/visual_claim_meta.json",
+    "orchestration/evidence/ucbv_001/009/headed_runner_summary.json",
+    "orchestration/evidence/ucbv_001/009/smoke_summary.json",
+    "orchestration/evidence/ucbv_001/009/png_sha256.json",
+    "orchestration/evidence/ucbv_001/009/evidence_tree_sha256.json",
+    "orchestration/evidence/ucbv_001/009/godot_headed.log",
+    "orchestration/evidence/ucbv_001/009/runner_console.txt",
+    "orchestration/evidence/ucbv_001/009/smokes_console.txt",
+    "orchestration/evidence/ucbv_001/009/capture_console_runner.txt",
+    "orchestration/evidence/ucbv_001/009/smokes/H1_FLOW.log",
+    "orchestration/evidence/ucbv_001/009/smokes/UCBV_INPUTMAP_E2E.log",
+    "orchestration/evidence/ucbv_001/009/smokes/UCBV_NAV_WARNING.log",
+    "orchestration/evidence/ucbv_001/009/idle_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/idle_868x517.png",
+    "orchestration/evidence/ucbv_001/009/walk_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/walk_868x517.png",
+    "orchestration/evidence/ucbv_001/009/turn_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/turn_868x517.png",
+    "orchestration/evidence/ucbv_001/009/warm_cream_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/warm_cream_868x517.png",
+    "orchestration/evidence/ucbv_001/009/catalog_28_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/catalog_28_868x517.png",
+    "orchestration/evidence/ucbv_001/009/build_place_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/build_place_868x517.png",
+    "orchestration/evidence/ucbv_001/009/qr_rotate_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/qr_rotate_868x517.png",
+    "orchestration/evidence/ucbv_001/009/elevation_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/elevation_868x517.png",
+    "orchestration/evidence/ucbv_001/009/invalid_placement_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/invalid_placement_868x517.png",
+    "orchestration/evidence/ucbv_001/009/confirm_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/confirm_868x517.png",
+    "orchestration/evidence/ucbv_001/009/placement_2_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/placement_2_868x517.png",
+    "orchestration/evidence/ucbv_001/009/cancel_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/cancel_868x517.png",
+    "orchestration/evidence/ucbv_001/009/delete_select_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/delete_select_868x517.png",
+    "orchestration/evidence/ucbv_001/009/delete_cancel_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/delete_cancel_868x517.png",
+    "orchestration/evidence/ucbv_001/009/delete_confirm_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/delete_confirm_868x517.png",
+    "orchestration/evidence/ucbv_001/009/undo_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/undo_868x517.png",
+    "orchestration/evidence/ucbv_001/009/save_reload_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/save_reload_868x517.png",
+    "orchestration/evidence/ucbv_001/009/scan_action_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/scan_action_868x517.png",
+    "orchestration/evidence/ucbv_001/009/happy_action_1280x720.png",
+    "orchestration/evidence/ucbv_001/009/happy_action_868x517.png"
+  ],
+  "evidence_index": {
+    "receipt": "orchestration/receipts/ucbv_001/correction_009/C4S_qa_evidence_009.json",
+    "log": "orchestration/logs/ucbv_001/correction_009/C4S_qa_evidence_009.log",
+    "log_sha256": "ca6ef53b18699f8e7bcb1a2a500fd841b2099bf35361fd53a32a8ceb093a4a55",
+    "log_bytes": 24901,
+    "evidence_dir": "orchestration/evidence/ucbv_001/009",
+    "headed_summary": "orchestration/evidence/ucbv_001/009/headed_runner_summary.json",
+    "smoke_summary": "orchestration/evidence/ucbv_001/009/smoke_summary.json",
+    "png_sha256": "orchestration/evidence/ucbv_001/009/png_sha256.json",
+    "visual_claim_meta": "orchestration/evidence/ucbv_001/009/visual_claim_meta.json",
+    "evidence_manifest": "orchestration/evidence/ucbv_001/009/evidence_manifest.json",
+    "godot_headed_log": "orchestration/evidence/ucbv_001/009/godot_headed.log",
+    "runner_console": "orchestration/evidence/ucbv_001/009/runner_console.txt",
+    "png_count": 38,
+    "note": "Named map is additive only; contract field evidence_refs remains array[string]"
+  }
+}

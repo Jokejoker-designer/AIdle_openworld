@@ -1,0 +1,157 @@
+{
+  "schema_version": "buildings_fidelity/1.0",
+  "receipt_id": "BUILDINGS_FIDELITY_V6",
+  "job": "BUILDINGS_FIDELITY_V6",
+  "work_order": "WO-TOWN-GRID-IMPORT-001",
+  "authority": "PATCH_DRAFT",
+  "human_authorization": "continuous_iteration_authorization",
+  "accepted": false,
+  "self_accept": false,
+  "purple": "WAITING",
+  "matching_100_pct_count": 0,
+  "matching_100_pct": [],
+  "modules": [
+    {
+      "module_id": "cozy_market_stall_A",
+      "glb_sha256": "ad5ff1f85aa2d09056dcfedf91630c0ca23bba5e9d35f01cc3ebce23f9817562",
+      "bytes": 335080,
+      "source": "BUILDINGS_FIDELITY_V6",
+      "visual": "mockup_cozy_market_stall_A_v6",
+      "mockup_ssot": "cozy_market_stall_A"
+    },
+    {
+      "module_id": "cozy_gazebo_A",
+      "glb_sha256": "d8e06594c8de940447318a37e346c6e114d691f3182c3e5033d5a1ed20fa8779",
+      "bytes": 421220,
+      "source": "BUILDINGS_FIDELITY_V6",
+      "visual": "mockup_cozy_gazebo_A_v6",
+      "mockup_ssot": "cozy_gazebo_A"
+    },
+    {
+      "module_id": "cozy_well_house_A",
+      "glb_sha256": "af440c4e1b6fc082463160face3574dd77eba8491797e48a23ab73ff595529a3",
+      "bytes": 217008,
+      "source": "BUILDINGS_FIDELITY_V6",
+      "visual": "mockup_cozy_well_house_A_v6",
+      "mockup_ssot": "cozy_well_house_A"
+    },
+    {
+      "module_id": "cozy_windmill_A",
+      "glb_sha256": "cf0e2710bdb48f910fd9c67168add558000e1e591209edc60f3cc8c8955895f0",
+      "bytes": 124556,
+      "source": "BUILDINGS_FIDELITY_V6",
+      "visual": "mockup_cozy_windmill_A_v6",
+      "mockup_ssot": "cozy_windmill_A"
+    },
+    {
+      "module_id": "cozy_bridge_arch_A",
+      "glb_sha256": "cf76bbca7a141cedf1e17383aefda02e20b9e9b7d44580e03ff81d2f22630cb7",
+      "bytes": 97924,
+      "source": "BUILDINGS_FIDELITY_V6",
+      "visual": "mockup_cozy_bridge_arch_A_v6",
+      "mockup_ssot": "cozy_bridge_arch_A"
+    },
+    {
+      "module_id": "cozy_watchtower_A",
+      "glb_sha256": "d105452f6797e6a9a371b521c8a06006d7b1f26302f86dfcca8208e946fc924e",
+      "bytes": 110484,
+      "source": "BUILDINGS_FIDELITY_V6",
+      "visual": "mockup_cozy_watchtower_A_v6",
+      "mockup_ssot": "cozy_watchtower_A"
+    }
+  ],
+  "strategies": {
+    "cozy_gazebo_A": "petal_plate_discs_not_sphere_fishscales",
+    "cozy_well_house_A": "solid_cylinder_groove_rings_plank_shingle_aframe",
+    "cozy_windmill_A": "truncated_cone_stack_lattice_sails",
+    "cozy_market_stall_A": "denser_individual_fruit_apron_polish",
+    "cozy_bridge_arch_A": "clear_void_elevated_voussoirs",
+    "cozy_watchtower_A": "darker_thatch_more_layers_fringe"
+  },
+  "home_bld": "UNTOUCHED_CLOSED_PERMANENTLY",
+  "note": "GLBs rewritten; fidelity after headed QA \u2014 not auto-claimed 100%.",
+  "timestamp_utc": "2026-07-24T06:04:26Z",
+  "headed_log": "E:\\AIdle_openworld\\orchestration\\evidence\\town_grid_import_001\\godot_headed_qa_v6.log",
+  "structural": {
+    "real_glb": 50,
+    "placeholders": 0,
+    "cast_built": 10,
+    "missing": []
+  },
+  "objects": [
+    {
+      "plot_id": "GARDEN.BLD",
+      "object_id": "cozy_gazebo_A",
+      "v6_strategy": "petal_plate_discs_not_sphere_fishscales",
+      "prior_signature": "gazebo_dense_dome_improved_still_not_ssot_100",
+      "post_v6_signature": "gazebo_petal_plates_new_read_still_not_ssot_100",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "same_sig_streak_reset": true,
+      "note": "NEW approach (flat petal discs on rings). Visibly different from V4/V5 sphere fishscales. Still not full SSOT petal art."
+    },
+    {
+      "plot_id": "WELL.BLD",
+      "object_id": "cozy_well_house_A",
+      "v6_strategy": "solid_cylinder_groove_rings_plank_shingle_aframe",
+      "prior_signature": "well_form_improved_still_high_partial",
+      "post_v6_signature": "well_solid_cylinder_plank_roof_still_high_partial",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "same_sig_streak_reset": true,
+      "note": "NEW approach (solid body + plank boxes on A-frame). Clearer well-house silhouette. Still soft-clay proportions vs SSOT."
+    },
+    {
+      "plot_id": "WINDMILL.BLD",
+      "object_id": "cozy_windmill_A",
+      "v6_strategy": "truncated_cone_stack_lattice_sails",
+      "prior_signature": "windmill_tiers_blades_improved_still_simplified_vs_ssot",
+      "post_v6_signature": "windmill_cone_tiers_lattice_sails_still_simplified_vs_ssot",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "same_sig_streak_reset": true,
+      "note": "NEW approach (cone stack + lattice frame sails). Harder tier read. Still not multi-window soft-clay SSOT density."
+    },
+    {
+      "plot_id": "MARKET.BLD",
+      "object_id": "cozy_market_stall_A",
+      "v6_strategy": "denser_individual_fruit_apron_polish",
+      "prior_signature": "market_front_produce_readable_still_not_ssot_crate_fidelity",
+      "post_v6_signature": "market_dense_fruit_readable_still_not_ssot_crate_fidelity",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "same_sig_streak_reset": false,
+      "note": "More individual fruits on apron; still soft orbs not SSOT crate art."
+    },
+    {
+      "plot_id": "BRIDGE.BLD",
+      "object_id": "cozy_bridge_arch_A",
+      "v6_strategy": "clear_void_elevated_voussoirs",
+      "prior_signature": "bridge_box_voussoir_clearer_still_not_ssot_100",
+      "post_v6_signature": "bridge_elevated_arch_void_visible_still_not_ssot_100",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "same_sig_streak_reset": false,
+      "note": "Arch void readable under freecam; masonry still simplified soft-clay blocks."
+    },
+    {
+      "plot_id": "LOOKOUT.BLD",
+      "object_id": "cozy_watchtower_A",
+      "v6_strategy": "darker_thatch_more_layers_fringe",
+      "prior_signature": "watchtower_brown_thatch_layers_still_partial_vs_ssot",
+      "post_v6_signature": "watchtower_darker_thatch_fringe_still_partial_vs_ssot",
+      "fidelity": "HIGH_PARTIAL",
+      "matching_100_pct": false,
+      "same_sig_streak_reset": false,
+      "note": "Darker brown + fringe tips; still cone layers not full SSOT thatch petals."
+    }
+  ],
+  "safety_valve": {
+    "GARDEN_WELL_WINDMILL": "same-sig streak RESET by genuinely new mesh strategies in V6",
+    "no_need_human_yet": true
+  },
+  "next": [
+    "Continue V7 if Human still wants 100% \u2014 different material/UV or reference-driven rebuild",
+    "Human walk V2 play-test feedback"
+  ]
+}

@@ -1,0 +1,479 @@
+{
+  "schema_version": "1.0.0",
+  "step_id": "P1E-006-w4-purple-correction-002",
+  "agent_step_id": "P1E-006-w4-purple-correction-002-2026-07-22",
+  "work_order_id": "WO-P1E-006-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+  "directive_id": 52,
+  "finding_closed": "P1E006-CODEX-F04",
+  "f04_closed": true,
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "authority": "VERIFY_ONLY",
+  "authority_token": "VERIFY_ONLY",
+  "status": "WAITING_CODEX",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "p1e006-corr-c3-purple-f04-2026-07-22",
+  "wave": "C3",
+  "child_task_ref": "019f8643-1f9f-7301-9915-1ac77acbd8ed",
+  "transcript_ref": "019f8643-1f9f-7301-9915-1ac77acbd8ed",
+  "writer_transcript_ref": "019f8643-1f9f-7301-9915-1ac77acbd8ed",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f863e-62f3-7131-a972-f58ac67978ba",
+  "prior_chain": {
+    "C0": {
+      "wave": "C0",
+      "receipt": "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+      "child_task_ref": "019f8636-7653-7572-8eaa-fd306bb8c4ae",
+      "verdict": "CORRECTION_COMPLETE_SCHEMA_VALID_NO_ACCEPT",
+      "finding": "P1E006-CODEX-F01"
+    },
+    "C1": {
+      "wave": "C1",
+      "receipt": "orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json",
+      "child_task_ref": "019f8639-37b9-75b2-bd86-4abc48792555",
+      "verdict": "HEADED_TWO_PROFILE_EVIDENCE_PASS_F03_CLOSED_NO_ACCEPT",
+      "finding": "P1E006-CODEX-F03"
+    },
+    "C2": {
+      "wave": "C2",
+      "receipt": "orchestration/receipts/p1e/P1E_006_provenance_correction_002.json",
+      "child_task_ref": "019f863e-62f3-7131-a972-f58ac67978ba",
+      "verdict": "PROVENANCE_LEDGER_COMPLETE_F02_BOUND_NO_ACCEPT",
+      "finding": "P1E006-CODEX-F02"
+    }
+  },
+  "self_accept": false,
+  "accepted": false,
+  "purple_verdict": "VERIFIED",
+  "verdict": "VERIFIED",
+  "completion_signal": "WAITING_CODEX",
+  "next_owner": "CODEX",
+  "next_route": "WAITING_CODEX",
+  "handoff_ref": "CODEX",
+  "trace_ref": "orchestration/logs/p1e-006-w4-purple-correction-002.log",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "character_binding": {
+    "trustlayer": "purple-team-release-gate",
+    "ui": "ui-visual-critic",
+    "role": "C3 fresh independent Purple recommendation VERIFY_ONLY — never ACCEPTED"
+  },
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w4_purple_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-w4-purple-correction-002.log"
+  ],
+  "product_writes": [],
+  "product_diff_zero": true,
+  "original_w4_not_acceptance_evidence": true,
+  "original_w4_receipt": "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+  "original_w4_sha256": "2A4824474FD25DBC48D19740BF622FCB6002B7BCDCFF4669B2957EE6D841030A",
+  "original_w4_note": "Original W4 purple_verdict=VERIFIED is NOT acceptance evidence for this correction chain. F04: original Purple treated parent-inline W1 schema-fail receipt as a passing chain element (P1_chain_receipts_complete=PASS) despite missing agent_step_contract required fields and null child lineage.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\maf-mandatory-standard\\SKILL.md",
+      "bytes_or_line_count": "bytes=1741 lines=46",
+      "load_to_eof": true,
+      "eof_last_line_evidence": "No production destructive tests, no exfil, no auto-merge, no unredacted public reports, no exceeding authority, no inventing evidence."
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\trustlayer-x16-crew\\SKILL.md",
+      "bytes_or_line_count": "bytes=1938 lines=53",
+      "load_to_eof": true,
+      "eof_last_line_evidence": "E:\\standards\\maf\\schemas\\agent_step_contract.schema.json"
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\agentwork-knowledge-loop\\SKILL.md",
+      "bytes_or_line_count": "bytes=982 lines=36",
+      "load_to_eof": true,
+      "eof_last_line_evidence": "Full protocol: `E:\\shared\\LOOP.md`"
+    },
+    {
+      "skill_id": "project-room-collab",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\project-room-collab\\SKILL.md",
+      "bytes_or_line_count": "bytes=1681 lines=65",
+      "load_to_eof": true,
+      "eof_last_line_evidence": "- Docs: `E:\\agents\\projects\\README.md`"
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\curiosity-engine\\SKILL.md",
+      "bytes_or_line_count": "bytes=34306 lines=1123",
+      "load_to_eof": true,
+      "eof_last_line_evidence": "Your goal is to produce a trustworthy, testable result; understand why it is trustworthy; preserve validated learning when authorized; and make the next relevant task better than the last one."
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\evidence-memory-ledger\\SKILL.md",
+      "bytes_or_line_count": "bytes=8484 lines=292",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\adversarial-review\\SKILL.md",
+      "bytes_or_line_count": "bytes=1766 lines=50",
+      "load_to_eof": true,
+      "eof_last_line_evidence": "- If scope expansion is needed, request Human Lead approval."
+    }
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_provenance_correction_002.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006/visual_claim_meta.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/visual_claim_meta.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/png_sha256.txt",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/regression_exits.json",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/cozy_cyber_pixel_1280x720.png",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/surrealism_canvas_1280x720.png",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/godot_cozy.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/godot_surreal.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/godot_headed.log",
+    "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/runner.log",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-w3-headed-correction-002.log",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-provenance-correction-002.log",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8625-8258-7683-9773-4b42dfa3aac2/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8629-521f-7501-ace3-1b5f29121a05/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f862c-15ac-7b52-940f-9907be1d685b/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8636-7653-7572-8eaa-fd306bb8c4ae/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8639-37b9-75b2-bd86-4abc48792555/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f863e-62f3-7131-a972-f58ac67978ba/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8643-1f9f-7301-9915-1ac77acbd8ed/meta.json",
+    "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/evidence-memory-ledger/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/adversarial-review/SKILL.md"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w4_purple_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-w4-purple-correction-002.log"
+  ],
+  "commands": [
+    "Get-FileHash SHA256 cozy_cyber_pixel_1280x720.png + surrealism_canvas_1280x720.png + C0/C1/C2/W1-W4 receipts; System.Drawing Image dimensions",
+    "python jsonschema.validate C0 + C1 + C2 (PASS) + original W1 (FAIL as expected) + original W4 (PASS schema)",
+    "live re-read meta.json W2/W3/W4/C0/C1/C2/C3 under parent 019f7ffd; recompute SHA-256",
+    "Select-String strict ERROR:|SCRIPT ERROR on godot_cozy/surreal/headed/runner logs",
+    "python orchestration/evidence/p1e_006/_hsl_per_profile_demo.py",
+    "tools/Godot_v4.3-stable_win64_console.exe --headless --path game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+    "visual multimodal inspect both headed PNGs"
+  ],
+  "exit_codes": [0, 0, 0, 0, 0, 0, 0],
+  "smoke_test": {
+    "command": "python orchestration/evidence/p1e_006/_hsl_per_profile_demo.py",
+    "exit_code": 0,
+    "pass": true,
+    "gate_line": "P1E006_HSL_DEMO=PASS",
+    "log": "orchestration/logs/_p1e006_w4_purple_correction_002_hsl.txt",
+    "table": [
+      {"label": "cozy_bible", "expected_pass": true, "actual_pass": true},
+      {"label": "surreal_target", "expected_pass": true, "actual_pass": true},
+      {"label": "washed_surreal_deliberate", "expected_pass": false, "actual_pass": false},
+      {"label": "beige", "expected_pass": false, "actual_pass": false},
+      {"label": "white", "expected_pass": false, "actual_pass": false},
+      {"label": "grey", "expected_pass": false, "actual_pass": false}
+    ],
+    "secondary": {
+      "command": "tools/Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/p1e006_world_profile_variants_smoke.gd",
+      "exit_code": 0,
+      "pass": true,
+      "gate_line": "AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5",
+      "log": "orchestration/logs/_p1e006_w4_purple_correction_002_variants.txt",
+      "note": "headless dummy ERROR Parameter m is null is non-fatal known mesh_storage dummy path; smoke gate PASS checks=5"
+    },
+    "schema_validation": {
+      "c0": "PASS",
+      "c1": "PASS",
+      "c2": "PASS",
+      "original_w1": "FAIL missing agent_step_id,agent_type,authority_token,smoke_test,self_audit,next_route",
+      "original_w4": "PASS_schema_only_not_acceptance"
+    }
+  },
+  "self_audit": {
+    "schema_required_fields_present": true,
+    "required_fields_checked": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "authority_token": "VERIFY_ONLY",
+    "product_outside_lease": false,
+    "game_product_patches": false,
+    "historical_receipts_rewritten": false,
+    "original_w4_used_as_acceptance": false,
+    "fabricated_refs": false,
+    "self_accept": false,
+    "accepted": false,
+    "verdict_non_null": true,
+    "purple_verdict_non_null": true,
+    "child_task_ref_real": true,
+    "child_task_ref_source": "C:/Users/phant/.grok/sessions/.../019f8643-1f9f-7301-9915-1ac77acbd8ed/meta.json description=C3 Purple correction gate",
+    "not_parent_id": true,
+    "no_grandchildren": true,
+    "did_not_touch_codex_directive": true,
+    "did_not_touch_grok_status": true,
+    "writer_lease_respected": true,
+    "scope_p1e006_correction_only": true
+  },
+  "findings_closure": [
+    {
+      "id": "P1E006-CODEX-F01",
+      "status": "CLOSED",
+      "severity": "HIGH",
+      "evidence": [
+        "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+        "orchestration/logs/p1e-006-w1-blue-correction-002.log"
+      ],
+      "independent_check": "C0 receipt jsonschema PASS; real child_task_ref=019f8636-7653-7572-8eaa-fd306bb8c4ae; product_diff_zero=true product_writes=[]; original_w1_child_task_ref_disclosure=PARENT_INLINE_NO_CHILD_REF; original W1 sha256 B7C88618... preserved and still FAIL six required fields; chronology P1E-004 preserved GLB materials / P1E-006 post-attach selector disclosed.",
+      "purple_note": "F01 closed by schema-valid real-child correction receipt without fabricating historical parent-inline child ref."
+    },
+    {
+      "id": "P1E006-CODEX-F02",
+      "status": "CLOSED",
+      "severity": "HIGH",
+      "evidence": [
+        "orchestration/receipts/p1e/P1E_006_provenance_correction_002.json",
+        "orchestration/logs/p1e-006-provenance-correction-002.log"
+      ],
+      "independent_check": "Live meta.json re-read W2/W3/W4 matches C2 ledger and Codex durable_child_meta: W2 completed 2026-07-21T19:31:15.110509500Z sha 5B4FEFAE...; W3 completed 2026-07-21T19:34:15.800124100Z sha 56866FEA...; W4 completed 2026-07-21T19:37:20.810403200Z sha CF4C5793.... Historical receipt end_time mismatches documented; historical receipts NOT rewritten. C0/C1 meta also bound.",
+      "purple_note": "F02 closed by durable meta timing ledger; truth source = meta.json not receipt wall-clock."
+    },
+    {
+      "id": "P1E006-CODEX-F03",
+      "status": "CLOSED",
+      "severity": "HIGH",
+      "evidence": [
+        "orchestration/evidence/p1e_006_correction_002/cozy_cyber_pixel_1280x720.png",
+        "orchestration/evidence/p1e_006_correction_002/surrealism_canvas_1280x720.png",
+        "orchestration/evidence/p1e_006_correction_002/visual_claim_meta.json",
+        "orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json"
+      ],
+      "independent_check": "PNG re-hash cozy=E761B3DA... size=102215 1280x720; surreal=BFB9CE17... size=100932 1280x720; hashes distinct; visual multimodal: cozy mint/green HUD Art:Cozy Cyber-Pixel; surreal lavender/purple HUD Art:Surrealism Canvas; pond cyan/blue readable; starter realm + fence + silhouettes present. Logs godot_cozy/surreal/headed/runner strict ERROR count=0. Original p1e_006 visual_claim_meta live_parity=false preserved (not rewritten).",
+      "purple_note": "F03 closed by distinct headed runtime evidence for both profiles with bindings and clean logs."
+    },
+    {
+      "id": "P1E006-CODEX-F04",
+      "status": "CLOSED",
+      "severity": "MEDIUM",
+      "evidence": [
+        "orchestration/receipts/p1e/P1E_006_w4_purple_correction_002.json",
+        "orchestration/logs/p1e-006-w4-purple-correction-002.log",
+        "orchestration/receipts/p1e/P1E_006_w4_purple_001.json"
+      ],
+      "independent_check": "Fresh C3 Purple after F01-F03 closed. Original W4 gate P1_chain_receipts_complete=PASS on schema-invalid parent-inline W1 is the F04 defect and is NOT reused as acceptance. This receipt is independent VERIFY_ONLY; accepted=false self_accept=false; purple_verdict=VERIFIED is machine verification recommendation only — NOT product ACCEPTED.",
+      "purple_note": "F04 closed by this fresh independent Purple recommendation."
+    }
+  ],
+  "ref_crosscheck": {
+    "pass": true,
+    "parent": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "correction_children": {
+      "C0": "019f8636-7653-7572-8eaa-fd306bb8c4ae",
+      "C1": "019f8639-37b9-75b2-bd86-4abc48792555",
+      "C2": "019f863e-62f3-7131-a972-f58ac67978ba",
+      "C3": "019f8643-1f9f-7301-9915-1ac77acbd8ed"
+    },
+    "historical_children": {
+      "W1": null,
+      "W1_disclosure": "PARENT_INLINE_NO_CHILD_REF",
+      "W2": "019f8625-8258-7683-9773-4b42dfa3aac2",
+      "W3": "019f8629-521f-7501-ace3-1b5f29121a05",
+      "W4": "019f862c-15ac-7b52-940f-9907be1d685b"
+    },
+    "all_four_correction_children_distinct": true,
+    "none_of_correction_children_equals_parent": true,
+    "chain_order": "C0(019f8636) → C1(019f8639) → C2(019f863e) → C3(019f8643)",
+    "prior_wave_child_task_ref_points_to_c2": true,
+    "c1_prior_points_to_c0": true,
+    "c2_prior_points_to_c1": true,
+    "no_fabricated_refs": true,
+    "detail": "Parent + C0 + C1 + C2 + C3 are five pairwise-distinct durable Grok Desktop session UUIDs under parent 019f7ffd. Historical W2/W3/W4 also distinct. W1 remains null with honest PARENT_INLINE_NO_CHILD_REF. Original W4 VERIFIED not used as acceptance evidence."
+  },
+  "independent_spot_checks": {
+    "png_cozy": {
+      "path": "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/cozy_cyber_pixel_1280x720.png",
+      "exists": true,
+      "size_bytes": 102215,
+      "sha256": "E761B3DA0B686BB37FEC91172B0C58F86E8C8CD7D821543392EEA60E0D6BBA77",
+      "width": 1280,
+      "height": 720,
+      "matches_c1_receipt": true
+    },
+    "png_surreal": {
+      "path": "E:/AIdle_openworld/orchestration/evidence/p1e_006_correction_002/surrealism_canvas_1280x720.png",
+      "exists": true,
+      "size_bytes": 100932,
+      "sha256": "BFB9CE17F08305D3268F80BD14B6E68B86B79FC68F66FC3335A16B7E278A014E",
+      "width": 1280,
+      "height": 720,
+      "matches_c1_receipt": true
+    },
+    "png_hashes_distinct": true,
+    "logs_strict_error_count": {
+      "godot_cozy.log": 0,
+      "godot_surreal.log": 0,
+      "godot_headed.log": 0,
+      "runner.log": 0
+    },
+    "meta_sha_vs_codex_review": {
+      "w2": true,
+      "w3": true,
+      "w4": true
+    },
+    "c0_receipt_sha256": "39B28DED7246A8D0144BF322075977E40761DBEF1A4CE413F1D755456F6115CF",
+    "c1_receipt_sha256": "DD04617B2147A096223730317DC1EA9308D9F1984BD698B038292935D6F35ADD",
+    "c2_receipt_sha256_at_purple_read": "EB2C41072AD9A6F2EF42844FD9C94F7352B2EE0B149F03673655E4FD934E33A3",
+    "original_w1_sha256": "B7C88618E5B395D16F3CF6EA3DF10C7E4FE9C202BB2D09EC5920122C9930BF3A"
+  },
+  "result": {
+    "mode": "fresh_independent_purple_f04",
+    "task_id": "P1E-006-C3-PURPLE-CORRECTION-002",
+    "work_order": "orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+    "directive_id": 52,
+    "wave": "C3",
+    "profile": "aidle-worldgen-purple-acceptance",
+    "authority_token": "VERIFY_ONLY",
+    "self_accept": false,
+    "accepted": false,
+    "status": "WAITING_CODEX",
+    "purple_verdict": "VERIFIED",
+    "verdict": "VERIFIED",
+    "completion_signal": "WAITING_CODEX",
+    "next_owner": "CODEX",
+    "f01": "CLOSED",
+    "f02": "CLOSED",
+    "f03": "CLOSED",
+    "f04": "CLOSED",
+    "blockers": [],
+    "blocking_findings": 0,
+    "summary": "VERIFY_ONLY C3 Purple independent acceptance recommendation for WO-P1E-006-CORRECTION-001 under Directive 52. All four Codex findings P1E006-CODEX-F01..F04 CLOSED with durable evidence. C0 schema-valid correction + product_diff_zero + PARENT_INLINE_NO_CHILD_REF; C1 distinct headed 1280x720 both profiles + clean logs; C2 meta.json timing ledger without historical rewrite; this C3 does not treat original W4 VERIFIED as acceptance. Independent HSL demo PASS exit 0; variants smoke PASS checks=5 exit 0; jsonschema C0/C1/C2 PASS; original W1 still FAIL six required fields as expected. purple_verdict=VERIFIED is machine verification only — NOT product acceptance. accepted=false self_accept=false. Handoff CODEX / WAITING_CODEX.",
+    "purple_gates": [
+      {
+        "id": "G1_f01_schema_correction",
+        "verdict": "PASS",
+        "detail": "C0 correction receipt schema-valid; real child lineage; product_diff_zero; original W1 preserved FAIL; no fabricated parent-inline child ref."
+      },
+      {
+        "id": "G2_f02_durable_timing_ledger",
+        "verdict": "PASS",
+        "detail": "C2 ledger binds exact meta started_at/completed_at + SHA-256 for W2/W3/W4; independent re-read matches; historical receipts not rewritten."
+      },
+      {
+        "id": "G3_f03_headed_two_profile",
+        "verdict": "PASS",
+        "detail": "Distinct headed 1280x720 PNGs for cozy_cyber_pixel and surrealism_canvas; re-hashed; visual inspect OK; runtime profile/style bindings; logs_clean ERROR=0."
+      },
+      {
+        "id": "G4_f04_fresh_purple_not_original_w4",
+        "verdict": "PASS",
+        "detail": "This C3 is a fresh independent Purple after F01-F03; original W4 VERIFIED explicitly not acceptance evidence; original defect (treating schema-fail W1 as chain pass) acknowledged and superseded by correction chain."
+      },
+      {
+        "id": "G5_agent_step_contract_c0_c1_c2",
+        "verdict": "PASS",
+        "detail": "Independent jsonschema.validate PASS on C0, C1, C2; required fields agent_step_id/agent_type/authority_token/result/smoke_test/self_audit/next_route present."
+      },
+      {
+        "id": "G6_ref_crosscheck_and_leases",
+        "verdict": "PASS",
+        "detail": "C0-C3 real distinct durable child refs under parent 019f7ffd; write leases exclusive; scope P1E-006 correction only; no product/control patches by Purple."
+      },
+      {
+        "id": "G7_independent_smoke_rerun",
+        "verdict": "PASS",
+        "detail": "HSL demo P1E006_HSL_DEMO=PASS exit 0; variants AIDLE_P1E006_VARIANTS_SMOKE=PASS checks=5 exit 0."
+      },
+      {
+        "id": "G8_no_self_accept_no_product_write",
+        "verdict": "PASS",
+        "detail": "Purple VERIFY_ONLY; product_writes=[]; self_accept=false; accepted=false; never ACCEPTED."
+      }
+    ],
+    "chronology_note": "P1E-004 preserved GLB module materials on intake; P1E-006 introduced world_profile_variant_selector.gd to recolor selected materials AFTER GLB attach. Temporal layering, not architecture reversal.",
+    "product_writes": [],
+    "package_job_id": "BLD-03CB1AADD475"
+  },
+  "evidence_refs": [
+    "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json",
+    "orchestration/receipts/p1e/P1E_006_provenance_correction_002.json",
+    "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "orchestration/evidence/p1e_006_correction_002/cozy_cyber_pixel_1280x720.png",
+    "orchestration/evidence/p1e_006_correction_002/surrealism_canvas_1280x720.png",
+    "orchestration/evidence/p1e_006_correction_002/visual_claim_meta.json",
+    "orchestration/evidence/p1e_006_correction_002/godot_cozy.log",
+    "orchestration/evidence/p1e_006_correction_002/godot_surreal.log",
+    "orchestration/evidence/p1e_006_correction_002/godot_headed.log",
+    "orchestration/evidence/p1e_006_correction_002/runner.log",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+    "orchestration/logs/p1e-006-w4-purple-correction-002.log",
+    "orchestration/logs/_p1e006_w4_purple_correction_002_hsl.txt",
+    "orchestration/logs/_p1e006_w4_purple_correction_002_variants.txt",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "inputs": [
+    "orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "orchestration/control/codex_directive.json",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json",
+    "orchestration/receipts/p1e/P1E_006_provenance_correction_002.json",
+    "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "outputs": [
+    "orchestration/receipts/p1e/P1E_006_w4_purple_correction_002.json",
+    "orchestration/logs/p1e-006-w4-purple-correction-002.log"
+  ],
+  "not_touched": [
+    "game/**",
+    "world_meta.cfg",
+    "orchestration/control/codex_directive.json",
+    "orchestration/control/grok_status.json",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+    "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+    "orchestration/evidence/p1e_006/**",
+    "orchestration/evidence/p1e_006_correction_002/**"
+  ],
+  "hard_stops_honored": [
+    "purple_never_patches",
+    "never_accepted",
+    "no_self_accept",
+    "no_product_patches",
+    "no_historical_receipt_rewrite",
+    "no_original_w4_as_acceptance",
+    "no_grok_status",
+    "no_codex_directive",
+    "no_P2E_P6E",
+    "no_art_waves_2_4",
+    "no_control",
+    "no_character_foundry",
+    "no_network_install_push_deploy_publish",
+    "no_grandchildren",
+    "no_fabricated_refs",
+    "scope_p1e006_correction_only"
+  ]
+}

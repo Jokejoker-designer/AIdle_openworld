@@ -1,0 +1,172 @@
+{
+  "schema": "p2e_001_e1_evidence_manifest/1.0",
+  "work_order": "WO-P2E-001-ESC-SINGLE-DISPATCH-CORRECTION-003",
+  "wave": "E1",
+  "directive_id": 73,
+  "authority_token": "VERIFY_ONLY",
+  "mode": "focused_headed_esc_plus_immutable_003_binding",
+  "godot_exit": 0,
+  "marker_pass": true,
+  "error_line_count": 0,
+  "error_samples": [],
+  "error_classification": {
+    "error_count_including_teardown": 0,
+    "f02_zero_error_including_teardown": true,
+    "signature_if_match": null,
+    "note": "No filtering/hiding/reclassification of Godot ERROR lines."
+  },
+  "failures": [],
+  "esc_single_dispatch": {
+    "pass": true,
+    "physical_esc_sequences": 1,
+    "main_resolve_count": 1,
+    "main_cancel_apply_count": 1,
+    "preview_hologram_log_lines_in_window": 1,
+    "duplicate_markers": 0,
+    "pause_true_count": 0,
+    "pause_menu_count": 0,
+    "esc_lines_in_witness_window": [
+      {
+        "target": "preview_hologram",
+        "pause": "false",
+        "resolve_n": 1,
+        "cancel_apply_n": 1,
+        "raw": "[Main] Esc resolved \u2192 preview_hologram pause=false resolve_n=1 cancel_apply_n=1"
+      }
+    ],
+    "witness": {
+      "counts": {
+        "committed_after": 0,
+        "committed_before": 0,
+        "committed_untouched": true,
+        "confirm_and_commit_direct": false,
+        "idle_esc_cancel_apply_count": 0,
+        "idle_esc_resolve_count": 1,
+        "input_sequence": [
+          "request_context:build",
+          "KEY_PERIOD build_module_next",
+          "KEY_P build_place",
+          "KEY_ESCAPE cancel_action (single sequence)",
+          "KEY_ESCAPE idle build (no pause)"
+        ],
+        "main_cancel_apply_count": 1,
+        "main_resolve_count": 1,
+        "pause_opened": false,
+        "paused_after_idle_esc": false,
+        "paused_after_preview_esc": false,
+        "paused_before": false,
+        "physical_esc_sequences": 1,
+        "preview_active_after": false,
+        "preview_active_before": true,
+        "router_escape_resolve_count": 1,
+        "select_module_called": false
+      },
+      "directive_id": 73,
+      "failed_checks": 0,
+      "failures": [],
+      "finding_id": "P2E-CODEX-ESC-DOUBLE-01",
+      "input_log": [
+        {
+          "kind": "context",
+          "label": "build",
+          "t": 6307,
+          "via": "request_context"
+        },
+        {
+          "inject": "parse_input_event_single",
+          "keycode": 46,
+          "kind": "key_down",
+          "label": "build_module_next",
+          "t": 6372
+        },
+        {
+          "inject": "parse_input_event_single",
+          "keycode": 46,
+          "kind": "key_up",
+          "label": "build_module_next_up",
+          "t": 6381
+        },
+        {
+          "inject": "parse_input_event_single",
+          "keycode": 80,
+          "kind": "key_down",
+          "label": "build_place",
+          "t": 6421
+        },
+        {
+          "inject": "parse_input_event_single",
+          "keycode": 80,
+          "kind": "key_up",
+          "label": "build_place_up",
+          "t": 6451
+        },
+        {
+          "inject": "parse_input_event_single",
+          "keycode": 4194305,
+          "kind": "key_down",
+          "label": "cancel_action_esc_single",
+          "t": 6567
+        },
+        {
+          "inject": "parse_input_event_single",
+          "keycode": 4194305,
+          "kind": "key_up",
+          "label": "cancel_action_esc_single_up",
+          "t": 6574
+        },
+        {
+          "inject": "parse_input_event_single",
+          "keycode": 4194305,
+          "kind": "key_down",
+          "label": "esc_idle_build",
+          "t": 6713
+        },
+        {
+          "inject": "parse_input_event_single",
+          "keycode": 4194305,
+          "kind": "key_up",
+          "label": "esc_idle_build_up",
+          "t": 6720
+        }
+      ],
+      "pass": true,
+      "passed_checks": 12,
+      "schema": "p2e_001_e1_esc_single_dispatch_witness/1.0",
+      "wave": "E1"
+    }
+  },
+  "evidence_003_binding": {
+    "png_all_match": true,
+    "png_count": 14,
+    "meta_sha256": {
+      "evidence_manifest.json": "234ce5370e0d40ed146f9c1bfcd75269f98a152fee7c47be5bc3c911d6836d5a",
+      "png_sha256.json": "b535e1e6f47c5c4f054857eb53381d59cddbc3ae796ecc08f9b864f16b59e063",
+      "evidence_tree_sha256.json": "dd79f112f302b6b186c3726aa60291be764c701a1c9dcc5fb92ad1b0be77fafe",
+      "godot_headed.log": "33e09693457e153abc7810dfbe08941f2d64346a4787c86e1a2a6bd7e673572b",
+      "visual_claim_meta.json": "7fb4493c46b9f472122bb472ea14b99a1758828425b565bf106495bd20c37a3f"
+    },
+    "preserved_d72_axes_bound": [
+      "teardown_zero_error",
+      "real_input_select_place_rotate_elev_confirm_cancel",
+      "Q_R_exploration_and_build_preview_separation",
+      "responsive_dual_resolution_14_png",
+      "idempotency_authority_world_commit"
+    ]
+  },
+  "focused_pngs": [
+    {
+      "file": "esc_cancelled_preview_1280x720.png",
+      "width": 1280,
+      "height": 720,
+      "sha256": "da9857ba73f8bec60c3967b0dad8f6fcc0b50467af8b9547d2e1e71d9f208f8a",
+      "bytes": 121236
+    }
+  ],
+  "product_fallback_scan": {
+    "main_gd_sha256": "a7d707e2b71df7ac56d3d79f041d70ff3153238923fea15dd0b16e06d8aa14ae",
+    "confirm_and_commit_direct_call_in_main": false,
+    "select_module_direct_call_in_main": false,
+    "comment_only_confirm_note_present": true
+  },
+  "runner_verdict": "PASS"
+}

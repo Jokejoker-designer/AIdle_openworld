@@ -1,0 +1,38 @@
+{
+  "active_wave": "P1E_006_W2_RED_COMPLETE",
+  "state": "REVIEW_REQUESTED",
+  "completion_signal": "WAITING_HUMAN",
+  "self_accept": false,
+  "accepted": false,
+  "p1e_006": {
+    "status": "W2_RED_COMPLETE",
+    "decision": "Option B per-world-profile palette variants",
+    "scope": "11 modules x 2 world profiles (cozy_cyber_pixel, surrealism_canvas) = 22 variants",
+    "w1_receipt": "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "w2_receipt": "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "w2_verdict": "PASS_WITH_NOTES",
+    "w2_child_task_ref": "019f8625-8258-7683-9773-4b42dfa3aac2",
+    "mechanism": "STATE_VARIANTS_extended",
+    "variants_smoke": "PASS",
+    "hsl_demo": "PASS",
+    "next_owner": "P1E_006_W3_QA"
+  },
+  "message_to_human": "P1E-006 W2 Red PASS_WITH_NOTES: STATE_VARIANTS extended; cozy identity; surreal chromatic; HSL washed FAIL; scope 2 profiles; service lease clean; W1 null child honest. Headed live evidence residual for W3 QA. accepted=false.",
+  "completed_children": [
+    {
+      "wave": "P1E_006_W2_RED",
+      "profile": "aidle-worldgen-red-scope",
+      "child_task_ref": "019f8625-8258-7683-9773-4b42dfa3aac2",
+      "transcript_ref": "019f8625-8258-7683-9773-4b42dfa3aac2",
+      "authority": "READ_ONLY_AUDIT",
+      "status": "COMPLETED",
+      "receipt": "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+      "log": "orchestration/logs/p1e-006-w2-red-001.log",
+      "verdict": "PASS_WITH_NOTES",
+      "work_order": "WO-P1E-006-PER-STYLE-PALETTE-VARIANTS",
+      "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "prior_wave_child_task_ref": null,
+      "prior_wave_note": "W1 Blue parent-inline child_task_ref=null honest"
+    }
+  ]
+}

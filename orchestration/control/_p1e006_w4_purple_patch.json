@@ -1,0 +1,77 @@
+{
+  "active_wave": "P1E_006_COMPLETE",
+  "state": "WAITING_HUMAN",
+  "completion_signal": "WAITING_HUMAN",
+  "self_accept": false,
+  "accepted": false,
+  "next_owner": "HUMAN_PRODUCT_LEAD",
+  "next_route": "HUMAN_PRODUCT_LEAD_CODEX_REENTRY",
+  "p1e_006": {
+    "status": "P1E_006_COMPLETE",
+    "decision": "Option B per-world-profile palette variants",
+    "scope": "11 modules x 2 world profiles (cozy_cyber_pixel, surrealism_canvas) = 22 variants",
+    "mechanism": "STATE_VARIANTS_extended",
+    "w1_receipt": "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "w1_child_task_ref": null,
+    "w1_child_task_ref_note": "honest parent-inline",
+    "w2_receipt": "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "w2_verdict": "PASS_WITH_NOTES",
+    "w2_child_task_ref": "019f8625-8258-7683-9773-4b42dfa3aac2",
+    "w3_receipt": "orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+    "w3_verdict": "PASS_WITH_NOTES",
+    "w3_child_task_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+    "w4_receipt": "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+    "w4_verdict": "VERIFIED",
+    "w4_purple_verdict": "VERIFIED",
+    "w4_child_task_ref": "019f862c-15ac-7b52-940f-9907be1d685b",
+    "variants_smoke": "PASS",
+    "hsl_demo": "PASS",
+    "hsl_demo_purple_rerun": "PASS",
+    "regression_smokes": {
+      "p1e003": "PASS checks=9",
+      "p1e004_asm": "PASS checks=6",
+      "g8_ux002": "PASS checks=2"
+    },
+    "check_governance": "PASS",
+    "env0_001_status": "ACCEPTED",
+    "ref_crosscheck_pass": true,
+    "next_owner": "HUMAN_PRODUCT_LEAD",
+    "handoff": "HUMAN_PRODUCT_LEAD_CODEX_REENTRY",
+    "taxonomy_deferred_for_codex": {
+      "status": "OPEN_ARCHITECTURAL_ITEM_FOR_CODEX",
+      "primary_axis": "world_profile",
+      "settled_by_hpl": "Option B — world profiles are content axis; art style future customisation layer",
+      "scope_this_wo": "11 modules x 2 profiles (cozy_cyber_pixel, surrealism_canvas)",
+      "deferred_no_kit": ["tiny_diorama", "solarpunk_haven", "arcane_clockwork", "spirit_valley", "oceanpunk_abyss"],
+      "deferred_no_world_profile_art": ["cyberpunk_dense", "pastoral_fantasy"],
+      "nearest_map": "pastoral_fantasy+cyberpunk_dense -> cozy_cyber_pixel presentation",
+      "adr_eventual": "taxonomy reconciliation ADR still eventual; not blocking this WO",
+      "residuals_for_codex_reentry": [
+        "R-NOTE-01 headed live visual evidence both profiles (live_parity=false today)",
+        "R-NOTE-02 DNA v1.1_Tier3 PHYSICS_VISUAL_STATE_VARIANTS.md dual-update",
+        "R-NOTE-03 material_table form vs 11x2 discrete mesh folder wording",
+        "R-LOW-01 surreal high-value wood/ceramic readability under ambient"
+      ]
+    }
+  },
+  "message_to_human": "P1E-006 W4 Purple VERIFIED (machine only; accepted=false): chain W1 parent-inline / W2 Red PASS_WITH_NOTES / W3 QA PASS_WITH_NOTES complete. Independent HSL PASS; env0_001 ACCEPTED preserved. Residuals + taxonomy deferred for Codex re-entry. Handoff HUMAN_PRODUCT_LEAD.",
+  "completed_children": [
+    {
+      "wave": "P1E_006_W4_PURPLE",
+      "profile": "aidle-worldgen-purple-acceptance",
+      "child_task_ref": "019f862c-15ac-7b52-940f-9907be1d685b",
+      "transcript_ref": "019f862c-15ac-7b52-940f-9907be1d685b",
+      "authority": "VERIFY_ONLY",
+      "status": "COMPLETED",
+      "receipt": "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+      "log": "orchestration/logs/p1e-006-w4-purple-001.log",
+      "verdict": "VERIFIED",
+      "purple_verdict": "VERIFIED",
+      "work_order": "WO-P1E-006-PER-STYLE-PALETTE-VARIANTS",
+      "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+      "prior_wave_child_task_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+      "self_accept": false,
+      "accepted": false
+    }
+  ]
+}

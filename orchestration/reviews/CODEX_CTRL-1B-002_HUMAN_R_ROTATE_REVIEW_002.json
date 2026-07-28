@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_CTRL-1B-002-HUMAN-R-ROTATE-REVIEW-002",
+  "task_id": "CTRL-1B-002",
+  "reviewed_at": "2026-07-22T00:17:40.0344065Z",
+  "reviewed_by": "codex",
+  "human_product_lead_report": "In normal play, R used to rotate camera right; after Control 1B it no longer rotates.",
+  "directive_reviewed": 59,
+  "verdict": "CHANGES_REQUESTED",
+  "accepted": false,
+  "machine_acceptance_withheld": true,
+  "root_cause": {
+    "file": "game/scripts/input/control_action_catalog.gd",
+    "finding": "exploration allow-list contains rotate_camera_left but omits rotate_camera_right",
+    "runtime_effect": "ControlContextRouter.is_action_just_pressed('rotate_camera_right') fails closed, so cozy_camera never observes R in exploration",
+    "why_prior_tests_missed_it": "tests proved exploration R did not rotate a hologram and avoided dual-fire, but did not assert camera yaw changes through the real InputMap path"
+  },
+  "human_design_decision": {
+    "exploration_R": "rotate camera right",
+    "build_R": "rotate preview right only",
+    "dual_fire": false,
+    "remappable_inputmap_required": true
+  },
+  "prior_machine_evidence": {
+    "directive_59_purple": "VERIFIED",
+    "h_matrix": "33/33",
+    "status": "superseded by Human live-play regression evidence for R camera rotation"
+  },
+  "next_route": "DIRECTIVE_60_NARROW_CORRECTION"
+}

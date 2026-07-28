@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_nori7_godot_resource_specs_v1",
+  "author_wave": "U4_CHARACTER_MESH_RIG",
+  "authority_token": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "engine_target": "Godot 4.3+",
+  "character_id": "CCP-RH-001",
+  "resources": [
+    {
+      "resource_class": "Skeleton3D",
+      "build_from": "skeleton/skel_small_biped_robot_v1.hierarchy.json",
+      "bone_count": 14,
+      "notes": "U5 creates bones in index order; rest transforms from rest_position_m / rest_rotation_euler_deg"
+    },
+    {
+      "resource_class": "AnimationLibrary",
+      "name": "anim_robot_gardener_v1",
+      "build_from": "animations/anim_robot_gardener_v1.timing_table.json",
+      "suggested_path": "res://assets/ucbv_001/character/nori7/godot/anim_robot_gardener_v1.tres",
+      "clips": [
+        "idle",
+        "walk",
+        "turn_left",
+        "turn_right",
+        "build_place",
+        "build_place_hold",
+        "confirm",
+        "cancel"
+      ]
+    },
+    {
+      "resource_class": "AnimationPlayer",
+      "libraries": ["anim_robot_gardener_v1"],
+      "autoplay": "anim_robot_gardener_v1/idle"
+    },
+    {
+      "resource_class": "BoneAttachment3D",
+      "instances": [
+        {"socket_id": "character_back", "bone": "chest"},
+        {"socket_id": "character_hand", "bone": "hand_R"},
+        {"socket_id": "character_head", "bone": "sprout_ctrl"},
+        {"socket_id": "vfx_anchor", "bone": "chest"}
+      ],
+      "build_from": "sockets/attachment_sockets.json"
+    },
+    {
+      "resource_class": "MeshInstance3D",
+      "count_parts": "see mesh/nori7_mesh_descriptor.json",
+      "materials": "MAT_CozyCeramic MAT_CozyLeaf MAT_CozyGlass MAT_CozyWood MAT_CozyMetal MAT_CozyStoneWarm"
+    },
+    {
+      "resource_class": "PackedScene",
+      "suggested_path": "res://assets/ucbv_001/character/nori7/godot/nori7.tscn",
+      "status": "U5_AUTHORS_SCENE_NOT_U4",
+      "build_from": "godot/nori7_procedural_slice_spec.json"
+    }
+  ],
+  "optional_animation_tree": {
+    "use": "optional in U5 if blend complexity requires",
+    "state_machine_from": "animations/animation_state_machine.json"
+  },
+  "do_not_author_in_u4": [
+    "game/scripts/main/main.gd",
+    "game/scenes/**",
+    "binary .glb",
+    "binary .tres AnimationLibrary (JSON specs only)"
+  ],
+  "provenance": {
+    "asset_id": "ucbv_001_nori7_godot_resource_specs_v1",
+    "character_id": "CCP-RH-001",
+    "author_wave": "U4_CHARACTER_MESH_RIG"
+  }
+}

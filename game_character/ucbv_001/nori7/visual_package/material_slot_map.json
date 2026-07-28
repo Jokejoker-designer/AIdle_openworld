@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "map_id": "ucbv_001_nori7_material_slot_map_v1",
+  "character_id": "CCP-RH-001",
+  "display_name": "Nori-7",
+  "style_lock_id": "ucbv_001_style_lock_v1",
+  "recipe_id": "recipe_nori7_v1",
+  "wave": "U2",
+  "accepted": false,
+  "authority": {
+    "art_hex_ssot": "COZY_ART_BIBLE_001",
+    "runtime_mat_ssot": "material_slot_mapping.contract.json",
+    "dna_theme_status": "NON_AUTHORITATIVE_ALIAS_ONLY"
+  },
+  "slots": [
+    {
+      "module_id": "char_nori7_base",
+      "slot": "body",
+      "shared_vocabulary": "body",
+      "bible_hex": "#fdf3e2",
+      "mat_id": "MAT_CozyCeramic"
+    },
+    {
+      "module_id": "char_nori7_base",
+      "slot": "leaf_joints",
+      "shared_vocabulary": "leaf",
+      "bible_hex": "#7fc98f",
+      "mat_id": "MAT_CozyLeaf"
+    },
+    {
+      "module_id": "char_nori7_base",
+      "slot": "glass_eyes",
+      "shared_vocabulary": "glass",
+      "bible_hex": "#a8dced",
+      "socket_hex": "#3d3226",
+      "mat_id": "MAT_CozyGlass"
+    },
+    {
+      "module_id": "char_nori7_base",
+      "slot": "stone_foot_pads",
+      "shared_vocabulary": "stone",
+      "mat_id": "MAT_CozyStoneWarm"
+    },
+    {
+      "module_id": "char_nori7_base",
+      "slot": "cloth_pads",
+      "shared_vocabulary": "cloth",
+      "mat_id": "MAT_CozyWood",
+      "alt_mat_id": "MAT_CozyFlowerPink"
+    },
+    {
+      "module_id": "char_nori7_base",
+      "slot": "emissive_face_ui",
+      "shared_vocabulary": "emissive",
+      "mat_id": "MAT_CozyLampWarm",
+      "forbidden": ["#3fd0e0", "#8ff0ff"]
+    },
+    {
+      "module_id": "char_nori7_base",
+      "slot": "interactive_highlight",
+      "shared_vocabulary": "interactive_highlight",
+      "mat_ids_allowed": ["MAT_CozyPreviewMarker", "MAT_CozyGlassPreview"],
+      "non_color_signals_required": ["outline", "opacity", "icon", "stage_label"]
+    },
+    {
+      "module_id": "attach_water_tank_small",
+      "slot": "body",
+      "shared_vocabulary": "body",
+      "bible_hex": "#efe0c8",
+      "mat_id": "MAT_CozyCeramic"
+    },
+    {
+      "module_id": "attach_water_tank_small",
+      "slot": "wood",
+      "shared_vocabulary": "wood",
+      "bible_hex": "#c98a5e",
+      "mat_id": "MAT_CozyWood"
+    },
+    {
+      "module_id": "attach_water_tank_small",
+      "slot": "glass",
+      "shared_vocabulary": "glass",
+      "optional": true,
+      "mat_id": "MAT_CozyGlass"
+    },
+    {
+      "module_id": "attach_water_tank_small",
+      "slot": "metal",
+      "shared_vocabulary": "metal",
+      "mat_id": "MAT_CozyMetal",
+      "surface_fraction_max_global": 0.15
+    },
+    {
+      "module_id": "attach_watering_nozzle_A",
+      "slot": "metal",
+      "shared_vocabulary": "metal",
+      "mat_id": "MAT_CozyMetal"
+    },
+    {
+      "module_id": "attach_watering_nozzle_A",
+      "slot": "wood",
+      "shared_vocabulary": "wood",
+      "mat_id": "MAT_CozyWood"
+    },
+    {
+      "module_id": "attach_watering_nozzle_A",
+      "slot": "leaf",
+      "shared_vocabulary": "leaf",
+      "mat_id": "MAT_CozyLeaf"
+    },
+    {
+      "module_id": "attach_mechanical_sprout_A",
+      "slot": "leaf",
+      "shared_vocabulary": "leaf",
+      "bible_hex": "#7fc98f",
+      "mat_id": "MAT_CozyLeaf",
+      "alt_mat_id": "MAT_CozyStem"
+    },
+    {
+      "module_id": "attach_mechanical_sprout_A",
+      "slot": "metal",
+      "shared_vocabulary": "metal",
+      "mat_id": "MAT_CozyMetal"
+    }
+  ],
+  "recipe_override_remap": {
+    "from_theme_id": "mat_cozy_cream_leaf_v1",
+    "from_hex": "#F7E9C6",
+    "to_bible_hex": "#fdf3e2",
+    "to_mat_id": "MAT_CozyCeramic",
+    "status": "NON_AUTHORITATIVE_ALIAS_ONLY"
+  }
+}

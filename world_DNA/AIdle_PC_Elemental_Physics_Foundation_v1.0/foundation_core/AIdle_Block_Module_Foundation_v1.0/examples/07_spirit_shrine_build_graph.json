@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "request_id": "spirit_0001",
+  "build_graph_id": "graph_spirit_shrine_v1",
+  "world_profile": "spirit_valley",
+  "expected_world_revision": 0,
+  "bounds": {
+    "center": [
+      0,
+      0,
+      0
+    ],
+    "size_m": [
+      128,
+      128,
+      64
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "shrine",
+      "module_id": "cluster_spirit_shrine_A",
+      "position": [
+        0,
+        10,
+        0
+      ]
+    },
+    {
+      "node_id": "court",
+      "module_id": "cluster_spirit_lotus_courtyard_A",
+      "position": [
+        0,
+        -4,
+        0
+      ]
+    }
+  ],
+  "edges": [],
+  "generators": [
+    {
+      "generator_id": "gen_temple_courtyard_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    },
+    {
+      "generator_id": "gen_bamboo_grove_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    },
+    {
+      "generator_id": "gen_spirit_restoration_states_v1",
+      "parameters": {
+        "seed": 123,
+        "bounds": [
+          100,
+          100
+        ]
+      }
+    }
+  ],
+  "world_rules": [
+    {
+      "rule_id": "rule_spirit_restoration_v1",
+      "config": {}
+    }
+  ],
+  "manifestation": {
+    "stages": [
+      "WIREFRAME",
+      "HOLOGRAM",
+      "MATERIALIZING",
+      "COMMITTING",
+      "COMPLETE"
+    ],
+    "requires_confirmation": true
+  },
+  "validation": {
+    "collision": true,
+    "navigation": true,
+    "style": true,
+    "performance": true
+  },
+  "rollback": {
+    "allowed": true,
+    "mode": "COMPENSATING_MUTATION"
+  }
+}

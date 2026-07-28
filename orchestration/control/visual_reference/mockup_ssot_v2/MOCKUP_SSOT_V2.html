@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>AIdle MOCKUP SSOT V2 — 15 NV + 30 Prop + 10 Building (OFFICIAL DESIGN LOCK)</title>
+<style>
+:root {
+  --cream:#fdf3e2; --cream-shade:#efe0c8; --leaf:#72A96B; --ink:#263238;
+  --sky:#9ED7E5; --wood:#c98a5e; --cyan:#62E6FF; --card:#fffaf0;
+  --border:#e8d9c0; --warm:#f5c451; --danger:#D85C5C;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; font-family:"Segoe UI", system-ui, sans-serif; color:var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #e8f7ff 0%, transparent 50%),
+    radial-gradient(900px 500px at 100% 0%, #fff3d6 0%, transparent 45%),
+    linear-gradient(180deg, #f7f0e4, #efe6d4 40%, #e7f2ea);
+  line-height:1.45;
+}
+header, section, footer { max-width:1280px; margin:0 auto; padding:16px 24px; }
+header { padding-top:28px; }
+h1 { margin:0 0 8px; font-size:1.6rem; letter-spacing:-0.02em; }
+h2 { margin:28px 0 12px; font-size:1.2rem; border-left:4px solid var(--leaf); padding-left:10px; }
+.lock-banner {
+  background: linear-gradient(90deg, #1b4332, #2d6a4f);
+  color:#e8f5e9; border-radius:14px; padding:14px 18px; margin:12px 0 8px;
+  border:2px solid #95d5b2; box-shadow:0 8px 24px rgba(27,67,50,.25);
+}
+.lock-banner strong { color:#b7f0c8; }
+.badge { display:inline-block; background:var(--cream); border:1px solid var(--border);
+  border-radius:999px; padding:2px 10px; font-size:.78rem; margin:4px 4px 0 0; }
+.badge.ok { background:#e4f7ea; border-color:#b7e2c4; }
+.badge.warn { background:#fff4d6; border-color:#efd48a; }
+.badge.lock { background:#1b4332; color:#e8f5e9; border-color:#95d5b2; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:16px; }
+.grid.dense { grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); }
+.card { background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden;
+  box-shadow:0 8px 24px rgba(38,50,56,.06); display:flex; flex-direction:column; }
+.stage { position:relative; height:200px; display:grid; place-items:center; overflow:hidden;
+  background: linear-gradient(180deg, #dfeff5 0%, #f5efe3 55%, #e4dcc8 100%); }
+.stage .media, .stage .ico { max-width:88%; max-height:86%; object-fit:contain;
+  filter: drop-shadow(0 10px 14px rgba(0,0,0,.12)); z-index:2; }
+.stage video.media { max-height:90%; border-radius:8px; }
+.stage .ico { width:120px; height:100px; }
+.ground { position:absolute; bottom:18px; left:15%; right:15%; height:10px; border-radius:50%;
+  background:rgba(38,50,56,.08); z-index:1; }
+.body { padding:12px 14px 14px; flex:1; display:flex; flex-direction:column; gap:5px; }
+.body h3 { margin:0; font-size:1rem; }
+.meta { font-size:.76rem; opacity:.82; font-family:ui-monospace, Consolas, monospace; }
+.clips { display:flex; flex-wrap:wrap; gap:4px; margin-top:2px; }
+.clip { font-size:.66rem; background:#eef7fb; border:1px solid #cfe3ec; border-radius:6px; padding:2px 6px; }
+.clip.real { background:#e6f8ec; border-color:#b6e2c3; }
+.btns { display:flex; flex-wrap:wrap; gap:5px; margin-top:6px; }
+button { border:1px solid var(--border); background:#fff; border-radius:8px; padding:4px 8px;
+  font-size:.72rem; cursor:pointer; }
+button.active { background:var(--leaf); color:#123; border-color:#5aa86d; }
+.toolbar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:10px 0 4px; }
+.toolbar select { padding:6px 10px; border-radius:8px; border:1px solid var(--border); background:#fff; }
+.sheet-preview { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px 0; }
+.sheet-preview img { width:100%; border-radius:12px; border:1px solid var(--border); background:#fff; }
+@media (max-width:800px) { .sheet-preview { grid-template-columns:1fr; } }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+@keyframes bob_small { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
+@keyframes breathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
+@keyframes walk { 0%,100%{transform:translate(0,0) rotate(-1.5deg)} 50%{transform:translate(6px,-5px) rotate(1.5deg)} }
+@keyframes scan { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-8deg)} 75%{transform:rotate(8deg)} }
+@keyframes happy { 0%,100%{transform:scale(1) translateY(0)} 40%{transform:scale(1.08) translateY(-10px)} 70%{transform:scale(1.02) translateY(-2px)} }
+@keyframes cancel { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-5px)} 40%{transform:translateX(5px)} 60%{transform:translateX(-3px)} }
+@keyframes sway { 0%,100%{transform:rotate(-2.5deg)} 50%{transform:rotate(2.5deg)} }
+@keyframes sway_small { 0%,100%{transform:rotate(-1.2deg)} 50%{transform:rotate(1.2deg)} }
+@keyframes pulse { 0%,100%{opacity:.55} 50%{opacity:1; filter:drop-shadow(0 0 12px rgba(245,196,81,.7))} }
+@keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+@keyframes steam_rise { 0%{transform:translateY(2px);opacity:.55} 100%{transform:translateY(-16px);opacity:0} }
+@keyframes door_pulse { 0%,100%{opacity:.65} 50%{opacity:1; filter:drop-shadow(0 0 8px #f5c451)} }
+@keyframes flag_sway { 0%,100%{transform:rotate(-3deg)} 50%{transform:rotate(4deg)} }
+@keyframes cloth_sway { 0%,100%{transform:skewX(-2deg)} 50%{transform:skewX(2deg)} }
+@keyframes ripple { 0%,100%{transform:scaleX(1)} 50%{transform:scaleX(1.04)} }
+@keyframes flicker { 0%,100%{transform:scaleY(1); opacity:.9} 50%{transform:scaleY(1.12); opacity:1} }
+@keyframes idle_static { 0%,100%{transform:translateY(0)} }
+@keyframes manifestIn {
+  0% { opacity:.15; transform:scale(.92); filter:brightness(2) saturate(.2); }
+  35% { opacity:.55; filter:brightness(1.4) hue-rotate(20deg); }
+  70% { opacity:.9; filter:brightness(1.05); }
+  100% { opacity:1; transform:scale(1); filter:none; }
+}
+.stage.anim-bob .media, .stage.anim-bob .ico { animation: bob 2.4s ease-in-out infinite; transform-origin:center bottom; }
+.stage.anim-bob_small .media, .stage.anim-bob_small .ico { animation: bob_small 3.0s ease-in-out infinite; transform-origin:center bottom; }
+.stage.anim-breathe .media, .stage.anim-breathe .ico { animation: breathe 2.8s ease-in-out infinite; transform-origin:center bottom; }
+.stage.anim-walk .media, .stage.anim-walk .ico { animation: walk .7s ease-in-out infinite; transform-origin:center bottom; }
+.stage.anim-scan .media, .stage.anim-scan .ico { animation: scan 1.4s ease-in-out infinite; transform-origin:center 60%; }
+.stage.anim-happy .media, .stage.anim-happy .ico { animation: happy 1.1s ease-in-out infinite; transform-origin:center bottom; }
+.stage.anim-cancel .media, .stage.anim-cancel .ico { animation: cancel .55s ease-in-out infinite; }
+.stage.anim-sway .media, .stage.anim-sway .ico { animation: sway 3.5s ease-in-out infinite; transform-origin:center bottom; }
+.stage.anim-sway_small .media, .stage.anim-sway_small .ico { animation: sway_small 4.2s ease-in-out infinite; transform-origin:center bottom; }
+.stage.anim-pulse .media, .stage.anim-pulse .ico { animation: pulse 2.0s ease-in-out infinite; }
+.stage.anim-spin .ico { animation: spin 9s linear infinite; transform-origin:center 40%; }
+.stage.anim-steam_rise .media, .stage.anim-steam_rise .ico { animation: steam_rise 2.6s ease-out infinite; }
+.stage.anim-door_pulse .media, .stage.anim-door_pulse .door { animation: door_pulse 2.0s ease-in-out infinite; }
+.stage.anim-flag_sway .ico { animation: flag_sway 3.2s ease-in-out infinite; transform-origin:top center; }
+.stage.anim-cloth_sway .ico { animation: cloth_sway 3.0s ease-in-out infinite; }
+.stage.anim-ripple .media, .stage.anim-ripple .water { animation: ripple 3.0s ease-in-out infinite; }
+.stage.anim-flicker .ico { animation: flicker .55s ease-in-out infinite; transform-origin:center bottom; }
+.stage.anim-idle_static .media, .stage.anim-idle_static .ico { animation: idle_static 4s linear infinite; }
+.stage.manifest { background: radial-gradient(circle at 50% 60%, rgba(98,230,255,.35), transparent 55%), linear-gradient(180deg,#1a2a33,#2c3e48); }
+.stage.manifest .media { animation: manifestIn 3.2s ease-in-out infinite; }
+table.reg { width:100%; border-collapse:collapse; font-size:.86rem; background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+table.reg th, table.reg td { border-bottom:1px solid var(--border); padding:8px 10px; text-align:left; vertical-align:top; }
+table.reg th { background:#f3ebe0; }
+.pipeline { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:8px; margin:12px 0; }
+.pipe-step { background:var(--card); border:1px dashed var(--border); border-radius:12px; padding:10px; font-size:.8rem; }
+.pipe-step strong { display:block; margin-bottom:4px; color:#1b5e20; }
+footer { opacity:.88; font-size:.85rem; padding-bottom:48px; }
+.tabs { display:flex; gap:8px; flex-wrap:wrap; margin:8px 0 0; }
+.tabs a { text-decoration:none; color:var(--ink); background:var(--card); border:1px solid var(--border); border-radius:999px; padding:6px 12px; font-size:.85rem; }
+.tabs a:hover { background:var(--cream); }
+</style>
+</head>
+<body>
+<header>
+  <h1>AIdle Official Mockup SSOT V2</h1>
+  <p><strong>15 nhân vật</strong> (animation) · <strong>30 vật thể</strong> · <strong>10 building</strong></p>
+  <div class="lock-banner">
+    LOCK <strong>QUY ĐỊNH KHÓA THIẾT KẾ:</strong> Toàn bộ art, mesh, rig, clip, prop, building trong game
+    <strong>phải bám sát mockup này</strong> (silhouette, palette, motion timing, ID, clip names).
+    Lệch mockup = fail QA / CHANGES_REQUESTED. Chi tiết: <code>MOCKUP_DESIGN_LOCK.md</code>
+  </div>
+  <span class="badge lock">DESIGN_SSOT_ACTIVE</span>
+  <span class="badge ok">15 cast</span>
+  <span class="badge ok">30 props</span>
+  <span class="badge ok">10 buildings</span>
+  <span class="badge warn">accepted=false · not ship</span>
+  <span class="badge">Cozy Cyber-Pixel 2.5D</span>
+  <span class="badge">cyan = manifestation only</span>
+  <div class="tabs">
+    <a href="#chars">Nhân vật</a>
+    <a href="#buildings">Building</a>
+    <a href="#props">Vật thể</a>
+    <a href="#manifest">Manifestation</a>
+    <a href="#rules">Quy định</a>
+  </div>
+</header>
+
+<section>
+  <h2>Reference sheets (art direction)</h2>
+  <div class="sheet-preview">
+    <div>
+      <div class="meta">10 buildings sheet</div>
+      <img src="buildings/buildings_sheet_10.jpg" alt="buildings sheet"/>
+    </div>
+    <div>
+      <div class="meta">30 props sheet</div>
+      <img src="props/props_sheet_30.jpg" alt="props sheet"/>
+    </div>
+  </div>
+  <div class="pipeline">
+    <div class="pipe-step"><strong>1. Mockup SSOT</strong>Trang này + JSON</div>
+    <div class="pipe-step"><strong>2. Design package</strong>Foundry + style lock</div>
+    <div class="pipe-step"><strong>3. Offline Blender</strong>GLB + clips + SHA</div>
+    <div class="pipe-step"><strong>4. Quarantine QA</strong>vs mockup delta</div>
+    <div class="pipe-step"><strong>5. WO promote</strong>game/assets</div>
+    <div class="pipe-step"><strong>6. Runtime smoke</strong>idle play + load</div>
+  </div>
+</section>
+
+<section id="chars">
+  <h2>15 Nhân vật — animation thật (video + clip switch)</h2>
+  <p class="meta">Clip tối thiểu: idle · walk · scan · happy · cancel. Nori thêm Layer B. Timing: bob 2.4s / bob_small 3.0s / breathe 2.8s.</p>
+  <div class="toolbar">
+    <label>Play-all clip:
+      <select id="playAllClip">
+        <option value="idle">idle</option>
+        <option value="walk">walk</option>
+        <option value="scan">scan</option>
+        <option value="happy">happy</option>
+        <option value="cancel">cancel</option>
+      </select>
+    </label>
+    <button type="button" id="btnPlayAll">Áp dụng toàn cast</button>
+    <button type="button" id="btnShowVideo">Ưu tiên video idle</button>
+    <button type="button" id="btnShowPhoto">Ưu tiên ảnh + CSS</button>
+  </div>
+  <div class="grid" id="charGrid">
+    
+    <article class="card char" data-id="CCP-RH-001" data-motion="bob_small">
+      <div class="stage anim-bob_small" data-stage>
+        <video class="media" src="anim/anim_nori7_idle.mp4" autoplay muted loop playsinline data-role="video"></video><img class="media photo" src="chars/char_01_nori7.jpg" alt="Nori-7" data-role="photo" hidden/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>1. Nori-7</h3>
+        <div class="meta">CCP-RH-001 · ROBOT_HELPER · cozy_cyber_pixel</div>
+        <div class="meta">form: robot · signature: sprout_sway + water_drip</div>
+        <div class="clips"><span class="clip real">idle</span><span class="clip real">walk</span><span class="clip real">scan</span><span class="clip real">happy</span><span class="clip real">cancel</span><span class="clip real">turn_left</span><span class="clip real">turn_right</span><span class="clip real">build_place</span><span class="clip real">build_place_hold</span><span class="clip real">confirm</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge ok">GLB prod</span>
+      </div>
+    </article>
+    <article class="card char" data-id="CCP-NS-002" data-motion="bob">
+      <div class="stage anim-bob" data-stage>
+        <img class="media photo" src="chars/char_02_maymach.jpg" alt="Mây Mạch" data-role="photo"/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>2. Mây Mạch</h3>
+        <div class="meta">CCP-NS-002 · NPC_SOCIAL · cozy_cyber_pixel</div>
+        <div class="meta">form: humanoid · signature: letter_flutter</div>
+        <div class="clips"><span class="clip real">idle</span><span class="clip real">walk</span><span class="clip real">scan</span><span class="clip real">happy</span><span class="clip real">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge ok">GLB prod</span>
+      </div>
+    </article>
+    <article class="card char" data-id="CCP-NW-003" data-motion="bob">
+      <div class="stage anim-bob" data-stage>
+        <video class="media" src="anim/anim_bacbap_idle.mp4" autoplay muted loop playsinline data-role="video"></video><img class="media photo" src="chars/char_03_bacbap.jpg" alt="Bác Bắp" data-role="photo" hidden/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>3. Bác Bắp</h3>
+        <div class="meta">CCP-NW-003 · NPC_WORKER · cozy_cyber_pixel</div>
+        <div class="meta">form: humanoid · signature: tool_tap</div>
+        <div class="clips"><span class="clip real">idle</span><span class="clip real">walk</span><span class="clip real">scan</span><span class="clip real">happy</span><span class="clip real">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge ok">GLB prod</span>
+      </div>
+    </article>
+    <article class="card char" data-id="CCP-CT-004" data-motion="breathe">
+      <div class="stage anim-breathe" data-stage>
+        <video class="media" src="anim/anim_buimo_idle.mp4" autoplay muted loop playsinline data-role="video"></video><img class="media photo" src="chars/char_04_buimo.jpg" alt="Bụi Mơ" data-role="photo" hidden/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>4. Bụi Mơ</h3>
+        <div class="meta">CCP-CT-004 · CREATURE_TAMEABLE · cozy_cyber_pixel</div>
+        <div class="meta">form: quad · signature: tail_flick</div>
+        <div class="clips"><span class="clip real">idle</span><span class="clip real">walk</span><span class="clip real">scan</span><span class="clip real">happy</span><span class="clip real">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge ok">GLB prod</span>
+      </div>
+    </article>
+    <article class="card char" data-id="SPH-RH-011" data-motion="bob_small">
+      <div class="stage anim-bob_small" data-stage>
+        <video class="media" src="anim/anim_kito_idle.mp4" autoplay muted loop playsinline data-role="video"></video><img class="media photo" src="chars/char_05_kito.jpg" alt="Kito Thụ Phấn" data-role="photo" hidden/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>5. Kito Thụ Phấn</h3>
+        <div class="meta">SPH-RH-011 · ROBOT_HELPER · solarpunk_haven</div>
+        <div class="meta">form: robot · signature: pollen_puff</div>
+        <div class="clips"><span class="clip real">idle</span><span class="clip real">walk</span><span class="clip real">scan</span><span class="clip real">happy</span><span class="clip real">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge ok">GLB prod</span>
+      </div>
+    </article>
+    <article class="card char" data-id="OA-RG-021" data-motion="bob_small">
+      <div class="stage anim-bob_small" data-stage>
+        <img class="media photo" src="chars/char_06_nereu.jpg" alt="Nereu-5" data-role="photo"/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>6. Nereu-5</h3>
+        <div class="meta">OA-RG-021 · ROBOT_HELPER · oceanpunk_abyss</div>
+        <div class="meta">form: robot · signature: sonar_pulse</div>
+        <div class="clips"><span class="clip real">idle</span><span class="clip real">walk</span><span class="clip real">scan</span><span class="clip real">happy</span><span class="clip real">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge ok">GLB prod</span>
+      </div>
+    </article>
+    <article class="card char" data-id="AC-CO-015" data-motion="bob">
+      <div class="stage anim-bob" data-stage>
+        <img class="media photo" src="chars/char_07_cinder.jpg" alt="Cinder-04" data-role="photo"/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>7. Cinder-04</h3>
+        <div class="meta">AC-CO-015 · CONSTRUCT · arcane_clockwork</div>
+        <div class="meta">form: construct · signature: gear_spin</div>
+        <div class="clips"><span class="clip real">idle</span><span class="clip real">walk</span><span class="clip real">scan</span><span class="clip real">happy</span><span class="clip real">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge ok">GLB prod</span>
+      </div>
+    </article>
+    <article class="card char" data-id="TD-CT-028" data-motion="breathe">
+      <div class="stage anim-breathe" data-stage>
+        <img class="media photo" src="chars/char_08_patch.jpg" alt="Patch Gấu Nút" data-role="photo"/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>8. Patch Gấu Nút</h3>
+        <div class="meta">TD-CT-028 · CREATURE_TAMEABLE · tiny_diorama</div>
+        <div class="meta">form: quad · signature: stitch_wiggle</div>
+        <div class="clips"><span class="clip real">idle</span><span class="clip real">walk</span><span class="clip real">scan</span><span class="clip real">happy</span><span class="clip real">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge ok">GLB prod</span>
+      </div>
+    </article>
+    <article class="card char" data-id="SV-NW-019" data-motion="bob">
+      <div class="stage anim-bob" data-stage>
+        <img class="media photo" src="chars/char_09_truc.jpg" alt="Trúc Nhi" data-role="photo"/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>9. Trúc Nhi</h3>
+        <div class="meta">SV-NW-019 · NPC_WORKER · spirit_valley</div>
+        <div class="meta">form: humanoid · signature: bamboo_sway</div>
+        <div class="clips"><span class="clip real">idle</span><span class="clip real">walk</span><span class="clip real">scan</span><span class="clip real">happy</span><span class="clip real">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge ok">GLB prod</span>
+      </div>
+    </article>
+    <article class="card char" data-id="SPH-NG-009" data-motion="bob">
+      <div class="stage anim-bob" data-stage>
+        <img class="media photo" src="chars/char_10_luma.jpg" alt="Luma Tán Lá" data-role="photo"/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>10. Luma Tán Lá</h3>
+        <div class="meta">SPH-NG-009 · NPC_GUIDE · solarpunk_haven</div>
+        <div class="meta">form: humanoid · signature: leaf_sway</div>
+        <div class="clips"><span class="clip real">idle</span><span class="clip real">walk</span><span class="clip real">scan</span><span class="clip real">happy</span><span class="clip real">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge ok">GLB prod</span>
+      </div>
+    </article>
+    <article class="card char" data-id="SC-NG-005" data-motion="bob">
+      <div class="stage anim-bob" data-stage>
+        <img class="media photo" src="chars/char_11_kegiu.jpg" alt="Kẻ Giữ Khung" data-role="photo"/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>11. Kẻ Giữ Khung</h3>
+        <div class="meta">SC-NG-005 · NPC_GUIDE · surrealism_canvas</div>
+        <div class="meta">form: humanoid · signature: frame_pulse</div>
+        <div class="clips"><span class="clip">idle</span><span class="clip">walk</span><span class="clip">scan</span><span class="clip">happy</span><span class="clip">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge warn">mockup art</span>
+      </div>
+    </article>
+    <article class="card char" data-id="SC-NS-006" data-motion="bob">
+      <div class="stage anim-bob" data-stage>
+        <img class="media photo" src="chars/char_12_luanguoc.jpg" alt="Lụa Ngược" data-role="photo"/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>12. Lụa Ngược</h3>
+        <div class="meta">SC-NS-006 · NPC_SOCIAL · surrealism_canvas</div>
+        <div class="meta">form: humanoid · signature: silk_flow</div>
+        <div class="clips"><span class="clip">idle</span><span class="clip">walk</span><span class="clip">scan</span><span class="clip">happy</span><span class="clip">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge warn">mockup art</span>
+      </div>
+    </article>
+    <article class="card char" data-id="SC-NW-007" data-motion="bob">
+      <div class="stage anim-bob" data-stage>
+        <img class="media photo" src="chars/char_13_ongnho.jpg" alt="Ông Nhỏ Lớn" data-role="photo"/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>13. Ông Nhỏ Lớn</h3>
+        <div class="meta">SC-NW-007 · NPC_WORKER · surrealism_canvas</div>
+        <div class="meta">form: humanoid · signature: scale_shift</div>
+        <div class="clips"><span class="clip">idle</span><span class="clip">walk</span><span class="clip">scan</span><span class="clip">happy</span><span class="clip">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge warn">mockup art</span>
+      </div>
+    </article>
+    <article class="card char" data-id="SC-CA-008" data-motion="breathe">
+      <div class="stage anim-breathe" data-stage>
+        <img class="media photo" src="chars/char_14_gapbong.jpg" alt="Gấp Bóng" data-role="photo"/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>14. Gấp Bóng</h3>
+        <div class="meta">SC-CA-008 · CREATURE_AMBIENT · surrealism_canvas</div>
+        <div class="meta">form: construct · signature: fold_pop</div>
+        <div class="clips"><span class="clip">idle</span><span class="clip">walk</span><span class="clip">scan</span><span class="clip">happy</span><span class="clip">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge warn">mockup art</span>
+      </div>
+    </article>
+    <article class="card char" data-id="SPH-NW-010" data-motion="bob">
+      <div class="stage anim-bob" data-stage>
+        <img class="media photo" src="chars/char_15_sora.jpg" alt="Sora Giữ Sương" data-role="photo"/>
+        <div class="ground"></div>
+      </div>
+      <div class="body">
+        <h3>15. Sora Giữ Sương</h3>
+        <div class="meta">SPH-NW-010 · NPC_WORKER · solarpunk_haven</div>
+        <div class="meta">form: humanoid · signature: mist_rise</div>
+        <div class="clips"><span class="clip">idle</span><span class="clip">walk</span><span class="clip">scan</span><span class="clip">happy</span><span class="clip">cancel</span></div>
+        <div class="btns">
+          <button type="button" data-anim="idle" class="active">idle</button>
+          <button type="button" data-anim="walk">walk</button>
+          <button type="button" data-anim="scan">scan</button>
+          <button type="button" data-anim="happy">happy</button>
+          <button type="button" data-anim="cancel">cancel</button>
+          <button type="button" data-toggle-vid title="Anh / Video">media</button>
+        </div>
+        <span class="badge warn">mockup art</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="buildings">
+  <h2>10 Building — ambient animation</h2>
+  <div class="grid">
+    
+    <article class="card bld" data-id="cozy_house_small_A" data-anim="door_pulse">
+      <div class="stage anim-door_pulse" data-stage><video class="media" src="anim/anim_house_ambient.mp4" autoplay muted loop playsinline></video><img class="media photo" src="buildings/bld_01_house.jpg" alt="Nhà nhỏ Cozy"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>1. Nhà nhỏ Cozy</h3>
+        <div class="meta">cozy_house_small_A · residence</div>
+        <div class="meta">ambient: <code>door_pulse</code></div>
+      </div>
+    </article>
+    <article class="card bld" data-id="cozy_greenhouse_A" data-anim="steam_rise">
+      <div class="stage anim-steam_rise" data-stage><img class="media photo" src="buildings/bld_02_greenhouse.jpg" alt="Nhà kính"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>2. Nhà kính</h3>
+        <div class="meta">cozy_greenhouse_A · farm</div>
+        <div class="meta">ambient: <code>steam_rise</code></div>
+      </div>
+    </article>
+    <article class="card bld" data-id="cozy_barn_small_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="buildings/bld_03_barn.jpg" alt="Nhà kho"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>3. Nhà kho</h3>
+        <div class="meta">cozy_barn_small_A · farm</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card bld" data-id="cozy_workshop_A" data-anim="steam_rise">
+      <div class="stage anim-steam_rise" data-stage><img class="media photo" src="buildings/bld_04_workshop.jpg" alt="Xưởng"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>4. Xưởng</h3>
+        <div class="meta">cozy_workshop_A · craft</div>
+        <div class="meta">ambient: <code>steam_rise</code></div>
+      </div>
+    </article>
+    <article class="card bld" data-id="cozy_market_stall_A" data-anim="cloth_sway">
+      <div class="stage anim-cloth_sway" data-stage><img class="media photo" src="buildings/bld_05_market.jpg" alt="Sạp chợ"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>5. Sạp chợ</h3>
+        <div class="meta">cozy_market_stall_A · social</div>
+        <div class="meta">ambient: <code>cloth_sway</code></div>
+      </div>
+    </article>
+    <article class="card bld" data-id="cozy_windmill_A" data-anim="spin">
+      <div class="stage anim-spin" data-stage><img class="media photo" src="buildings/bld_06_windmill.jpg" alt="Cối xay gió"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>6. Cối xay gió</h3>
+        <div class="meta">cozy_windmill_A · landmark</div>
+        <div class="meta">ambient: <code>spin</code></div>
+      </div>
+    </article>
+    <article class="card bld" data-id="cozy_well_house_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="buildings/bld_07_well.jpg" alt="Nhà giếng"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>7. Nhà giếng</h3>
+        <div class="meta">cozy_well_house_A · utility</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card bld" data-id="cozy_watchtower_A" data-anim="flag_sway">
+      <div class="stage anim-flag_sway" data-stage><img class="media photo" src="buildings/bld_08_watchtower.jpg" alt="Tháp canh"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>8. Tháp canh</h3>
+        <div class="meta">cozy_watchtower_A · landmark</div>
+        <div class="meta">ambient: <code>flag_sway</code></div>
+      </div>
+    </article>
+    <article class="card bld" data-id="cozy_bridge_arch_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="buildings/bld_09_bridge.jpg" alt="Cầu vòm"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>9. Cầu vòm</h3>
+        <div class="meta">cozy_bridge_arch_A · path</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card bld" data-id="cozy_gazebo_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="buildings/bld_10_gazebo.jpg" alt="Chòi nghỉ"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>10. Chòi nghỉ</h3>
+        <div class="meta">cozy_gazebo_A · social</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="props">
+  <h2>30 Vật thể — ambient animation</h2>
+  <div class="grid dense">
+    
+    <article class="card prop" data-id="cozy_tree_landmark_A" data-anim="sway">
+      <div class="stage anim-sway" data-stage><img class="media photo" src="props/prop_tree_landmark.jpg" alt="Cây tròn mốc"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>1. Cây tròn mốc</h3>
+        <div class="meta">cozy_tree_landmark_A · nature</div>
+        <div class="meta">ambient: <code>sway</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_tree_pine_A" data-anim="sway">
+      <div class="stage anim-sway" data-stage><img class="media photo" src="props/prop_tree_pine.jpg" alt="Cây thông"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>2. Cây thông</h3>
+        <div class="meta">cozy_tree_pine_A · nature</div>
+        <div class="meta">ambient: <code>sway</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_tree_cluster_A" data-anim="sway">
+      <div class="stage anim-sway" data-stage><img class="media photo" src="props/prop_tree_cluster.jpg" alt="Cụm cây"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>3. Cụm cây</h3>
+        <div class="meta">cozy_tree_cluster_A · nature</div>
+        <div class="meta">ambient: <code>sway</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_tree_blossom_A" data-anim="sway_small">
+      <div class="stage anim-sway_small" data-stage><img class="media photo" src="props/prop_tree_blossom.jpg" alt="Cây hoa"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>4. Cây hoa</h3>
+        <div class="meta">cozy_tree_blossom_A · nature</div>
+        <div class="meta">ambient: <code>sway_small</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_tree_fruit_A" data-anim="sway">
+      <div class="stage anim-sway" data-stage><img class="media photo" src="props/prop_tree_fruit.jpg" alt="Cây quả"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>5. Cây quả</h3>
+        <div class="meta">cozy_tree_fruit_A · nature</div>
+        <div class="meta">ambient: <code>sway</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_tree_willow_A" data-anim="sway">
+      <div class="stage anim-sway" data-stage><img class="media photo" src="props/prop_tree_willow.jpg" alt="Liễu rũ"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>6. Liễu rũ</h3>
+        <div class="meta">cozy_tree_willow_A · nature</div>
+        <div class="meta">ambient: <code>sway</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_rock_small_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_rock_small.jpg" alt="Đá nhỏ"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>7. Đá nhỏ</h3>
+        <div class="meta">cozy_rock_small_A · nature</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_rock_mossy_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_rock_mossy.jpg" alt="Đá rêu"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>8. Đá rêu</h3>
+        <div class="meta">cozy_rock_mossy_A · nature</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_rock_stacked_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_rock_stacked.jpg" alt="Đá xếp"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>9. Đá xếp</h3>
+        <div class="meta">cozy_rock_stacked_A · nature</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_rock_cluster_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_rock_cluster.jpg" alt="Cụm đá"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>10. Cụm đá</h3>
+        <div class="meta">cozy_rock_cluster_A · nature</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_flower_cluster_A" data-anim="sway_small">
+      <div class="stage anim-sway_small" data-stage><img class="media photo" src="props/prop_flower_cluster.jpg" alt="Cụm hoa"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>11. Cụm hoa</h3>
+        <div class="meta">cozy_flower_cluster_A · nature</div>
+        <div class="meta">ambient: <code>sway_small</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_flower_bed_B" data-anim="sway_small">
+      <div class="stage anim-sway_small" data-stage><img class="media photo" src="props/prop_flower_bed.jpg" alt="Bồn hoa"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>12. Bồn hoa</h3>
+        <div class="meta">cozy_flower_bed_B · nature</div>
+        <div class="meta">ambient: <code>sway_small</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_bush_round_A" data-anim="sway_small">
+      <div class="stage anim-sway_small" data-stage><img class="media photo" src="props/prop_bush_round.jpg" alt="Bụi tròn"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>13. Bụi tròn</h3>
+        <div class="meta">cozy_bush_round_A · nature</div>
+        <div class="meta">ambient: <code>sway_small</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_grass_tuft_A" data-anim="sway_small">
+      <div class="stage anim-sway_small" data-stage><img class="media photo" src="props/prop_grass_tuft.jpg" alt="Cỏ cụm"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>14. Cỏ cụm</h3>
+        <div class="meta">cozy_grass_tuft_A · nature</div>
+        <div class="meta">ambient: <code>sway_small</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_pond_small_A" data-anim="ripple">
+      <div class="stage anim-ripple" data-stage><img class="media photo" src="props/prop_pond.jpg" alt="Ao nhỏ"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>15. Ao nhỏ</h3>
+        <div class="meta">cozy_pond_small_A · water</div>
+        <div class="meta">ambient: <code>ripple</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_farm_plot_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_farm_plot.jpg" alt="Luống canh tác"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>16. Luống canh tác</h3>
+        <div class="meta">cozy_farm_plot_A · farm</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_crop_row_A" data-anim="sway_small">
+      <div class="stage anim-sway_small" data-stage><img class="media photo" src="props/prop_crop_row.jpg" alt="Hàng cây trồng"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>17. Hàng cây trồng</h3>
+        <div class="meta">cozy_crop_row_A · farm</div>
+        <div class="meta">ambient: <code>sway_small</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_fence_section_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_fence.jpg" alt="Hàng rào"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>18. Hàng rào</h3>
+        <div class="meta">cozy_fence_section_A · infra</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_garden_lamp_A" data-anim="pulse">
+      <div class="stage anim-pulse" data-stage><video class="media" src="anim/anim_lamp_pulse.mp4" autoplay muted loop playsinline></video><img class="media photo" src="props/prop_garden_lamp.jpg" alt="Đèn vườn" hidden/><div class="ground"></div></div>
+      <div class="body">
+        <h3>19. Đèn vườn</h3>
+        <div class="meta">cozy_garden_lamp_A · infra</div>
+        <div class="meta">ambient: <code>pulse</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_path_stone_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_path_stone.jpg" alt="Lối đá"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>20. Lối đá</h3>
+        <div class="meta">cozy_path_stone_A · infra</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_bench_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_bench.jpg" alt="Ghế dài"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>21. Ghế dài</h3>
+        <div class="meta">cozy_bench_A · furn</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_crate_small_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_crate.jpg" alt="Thùng gỗ"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>22. Thùng gỗ</h3>
+        <div class="meta">cozy_crate_small_A · furn</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_barrel_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_barrel.jpg" alt="Thùng tròn"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>23. Thùng tròn</h3>
+        <div class="meta">cozy_barrel_A · furn</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_signpost_A" data-anim="sway_small">
+      <div class="stage anim-sway_small" data-stage><img class="media photo" src="props/prop_signpost.jpg" alt="Biển chỉ đường"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>24. Biển chỉ đường</h3>
+        <div class="meta">cozy_signpost_A · infra</div>
+        <div class="meta">ambient: <code>sway_small</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_mailbox_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_mailbox.jpg" alt="Hộp thư"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>25. Hộp thư</h3>
+        <div class="meta">cozy_mailbox_A · infra</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_water_pump_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_water_pump.jpg" alt="Bơm nước"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>26. Bơm nước</h3>
+        <div class="meta">cozy_water_pump_A · utility</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_scarecrow_A" data-anim="sway_small">
+      <div class="stage anim-sway_small" data-stage><img class="media photo" src="props/prop_scarecrow.jpg" alt="Bù nhìn"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>27. Bù nhìn</h3>
+        <div class="meta">cozy_scarecrow_A · farm</div>
+        <div class="meta">ambient: <code>sway_small</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_cart_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_cart.jpg" alt="Xe kéo"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>28. Xe kéo</h3>
+        <div class="meta">cozy_cart_A · utility</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_tool_rack_A" data-anim="idle_static">
+      <div class="stage anim-idle_static" data-stage><img class="media photo" src="props/prop_tool_rack.jpg" alt="Giá dụng cụ"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>29. Giá dụng cụ</h3>
+        <div class="meta">cozy_tool_rack_A · craft</div>
+        <div class="meta">ambient: <code>idle_static</code></div>
+      </div>
+    </article>
+    <article class="card prop" data-id="cozy_birdbath_A" data-anim="ripple">
+      <div class="stage anim-ripple" data-stage><img class="media photo" src="props/prop_birdbath.jpg" alt="Bồn tắm chim"/><div class="ground"></div></div>
+      <div class="body">
+        <h3>30. Bồn tắm chim</h3>
+        <div class="meta">cozy_birdbath_A · decor</div>
+        <div class="meta">ambient: <code>ripple</code></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="manifest">
+  <h2>Manifestation 4 stage (cyan reserved)</h2>
+  <div class="grid">
+    <article class="card"><div class="stage manifest"><div style="width:70%;height:70%;border:2px dashed var(--cyan);border-radius:8px;animation:pulse 2s ease-in-out infinite"></div></div><div class="body"><h3>1. wireframe</h3><div class="meta">edges only · no collision</div></div></article>
+    <article class="card"><div class="stage manifest"><div style="width:70%;height:70%;background:rgba(98,230,255,.25);border:2px solid var(--cyan);border-radius:8px"></div></div><div class="body"><h3>2. hologram</h3><div class="meta">translucent fill · no collision</div></div></article>
+    <article class="card"><div class="stage manifest"><div style="width:70%;height:70%;background:linear-gradient(0deg,var(--cream) 45%,rgba(98,230,255,.35) 45%);border:2px solid var(--cyan);border-radius:8px;animation:manifestIn 3.2s ease-in-out infinite"></div></div><div class="body"><h3>3. materializing</h3><div class="meta">material rises · no collision</div></div></article>
+    <article class="card"><div class="stage"><div style="width:70%;height:70%;background:var(--cream);border:2px solid var(--wood);border-radius:8px;box-shadow:0 0 0 3px #f5c451 inset"></div></div><div class="body"><h3>4. complete</h3><div class="meta">warm palette · collision after commit</div></div></article>
+  </div>
+</section>
+
+<section id="rules">
+  <h2>Quy định bám mockup (tóm tắt)</h2>
+  <table class="reg">
+    <tr><th>Hạng mục</th><th>Bắt buộc theo mockup</th></tr>
+    <tr><td>Character ID</td><td>Đúng Foundry ID trong JSON (vd CCP-RH-001). Không invent ID.</td></tr>
+    <tr><td>Silhouette</td><td>Đọc được 2.5D; rear marker; chibi ~2 head; ≤3 palette families.</td></tr>
+    <tr><td>Animation clips</td><td>Tên clip khớp: idle/walk/scan/happy/cancel (+ Layer B Nori). Không alias thiếu → idle.</td></tr>
+    <tr><td>Motion timing</td><td>Theo art bible: bob 2.4s, bob_small 3.0s, sway 3.5s, pulse 2.0s…</td></tr>
+    <tr><td>Building / prop ID</td><td>module_id ổn định trong JSON; promote P1E catalog.</td></tr>
+    <tr><td>Cyan</td><td>Chỉ manifestation — không tô body/building chính bằng cyan.</td></tr>
+    <tr><td>Delta QA</td><td>Production GLB/concept lệch mockup &gt; ngưỡng style lock → CHANGES_REQUESTED.</td></tr>
+    <tr><td>Authority</td><td>Mockup = design SSOT. Runtime truth vẫn là World Commit + GLB hash sau WO.</td></tr>
+  </table>
+  <p>File khóa đầy đủ: <code>MOCKUP_DESIGN_LOCK.md</code> · Index máy: <code>MOCKUP_SSOT_V2.json</code></p>
+</section>
+
+<footer>
+  <p>MOCKUP_SSOT_V2 · status DESIGN_SSOT_ACTIVE · accepted=false · self_accept=false</p>
+  <p>Video samples: Nori idle, Bụi Mơ idle, Bác Bắp idle, Kito idle, House ambient, Lamp pulse. Các entity còn lại: CSS motion đúng bible + art sheet.</p>
+  <p>Path: orchestration/control/visual_reference/mockup_ssot_v2/</p>
+</footer>
+
+<script>
+(function(){
+  function setAnim(card, name){
+    const stage = card.querySelector('[data-stage]');
+    if(!stage) return;
+    stage.className = stage.className.split(/\s+/).filter(c => !c.startsWith('anim-')).join(' ');
+    stage.classList.add('anim-' + name);
+    card.querySelectorAll('.btns button[data-anim]').forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-anim') === name);
+    });
+  }
+  document.querySelectorAll('.card.char').forEach(card => {
+    card.querySelectorAll('button[data-anim]').forEach(btn => {
+      btn.addEventListener('click', () => setAnim(card, btn.getAttribute('data-anim')));
+    });
+    const tog = card.querySelector('button[data-toggle-vid]');
+    if(tog){
+      tog.addEventListener('click', () => {
+        const v = card.querySelector('video.media');
+        const img = card.querySelector('img.media');
+        if(!v || !img) return;
+        if(v.hidden){ v.hidden=false; img.hidden=true; }
+        else { v.hidden=true; img.hidden=false; }
+      });
+    }
+  });
+  const playAll = document.getElementById('btnPlayAll');
+  const sel = document.getElementById('playAllClip');
+  if(playAll){
+    playAll.addEventListener('click', () => {
+      const name = sel.value;
+      document.querySelectorAll('.card.char').forEach(c => setAnim(c, name));
+    });
+  }
+  function prefer(mode){
+    document.querySelectorAll('.card.char').forEach(card => {
+      const v = card.querySelector('video.media');
+      const img = card.querySelector('img.media');
+      if(!img) return;
+      if(mode==='video' && v){ v.hidden=false; img.hidden=true; }
+      else { if(v) v.hidden=true; img.hidden=false; }
+    });
+  }
+  const bv = document.getElementById('btnShowVideo');
+  const bp = document.getElementById('btnShowPhoto');
+  if(bv) bv.addEventListener('click', () => prefer('video'));
+  if(bp) bp.addEventListener('click', () => prefer('photo'));
+})();
+</script>
+</body>
+</html>

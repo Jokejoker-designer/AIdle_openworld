@@ -1,0 +1,464 @@
+{
+  "schema_version": "1.0.0",
+  "step_id": "P1E-006-provenance-correction-002",
+  "agent_step_id": "P1E-006-provenance-correction-002-2026-07-22",
+  "work_order_id": "WO-P1E-006-CORRECTION-001",
+  "work_order": "orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+  "directive_id": 52,
+  "finding_closed": "P1E006-CODEX-F02",
+  "f02_closed": true,
+  "f02_close_method": "LEDGER_BINDS_TRUTH_NO_HISTORICAL_RECEIPT_REWRITE",
+  "agent_id": "schema",
+  "agent_type": "schema",
+  "authority": "VERIFY_ONLY",
+  "authority_token": "VERIFY_ONLY",
+  "status": "REVIEW_REQUESTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "391fcdc2381296dd857c345c7528d425f94f05140a7877422ee585870c4b3c4e",
+  "wave": "C2",
+  "child_task_ref": "019f863e-62f3-7131-a972-f58ac67978ba",
+  "transcript_ref": "019f863e-62f3-7131-a972-f58ac67978ba",
+  "writer_transcript_ref": "019f863e-62f3-7131-a972-f58ac67978ba",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "prior_wave_child_task_ref": "019f8639-37b9-75b2-bd86-4abc48792555",
+  "prior_chain": {
+    "C0": {
+      "wave": "C0",
+      "receipt": "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+      "child_task_ref": "019f8636-7653-7572-8eaa-fd306bb8c4ae",
+      "verdict": "CORRECTION_COMPLETE_SCHEMA_VALID_NO_ACCEPT",
+      "finding": "P1E006-CODEX-F01"
+    },
+    "C1": {
+      "wave": "C1",
+      "receipt": "orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json",
+      "child_task_ref": "019f8639-37b9-75b2-bd86-4abc48792555",
+      "verdict": "HEADED_TWO_PROFILE_EVIDENCE_PASS_F03_CLOSED_NO_ACCEPT",
+      "finding": "P1E006-CODEX-F03"
+    }
+  },
+  "self_accept": false,
+  "accepted": false,
+  "verdict": "PROVENANCE_LEDGER_COMPLETE_F02_BOUND_NO_ACCEPT",
+  "completion_signal": "REVIEW_REQUESTED",
+  "next_owner": "C3_PURPLE",
+  "next_route": "C3_PURPLE",
+  "handoff_ref": "C3_PURPLE",
+  "trace_ref": "orchestration/logs/p1e-006-provenance-correction-002.log",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/schema.md",
+  "character_binding": {
+    "trustlayer": "devil-advocate",
+    "ui": "ui-brief-writer",
+    "role": "C2 durable provenance ledger VERIFY_ONLY"
+  },
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_provenance_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-provenance-correction-002.log"
+  ],
+  "product_writes": [],
+  "product_diff_zero": true,
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\maf-mandatory-standard\\SKILL.md",
+      "bytes_or_line_count": "bytes=1741 lines=46",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\trustlayer-x16-crew\\SKILL.md",
+      "bytes_or_line_count": "bytes=1938 lines=53",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\agentwork-knowledge-loop\\SKILL.md",
+      "bytes_or_line_count": "bytes=982 lines=36",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\project-room-collab\\SKILL.md",
+      "bytes_or_line_count": "bytes=1681 lines=65",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\curiosity-engine\\SKILL.md",
+      "bytes_or_line_count": "bytes=34306 lines=1123",
+      "load_to_eof": true,
+      "eof_last_line_evidence": "Your goal is to produce a trustworthy, testable result; understand why it is trustworthy; preserve validated learning when authorized; and make the next relevant task better than the last one."
+    },
+    {
+      "skill_id": "od-design-brief",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\od-design-brief\\SKILL.md",
+      "bytes_or_line_count": "bytes=13426 lines=253",
+      "load_to_eof": true
+    },
+    {
+      "skill_id": "od-reference-design-contract",
+      "path": "C:\\Users\\phant\\.grok\\skills\\_agentwork-library\\od-reference-design-contract\\SKILL.md",
+      "bytes_or_line_count": "bytes=5367 lines=132",
+      "load_to_eof": true
+    }
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/schema.md",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json",
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8625-8258-7683-9773-4b42dfa3aac2/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8629-521f-7501-ace3-1b5f29121a05/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f862c-15ac-7b52-940f-9907be1d685b/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8636-7653-7572-8eaa-fd306bb8c4ae/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8639-37b9-75b2-bd86-4abc48792555/meta.json",
+    "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f863e-62f3-7131-a972-f58ac67978ba/meta.json",
+    "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/od-design-brief/SKILL.md",
+    "C:/Users/phant/.grok/skills/_agentwork-library/od-reference-design-contract/SKILL.md"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_provenance_correction_002.json",
+    "E:/AIdle_openworld/orchestration/logs/p1e-006-provenance-correction-002.log"
+  ],
+  "commands": [
+    "Get-FileHash -Algorithm SHA256 -LiteralPath <w2|w3|w4|c0|c1 meta.json + original W1 + C0/C1 receipts>",
+    "python -c jsonschema.validate(C0); jsonschema.validate(C1); jsonschema.validate(W1)"
+  ],
+  "exit_codes": [0, 0],
+  "smoke_test": {
+    "command": "python -c \"import json,jsonschema; from pathlib import Path; schema=json.loads(Path(r'E:/standards/maf/schemas/agent_step_contract.schema.json').read_text(encoding='utf-8')); [jsonschema.validate(json.loads(Path(p).read_text(encoding='utf-8')), schema) for p in [r'E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json', r'E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json']]\"",
+    "exit_code": 0,
+    "pass": true,
+    "gate_line": "AIDLE_P1E006_PROVENANCE_C2=PASS c0_schema=PASS c1_schema=PASS w2_w3_w4_meta_sha_match_codex_review=true f02_ledger_bound=true",
+    "method": "jsonschema draft 2020-12 validate against agent_step_contract.schema.json required fields",
+    "w1_control": {
+      "path": "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+      "result": "FAIL",
+      "missing_required": [
+        "agent_step_id",
+        "agent_type",
+        "authority_token",
+        "smoke_test",
+        "self_audit",
+        "next_route"
+      ]
+    }
+  },
+  "self_audit": {
+    "schema_required_fields_present": true,
+    "required_fields_checked": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "product_outside_lease": false,
+    "game_product_patches": false,
+    "historical_receipts_rewritten": false,
+    "fabricated_refs": false,
+    "meta_times_invented": false,
+    "self_accept": false,
+    "accepted": false,
+    "verdict_non_null": true,
+    "child_task_ref_real": true,
+    "f02_closed_via_ledger_not_rewrite": true,
+    "codex_review_meta_sha_recomputed_match": true
+  },
+  "ledger": {
+    "authority": "live_meta_json_re_read_preferred_over_review_copy",
+    "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "sibling_session_meta_checked": true,
+    "sibling_session_meta_present": false,
+    "w2": {
+      "role": "W2_RED",
+      "child_task_ref": "019f8625-8258-7683-9773-4b42dfa3aac2",
+      "description": "P1E-006 W2 Red audit",
+      "status": "completed",
+      "started_at": "2026-07-21T19:27:13.001115100Z",
+      "completed_at": "2026-07-21T19:31:15.110509500Z",
+      "duration_ms": 242119,
+      "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8625-8258-7683-9773-4b42dfa3aac2/meta.json",
+      "meta_sha256": "5B4FEFAEF51BE64B50E40AEC83EB02FE7063F5B00305B7C34693A3EFA9898F5D",
+      "meta_sha256_matches_codex_review": true,
+      "transcript_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8625-8258-7683-9773-4b42dfa3aac2/output.json",
+      "session_dir": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8625-8258-7683-9773-4b42dfa3aac2",
+      "historical_receipt": "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+      "historical_receipt_sha256": "C8FC80F6CE5E1AF8532BD9C9046EA96D802CF471F303A0F957F003FA71064462"
+    },
+    "w3": {
+      "role": "W3_QA",
+      "child_task_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+      "description": "P1E-006 W3 QA evidence",
+      "status": "completed",
+      "started_at": "2026-07-21T19:31:22.787742800Z",
+      "completed_at": "2026-07-21T19:34:15.800124100Z",
+      "duration_ms": 173014,
+      "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8629-521f-7501-ace3-1b5f29121a05/meta.json",
+      "meta_sha256": "56866FEAF55781A7FB2E3EDC7EE3CAA381B79EBCD9CC58E9138CC2F09CA06C70",
+      "meta_sha256_matches_codex_review": true,
+      "transcript_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8629-521f-7501-ace3-1b5f29121a05/output.json",
+      "session_dir": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8629-521f-7501-ace3-1b5f29121a05",
+      "historical_receipt": "orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+      "historical_receipt_sha256": "81AD5E0EBB3EB681A18C32C758C28F2BC28DE66FE9A4012BE2A211649EDE9914"
+    },
+    "w4": {
+      "role": "W4_PURPLE",
+      "child_task_ref": "019f862c-15ac-7b52-940f-9907be1d685b",
+      "description": "P1E-006 W4 Purple gate",
+      "status": "completed",
+      "started_at": "2026-07-21T19:34:23.919576Z",
+      "completed_at": "2026-07-21T19:37:20.810403200Z",
+      "duration_ms": 176891,
+      "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f862c-15ac-7b52-940f-9907be1d685b/meta.json",
+      "meta_sha256": "CF4C579342F7F8000AFEAD1DF1D049ABB60F1B35132E691E1FBAFF2556D9DB0C",
+      "meta_sha256_matches_codex_review": true,
+      "transcript_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f862c-15ac-7b52-940f-9907be1d685b/output.json",
+      "session_dir": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f862c-15ac-7b52-940f-9907be1d685b",
+      "historical_receipt": "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+      "historical_receipt_sha256": "2A4824474FD25DBC48D19740BF622FCB6002B7BCDCFF4669B2957EE6D841030A"
+    },
+    "c0": {
+      "role": "C0_ASSET_CORRECTION",
+      "child_task_ref": "019f8636-7653-7572-8eaa-fd306bb8c4ae",
+      "description": "C0 asset W1 correction",
+      "status": "completed",
+      "started_at": "2026-07-21T19:45:44.023020200Z",
+      "completed_at": "2026-07-21T19:47:55.350969200Z",
+      "duration_ms": 131328,
+      "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8636-7653-7572-8eaa-fd306bb8c4ae/meta.json",
+      "meta_sha256": "13C22E7C1EBF89F577E912B8B1FE70EEFBD60573F12179862C149682A0EE3998",
+      "transcript_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8636-7653-7572-8eaa-fd306bb8c4ae/output.json",
+      "session_dir": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8636-7653-7572-8eaa-fd306bb8c4ae",
+      "correction_receipt": "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+      "correction_receipt_sha256": "39B28DED7246A8D0144BF322075977E40761DBEF1A4CE413F1D755456F6115CF"
+    },
+    "c1": {
+      "role": "C1_HEADED_QA",
+      "child_task_ref": "019f8639-37b9-75b2-bd86-4abc48792555",
+      "description": "C1 headed two-profile QA",
+      "status": "completed",
+      "started_at": "2026-07-21T19:48:44.603880100Z",
+      "completed_at": "2026-07-21T19:53:58.845113200Z",
+      "duration_ms": 314241,
+      "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8639-37b9-75b2-bd86-4abc48792555/meta.json",
+      "meta_sha256": "227CD231706AC5B88FE00B99FA9155F8528EA8BA662B713C3199CB45C5F733DE",
+      "transcript_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8639-37b9-75b2-bd86-4abc48792555/output.json",
+      "session_dir": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8639-37b9-75b2-bd86-4abc48792555",
+      "correction_receipt": "orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json",
+      "correction_receipt_sha256": "DD04617B2147A096223730317DC1EA9308D9F1984BD698B038292935D6F35ADD"
+    },
+    "c2_self": {
+      "role": "C2_PROVENANCE",
+      "child_task_ref": "019f863e-62f3-7131-a972-f58ac67978ba",
+      "description": "C2 provenance timing ledger",
+      "status_at_read": "running",
+      "started_at": "2026-07-21T19:54:23.349822300Z",
+      "completed_at": null,
+      "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f863e-62f3-7131-a972-f58ac67978ba/meta.json",
+      "meta_sha256_at_read": "E3D72402D4B9CAA63594FDCF49E744E0B513F05E63A04FED798043B5C0DC1421",
+      "note": "completed_at not yet written while this child is running; durable completed_at will be on meta after exit"
+    }
+  },
+  "receipt_vs_meta_delta": [
+    {
+      "wave": "W2",
+      "child_task_ref": "019f8625-8258-7683-9773-4b42dfa3aac2",
+      "receipt_path": "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+      "receipt_start_time": "2026-07-22T02:27:13+07:00",
+      "receipt_end_time": "2026-07-22T02:35:00+07:00",
+      "meta_started_at": "2026-07-21T19:27:13.001115100Z",
+      "meta_completed_at": "2026-07-21T19:31:15.110509500Z",
+      "receipt_end_as_utc": "2026-07-21T19:35:00Z",
+      "end_delta_sec_receipt_minus_meta": 224.8894905,
+      "start_delta_sec_receipt_minus_meta": -0.0011151,
+      "match": false,
+      "verdict": "MISMATCH",
+      "note": "Receipt end_time is wall-clock rounded/estimated (+~225s vs durable meta completed_at). start_time nearly matches meta started_at. Truth = meta."
+    },
+    {
+      "wave": "W3",
+      "child_task_ref": "019f8629-521f-7501-ace3-1b5f29121a05",
+      "receipt_path": "orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+      "receipt_start_time": "2026-07-22T02:31:22+07:00",
+      "receipt_end_time": "2026-07-22T02:33:00+07:00",
+      "meta_started_at": "2026-07-21T19:31:22.787742800Z",
+      "meta_completed_at": "2026-07-21T19:34:15.800124100Z",
+      "receipt_end_as_utc": "2026-07-21T19:33:00Z",
+      "end_delta_sec_receipt_minus_meta": -75.8001241,
+      "start_delta_sec_receipt_minus_meta": -0.7877428,
+      "match": false,
+      "verdict": "MISMATCH",
+      "note": "Receipt end_time is earlier than durable meta completed_at by ~76s (not merely timezone). Truth = meta."
+    },
+    {
+      "wave": "W4",
+      "child_task_ref": "019f862c-15ac-7b52-940f-9907be1d685b",
+      "receipt_path": "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+      "receipt_start_time": "2026-07-22T02:34:24+07:00",
+      "receipt_end_time": "2026-07-22T02:38:30+07:00",
+      "meta_started_at": "2026-07-21T19:34:23.919576Z",
+      "meta_completed_at": "2026-07-21T19:37:20.810403200Z",
+      "receipt_end_as_utc": "2026-07-21T19:38:30Z",
+      "end_delta_sec_receipt_minus_meta": 69.1895968,
+      "start_delta_sec_receipt_minus_meta": 0.080424,
+      "match": false,
+      "verdict": "MISMATCH",
+      "note": "Receipt end_time later than durable meta completed_at by ~69s. Truth = meta. Historical receipt NOT rewritten."
+    }
+  ],
+  "c0_c1_schema_validation": {
+    "schema_path": "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "method": "python jsonschema.validate (draft 2020-12)",
+    "c0": {
+      "path": "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+      "sha256": "39B28DED7246A8D0144BF322075977E40761DBEF1A4CE413F1D755456F6115CF",
+      "result": "PASS",
+      "required_present": [
+        "agent_step_id",
+        "agent_type",
+        "authority_token",
+        "result",
+        "smoke_test",
+        "self_audit",
+        "next_route"
+      ]
+    },
+    "c1": {
+      "path": "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json",
+      "sha256": "DD04617B2147A096223730317DC1EA9308D9F1984BD698B038292935D6F35ADD",
+      "result": "PASS",
+      "required_present": [
+        "agent_step_id",
+        "agent_type",
+        "authority_token",
+        "result",
+        "smoke_test",
+        "self_audit",
+        "next_route"
+      ]
+    },
+    "c2_self_after_write": {
+      "path": "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_provenance_correction_002.json",
+      "result": "PASS",
+      "method": "python jsonschema.validate",
+      "note": "jsonschema PASS after write; file SHA-256 recorded in log (not self-embedded to avoid circular hash)"
+    }
+  },
+  "original_w1_schema_errors": [
+    "agent_step_id",
+    "agent_type",
+    "authority_token",
+    "smoke_test",
+    "self_audit",
+    "next_route"
+  ],
+  "original_w1_schema_errors_verbatim_f01": "P1E006-CODEX-F01: P1E_006_w1_blue_001.json fails agent_step_contract.schema.json with six missing required properties: agent_step_id, agent_type, authority_token, smoke_test, self_audit and next_route.",
+  "original_w1": {
+    "path": "E:/AIdle_openworld/orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "sha256": "B7C88618E5B395D16F3CF6EA3DF10C7E4FE9C202BB2D09EC5920122C9930BF3A",
+    "child_task_ref": null,
+    "child_task_ref_disclosure": "PARENT_INLINE_NO_CHILD_REF",
+    "rewritten": false,
+    "jsonschema_result": "FAIL",
+    "missing_required": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ]
+  },
+  "codex_review_crosscheck": {
+    "review_path": "orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "durable_child_meta_sha_match": {
+      "w2": true,
+      "w3": true,
+      "w4": true
+    },
+    "durable_child_meta_times_match": {
+      "w2": true,
+      "w3": true,
+      "w4": true
+    },
+    "mismatch_vs_review": null
+  },
+  "result": {
+    "mode": "durable_provenance_ledger_f02",
+    "f02_closed": true,
+    "f02_id": "P1E006-CODEX-F02",
+    "f02_note": "Historical W2/W3/W4 receipt end_time fields do not equal durable Grok child meta.json completed_at. This ledger binds exact meta started_at/completed_at and meta.json SHA-256 without rewriting historical receipts. Truth source for timing = meta.json.",
+    "all_end_time_mismatches_documented": true,
+    "historical_receipts_preserved": true,
+    "c0_schema": "PASS",
+    "c1_schema": "PASS",
+    "w1_schema_still_fail_as_expected": true,
+    "meta_sha_vs_codex_review": "EXACT_MATCH_W2_W3_W4",
+    "next": "C3_PURPLE fresh Purple recommendation; original W4 VERIFIED is not acceptance evidence"
+  },
+  "evidence_refs": [
+    "orchestration/logs/p1e-006-provenance-correction-002.log",
+    "orchestration/receipts/p1e/P1E_006_provenance_correction_002.json",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+    "orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json",
+    "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "inputs": [
+    "orchestration/work_orders/WO-P1E-006-CORRECTION-001.md",
+    "orchestration/reviews/CODEX_P1E-006_REVIEW_001.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_correction_002.json",
+    "orchestration/receipts/p1e/P1E_006_w3_headed_correction_002.json"
+  ],
+  "outputs": [
+    "orchestration/receipts/p1e/P1E_006_provenance_correction_002.json",
+    "orchestration/logs/p1e-006-provenance-correction-002.log"
+  ],
+  "not_touched": [
+    "game/**",
+    "world_meta.cfg",
+    "orchestration/control/codex_directive.json",
+    "orchestration/control/grok_status.json",
+    "orchestration/receipts/p1e/P1E_006_w1_blue_001.json",
+    "orchestration/receipts/p1e/P1E_006_w2_red_001.json",
+    "orchestration/receipts/p1e/P1E_006_w3_qa_001.json",
+    "orchestration/receipts/p1e/P1E_006_w4_purple_001.json",
+    "orchestration/evidence/p1e_006/**"
+  ],
+  "hard_stops_honored": [
+    "no_product_patches",
+    "no_historical_receipt_rewrite",
+    "no_grok_status",
+    "no_codex_directive",
+    "no_P2E_P6E",
+    "no_art_waves_2_4",
+    "no_control",
+    "no_character_foundry",
+    "no_network_install_push_deploy_publish",
+    "no_grandchildren",
+    "no_self_accept",
+    "no_fabricated_times"
+  ]
+}

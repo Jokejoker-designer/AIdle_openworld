@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "asset_id": "ucbv_001_nori7_attachment_sockets_v1",
+  "skeleton_id": "skel_small_biped_robot_v1",
+  "author_wave": "U4_CHARACTER_MESH_RIG",
+  "authority_token": "PATCH_DRAFT",
+  "accepted": false,
+  "self_accept": false,
+  "character_id": "CCP-RH-001",
+  "recipe_id": "recipe_nori7_v1",
+  "root_module_id": "char_nori7_base",
+  "socket_semantics": "character_attachment",
+  "note": "Character skeleton attachment sockets — NEVER mix with world-grid / block pair sockets from Block-DNA.",
+  "sockets": [
+	{
+	  "socket_id": "character_back",
+	  "parent_bone": "chest",
+	  "local_position_m": [0.0, 0.02, -0.22],
+	  "local_rotation_euler_deg": [0.0, 180.0, 0.0],
+	  "local_scale": [1.0, 1.0, 1.0],
+	  "godot_node": "BoneAttachment3D",
+	  "recipe_binding": {
+		"from_instance": "root",
+		"from_socket": "character_back",
+		"to_instance": "tank",
+		"to_module_id": "attach_water_tank_small",
+		"to_socket": "back_attachment"
+	  },
+	  "readability": "rear and three-quarter mandatory tank bulk"
+	},
+	{
+	  "socket_id": "character_hand",
+	  "parent_bone": "hand_R",
+	  "local_position_m": [0.0, -0.02, 0.06],
+	  "local_rotation_euler_deg": [15.0, 0.0, 0.0],
+	  "local_scale": [1.0, 1.0, 1.0],
+	  "godot_node": "BoneAttachment3D",
+	  "recipe_binding": {
+		"from_instance": "root",
+		"from_socket": "character_hand",
+		"to_instance": "nozzle",
+		"to_module_id": "attach_watering_nozzle_A",
+		"to_socket": "tool_grip"
+	  },
+	  "states": {
+		"stowed": {
+		  "local_position_m": [0.02, 0.0, -0.04],
+		  "local_rotation_euler_deg": [75.0, 0.0, 0.0],
+		  "note": "flush along forearm"
+		},
+		"extended": {
+		  "local_position_m": [0.0, -0.04, 0.1],
+		  "local_rotation_euler_deg": [35.0, 0.0, 0.0],
+		  "note": "forward-down for water or build point"
+		}
+	  }
+	},
+	{
+	  "socket_id": "character_head",
+	  "parent_bone": "sprout_ctrl",
+	  "local_position_m": [0.0, 0.0, 0.0],
+	  "local_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "local_scale": [1.0, 1.0, 1.0],
+	  "godot_node": "BoneAttachment3D",
+	  "recipe_binding": {
+		"from_instance": "root",
+		"from_socket": "character_head",
+		"to_instance": "sprout",
+		"to_module_id": "attach_mechanical_sprout_A",
+		"to_socket": "head_attachment"
+	  },
+	  "readability": "rear_view_mandatory; LOD2 keep tip"
+	},
+	{
+	  "socket_id": "vfx_anchor",
+	  "parent_bone": "chest",
+	  "local_position_m": [0.0, 0.05, 0.18],
+	  "local_rotation_euler_deg": [0.0, 0.0, 0.0],
+	  "local_scale": [1.0, 1.0, 1.0],
+	  "godot_node": "BoneAttachment3D",
+	  "recipe_binding": null,
+	  "usage": [
+		"selection_outline_center",
+		"warm_blink_optional",
+		"preview_spark_origin",
+		"not_game_authority_emitter"
+	  ]
+	}
+  ],
+  "module_attach_order": [
+	"char_nori7_base",
+	"attach_water_tank_small",
+	"attach_watering_nozzle_A",
+	"attach_mechanical_sprout_A"
+  ],
+  "forbidden": [
+	"invented_attachment_modules",
+	"block_snap_grid_on_character_socket",
+	"animation_event_world_commit",
+	"bac_bap_or_other_foundry_ids"
+  ],
+  "provenance": {
+	"asset_id": "ucbv_001_nori7_attachment_sockets_v1",
+	"character_id": "CCP-RH-001",
+	"recipe_id": "recipe_nori7_v1",
+	"style_lock_id": "ucbv_001_style_lock_v1",
+	"author_wave": "U4_CHARACTER_MESH_RIG",
+	"source_recipe": "world_DNA/.../examples/01_nori7_character_recipe.json",
+	"source_modular": "orchestration/design/ucbv_001/character/nori7/modular_body_outfit_definition.json"
+  }
+}

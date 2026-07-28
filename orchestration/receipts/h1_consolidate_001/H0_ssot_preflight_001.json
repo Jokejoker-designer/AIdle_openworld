@@ -1,0 +1,596 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "H1-CONSOLIDATE-001-h0-ssot-preflight-001-2026-07-22",
+  "step_id": "H1-CONSOLIDATE-001-h0-ssot-preflight-001",
+  "work_order_id": "WO-H1-CONSOLIDATE-001-VERTICAL-SLICE",
+  "work_order": "orchestration/work_orders/WO-H1-CONSOLIDATE-001-VERTICAL-SLICE.md",
+  "work_order_sha256": "3c1452b275d09d2b37fe707e2327c8b80b76bc4a812ad3586e199eff1832ec82",
+  "directive_id": 74,
+  "directive_path": "orchestration/control/codex_directive.json",
+  "directive_sha256": "7436b2175a423903bc5c4364bcd38c7f03f479d404f65670574fc3e782b145c7",
+  "directive_state": "READY",
+  "directive_verdict": "P2E_001_ACCEPTED_H1_CONSOLIDATION_OPEN",
+  "supersedes_directive_id": 73,
+  "permitted_task_ids": ["H1-CONSOLIDATE-001"],
+  "accepted_task_ids_from_directive": ["P2E-001"],
+  "milestone": "H1 vertical-slice consolidation — H0 SSOT/sequence preflight",
+  "agent_id": "aidle-worldgen-ssot-sequence",
+  "agent_type": "aidle-worldgen-ssot-sequence",
+  "profile_name": "aidle-worldgen-ssot-sequence",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-ssot-sequence.md",
+  "profile_sha256": "c2c532343f2b67ebdd72318be460ee0bbaf2e6dec93478b4ca9f42fb1f74381f",
+  "profile_binding_evidence": "FULL read EOF: name=aidle-worldgen-ssot-sequence; trustlayer_character=devil-advocate; ui_character=ui-ux-researcher; authority_token=VERIFY_ONLY; required_skills maf-mandatory-standard,trustlayer-x16-crew,agentwork-knowledge-loop,project-room-collab,curiosity-engine,architecture-lock,evidence-memory-ledger; parent_spawn_only=true; no_grandchildren=true; self_accept=false; writer_set evidence_and_preflight_only; no product patches; no self-accept of worlds.",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "preflight evidence log+receipt only; product_writes=[]; never ACCEPTED; no grandchildren; no game product/Scene/Character Foundry runtime/DNA v1.2/Tier3/network patches",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:09a781fb59da181ef188b29390c67d610ac51609f8db58ececbafa91536ce372",
+  "input_context_hash_16": "09a781fb59da181e",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-H1-CONSOLIDATE-001-VERTICAL-SLICE.md + codex_directive.json + aidle-worldgen-ssot-sequence.md + ARCHITECTURE_LOCK.md + CODEX_P2E-001_FINAL_ACCEPTANCE_004.json + agent_step_contract.schema.json",
+  "status": "REVIEW_REQUESTED",
+  "completion_signal": "H0_COMPLETE_ROUTE_H1_RUNTIME",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "H0_H1_CONSOLIDATE_SSOT_PREFLIGHT_PASS_NO_ACCEPT",
+  "preflight_verdict": "PASS",
+  "child_task_ref": "019f88d4-0d38-7162-8bbd-de4b3e86aaa9",
+  "transcript_ref": "019f88d4-0d38-7162-8bbd-de4b3e86aaa9",
+  "writer_transcript_ref": "019f88d4-0d38-7162-8bbd-de4b3e86aaa9",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f88d4-0d38-7162-8bbd-de4b3e86aaa9/meta.json",
+  "durable_meta_sha256_at_start": "837e977baa806acdc03a19156ae83f7134d825e1370bde406b5cfcce192fb69b",
+  "started_at": "2026-07-22T07:57:06.234863100Z",
+  "completed_at_utc": "2026-07-22T08:02:30Z",
+  "next_owner": "H1_RUNTIME",
+  "next_route": "H1_RUNTIME",
+  "character_binding": {
+    "trustlayer_character_id": "devil-advocate",
+    "trustlayer_file": "E:/agents/characters/14-devil-advocate.md",
+    "trustlayer_sha256": "21b9193731c92a623e5b5837f364d61f24cea1a7cb2189c20cb84e77f89ba125",
+    "trustlayer_read": "full_eof",
+    "ui_character_id": "ui-ux-researcher",
+    "ui_file": "E:/agents/ui-design/characters/03-ui-ux-researcher.md",
+    "ui_sha256": "0f5f18bc6772f567a1d8283323988cf125bb7ddb63c45985917287707e2cc5c1",
+    "ui_read": "full_eof",
+    "role": "H0 VERIFY_ONLY SSOT/sequence preflight for H1-CONSOLIDATE-001 five-minute Companion-led vertical slice; no product writes"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, profile, TrustLayer/UI cards, WO, Directive 74, ARCHITECTURE_LOCK, DESIGN.md, design-contract, skills, and dependency acceptance reviews manually with transcript-backed full-EOF ranges.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "bytes": 1741,
+      "line_count": 46,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; EOF hard-stops section"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "bytes": 1938,
+      "line_count": 53,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; ends at agent_step_contract schema path"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "bytes": 982,
+      "line_count": 36,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; ends at Full protocol E:\\shared\\LOOP.md"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "bytes": 1681,
+      "line_count": 65,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; ends at rooms/docs paths"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "E:/shared/skills/library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "bytes": 34306,
+      "line_count": 1123,
+      "read_mode": "chunked_three_invocations",
+      "transcript_ranges": [
+        {"offset": 1, "limit": 400, "note": "read_file invocation 1 intended L1-400; tool returned full-file content through L1123 with continuous line numbers"},
+        {"offset": 401, "limit": 400, "note": "read_file invocation 2 intended L401-800; tool again returned full-file content; middle sections verified (Task Execution Cycle through Skill Lifecycle)"},
+        {"offset": 801, "limit": 400, "note": "read_file invocation 3 intended L801-EOF; full content through L1123 Prime Directive verified"}
+      ],
+      "eof_marker": "Prime Directive final paragraph line 1123",
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "honesty_note": "Three distinct durable read_file calls were issued with offset/limit as required. The read_file tool returned the complete 1123-line file body on each call rather than a strict window; EOF was confirmed on all three via the terminal Prime Directive paragraph."
+    },
+    {
+      "skill_id": "architecture-lock",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/architecture-lock/SKILL.md",
+      "sha256": "baa2b65b06154556f55e8577a70b6b2a1f0c96cf8e73571ae9fa30219e42bf33",
+      "bytes": 828,
+      "line_count": 26,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit"}],
+      "eof_reached": true,
+      "loaded_full_eof": true,
+      "also_read_project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027"
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ROUTED",
+      "source": "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "bytes": 8484,
+      "line_count": 292,
+      "read_mode": "full_no_limit",
+      "transcript_ranges": [{"offset": 1, "limit": null, "note": "full file single read_file without truncating limit; ends at Evidence memory: NO_DURABLE_RECORD template"}],
+      "eof_reached": true,
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/logs/h1-consolidate-h0-ssot-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json"
+  ],
+  "product_writes": [],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/logs/h1-consolidate-h0-ssot-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json"
+  ],
+  "forbidden_paths_not_written": [
+    "game/**",
+    "world_DNA/**",
+    "Scene/**",
+    "Control/**",
+    "game_character/**",
+    "PersistModule/**",
+    "contracts/world_prompt.schema.json",
+    "orchestration/contracts/block_dna_adapt_001/**",
+    "orchestration/evidence/p2e_001/**",
+    "orchestration/receipts/p2e_001/**"
+  ],
+  "result": {
+    "verdict": "H0_H1_CONSOLIDATE_SSOT_PREFLIGHT_PASS_NO_ACCEPT",
+    "preflight_pass": true,
+    "summary": "Directive 74 sequential H0 preflight PASS. Accepted deps CTRL-1B-001/002, P1E-006, CHAR-1C-001 (schema only), BLOCK-DNA-ADAPT-001 (offline contract only), P2E-001 (offline Block Assembly slice only) confirmed via Codex acceptance reviews and tasks.json completed_wave. Five-minute Companion-led flow mapped end-to-end. H1 exact product/test lease copied from WO and path-presence checked. Godot 4.3 pin confirmed. Parent idle except this sole running H0. h1_consolidate_001 evidence and H1–H4 leases free. DNA v1.2/Tier3/Scene/Character runtime/network not authorized. E2 P2E receipt remains REJECTED_AS_RECEIPT under CODEX_EXTERNAL_TRANSCRIPT_BINDING — not rehabilitated. product_writes=[]; accepted=false; self_accept=false; next_owner=H1_RUNTIME.",
+    "accepted_dependencies": {
+      "CTRL-1B-001": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_CTRL-1B-001_FINAL_ACCEPTANCE_002.json",
+        "review_sha256": "1eb67d402b4decc4fe086c62b1c4511fec67b12404785c8e08f93e1da535b2e2",
+        "accepted": true,
+        "scope": "Control 1B contract and executable fixture gate only; no Godot product implementation accepted in that review"
+      },
+      "CTRL-1B-002": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_CTRL-1B-002_FINAL_ACCEPTANCE_006.json",
+        "review_sha256": "061048e2c5c9062e235625fb270ba9b0c6401de675dcbadf5c2a1bc8143f342f",
+        "accepted": true,
+        "scope": "Local Godot 4.3-stable Control Foundation and Cozy V/B slice, including context-isolated physical R behavior (Exploration camera vs Build preview)"
+      },
+      "P1E-006": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_P1E-006_FINAL_ACCEPTANCE_005.json",
+        "review_sha256": "2652e49d3a02243154b1c55ee180e26fb6d19657652a4b491c081a473ee6e2ea",
+        "accepted": true,
+        "scope": "World 1 kit per-world-profile palette variants plus product-owned headless-safe Starter Realm lifecycle"
+      },
+      "CHAR-1C-001": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_CHAR-1C-001_EXTERNAL_TRANSCRIPT_ACCEPTANCE_004.json",
+        "review_sha256": "181f21c1487696b70e7335bb7a5784a6abe25ee82a2b7ee5082071ab088748e5",
+        "accepted": true,
+        "acceptance_scope": "Character Foundry 1C machine schema and 28-record provenance intake only",
+        "not_accepted": [
+          "character mesh or rig production",
+          "animation or behavior runtime",
+          "Godot or Blender Character Foundry implementation",
+          "Scene expansion",
+          "network, shipping, economy, ownership or World Commit expansion"
+        ]
+      },
+      "BLOCK-DNA-ADAPT-001": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_BLOCK-DNA-ADAPT-001_FINAL_ACCEPTANCE_002.json",
+        "review_sha256": "009cda5a1d71eeb1ca924791cfacac3dbeb69b1cc92affd00b19dfc991bd02d3",
+        "accepted": true,
+        "accepted_scope": "Project-local offline Block-DNA Build Recipe, Build Graph, socket, material and Structured World Prompt proposal-adapter contract gate only",
+        "not_accepted": [
+          "world_DNA package canonicalization or rewrite",
+          "Tier 3 persistence integration",
+          "public network, live provider, shipping or deployment"
+        ]
+      },
+      "P2E-001": {
+        "status": "ACCEPTED",
+        "review": "orchestration/reviews/CODEX_P2E-001_FINAL_ACCEPTANCE_004.json",
+        "review_sha256": "9f713dd71a7eebbf2dc986adb45ba5b75eafbda4c18805138369d6e0a77e9e43",
+        "accepted": true,
+        "accepted_scope": "First playable offline Block Assembly preview slice only",
+        "directive_at_acceptance": 73,
+        "not_accepted": [
+          "network or shipping",
+          "Red F01",
+          "DNA v1.2 or Tier 3 runtime",
+          "Scene expansion",
+          "Character mesh rig animation or behavior runtime",
+          "voice or live provider",
+          "multiplayer release",
+          "final visual polish",
+          "Human five-minute first-session gate"
+        ],
+        "non_blocking_residuals_for_consolidation": [
+          "QA labels/debug witness overlays must not appear in normal human gameplay",
+          "Normal runtime HUD and Companion presentation need product-level visual consolidation",
+          "Human five-minute first-session gate has not yet run"
+        ]
+      }
+    },
+    "p2e_e2_historical_rejection": {
+      "policy": "CODEX_EXTERNAL_TRANSCRIPT_BINDING",
+      "receipt": "orchestration/receipts/p2e_001/correction_003/E2_purple_gate_004.json",
+      "receipt_validation": "REJECTED_AS_RECEIPT: missing required smoke_test",
+      "immutable": true,
+      "rehabilitated": false,
+      "decision": "E2 receipt excluded; immutable parent-owned meta/output and independent Codex reruns bind the verification result; false receipts remain rejected and are never rewritten",
+      "E2_meta_sha256": "e2ec72a11f4b1eb5c0f247168293ef8b0e28bfa287b366e1ec9015a5406129c4",
+      "child_lineage_E2": "019f88cb-57e3-7582-90f5-4a10076d22b1",
+      "note": "Historical rejected only — do not rehabilitate under H1-CONSOLIDATE-001"
+    },
+    "five_minute_companion_led_flow": {
+      "objective": "One cohesive fixed-angle 2.5D Private Reality first-session flow; consolidation not subsystem expansion",
+      "conversation_primary": true,
+      "block_assembly_role": "bounded preview/manipulation surface only",
+      "steps": [
+        {"id": "launch", "description": "Boot Godot 4.3 fixed-angle 2.5D Private Reality session; normal gameplay without QA/diagnostic wall"},
+        {"id": "move", "description": "Player locomotion in Exploration; Q/R camera rotation preserved"},
+        {"id": "companion_request", "description": "Talk to visible text Companion; request a small build"},
+        {"id": "structured_proposal", "description": "Produce/validate structured proposal (World Prompt / Build Graph intake)"},
+        {"id": "preview", "description": "Show preview; preview and committed remain unmistakably different"},
+        {"id": "build_r", "description": "Build context R rotates preview only; camera yaw unchanged"},
+        {"id": "confirm", "description": "Explicit confirm; readable without relying on color alone"},
+        {"id": "manifestation", "description": "Ordered stages: wireframe → hologram → materializing → complete"},
+        {"id": "commit", "description": "World Commit service sole local canonical mutator; client_world_commit=false"},
+        {"id": "save_reload", "description": "Save and reload preserve stable object identity"},
+        {"id": "undo", "description": "Compensation undo"},
+        {"id": "cancel", "description": "Explicit cancel path; Esc single-dispatch preserved"}
+      ],
+      "responsive_targets": ["1280x720", "868x517"],
+      "visual_identity": "Warm Dreamy Low-Poly / Cozy Cyber-Pixel; manifestation cyan construction light; no diagnostic-first presentation",
+      "post_machine_gate": "WAITING_HUMAN five-minute first-session checklist after Codex validates H0-H4"
+    },
+    "h1_product_lease_exact": {
+      "sole_product_writer": "H1",
+      "profile": "aidle-worldgen-godot-runtime",
+      "authority_token": "PATCH_DRAFT",
+      "writer_set": "h1_consolidation_sole_product_writer",
+      "product_and_test_paths": [
+        "game/scripts/main/main.gd",
+        "game/scripts/modules/companion/companion_chat_panel.gd",
+        "game/scripts/modules/g3_ui/starter_realm_panel.gd",
+        "game/scripts/modules/manifestation/manifestation_instance.gd",
+        "game/scripts/modules/manifestation/manifestation_stages.gd",
+        "game/scripts/modules/block_assembly/**",
+        "game/scripts/ui/hud.gd",
+        "game/scripts/ui/context_action_hud.gd",
+        "game/scripts/ui/cozy_homestead_panel.gd",
+        "game/scripts/ui/playable_action_bar.gd",
+        "game/scenes/ui/hud.tscn",
+        "game/scenes/ui/context_action_hud.tscn",
+        "game/scenes/ui/cozy_homestead_panel.tscn",
+        "game/scenes/ui/playable_action_bar.tscn",
+        "game/tests/h1_consolidation_*.gd"
+      ],
+      "path_presence_at_h0": {
+        "all_listed_product_paths_exist": true,
+        "h1_consolidation_tests_count": 0,
+        "h1_tests_note": "Absent until H1 runtime creates them; expected pre-H1"
+      },
+      "h1_orchestration_only": [
+        "orchestration/logs/h1-consolidate-h1-runtime-001.log",
+        "orchestration/receipts/h1_consolidate_001/H1_runtime_001.json"
+      ],
+      "must_match_wo": true,
+      "must_not_touch": [
+        "art assets",
+        "Scene packages",
+        "Character Foundry",
+        "World DNA",
+        "bridge services",
+        "network code",
+        "accepted historical evidence"
+      ]
+    },
+    "godot_pin": {
+      "required": "4.3-stable",
+      "project_godot": "E:/AIdle_openworld/game/project.godot",
+      "project_godot_sha256": "2533ff4814a6ad776f53c294f5b1a901f73e61aa0aa1494fe7e7fc4283d52e4b",
+      "config_features": ["4.3", "Forward Plus"],
+      "console_binary": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64_console.exe",
+      "console_binary_present": true,
+      "console_binary_bytes": 198264,
+      "gui_binary": "E:/AIdle_openworld/tools/Godot_v4.3-stable_win64.exe",
+      "gui_binary_present": true,
+      "version_change_authorized": false
+    },
+    "forbidden_scope_confirmation": {
+      "dna_v1_2_authorized": false,
+      "world_dna_edit_authorized": false,
+      "tier3_persistence_authorized": false,
+      "character_foundry_runtime_authorized": false,
+      "scene_expansion_authorized": false,
+      "public_network_authorized": false,
+      "live_provider_authorized": false,
+      "dependency_install_authorized": false,
+      "godot_version_change_authorized": false,
+      "voice_authorized": false,
+      "voxel_free_camera_authorized": false,
+      "marketplace_city_space_authorized": false,
+      "push_deploy_publish_authorized": false,
+      "worker_self_accept_authorized": false,
+      "purple_accepted_authorized": false,
+      "red_f01_network_shipping_hard_stop": true,
+      "directive_forbidden_actions_observed": true
+    },
+    "leases": {
+      "dispatch_order": ["H0", "H1", "H2", "H3", "H4"],
+      "mode": "strictly_sequential",
+      "parent_product_patch": false,
+      "no_grandchildren": true,
+      "one_writer_per_file": true,
+      "exact_leases": {
+        "H0": {
+          "profile": "aidle-worldgen-ssot-sequence",
+          "authority_token": "VERIFY_ONLY",
+          "paths": [
+            "orchestration/logs/h1-consolidate-h0-ssot-001.log",
+            "orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json"
+          ],
+          "claimed_by_this_child": true
+        },
+        "H1": {
+          "profile": "aidle-worldgen-godot-runtime",
+          "authority_token": "PATCH_DRAFT",
+          "writer_set": "h1_consolidation_sole_product_writer",
+          "product_paths": [
+            "game/scripts/main/main.gd",
+            "game/scripts/modules/companion/companion_chat_panel.gd",
+            "game/scripts/modules/g3_ui/starter_realm_panel.gd",
+            "game/scripts/modules/manifestation/manifestation_instance.gd",
+            "game/scripts/modules/manifestation/manifestation_stages.gd",
+            "game/scripts/modules/block_assembly/**",
+            "game/scripts/ui/hud.gd",
+            "game/scripts/ui/context_action_hud.gd",
+            "game/scripts/ui/cozy_homestead_panel.gd",
+            "game/scripts/ui/playable_action_bar.gd",
+            "game/scenes/ui/hud.tscn",
+            "game/scenes/ui/context_action_hud.tscn",
+            "game/scenes/ui/cozy_homestead_panel.tscn",
+            "game/scenes/ui/playable_action_bar.tscn",
+            "game/tests/h1_consolidation_*.gd"
+          ],
+          "evidence_paths": [
+            "orchestration/logs/h1-consolidate-h1-runtime-001.log",
+            "orchestration/receipts/h1_consolidate_001/H1_runtime_001.json"
+          ],
+          "writer_started": false,
+          "pre_exists_evidence": false
+        },
+        "H2": {
+          "profile": "aidle-worldgen-control-input",
+          "authority_token": "VERIFY_ONLY",
+          "authority_reduced": true,
+          "paths": [
+            "orchestration/logs/h1-consolidate-h2-control-001.log",
+            "orchestration/receipts/h1_consolidate_001/H2_control_ux_001.json"
+          ],
+          "pre_exists": false,
+          "writer_started": false
+        },
+        "H3": {
+          "profile": "aidle-worldgen-qa-evidence",
+          "authority_token": "VERIFY_ONLY",
+          "paths": [
+            "orchestration/logs/h1-consolidate-h3-qa-001.log",
+            "orchestration/receipts/h1_consolidate_001/H3_qa_evidence_001.json"
+          ],
+          "additional_evidence_root": "orchestration/evidence/h1_consolidate_001/001/**",
+          "pre_exists": false,
+          "writer_started": false
+        },
+        "H4": {
+          "profile": "aidle-worldgen-purple-acceptance",
+          "authority_token": "VERIFY_ONLY",
+          "paths": [
+            "orchestration/logs/h1-consolidate-h4-purple-001.log",
+            "orchestration/receipts/h1_consolidate_001/H4_purple_gate_001.json"
+          ],
+          "pre_exists": false,
+          "writer_started": false,
+          "never_marks_accepted": true
+        }
+      },
+      "competing_writers": {
+        "running_children_under_parent": 1,
+        "running_child_ids": ["019f88d4-0d38-7162-8bbd-de4b3e86aaa9"],
+        "this_is_sole_running_child": true,
+        "h1_consolidate_evidence_root_exists": false,
+        "h1_h4_evidence_exists": false,
+        "verdict": "NO_COMPETING_WRITERS_H0_H4_LEASES_FREE"
+      }
+    },
+    "architecture_lock_confirmation": {
+      "blueprint": "E:/AIdle_openworld/AIdle_Openworld_Blueprint_v1.1/00_README.md",
+      "blueprint_present": true,
+      "project_lock": "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+      "project_lock_sha256": "494794faf9776b611f83d5870083439314f3ec78502e753a726df44bcd20c027",
+      "design_md": "E:/AIdle_openworld/DESIGN.md",
+      "design_md_sha256": "77174c73fcc047031f889375805e4f5e18389862ec159b2c75825986e290d69b",
+      "design_contract": "E:/AIdle_openworld/design-contract.md",
+      "design_contract_sha256": "8618202529ea3ba017902c6275188445a24f48b55c59a268b24174f3e17c7fbc",
+      "implementation_handoff": "E:/AIdle_openworld/implementation-handoff.md",
+      "implementation_handoff_present": true,
+      "godot_client": "Godot 4.x pinned 4.3-stable",
+      "presentation": "2.5D fixed-angle; no free 3D camera MVP",
+      "mutation_path": "Structured World Prompt proposal -> validate -> preview -> explicit confirm/cancel -> existing World Commit authority",
+      "preview_never_canonical": true,
+      "client_cannot_claim_commit_success": true,
+      "no_arbitrary_generated_code": true,
+      "companion_text_only_mvp": true,
+      "active_world_prompt_schema": "contracts/world_prompt.schema.json"
+    },
+    "scope_authorization": {
+      "authorized_task": "H1-CONSOLIDATE-001",
+      "authorized_product_paths_for_this_child": [],
+      "h1_sole_future_product_lease": "WO-listed consolidation product/test paths only",
+      "world_dna_edits_authorized": false,
+      "character_foundry_runtime_authorized": false,
+      "scene_expansion_authorized": false,
+      "network_authorized": false,
+      "dna_v1_2_authorized": false,
+      "tier3_authorized": false
+    }
+  },
+  "smoke_test": {
+    "performed": true,
+    "kind": "preflight_existence_hash_and_lease_check",
+    "checks": [
+      {
+        "id": "DIRECTIVE_74",
+        "pass": true,
+        "detail": "directive_id=74 supersedes 73; permitted_task_ids=[H1-CONSOLIDATE-001]; accepted_task_ids=[P2E-001]"
+      },
+      {
+        "id": "DEPS_ACCEPTED",
+        "pass": true,
+        "detail": "CTRL-1B-001/002, P1E-006, CHAR-1C-001 schema, BLOCK-DNA offline, P2E-001 offline BA all ACCEPTED via Codex reviews"
+      },
+      {
+        "id": "P2E_E2_REJECTED_IMMUTABLE",
+        "pass": true,
+        "detail": "E2 REJECTED_AS_RECEIPT under CODEX_EXTERNAL_TRANSCRIPT_BINDING; not rehabilitated"
+      },
+      {
+        "id": "GODOT_4_3_PIN",
+        "pass": true,
+        "detail": "project.godot features 4.3; Godot_v4.3-stable binaries present"
+      },
+      {
+        "id": "H1_LEASE_PATHS",
+        "pass": true,
+        "detail": "All WO H1 product paths exist; h1_consolidation_*.gd count=0 expected pre-H1"
+      },
+      {
+        "id": "EVIDENCE_LEASES_FREE",
+        "pass": true,
+        "detail": "orchestration/evidence/h1_consolidate_001 absent; H1-H4 logs/receipts free"
+      },
+      {
+        "id": "SOLE_RUNNING_CHILD",
+        "pass": true,
+        "detail": "Only H0 child 019f88d4-0d38-7162-8bbd-de4b3e86aaa9 running under parent"
+      },
+      {
+        "id": "NO_PRODUCT_WRITE",
+        "pass": true,
+        "detail": "product_writes=[]"
+      }
+    ],
+    "exit_code": 0,
+    "overall_pass": true
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "product_writes_empty": true,
+    "self_accept_false": true,
+    "accepted_false": true,
+    "no_grandchildren": true,
+    "one_writer_per_file": true,
+    "exclusive_lease_only": true,
+    "e2_not_rehabilitated": true,
+    "skills_full_eof": true,
+    "schema_required_fields_present": true,
+    "next_route_set": "H1_RUNTIME",
+    "honesty_notes": [
+      "H0 does not implement consolidation; only SSOT preflight",
+      "Machine H0-H4 completion is not final product acceptance; Human five-minute gate remains after Codex",
+      "agentwork_runtime not required for this preflight; schema fields smoke_test/self_audit satisfied inline"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/h1-consolidate-h0-ssot-001.log",
+    "orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json",
+    "orchestration/control/codex_directive.json",
+    "orchestration/work_orders/WO-H1-CONSOLIDATE-001-VERTICAL-SLICE.md",
+    "orchestration/reviews/CODEX_P2E-001_FINAL_ACCEPTANCE_004.json",
+    "orchestration/ARCHITECTURE_LOCK.md",
+    "DESIGN.md",
+    "design-contract.md"
+  ],
+  "commands": [
+    {
+      "cmd": "Get-FileHash / SHA256 of directive, WO, profile, ARCHITECTURE_LOCK, P2E acceptance, skills, reviews",
+      "exit": 0,
+      "note": "PowerShell Get-FileHash -Algorithm SHA256"
+    },
+    {
+      "cmd": "Test-Path H1 product lease paths + evidence/receipt roots free check",
+      "exit": 0
+    },
+    {
+      "cmd": "Enumerate parent subagents meta.json status==running",
+      "exit": 0,
+      "result": "sole running child = 019f88d4-0d38-7162-8bbd-de4b3e86aaa9"
+    }
+  ],
+  "files_read": [
+    "E:/AIdle_openworld/.grok/agents/aidle-worldgen-ssot-sequence.md",
+    "E:/AIdle_openworld/orchestration/control/codex_directive.json",
+    "E:/AIdle_openworld/orchestration/work_orders/WO-H1-CONSOLIDATE-001-VERTICAL-SLICE.md",
+    "E:/AIdle_openworld/orchestration/reviews/CODEX_P2E-001_FINAL_ACCEPTANCE_004.json",
+    "E:/AIdle_openworld/orchestration/ARCHITECTURE_LOCK.md",
+    "E:/AIdle_openworld/DESIGN.md",
+    "E:/AIdle_openworld/design-contract.md",
+    "E:/AIdle_openworld/game/project.godot",
+    "E:/AIdle_openworld/orchestration/tasks.json",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json",
+    "E:/shared/skills/library/maf-mandatory-standard/SKILL.md",
+    "E:/shared/skills/library/trustlayer-x16-crew/SKILL.md",
+    "E:/shared/skills/library/agentwork-knowledge-loop/SKILL.md",
+    "E:/shared/skills/library/project-room-collab/SKILL.md",
+    "E:/shared/skills/library/curiosity-engine/SKILL.md",
+    "E:/shared/skills/library/architecture-lock/SKILL.md",
+    "E:/shared/skills/library/evidence-memory-ledger/SKILL.md",
+    "E:/agents/characters/14-devil-advocate.md",
+    "E:/agents/ui-design/characters/03-ui-ux-researcher.md",
+    "E:/AIdle_openworld/orchestration/receipts/p2e_001/A0_ssot_preflight_001.json"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/logs/h1-consolidate-h0-ssot-001.log",
+    "E:/AIdle_openworld/orchestration/receipts/h1_consolidate_001/H0_ssot_preflight_001.json"
+  ]
+}

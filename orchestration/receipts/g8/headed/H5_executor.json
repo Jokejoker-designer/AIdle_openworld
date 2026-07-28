@@ -1,0 +1,55 @@
+{
+  "agent_step_id": "G8-001-HEADED-H5-executor-2026-07-21",
+  "agent_type": "aidle-executor",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "authority_token": "PATCH_DRAFT",
+  "output_schema_version": "agent_step_contract/1.0",
+  "result": {
+    "task_id": "G8-001",
+    "correction_id": "G8-001-HEADED-CORRECTION-001",
+    "directive_id": 21,
+    "wave": "H5_EXECUTOR_FLOW",
+    "profile": "executor",
+    "self_accept": false,
+    "verdict": "PASS",
+    "summary": "PATCH_DRAFT: HeadedDemoFlow + starter realm panel responsive layout. Demo Build uses submit_prompt→confirm/cancel; no authority bypass. G3 remains checks=76; exports stay user:// only.",
+    "product_writes": [
+      "game/scripts/modules/executor/headed_demo_flow.gd",
+      "game/scripts/modules/g3_ui/starter_realm_panel.gd"
+    ],
+    "children": []
+  },
+  "smoke_test": {
+    "passed": true,
+    "commands": [
+      {
+        "marker": "G3_E2E_SMOKE=PASS checks=76"
+      },
+      {
+        "marker": "Demo Build →"
+      },
+      {
+        "marker": "Cancel →"
+      },
+      {
+        "marker": "SIX_TRACKED_EXPORTS_ZERO_DIFF=PASS"
+      }
+    ]
+  },
+  "self_audit": {
+    "authority_honored": true,
+    "no_self_accept": true,
+    "residual_risks": [
+      "Demo is local deterministic, not live LLM"
+    ]
+  },
+  "evidence_refs": [
+    "orchestration/logs/g8-headed-correction-001.log",
+    "orchestration/work_orders/WO-G8-001-HEADED-CORRECTION-001.md",
+    "orchestration/work_orders/G8-001_HEADED_DISPATCH_MAP.md",
+    "orchestration/reviews/G8-001_HEADED_ACCEPTANCE_MATRIX.md",
+    "orchestration/evidence/g8_headed_correction/"
+  ],
+  "next_route": "H6_PERSIST_RESTART_VERIFY"
+}

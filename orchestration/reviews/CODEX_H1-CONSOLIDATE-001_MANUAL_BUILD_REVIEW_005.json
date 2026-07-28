@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_H1-CONSOLIDATE-001_MANUAL_BUILD_REVIEW_005",
+  "task_id": "H1-CONSOLIDATE-001",
+  "directive_id": 78,
+  "reviewed_at": "2026-07-22T22:38:00+07:00",
+  "reviewed_by": "codex",
+  "state": "CHANGES_REQUESTED",
+  "accepted": false,
+  "self_accept": false,
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_children": {
+    "W0": "019f8a48-853f-7ec0-8bf1-0608170af2be",
+    "W1": "019f8a56-2d2b-7b63-b33f-03c5f2d4384a",
+    "W2": "019f8a5a-8d90-7292-9396-f9fecb1df3c8",
+    "W3": "019f8a6e-51f7-71d2-b496-bdfb01ced4e9"
+  },
+  "independent_validation": {
+    "w0_product_hashes": "PASS_9_OF_9",
+    "receipt_schema": "FAIL_W2_MISSING_SMOKE_TEST_AND_SELF_AUDIT_W0_W1_W3_PASS",
+    "accepted_false_self_accept_false": "PASS_4_OF_4",
+    "durable_parent_and_child_refs": "PASS_4_OF_4",
+    "durable_timestamps": "NONCANONICAL_RECEIPT_COMPLETION_TIMES_PRECEDE_PARENT_META_COMPLETION",
+    "evidence_004_pngs": "PASS_22_DISTINCT_OF_22_AT_11_STATES_X_2_RESOLUTIONS",
+    "headed_zero_error": "FAIL_FOUR_ERROR_LINES_AND_COMPILE_FAILURE",
+    "regressions": "FAIL_H1_FLOW_H1_CHROME_AND_P2E_PLAY",
+    "writer_lease": "FAIL_W0_CREATED_AUXILIARY_LOGS_OUTSIDE_EXACT_TWO_FILE_ORCHESTRATION_LEASE",
+    "visual_ring_and_manual_build": "PASS_AS_CORRECTION_EVIDENCE_NOT_ACCEPTANCE",
+    "human_retest": "NOT_RUN_AFTER_CORRECTION"
+  },
+  "findings": [
+    {
+      "id": "H1-CODEX-MB-F01",
+      "severity": "high",
+      "finding": "block_assembly_hud.gd line 77 infers a Variant under warnings-as-errors, causing four headed ERROR lines, main script compilation failure and P2E_PLAY failure."
+    },
+    {
+      "id": "H1-CODEX-MB-F02",
+      "severity": "medium",
+      "finding": "playable_action_bar.tscn and the H1 flow/chrome tests retain Small Build, so H1_FLOW and H1_CHROME fail after the intentional Manual Build rename."
+    },
+    {
+      "id": "H1-CODEX-MB-F03",
+      "severity": "high",
+      "finding": "W2 receipt has two agent_step_contract schema errors: required smoke_test and self_audit are absent. The original receipt remains immutable rejected evidence."
+    },
+    {
+      "id": "H1-CODEX-MB-F04",
+      "severity": "high",
+      "finding": "W0 created eight auxiliary log/json artifacts outside its exact two-file orchestration lease while claiming lease_respected=true and out_of_lease_writes=[]. Those artifacts and the receipt remain preserved but cannot establish lease compliance."
+    },
+    {
+      "id": "H1-CODEX-MB-F05",
+      "severity": "medium",
+      "finding": "All worker receipt completion timestamps precede the durable parent-owned meta completion timestamps. Receipt timing is treated as worker artifact time, never canonical session completion evidence."
+    },
+    {
+      "id": "H1-CODEX-MB-F06",
+      "severity": "low",
+      "finding": "Manual Build still permits an immediately confirmable origin preview before intentional LMB, exposes a place_at_cursor API edge that can enable manual mode outside Build context, and leaves force_custom_cursor unwired."
+    }
+  ],
+  "preserve_as_nonaccepting_evidence": [
+    "orchestration/evidence/h1_consolidate_001/004/**",
+    "orchestration/receipts/h1_consolidate_001/correction_003/**",
+    "orchestration/logs/h1_consolidate_001/correction_003/**"
+  ],
+  "next_route": "Directive 79 focused product, regression, evidence and provenance correction",
+  "human_gate_open": false
+}

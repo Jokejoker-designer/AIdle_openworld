@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "CODEX_H1-CONSOLIDATE-001_MACHINE_GATE_003",
+  "task_id": "H1-CONSOLIDATE-001",
+  "directive_id": 76,
+  "reviewed_at": "2026-07-22T16:49:16+07:00",
+  "reviewed_by": "codex",
+  "state": "HITL_REQUIRED",
+  "accepted": false,
+  "self_accept": false,
+  "machine_verdict": "PASS_WAITING_HUMAN_FIVE_MINUTE_GATE",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_children": {
+    "R0": "019f8926-02ae-7d81-b722-db1bdfe55f8b",
+    "R1": "019f892d-4cc8-7a43-b293-48d976e28fc4",
+    "R2": "019f8934-a51a-7a71-a45a-71a88dc23666"
+  },
+  "independent_validation": {
+    "maf_receipts": "PASS_3_OF_3_ZERO_SCHEMA_ERRORS",
+    "durable_child_and_transcript_refs": "PASS_3_OF_3",
+    "accepted_false_self_accept_false": "PASS_3_OF_3",
+    "r0_product_hashes": "PASS_9_OF_9",
+    "absolute_root_static_scan": "PASS_ZERO_HITS",
+    "hud_fixture_wording": "PASS_REMOVED",
+    "evidence_003_pngs": "PASS_26_DISTINCT_OF_26",
+    "evidence_003_png_hashes": "PASS_26_OF_26",
+    "headed_errors": "PASS_ZERO_ERROR_AND_ZERO_USER_ERROR",
+    "build_r": "PASS_PREVIEW_ROTATES_CAMERA_YAW_UNCHANGED",
+    "regressions": "PASS_H1_P2E_CONTROL_G3_G4_BLOCK_DNA"
+  },
+  "closed_findings": [
+    "H1-CODEX-F01 absolute-root runtime error signature",
+    "H1-CODEX-F02 exact-lease durable provenance",
+    "H1-CODEX-F03 fixture wording"
+  ],
+  "remaining_gate": "Human Product Lead five-minute first-session decision",
+  "queued_after_human_pass": "UCBV-001 Unified Character + Block Visual Foundation",
+  "human_gate_open": true
+}
+

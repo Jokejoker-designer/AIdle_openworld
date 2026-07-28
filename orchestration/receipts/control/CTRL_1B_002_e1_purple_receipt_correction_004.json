@@ -1,0 +1,355 @@
+{
+  "schema_version": "1.0.0",
+  "agent_step_id": "CTRL-1B-002-e1-purple-receipt-correction-004-2026-07-22",
+  "step_id": "CTRL-1B-002-e1-purple-receipt-correction-004",
+  "work_order_id": "WO-CTRL-1B-002-R-CAMERA-EVIDENCE-CORRECTION-003",
+  "work_order": "orchestration/work_orders/WO-CTRL-1B-002-R-CAMERA-EVIDENCE-CORRECTION-003.md",
+  "work_order_sha256": "98ff749fe43b5a6e33436921969c1292239206627829ecdf086205c1fd6dfe1f",
+  "directive_id": 61,
+  "directive_scope": "evidence-only Purple receipt correction; no product/test/contract/fixture/prior receipt edits",
+  "review_id": "CODEX_CTRL-1B-002-R-CAMERA-MACHINE-REVIEW-003",
+  "prior_review": "orchestration/reviews/CODEX_CTRL-1B-002_R_CAMERA_MACHINE_REVIEW_003.json",
+  "prior_review_sha256": "8f7cad609b2097456f1dae6399eb46fe31a2f690637fa315fb300ea6515b257b",
+  "prior_e0_receipt": "orchestration/receipts/control/CTRL_1B_002_e0_r1_receipt_correction_004.json",
+  "prior_e0_receipt_sha256": "a45666ab8bfeb9281c768d73927037a9f69adb0e004811f0b1d1a7372010c650",
+  "prior_e0_child_task_ref": "019f8746-e7b9-7bb1-8fe2-dabf46421a22",
+  "milestone": "Control 1B E1 Purple independent verification receipt correction — MAF top-level smoke_test + fresh VERIFY_ONLY re-run",
+  "agent_id": "aidle-worldgen-purple-acceptance",
+  "agent_type": "aidle-worldgen-purple-acceptance",
+  "profile_name": "aidle-worldgen-purple-acceptance",
+  "profile_source": "E:/AIdle_openworld/.grok/agents/aidle-worldgen-purple-acceptance.md",
+  "profile_sha256": "9135b09dcf58441444d5d86d3e7a6e808fffbaa2be8cf45ccfdb000b522127f2",
+  "profile_binding_evidence": "FULL read: name=aidle-worldgen-purple-acceptance; trustlayer_character=purple-team-release-gate; ui_character=ui-visual-critic; authority_token=VERIFY_ONLY; required_skills always + evidence-memory-ledger + adversarial-review; parent_spawn_only=true; no_grandchildren=true; self_accept=false; never patches; never ACCEPTED; verdicts VERIFIED|CHANGES_REQUESTED|NEED_HUMAN only.",
+  "authority_token": "VERIFY_ONLY",
+  "authority": "VERIFY_ONLY",
+  "authority_scope": "independent Purple acceptance verification of E0 receipt schema + product R-path evidence + INV-08 dual-fire still FAIL + historical R1/P3 immutability + witness hash; exclusive writes receipt+log only; NEVER product/contract/test/scene/prior-receipt patch; never ACCEPTED",
+  "skill_id": "maf-mandatory-standard",
+  "skill_version": "1.0",
+  "output_schema_version": "agent_step_contract/1.0",
+  "input_context_hash": "sha256:540030e0fda7e709fa24cc5e23e3e4eb2d4eb703fd22ec2ed75a51cb5d01b26b",
+  "input_context_hash_16": "540030e0fda7e709",
+  "input_context_hash_method": "sha256 of concatenated file bytes: WO-CTRL-1B-002-R-CAMERA-EVIDENCE-CORRECTION-003.md + CTRL_1B_002_e0_r1_receipt_correction_004.json + aidle-worldgen-purple-acceptance.md + agent_step_contract.schema.json + CTRL_1B_002_p3_r_camera_003.json",
+  "status": "WAITING_CODEX",
+  "completion_signal": "WAITING_CODEX",
+  "accepted": false,
+  "self_accept": false,
+  "verdict": "VERIFIED",
+  "purple_verdict": "VERIFIED",
+  "verdict_detail": "Directive 61 E1 Purple VERIFY_ONLY independent re-run: validate_control_1b_fixtures.py HARNESS_RESULT=PASS invalid_rejected=12/12 with INV-08 multi_context_r_binding still FAIL (dual-fire rejected as required); control_1b_context_router_smoke PASS checks=16 exit 0 ERROR=0 (exploration_allows_rotate_camera_right, r_no_multi_context_dual_fire, exploration_r_camera_yaw_real_inputmap_router_path delta≈0.7854, build_r_preview_only_camera_unchanged, remap works); control_1b_integration_smoke PASS checks=28 exit 0 ERROR=0 (H-10 real InputMap path, r_build_rotates_preview_no_dual_fire, build_r_preview_only_camera_unchanged). E0 receipt CTRL_1B_002_e0_r1_receipt_correction_004.json schema-valid: all agent_step_contract required fields present including top-level smoke_test object (pass=true). Original historical R1 CTRL_1B_002_r1_camera_runtime_003.json and P3 CTRL_1B_002_p3_r_camera_003.json remain immutable and still lack top-level smoke_test (invalid solely for MAF schema). Valid D60 S0+Q2 retain smoke_test. Witness r_camera_yaw_witness.json sha256=513b35f00ac9d2d9… MATCH. product_writes=[]. accepted=false; self_accept=false; Purple NEVER ACCEPTED. next_route=WAITING_CODEX.",
+  "child_task_ref": "019f8749-4aaf-7bc2-86ca-8d76aa278fd8",
+  "transcript_ref": "019f8749-4aaf-7bc2-86ca-8d76aa278fd8",
+  "writer_transcript_ref": "019f8749-4aaf-7bc2-86ca-8d76aa278fd8",
+  "spawned_by_parent_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "parent_session_ref": "019f7ffd-3995-71c0-aca1-51078e24a852",
+  "durable_meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8749-4aaf-7bc2-86ca-8d76aa278fd8/meta.json",
+  "durable_meta_sha256_at_start": "99d8a8d52326dfb2631cb0380608f840f9028023a8c70ffc1f0619b54b00d3f8",
+  "durable_session_dir": "C:/Users/phant/.grok/sessions/E%3A%5CAIdle_openworld/019f8749-4aaf-7bc2-86ca-8d76aa278fd8",
+  "chain_id_note": "Directive 61 lineage: E0 019f8746-e7b9-7bb1-8fe2-dabf46421a22 → E1 019f8749-4aaf-7bc2-86ca-8d76aa278fd8. Directive 60 historical: S0 019f8731-3c78-7ed1-a029-292167b919ba; R1 019f8735-2780-7530-8584-1c8711e18a9a; Q2 019f873b-a575-76e0-a153-f6d57cfb3fe9; P3 019f8740-e5a8-78b2-ade3-cf7c1baa3a55. Parent 019f7ffd-3995-71c0-aca1-51078e24a852.",
+  "next_owner": "CODEX",
+  "next_route": "WAITING_CODEX",
+  "character_binding": {
+    "trustlayer": "purple-team-release-gate",
+    "trustlayer_wo_required": "purple-team-release-gate",
+    "trustlayer_file": "E:/agents/characters/13-purple-team-release-gate.md",
+    "trustlayer_sha256": "907fdff90c6e674c6f5feb514017572fe84a0c34eff12a4f3c6a829e44028391",
+    "ui": "ui-visual-critic",
+    "ui_wo_required": "ui-visual-critic",
+    "ui_file": "E:/agents/ui-design/characters/11-ui-visual-critic.md",
+    "ui_sha256": "dbb577a0ce38bebb88ee4859982a360b27a4c4dbca238be74b5619e8ebfdc268",
+    "role": "E1 VERIFY_ONLY Purple independent receipt schema correction + product R-path re-verify (never patch; never ACCEPTED)"
+  },
+  "bootstrap_limitation": "E:/scripts/bootstrap-agent-session.ps1 known parser error near line 52 — not retried. Loaded COMPLIANCE path via Agents.md, purple profile aidle-worldgen-purple-acceptance.md, WO-CTRL-1B-002-R-CAMERA-EVIDENCE-CORRECTION-003, E0 receipt, historical R1/P3, S0/Q2, agent_step_contract.schema.json, character cards, and skills manually.",
+  "skills_loaded": [
+    {
+      "skill_id": "maf-mandatory-standard",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/maf-mandatory-standard/SKILL.md",
+      "sha256": "6a917d81d10d09a9ed975a355690fec87b6cb1236b2868c0af1ee30ed9f43281",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "trustlayer-x16-crew",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/trustlayer-x16-crew/SKILL.md",
+      "sha256": "66b1ce9ae9342857680712b257cdfdcf9777a6c7d38e0396aff3d03417b88dbf",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "agentwork-knowledge-loop",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/agentwork-knowledge-loop/SKILL.md",
+      "sha256": "94d119aa2950285b21326e6481f8a4215a6193ba0323cc3dc4883291637538a9",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "project-room-collab",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/project-room-collab/SKILL.md",
+      "sha256": "9b43a151316cc31750b013a5b7f5cae5c5c365cd83020785788ef6a18a840897",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "curiosity-engine",
+      "mode": "ALWAYS",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/curiosity-engine/SKILL.md",
+      "sha256": "f940ff9ecf2f73782d5a450c1f9b06b071f9a3d532f7107d7457b04183c9438b",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "evidence-memory-ledger",
+      "mode": "ROUTED_PROFILE",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/evidence-memory-ledger/SKILL.md",
+      "sha256": "120877acb892fdcec2682229b9dbe2fc576f128bfed7257b3695d8e7659f6fc0",
+      "loaded_full_eof": true
+    },
+    {
+      "skill_id": "adversarial-review",
+      "mode": "ROUTED_PROFILE",
+      "source": "C:/Users/phant/.grok/skills/_agentwork-library/adversarial-review/SKILL.md",
+      "sha256": "57f2e4450f99ac23cd1dedf9affea699e0e4dafd3c1eada9fdbbaaf02cc470df",
+      "loaded_full_eof": true
+    }
+  ],
+  "writer_lease": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_e1_purple_receipt_correction_004.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-e1-purple-receipt-correction-004.log"
+  ],
+  "product_writes": [],
+  "contract_writes": [],
+  "fixture_writes": [],
+  "test_writes": [],
+  "scene_writes": [],
+  "prior_receipt_writes": [],
+  "evidence_writes": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_e1_purple_receipt_correction_004.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-e1-purple-receipt-correction-004.log"
+  ],
+  "files_written": [
+    "E:/AIdle_openworld/orchestration/receipts/control/CTRL_1B_002_e1_purple_receipt_correction_004.json",
+    "E:/AIdle_openworld/orchestration/logs/ctrl-1b-002-e1-purple-receipt-correction-004.log"
+  ],
+  "no_product_patch": true,
+  "no_contract_patch": true,
+  "no_fixture_patch": true,
+  "no_test_patch": true,
+  "no_scene_patch": true,
+  "no_prior_receipt_rewrite": true,
+  "no_e0_rewrite": true,
+  "no_r1_p3_rewrite": true,
+  "no_evidence_rewrite": true,
+  "child_meta": {
+    "meta_path": "C:/Users/phant/.grok/sessions/C%3A%5CUsers%5Cphant%5C.grok%5Cdownloads/019f7ffd-3995-71c0-aca1-51078e24a852/subagents/019f8749-4aaf-7bc2-86ca-8d76aa278fd8/meta.json",
+    "description": "E1 Purple receipt schema fix",
+    "parent_session_id": "019f7ffd-3995-71c0-aca1-51078e24a852",
+    "started_at": "2026-07-22T00:45:55.251669800Z",
+    "effective_model_id": "grok-4.5",
+    "status": "running",
+    "sha256_at_start": "99d8a8d52326dfb2631cb0380608f840f9028023a8c70ffc1f0619b54b00d3f8"
+  },
+  "historical_invalid_receipts": {
+    "r1": {
+      "path": "orchestration/receipts/control/CTRL_1B_002_r1_camera_runtime_003.json",
+      "sha256": "df58c0f38e630288f9139ccacff04a9ef6fb070de89bc62e8d3f6dbdf39818e2",
+      "child_task_ref": "019f8735-2780-7530-8584-1c8711e18a9a",
+      "immutable_historical": true,
+      "has_top_level_smoke_test": false,
+      "had_nested_smoke_results_only": true,
+      "invalid_reason": "missing required top-level smoke_test",
+      "rewritten": false
+    },
+    "p3": {
+      "path": "orchestration/receipts/control/CTRL_1B_002_p3_r_camera_003.json",
+      "sha256": "909202cd7c0dd81e7d926e6652cc25bdbd5c6f985bf454406fd8397e87680109",
+      "child_task_ref": "019f8740-e5a8-78b2-ade3-cf7c1baa3a55",
+      "immutable_historical": true,
+      "has_top_level_smoke_test": false,
+      "invalid_reason": "missing required top-level smoke_test",
+      "rewritten": false
+    }
+  },
+  "valid_d60_receipts": {
+    "s0": {
+      "path": "orchestration/receipts/control/CTRL_1B_002_s0_r_contract_003.json",
+      "sha256": "c624606147765b9318d90673994732d0f5fb4f402e79d4a23993ed86b92df18c",
+      "has_top_level_smoke_test": true
+    },
+    "q2": {
+      "path": "orchestration/receipts/control/CTRL_1B_002_q2_r_camera_003.json",
+      "sha256": "6093d9011caaed6b266833bad75226a76744e649706ce7e2376a139162feef93",
+      "has_top_level_smoke_test": true
+    }
+  },
+  "e0_validation": {
+    "path": "orchestration/receipts/control/CTRL_1B_002_e0_r1_receipt_correction_004.json",
+    "sha256": "a45666ab8bfeb9281c768d73927037a9f69adb0e004811f0b1d1a7372010c650",
+    "child_task_ref": "019f8746-e7b9-7bb1-8fe2-dabf46421a22",
+    "agent_step_contract_required_fields": [
+      "agent_step_id",
+      "agent_type",
+      "authority_token",
+      "result",
+      "smoke_test",
+      "self_audit",
+      "next_route"
+    ],
+    "required_fields_missing": [],
+    "smoke_test_present": true,
+    "smoke_test_is_object": true,
+    "smoke_test_pass": true,
+    "authority_token": "VERIFY_ONLY",
+    "accepted": false,
+    "self_accept": false,
+    "schema_valid": true
+  },
+  "commands": [
+    "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+    "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_context_router_smoke.gd",
+    "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_integration_smoke.gd",
+    "Get-FileHash -Algorithm SHA256 orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json"
+  ],
+  "exit_codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "evidence_refs": [
+    "orchestration/logs/ctrl-1b-002-e1-purple-receipt-correction-004.log",
+    "orchestration/receipts/control/CTRL_1B_002_e0_r1_receipt_correction_004.json",
+    "orchestration/receipts/control/CTRL_1B_002_r1_camera_runtime_003.json",
+    "orchestration/receipts/control/CTRL_1B_002_p3_r_camera_003.json",
+    "orchestration/receipts/control/CTRL_1B_002_s0_r_contract_003.json",
+    "orchestration/receipts/control/CTRL_1B_002_q2_r_camera_003.json",
+    "orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json",
+    "orchestration/reviews/CODEX_CTRL-1B-002_R_CAMERA_MACHINE_REVIEW_003.json",
+    "orchestration/work_orders/WO-CTRL-1B-002-R-CAMERA-EVIDENCE-CORRECTION-003.md",
+    "E:/standards/maf/schemas/agent_step_contract.schema.json"
+  ],
+  "smoke_test": {
+    "pass": true,
+    "error_line_count": 0,
+    "commands": [
+      "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_context_router_smoke.gd",
+      "E:\\AIdle_openworld\\tools\\Godot_v4.3-stable_win64_console.exe --headless --path E:/AIdle_openworld/game -s res://tests/control_1b_integration_smoke.gd",
+      "Get-FileHash -Algorithm SHA256 orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json"
+    ],
+    "exit_codes": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "markers": [
+      "HARNESS_RESULT=PASS",
+      "INV-08-multi_context_r_binding expected=FAIL actual=FAIL [OK]",
+      "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=28",
+      "WITNESS_SHA256_MATCH=True"
+    ],
+    "validator": {
+      "cmd": "python orchestration/contracts/control_1b/validate_control_1b_fixtures.py",
+      "exit": 0,
+      "marker": "HARNESS_RESULT=PASS",
+      "valid": "PASS",
+      "invalid_rejected": "12/12",
+      "valid_fixture_sha256": "211605f46db73a4308252d7f10867260b5f8a8dd9f8d5fefc970f3c65f2d719f",
+      "valid_fixture_hash_lock": "OK",
+      "inv08_dual_fire_still_rejected": true,
+      "inv08_marker": "[INV-08-multi_context_r_binding] target=semantic declared=['conflict_rule_C1B-CF-01', 'build_only_r_violation'] expected=FAIL actual=FAIL [OK]",
+      "error_line_count": 0
+    },
+    "godot": "tools/Godot_v4.3-stable_win64_console.exe",
+    "router": {
+      "script": "res://tests/control_1b_context_router_smoke.gd",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_ROUTER_SMOKE=PASS checks=16",
+      "checks": 16,
+      "error_line_count": 0,
+      "pass": true,
+      "real_path_assertions": [
+        "exploration_allows_rotate_camera_right",
+        "r_no_multi_context_dual_fire",
+        "exploration_r_camera_yaw_real_inputmap_router_path delta≈0.7854",
+        "build_r_preview_only_camera_unchanged",
+        "rotate_camera_right_remap_still_works"
+      ]
+    },
+    "integration": {
+      "script": "res://tests/control_1b_integration_smoke.gd",
+      "exit_code": 0,
+      "marker": "AIDLE_CTRL_1B_INTEGRATION_SMOKE=PASS checks=28",
+      "checks": 28,
+      "error_line_count": 0,
+      "pass": true,
+      "real_path_assertions": [
+        "H-10_exploration_r_camera_yaw_real_inputmap_path",
+        "r_build_rotates_preview_no_dual_fire",
+        "build_r_preview_only_camera_unchanged",
+        "rotate_camera_right_remap_still_works",
+        "r_exploration_no_hologram_rotate"
+      ]
+    },
+    "witness": {
+      "path": "orchestration/evidence/control_1b_002_r_camera_correction/r_camera_yaw_witness.json",
+      "expected_sha256": "513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f",
+      "actual_sha256": "513b35f00ac9d2d9cc8e2f8f94f4497d5aea97c4884c5eebe8d44e8ee4e66d0f",
+      "match": true,
+      "exit_code": 0
+    },
+    "all_pass": true,
+    "zero_error_lines": true
+  },
+  "result": {
+    "status": "WAITING_CODEX",
+    "purple_verdict": "VERIFIED",
+    "verdict": "VERIFIED",
+    "smoke_test_present": true,
+    "validator_pass": true,
+    "invalid_rejected": "12/12",
+    "inv08_dual_fire_still_fail": true,
+    "router_smoke_pass": true,
+    "integration_smoke_pass": true,
+    "witness_sha256_match": true,
+    "e0_schema_valid": true,
+    "e0_smoke_test_present": true,
+    "historical_r1_still_missing_smoke_test": true,
+    "historical_p3_still_missing_smoke_test": true,
+    "s0_q2_valid_smoke_test_present": true,
+    "zero_error_lines": true,
+    "product_writes_empty": true,
+    "self_accept": false,
+    "accepted": false,
+    "next_owner": "CODEX",
+    "next_route": "WAITING_CODEX",
+    "summary": "Directive 61 E1 Purple independently re-verified product R-path + INV-08 dual-fire reject + E0 schema-valid smoke_test receipt; historical R1/P3 left immutable without smoke_test; machine purple_verdict=VERIFIED; accepted=false; handoff WAITING_CODEX."
+  },
+  "self_audit": {
+    "authority_respected": true,
+    "verify_only_no_product_edits": true,
+    "verify_only_no_test_edits": true,
+    "verify_only_no_contract_edits": true,
+    "verify_only_no_fixture_edits": true,
+    "no_prior_r1_receipt_rewrite": true,
+    "no_prior_p3_receipt_rewrite": true,
+    "no_e0_receipt_rewrite": true,
+    "exclusive_lease_only": true,
+    "writer_lease_two_paths_only": true,
+    "one_writer_per_file": true,
+    "no_grandchild": true,
+    "self_accept": false,
+    "accepted": false,
+    "never_accepted": true,
+    "smoke_test_top_level_present": true,
+    "maf_required_fields_present": true,
+    "child_task_ref_real_durable": true,
+    "product_writes_empty": true,
+    "adversarial_checks": [
+      "INV-08 dual-fire still FAIL (required)",
+      "historical invalid receipts not rewritten",
+      "E0 smoke_test presence independently confirmed",
+      "witness hash match independent re-hash",
+      "Purple never self-accepts"
+    ]
+  }
+}

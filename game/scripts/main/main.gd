@@ -42,6 +42,13 @@ const ENABLE_TOWN_STREET_PATHS := true
 const ENABLE_TOWN_10PHASE_LEGACY := false
 ## Royal Lightkeep landmark (PASS5 materials GLB) — presentation spawn outside town ring.
 const ENABLE_ROYAL_LIGHTKEEP_LANDMARK := true
+## GAMEPLAY_COMPLETION: cozy gameplay loop (economy, quests, relationship,
+## day/night weather, NPC society) — see GAMEPLAY_COMPLETION_DESIGN.md.
+const ENABLE_COZY_GAMEPLAY_LOOP := true
+## Optional auto screenshot after boot (Manus completion pack). Keep false in normal play.
+const DEMO_SCREENSHOT := false
+const _GamePlaySession := preload("res://scripts/modules/gameplay/game_play_session.gd")
+var _game_play: Node = null
 
 @onready var world_root: WorldRoot = $WorldRoot
 @onready var player: CharacterBody3D = $Player
@@ -118,6 +125,8 @@ func _ready() -> void:
 	_mount_block_assembly()
 	_mount_ucbv_nori7_and_bridge()
 	_mount_mockup_cast_and_props_production()
+	if ENABLE_COZY_GAMEPLAY_LOOP:
+		_mount_cozy_gameplay_loop()
 	if ENABLE_TOWN_GRID_CADASTRE:
 		_mount_town_grid_cadastre()
 	if ENABLE_TOWN_STREET_PATHS:
@@ -132,10 +141,13 @@ func _ready() -> void:
 
 	if SettingsManager.get_value(SettingsManager.SECTION_DEBUG, "verbose_logs", false):
 		print("[Main] Entered Private Reality | style=%s" % ArtStyleManager.get_active_style_id())
-	print(
-		"[Main] Product shell ready | companion-led | style=%s | product_chrome=%s"
-		% [ArtStyleManager.get_active_style_id(), str(_product_chrome_mode)]
-	)
+		print(
+			"[Main] Product shell ready | companion-led | style=%s | product_chrome=%s"
+			% [ArtStyleManager.get_active_style_id(), str(_product_chrome_mode)]
+		)
+	if DEMO_SCREENSHOT:
+		var t := create_timer(3.0)
+		t.timeout.connect(_take_demo_screenshot)
 
 
 func _process(delta: float) -> void:
@@ -1820,6 +1832,17 @@ func _module_for_recipe(proposal: Dictionary) -> String:
 	return "block_cube_round"
 
 
+func _mount_cozy_gameplay_loop() -> void:
+	## GAMEPLAY_COMPLETION: mounts the completed cozy gameplay subsystem under
+	## Main. Subsystems are RefCounted (headless-safe); the Node layer wires
+	## day/night into the scene tree and exposes the gameplay API to UI.
+	if get_node_or_null("GamePlaySession") != null:
+		return
+	_game_play = _GamePlaySession.new()
+	_game_play.name = "GamePlaySession"
+	add_child(_game_play)
+	print("[Main] Cozy gameplay loop mounted (economy, quests, relationship, day/night, NPC society).")
+
 func _apply_product_chrome() -> void:
 	## Normal runtime: no QA labels, evidence counters, or diagnostic wall as primary chrome.
 	_product_chrome_mode = true
@@ -1899,3 +1922,23 @@ func _set_preview_banner_stage(stage: String) -> void:
 		if n != null and n.has_method("set_preview_banner"):
 			n.call("set_preview_banner", stage)
 	_flow_stage = stage if stage in ["wireframe", "hologram", "materializing", "complete"] else _flow_stage
+
+func _take_demo_screenshot() -> void:
+	## QA demo artifact: capture the current viewport (game world + UI) and save
+	## to user://screenshots/ so headless CI runs produce visual evidence.
+	var viewport := get_viewport()
+	if viewport == null:
+		print("[Main] DEMO_SCREENSHOT failed: no viewport")
+		return
+	var tex := viewport.get_texture()
+	if tex == null:
+		print("[Main] DEMO_SCREENSHOT failed: no texture")
+		return
+	var img: Image = tex.get_image()
+	if img == null or img.is_empty():
+		print("[Main] DEMO_SCREENSHOT failed: empty image")
+		return
+	DirAccess.make_dir_recursive_absolute("user://screenshots")
+	var path := "user://screenshots/demo_%s.png" % Time.get_ticks_msec()
+	var err := img.save_png(path)
+	print("[Main] DEMO_SCREENSHOT saved=%s err=%s size=%dx%d" % [path, str(err), img.get_width(), img.get_height()])

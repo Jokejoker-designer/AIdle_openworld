@@ -11,6 +11,18 @@
 | Town LOOKOUT | `game/resources/town/town_grid_plan_v1.json` |
 | Smokes | `game/tests/royal_lightkeep_*.gd` |
 
+## Gameplay Completion Pack (Manus, 2026-08-08) — **đã merge**
+
+Nguồn: `foLsQScwsAOzTVin/aidle-complete` — bản nâng cấp gameplay thật (8 module + 67 tests).
+
+| Item | Location |
+|------|----------|
+| Economy / Quest / Relationship / DayNight / NPC / Journal / HUD / Session | `game/scripts/modules/gameplay/` |
+| Headless tests | `game/scripts/tests/gameplay/game_logic_headless_test.gd` |
+| Design | `GAMEPLAY_COMPLETION_DESIGN.md`, `BAN_GAME_HOAN_THIEN.md` |
+| Evaluation | `evaluation-docs/` |
+| Main flag | `ENABLE_COZY_GAMEPLAY_LOOP := true` |
+
 ## Kế hoạch hoàn thiện (public backlog)
 
 ### Ngắn hạn

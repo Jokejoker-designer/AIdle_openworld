@@ -1,65 +1,48 @@
 # AIdle Openworld
 
-**Public monorepo** — game runtime (Godot 4.3), design blueprints, World DNA, Control contracts, Character Foundry, orchestration & landmark assets.
+[![Stars](https://img.shields.io/github/stars/Jokejoker-designer/AIdle_openworld?style=social)](https://github.com/Jokejoker-designer/AIdle_openworld/stargazers) [![Godot](https://img.shields.io/badge/Godot-4.3-blue)](https://godotengine.org/) [![License](https://img.shields.io/badge/license-UNLICENSE-lightgrey)](./LICENSE)
 
-> Cozy Cyber-Pixel / Dreamy Low-Poly **2.5D** open world with Companion-led building, progressive manifestation, and modular P1E assets.
+AIdle Openworld — blueprints, World DNA, Godot 4.3 runtime, orchestration & landmarks (staged 00-06).
 
-## Start here
+This repository contains the Single Source of Truth (SSOT) blueprints and the Godot runtime scaffolding for AIdle: a cozy, conversation-driven creative world where a human and an AI Companion build persistent, reversible creations together.
 
-| Doc | Path |
-|-----|------|
-| **Stages map (gói theo giai đoạn)** | [`STAGES/README.md`](STAGES/README.md) |
-| Master blueprint v1.1 | [`AIdle_Openworld_Blueprint_v1.1/01_Master_Blueprint.md`](AIdle_Openworld_Blueprint_v1.1/01_Master_Blueprint.md) |
-| Development roadmap | [`AIdle_Openworld_Blueprint_v1.1/Docs/Development_Roadmap.md`](AIdle_Openworld_Blueprint_v1.1/Docs/Development_Roadmap.md) |
-| Design system | [`DESIGN.md`](DESIGN.md) |
-| Agents | [`AGENTS.md`](AGENTS.md) |
+Highlights
+- Conversation-first creative loop: prompt → structured proposal → preview → confirm → manifest.
+- Godot 4.3 based 2.5D runtime (fixed isometric camera for the MVP).
+- Contracts and safety: JSON schema-based Structured World Prompt and server-authoritative World Commit flow.
 
-## Repository layout
+Quick start
+1. Prereqs
+   - Godot Engine 4.3 (download from https://godotengine.org/)
+   - Python 3.11+ (for orchestration scripts and tooling) and pip
 
-```
-AIdle_openworld/
-├── STAGES/                         # Gói đọc theo giai đoạn 00→06
-├── AIdle_Openworld_Blueprint_v1.0/ # Blueprint v1
-├── AIdle_Openworld_Blueprint_v1.1/ # Blueprint v1.1 + roadmap
-├── world_DNA/                      # Module & elemental physics foundations
-├── Control/                        # Control-1B contracts
-├── contracts/                      # Shared contracts
-├── game/                           # Godot 4.3 playable project
-├── game_character/                 # Character Foundry sources
-├── orchestration/                  # Work orders, mockup SSOT, asset builds
-├── Scene/                          # Scene packages
-├── services/                       # Supporting services
-└── tools/                          # Local tools (binaries gitignored)
-```
+2. Run the game (local preview)
+   - Open Godot and import the `game/` project folder.
+   - Set the main scene to `game/project/main.tscn` (or follow the in-project README if a different path).
+   - Run the scene in the editor.
 
-## Run the game
+3. Developer tools
+   - Many orchestration scripts live in `orchestration/` (Python). Install dependencies if a requirements file exists:
+     ```bash
+     python -m pip install -r orchestration/requirements.txt
+     ```
+   - See `AIdle_Openworld_Blueprint_v1.1/00_README.md` for the design read order and blueprint guidance.
 
-1. Install **Godot 4.3** (not committed).
-2. Open folder `game/` as project.
-3. Run main scene (`boot.tscn` → main).
+Roadmap (high level)
+- H1 (MVP): 2.5D Private Reality vertical slice — prompt → preview → confirm → manifest → commit (Playable).
+- H2: Friends, NPC society, Shared District (server-authoritative social play).
+- H3: Prompt Recipe marketplace & creator tools.
+- H4+: Licensed hubs, orbital mechanics, and cross-space continuums (research).
 
-```bash
-godot --path game
-# Landmark smoke
-godot --path game --headless -s res://tests/royal_lightkeep_openworld_smoke.gd
-```
+Contributing
+- See CONTRIBUTING.md for contributor setup, code style, and PR workflow.
 
-## Highlights
+Code of conduct
+- We aim to be welcoming and inclusive. See CODE_OF_CONDUCT.md.
 
-- **Town cadastre** (50 plots) + street paths  
-- **P1E cozy modules** (houses, props, **Royal Lightkeep** landmark)  
-- **Companion / Control-1B** confirm flow  
-- **Cast / Nori-7** presentation pipeline  
-- **Blueprints + DNA** for multi-agent build  
+License
+- This repo includes a placeholder license badge. If you have a preferred license, add it at the repository root (LICENSE).
 
-## What is not in git
+Contact
+- Project owner: Jokejoker-designer (@Jokejoker-designer)
 
-- Godot/Blender executables (`tools/*.exe`)
-- `.env` secrets
-- Blender BACKUP / intermediate PASS8 densify blends
-- Local `.godot/` import cache
-
-## License
-
-Public product/research tree for AIdle Openworld.  
-Add a formal `LICENSE` file if you require a specific open-source license.
